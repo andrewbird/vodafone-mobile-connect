@@ -1,0 +1,12 @@
+# This file is currently Python-version-independent.
+prefix=/home/jsoriano/devel/svn/vomoco/utils/bundle-installer/build/opt/vmc
+exec_prefix=${prefix}
+includedir=${prefix}/include
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+
+Name: dbus-python
+Description: Python bindings for D-Bus
+Requires: dbus-1
+Version: 0.82.0
+Cflags: -I${includedir}

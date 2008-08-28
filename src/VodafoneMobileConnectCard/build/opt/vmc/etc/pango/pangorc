@@ -1,0 +1,3 @@
+[Pango]
+ModulesPath=/opt/vmc/lib/pango-modules
+ModuleFiles=/opt/vmc/etc/pango/pango.modules

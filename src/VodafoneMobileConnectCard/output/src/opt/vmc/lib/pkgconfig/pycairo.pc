@@ -1,0 +1,8 @@
+prefix=/home/jsoriano/devel/svn/vomoco/utils/bundle-installer/build/opt/vmc
+
+Name: Pycairo
+Description: Python bindings for cairo
+Version: 1.4.0
+Requires: cairo
+Cflags: -I${prefix}/include/pycairo
+Libs:

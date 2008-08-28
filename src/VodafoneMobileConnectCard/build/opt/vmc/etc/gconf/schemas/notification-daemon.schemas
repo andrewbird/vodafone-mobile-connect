@@ -1,0 +1,54 @@
+<gconfschemafile>
+ <schemalist>
+
+  <schema>
+   <key>/schemas/apps/notification-daemon/popup_location</key>
+   <applyto>/apps/notification-daemon/popup_location</applyto>
+   <owner>notification-daemon</owner>
+   <type>string</type>
+   <default>bottom_right</default>
+   <locale name="C">
+    <short>Popup location</short>
+    <long>Default popup location on the workspace for stack notifications. Allowed values: &quot;top_left&quot;,&quot;top_right&quot;,&quot;bottom_left&quot; and &quot;bottom_right&quot;</long>
+   </locale>
+
+   <locale name="de">
+    <short>Popup Position</short>
+    
+   </locale>
+
+   <locale name="sv">
+    <short>Popup-position</short>
+    <long>Standardposition för popup-rutor på arbetsutan för notifieringar. Tillåtna värden: &quot;top_left&quot;,&quot;top_right&quot;,&quot;bottom_left&quot; och &quot;bottom_right&quot;</long>
+   </locale>
+  </schema>
+
+  <schema>
+   <key>/schemas/apps/notification-daemon/theme</key>
+   <applyto>/apps/notification-daemon/theme</applyto>
+   <owner>notification-daemon</owner>
+   <type>string</type>
+   <default>standard</default>
+   <locale name="C">
+    <short>Current theme</short>
+    <long>The theme used when displaying notifications.</long>
+   </locale>
+
+   <locale name="de">
+    <short>Aktuelles Thema</short>
+    <long>Das Thema um Benachrichtigungen anzuzeigen.</long>
+   </locale>
+
+   <locale name="nl">
+    <short>Huidige thema</short>
+    <long>Het thema dat voor de berichtweergave wordt gebruikt.</long>
+   </locale>
+
+   <locale name="sv">
+    <short>Aktuellt tema</short>
+    <long>Temat som används för visning av notifieringar.</long>
+   </locale>
+  </schema>
+
+ </schemalist>
+</gconfschemafile>

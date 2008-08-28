@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+# $Rev: 810 $
+
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MV=`which mv`
+RM=`which rm`
+TOUCH=`which touch`
+CHMOD=`which chmod`
+ETC="/etc"
+TMP="/tmp"
+RESOLVCONF="$ETC/resolv.conf"
+BACKRESOLV="$ETC/resolv.vmc.backup"
+VMCCONN="$TMP/vmc-conn.lock"
+
+# remove connection lock
+[ -e $VMCCONN ] && rm -f $VMCCONN
+
+# is dhclient running?
+DHCP=`ps aux | grep dhclient | grep -v grep`
+
+if [ -n "$DHCP" -a -e $BACKRESOLV ]; then
+	# we are going to back up resolv.conf
+	$MV $BACKRESOLV $RESOLVCONF
+	# restart nscd because resolv.conf has changed
+	if [ -e /var/run/nscd.pid ]; then
+      		/etc/init.d/nscd restart || true
+	fi
+fi
+

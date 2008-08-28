@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4.1: http://docutils.sourceforge.net/" />
+<title>dbus-python tutorial</title>
+<meta name="author" content="Simon McVittie, Collabora Ltd." />
+<meta name="date" content="2006-06-14" />
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@users.sourceforge.net
+:Date: $Date: 2005-12-18 01:56:14 +0100 (Sun, 18 Dec 2005) $
+:Revision: $Revision: 4224 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em ;
+  background-color: #eeeeee }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+tt.docutils {
+  background-color: #eeeeee }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="dbus-python-tutorial">
+<h1 class="title">dbus-python tutorial</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Simon McVittie, <a class="last reference" href="http://www.collabora.co.uk/">Collabora Ltd.</a></td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2006-06-14</td></tr>
+</tbody>
+</table>
+<p>This tutorial requires Python 2.4 or up, and <tt class="docutils literal"><span class="pre">dbus-python</span></tt> 0.80rc4 or up.</p>
+<div class="contents topic">
+<p class="topic-title first"><a id="contents" name="contents">Contents</a></p>
+<ul class="simple">
+<li><a class="reference" href="#connecting-to-the-bus" id="id5" name="id5">Connecting to the Bus</a></li>
+<li><a class="reference" href="#making-method-calls" id="id6" name="id6">Making method calls</a><ul>
+<li><a class="reference" href="#proxy-objects" id="id7" name="id7">Proxy objects</a></li>
+<li><a class="reference" href="#interfaces-and-methods" id="id8" name="id8">Interfaces and methods</a><ul>
+<li><a class="reference" href="#see-also" id="id9" name="id9">See also</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#data-types" id="id10" name="id10">Data types</a><ul>
+<li><a class="reference" href="#basic-types" id="id11" name="id11">Basic types</a></li>
+<li><a class="reference" href="#basic-type-conversions" id="id12" name="id12">Basic type conversions</a></li>
+<li><a class="reference" href="#container-types" id="id13" name="id13">Container types</a></li>
+<li><a class="reference" href="#return-values-and-the-byte-arrays-and-utf8-strings-options" id="id14" name="id14">Return values, and the <tt class="docutils literal"><span class="pre">byte_arrays</span></tt> and <tt class="docutils literal"><span class="pre">utf8_strings</span></tt> options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#making-asynchronous-method-calls" id="id15" name="id15">Making asynchronous method calls</a><ul>
+<li><a class="reference" href="#setting-up-an-event-loop" id="id16" name="id16">Setting up an event loop</a><ul>
+<li><a class="reference" href="#backwards-compatibility-dbus-glib" id="id17" name="id17">Backwards compatibility: <tt class="docutils literal"><span class="pre">dbus.glib</span></tt></a></li>
+<li><a class="reference" href="#the-qt-main-loop" id="id18" name="id18">The Qt main loop</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#making-asynchronous-calls" id="id19" name="id19">Making asynchronous calls</a><ul>
+<li><a class="reference" href="#id3" id="id20" name="id20">See also</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#receiving-signals" id="id21" name="id21">Receiving signals</a><ul>
+<li><a class="reference" href="#signal-matching" id="id22" name="id22">Signal matching</a></li>
+<li><a class="reference" href="#getting-more-information-from-a-signal" id="id23" name="id23">Getting more information from a signal</a></li>
+<li><a class="reference" href="#string-argument-matching" id="id24" name="id24">String argument matching</a></li>
+<li><a class="reference" href="#receiving-signals-from-a-proxy-object" id="id25" name="id25">Receiving signals from a proxy object</a></li>
+<li><a class="reference" href="#id4" id="id26" name="id26">See also</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#claiming-a-bus-name" id="id27" name="id27">Claiming a bus name</a><ul>
+<li><a class="reference" href="#the-unique-instance-idiom" id="id28" name="id28">The unique-instance idiom</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#exporting-objects" id="id29" name="id29">Exporting objects</a><ul>
+<li><a class="reference" href="#inheriting-from-dbus-service-object" id="id30" name="id30">Inheriting from <tt class="docutils literal"><span class="pre">dbus.service.Object</span></tt></a></li>
+<li><a class="reference" href="#exporting-methods-with-dbus-service-method" id="id31" name="id31">Exporting methods with <tt class="docutils literal"><span class="pre">dbus.service.method</span></tt></a><ul>
+<li><a class="reference" href="#finding-out-the-caller-s-bus-name" id="id32" name="id32">Finding out the caller's bus name</a></li>
+<li><a class="reference" href="#asynchronous-method-implementations" id="id33" name="id33">Asynchronous method implementations</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#emitting-signals-with-dbus-service-signal" id="id34" name="id34">Emitting signals with <tt class="docutils literal"><span class="pre">dbus.service.signal</span></tt></a><ul>
+<li><a class="reference" href="#example" id="id35" name="id35">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#license-for-this-document" id="id36" name="id36">License for this document</a></li>
+</ul>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="section">
+<h1><a class="toc-backref" href="#id5" id="connecting-to-the-bus" name="connecting-to-the-bus"><span id="bus-objects"></span><span id="bus-object"></span>Connecting to the Bus</a></h1>
+<p>Applications that use D-Bus typically connect to a <em>bus daemon</em>, which
+forwards messages between the applications. To use D-Bus, you need to create a
+<tt class="docutils literal"><span class="pre">Bus</span></tt> object representing the connection to the bus daemon.</p>
+<p>There are generally two bus daemons you may be interested in. Each user
+login session should have a <em>session bus</em>, which is local to that
+session. It's used to communicate between desktop applications. Connect
+to the session bus by creating a <tt class="docutils literal"><span class="pre">SessionBus</span></tt> object:</p>
+<pre class="literal-block">
+import dbus
+
+session_bus = dbus.SessionBus()
+</pre>
+<p>The <em>system bus</em> is global and usually started during boot; it's used to
+communicate with system services like <a class="reference" href="http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html">udev</a>, <a class="reference" href="http://www.gnome.org/projects/NetworkManager/">NetworkManager</a>, and the
+<a class="reference" href="http://www.freedesktop.org/wiki/Software/hal">Hardware Abstraction Layer daemon (hald)</a>. To connect to the system
+bus, create a <tt class="docutils literal"><span class="pre">SystemBus</span></tt> object:</p>
+<pre class="literal-block">
+import dbus
+
+system_bus = dbus.SystemBus()
+</pre>
+<p>Of course, you can connect to both in the same application.</p>
+<p>For special purposes, you might use a non-default Bus, or a connection
+which isn't a Bus at all, using some new API added in dbus-python 0.81.0.
+This is not described here, and will at some stage be the subject of a separate
+tutorial.</p>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id6" id="making-method-calls" name="making-method-calls">Making method calls</a></h1>
+<p>D-Bus applications can export objects for other applications' use. To
+start working with an object in another application, you need to know:</p>
+<ul>
+<li><p class="first">The <em>bus name</em>. This identifies which application you want to
+communicate with. You'll usually identify applications by a
+<em>well-known name</em>, which is a dot-separated string starting with a
+reversed domain name, such as <tt class="docutils literal"><span class="pre">org.freedesktop.NetworkManager</span></tt>
+or <tt class="docutils literal"><span class="pre">com.example.WordProcessor</span></tt>.</p>
+</li>
+<li><p class="first">The <em>object path</em>. Applications can export many objects - for
+instance, example.com's word processor might provide an object
+representing the word processor application itself and an object for
+each document window opened, or it might also provide an object for
+each paragraph within a document.</p>
+<p>To identify which one you want to interact with, you use an object path,
+a slash-separated string resembling a filename. For instance, example.com's
+word processor might provide an object at <tt class="docutils literal"><span class="pre">/</span></tt> representing the word
+processor itself, and objects at <tt class="docutils literal"><span class="pre">/documents/123</span></tt> and
+<tt class="docutils literal"><span class="pre">/documents/345</span></tt> representing opened document windows.</p>
+</li>
+</ul>
+<p>As you'd expect, one of the main things you can do with remote objects
+is to call their methods. As in Python, methods may have parameters,
+and they may return one or more values.</p>
+<div class="section">
+<h2><a class="toc-backref" href="#id7" id="proxy-objects" name="proxy-objects"><span id="proxy-object"></span>Proxy objects</a></h2>
+<p>To interact with a remote object, you use a <em>proxy object</em>. This is a
+Python object which acts as a proxy or &quot;stand-in&quot; for the remote object -
+when you call a method on a proxy object, this causes dbus-python to make
+a method call on the remote object, passing back any return values from
+the remote object's method as the return values of the proxy method call.</p>
+<p>To obtain a proxy object, call the <tt class="docutils literal"><span class="pre">get_object</span></tt> method on the <tt class="docutils literal"><span class="pre">Bus</span></tt>.
+For example, <a class="reference" href="http://www.gnome.org/projects/NetworkManager/">NetworkManager</a> has the well-known name
+<tt class="docutils literal"><span class="pre">org.freedesktop.NetworkManager</span></tt> and exports an object whose object
+path is <tt class="docutils literal"><span class="pre">/org/freedesktop/NetworkManager</span></tt>, plus an object per network
+interface at object paths like
+<tt class="docutils literal"><span class="pre">/org/freedesktop/NetworkManager/Devices/eth0</span></tt>. You can get a proxy
+for the object representing eth0 like this:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import dbus
+&gt;&gt;&gt; bus = dbus.SystemBus()
+&gt;&gt;&gt; bus.get_object('org.freedesktop.NetworkManager',
+...                '/org/freedesktop/NetworkManager/Devices/eth0')
+&lt;ProxyObject wrapping &lt;dbus.Bus on SYSTEM at 0x3007e150&gt;
+org.freedesktop.NetworkManager
+/org/freedesktop/NetworkManager/Devices/eth0 at 0x301f0ad0&gt;
+&gt;&gt;&gt;
+</pre>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id8" id="interfaces-and-methods" name="interfaces-and-methods">Interfaces and methods</a></h2>
+<p>D-Bus uses <em>interfaces</em> to provide a namespacing mechanism for methods.
+An interface is a group of related methods and signals (more on signals
+later), identified by a name which is a series of dot-separated components
+starting with a reversed domain name. For instance, each <a class="reference" href="http://www.gnome.org/projects/NetworkManager/">NetworkManager</a>
+object representing a network interface implements the interface
+<tt class="docutils literal"><span class="pre">org.freedesktop.NetworkManager.Devices</span></tt>, which has methods like
+<tt class="docutils literal"><span class="pre">getProperties</span></tt>.</p>
+<p>To call a method, call the method of the same name on the proxy object,
+passing in the interface name via the <tt class="docutils literal"><span class="pre">dbus_interface</span></tt> keyword argument:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import dbus
+&gt;&gt;&gt; bus = dbus.SystemBus()
+&gt;&gt;&gt; eth0 = bus.get_object('org.freedesktop.NetworkManager',
+...                       '/org/freedesktop/NetworkManager/Devices/eth0')
+&gt;&gt;&gt; eth0.getProperties(dbus_interface='org.freedesktop.NetworkManager.Devices')
+(dbus.ObjectPath('/org/freedesktop/NetworkManager/Devices/eth0'), [...])
+&gt;&gt;&gt;
+</pre>
+<p>(I've truncated the list of properties here.)</p>
+<p id="dbus-interface">As a short cut, if you're going to be calling many methods with the same
+interface, you can construct a <tt class="docutils literal"><span class="pre">dbus.Interface</span></tt> object and call
+methods on that, without needing to specify the interface again:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import dbus
+&gt;&gt;&gt; bus = dbus.SystemBus()
+&gt;&gt;&gt; eth0 = bus.get_object('org.freedesktop.NetworkManager',
+...                       '/org/freedesktop/NetworkManager/Devices/eth0')
+&gt;&gt;&gt; eth0_dev_iface = dbus.Interface(eth0,
+...     dbus_interface='org.freedesktop.NetworkManager.Devices')
+&gt;&gt;&gt; eth0_dev_iface.getProperties()
+(dbus.ObjectPath('/org/freedesktop/NetworkManager/Devices/eth0'), [...])
+&gt;&gt;&gt;
+</pre>
+<div class="section">
+<h3><a class="toc-backref" href="#id9" id="see-also" name="see-also">See also</a></h3>
+<p>See the example in <tt class="docutils literal"><span class="pre">examples/example-client.py</span></tt>. Before running it,
+you'll need to run <tt class="docutils literal"><span class="pre">examples/example-service.py</span></tt> in the background or
+in another shell.</p>
+</div>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id10" id="data-types" name="data-types">Data types</a></h2>
+<p>Unlike Python, D-Bus is statically typed - each method has a certain
+<em>signature</em> representing the types of its arguments, and will not accept
+arguments of other types.</p>
+<p>D-Bus has an introspection mechanism, which <tt class="docutils literal"><span class="pre">dbus-python</span></tt> tries to use
+to discover the correct argument types. If this succeeds, Python types
+are converted into the right D-Bus data types automatically, if possible;
+<tt class="docutils literal"><span class="pre">TypeError</span></tt> is raised if the type is inappropriate.</p>
+<p>If the introspection mechanism fails (or the argument's type is
+variant - see below), you have to provide arguments of
+the correct type. <tt class="docutils literal"><span class="pre">dbus-python</span></tt> provides Python types corresponding to
+the D-Bus data types, and a few native Python types are also converted to
+D-Bus data types automatically. If you use a type which isn't among these,
+a <tt class="docutils literal"><span class="pre">TypeError</span></tt> will be raised telling you that <tt class="docutils literal"><span class="pre">dbus-python</span></tt> was
+unable to guess the D-Bus signature.</p>
+<div class="section">
+<h3><a class="toc-backref" href="#id11" id="basic-types" name="basic-types">Basic types</a></h3>
+<p>The following basic data types are supported.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="37%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Python type</th>
+<th class="head">converted to D-Bus type</th>
+<th class="head">notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>D-Bus <a class="reference" href="#proxy-object">proxy object</a></td>
+<td>ObjectPath (signature 'o')</td>
+<td><a class="reference" href="#id2">(+)</a></td>
+</tr>
+<tr><td><a class="reference" href="#dbus-interface">dbus.Interface</a></td>
+<td>ObjectPath (signature 'o')</td>
+<td><a class="reference" href="#id2">(+)</a></td>
+</tr>
+<tr><td><a class="reference" href="#dbus-service-object">dbus.service.Object</a></td>
+<td>ObjectPath (signature 'o')</td>
+<td><a class="reference" href="#id2">(+)</a></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Boolean</span></tt></td>
+<td>Boolean (signature 'b')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Byte</span></tt></td>
+<td>byte (signature 'y')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Int16</span></tt></td>
+<td>16-bit signed integer ('n')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Int32</span></tt></td>
+<td>32-bit signed integer ('i')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Int64</span></tt></td>
+<td>64-bit signed integer ('x')</td>
+<td><a class="reference" href="#id1">(*)</a></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.UInt16</span></tt></td>
+<td>16-bit unsigned integer ('q')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.UInt32</span></tt></td>
+<td>32-bit unsigned integer ('u')</td>
+<td><cite>(*)_</cite></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.UInt64</span></tt></td>
+<td>64-bit unsigned integer ('t')</td>
+<td><cite>(*)_</cite></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Double</span></tt></td>
+<td>double-precision float ('d')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">float</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.ObjectPath</span></tt></td>
+<td>object path ('o')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">str</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.Signature</span></tt></td>
+<td>signature ('g')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">str</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.String</span></tt></td>
+<td>string ('s')</td>
+<td>a subclass of
+<tt class="docutils literal"><span class="pre">unicode</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dbus.UTF8String</span></tt></td>
+<td>string ('s')</td>
+<td>a subclass of <tt class="docutils literal"><span class="pre">str</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">bool</span></tt></td>
+<td>Boolean ('b')</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">int</span></tt> or subclass</td>
+<td>32-bit signed integer ('i')</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">long</span></tt> or subclass</td>
+<td>64-bit signed integer ('x')</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">float</span></tt> or subclass</td>
+<td>double-precision float ('d')</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">str</span></tt> or subclass</td>
+<td>string ('s')</td>
+<td>must be valid UTF-8</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">unicode</span></tt> or subclass</td>
+<td>string ('s')</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p id="id1">Types marked (*) may be a subclass of either <tt class="docutils literal"><span class="pre">int</span></tt> or <tt class="docutils literal"><span class="pre">long</span></tt>, depending
+on platform.</p>
+<p id="id2">(+): D-Bus proxy objects, exported D-Bus service objects and anything
+else with the special attribute <tt class="docutils literal"><span class="pre">__dbus_object_path__</span></tt>, which
+must be a string, are converted to their object-path. This might be
+useful if you're writing an object-oriented API using dbus-python.</p>
+</div>
+<div class="section">
+<h3><a class="toc-backref" href="#id12" id="basic-type-conversions" name="basic-type-conversions">Basic type conversions</a></h3>
+<p>If introspection succeeded, <tt class="docutils literal"><span class="pre">dbus-python</span></tt> will also accept:</p>
+<ul class="simple">
+<li>for Boolean parameters, any object (converted as if via <tt class="docutils literal"><span class="pre">int(bool(...))</span></tt>)</li>
+<li>for byte parameters, a single-character string (converted as if via <tt class="docutils literal"><span class="pre">ord()</span></tt>)</li>
+<li>for byte and integer parameters, any integer (must be in the correct range)</li>
+<li>for object-path and signature parameters, any <tt class="docutils literal"><span class="pre">str</span></tt> or <tt class="docutils literal"><span class="pre">unicode</span></tt>
+subclass (the value must follow the appropriate syntax)</li>
+</ul>
+</div>
+<div class="section">
+<h3><a class="toc-backref" href="#id13" id="container-types" name="container-types">Container types</a></h3>
+<p>D-Bus supports four container types: array (a variable-length sequence of the
+same type), struct (a fixed-length sequence whose members may have
+different types), dictionary (a mapping from values of the same basic type to
+values of the same type), and variant (a container which may hold any
+D-Bus type, including another variant).</p>
+<p>Arrays are represented by Python lists, or by <tt class="docutils literal"><span class="pre">dbus.Array</span></tt>, a subclass
+of <tt class="docutils literal"><span class="pre">list</span></tt>. When sending an array, if an introspected signature is
+available, that will be used; otherwise, if the <tt class="docutils literal"><span class="pre">signature</span></tt> keyword
+parameter was passed to the <tt class="docutils literal"><span class="pre">Array</span></tt> constructor, that will be used to
+determine the contents' signature; otherwise, <tt class="docutils literal"><span class="pre">dbus-python</span></tt> will guess
+from the array's first item.</p>
+<p>The signature of an array is 'ax' where 'x' represents the signature of
+one item. For instance, you could also have 'as' (array of strings) or
+'a(ii)' (array of structs each containing two 32-bit integers).</p>
+<p>There's also a type <tt class="docutils literal"><span class="pre">dbus.ByteArray</span></tt> which is a subclass of <tt class="docutils literal"><span class="pre">str</span></tt>,
+used as a more efficient representation of a D-Bus array of bytes
+(signature 'ay').</p>
+<p>Structs are represented by Python tuples, or by <tt class="docutils literal"><span class="pre">dbus.Struct</span></tt>, a
+subclass of <tt class="docutils literal"><span class="pre">tuple</span></tt>. When sending a struct, if an introspected signature is
+available, that will be used; otherwise, if the <tt class="docutils literal"><span class="pre">signature</span></tt> keyword
+parameter was passed to the <tt class="docutils literal"><span class="pre">Array</span></tt> constructor, that will be used to
+determine the contents' signature; otherwise, <tt class="docutils literal"><span class="pre">dbus-python</span></tt> will guess
+from the array's first item.</p>
+<p>The signature of a struct consists of the signatures of the contents,
+in parentheses - for instance '(is)' is the signature of a struct
+containing a 32-bit integer and a string.</p>
+<p>Dictionaries are represented by Python dictionaries, or by
+<tt class="docutils literal"><span class="pre">dbus.Dictionary</span></tt>, a subclass of <tt class="docutils literal"><span class="pre">dict</span></tt>. When sending a dictionary,
+if an introspected signature is available, that will be used; otherwise,
+if the <tt class="docutils literal"><span class="pre">signature</span></tt> keyword parameter was passed to the <tt class="docutils literal"><span class="pre">Dictionary</span></tt>
+constructor, that will be used to determine the contents' key and value
+signatures; otherwise, <tt class="docutils literal"><span class="pre">dbus-python</span></tt> will guess from an arbitrary item
+of the <tt class="docutils literal"><span class="pre">dict</span></tt>.</p>
+<p>The signature of a dictionary is 'a{xy}' where 'x' represents the
+signature of the keys (which may not be a container type) and 'y'
+represents the signature of the values. For instance,
+'a{s(ii)}' is a dictionary where the keys are strings and the values are
+structs containing two 32-bit integers.</p>
+<p>Variants are represented by setting the <tt class="docutils literal"><span class="pre">variant_level</span></tt> keyword
+argument in the constructor of any D-Bus data type to a value greater
+than 0 (<tt class="docutils literal"><span class="pre">variant_level</span></tt> 1 means a variant containing some other data type,
+<tt class="docutils literal"><span class="pre">variant_level</span></tt> 2 means a variant containing a variant containing some
+other data type, and so on). If a non-variant is passed as an argument
+but introspection indicates that a variant is expected, it'll
+automatically be wrapped in a variant.</p>
+<p>The signature of a variant is 'v'.</p>
+</div>
+<div class="section">
+<h3><a class="toc-backref" href="#id14" id="return-values-and-the-byte-arrays-and-utf8-strings-options" name="return-values-and-the-byte-arrays-and-utf8-strings-options"><span id="byte-arrays-and-utf8-strings"></span>Return values, and the <tt class="docutils literal"><span class="pre">byte_arrays</span></tt> and <tt class="docutils literal"><span class="pre">utf8_strings</span></tt> options</a></h3>
+<p>If a D-Bus method returns no value, the Python proxy method will return
+<tt class="docutils literal"><span class="pre">None</span></tt>.</p>
+<p>If a D-Bus method returns one value, the Python proxy method will return
+that value as one of the <tt class="docutils literal"><span class="pre">dbus.</span></tt> types - by default, strings are
+returned as <tt class="docutils literal"><span class="pre">dbus.String</span></tt> (a subclass of Unicode) and byte arrays are
+returned as a <tt class="docutils literal"><span class="pre">dbus.Array</span></tt> of <tt class="docutils literal"><span class="pre">dbus.Byte</span></tt>.</p>
+<p>If a D-Bus method returns multiple values, the Python proxy method
+will return a tuple containing those values.</p>
+<p>If you want strings returned as <tt class="docutils literal"><span class="pre">dbus.UTF8String</span></tt> (a subclass of
+<tt class="docutils literal"><span class="pre">str</span></tt>) pass the keyword parameter <tt class="docutils literal"><span class="pre">utf8_strings=True</span></tt> to the proxy
+method.</p>
+<p>If you want byte arrays returned as <tt class="docutils literal"><span class="pre">dbus.ByteArray</span></tt> (also a
+subclass of <tt class="docutils literal"><span class="pre">str</span></tt> - in practice, this is often what you want) pass
+the keyword parameter <tt class="docutils literal"><span class="pre">byte_arrays=True</span></tt> to the proxy method.</p>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+</div>
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id15" id="making-asynchronous-method-calls" name="making-asynchronous-method-calls">Making asynchronous method calls</a></h1>
+<p>Asynchronous (non-blocking) method calls allow multiple method calls to
+be in progress simultaneously, and allow your application to do other
+work while it's waiting for the results. To make asynchronous calls,
+you first need an event loop or &quot;main loop&quot;.</p>
+<div class="section">
+<h2><a class="toc-backref" href="#id16" id="setting-up-an-event-loop" name="setting-up-an-event-loop">Setting up an event loop</a></h2>
+<p>Currently, the only main loop supported by <tt class="docutils literal"><span class="pre">dbus-python</span></tt> is GLib.</p>
+<p><tt class="docutils literal"><span class="pre">dbus-python</span></tt> has a global default main loop, which is the easiest way
+to use this functionality. To arrange for the GLib main loop to be the
+default, use:</p>
+<pre class="literal-block">
+from dbus.mainloop.glib import DBusGMainLoop
+
+DBusGMainLoop(set_as_default=True)
+</pre>
+<p>You must do this before <a class="reference" href="#connecting-to-the-bus">connecting to the bus</a>.</p>
+<p>Actually starting the main loop is as usual for <tt class="docutils literal"><span class="pre">pygobject</span></tt>:</p>
+<pre class="literal-block">
+import gobject
+
+loop = gobject.MainLoop()
+loop.run()
+</pre>
+<p>While <tt class="docutils literal"><span class="pre">loop.run()</span></tt> is executing, GLib will run your callbacks when
+appropriate. To stop, call <tt class="docutils literal"><span class="pre">loop.quit()</span></tt>.</p>
+<p>You can also set a main loop on a per-connection basis, by passing a
+main loop to the Bus constructor:</p>
+<pre class="literal-block">
+import dbus
+from dbus.mainloop.glib import DBusGMainLoop
+
+dbus_loop = DBusGMainLoop()
+
+bus = dbus.SessionBus(mainloop=dbus_loop)
+</pre>
+<p>This isn't very useful until we support more than one main loop, though.</p>
+<div class="section">
+<h3><a class="toc-backref" href="#id17" id="backwards-compatibility-dbus-glib" name="backwards-compatibility-dbus-glib">Backwards compatibility: <tt class="docutils literal"><span class="pre">dbus.glib</span></tt></a></h3>
+<p>In versions of <tt class="docutils literal"><span class="pre">dbus-python</span></tt> prior to 0.80, the way to set GLib as the
+default main loop was:</p>
+<pre class="literal-block">
+import dbus.glib
+</pre>
+<p>Executing that import statement would automatically load the GLib main
+loop and make this the default. This is now deprecated, since it's
+highly non-obvious, but may be useful if you want to write or understand
+backwards-compatible code.</p>
+</div>
+<div class="section">
+<h3><a class="toc-backref" href="#id18" id="the-qt-main-loop" name="the-qt-main-loop">The Qt main loop</a></h3>
+<p>FIXME: describe how to use the Qt event loop too (requires recent pyqt)</p>
+</div>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id19" id="making-asynchronous-calls" name="making-asynchronous-calls">Making asynchronous calls</a></h2>
+<p>To make a call asynchronous, pass two callables as keyword arguments
+<tt class="docutils literal"><span class="pre">reply_handler</span></tt> and <tt class="docutils literal"><span class="pre">error_handler</span></tt> to the proxy method. The proxy
+method will immediately return <cite>None</cite>. At some later time, when the event
+loop is running, one of these will happen: either</p>
+<ul class="simple">
+<li>the <tt class="docutils literal"><span class="pre">reply_handler</span></tt> will be called with the method's return values
+as arguments; or</li>
+<li>the <tt class="docutils literal"><span class="pre">error_handler</span></tt> will be called with one argument, an instance of
+<tt class="docutils literal"><span class="pre">DBusException</span></tt> representing a remote exception.</li>
+</ul>
+<div class="section">
+<h3><a class="toc-backref" href="#id20" id="id3" name="id3">See also</a></h3>
+<p><tt class="docutils literal"><span class="pre">examples/example-async-client.py</span></tt> makes asynchronous method calls to
+the service provided by <tt class="docutils literal"><span class="pre">examples/example-service.py</span></tt> which return
+either a value or an exception. As for <tt class="docutils literal"><span class="pre">examples/example-client.py</span></tt>,
+you need to run <tt class="docutils literal"><span class="pre">examples/example-service.py</span></tt> in the background or
+in another shell first.</p>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+</div>
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id21" id="receiving-signals" name="receiving-signals">Receiving signals</a></h1>
+<p>To receive signals, the Bus needs to be connected to an event loop - see
+section <a class="reference" href="#setting-up-an-event-loop">Setting up an event loop</a>. Signals will only be received while
+the event loop is running.</p>
+<div class="section">
+<h2><a class="toc-backref" href="#id22" id="signal-matching" name="signal-matching">Signal matching</a></h2>
+<p>To respond to signals, you can use the <tt class="docutils literal"><span class="pre">add_signal_receiver</span></tt> method on
+<a class="reference" href="#bus-objects">Bus objects</a>. This arranges for a callback to be called when a
+matching signal is received, and has the following arguments:</p>
+<ul class="simple">
+<li>a callable (the <tt class="docutils literal"><span class="pre">handler_function</span></tt>) which will be called by the event loop
+when the signal is received - its parameters will be the arguments of
+the signal</li>
+<li>the signal name, <tt class="docutils literal"><span class="pre">signal_name</span></tt>: here None (the default) matches all names</li>
+<li>the D-Bus interface, <tt class="docutils literal"><span class="pre">dbus_interface</span></tt>: again None is the default,
+and matches all interfaces</li>
+<li>a sender bus name (well-known or unique), <tt class="docutils literal"><span class="pre">bus_name</span></tt>: None is again
+the default, and matches all senders. Well-known names match signals
+from whatever application is currently the primary owner of that
+well-known name.</li>
+<li>a sender object path, <tt class="docutils literal"><span class="pre">path</span></tt>: once again None is the default and
+matches all object paths</li>
+</ul>
+<p><tt class="docutils literal"><span class="pre">add_signal_receiver</span></tt> also has keyword arguments <tt class="docutils literal"><span class="pre">utf8_strings</span></tt> and
+<tt class="docutils literal"><span class="pre">byte_arrays</span></tt> which influence the types used when calling the
+handler function, in the same way as the <a class="reference" href="#byte-arrays-and-utf8-strings">byte_arrays and utf8_strings</a>
+options on proxy methods.</p>
+<p><tt class="docutils literal"><span class="pre">add_signal_receiver</span></tt> returns a <tt class="docutils literal"><span class="pre">SignalMatch</span></tt> object. Its only
+useful public API at the moment is a <tt class="docutils literal"><span class="pre">remove</span></tt> method with no
+arguments, which removes the signal match from the connection.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id23" id="getting-more-information-from-a-signal" name="getting-more-information-from-a-signal">Getting more information from a signal</a></h2>
+<p>You can also arrange for more information to be passed to the handler
+function. If you pass the keyword arguments <tt class="docutils literal"><span class="pre">sender_keyword</span></tt>,
+<tt class="docutils literal"><span class="pre">destination_keyword</span></tt>, <tt class="docutils literal"><span class="pre">interface_keyword</span></tt>, <tt class="docutils literal"><span class="pre">member_keyword</span></tt> or
+<tt class="docutils literal"><span class="pre">path_keyword</span></tt> to the <tt class="docutils literal"><span class="pre">connect_to_signal</span></tt> method, the appropriate
+part of the signal message will be passed to the handler function as a
+keyword argument: for instance if you use</p>
+<pre class="literal-block">
+def handler(sender=None):
+    print &quot;got signal from %r&quot; % sender
+
+iface.connect_to_signal(&quot;Hello&quot;, handler, sender_keyword='sender')
+</pre>
+<p>and a signal <tt class="docutils literal"><span class="pre">Hello</span></tt> with no arguments is received from
+<tt class="docutils literal"><span class="pre">com.example.Foo</span></tt>, the <tt class="docutils literal"><span class="pre">handler</span></tt> function will be called with
+<tt class="docutils literal"><span class="pre">sender='com.example.Foo'</span></tt>.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id24" id="string-argument-matching" name="string-argument-matching">String argument matching</a></h2>
+<p>If there are keyword parameters for the form <tt class="docutils literal"><span class="pre">arg</span></tt><em>n</em> where n is a
+small non-negative number, their values must be <tt class="docutils literal"><span class="pre">unicode</span></tt> objects
+or UTF-8 strings. The handler will only be called if that argument
+of the signal (numbered from zero) is a D-Bus string (in particular,
+not an object-path or a signature) with that value.</p>
+<!-- *this comment is to stop the above breaking vim syntax highlighting* -->
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id25" id="receiving-signals-from-a-proxy-object" name="receiving-signals-from-a-proxy-object">Receiving signals from a proxy object</a></h2>
+<p><a class="reference" href="#proxy-objects">Proxy objects</a> have a special method <tt class="docutils literal"><span class="pre">connect_to_signal</span></tt> which
+arranges for a callback to be called when a signal is received
+from the corresponding remote object. The parameters are:</p>
+<ul class="simple">
+<li>the name of the signal</li>
+<li>a callable (the handler function) which will be called by the event loop
+when the signal is received - its parameters will be the arguments of
+the signal</li>
+<li>the handler function, a callable: the same as for <tt class="docutils literal"><span class="pre">add_signal_receiver</span></tt></li>
+<li>the keyword argument <tt class="docutils literal"><span class="pre">dbus_interface</span></tt> qualifies the name with its
+interface</li>
+</ul>
+<p><cite>dbus.Interface</cite> objects have a similar <tt class="docutils literal"><span class="pre">connect_to_signal</span></tt> method,
+but in this case you don't need the <tt class="docutils literal"><span class="pre">dbus_interface</span></tt> keyword argument
+since the interface to use is already known.</p>
+<p>The same extra keyword arguments as for <tt class="docutils literal"><span class="pre">add_signal_receiver</span></tt> are also
+available, and just like <tt class="docutils literal"><span class="pre">add_signal_receiver</span></tt>, it returns a
+SignalMatch.</p>
+<p>You shouldn't use proxy objects just to listen to signals, since they
+might activate the relevant service when created, but if you already have a
+proxy object in order to call methods, it's often convenient to use it to add
+signal matches too.</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id26" id="id4" name="id4">See also</a></h2>
+<p><tt class="docutils literal"><span class="pre">examples/signal-recipient.py</span></tt> receives signals - it demonstrates
+general signal matching as well as <tt class="docutils literal"><span class="pre">connect_to_signal</span></tt>. Before running it,
+you'll need to run <tt class="docutils literal"><span class="pre">examples/signal-emitter.py</span></tt> in the background or
+in another shell.</p>
+<span class="target" id="busname"></span><!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id27" id="claiming-a-bus-name" name="claiming-a-bus-name">Claiming a bus name</a></h1>
+<p>FIXME describe <a class="reference" href="#busname">BusName</a> - perhaps fix its API first?</p>
+<div class="section">
+<h2><a class="toc-backref" href="#id28" id="the-unique-instance-idiom" name="the-unique-instance-idiom">The unique-instance idiom</a></h2>
+<p>FIXME provide exemplary code, put it in examples</p>
+<span class="target" id="exported-objects"><span id="exported-object"></span></span><!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id29" id="exporting-objects" name="exporting-objects">Exporting objects</a></h1>
+<p>Objects made available to other applications over D-Bus are said to be
+<em>exported</em>. All subclasses of <tt class="docutils literal"><span class="pre">dbus.service.Object</span></tt> are automatically
+exported.</p>
+<p>To export objects, the Bus needs to be connected to an event loop - see
+section <a class="reference" href="#setting-up-an-event-loop">Setting up an event loop</a>. Exported methods will only be called,
+and queued signals will only be sent, while the event loop is running.</p>
+<div class="section">
+<h2><a class="toc-backref" href="#id30" id="inheriting-from-dbus-service-object" name="inheriting-from-dbus-service-object"><span id="dbus-service-object"></span>Inheriting from <tt class="docutils literal"><span class="pre">dbus.service.Object</span></tt></a></h2>
+<p>To export an object onto the Bus, just subclass
+<tt class="docutils literal"><span class="pre">dbus.service.Object</span></tt>. Object expects either a <a class="reference" href="#busname">BusName</a> or a <a class="reference" href="#bus-object">Bus
+object</a>, and an object-path, to be passed to its constructor: arrange
+for this information to be available. For example:</p>
+<pre class="literal-block">
+class Example(dbus.service.Object):
+    def __init__(self, object_path):
+        dbus.service.Object.__init__(self, dbus.SessionBus(), path)
+</pre>
+<p>This object will automatically support introspection, but won't do
+anything particularly interesting. To fix that, you'll need to export some
+methods and signals too.</p>
+<p>FIXME also mention dbus.gobject.ExportedGObject once I've written it</p>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id31" id="exporting-methods-with-dbus-service-method" name="exporting-methods-with-dbus-service-method">Exporting methods with <tt class="docutils literal"><span class="pre">dbus.service.method</span></tt></a></h2>
+<p>To export a method, use the decorator <tt class="docutils literal"><span class="pre">dbus.service.method</span></tt>. For
+example:</p>
+<pre class="literal-block">
+class Example(dbus.service.Object):
+    def __init__(self, object_path):
+        dbus.service.Object.__init__(self, dbus.SessionBus(), path)
+
+    &#64;dbus.service.method(dbus_interface='com.example.Sample',
+                         in_signature='v', out_signature='s')
+    def StringifyVariant(self, variant):
+        return str(variant)
+</pre>
+<p>The <tt class="docutils literal"><span class="pre">in_signature</span></tt> and <tt class="docutils literal"><span class="pre">out_signature</span></tt> are D-Bus signature strings
+as described in <a class="reference" href="#data-types">Data Types</a>.</p>
+<p>As well as the keywords shown, you can pass <tt class="docutils literal"><span class="pre">utf8_strings</span></tt> and
+<tt class="docutils literal"><span class="pre">byte_arrays</span></tt> keyword arguments, which influence the types which will
+be passed to the decorated method when it's called via D-Bus, in the
+same way that the <a class="reference" href="#byte-arrays-and-utf8-strings">byte_arrays and utf8_strings</a> options affect the
+return value of a proxy method.</p>
+<p>You can find a simple example in <tt class="docutils literal"><span class="pre">examples/example-service.py</span></tt>, which
+we used earlier to demonstrate <tt class="docutils literal"><span class="pre">examples/example-client.py</span></tt>.</p>
+<div class="section">
+<h3><a class="toc-backref" href="#id32" id="finding-out-the-caller-s-bus-name" name="finding-out-the-caller-s-bus-name">Finding out the caller's bus name</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">method</span></tt> decorator accepts a <tt class="docutils literal"><span class="pre">sender_keyword</span></tt> keyword argument.
+If you set that to a string, the unique bus name of the sender will be
+passed to the decorated method as a keyword argument of that name:</p>
+<pre class="literal-block">
+class Example(dbus.service.Object):
+    def __init__(self, object_path):
+        dbus.service.Object.__init__(self, dbus.SessionBus(), path)
+
+    &#64;dbus.service.method(dbus_interface='com.example.Sample',
+                         in_signature='', out_signature='s',
+                         sender_keyword='sender')
+    def SayHello(self, sender=None):
+        return 'Hello, %s!' % sender
+        # -&gt; something like 'Hello, :1.1!'
+</pre>
+</div>
+<div class="section">
+<h3><a class="toc-backref" href="#id33" id="asynchronous-method-implementations" name="asynchronous-method-implementations">Asynchronous method implementations</a></h3>
+<p>FIXME and also add an example, perhaps examples/example-async-service.py</p>
+</div>
+</div>
+<div class="section">
+<h2><a class="toc-backref" href="#id34" id="emitting-signals-with-dbus-service-signal" name="emitting-signals-with-dbus-service-signal">Emitting signals with <tt class="docutils literal"><span class="pre">dbus.service.signal</span></tt></a></h2>
+<p>To export a signal, use the decorator <tt class="docutils literal"><span class="pre">dbus.service.signal</span></tt>; to emit
+that signal, call the decorated method. The decorated method can also
+contain code which will be run when called, as usual. For example:</p>
+<pre class="literal-block">
+class Example(dbus.service.Object):
+    def __init__(self, object_path):
+        dbus.service.Object.__init__(self, dbus.SessionBus(), path)
+
+    &#64;dbus.service.signal(dbus_interface='com.example.Sample',
+                         signature='us')
+    def NumberOfBottlesChanged(self, number, contents):
+        print &quot;%d bottles of %s on the wall&quot; % (number, contents)
+
+e = Example('/bottle-counter')
+e.NumberOfBottlesChanged(100, 'beer')
+# -&gt; emits com.example.Sample.NumberOfBottlesChanged(100, 'beer')
+#    and prints &quot;100 bottles of beer on the wall&quot;
+</pre>
+<p>The signal will be queued for sending when the decorated method returns -
+you can prevent the signal from being sent by raising an exception
+from the decorated method (for instance, if the parameters are
+inappropriate). The signal will only actually be sent when the event loop
+next runs.</p>
+<div class="section">
+<h3><a class="toc-backref" href="#id35" id="example" name="example">Example</a></h3>
+<p><tt class="docutils literal"><span class="pre">examples/example-signal-emitter.py</span></tt> emits some signals on demand when
+one of its methods is called. (In reality, you'd emit a signal when some
+sort of internal state changed, which may or may not be triggered by a
+D-Bus method call.)</p>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+</div>
+</div>
+<div class="section">
+<h1><a class="toc-backref" href="#id36" id="license-for-this-document" name="license-for-this-document">License for this document</a></h1>
+<p>Copyright 2006-2007 <a class="reference" href="http://www.collabora.co.uk/">Collabora Ltd.</a></p>
+<p>Licensed under the Academic Free License version 2.1</p>
+<p>This document is free software; you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation; either version 2.1 of the License, or
+(at your option) any later version.</p>
+<p>This document is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.</p>
+<p>You should have received a copy of the GNU Lesser General Public License
+along with this document; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</p>
+<!-- vim:set ft=rst sw=4 sts=4 et tw=72: -->
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+Generated on: 2007-11-23 10:14 UTC.
+Generated by <a class="reference" href="http://docutils.sourceforge.net/">Docutils</a> from <a class="reference" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> source.
+
+</div>
+</body>
+</html>

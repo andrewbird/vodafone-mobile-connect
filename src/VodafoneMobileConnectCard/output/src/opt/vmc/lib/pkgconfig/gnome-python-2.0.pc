@@ -1,0 +1,13 @@
+prefix=/home/jsoriano/devel/svn/vomoco/utils/bundle-installer/build/opt/vmc
+exec_prefix=${prefix}
+includedir=${prefix}/include
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+
+defsdir=${datadir}/pygtk/2.0/defs
+argtypesdir=${datadir}/pygtk/2.0/argtypes
+
+Name: GNOME-python
+Description: Python bindings for GNOME libraries
+Version:   2.20.0
+Cflags: -I${includedir}/gnome-python-2.0

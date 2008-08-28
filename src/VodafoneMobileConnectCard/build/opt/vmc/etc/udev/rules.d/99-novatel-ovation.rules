@@ -1,0 +1,4 @@
+SUBSYSTEMS=="scsi", KERNEL=="sr[0-9]*", ATTRS{vendor}=="Novatel ", SYMLINK="novatel-storage"
+SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5010", RUN+="/opt/vmc/usr/sbin/ovation.sh"
+
+SUBSYTEM=="usb", ATTR{idProduct}=="4400", ATTR{idVendor}=="1410", RUN+="/opt/vmc/usr/sbin/ovation.sh"

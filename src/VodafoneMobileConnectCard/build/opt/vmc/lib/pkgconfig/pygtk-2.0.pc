@@ -1,0 +1,21 @@
+prefix=/home/jsoriano/devel/svn/vomoco/utils/bundle-installer/build/opt/vmc
+exec_prefix=${prefix}
+includedir=${prefix}/include
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+pyexecdir=${exec_prefix}/lib/python2.5/site-packages
+
+# you can use the --variable=pygtkincludedir argument to
+# pkg-config to get this value.  You might want to use this to
+# install additional headers.
+pygtkincludedir=${includedir}/pygtk-2.0
+
+# same here.  Useful when calling the code generator in addon packages.
+defsdir=${datadir}/pygtk/2.0/defs
+codegendir=${datadir}/pygtk/2.0/codegen
+
+Name: PyGTK
+Description: Python bindings for GTK+ and related libraries
+Requires: pygobject-2.0
+Version: 2.12.0
+Cflags: -I${pygtkincludedir} 

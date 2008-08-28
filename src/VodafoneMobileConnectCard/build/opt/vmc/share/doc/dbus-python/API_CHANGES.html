@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4.1: http://docutils.sourceforge.net/" />
+<title>API changes in dbus-python 0.80</title>
+<meta name="author" content="Simon McVittie" />
+<meta name="organization" content="Collabora Ltd" />
+<meta name="date" content="2006-11-23" />
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@users.sourceforge.net
+:Date: $Date: 2005-12-18 01:56:14 +0100 (Sun, 18 Dec 2005) $
+:Revision: $Revision: 4224 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em ;
+  background-color: #eeeeee }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+tt.docutils {
+  background-color: #eeeeee }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="api-changes-in-dbus-python-0-80">
+<h1 class="title">API changes in dbus-python 0.80</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Simon McVittie</td></tr>
+<tr><th class="docinfo-name">Contact:</th>
+<td><a class="first last reference" href="mailto:simon&#46;mcvittie&#37;&#52;&#48;collabora&#46;co&#46;uk">simon<span>&#46;</span>mcvittie<span>&#64;</span>collabora<span>&#46;</span>co<span>&#46;</span>uk</a></td></tr>
+<tr><th class="docinfo-name">Organization:</th>
+<td><a class="first last reference" href="http://www.collabora.co.uk/">Collabora Ltd</a></td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2006-11-23</td></tr>
+</tbody>
+</table>
+<div class="section">
+<h1><a id="type-changes" name="type-changes">Type changes</a></h1>
+<ul>
+<li><p class="first">The Byte constructor accepts either single-byte strings, or integers in
+the range 0 to 255.</p>
+</li>
+<li><p class="first">There is no Variant type any more. Instead, the <tt class="docutils literal"><span class="pre">variant_level</span></tt>
+attribute on D-Bus types gives the number of variant wrappers in
+which it is contained; this is to remove ambiguity. For instance, calling
+this method:</p>
+<pre class="literal-block">
+&#64;dbus.service.method('com.example', in_signature='v', out_signature='')
+def Print(self, variant):
+    print repr(variant)
+</pre>
+<p>yields the following results:</p>
+<pre class="literal-block">
+# on the wire: Variant containing Int32
+Int32(0, variant_level=1)
+# on the wire: Variant containing Variant containing Int32
+Int32(0, variant_level=2)
+</pre>
+<p>Once an object of a D-Bus type has been constructed, its
+<tt class="docutils literal"><span class="pre">variant_level</span></tt> cannot be altered.</p>
+</li>
+<li><p class="first">The D-Bus integer types (dbus.Int32, etc.) are properly range-checked.</p>
+</li>
+<li><p class="first">The Array constructor takes arguments (iterable[, signature])
+rather than (iterable[, type][, signature]); ditto for Dict.</p>
+</li>
+</ul>
+</div>
+<div class="section">
+<h1><a id="calling-conventions" name="calling-conventions">Calling conventions</a></h1>
+<ul class="simple">
+<li>In method parameters, method returns from proxy methods, etc.,
+integers arrive as instances of dbus.Int32 etc., bytes arrive as
+Byte, and so on, rather than everything being converted to an
+appropriate built-in Python type. This means you can tell exactly
+what arguments went over the bus, and their types.</li>
+<li>Proxy methods with multiple return values return a tuple rather than
+a list.</li>
+<li>Calling a proxy method with reply ignored, or with async
+handlers, returns None</li>
+</ul>
+</div>
+<div class="section">
+<h1><a id="dbus-bindings" name="dbus-bindings"><tt class="docutils literal"><span class="pre">dbus_bindings</span></tt></a></h1>
+<ul class="simple">
+<li>ConnectionError no longer exists (it was never raised)</li>
+<li><tt class="docutils literal"><span class="pre">dbus_bindings</span></tt> is now called <tt class="docutils literal"><span class="pre">_dbus_bindings</span></tt>, and is considerably
+different internally:<ul>
+<li>connections are private at the libdbus level: shared connections
+are only shared among Python code</li>
+<li>The MessageIter stuff is now done in C: there's a much simpler
+Python API, <tt class="docutils literal"><span class="pre">Message.append(...)</span></tt> where positional arguments are
+the things to be appended, and the keyword argument <tt class="docutils literal"><span class="pre">signature</span></tt>
+controls how objects are interpreted</li>
+<li>The signature-guessing algorithm used if there is no proper
+signature is exposed as a static method,
+<tt class="docutils literal"><span class="pre">Message.guess_signature(*args)</span></tt></li>
+<li>Bus is a subclass of Connection rather than being a wrapper object
+which has-a Connection</li>
+<li>The timeouts in _send_with_reply and in _send_with_reply_and_block
+are in (possibly fractional) seconds, as is conventional in Python</li>
+<li>The specialized Message subclasses have names ending with Message</li>
+</ul>
+</li>
+<li>There is a small amount of compatibility glue in a new
+<tt class="docutils literal"><span class="pre">dbus_bindings</span></tt> module (also <tt class="docutils literal"><span class="pre">dbus.dbus_bindings</span></tt>)
+which should enable most current code to work - this is deprecated,
+and will disappear in a future version of dbus-python</li>
+</ul>
+</div>
+<div class="section">
+<h1><a id="main-loops" name="main-loops">Main loops</a></h1>
+<p>Main loop handling is different - instead of the
+<tt class="docutils literal"><span class="pre">use_default_mainloop</span></tt> keyword argument to Bus and subclasses, there's now
+<tt class="docutils literal"><span class="pre">mainloop</span></tt> which takes an instance of dbus.mainloop.NativeMainLoop.</p>
+<p>Alternatively, you can set a default main loop by calling
+<tt class="docutils literal"><span class="pre">dbus.set_default_main_loop()</span></tt> and passing it a NativeMainLoop, or
+by passing <tt class="docutils literal"><span class="pre">set_as_default=True</span></tt> to the factory function
+from which you obtained the native main loop.</p>
+<p>The plan is that in a future version of dbus-python there will be an
+abstract base class dbus.mainloop.MainLoop (or something); when it's added,
+instances of its subclasses will be accepted wherever a NativeMainLoop
+instance is now. This will let you wrap main loops using a Python API.
+This will be used to implement SimpleMainLoop (a pure-Python main loop
+which can only do D-Bus) and a Twisted main-loop wrapper.</p>
+<p>The only working mainloop implementation is (still) GLib; you can get
+a NativeMainLoop instance by:</p>
+<pre class="literal-block">
+from dbus.mainloop.glib import DBusGMainLoop
+my_native_main_loop = DBusGMainLoop(set_as_default=True)
+</pre>
+<p>The above is how the highly magical <tt class="docutils literal"><span class="pre">dbus.glib</span></tt> module is now implemented.
+At some point <tt class="docutils literal"><span class="pre">dbus.glib</span></tt> will be deprecated, since it's non-obvious,
+and pychecker will usually complain if you use it correctly!</p>
+<p>At the moment the GLib main loop always uses the default main context;
+python-gobject will probably need to add some extra API before we can
+allow other main-contexts to be used.</p>
+<!-- vim:set sw=2 sts=2 et ft=rst tw=72: -->
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+Generated on: 2007-11-23 10:14 UTC.
+Generated by <a class="reference" href="http://docutils.sourceforge.net/">Docutils</a> from <a class="reference" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> source.
+
+</div>
+</body>
+</html>

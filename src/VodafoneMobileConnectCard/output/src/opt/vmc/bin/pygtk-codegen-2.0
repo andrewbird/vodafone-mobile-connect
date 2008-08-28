@@ -1,0 +1,11 @@
+#!/bin/sh
+
+prefix=/home/jsoriano/devel/svn/vomoco/utils/bundle-installer/build/opt/vmc
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+codegendir=${datadir}/pygtk/2.0/codegen
+
+PYTHONPATH=$codegendir
+export PYTHONPATH
+
+exec /usr/bin/python $codegendir/codegen.py "$@"
