@@ -1,0 +1,263 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.item&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="module">Module v.c.a.item</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a></span>
+      
+      
+    </p>
+    <div>
+      
+    </div>
+    <div class="undocumented">No module docstring</div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id431">
+  
+  
+  
+  
+  <tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#normalize">normalize</a></td>
+    <td><span>Turn a fully-qualified Python name into a string usable as part of a
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.NoInheritance.html">NoInheritance</a></td>
+    <td><span>Inheritance is as-yet unsupported by XAtop.
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.NotInStore.html">NotInStore</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.CantInstantiateItem.html">CantInstantiateItem</a></td>
+    <td><span>You can't instantiate Item directly.  Make a subclass.
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.MetaItem.html">MetaItem</a></td>
+    <td><span>Simple metaclass for Item that adds Item (and its subclasses) to
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#noop">noop</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#serviceSpecialCase">serviceSpecialCase</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html">Empowered</a></td>
+    <td><span class="undocumented">No class docstring; 4/5 methods documented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#transacted">transacted</a></td>
+    <td><span>Return a callable which will invoke <code>func</code> in a transaction 
+using the
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#dependentItems">dependentItems</a></td>
+    <td><span>Collect all the items that should be deleted when an item or items
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#allowDeletion">allowDeletion</a></td>
+    <td><span>Returns a <code>bool</code> indicating whether deletion of an item or 
+items of a
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html">Item</a></td>
+    <td><span class="undocumented">No class docstring; 3/7 class methods, 11/18 methods documented</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html">Placeholder</a></td>
+    <td><span>Wrap an existing <a 
+href="vmc.contrib.axiom.item.Item.html"><code>Item</code></a> type to 
+provide a different name for it.
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.item.html#declareLegacyItem">declareLegacyItem</a></td>
+    <td><span>Generate a dummy subclass of Item that will have the given 
+attributes,
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.item.normalize"></a>
+        <a name="normalize"></a>
+        <div class="functionHeader">
+        
+        def normalize(qualName):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Turn a fully-qualified Python name into a string usable as part of a 
+table name.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.noop"></a>
+        <a name="noop"></a>
+        <div class="functionHeader">
+        
+        def noop():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.serviceSpecialCase"></a>
+        <a name="serviceSpecialCase"></a>
+        <div class="functionHeader">
+        
+        def serviceSpecialCase(item, pups):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.transacted"></a>
+        <a name="transacted"></a>
+        <div class="functionHeader">
+        
+        def transacted(func):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Return a callable which will invoke <code>func</code> in a transaction 
+using the <code>store</code> attribute of the first parameter passed to it.
+Typically this is used to create Item methods which are automatically run 
+in a transaction.</p>
+The attributes of the returned callable will resemble those of 
+<code>func</code> as closely as 
+<code>twisted.python.util.mergeFunctionMetadata</code> can make them.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.dependentItems"></a>
+        <a name="dependentItems"></a>
+        <div class="functionHeader">
+        
+        def dependentItems(store, tableClass, comparisonFactory):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Collect all the items that should be deleted when an item or items of a 
+particular item type are deleted.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>An <a href="vmc.contrib.axiom.item.Item.html"><code>Item</code></a> 
+subclass.
+</td></tr><tr><td></td><td class="fieldArg">comparison</td><td>A one-argument callable taking an attribute and returning an <a 
+href="vmc.contrib.axiom.iaxiom.IComparison.html"><code>iaxiom.IComparison</code></a>
+describing the items to collect.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">An iterable of items to delete.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.allowDeletion"></a>
+        <a name="allowDeletion"></a>
+        <div class="functionHeader">
+        
+        def allowDeletion(store, tableClass, comparisonFactory):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a <code>bool</code> indicating whether deletion of an item or 
+items of a particular item type should be allowed to proceed.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>An <a href="vmc.contrib.axiom.item.Item.html"><code>Item</code></a> 
+subclass.
+</td></tr><tr><td></td><td class="fieldArg">comparison</td><td>A one-argument callable taking an attribute and returning an <a 
+href="vmc.contrib.axiom.iaxiom.IComparison.html"><code>iaxiom.IComparison</code></a>
+describing the items to collect.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">A <code>bool</code> indicating whether deletion should be allowed.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.declareLegacyItem"></a>
+        <a name="declareLegacyItem"></a>
+        <div class="functionHeader">
+        
+        def declareLegacyItem(typeName, schemaVersion, attributes, dummyBases=()):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Generate a dummy subclass of Item that will have the given attributes, 
+and the base Item methods, but no methods of its own.  This is for use with
+upgrading.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">typeName</td><td>a string, the Axiom TypeName to have attributes for.
+</td></tr><tr><td></td><td class="fieldArg">schemaVersion</td><td>an int, the (old) version of the schema this is a proxy for.
+</td></tr><tr><td></td><td class="fieldArg">attributes</td><td>a dict mapping {columnName: attr instance} describing the schema of 
+<code>typeName</code> at <code>schemaVersion</code>.
+</td></tr><tr><td></td><td class="fieldArg">dummyBases</td><td>a sequence of 4-tuples of (baseTypeName, baseSchemaVersion, 
+baseAttributes, baseBases) representing the dummy bases of this legacy 
+class.
+</td></tr></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

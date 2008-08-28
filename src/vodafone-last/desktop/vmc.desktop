@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Vodafone Mobile Connect Card driver for Linux
+Exec=vodafone-mobile-connect-card-driver-for-linux
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=vodafone.png
+Categories=Application;Network;Internet;
+StartupNotify=true

@@ -1,0 +1,141 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.e.s.OpenSSLCertificateOptions(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.epsilon.html">epsilon</a>.<a href="vmc.contrib.epsilon.sslverify.html">sslverify</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div>A factory for SSL context objects, for server SSL connections.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id807">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions.html#__init__">__init__</a></td>
+    <td><span>Create an OpenSSL context SSL connection context factory.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions.html#__getstate__">__getstate__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions.html#getContext">getContext</a></td>
+    <td><span>Return a SSL.Context object.
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, privateKey=None, certificate=None, method=None, verify=False, caCerts=None, verifyDepth=9, requireCertificate=True, verifyOnce=True, enableSingleUseKeys=True, enableSessions=True, fixBrokenPeers=False):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Create an OpenSSL context SSL connection context factory.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">privateKey</td><td>A PKey object holding the private key.
+</td></tr><tr><td></td><td class="fieldArg">certificate</td><td>An X509 object holding the certificate.
+</td></tr><tr><td></td><td class="fieldArg">method</td><td>The SSL protocol to use, one of SSLv23_METHOD, SSLv2_METHOD, 
+SSLv3_METHOD, TLSv1_METHOD.  Defaults to TLSv1_METHOD.
+</td></tr><tr><td></td><td class="fieldArg">verify</td><td>If True, verify certificates received from the peer and fail the 
+handshake if verification fails.  Otherwise, allow anonymous sessions and 
+sessions with certificates which fail validation.  By default this is 
+False.
+</td></tr><tr><td></td><td class="fieldArg">caCerts</td><td>List of certificate authority certificates to send to the client when 
+requesting a certificate.  Only used if verify is True, and if verify is 
+True, either this must be specified or caCertsFile must be given.  Since 
+verify is False by default, this is None by default.
+</td></tr><tr><td></td><td class="fieldArg">verifyDepth</td><td>Depth in certificate chain down to which to verify. If unspecified, use 
+the underlying default (9).
+</td></tr><tr><td></td><td class="fieldArg">requireCertificate</td><td>If True, do not allow anonymous sessions.
+</td></tr><tr><td></td><td class="fieldArg">verifyOnce</td><td>If True, do not re-verify the certificate on session resumption.
+</td></tr><tr><td></td><td class="fieldArg">enableSingleUseKeys</td><td>If True, generate a new key whenever ephemeral DH parameters are used to
+prevent small subgroup attacks.
+</td></tr><tr><td></td><td class="fieldArg">enableSessions</td><td>If True, set a session ID on each context.  This allows a shortened 
+handshake to be used when a known client reconnects.
+</td></tr><tr><td></td><td class="fieldArg">fixBrokenPeers</td><td>If True, enable various non-spec protocol fixes for broken SSL 
+implementations.  This should be entirely safe, according to the OpenSSL 
+documentation, but YMMV.  This option is now off by default, because it 
+causes problems with connections between peers using OpenSSL 0.9.8a.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions.__getstate__"></a>
+        <a name="__getstate__"></a>
+        <div class="functionHeader">
+        
+        def __getstate__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions.getContext"></a>
+        <a name="getContext"></a>
+        <div class="functionHeader">
+        
+        def getContext(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return a SSL.Context object.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.sslverify.OpenSSLCertificateOptions._makeContext"></a>
+        <a name="_makeContext"></a>
+        <div class="functionHeader">
+        
+        def _makeContext(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

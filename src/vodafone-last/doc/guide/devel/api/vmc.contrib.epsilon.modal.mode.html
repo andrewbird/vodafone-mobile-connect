@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.epsilon.modal.mode&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.e.m.mode(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.epsilon.html">epsilon</a>.<a href="vmc.contrib.epsilon.modal.html">modal</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.epsilon.modal.mode">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.cli.behaviour.CLIBehaviour.Auth.html">vmc.cli.behaviour.CLIBehaviour.Auth</a>, <a href="vmc.common.behaviour.Behaviour.Auth.html">vmc.common.behaviour.Behaviour.Auth</a>, <a href="vmc.common.behaviour.Behaviour.ImDone.html">vmc.common.behaviour.Behaviour.ImDone</a>, <a href="vmc.common.behaviour.Behaviour.NetReg.html">vmc.common.behaviour.Behaviour.NetReg</a>, <a href="vmc.common.behaviour.Behaviour.PostInit.html">vmc.common.behaviour.Behaviour.PostInit</a>, <a href="vmc.common.behaviour.Behaviour.PreInit.html">vmc.common.behaviour.Behaviour.PreInit</a>, <a href="vmc.common.statem.auth.AuthStateMachine.get_pin_status.html">vmc.common.statem.auth.AuthStateMachine.get_pin_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.pin_needed_status.html">vmc.common.statem.auth.AuthStateMachine.pin_needed_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.puk2_needed_status.html">vmc.common.statem.auth.AuthStateMachine.puk2_needed_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.puk_needed_status.html">vmc.common.statem.auth.AuthStateMachine.puk_needed_status</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.connected.html">vmc.common.statem.connection.ConnectStateMachine.connected</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.connecting.html">vmc.common.statem.connection.ConnectStateMachine.connecting</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.disconnected.html">vmc.common.statem.connection.ConnectStateMachine.disconnected</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered.html">vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming.html">vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo.html">vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator.html">vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed.html">vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished.html">vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators.html">vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register.html">vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register</a>, <a href="vmc.contrib.axiom.batch.ProcessController.ready.html">vmc.contrib.axiom.batch.ProcessController.ready</a>, <a href="vmc.contrib.axiom.batch.ProcessController.starting.html">vmc.contrib.axiom.batch.ProcessController.starting</a>, <a href="vmc.contrib.axiom.batch.ProcessController.stopped.html">vmc.contrib.axiom.batch.ProcessController.stopped</a>, <a href="vmc.contrib.axiom.batch.ProcessController.stopping.html">vmc.contrib.axiom.batch.ProcessController.stopping</a>, <a href="vmc.contrib.axiom.batch.ProcessController.waiting_ready.html">vmc.contrib.axiom.batch.ProcessController.waiting_ready</a>, <a href="vmc.contrib.epsilon.modal.Modal.nil.html">vmc.contrib.epsilon.modal.Modal.nil</a>, <a href="vmc.gtk.behaviour.GTKBehaviour.Auth.html">vmc.gtk.behaviour.GTKBehaviour.Auth</a></p>
+    </div>
+    <div>Base class for mode definitions.  Subclass this in classes of type 
+ModalType and provide the implementations of various methods for that 
+particular mode as methods of the mode subclass.  The subclass should have 
+the same name as the mode it is defining.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id780">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.modal.mode.html#__exit__">__exit__</a></td>
+    <td><span>The mode has just been exited.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.modal.mode.html#__enter__">__enter__</a></td>
+    <td><span>The mode has just been entered.
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.epsilon.modal.mode.__exit__"></a>
+        <a name="__exit__"></a>
+        <div class="functionHeader">
+        
+        def __exit__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.cli.behaviour.CLIBehaviour.Auth.html">vmc.cli.behaviour.CLIBehaviour.Auth</a>, <a href="vmc.common.behaviour.Behaviour.Auth.html">vmc.common.behaviour.Behaviour.Auth</a>, <a href="vmc.common.behaviour.Behaviour.ImDone.html">vmc.common.behaviour.Behaviour.ImDone</a>, <a href="vmc.common.behaviour.Behaviour.NetReg.html">vmc.common.behaviour.Behaviour.NetReg</a>, <a href="vmc.common.behaviour.Behaviour.PostInit.html">vmc.common.behaviour.Behaviour.PostInit</a>, <a href="vmc.common.behaviour.Behaviour.PreInit.html">vmc.common.behaviour.Behaviour.PreInit</a>, <a href="vmc.common.statem.auth.AuthStateMachine.get_pin_status.html">vmc.common.statem.auth.AuthStateMachine.get_pin_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.pin_needed_status.html">vmc.common.statem.auth.AuthStateMachine.pin_needed_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.puk2_needed_status.html">vmc.common.statem.auth.AuthStateMachine.puk2_needed_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.puk_needed_status.html">vmc.common.statem.auth.AuthStateMachine.puk_needed_status</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.connected.html">vmc.common.statem.connection.ConnectStateMachine.connected</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.connecting.html">vmc.common.statem.connection.ConnectStateMachine.connecting</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.disconnected.html">vmc.common.statem.connection.ConnectStateMachine.disconnected</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered.html">vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming.html">vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo.html">vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator.html">vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed.html">vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished.html">vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators.html">vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register.html">vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register</a>, <a href="vmc.contrib.epsilon.modal.Modal.nil.html">vmc.contrib.epsilon.modal.Modal.nil</a>, <a href="vmc.gtk.behaviour.GTKBehaviour.Auth.html">vmc.gtk.behaviour.GTKBehaviour.Auth</a></div>
+          <div>The mode has just been exited.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.modal.mode.__enter__"></a>
+        <a name="__enter__"></a>
+        <div class="functionHeader">
+        
+        def __enter__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.cli.behaviour.CLIBehaviour.Auth.html">vmc.cli.behaviour.CLIBehaviour.Auth</a>, <a href="vmc.common.behaviour.Behaviour.Auth.html">vmc.common.behaviour.Behaviour.Auth</a>, <a href="vmc.common.behaviour.Behaviour.ImDone.html">vmc.common.behaviour.Behaviour.ImDone</a>, <a href="vmc.common.behaviour.Behaviour.NetReg.html">vmc.common.behaviour.Behaviour.NetReg</a>, <a href="vmc.common.behaviour.Behaviour.PostInit.html">vmc.common.behaviour.Behaviour.PostInit</a>, <a href="vmc.common.behaviour.Behaviour.PreInit.html">vmc.common.behaviour.Behaviour.PreInit</a>, <a href="vmc.common.statem.auth.AuthStateMachine.get_pin_status.html">vmc.common.statem.auth.AuthStateMachine.get_pin_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.pin_needed_status.html">vmc.common.statem.auth.AuthStateMachine.pin_needed_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.puk2_needed_status.html">vmc.common.statem.auth.AuthStateMachine.puk2_needed_status</a>, <a href="vmc.common.statem.auth.AuthStateMachine.puk_needed_status.html">vmc.common.statem.auth.AuthStateMachine.puk_needed_status</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.connected.html">vmc.common.statem.connection.ConnectStateMachine.connected</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.connecting.html">vmc.common.statem.connection.ConnectStateMachine.connecting</a>, <a href="vmc.common.statem.connection.ConnectStateMachine.disconnected.html">vmc.common.statem.connection.ConnectStateMachine.disconnected</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered.html">vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming.html">vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo.html">vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator.html">vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed.html">vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished.html">vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators.html">vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators</a>, <a href="vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register.html">vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register</a>, <a href="vmc.contrib.epsilon.modal.Modal.nil.html">vmc.contrib.epsilon.modal.Modal.nil</a>, <a href="vmc.gtk.behaviour.GTKBehaviour.Auth.html">vmc.gtk.behaviour.GTKBehaviour.Auth</a></div>
+          <div>The mode has just been entered.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

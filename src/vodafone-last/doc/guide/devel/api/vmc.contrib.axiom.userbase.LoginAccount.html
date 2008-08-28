@@ -1,0 +1,435 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.userbase.LoginAccount&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.u.LoginAccount(<a href="vmc.contrib.axiom.item.Item.html">Item</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.userbase.html">userbase</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.userbase.LoginAccount">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div>I am an entry in a LoginBase.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Instance Variables</td><td class="fieldArg">avatars</td><td>An Item which is adaptable to various cred client interfaces.  Plural 
+because it represents a collection of potentially disparate implementors, 
+such as an IResource for web access and an IContact for SIP access.
+</td></tr><tr><td></td><td class="fieldArg">disabled</td><td>This account has been disabled.  It is still database-resident but the 
+user should not be allowed to log in.
+</td></tr></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id418">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginAccount.html#__conform__">__conform__</a></td>
+    <td><span>For convenience, forward adaptation to my 'avatars' attribute.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginAccount.html#migrateDown">migrateDown</a></td>
+    <td><span>Assuming that self.avatars is a SubStore which should contain *only*
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginAccount.html#migrateUp">migrateUp</a></td>
+    <td><span>Copy this LoginAccount and all associated LoginMethods from my store
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginAccount.html#cloneInto">cloneInto</a></td>
+    <td><span>Create a copy of this LoginAccount and all associated LoginMethods in a 
+different Store.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginAccount.html#deleteLoginMethods">deleteLoginMethods</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginAccount.html#addLoginMethod">addLoginMethod</a></td>
+    <td><span>Add a login method to this account, propogating up or down as 
+necessary
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.item.Item.html">Item</a>:
+        </p>
+        <table class="children sortable" id="id419">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_currentlyValidAsReferentFor">_currentlyValidAsReferentFor</a></td>
+    <td><span>Is this object currently valid as a reference?  Objects which will 
+be
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_schemaPrepareInsert">_schemaPrepareInsert</a></td>
+    <td><span>Prepare each attribute in my schema for insertion into a given 
+store,
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#store">store</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__repr__">__repr__</a></td>
+    <td><span>Return a nice string representation of the Item which contains some
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__subinit__">__subinit__</a></td>
+    <td><span>Initializer called regardless of whether this object was created by
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__init__">__init__</a></td>
+    <td><span>Create a new Item.  This is called on an item *only* when it is being 
+created
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__finalizer__">__finalizer__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#existingInStore">existingInStore</a></td>
+    <td><span>Create and return a new instance from a row from the store.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#activate">activate</a></td>
+    <td><span>The object was loaded from the store.
+</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#getSchema">getSchema</a></td>
+    <td><span>return all persistent class attributes
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#persistentValues">persistentValues</a></td>
+    <td><span>Return a dictionary of all attributes which will be/have been/are 
+being
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#touch">touch</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#revert">revert</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#deleted">deleted</a></td>
+    <td><span>User-definable callback that is invoked when an object is well and 
+truly
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#stored">stored</a></td>
+    <td><span>User-definable callback that is invoked when an object is placed into 
+a
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#committed">committed</a></td>
+    <td><span>Called after the database is brought into a consistent state with 
+this
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#checkpoint">checkpoint</a></td>
+    <td><span>Update the database to reflect in-memory changes made to this item; 
+for
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#upgradeVersion">upgradeVersion</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#deleteFromStore">deleteFromStore</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_baseSelectSQL">_baseSelectSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_baseInsertSQL">_baseInsertSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_baseDeleteSQL">_baseDeleteSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_updateSQL">_updateSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#getTableName">getTableName</a></td>
+    <td><span>Retrieve a string naming the database table associated with this 
+item
+</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#getTableAlias">getTableAlias</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.item.Empowered.html">Empowered</a> (via <a href="vmc.contrib.axiom.item.Item.html">Item</a>):
+        </p>
+        <table class="children sortable" id="id420">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerUp">powerUp</a></td>
+    <td><span>Installs a powerup (e.g. plugin) on an item or store.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerDown">powerDown</a></td>
+    <td><span>Remove a powerup.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerupsFor">powerupsFor</a></td>
+    <td><span>Returns powerups installed using <code>powerUp</code>, in order of 
+descending
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#interfacesFor">interfacesFor</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.slotmachine._Strict.html">_Strict</a> (via <a href="vmc.contrib.axiom.item.Item.html">Item</a>):
+        </p>
+        <table class="children sortable" id="id421">
+  
+  
+  
+  
+  <tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.slotmachine._Strict.html#__bases">__bases</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.slotmachine._Strict.html#__getDescriptor">__getDescriptor</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.slotmachine._Strict.html#__setattr__">__setattr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginAccount.__conform__"></a>
+        <a name="__conform__"></a>
+        <div class="functionHeader">
+        
+        def __conform__(self, interface):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.axiom.item.Empowered.html#__conform__">vmc.contrib.axiom.item.Empowered.__conform__</a></div>
+          <div>For convenience, forward adaptation to my 'avatars' attribute.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginAccount.migrateDown"></a>
+        <a name="migrateDown"></a>
+        <div class="functionHeader">
+        
+        def migrateDown(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Assuming that self.avatars is a SubStore which should contain *only* the
+LoginAccount for the user I represent, remove all LoginAccounts and 
+LoginMethods from that store and copy all methods from the site store down 
+into it.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginAccount.migrateUp"></a>
+        <a name="migrateUp"></a>
+        <div class="functionHeader">
+        
+        def migrateUp(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Copy this LoginAccount and all associated LoginMethods from my store 
+(which is assumed to be a SubStore, most likely a user store) into the site
+store which contains it.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginAccount.cloneInto"></a>
+        <a name="cloneInto"></a>
+        <div class="functionHeader">
+        
+        def cloneInto(self, newStore, avatars):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Create a copy of this LoginAccount and all associated LoginMethods in a 
+different Store.</p>
+Return the copied LoginAccount.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginAccount.deleteLoginMethods"></a>
+        <a name="deleteLoginMethods"></a>
+        <div class="functionHeader">
+        
+        def deleteLoginMethods(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginAccount.addLoginMethod"></a>
+        <a name="addLoginMethod"></a>
+        <div class="functionHeader">
+        
+        def addLoginMethod(self, localpart, domain, protocol=ANY_PROTOCOL, verified=False, internal=False):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Add a login method to this account, propogating up or down as necessary 
+to site store or user store to maintain consistency.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

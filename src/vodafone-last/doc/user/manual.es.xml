@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+<article lang='es'>
+
+  <articleinfo>
+	  <title>Vodafone Mobile Connect Card Driver for Linux</title>
+	  <subtitle>Manual de usuario</subtitle>
+
+    <author>
+        <firstname>Enrique</firstname>
+        <surname>Matías Sánchez</surname>
+        <affiliation>
+            <address><email>cronopios@gmail.com</email></address>
+        </affiliation>
+    </author>
+
+    <copyright>
+      <year>2007</year>
+      <holder>Vodafone España S.A.</holder>
+    </copyright>
+
+    <legalnotice>
+      <para>Algunos derechos reservados.  Se concede permiso para copiar, distribuir y/o modificar este documento bajo las condiciones de la licencia Reconocimiento-CompartirIgual 3.0 o, a su elección, cualquier versión posterior publicada por Creative Commons.</para>
+
+      <para>Puede consultar una copia de dicha licencia en <ulink url="http://creativecommons.org/licenses/by-sa/3.0/es/legalcode.es">
+      http://creativecommons.org/licenses/by-sa/3.0/es/legalcode.es</ulink>.</para>
+    </legalnotice>
+
+  </articleinfo>
+
+
+  <sect1 id="start">
+      <title>Primeros pasos</title>
+
+      <para><application>Vodafone Mobile Connect Card driver for Linux</application> es una herramienta que le permitirá conectarse a Internet desde GNU/Linux usando tarjetas 3G. Además, le permitirá enviar y recibir mensajes SMS desde su equipo.  La lista de tarjetas soportadas incluye a muchas de las más populares. Esta lista puede ser consultada en el manual de instalación.<footnote><para>Si usted es programador, debería ser sencillo hacerla funcionar con otras tarjetas.  Consulte la documentación para desarrolladores incluida en el código fuente.</para></footnote>.</para>
+
+      <para>Para utilizar su dispositivo <acronym>3G</acronym>, debe disponer de una version reciente del núcleo Linux.  Puede averiguar cuál es la versión que está utilizando abriendo un emulador de terminal (por ejemplo <application>gnome-terminal</application> o <application>konsole</application>) y tecleando la orden <command>uname -sr</command>.  <application>Vodafone Mobile Connect Card Driver for Linux</application> ha sido probada usando Linux 2.6.17 y superiores.  Si tiene instalada una versión anterior del núcleo Linux, sería recomendable actualizarla antes de continuar.  Probablemente la distribución que utilice proporcione paquetes de versiones recientes del núcleo, que podrá descargar de Internet.</para>
+
+	<note>
+		<para>El empleo de tarjetas Option GT con Fedora requiere la instalación del módulo del kernel "nozomi" a partir de su paquete RPM, suministrado en la forja de Vodafone Betavine.</para>
+	</note>
+
+      <para>Si utiliza un sistema basado en Debian, para poder conectarse a Internet su usuario debe pertenecer al grupo «dip».  Puede averiguar a qué grupos pertenece ejecutando en una consola la orden <command>groups</command>.  Si no pertenece al grupo «dip», añádase ejecutando <command>addgroup <userinput>perico</userinput> dip</command> sustituyendo «perico» por su nombre de usuario.</para>
+
+      <para>En otros sistemas, como Fedora, para poder conectarse a Intenet necesitará tener instalados los paquetes gksu o kdesu, que le pedirán la contraseña de superusuario (root) para establecer la conexión.</para>
+
+      <para>Conecte el dispositivo <acronym>3G</acronym> a su equipo, según las instrucciones del manual.  Según el modelo del que disponga, deberá insertarlo en una ranura <acronym>PCMCIA</acronym> o conectarlo a los puertos <acronym>USB</acronym>.  Algunas versiones de Linux tienen problemas para reconocer algunos modelos de tarjeta, y podría necesitar conectar y desconectar repetidamente la tarjeta hasta que el sistema la reconozca correctamente.</para>
+
+      <para>Ya está preparado para empezar a usar su dispositivo <acronym>3G</acronym> desde GNU/Linux.</para>
+
+      <para>Inicie <application>Vodafone Mobile Connect Card driver for Linux</application>.  Además de desde los menús del entorno de escritorio, lo puede iniciar desde una terminal mediante la orden <command>vodafone-mobile-connect-card-driver-for-linux</command>.</para>
+
+      <tip><para>Si tropezara con algún tipo de problema al usar esta herramienta, puede lanzarla con la orden <command>vodafone-mobile-connect-card-driver-for-linux-debug</command>, que mostrará en la consola información adicional que le ayudará a diagnosticar el problema.</para></tip>
+
+      <para>La primera vez que ejecute el programa, deberá llevar a cabo la configuración inicial.  El programa reconocerá automáticamente el modelo de tarjeta, pero deberá indicar qué tipo de conexión prefiere.</para>
+
+      <informalfigure>
+          <synopsis>Configuración inicial</synopsis>
+          <graphic fileref="images/config.jpg" format="JPEG" align="center" scale="70"/>
+      </informalfigure>
+
+      <para><acronym>GPRS</acronym> (<foreignphrase>General Packet Radio System</foreignphrase>) no es una conexión de alta velocidad, pero al ser una tecnología basada en los sistemas anteriores, su área de cobertura es prácticamente absoluta.  Por su parte, <acronym>3G</acronym> es una conexión de banda ancha, pero al ser una tecnología de reciente implantación, puede encontrar zonas que todavía no tengan cobertura.</para>
+
+      <informalfigure>
+          <synopsis>Configuración de la tecnología a usar</synopsis>
+          <graphic fileref="images/config2.jpg" format="JPEG" align="center" scale="60"/>
+      </informalfigure>
+
+      <para>En general, puede ser recomendable seleccionar la opción <guilabel>Preferir 3G</guilabel>.  De este modo, el sistema intentará conectarse usando la tecnología <acronym>3G</acronym>, y en caso de que no lo consiguiera, recurriría a la tecnología <acronym>GPRS</acronym>.</para>
+
+      <para>Sobre la pantalla anunciadora aparecerá una ventana solicitándole que introduzca el código <acronym>PIN</acronym> (<foreignphrase>Personal Identification Number</foreignphrase>, Número de Identificación Personal), que le habrá sido entregado junto a la tarjeta <acronym>SIM</acronym> (<foreignphrase>Subscriber Identity Module</foreignphrase>, Módulo de Identidad de Abonado).</para>
+
+      <informalfigure>
+          <synopsis>Solicitud del código PIN</synopsis>
+          <graphic fileref="images/pin.jpg" format="JPEG" align="center" scale="50"/>
+      </informalfigure>
+
+      <para>Tenga cuidado al escribir el código <acronym>PIN</acronym>, pues si lo introduce incorrectamente tres veces, la tarjeta se bloqueará y necesitará usar el código <acronym>PUK</acronym> (<foreignphrase>PIN Unblocking Key</foreignphrase>, Clave de Desbloqueo del PIN) para desbloquearla.</para>
+
+      <informalfigure>
+          <synopsis>PIN incorrecto</synopsis>
+          <graphic fileref="images/wrong-pin.jpg" format="JPEG" align="center" scale="50"/>
+      </informalfigure>
+
+      <para>El programa leerá los mensajes y contactos almacenados en la <acronym>SIM</acronym> y mostrará su pantalla principal.</para>
+
+  </sect1>
+
+
+
+  <sect1 id="internet">
+      <title>Conexión a Internet</title>
+
+      <para>Para conectarse a Internet, pulse el icono de color verde <guibutton>Conectar</guibutton> que se encuentra en la barra de iconos (inmediatamente debajo de la barra de menú).  Aparecerá una pequeña ventana indicando que se está estableciendo la conexión.  Si el intento de conexión tiene éxito, desaparecerá al cabo de unos segundos, y en la barra de estado (parte inferior de la pantalla) aparecerá el modo de conexión y el tráfico de descarga y envío.</para>
+
+      <informalfigure>
+          <synopsis>Estado de la conexión</synopsis>
+          <graphic fileref="images/statusbar.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+
+      <para>Según el país en el que se encuentre y el proveedor que utilice, podría necesitar modificar los datos de conexión en el menú <menuchoice><guimenu>Herramientas</guimenu><guimenuitem>Preferencias</guimenuitem></menuchoice>.</para>
+
+      <para>Para usar los servicios de Internet que desee (navegación web, correo electrónico, <foreignphrase>chat</foreignphrase>, mensajería instantánea, etc) abra y utilice los programas apropiados de la forma habitual.  Para su comodidad, Vodafone Mobile Connect Card Driver for Linux proporciona unos iconos <guibutton>Correo</guibutton> e <guibutton>Internet</guibutton> que abren respectivamente el cliente de correo y el navegador web que tenga predefinidos.</para>
+
+      <para>Cuando haya acabado de usar Internet, pulse el botón rojo <guibutton>Desconectar</guibutton> que aparece en el lugar que antes ocupaba el botón de conexión.</para>
+
+      <informalfigure>
+          <synopsis>Desconectar</synopsis>
+          <graphic fileref="images/disconnect.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+  </sect1>
+
+  <sect1 id="usage">
+      <title>Controlling usage</title>
+
+      <para>Puede controlar su uso activando el botón <guibutton>Uso</guibutton>. Al hacerlo se le mostrará un panel con información sobre el tráfico de sus conexiones a lo largo del último mes y de la sesión actual. A un lado podrá ver la cantidad de tráfico enviado y recibido y al otro un par de gráficos de barras que muestran de un vistazo su consumo en 3G y GPRS.</para>
+	
+      <informalfigure>
+          <synopsis>Uso</synopsis>
+          <graphic fileref="images/usage.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+	
+      <para>La información que puede obtener en este panel es la siguiente:
+          <itemizedlist>
+		<listitem><para>El mes para el cual se está mostrando la información.</para></listitem>
+		<listitem><para>Los datos transmitidos durante el mes actual, por 3G, GPRS y la suma de ambos.</para></listitem>
+		<listitem><para>La misma información para la sesión actual.</para></listitem>
+		<listitem><para>Se muestra también otra pestaña desde la que podrá ver los datos históricos del último mes.</para></listitem>
+	  </itemizedlist>
+      </para>
+
+      <para>En la pestaña de uso de la ventana de preferencias puede activar una notificación que se dispara si un determinado umbral de tráfico es alcanzado, así podrá controlar su consumo.</para>
+
+  </sect1>
+
+
+  <sect1 id="sms">
+      <title>Envío y recepción de mensajes SMS</title>
+
+      <para>Vodafone Mobile Connect Card Driver for Linux le permite enviar y recibir mensajes breves (<acronym>SMS</acronym>) desde su equipo.  Bajo las barras de menú e iconos, se encuentra la barra de botones de SMS y de la libreta de contactos: <guibutton>Nuevo</guibutton>, <guibutton>Responder</guibutton>, <guibutton>Reenviar</guibutton> y <guibutton>Borrar</guibutton>.</para>
+
+      <informalfigure>
+          <synopsis>Botones de envío y recepción de SMS</synopsis>
+          <graphic fileref="images/sms-buttons.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+
+      <para>Para escribir un SMS, seleccione <menuchoice><guimenu>Nuevo</guimenu><guimenuitem>SMS</guimenuitem></menuchoice>, o bien pulse la combinación de teclas <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>.  Aparece una nueva ventana, en la que puede introducir el número de teléfono al que desee enviar el mensaje, así como el texto del mismo.  El número de teléfono debe escribirse siguiendo el formato internacional, por ejemplo +34670123456, donde 34 es el código del país.  También puede seleccionar alguno de los contactos que tenga almacenados en su libreta de direcciones.</para>
+
+      <informalfigure>
+          <synopsis>Redacción de un SMS</synopsis>
+          <graphic fileref="images/write.jpg" format="JPEG" align="center" scale="70"/>
+      </informalfigure>
+
+      <para>En la barra de estado se indica la cantidad de caracteres escritos.  Los mensajes SMS tienen un límite de 160 caracteres latinos o de 70 caracteres UCS2 (que se usan para escribir en algunos idiomas, como el chino).  Para enviar el mensaje, pulse el botón <guibutton>Aceptar</guibutton>.  Si desea posponer el envío o redacción del mensaje para otro momento, puede almacenarlo en Borradores pulsando el botón <guibutton>Guardar</guibutton>.</para>
+
+      <para>Bajo la barra de botones, hay otra barra con las solapas <guilabel>Bandeja de entrada</guilabel>, <guilabel>Borradores</guilabel>, <guilabel>Enviados</guilabel> y  <guilabel>Contactos</guilabel>.</para>
+
+      <para>En la <guilabel>Bandeja de entrada</guilabel> aparece un listado de los mensajes recibidos.  Puede ordenarlos por fecha de recepción, remitente o asunto.  Al seleccionar un mensaje, se mostrará su contenido bajo el listado.</para>
+
+      <informalfigure>
+          <synopsis>Visualización de un mensaje</synopsis>
+          <graphic fileref="images/view-sms.jpg" format="JPEG" align="center" scale="50"/>
+      </informalfigure>
+
+      <para>Para borrar un mensaje, selecciónelo y pulse el botón <guibutton>Borrar</guibutton>.  Para contestar o reenviar un mensaje, utilice los botones <guibutton>Responder</guibutton> y <guibutton>Reenviar</guibutton>.</para>
+
+      <para>Las solapas <guilabel>Borradores</guilabel> y <guilabel>Enviados</guilabel> funcionan de idéntico modo, y como su nombre indica, contienen los mensajes cuya redacción haya pospuesto, y los mensajes que haya enviado anteriormente.</para>
+
+      <sect2 id="contacts">
+        <title>Libreta de contactos</title>
+
+        <para>La solapa <guilabel>Contactos</guilabel> lista el contenido de su libreta de direcciones.  Para añadir un nuevo contacto, seleccione <menuchoice><guimenu>Contactos</guimenu><guimenuitem>Nuevo</guimenuitem></menuchoice>, e introduzca el nombre y teléfono de esa persona.  Indique también si desea guardar la información en el disco duro de su equipo o en la memoria de la tarjeta SIM.</para>
+
+        <para>Si desea añadir a su libreta de contactos al remitente de un mensaje SMS, simplemente pulse con el botón derecho del ratón sobre ese mensaje, y seleccione <menuchoice><guimenu>Usar detalle</guimenu><guimenuitem>Añadir a contactos</guimenuitem></menuchoice> en el menú emergente.</para>
+
+        <informalfigure>
+            <synopsis>Adición de un contacto</synopsis>
+            <graphic fileref="images/add-contact.jpg" format="JPEG" align="center" scale="40"/>
+        </informalfigure>
+
+        <para>También puede importar y exportar contactos usando ficheros en formato .csv (valores separados por comas) desde el menú <menuchoice><guimenu>Archivo</guimenu></menuchoice>.</para>
+
+        <para>Para buscar uno de los contactos almacenados, seleccione <menuchoice><guimenu>Contactos</guimenu><guimenuitem>Buscar</guimenuitem></menuchoice> e introduzca su nombre.  Para editar un contacto, selecciónelo y pulse con el botón izquierdo del ratón sobre el campo que desee modificar.  Para borrar un contacto, selecciónelo y pulse el botón <guibutton>Borrar</guibutton>.</para>
+
+      </sect2>
+
+  </sect1>
+
+</article>

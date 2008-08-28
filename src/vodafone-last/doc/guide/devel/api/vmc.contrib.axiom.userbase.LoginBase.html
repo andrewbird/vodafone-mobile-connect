@@ -1,0 +1,156 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.userbase.LoginBase&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.u.LoginBase:</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.userbase.html">userbase</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.userbase.LoginBase">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.axiom.userbase.LoginSystem.html">vmc.contrib.axiom.userbase.LoginSystem</a></p><p>Implements interfaces: twisted.cred.checkers.ICredentialsChecker, twisted.cred.portal.IRealm</p>
+    </div>
+    <div>I am a database powerup which provides an interface to a collection of 
+username/password pairs mapped to user application objects.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id423">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginBase.html#accountByAddress">accountByAddress</a></td>
+    <td></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginBase.html#addAccount">addAccount</a></td>
+    <td><span>Create a user account, add it to this LoginBase, and return it.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginBase.html#logoutFactory">logoutFactory</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginBase.html#requestAvatar">requestAvatar</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.userbase.LoginBase.html#requestAvatarId">requestAvatarId</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginBase.accountByAddress"></a>
+        <a name="accountByAddress"></a>
+        <div class="functionHeader">
+        
+        def accountByAddress(self, username, domain):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">username</td><td> (type: <code>unicode</code> without NUL
+)</td></tr><tr><td></td><td class="fieldArg">domain</td><td> (type: <code>unicode</code> without NUL
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginBase.addAccount"></a>
+        <a name="addAccount"></a>
+        <div class="functionHeader">
+        
+        def addAccount(self, username, domain, password, avatars=None, protocol=u'email', disabled=0, internal=False, verified=True):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Create a user account, add it to this LoginBase, and return it.</p>
+This method must be called within a transaction in my store.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">username</td><td>the user's name.
+</td></tr><tr><td></td><td class="fieldArg">domain</td><td>the domain part of the user's name [XXX TODO: this really ought to say 
+something about whether it's a Q2Q domain, a SIP domain, an HTTP realm, or 
+an email address domain - right now the assumption is generally that it's 
+an email address domain, but not always]
+</td></tr><tr><td></td><td class="fieldArg">password</td><td>A shared secret.
+</td></tr><tr><td></td><td class="fieldArg">avatars</td><td>(Optional).  A SubStore which, if passed, will be used by cred as the 
+target of all adaptations for this user.  By default, I will create a 
+SubStore, and plugins can be installed on that substore using the powerUp 
+method to provide implementations of cred client interfaces.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">an instance of a LoginAccount, with all attributes filled out as they 
+are passed in, stored in my store.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">DuplicateUniqueItem</td><td>if the 'avatars' argument already contains a LoginAccount.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginBase.logoutFactory"></a>
+        <a name="logoutFactory"></a>
+        <div class="functionHeader">
+        
+        def logoutFactory(self, obj):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginBase.requestAvatar"></a>
+        <a name="requestAvatar"></a>
+        <div class="functionHeader">
+        
+        def requestAvatar(self, avatarId, mind, *interfaces):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.userbase.LoginBase.requestAvatarId"></a>
+        <a name="requestAvatarId"></a>
+        <div class="functionHeader">
+        
+        def requestAvatarId(self, credentials):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

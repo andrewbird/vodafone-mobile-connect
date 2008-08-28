@@ -1,0 +1,38 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><title>Vodafone Mobile Connect Card driver for Linux Documentation:Vodafone Mobile Connect Card driver for Linux overview</title><link href="stylesheet.css" type="text/css" rel="stylesheet" /></head><body bgcolor="white"><h1 class="title">Vodafone Mobile Connect Card driver for Linux overview</h1><div class="toc"><ol><li><a href="#auto0">Introduction</a></li><li><a href="#auto1">The big picture</a></li><ul><li><a href="#auto2">The big picture explained</a></li></ul></ol></div><div class="content"><span></span><h2>Introduction<a name="auto0"></a></h2><p>Vodafone Mobile Connect Card driver for Linux is a 3G device manager
+originally written in Python for the Linux OS <a href="#footnote-1" title="although there are some secret plans to port it to other OSes such as *BSD, Windows, OS X, etc. Being Python multiplatform, you are only really constrained by Twisted's support of your chosen GUI toolkit."><super>1</super></a>.
+
+Some of its features are:</p><ul><li>Pluggable architecture that can be extended by plugins</li><li>Make mobile data connections over the network</li><li>Send, receive and manage SMS from your computer</li><li>CRUD interface for contacts</li><li>Operator-agnostic (can be used by customers of other companies)</li></ul><h2>The big picture<a name="auto1"></a></h2><p>Vodafone Mobile Connect Card driver for Linux architecture is
+relatively simple, the code is divided in two big blocks: <b>Core</b> and
+<b>GUI</b>. While Core provides all the low-level communication with the 3G
+device, GUI is just the interface to the application.</p><img src="images/overview.png" /><h3>The big picture explained<a name="auto2"></a></h3><p>The above image shows the different stacks of components and how they
+rely on each other. All the light-violet boxes are internal components,
+while the black and white boxes are external components that this
+software relies on. This diagram is oversimplified and only shows some
+of the components, the actual UML diagram has more than 170 classes.</p><p>As we can see in the core layer, the
+<a href="http://www.twistedmatrix.com">Twisted</a> framework sits at the
+heart of this application. Vodafone Mobile Connect Card driver for Linux
+sports an asynchronous core built upon the superb Twisted framework.</p><p>The <code class="API"><a href="api/vmc.common.hardware.HardwareRegistry.html" title="vmc.common.hardware.HardwareRegistry">vmc.common.hardware.HardwareRegistry</a></code> class
+manages all the device discovery on Unix/Linux systems through
+<a href="http://dbus.freedesktop.org">DBus</a>. The
+<code class="API"><a href="api/vmc.common.hardware.DeviceListener.html" title="vmc.common.hardware.DeviceListener">vmc.common.hardware.DeviceListener</a></code> class listens
+for DeviceAdded and DeviceRemoved signals and informs the upper layers
+accordingly.</p><p>A device found through the HardwareRegistry will be attached to the
+<code class="API"><a href="api/vmc.common.protocol.SIMCardConnection.html" title="vmc.common.protocol.SIMCardConnection">SIMCardConnection</a></code> class.
+This class provides the necessary methods to interact with the 3G device,
+like reading all the contacts in the SIM card or obtaining the IMSI
+number. <code class="API"><a href="api/vmc.common.protocol.SIMCardConnection.html" title="vmc.common.protocol.SIMCardConnection">SIMCardConnection</a></code>
+is wrapped by
+<code class="API"><a href="api/vmc.common.protocol.SIMCardConnAdapter.html" title="vmc.common.protocol.SIMCardConnAdapter">SIMCardConnAdapter</a></code>.
+SIMCardConnAdapter encapsulates error control and high-level operations
+over the SIMCardConnection class.</p><p><code class="API"><a href="api/vmc.common.protocol.WVDialProtocol.html" title="vmc.common.protocol.WVDialProtocol">WVDialProtocol</a></code> is
+used while connecting to the Internet. Vodafone Mobile Connect Card driver
+for Linux uses <a href="http://open.nit.ca/wvdial">wvdial</a> for the PPP
+dialing. The WVDialProtocol class manages and monitors wvdial, it will
+issue signals to the upper layers informing of any errors or exceptions
+occurred.</p><h2>Footnotes</h2><ol><li><a name="footnote-1"><span class="footnote">although
+there are some secret plans to port it to other OSes such as *BSD, Windows,
+OS X, etc. Being Python multiplatform, you are only really constrained by
+Twisted's
+<a href="http://twistedmatrix.com/projects/core/documentation/howto/choosing-reactor.html">support</a>
+of your chosen GUI toolkit.</span></a></li></ol></div><p><a href="index.html">Index</a></p></body></html>

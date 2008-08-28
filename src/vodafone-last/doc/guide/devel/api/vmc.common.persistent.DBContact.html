@@ -1,0 +1,439 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.persistent.DBContact&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.p.DBContact(<a href="vmc.contrib.axiom.item.Item.html">item.Item</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.persistent.html">persistent</a></span>
+      
+      <a href="classIndex.html#vmc.common.persistent.DBContact">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Implements interfaces: <a href="vmc.common.interfaces.IContact.html">vmc.common.interfaces.IContact</a></p>
+    </div>
+    <div>I represent a contact on the DB
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id357">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#__repr__">__repr__</a></td>
+    <td><span>Return a nice string representation of the Item which contains some
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#__eq__">__eq__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#__ne__">__ne__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#get_index">get_index</a></td>
+    <td><span>Returns the contact's index
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#get_name">get_name</a></td>
+    <td><span>Returns the contact's name
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#get_number">get_number</a></td>
+    <td><span>Returns the contact's number
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.persistent.DBContact.html#to_csv">to_csv</a></td>
+    <td><span>Returns a list with the name and number formatted for csv
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.item.Item.html">Item</a>:
+        </p>
+        <table class="children sortable" id="id358">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_currentlyValidAsReferentFor">_currentlyValidAsReferentFor</a></td>
+    <td><span>Is this object currently valid as a reference?  Objects which will 
+be
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_schemaPrepareInsert">_schemaPrepareInsert</a></td>
+    <td><span>Prepare each attribute in my schema for insertion into a given 
+store,
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#store">store</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__subinit__">__subinit__</a></td>
+    <td><span>Initializer called regardless of whether this object was created by
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__init__">__init__</a></td>
+    <td><span>Create a new Item.  This is called on an item *only* when it is being 
+created
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#__finalizer__">__finalizer__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#existingInStore">existingInStore</a></td>
+    <td><span>Create and return a new instance from a row from the store.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#activate">activate</a></td>
+    <td><span>The object was loaded from the store.
+</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#getSchema">getSchema</a></td>
+    <td><span>return all persistent class attributes
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#persistentValues">persistentValues</a></td>
+    <td><span>Return a dictionary of all attributes which will be/have been/are 
+being
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#touch">touch</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#revert">revert</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#deleted">deleted</a></td>
+    <td><span>User-definable callback that is invoked when an object is well and 
+truly
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#stored">stored</a></td>
+    <td><span>User-definable callback that is invoked when an object is placed into 
+a
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#committed">committed</a></td>
+    <td><span>Called after the database is brought into a consistent state with 
+this
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#checkpoint">checkpoint</a></td>
+    <td><span>Update the database to reflect in-memory changes made to this item; 
+for
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#upgradeVersion">upgradeVersion</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#deleteFromStore">deleteFromStore</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_baseSelectSQL">_baseSelectSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_baseInsertSQL">_baseInsertSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_baseDeleteSQL">_baseDeleteSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#_updateSQL">_updateSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#getTableName">getTableName</a></td>
+    <td><span>Retrieve a string naming the database table associated with this 
+item
+</span></td>
+  </tr><tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.item.Item.html#getTableAlias">getTableAlias</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.item.Empowered.html">Empowered</a> (via <a href="vmc.contrib.axiom.item.Item.html">Item</a>):
+        </p>
+        <table class="children sortable" id="id359">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerUp">powerUp</a></td>
+    <td><span>Installs a powerup (e.g. plugin) on an item or store.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerDown">powerDown</a></td>
+    <td><span>Remove a powerup.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#__conform__">__conform__</a></td>
+    <td><span>For 'normal' interfaces, returns the first powerup found when doing
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerupsFor">powerupsFor</a></td>
+    <td><span>Returns powerups installed using <code>powerUp</code>, in order of 
+descending
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#interfacesFor">interfacesFor</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.slotmachine._Strict.html">_Strict</a> (via <a href="vmc.contrib.axiom.item.Item.html">Item</a>):
+        </p>
+        <table class="children sortable" id="id360">
+  
+  
+  
+  
+  <tr class="baseclassmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.axiom.slotmachine._Strict.html#__bases">__bases</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.slotmachine._Strict.html#__getDescriptor">__getDescriptor</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.slotmachine._Strict.html#__setattr__">__setattr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.persistent.DBContact.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.axiom.item.Item.html#__repr__">vmc.contrib.axiom.item.Item.__repr__</a></div>
+          <div>Return a nice string representation of the Item which contains some 
+information about each of its attributes.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.persistent.DBContact.__eq__"></a>
+        <a name="__eq__"></a>
+        <div class="functionHeader">
+        
+        def __eq__(self, c):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.persistent.DBContact.__ne__"></a>
+        <a name="__ne__"></a>
+        <div class="functionHeader">
+        
+        def __ne__(self, c):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.persistent.DBContact.get_index"></a>
+        <a name="get_index"></a>
+        <div class="functionHeader">
+        
+        def get_index(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IContact.html#get_index">vmc.common.interfaces.IContact</a></div>
+          <div>Returns the contact's index
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.persistent.DBContact.get_name"></a>
+        <a name="get_name"></a>
+        <div class="functionHeader">
+        
+        def get_name(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IContact.html#get_name">vmc.common.interfaces.IContact</a></div>
+          <div>Returns the contact's name
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.persistent.DBContact.get_number"></a>
+        <a name="get_number"></a>
+        <div class="functionHeader">
+        
+        def get_number(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IContact.html#get_number">vmc.common.interfaces.IContact</a></div>
+          <div>Returns the contact's number
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.persistent.DBContact.to_csv"></a>
+        <a name="to_csv"></a>
+        <div class="functionHeader">
+        
+        def to_csv(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IContact.html#to_csv">vmc.common.interfaces.IContact</a></div>
+          <div>Returns a list with the name and number formatted for csv
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

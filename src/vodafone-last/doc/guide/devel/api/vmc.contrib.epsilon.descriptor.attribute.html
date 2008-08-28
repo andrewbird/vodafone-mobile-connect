@@ -1,0 +1,199 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.epsilon.descriptor.attribute&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.e.d.attribute(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.epsilon.html">epsilon</a>.<a href="vmc.contrib.epsilon.descriptor.html">descriptor</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.epsilon.descriptor.attribute">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.axiom.scheduler.Scheduler.running.html">vmc.contrib.axiom.scheduler.Scheduler.running</a></p>
+    </div>
+    <div>Convenience class for providing one-shot descriptors, similar to 
+'property'.  For example:
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">from</span> epsilon.descriptor <span class="py-keyword">import</span> attribute
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">Dynamo</span>(object):
+<span class="py-more">... </span> <span class="py-keyword">class</span> <span class="py-defname">dynamic</span>(attribute):
+<span class="py-more">... </span>  <span class="py-keyword">def</span> <span class="py-defname">get</span>(self):
+<span class="py-more">... </span>   self.dynCount += 1
+<span class="py-more">... </span>   return self.dynCount
+<span class="py-more">... </span>  <span class="py-keyword">def</span> <span class="py-defname">set</span>(self, value):
+<span class="py-more">... </span>   self.dynCount += value
+<span class="py-more">... </span> dynCount = 0
+<span class="py-more">...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>d = Dynamo()
+<span class="py-prompt">&gt;&gt;&gt; </span>d.dynamic
+<span class="py-output">1</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>d.dynamic
+<span class="py-output">2</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>d.dynamic = 6
+<span class="py-prompt">&gt;&gt;&gt; </span>d.dynamic
+<span class="py-output">9</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>d.dynamic
+<span class="py-output">10</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">del</span> d.dynamic
+<span class="py-except">Traceback (most recent call last):</span>
+<span class="py-except">    ...</span>
+<span class="py-except">AttributeError: attribute cannot be removed</span></pre>
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id789">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.descriptor.attribute.html#__get__">__get__</a></td>
+    <td><span>Private implementation of descriptor interface.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.descriptor.attribute.html#__set__">__set__</a></td>
+    <td><span>Private implementation of descriptor interface.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.descriptor.attribute.html#__delete__">__delete__</a></td>
+    <td><span>Private implementation of descriptor interface.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.descriptor.attribute.html#set">set</a></td>
+    <td><span>Implement this method to provide attribute setting.  Default 
+behavior
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.descriptor.attribute.html#get">get</a></td>
+    <td><span>Implement this method to provide attribute retrieval.  Default 
+behavior
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.descriptor.attribute.html#delete">delete</a></td>
+    <td><span>Implement this method to provide attribute deletion.  Default 
+behavior
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.epsilon.descriptor.attribute.__get__"></a>
+        <a name="__get__"></a>
+        <div class="functionHeader">
+        
+        def __get__(self, oself, type):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Private implementation of descriptor interface.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.descriptor.attribute.__set__"></a>
+        <a name="__set__"></a>
+        <div class="functionHeader">
+        
+        def __set__(self, oself, value):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Private implementation of descriptor interface.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.descriptor.attribute.__delete__"></a>
+        <a name="__delete__"></a>
+        <div class="functionHeader">
+        
+        def __delete__(self, oself):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Private implementation of descriptor interface.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.descriptor.attribute.set"></a>
+        <a name="set"></a>
+        <div class="functionHeader">
+        
+        def set(self, value):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.scheduler.Scheduler.running.html">vmc.contrib.axiom.scheduler.Scheduler.running</a></div>
+          <div>Implement this method to provide attribute setting.  Default behavior is
+that attributes are not settable.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.descriptor.attribute.get"></a>
+        <a name="get"></a>
+        <div class="functionHeader">
+        
+        def get(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.scheduler.Scheduler.running.html">vmc.contrib.axiom.scheduler.Scheduler.running</a></div>
+          <div>Implement this method to provide attribute retrieval.  Default behavior 
+is that unset attributes do not have any value.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.descriptor.attribute.delete"></a>
+        <a name="delete"></a>
+        <div class="functionHeader">
+        
+        def delete(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Implement this method to provide attribute deletion.  Default behavior 
+is that attributes cannot be deleted.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

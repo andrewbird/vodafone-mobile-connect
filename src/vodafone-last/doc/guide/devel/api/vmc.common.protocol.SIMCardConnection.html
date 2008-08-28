@@ -1,0 +1,1194 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.protocol.SIMCardConnection&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.p.SIMCardConnection(<a href="vmc.common.protocol.SIMProtocol.html">SIMProtocol</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.protocol.html">protocol</a></span>
+      
+      <a href="classIndex.html#vmc.common.protocol.SIMCardConnection">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></p>
+    </div>
+    <div>SIMCardConnection provides several methods to interact with the SIM 
+card
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id351">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#add_contact">add_contact</a></td>
+    <td><span>Adds a contact to the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#add_sms">add_sms</a></td>
+    <td><span>Adds <code>sms</code> to the SIM and returns the index
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#change_pin">change_pin</a></td>
+    <td><span>Changes <code>oldpin</code> to <code>newpin</code> in the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#check_pin">check_pin</a></td>
+    <td><span>Checks what's necessary to authenticate against the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#delete_all_contacts">delete_all_contacts</a></td>
+    <td><span>Deletes all the contacts in SIM card, function useful for tests
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#delete_all_sms">delete_all_sms</a></td>
+    <td><span>Deletes all the messages in SIM card, function useful for tests
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#delete_contact">delete_contact</a></td>
+    <td><span>Deletes the contact specified by index
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#delete_sms">delete_sms</a></td>
+    <td><span>Deletes the message specified by index
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#disable_echo">disable_echo</a></td>
+    <td><span>Disables echo of AT cmds
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#disable_pin">disable_pin</a></td>
+    <td><span>Disables pin authentication at startup
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#enable_pin">enable_pin</a></td>
+    <td><span>Enables pin authentication at startup
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#find_contacts">find_contacts</a></td>
+    <td><span>Returns a list of contacts that match the given pattern
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_contact_by_index">get_contact_by_index</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_contacts">get_contacts</a></td>
+    <td><span>Returns a list with all the contacts stored in the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_available_charset">get_available_charset</a></td>
+    <td><span>Returns the available character sets
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_card_version">get_card_version</a></td>
+    <td><span>Returns the SIM card version
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_card_model">get_card_model</a></td>
+    <td><span>Returns the SIM card model
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_charset">get_charset</a></td>
+    <td><span>Returns the current character set name
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_imei">get_imei</a></td>
+    <td><span>Returns the IMEI number of the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_imsi">get_imsi</a></td>
+    <td><span>Returns the IMSI number of the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_manufacturer_name">get_manufacturer_name</a></td>
+    <td><span>Returns the manufacturer name of the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_netreg_status">get_netreg_status</a></td>
+    <td><span>Returns the network registration status
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_network_info">get_network_info</a></td>
+    <td><span>Returns a tuple with the network info
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_network_names">get_network_names</a></td>
+    <td><span>Returns a tuple with the network info
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_roaming_ids">get_roaming_ids</a></td>
+    <td><span>Returns a list with the networks we can register with
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_free_contact_ids">get_free_contact_ids</a></td>
+    <td><span>Returns a deque with the not used contact ids
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_next_contact_id">get_next_contact_id</a></td>
+    <td><span>Returns the next free contact id
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_signal_level">get_signal_level</a></td>
+    <td><span>Returns a tuple with the RSSI and BER of the connection
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_sms">get_sms</a></td>
+    <td><span>Returns a list with all the messages stored in the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_sms_by_index">get_sms_by_index</a></td>
+    <td><span>Returns the message stored at index
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_smsc">get_smsc</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_phonebook_size">get_phonebook_size</a></td>
+    <td><span>Returns the phonebook size of the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_pin_status">get_pin_status</a></td>
+    <td><span>Checks wether the pin is enabled or disabled
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_used_contact_ids">get_used_contact_ids</a></td>
+    <td><span>Returns a list with the used contact ids
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#get_used_sms_ids">get_used_sms_ids</a></td>
+    <td><span>Returns a list with used SMS ids in the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#register_with_network">register_with_network</a></td>
+    <td><span>Registers with the given netid
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#reset_settings">reset_settings</a></td>
+    <td><span>Resets the settings to factory settings
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#send_at">send_at</a></td>
+    <td><span>Send an arbitrary AT string to the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#send_pin">send_pin</a></td>
+    <td><span>Sends the PIN to the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#send_puk">send_puk</a></td>
+    <td><span>Sends PUK and PIN to the SIM card
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#send_sms">send_sms</a></td>
+    <td><span>Sends the given pdu and returns the index
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#set_charset">set_charset</a></td>
+    <td><span>Sets the character set used on the SIM
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#set_netreg_notification">set_netreg_notification</a></td>
+    <td><span>Sets CREG unsolicited notification
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#set_network_info_format">set_network_info_format</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#set_sms_format">set_sms_format</a></td>
+    <td><span>Sets the format of the SMS
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#set_sms_indication">set_sms_indication</a></td>
+    <td><span>Sets the SMS indication mode
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMCardConnection.html#set_smsc">set_smsc</a></td>
+    <td><span>Sets the SMSC
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.protocol.SIMProtocol.html">SIMProtocol</a>:
+        </p>
+        <table class="children sortable" id="id352">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#transition_to_idle">transition_to_idle</a></td>
+    <td><span>Transitions to idle and processes next queued <code>ATCmd</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#send_splitcmd">send_splitcmd</a></td>
+    <td><span>Used to send the second part of a split command after prompt appears
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#_process_at_cmd">_process_at_cmd</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#_check_queue">_check_queue</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#queue_at_cmd">queue_at_cmd</a></td>
+    <td><span>Queues an <code>ATCmd</code> and returns a deferred
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.protocol.BufferingStateMachine.html">BufferingStateMachine</a> (via <a href="vmc.common.protocol.SIMProtocol.html">SIMProtocol</a>):
+        </p>
+        <table class="children sortable" id="id353">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#_timeout_eb">_timeout_eb</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#cancel_current_delayed_call">cancel_current_delayed_call</a></td>
+    <td><span>Cancels current <code>ATCmd</code> dellayed call if active
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#notify_success">notify_success</a></td>
+    <td><span>Notify success to current <code>ATCmd</code> callbacks
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#notify_failure">notify_failure</a></td>
+    <td><span>Notify failure to current <code>ATCmd</code> errbacks
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#set_cmd">set_cmd</a></td>
+    <td><span>Sets self.cmd to <code>cmd</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#set_state">set_state</a></td>
+    <td><span>Sets and logs the new state
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#enque_notification">enque_notification</a></td>
+    <td><span>Enqueues a notification
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#dataReceived">dataReceived</a></td>
+    <td><span>See <code>twisted.internet.protocol.Protocol.dataReceived</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#process_notifications">process_notifications</a></td>
+    <td><span>Processes unsolicited notifications in <code>buffer</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#handle_idle">handle_idle</a></td>
+    <td><span>See the method comments
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#handle_waiting">handle_waiting</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, device):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.protocol.SIMProtocol.html#__init__">vmc.common.protocol.SIMProtocol.__init__</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.add_contact"></a>
+        <a name="add_contact"></a>
+        <div class="functionHeader">
+        
+        def add_contact(self, name, number, index):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Adds a contact to the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.add_sms"></a>
+        <a name="add_sms"></a>
+        <div class="functionHeader">
+        
+        def add_sms(self, pdu_len, pdu):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Adds <code>sms</code> to the SIM and returns the index
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.change_pin"></a>
+        <a name="change_pin"></a>
+        <div class="functionHeader">
+        
+        def change_pin(self, oldpin, newpin):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Changes <code>oldpin</code> to <code>newpin</code> in the SIM card
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">oldpin</td><td> (type: <code>str</code>
+)</td></tr><tr><td></td><td class="fieldArg">newpin</td><td> (type: <code>str</code>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">If everything goes well, it will return an 'OK' through the callback, 
+otherwise it will raise an exception.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.ATError</td><td>When the password is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorIncorrectPassword</td><td>When the password is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.InputValueError</td><td>When the PIN != \d{4}
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.check_pin"></a>
+        <a name="check_pin"></a>
+        <div class="functionHeader">
+        
+        def check_pin(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Checks what's necessary to authenticate against the SIM card
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">If everything goes well, it will return one of the following
+<ol start="1">
+  <li>
+    +CPIN: READY
+  </li>
+  <li>
+    +CPIN: SIM PIN
+  </li>
+  <li>
+    +CPIN: SIM PUK
+  </li>
+  <li>
+    +CPIN: SIM PUK2
+  </li>
+</ol>
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.CMEErrorSIMBusy</td><td>When the SIM is not ready
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorSIMNotStarted</td><td>When the SIM is not ready
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorSIMFailure</td><td>This exception is raised by GlobeTrotter's 3G cards (without HSDPA) when
+PIN authentication is disabled
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.delete_all_contacts"></a>
+        <a name="delete_all_contacts"></a>
+        <div class="functionHeader">
+        
+        def delete_all_contacts(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Deletes all the contacts in SIM card, function useful for tests
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.delete_all_sms"></a>
+        <a name="delete_all_sms"></a>
+        <div class="functionHeader">
+        
+        def delete_all_sms(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Deletes all the messages in SIM card, function useful for tests
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.delete_contact"></a>
+        <a name="delete_contact"></a>
+        <div class="functionHeader">
+        
+        def delete_contact(self, index):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Deletes the contact specified by index
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.delete_sms"></a>
+        <a name="delete_sms"></a>
+        <div class="functionHeader">
+        
+        def delete_sms(self, index):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Deletes the message specified by index
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.disable_echo"></a>
+        <a name="disable_echo"></a>
+        <div class="functionHeader">
+        
+        def disable_echo(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Disables echo of AT cmds
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.disable_pin"></a>
+        <a name="disable_pin"></a>
+        <div class="functionHeader">
+        
+        def disable_pin(self, pin):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Disables pin authentication at startup
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">pin</td><td> (type: <code>int</code>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">If everything goes well, it will return an 'OK' through the callback, 
+otherwise it will raise an exception.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.ATError</td><td>When the PIN is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorIncorrectPassword</td><td>When the PIN is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.InputValueError</td><td>When the PIN != \d{4}
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.enable_pin"></a>
+        <a name="enable_pin"></a>
+        <div class="functionHeader">
+        
+        def enable_pin(self, pin):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Enables pin authentication at startup
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">pin</td><td> (type: <code>int</code>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">If everything goes well, it will return an 'OK' through the callback, 
+otherwise it will raise an exception.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.ATError</td><td>When the PIN is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorIncorrectPassword</td><td>When the PIN is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.InputValueError</td><td>When the PIN != \d{4}
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.find_contacts"></a>
+        <a name="find_contacts"></a>
+        <div class="functionHeader">
+        
+        def find_contacts(self, pattern):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a list of contacts that match the given pattern
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_contact_by_index"></a>
+        <a name="get_contact_by_index"></a>
+        <div class="functionHeader">
+        
+        def get_contact_by_index(self, index):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_contacts"></a>
+        <a name="get_contacts"></a>
+        <div class="functionHeader">
+        
+        def get_contacts(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a list with all the contacts stored in the SIM card
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Returns a list of <code>re.MatchObject</code> with the contacts.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.ATError</td><td>When no contacts are found.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorNotFound</td><td>When no contacts are found.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorSIMBusy</td><td>When the SIM is not ready.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorSIMNotStarted</td><td>When the SIM is not ready.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_available_charset"></a>
+        <a name="get_available_charset"></a>
+        <div class="functionHeader">
+        
+        def get_available_charset(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the available character sets
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_card_version"></a>
+        <a name="get_card_version"></a>
+        <div class="functionHeader">
+        
+        def get_card_version(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the SIM card version
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_card_model"></a>
+        <a name="get_card_model"></a>
+        <div class="functionHeader">
+        
+        def get_card_model(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the SIM card model
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_charset"></a>
+        <a name="get_charset"></a>
+        <div class="functionHeader">
+        
+        def get_charset(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the current character set name
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_imei"></a>
+        <a name="get_imei"></a>
+        <div class="functionHeader">
+        
+        def get_imei(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the IMEI number of the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_imsi"></a>
+        <a name="get_imsi"></a>
+        <div class="functionHeader">
+        
+        def get_imsi(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the IMSI number of the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_manufacturer_name"></a>
+        <a name="get_manufacturer_name"></a>
+        <div class="functionHeader">
+        
+        def get_manufacturer_name(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the manufacturer name of the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_netreg_status"></a>
+        <a name="get_netreg_status"></a>
+        <div class="functionHeader">
+        
+        def get_netreg_status(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the network registration status
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_network_info"></a>
+        <a name="get_network_info"></a>
+        <div class="functionHeader">
+        
+        def get_network_info(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a tuple with the network info
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_network_names"></a>
+        <a name="get_network_names"></a>
+        <div class="functionHeader">
+        
+        def get_network_names(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a tuple with the network info
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_roaming_ids"></a>
+        <a name="get_roaming_ids"></a>
+        <div class="functionHeader">
+        
+        def get_roaming_ids(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a list with the networks we can register with
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_free_contact_ids"></a>
+        <a name="get_free_contact_ids"></a>
+        <div class="functionHeader">
+        
+        def get_free_contact_ids(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a deque with the not used contact ids
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_next_contact_id"></a>
+        <a name="get_next_contact_id"></a>
+        <div class="functionHeader">
+        
+        def get_next_contact_id(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns the next free contact id
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_signal_level"></a>
+        <a name="get_signal_level"></a>
+        <div class="functionHeader">
+        
+        def get_signal_level(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a tuple with the RSSI and BER of the connection
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_sms"></a>
+        <a name="get_sms"></a>
+        <div class="functionHeader">
+        
+        def get_sms(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a list with all the messages stored in the SIM card
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Returns a list of <code>re.MatchObject</code> with the messages.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.ATError</td><td>When no messages are found.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorNotFound</td><td>When no messages are found.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorSIMBusy</td><td>When the SIM is not ready.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorSIMNotStarted</td><td>When the SIM is not ready.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMSError500</td><td>When the SIM is not ready.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_sms_by_index"></a>
+        <a name="get_sms_by_index"></a>
+        <div class="functionHeader">
+        
+        def get_sms_by_index(self, index):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the message stored at index
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_smsc"></a>
+        <a name="get_smsc"></a>
+        <div class="functionHeader">
+        
+        def get_smsc(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_phonebook_size"></a>
+        <a name="get_phonebook_size"></a>
+        <div class="functionHeader">
+        
+        def get_phonebook_size(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns the phonebook size of the SIM card
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">A <code>re.MatchObject</code> with the size of the phonebook
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.CMEErrorSIMBusy</td><td>When the SIM is not ready.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMSError500</td><td>When the SIM is not ready.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.ATError</td><td>When the SIM is not ready.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_pin_status"></a>
+        <a name="get_pin_status"></a>
+        <div class="functionHeader">
+        
+        def get_pin_status(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Checks wether the pin is enabled or disabled
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_used_contact_ids"></a>
+        <a name="get_used_contact_ids"></a>
+        <div class="functionHeader">
+        
+        def get_used_contact_ids(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a list with the used contact ids
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.get_used_sms_ids"></a>
+        <a name="get_used_sms_ids"></a>
+        <div class="functionHeader">
+        
+        def get_used_sms_ids(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Returns a list with used SMS ids in the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.register_with_network"></a>
+        <a name="register_with_network"></a>
+        <div class="functionHeader">
+        
+        def register_with_network(self, netid, mode=1, format=2):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Registers with the given netid
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.reset_settings"></a>
+        <a name="reset_settings"></a>
+        <div class="functionHeader">
+        
+        def reset_settings(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Resets the settings to factory settings
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.send_at"></a>
+        <a name="send_at"></a>
+        <div class="functionHeader">
+        
+        def send_at(self, at_str):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Send an arbitrary AT string to the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.send_pin"></a>
+        <a name="send_pin"></a>
+        <div class="functionHeader">
+        
+        def send_pin(self, pin):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sends the PIN to the SIM card
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.send_puk"></a>
+        <a name="send_puk"></a>
+        <div class="functionHeader">
+        
+        def send_puk(self, puk, pin):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sends PUK and PIN to the SIM card
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><code>True</code> if everything went ok
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">common.exceptions.ATError</td><td>Exception raised by Nozomi when the PUK is incorrect.
+</td></tr><tr><td></td><td class="fieldArg">common.exceptions.CMEErrorIncorrectPassword</td><td>Exception raised when the PUK is incorrect.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.send_sms"></a>
+        <a name="send_sms"></a>
+        <div class="functionHeader">
+        
+        def send_sms(self, pdu, pdu_len):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Sends the given pdu and returns the index
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.set_charset"></a>
+        <a name="set_charset"></a>
+        <div class="functionHeader">
+        
+        def set_charset(self, charset):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Sets the character set used on the SIM
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.set_netreg_notification"></a>
+        <a name="set_netreg_notification"></a>
+        <div class="functionHeader">
+        
+        def set_netreg_notification(self, val=1):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sets CREG unsolicited notification
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.set_network_info_format"></a>
+        <a name="set_network_info_format"></a>
+        <div class="functionHeader">
+        
+        def set_network_info_format(self, mode=0, format=2):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.set_sms_format"></a>
+        <a name="set_sms_format"></a>
+        <div class="functionHeader">
+        
+        def set_sms_format(self, format=1):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sets the format of the SMS
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.set_sms_indication"></a>
+        <a name="set_sms_indication"></a>
+        <div class="functionHeader">
+        
+        def set_sms_indication(self, mode=2, mt=1, bm=0, ds=0, bfr=0):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sets the SMS indication mode
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMCardConnection.set_smsc"></a>
+        <a name="set_smsc"></a>
+        <div class="functionHeader">
+        
+        def set_smsc(self, number):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.middleware.SIMCardConnAdapter.html">vmc.common.middleware.SIMCardConnAdapter</a></div>
+          <div>Sets the SMSC
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

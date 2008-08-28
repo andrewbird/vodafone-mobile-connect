@@ -1,0 +1,313 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.interfaces.IOSPlugin&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="interface">Interface v.c.i.IOSPlugin(<a href="vmc.common.interfaces.IVMCPlugin.html">IVMCPlugin</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.interfaces.html">interfaces</a></span>
+      
+      <a href="classIndex.html#vmc.common.interfaces.IOSPlugin">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known implementations: <a href="vmc.common.plugin.OSPlugin.html">vmc.common.plugin.OSPlugin</a></p>
+    </div>
+    <div class="undocumented">No interface docstring</div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id321">
+  
+  
+  
+  
+  <tr class="attribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#distrib_id">distrib_id</a></td>
+    <td><span>Name of the OS/Distro
+</span></td>
+  </tr><tr class="attribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#distrib_version">distrib_version</a></td>
+    <td><span>Version of the OS/Distro
+</span></td>
+  </tr><tr class="attribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#abstraction">abstraction</a></td>
+    <td><span>Dict with the 'abstraction_name, value' pairs
+</span></td>
+  </tr><tr class="attribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#customization">customization</a></td>
+    <td><span>Dict with all the abstractions updates
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#check_dialer_assumptions">check_dialer_assumptions</a></td>
+    <td><span>Returns a message with whatever error happened configuring the 
+dialer
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#get_connection_args">get_connection_args</a></td>
+    <td><span>Returns the args necessary to start wvdial
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#get_disconnection_args">get_disconnection_args</a></td>
+    <td><span>Returns the args necessary to stop wvdial
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#get_iface_stats">get_iface_stats</a></td>
+    <td><span>Returns a list with bits recv, sent for <code>iface</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#get_timezone">get_timezone</a></td>
+    <td><span>Returns the timezone of the OS
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#get_tzinfo">get_tzinfo</a></td>
+    <td><span>Returns a <code>tzinfo</code> instance relative to the timezone
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IOSPlugin.html#is_valid">is_valid</a></td>
+    <td><span>Returns True if we are on the given OS/Distro
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.interfaces.IVMCPlugin.html">IVMCPlugin</a>:
+        </p>
+        <table class="children sortable" id="id322">
+  
+  
+  
+  
+  <tr class="baseattribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IVMCPlugin.html#name">name</a></td>
+    <td><span>Plugin's name
+</span></td>
+  </tr><tr class="baseattribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IVMCPlugin.html#version">version</a></td>
+    <td><span>Plugin's version
+</span></td>
+  </tr><tr class="baseattribute">
+    
+    
+    <td>Attribute</td>
+    <td><a href="vmc.common.interfaces.IVMCPlugin.html#author">author</a></td>
+    <td><span>Plugin's author
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IVMCPlugin.html#initialize">initialize</a></td>
+    <td><span>Initializes the plugin
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.interfaces.IVMCPlugin.html#shutdown">shutdown</a></td>
+    <td><span>Closes the plugin
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.distrib_id"></a>
+        <a name="distrib_id"></a>
+        <div class="functionHeader">
+        distrib_id =
+      </div>
+        <div class="functionBody">
+          
+          <div>Name of the OS/Distro
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.distrib_version"></a>
+        <a name="distrib_version"></a>
+        <div class="functionHeader">
+        distrib_version =
+      </div>
+        <div class="functionBody">
+          
+          <div>Version of the OS/Distro
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.abstraction"></a>
+        <a name="abstraction"></a>
+        <div class="functionHeader">
+        abstraction =
+      </div>
+        <div class="functionBody">
+          
+          <div>Dict with the 'abstraction_name, value' pairs
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.customization"></a>
+        <a name="customization"></a>
+        <div class="functionHeader">
+        customization =
+      </div>
+        <div class="functionBody">
+          
+          <div>Dict with all the abstractions updates
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.check_dialer_assumptions"></a>
+        <a name="check_dialer_assumptions"></a>
+        <div class="functionHeader">
+        
+        def check_dialer_assumptions():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Returns a message with whatever error happened configuring the 
+dialer</p>
+It returns a tuple of message, detail if something went wrong and 
+returns None if every dialer assumption is met
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.get_connection_args"></a>
+        <a name="get_connection_args"></a>
+        <div class="functionHeader">
+        
+        def get_connection_args(wvdial_conf_path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Returns the args necessary to start wvdial</p>
+Some distributions ship with a setuid pppd, others don't. Thus what we 
+return here will mainly depend on each distribution.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.get_disconnection_args"></a>
+        <a name="get_disconnection_args"></a>
+        <div class="functionHeader">
+        
+        def get_disconnection_args():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns the args necessary to stop wvdial
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.get_iface_stats"></a>
+        <a name="get_iface_stats"></a>
+        <div class="functionHeader">
+        
+        def get_iface_stats(iface):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a list with bits recv, sent for <code>iface</code>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.get_timezone"></a>
+        <a name="get_timezone"></a>
+        <div class="functionHeader">
+        
+        def get_timezone():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns the timezone of the OS
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"> (type: str
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.get_tzinfo"></a>
+        <a name="get_tzinfo"></a>
+        <div class="functionHeader">
+        
+        def get_tzinfo():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a <code>tzinfo</code> instance relative to the timezone
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"> (type: datetime.tzinfo
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.interfaces.IOSPlugin.is_valid"></a>
+        <a name="is_valid"></a>
+        <div class="functionHeader">
+        
+        def is_valid(init_var):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns True if we are on the given OS/Distro
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.encoding&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="module">Module v.c.encoding</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a></span>
+      
+      
+    </p>
+    <div>
+      
+    </div>
+    <div class="undocumented">No module docstring</div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id346">
+  
+  
+  
+  
+  <tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#int2hexstr">int2hexstr</a></td>
+    <td><span>Returns the hex representation of <code>i</code>
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#swap">swap</a></td>
+    <td><span>Convert a string of numbers into the semi-octet representation
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#pack_7bit_bytes">pack_7bit_bytes</a></td>
+    <td><span>pack_7bit_bytes(&quot;hellohello&quot;) =&gt; 
+&quot;E8329BFD4697D9EC37&quot;
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#unpack_7bit_bytes">unpack_7bit_bytes</a></td>
+    <td><span>Decode 7 bit character strings packed into 8 bit byte strings
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#pack_8bit_bytes">pack_8bit_bytes</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#pack_ucs2_bytes">pack_ucs2_bytes</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#unpack_ucs2_bytes">unpack_ucs2_bytes</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#check_if_ucs2">check_if_ucs2</a></td>
+    <td><span>Returns True if <code>text</code> is a string encoded in UCS2
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#from_u">from_u</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#from_ucs2">from_ucs2</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.common.encoding.html#to_u">to_u</a></td>
+    <td><span>Returns a unicode object from <code>s</code> if <code>s</code> is not 
+unicode already
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.encoding.int2hexstr"></a>
+        <a name="int2hexstr"></a>
+        <div class="functionHeader">
+        
+        def int2hexstr(i):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns the hex representation of <code>i</code>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"> (type: str
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.swap"></a>
+        <a name="swap"></a>
+        <div class="functionHeader">
+        
+        def swap(source):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Convert a string of numbers into the semi-octet representation described
+in GSM 03.40, 9.1.2.3
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.pack_7bit_bytes"></a>
+        <a name="pack_7bit_bytes"></a>
+        <div class="functionHeader">
+        
+        def pack_7bit_bytes(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>pack_7bit_bytes(&quot;hellohello&quot;) =&gt; 
+&quot;E8329BFD4697D9EC37&quot;</p>
+Packs a series of 7-bit bytes into 8-bit bytes and then to ASCII strings
+as hexidecimal. See GSM 03.40, 9.1.2.1
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.unpack_7bit_bytes"></a>
+        <a name="unpack_7bit_bytes"></a>
+        <div class="functionHeader">
+        
+        def unpack_7bit_bytes(octets):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Decode 7 bit character strings packed into 8 bit byte strings
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.pack_8bit_bytes"></a>
+        <a name="pack_8bit_bytes"></a>
+        <div class="functionHeader">
+        
+        def pack_8bit_bytes(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.pack_ucs2_bytes"></a>
+        <a name="pack_ucs2_bytes"></a>
+        <div class="functionHeader">
+        
+        def pack_ucs2_bytes(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.unpack_ucs2_bytes"></a>
+        <a name="unpack_ucs2_bytes"></a>
+        <div class="functionHeader">
+        
+        def unpack_ucs2_bytes(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.check_if_ucs2"></a>
+        <a name="check_if_ucs2"></a>
+        <div class="functionHeader">
+        
+        def check_if_ucs2(text):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns True if <code>text</code> is a string encoded in UCS2
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.from_u"></a>
+        <a name="from_u"></a>
+        <div class="functionHeader">
+        
+        def from_u(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.from_ucs2"></a>
+        <a name="from_ucs2"></a>
+        <div class="functionHeader">
+        
+        def from_ucs2(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.encoding.to_u"></a>
+        <a name="to_u"></a>
+        <div class="functionHeader">
+        
+        def to_u(s):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a unicode object from <code>s</code> if <code>s</code> is not 
+unicode already
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

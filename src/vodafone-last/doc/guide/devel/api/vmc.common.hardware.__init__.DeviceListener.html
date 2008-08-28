@@ -1,0 +1,172 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.hardware.__init__.DeviceListener&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.h._.DeviceListener(<a href="vmc.common.hardware.__init__.DbusComponent.html">DbusComponent</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.hardware.html">hardware</a></span>
+      
+      <a href="classIndex.html#vmc.common.hardware.__init__.DeviceListener">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div><p>I listen for Device{Added,Removed} signals</p>
+If a new device is added and I don't have a registered device, I will 
+send a <code>vmc.common.notifications.SIG_DEVICE_ADDED</code> so the upper 
+parts of the system will do whatever they want to do with the device. If 
+the device in use is removed, I will notify the upper parts of the system 
+and they will act accordingly
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id255">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DeviceListener.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DeviceListener.html#register_handlers">register_handlers</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DeviceListener.html#device_added">device_added</a></td>
+    <td><span>Called when a device has been added
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DeviceListener.html#process_device_added">process_device_added</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DeviceListener.html#device_removed">device_removed</a></td>
+    <td><span>Called when a device has been removed
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.hardware.__init__.DbusComponent.html">DbusComponent</a>:
+        </p>
+        <table class="children sortable" id="id256">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DbusComponent.html#get_properties_from_udi">get_properties_from_udi</a></td>
+    <td><span>Returns all the properties from <code>udi</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.hardware.__init__.DbusComponent.html#get_devices_properties">get_devices_properties</a></td>
+    <td><span>Returns all the properties from all devices registed in HAL
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.hardware._dbus.DeviceListener.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, device):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.hardware.__init__.DbusComponent.html#__init__">vmc.common.hardware._dbus.DbusComponent.__init__</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.hardware._dbus.DeviceListener.register_handlers"></a>
+        <a name="register_handlers"></a>
+        <div class="functionHeader">
+        
+        def register_handlers(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.hardware._dbus.DeviceListener.device_added"></a>
+        <a name="device_added"></a>
+        <div class="functionHeader">
+        
+        def device_added(self, udi):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Called when a device has been added
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.hardware._dbus.DeviceListener.process_device_added"></a>
+        <a name="process_device_added"></a>
+        <div class="functionHeader">
+        
+        def process_device_added(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.hardware._dbus.DeviceListener.device_removed"></a>
+        <a name="device_removed"></a>
+        <div class="functionHeader">
+        
+        def device_removed(self, udi):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Called when a device has been removed
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

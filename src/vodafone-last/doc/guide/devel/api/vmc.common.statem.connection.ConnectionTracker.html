@@ -1,0 +1,165 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.statem.connection.ConnectionTracker&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.s.c.ConnectionTracker(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.statem.html">statem</a>.<a href="vmc.common.statem.connection.html">connection</a></span>
+      
+      <a href="classIndex.html#vmc.common.statem.connection.ConnectionTracker">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div><p>I keep track of a connection for accounting purposes</p>
+I detect connection changes and will add usage items whenever a new 
+connection mode change happens
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id236">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.connection.ConnectionTracker.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.connection.ConnectionTracker.html#set_conn_mode">set_conn_mode</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.connection.ConnectionTracker.html#connection_started">connection_started</a></td>
+    <td><span>Call it to start tracking the connection stats
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.connection.ConnectionTracker.html#add_current_usage">add_current_usage</a></td>
+    <td><span>Adds the current usage statistics to the database
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.connection.ConnectionTracker.html#get_current_usage">get_current_usage</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.connection.ConnectionTracker.html#on_notification_received">on_notification_received</a></td>
+    <td><span>ConnectStateMachine will notify us of SIG_NEW_CONN_MODE 
+notifications
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.statem.connection.ConnectionTracker.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.connection.ConnectionTracker.set_conn_mode"></a>
+        <a name="set_conn_mode"></a>
+        <div class="functionHeader">
+        
+        def set_conn_mode(self, mode):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.connection.ConnectionTracker.connection_started"></a>
+        <a name="connection_started"></a>
+        <div class="functionHeader">
+        
+        def connection_started(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Call it to start tracking the connection stats
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.connection.ConnectionTracker.add_current_usage"></a>
+        <a name="add_current_usage"></a>
+        <div class="functionHeader">
+        
+        def add_current_usage(self, restart=True):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Adds the current usage statistics to the database
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.connection.ConnectionTracker.get_current_usage"></a>
+        <a name="get_current_usage"></a>
+        <div class="functionHeader">
+        
+        def get_current_usage(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.connection.ConnectionTracker.on_notification_received"></a>
+        <a name="on_notification_received"></a>
+        <div class="functionHeader">
+        
+        def on_notification_received(self, notification):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>ConnectStateMachine will notify us of SIG_NEW_CONN_MODE 
+notifications
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

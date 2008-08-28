@@ -1,0 +1,178 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.store&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="module">Module v.c.a.store</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a></span>
+      
+      
+    </p>
+    <div>
+      
+    </div>
+    <div>This module holds the Axiom Store class and related classes, such as 
+queries.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id392">
+  
+  
+  
+  
+  <tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.NoEmptyItems.html">NoEmptyItems</a></td>
+    <td><span>You must define some attributes on every item.
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.AtomicFile.html">AtomicFile</a></td>
+    <td><span>I am a file which is moved from temporary to permanent storage when 
+it
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.store.html#storeServiceSpecialCase">storeServiceSpecialCase</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.BaseQuery.html">BaseQuery</a></td>
+    <td><span>This is the abstract base implementation of query logic shared between 
+item
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.ItemQuery.html">ItemQuery</a></td>
+    <td><span>This class is a query whose results will be Item instances.  This is 
+the
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.MultipleItemQuery.html">MultipleItemQuery</a></td>
+    <td><span>A query that returns tuples of Items from a join.
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.AttributeQuery.html">AttributeQuery</a></td>
+    <td><span>A query for the value of a single attribute from an item class, so as 
+to
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html">Store</a></td>
+    <td><span>I am a database that Axiom Items can be stored in.
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.store.html#timeinto">timeinto</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.store._mkdirIfNotExists"></a>
+        <a name="_mkdirIfNotExists"></a>
+        <div class="functionHeader">
+        
+        def _mkdirIfNotExists(dirname):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.storeServiceSpecialCase"></a>
+        <a name="storeServiceSpecialCase"></a>
+        <div class="functionHeader">
+        
+        def storeServiceSpecialCase(st, pups):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store._typeIsTotallyUnknown"></a>
+        <a name="_typeIsTotallyUnknown"></a>
+        <div class="functionHeader">
+        
+        def _typeIsTotallyUnknown(typename, version):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store._isColumnUnique"></a>
+        <a name="_isColumnUnique"></a>
+        <div class="functionHeader">
+        
+        def _isColumnUnique(col):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Determine if an IColumn provider is unique.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">col</td><td>an <a 
+href="vmc.contrib.axiom.iaxiom.IColumn.html"><code>IColumn</code></a> 
+provider
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">True if the IColumn provider is unique, False otherwise.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.timeinto"></a>
+        <a name="timeinto"></a>
+        <div class="functionHeader">
+        
+        def timeinto(l, f, *a, **k):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

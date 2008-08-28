@@ -1,0 +1,201 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.sim.SIMBaseClass&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.s.SIMBaseClass(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.sim.html">sim</a></span>
+      
+      <a href="classIndex.html#vmc.common.sim.SIMBaseClass">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.common.hardware.nokia.NokiaSIMBaseClass.html">vmc.common.hardware.nokia.NokiaSIMBaseClass</a>, <a href="vmc.common.hardware.option.OptionSIMClass.html">vmc.common.hardware.option.OptionSIMClass</a></p>
+    </div>
+    <div><p>I take care of initing the SIM</p>
+The actual details of initing the SIM vary from mobile to datacard, so I
+am the one to subclass in case your device needs a special startup
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id345">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.sim.SIMBaseClass.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.sim.SIMBaseClass.html#set_size">set_size</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.sim.SIMBaseClass.html#set_charset">set_charset</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.sim.SIMBaseClass.html#preinit">preinit</a></td>
+    <td><span>What I do:
+<pre class="literalblock">
+
+</pre>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.sim.SIMBaseClass.html#postinit">postinit</a></td>
+    <td><span>Returns a <code>Deferred</code> that will be callbacked when the SIM is 
+ready
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.sim.SIMBaseClass.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, sconn):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.hardware.nokia.NokiaSIMBaseClass.html">vmc.common.hardware.nokia.NokiaSIMBaseClass</a>, <a href="vmc.common.hardware.option.OptionSIMClass.html">vmc.common.hardware.option.OptionSIMClass</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass.set_size"></a>
+        <a name="set_size"></a>
+        <div class="functionHeader">
+        
+        def set_size(self, size):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass.set_charset"></a>
+        <a name="set_charset"></a>
+        <div class="functionHeader">
+        
+        def set_charset(self, charset):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass.preinit"></a>
+        <a name="preinit"></a>
+        <div class="functionHeader">
+        
+        def preinit(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>What I do:
+<pre class="literalblock">
+ - Reset settings
+ - Disable echo
+</pre>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass._set_charset"></a>
+        <a name="_set_charset"></a>
+        <div class="functionHeader">
+        
+        def _set_charset(self, charset):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Checks whether is necessary the change and memorizes the used 
+charset
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass._process_charsets"></a>
+        <a name="_process_charsets"></a>
+        <div class="functionHeader">
+        
+        def _process_charsets(self, charsets):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass._setup_encoding"></a>
+        <a name="_setup_encoding"></a>
+        <div class="functionHeader">
+        
+        def _setup_encoding(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.sim.SIMBaseClass.postinit"></a>
+        <a name="postinit"></a>
+        <div class="functionHeader">
+        
+        def postinit(self, set_encoding=True):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.hardware.option.OptionSIMClass.html">vmc.common.hardware.option.OptionSIMClass</a></div>
+          <div><p>Returns a <code>Deferred</code> that will be callbacked when the SIM is 
+ready</p>
+What I do:
+<pre class="literalblock">
+ - Set encoding to Unicode (if is possible, otherwise IRA or GSM
+ - Whenever a new SMS is received I will save a copy in the SIM and
+ will send a solicited SMS notification 
+ - Set SMS format to PDU
+</pre>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">ucs2</td><td>If True, it will set the SIM's enconding to UCS2
+ (type: bool
+)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">The SIM's phonebook size
+ (type: int
+)</td></tr></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

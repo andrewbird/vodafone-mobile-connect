@@ -1,0 +1,75 @@
+#!/usr/bin/make -f
+export DH_VERBOSE=1
+
+HOST_ARCH=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+
+build:
+	dh_testdir
+	make -C resources/po/ mo
+	# devices
+ifeq ($(HOST_ARCH), i386)
+	make -C contrib/e220/ compile
+	make -C contrib/option_icon/ compile
+else
+	cp contrib/e220/files/huaweiAktBbo.x86_64 contrib/e220/files/huaweiAktBbo
+	cp contrib/option_icon/files/icon_switch.x86_64 contrib/option_icon/files/icon_switch
+endif
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	rm -rf build dist
+	find . -name "*.pyc" | xargs rm -f
+	# locale
+	make -C resources/po/ clean
+	# devices
+	make -C contrib/e220/ clean
+	make -C contrib/option_icon clean
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	python setup.py install --root $(PWD)/debian/vodafone-mobile-connect-card-driver-for-linux
+	dh_install resources/po/locale usr/share
+	# Huawei E220 stuff...
+	dh_install contrib/e220/files/huaweiAktBbo usr/sbin/
+	dh_install contrib/e220/files/99-huawei-e220.rules etc/udev/rules.d/
+	# Option Icon stuff...
+	dh_install contrib/option_icon/files/icon_switch usr/sbin
+	dh_install contrib/option_icon/files/99-option-icon.rules etc/udev/rules.d/
+	# Novatel Ovation stuff...
+	dh_install contrib/ovation/files/ovation.sh usr/sbin/
+	dh_install contrib/ovation/files/99-novatel-ovation.rules etc/udev/rules.d/
+	# rest of the stuff...
+	dh_install resources/extra/95VMC-up etc/ppp/ip-up.d
+	dh_install resources/extra/95VMC-down etc/ppp/ip-down.d
+	dh_install INSTALL usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+	dh_install doc/guide usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+	dh_install LICENSE usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+	dh_install LICENSE.bsd usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+	dh_install LICENSE.gpl usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+	dh_install LICENSE.lgpl usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+	dh_install README usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
+
+binary-arch:  build install
+	dh_testdir
+	dh_testroot
+	dh_installdebconf
+	dh_installdocs
+	DH_PYCENTRAL=nomove dh_pycentral
+	dh_installchangelogs
+	dh_installdirs
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_builddeb
+
+binary: binary-indep binary-arch
+
+.PHONY: build clean install binary binary-indep binary-arch

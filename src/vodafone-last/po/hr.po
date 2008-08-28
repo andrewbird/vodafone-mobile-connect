@@ -1,0 +1,1775 @@
+# Copyright (C) 2007, Vodafone España S.A.
+# This file is distributed under the same license as the Vodafone Mobile
+# Connect Card driver for Linux package.
+# m1r0 <h15m1r0@gmail.com>, 2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.99.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-12-18 10:36+0100\n"
+"PO-Revision-Date: 2008-01-09 22:11+0100\n"
+"Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
+"Language-Team: Croatian <HR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/config.glade:8
+msgid "Device setup"
+msgstr "Postavke uređaja"
+
+#: ../glade/config.glade:34
+#, fuzzy
+msgid "Please select from the following options how do you want to connect to the Internet"
+msgstr ""
+"Molimo izaberite iz sljedećih\n"
+"opcija kako se želite\n"
+"spojiti na Internet"
+
+#: ../glade/config.glade:56
+msgid "Device model: "
+msgstr "Model uređaja:"
+
+#: ../glade/config.glade:63
+msgid "Connection:"
+msgstr "Veza:"
+
+#: ../glade/config.glade:153
+msgid "Bluetooth configuration"
+msgstr "Bluetooth konfiguracija"
+
+#: ../glade/config.glade:174
+msgid "Configure your <b>Bluetooth</b> device"
+msgstr "Podešavanje <b>Bluetooth</b> uređaja"
+
+#: ../glade/config.glade:198
+msgid ""
+"Make sure that your mobile has bluetooth enabled and is visible.\n"
+"You'll need a pass-key agent installed like bluez-gnome. Your\n"
+"connection can be automatically configured if your distribution\n"
+"sports a recent version of libbluetooth2. Otherwise you will\n"
+"have to configure it yourself and fill the relevant entries"
+msgstr ""
+"Provjerite ako vaš mobilni telefon ima uključen Bluetooth i da je vidljiv.\n"
+"Trebat će vam pass-key agent instaliran kao bluez-gnome.Vaša veza će biti automatski konfigurirana ako vaša distibucija ima posljednju verziju libbluetooth2.U suprotnom morate popuniti tražene podatke"
+
+#: ../glade/config.glade:250
+msgid "_Start discovery"
+msgstr "_Počni otkrivanje"
+
+#: ../glade/config.glade:301
+msgid "<b>Serial Port</b>"
+msgstr "<b>Serijski Port</b>"
+
+#: ../glade/config.glade:325
+msgid "Data port"
+msgstr "Podatkovni port"
+
+#: ../glade/config.glade:334
+msgid "Control port"
+msgstr "Kontrolni port"
+
+#: ../glade/config.glade:346
+msgid "Speed"
+msgstr "Brzina"
+
+#: ../glade/config.glade:440
+#, fuzzy
+msgid "<b>Connection settings</b>"
+msgstr "<b>Postavke veze</b>"
+
+#: ../glade/config.glade:461
+msgid "Enable hardware flow control"
+msgstr "Omogući hardverski protok podataka"
+
+#: ../glade/config.glade:474
+msgid "Enable software flow control"
+msgstr "Omogući softverski protok podataka"
+
+#: ../glade/config.glade:515
+#: ../glade/VMC.glade:263
+msgid "gtk-help"
+msgstr ""
+
+#: ../glade/config.glade:539
+#: ../glade/sms.glade:113
+#: ../glade/dialogs.glade:386
+#: ../glade/config2.glade:408
+#: ../glade/config2.glade:719
+#: ../glade/pin.glade:455
+msgid "gtk-cancel"
+msgstr ""
+
+#: ../glade/config.glade:551
+#: ../glade/helpbrowser.glade:59
+msgid "gtk-go-back"
+msgstr ""
+
+#: ../glade/config.glade:567
+#: ../glade/helpbrowser.glade:75
+msgid "gtk-go-forward"
+msgstr ""
+
+#: ../glade/contacts.glade:7
+msgid "Contact search"
+msgstr "Pretaga kontakata"
+
+#: ../glade/contacts.glade:29
+msgid " Name:"
+msgstr " Ime: "
+
+#: ../glade/contacts.glade:94
+msgid "Contacts List"
+msgstr "Lista kontakata"
+
+#: ../glade/contacts.glade:159
+#: ../glade/VMC.glade:529
+msgid "Add a contact"
+msgstr "Dodaj kontakt"
+
+#: ../glade/contacts.glade:179
+msgid "Name:"
+msgstr "Ime:"
+
+#: ../glade/contacts.glade:222
+msgid "Number:"
+msgstr "Broj:"
+
+#: ../glade/contacts.glade:258
+msgid "<b>Save in:</b>"
+msgstr "<b>Spremi u: </b>"
+
+#: ../glade/contacts.glade:301
+#: ../glade/VMC.glade:34
+msgid "Mobile"
+msgstr "Prijenosno"
+
+#: ../glade/contacts.glade:341
+msgid "Computer"
+msgstr "Računalo"
+
+#: ../glade/diagnostics.glade:7
+#: ../glade/VMC.glade:182
+msgid "Diagnostics"
+msgstr "Dijagnostika"
+
+#: ../glade/diagnostics.glade:33
+msgid "<b>GSM device</b>"
+msgstr "<b>GSM uređaj</b>"
+
+#: ../glade/diagnostics.glade:51
+msgid "Model:"
+msgstr "Model:"
+
+#: ../glade/diagnostics.glade:59
+msgid "Firmware: "
+msgstr "Firmware: "
+
+#: ../glade/diagnostics.glade:70
+msgid "IMEI: "
+msgstr "IMEI: "
+
+#: ../glade/diagnostics.glade:81
+msgid "IMSI: "
+msgstr "IMSI: "
+
+#: ../glade/diagnostics.glade:92
+msgid "VMC number:"
+msgstr "VMC broj: "
+
+#: ../glade/diagnostics.glade:115
+msgid "Card model"
+msgstr "Model kartice"
+
+#: ../glade/diagnostics.glade:123
+msgid "Firmware"
+msgstr "Firmware"
+
+#: ../glade/diagnostics.glade:135
+msgid "IMEI"
+msgstr "IMEI"
+
+#: ../glade/diagnostics.glade:146
+msgid "IMSI"
+msgstr "IMSI"
+
+#: ../glade/diagnostics.glade:157
+msgid "Not supported"
+msgstr "Nije podržano"
+
+#: ../glade/diagnostics.glade:188
+msgid "<b>Computer</b>"
+msgstr "<b>Računalo</b>"
+
+#: ../glade/diagnostics.glade:208
+msgid "Operating System:"
+msgstr "Operativni Sistem: "
+
+#: ../glade/diagnostics.glade:216
+msgid "Version:"
+msgstr "Verzija:"
+
+#: ../glade/diagnostics.glade:227
+#, fuzzy
+msgid "Uptime:"
+msgstr "Vrijeme rada : "
+
+#: ../glade/diagnostics.glade:248
+msgid "label26"
+msgstr ""
+
+#: ../glade/diagnostics.glade:256
+msgid "label27"
+msgstr ""
+
+#: ../glade/diagnostics.glade:267
+msgid "label28"
+msgstr ""
+
+#: ../glade/sms.glade:34
+#: ../glade/VMC.glade:716
+msgid "Contacts"
+msgstr "Kontakti"
+
+#: ../glade/sms.glade:50
+msgid "TO : "
+msgstr "Za : "
+
+#: ../glade/VMC.glade:20
+#: ../glade/helpbrowser.glade:21
+msgid "_File"
+msgstr "_Datoteka"
+
+#: ../glade/VMC.glade:27
+#: ../../vmc/gtk/controllers/application.py:1017
+#: ../../vmc/gtk/views/application.py:321
+msgid "Connect"
+msgstr "Povezivanje"
+
+#: ../glade/VMC.glade:51
+msgid "Import contacts..."
+msgstr "Uvedi kontakte..."
+
+#: ../glade/VMC.glade:59
+msgid "Export contacts..."
+msgstr "Izvedi kontakte..."
+
+#: ../glade/VMC.glade:85
+msgid "_View"
+msgstr "P_ogled"
+
+#: ../glade/VMC.glade:93
+msgid "SMS"
+msgstr "SMS"
+
+#: ../glade/VMC.glade:101
+#: ../glade/preferences.glade:590
+msgid "Usage"
+msgstr "Upotreba"
+
+#: ../glade/VMC.glade:109
+msgid "Support"
+msgstr "Podrška"
+
+#: ../glade/VMC.glade:128
+msgid "_Tools"
+msgstr "_Alati"
+
+#: ../glade/VMC.glade:136
+msgid "Change PIN"
+msgstr "Promjeni PIN"
+
+#: ../glade/VMC.glade:143
+msgid "PIN1..."
+msgstr "PIN1..."
+
+#: ../glade/VMC.glade:155
+msgid "Request PIN"
+msgstr "Zatraži PIN"
+
+#: ../glade/VMC.glade:169
+#: ../glade/sms-preferences.glade:7
+msgid "SMS preferences"
+msgstr "SMS postavke"
+
+#: ../glade/VMC.glade:203
+msgid "Profiles"
+msgstr "Profili"
+
+#: ../glade/VMC.glade:236
+msgid "Inspect"
+msgstr "Provjeri"
+
+#: ../glade/VMC.glade:255
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../glade/VMC.glade:273
+msgid "_About"
+msgstr "_O programu"
+
+#: ../glade/VMC.glade:399
+#: ../glade/VMC.glade:521
+msgid "Contacts menu"
+msgstr "Izbornik kontaka"
+
+#: ../glade/VMC.glade:400
+#: ../glade/VMC.glade:530
+msgid "_New"
+msgstr "_Novi"
+
+#: ../glade/VMC.glade:407
+msgid "Create new sms"
+msgstr "Novi SMS"
+
+#: ../glade/VMC.glade:408
+msgid "_SMS"
+msgstr "_SMS"
+
+#: ../glade/VMC.glade:417
+msgid "_Contact"
+msgstr "_Kontakt"
+
+#: ../glade/VMC.glade:447
+msgid "Reply message"
+msgstr "Odgovori na poruku"
+
+#: ../glade/VMC.glade:448
+msgid "_Reply"
+msgstr "_Odgovori"
+
+#: ../glade/VMC.glade:455
+msgid "Reply without quoting original text"
+msgstr "Odgovori bez navođenja originalnog teksta"
+
+#: ../glade/VMC.glade:456
+msgid "Send new"
+msgstr "Pošalji novu"
+
+#: ../glade/VMC.glade:464
+msgid "Reply quoting original message"
+msgstr "Odgovori sa originalnom porukom"
+
+#: ../glade/VMC.glade:465
+msgid "Reply quoting"
+msgstr "Odgovori sa navođenjem"
+
+#: ../glade/VMC.glade:483
+msgid "Forward sms to another contact"
+msgstr "Preusmjeri sms na drugi kontakt"
+
+#: ../glade/VMC.glade:484
+msgid "_Forward"
+msgstr "_Preusmjeri"
+
+#: ../glade/VMC.glade:498
+#: ../glade/VMC.glade:575
+#: ../../vmc/gtk/controllers/application.py:1065
+msgid "_Delete"
+msgstr "_Obriši"
+
+#: ../glade/VMC.glade:522
+msgid "_Contacts"
+msgstr "_Kontakti"
+
+#: ../glade/VMC.glade:544
+msgid "Search contacts"
+msgstr "Pretraži kontakte"
+
+#: ../glade/VMC.glade:545
+msgid "_Search"
+msgstr "_Petraga"
+
+#: ../glade/VMC.glade:627
+msgid "Inbox"
+msgstr "Dolazno"
+
+#: ../glade/VMC.glade:657
+msgid "Draft"
+msgstr "Nedovršeno"
+
+#: ../glade/VMC.glade:687
+msgid "Sent"
+msgstr "Poslano"
+
+#: ../glade/VMC.glade:813
+#: ../glade/VMC.glade:1227
+msgid "month_label"
+msgstr ""
+
+#: ../glade/VMC.glade:823
+#: ../glade/VMC.glade:1237
+msgid "<b>Month</b>"
+msgstr "<b>Mjesec</b>"
+
+#: ../glade/VMC.glade:866
+#: ../glade/VMC.glade:883
+#: ../glade/VMC.glade:939
+#: ../glade/VMC.glade:994
+#: ../glade/VMC.glade:1011
+#: ../glade/VMC.glade:1067
+#: ../glade/VMC.glade:1280
+#: ../glade/VMC.glade:1297
+#: ../glade/VMC.glade:1353
+#: ../glade/pin.glade:363
+msgid "label"
+msgstr ""
+
+#: ../glade/VMC.glade:898
+#: ../glade/VMC.glade:1026
+#: ../glade/VMC.glade:1312
+msgid "3G:"
+msgstr "3G:"
+
+#: ../glade/VMC.glade:913
+#: ../glade/VMC.glade:1041
+#: ../glade/VMC.glade:1327
+msgid "GPRS:"
+msgstr "GPRS:"
+
+#: ../glade/VMC.glade:926
+#: ../glade/VMC.glade:1340
+msgid "<b>Total:</b>"
+msgstr "<b>Ukupno: </b>"
+
+#: ../glade/VMC.glade:957
+#: ../glade/VMC.glade:1371
+#, fuzzy
+msgid "<b>Transferred Data</b>"
+msgstr "<b>Prebačeno</b>"
+
+#: ../glade/VMC.glade:1054
+msgid "Total:"
+msgstr "Ukupno:"
+
+#: ../glade/VMC.glade:1085
+msgid "<b>Current session</b>"
+msgstr "<b>Sadašnja sesija</b>"
+
+#: ../glade/VMC.glade:1125
+#: ../glade/VMC.glade:1410
+#: ../../vmc/gtk/controllers/application.py:1215
+msgid "GPRS"
+msgstr "GPRS"
+
+#: ../glade/VMC.glade:1132
+#: ../glade/VMC.glade:1417
+#: ../../vmc/gtk/controllers/application.py:1217
+msgid "3G"
+msgstr "3G"
+
+#: ../glade/VMC.glade:1169
+#: ../glade/VMC.glade:1454
+msgid "Remember that this information is only orientative."
+msgstr "Zapamtite da su ove informacije samo za orijentiranje"
+
+#: ../glade/VMC.glade:1184
+#, fuzzy
+msgid "Current month"
+msgstr "Tekući mjesec"
+
+#: ../glade/VMC.glade:1472
+#, fuzzy
+msgid "Last month"
+msgstr "Prošli mjesec"
+
+#: ../glade/VMC.glade:1486
+msgid "<b>Usage</b>"
+msgstr "<b>Upotreba</b>"
+
+#: ../glade/VMC.glade:1515
+msgid ""
+"In most cases you can find the answer to your questions about the program in the help menu.\n"
+"This menu can be accesed if you click on the \"Help\" label on the menu bar located in the top side of the window, and selecting the \"Help topics\" option.\n"
+"\n"
+"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
+"http://empresas.vodafone.es.\n"
+"\n"
+"If you use the mail and browser buttons to access other programs in your system, you might need to ask your Systems Administrator any doubt that you might have."
+msgstr ""
+"U većini slučajeva odgovore na vaša pitanja o programumožete pronaći u izborniku pomoć.\n"
+"\n"
+"Isto tako pomoć , nadogradnje i upute možete potražiti naVodafone Mobile Connect's webu:\n"
+"http://empresas.vodafone.es.\n"
+"\n"
+"  "
+
+#: ../glade/VMC.glade:1529
+msgid "Help menu"
+msgstr "Izbornik Pomoći"
+
+#: ../glade/VMC.glade:1554
+msgid ""
+"If you are using this program in an corporate environment, your company\n"
+"probably has a support center to solve the questions that you might have\n"
+"about the program.\n"
+"\n"
+"If your company does not have a support center, you will have to contact\n"
+"your company's System Administrator."
+msgstr ""
+"Ako koristite ovaj program u korporacijskoj okolini, vaša kompanija\n"
+"bi trebala imati tehničku podršku da odgovori na pitanja\n"
+"koja imate o programu.\n"
+"\n"
+"U suprotnom zatražite pomoć od sistemskog administrator vaše kompanije."
+
+#: ../glade/VMC.glade:1574
+msgid "Support center"
+msgstr "Centar za Podršku"
+
+#: ../glade/VMC.glade:1591
+msgid ""
+"You can easily find answers to the most common questions in the\n"
+"help menu, in your company's support center and in the support\n"
+"area at http://empresas.vodafone.es .\n"
+"\n"
+"If you still have difficulties you can call to Vodafone's Customer Support Center,\n"
+"the numbers are:\n"
+"\n"
+"123, if you are using Vodafone's network, or\n"
+"\n"
+"+34 607 123 00 if you are calling from other network."
+msgstr "Možete naći odgovore na česta pitanja u izborniku pomoć, u tehničkoj podršci vaše kompanije i na web korisničkoj podršci na http://empresas.vodafone.es."
+
+#: ../glade/VMC.glade:1611
+msgid "Customer support"
+msgstr "Korisnička podrška"
+
+#: ../glade/dialogs.glade:38
+#: ../glade/dialogs.glade:239
+#: ../glade/dialogs.glade:450
+msgid "<big><b>Big title!</b></big>"
+msgstr ""
+
+#: ../glade/dialogs.glade:51
+#: ../glade/dialogs.glade:252
+#: ../glade/dialogs.glade:347
+#: ../glade/dialogs.glade:463
+msgid "A detailed message"
+msgstr "Detaljna poruka"
+
+#: ../glade/dialogs.glade:138
+msgid "<big><b>Question?</b></big>"
+msgstr ""
+
+#: ../glade/dialogs.glade:152
+msgid "Detailed message"
+msgstr "Detaljna poruka"
+
+#: ../glade/dialogs.glade:189
+msgid "Action"
+msgstr "Akcija"
+
+#: ../glade/dialogs.glade:325
+msgid "<b>title</b>"
+msgstr ""
+
+#: ../glade/dialogs.glade:362
+msgid "Remember my choice"
+msgstr "Zapamti moj izbor"
+
+#: ../glade/dialogs.glade:397
+#: ../glade/usage.glade:36
+#: ../glade/config2.glade:420
+#: ../glade/config2.glade:731
+#: ../glade/pin.glade:466
+msgid "gtk-ok"
+msgstr ""
+
+#: ../glade/splash.glade:6
+msgid "3G Devices Manager"
+msgstr "Uredi 3G uređaje"
+
+#: ../glade/preferences.glade:7
+msgid "Preferences"
+msgstr "Postavke"
+
+#: ../glade/preferences.glade:50
+msgid "<b>Change the dialer profile if your provider requires you to authenticate with PAP/CHAP</b>"
+msgstr "<b>Promjenite vaš pozivni profil ako se za autorizaciju traži PAP/CHAP</b>"
+
+#: ../glade/preferences.glade:67
+msgid "Use an alternative dialer profile"
+msgstr "Koristi alternativni pozivni profil"
+
+#: ../glade/preferences.glade:94
+#: ../glade/sms-preferences.glade:46
+msgid "Profile:"
+msgstr "Profil:"
+
+#: ../glade/preferences.glade:127
+msgid "Dialer profile"
+msgstr "Pozivni profil"
+
+#: ../glade/preferences.glade:145
+msgid "<b>User options</b>"
+msgstr "<b>Korisničke opcije</b>"
+
+#: ../glade/preferences.glade:167
+msgid "Exit without confirmation"
+msgstr "Izađi bez potvrde"
+
+#: ../glade/preferences.glade:181
+msgid "Show icon on tray"
+msgstr "Prikaži ikonu u tray-u"
+
+#: ../glade/preferences.glade:196
+msgid "Close window minimizes app to tray"
+msgstr "Ugasi prozor minimalizira aplikaciju u sistemski izbornik"
+
+#: ../glade/preferences.glade:211
+msgid "Manage my PIN through gnomekeyring"
+msgstr "Kontroliraj moj PIN kroz gnomekeyring"
+
+#: ../glade/preferences.glade:242
+msgid "User Preferences"
+msgstr "Korisničke postavke"
+
+#: ../glade/preferences.glade:261
+msgid "<b>Web Browser</b>"
+msgstr "<b>Internet preglednik</b>"
+
+#: ../glade/preferences.glade:300
+msgid "\n"
+msgstr ""
+
+#: ../glade/preferences.glade:317
+#: ../glade/preferences.glade:400
+msgid "Command:"
+msgstr "Naredba:"
+
+#: ../glade/preferences.glade:350
+msgid "<b>Email client</b>"
+msgstr "<b>Email klijent</b>"
+
+#: ../glade/preferences.glade:446
+msgid "Applications"
+msgstr "Aplikacije"
+
+#: ../glade/preferences.glade:465
+msgid "<b>Usage Options</b>"
+msgstr "<b>Opcije upotrebe</b>"
+
+#: ../glade/preferences.glade:491
+msgid "Maximum traffic (MB):"
+msgstr "Maksimum prometa (MB):"
+
+#: ../glade/preferences.glade:521
+msgid "Notify when a given threshold is exceeded."
+msgstr "Obavjsti kada je postavljeni promet prekoračen."
+
+#: ../glade/preferences.glade:545
+msgid "Notification threshold (MB):"
+msgstr "Obavijest prometa (MB):"
+
+#: ../glade/helpbrowser.glade:31
+msgid "gtk-quit"
+msgstr ""
+
+#: ../glade/helpbrowser.glade:92
+msgid "gtk-home"
+msgstr ""
+
+#: ../glade/config2.glade:8
+#, fuzzy
+msgid "New Profile"
+msgstr "Novi profil"
+
+#: ../glade/config2.glade:37
+msgid ""
+"<b>Create a new profile for your device.</b>\n"
+"\n"
+"If you are not sure about what should you fill in, contact\n"
+"your customer support center and they should provide\n"
+"you with the relevant information."
+msgstr ""
+"<b>Kreiranje novog profila za vaš uređaj.</b>\n"
+"\n"
+"Ako niste sigurni koje podatke trebate upisati, kontaktirajte\n"
+"vašu korisnkičku podršku i oni bi vam trebali dostaviti\n"
+"valjane informacije."
+
+#: ../glade/config2.glade:67
+msgid "<b>Profile settings</b>"
+msgstr "<b>Postavka profila</b>"
+
+#: ../glade/config2.glade:85
+msgid "Profile name:"
+msgstr "Ime profila:"
+
+#: ../glade/config2.glade:92
+msgid "Device model:"
+msgstr "Model uređaja:"
+
+#: ../glade/config2.glade:128
+#: ../../vmc/gtk/controllers/preferences.py:280
+#: ../../vmc/gtk/controllers/preferences.py:295
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../glade/config2.glade:158
+msgid "<b>Connection preferences</b>"
+msgstr "<b>Postavke veze</b>"
+
+#: ../glade/config2.glade:179
+msgid "Username:"
+msgstr "Korisnik:"
+
+#: ../glade/config2.glade:186
+msgid "Password:"
+msgstr "Lozinka:"
+
+#: ../glade/config2.glade:196
+msgid "Preferred connection:"
+msgstr "Preferirana veza:"
+
+#: ../glade/config2.glade:206
+msgid "Authentication mode:"
+msgstr "Autorizacijski mod:"
+
+#: ../glade/config2.glade:216
+msgid "APN host:"
+msgstr "APN domaćin:"
+
+#: ../glade/config2.glade:294
+msgid "<b>DNS settings</b>"
+msgstr "<b>DNS postavke</b>"
+
+#: ../glade/config2.glade:311
+msgid "Use static DNS"
+msgstr "Koristi statični DNS"
+
+#: ../glade/config2.glade:338
+#, fuzzy
+msgid "Primary DNS:"
+msgstr "Primarni DNS"
+
+#: ../glade/config2.glade:345
+#, fuzzy
+msgid "Secondary DNS:"
+msgstr "Sekundarni DNS         "
+
+#: ../glade/config2.glade:441
+msgid "Device selection"
+msgstr "Odabir uređaja"
+
+#: ../glade/config2.glade:473
+msgid ""
+"<b>Select a device for your connection.</b>\n"
+"\n"
+"You can choose a known device or insert the needed information to set up a custom one.\n"
+"\n"
+msgstr ""
+"<b>Izaberite uređaj za vašu vezu.</b>\n"
+"\n"
+"Izaberite poznati uređaj ili ubacite potrebne podatke  za ručno postavljanje.\n"
+"\n"
+
+#: ../glade/config2.glade:537
+msgid "Known devices"
+msgstr "Poznati uređaji"
+
+#: ../glade/config2.glade:576
+msgid "Device type:"
+msgstr "Tip uređaja:"
+
+#: ../glade/config2.glade:587
+msgid "Serial"
+msgstr "Serijski"
+
+#: ../glade/config2.glade:607
+msgid "Speed connection:"
+msgstr "Brzina veze:"
+
+#: ../glade/config2.glade:620
+msgid "Control port device:"
+msgstr "Kontrola porta uređaja:"
+
+#: ../glade/config2.glade:633
+msgid "Data port device:"
+msgstr "Podatkovni port uređaj:"
+
+#: ../glade/config2.glade:645
+msgid "115200"
+msgstr "115200"
+
+#: ../glade/config2.glade:692
+msgid "Custom device settings"
+msgstr "Ručno postavljanje uređaja"
+
+#: ../glade/config2.glade:755
+msgid "<b>Device Settings</b>"
+msgstr "<b>Opcije uređaja</b>"
+
+#: ../glade/pin.glade:7
+msgid "Insert your PIN code"
+msgstr "Upišite vaš PIN kod"
+
+#: ../glade/pin.glade:37
+#, fuzzy
+msgid "Please insert your PIN code"
+msgstr "Molimo upišite vaš PIN kod : "
+
+#: ../glade/pin.glade:82
+msgid "Manage my PIN through gnome-keyring"
+msgstr "Koristi moj PIN kroz gnome-keyring"
+
+#: ../glade/pin.glade:105
+msgid "<b>Advanced Options</b>"
+msgstr "<b>Napredne opcije</b>"
+
+#: ../glade/pin.glade:160
+msgid "Modify PIN code"
+msgstr "Uredi PIN kod"
+
+#: ../glade/pin.glade:233
+msgid "Confirm PIN code: "
+msgstr "Potvrdi PIN kod: "
+
+#: ../glade/pin.glade:248
+msgid "New PIN code: "
+msgstr "Novi PIN kod: "
+
+#: ../glade/pin.glade:263
+msgid "Current PIN code: "
+msgstr "Sadašnji PIN kod: "
+
+#: ../glade/pin.glade:388
+msgid "PIN:"
+msgstr "PIN:"
+
+#: ../glade/pin.glade:397
+msgid "PUK:"
+msgstr "PUK:"
+
+#: ../glade/sms-preferences.glade:28
+msgid "<b>SMSC preferences</b>"
+msgstr "<b>SMSC postavke</b>"
+
+#: ../glade/sms-preferences.glade:54
+msgid "SMSC number:"
+msgstr "SMSC broj:"
+
+#: ../glade/sms-preferences.glade:115
+msgid "<b>Message options</b>"
+msgstr "<b>Opcije poruka</b>"
+
+#: ../glade/sms-preferences.glade:132
+msgid "Validity:"
+msgstr "Trajanje:"
+
+#: ../glade/sms-preferences.glade:139
+msgid "Class:"
+msgstr "Klasa:"
+
+#: ../glade/sms-preferences.glade:159
+msgid ""
+"Maximum time\n"
+"1 week\n"
+"3 days\n"
+"1 day"
+msgstr ""
+"Maksimum vremena\n"
+"1 tjedan\n"
+"3 dana\n"
+"1 dan"
+
+#: ../../vmc/gtk/dialogs.py:94
+msgid "Import contacts from..."
+msgstr "Uvedi kontakte iz..."
+
+#: ../../vmc/gtk/dialogs.py:102
+#: ../../vmc/gtk/dialogs.py:164
+msgid "Csv files"
+msgstr "Csv datoteke"
+
+#: ../../vmc/gtk/dialogs.py:107
+#: ../../vmc/gtk/dialogs.py:132
+#: ../../vmc/gtk/dialogs.py:170
+msgid "All files"
+msgstr "Sve datoteke"
+
+#: ../../vmc/gtk/dialogs.py:123
+#: ../../vmc/gtk/dialogs.py:156
+msgid "Save as ..."
+msgstr "Spremi kao ..."
+
+#: ../../vmc/gtk/dialogs.py:142
+#: ../../vmc/gtk/dialogs.py:180
+msgid "Overwrite"
+msgstr "Presnimi preko"
+
+#: ../../vmc/gtk/dialogs.py:143
+#: ../../vmc/gtk/dialogs.py:181
+#, python-format
+msgid "Overwrite \"%s\"?"
+msgstr "Presnimi preko \"%s\"?"
+
+#: ../../vmc/gtk/dialogs.py:144
+#: ../../vmc/gtk/dialogs.py:182
+msgid ""
+"A file with this name already exists.\n"
+"If you choose to overwrite this file, the contents will be lost."
+msgstr ""
+"Datoteka sa istim imenom već postoji.\n"
+"Ako izaberete presnimavanje preko, sadržaj će biti izgubljen."
+
+#: ../../vmc/gtk/dialogs.py:196
+msgid "Device List"
+msgstr "Lista uređaja"
+
+#: ../../vmc/gtk/dialogs.py:229
+msgid "Vodafone Spain S.A."
+msgstr "VIP Vodafone"
+
+#: ../../vmc/gtk/dialogs.py:238
+msgid "translated to $LANG by $translater"
+msgstr "prevedeno na $LANG od $translater"
+
+#: ../../vmc/gtk/models/preferences.py:34
+msgid "Maximum time"
+msgstr "Maksimum vremena"
+
+#: ../../vmc/gtk/models/preferences.py:35
+msgid "1 week"
+msgstr "1 tjedan"
+
+#: ../../vmc/gtk/models/preferences.py:36
+msgid "3 days"
+msgstr "3 dana"
+
+#: ../../vmc/gtk/models/preferences.py:37
+msgid "1 day"
+msgstr "1 dan"
+
+#: ../../vmc/gtk/models/application.py:217
+msgid "%B, %Y"
+msgstr "%B, %Y"
+
+#: ../../vmc/gtk/controllers/sms.py:45
+msgid "You can send the SMS to several recipients separating them by commas"
+msgstr "Možete poslati SMS nekoliko primatelja odvajajući ih zarezima"
+
+#: ../../vmc/gtk/controllers/sms.py:65
+#, python-format
+msgid "Text message: 0/%d chars"
+msgstr "Tekstualna poruka: 0/%d chars"
+
+#: ../../vmc/gtk/controllers/sms.py:88
+msgid "Send empty message"
+msgstr "Šalji praznu poruku"
+
+#: ../../vmc/gtk/controllers/sms.py:89
+msgid "Are you sure you want to send an empty message?"
+msgstr "Da li ste sigurni da želite poslati praznu poruku?"
+
+#: ../../vmc/gtk/controllers/sms.py:107
+msgid "Unknown Error"
+msgstr "Nepoznata greška"
+
+#: ../../vmc/gtk/controllers/sms.py:108
+msgid "Your message cannot be sent to some of its recipients. Unsent messages have been saved in drafts. Please, check that you have typed the number correctly."
+msgstr "Vaša poruka ne može biti poslana nekim primateljima.Poruke koje nisu poslane nalaze se u mapi nedovršeno.Molimo provjerite ako ste upisali valjani broj."
+
+#: ../../vmc/gtk/controllers/sms.py:174
+#, python-format
+msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
+msgstr "Tekstualna Poruka: %(chrcnt)d/%(maxchr)d chars"
+
+#: ../../vmc/gtk/controllers/sms.py:216
+msgid "No SMSC number"
+msgstr "Nema SMSC broja"
+
+#: ../../vmc/gtk/controllers/sms.py:218
+#, python-format
+msgid ""
+"\n"
+"In order to send a SMS, %s needs to know the number of your provider's SMSC.\n"
+"If you do not know the SMSC number, contact your customer service.\n"
+msgstr ""
+"\n"
+"Pri slanju SMS poruke, %s treba prepoznati SMSC broj vašeg davatelja usluga .\n"
+"Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga.\n"
+
+#: ../../vmc/gtk/controllers/preferences.py:68
+#: ../../vmc/gtk/controllers/preferences.py:87
+#: ../../vmc/gtk/controllers/application.py:572
+#: ../../vmc/gtk/controllers/pin.py:296
+msgid "Missing dependency"
+msgstr "Nedostaju međuzavisnosti"
+
+#: ../../vmc/gtk/controllers/preferences.py:70
+#: ../../vmc/gtk/controllers/pin.py:298
+msgid "To use this feature you need the gnomekeyring module"
+msgstr "Da bi koristili ovu opciju trebate gnomekeyring modul"
+
+#: ../../vmc/gtk/controllers/preferences.py:88
+msgid ""
+"\n"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon module\n"
+msgstr ""
+"\n"
+"Za korištenje ove opcije trebate ili pygtk >= 2.10 ili egg.trayicon modul\n"
+
+#: ../../vmc/gtk/controllers/preferences.py:287
+#: ../../vmc/gtk/views/preferences.py:107
+#: ../../vmc/gtk/views/preferences.py:120
+msgid "Custom"
+msgstr "Prilagoditi"
+
+#: ../../vmc/gtk/controllers/application.py:113
+#: ../../vmc/gtk/controllers/initialconf.py:545
+msgid "Shutting down"
+msgstr "Gašenje"
+
+#: ../../vmc/gtk/controllers/application.py:131
+msgid "Connected to Internet"
+msgstr "Spojeno na Internet"
+
+#: ../../vmc/gtk/controllers/application.py:132
+#, python-format
+msgid ""
+"\n"
+"You need to disconnect from Internet before shutting\n"
+"down %s,\n"
+"if you want to do so, press the OK button.\n"
+msgstr ""
+"\n"
+"Morate se isključiti sa Interneta prije\n"
+"gašenja %s,\n"
+"ako želite to učiniti sada, pritisnite OK tipku.\n"
+
+#: ../../vmc/gtk/controllers/application.py:253
+msgid "Reading contacts..."
+msgstr "Čitanje kontakata..."
+
+#: ../../vmc/gtk/controllers/application.py:280
+msgid "Reading messages..."
+msgstr "Čitanje poruka..."
+
+#: ../../vmc/gtk/controllers/application.py:334
+msgid "User Limit"
+msgstr "Korisnički limit"
+
+#: ../../vmc/gtk/controllers/application.py:335
+msgid "You have reached your limit of maximum usage"
+msgstr "Dostigli ste maksimalni limit upotrebe"
+
+#: ../../vmc/gtk/controllers/application.py:357
+msgid "New mobile profile available"
+msgstr "Novi mobilni profil dostupan"
+
+#: ../../vmc/gtk/controllers/application.py:358
+msgid ""
+"\n"
+"New profile available, do you want to load it?"
+msgstr ""
+"\n"
+"Novi profil je dostupan, želite ga učitati?"
+
+#: ../../vmc/gtk/controllers/application.py:360
+#: ../../vmc/gtk/controllers/initialconf.py:91
+msgid "Load"
+msgstr "Učitavanje"
+
+#: ../../vmc/gtk/controllers/application.py:413
+#, python-format
+msgid "Quit %s"
+msgstr "Ugasi %s"
+
+#: ../../vmc/gtk/controllers/application.py:414
+msgid "Are you sure you want to exit?"
+msgstr "Dali ste sigurni da želite ugasiti?"
+
+#: ../../vmc/gtk/controllers/application.py:471
+msgid "_New Profile"
+msgstr "_Novi Profil"
+
+#: ../../vmc/gtk/controllers/application.py:480
+msgid "Load Profile"
+msgstr "Učitaj profil"
+
+#: ../../vmc/gtk/controllers/application.py:485
+#, fuzzy
+msgid "Edit Profile"
+msgstr "Uredi profil"
+
+#: ../../vmc/gtk/controllers/application.py:490
+#, fuzzy
+msgid "Delete Profile"
+msgstr "Obriši profil"
+
+#: ../../vmc/gtk/controllers/application.py:573
+msgid "To use this widget you need python-vte installed"
+msgstr "Za korištenje ovog widget-a trebate imati python-vte instaliran"
+
+#: ../../vmc/gtk/controllers/application.py:620
+msgid "Invalid CSV format"
+msgstr "Nevaljan CSV format"
+
+#: ../../vmc/gtk/controllers/application.py:621
+msgid ""
+"\n"
+"The csv file that you have tried to import has an invalid format."
+msgstr ""
+"\n"
+"CSV datoteka koju ste pokušali uvesti je nevaljanog formata."
+
+#: ../../vmc/gtk/controllers/application.py:652
+#: ../../vmc/gtk/controllers/application.py:674
+msgid "Connecting..."
+msgstr "Spajanje..."
+
+#: ../../vmc/gtk/controllers/application.py:669
+#: ../../vmc/gtk/controllers/application.py:1209
+#, python-format
+msgid "Connected to %s"
+msgstr "Spojeno na %s"
+
+#: ../../vmc/gtk/controllers/application.py:671
+msgid "Connected"
+msgstr "Spojeno"
+
+#: ../../vmc/gtk/controllers/application.py:939
+#: ../../vmc/gtk/views/application.py:330
+msgid "Not connected"
+msgstr "Nije spojeno"
+
+#: ../../vmc/gtk/controllers/application.py:940
+msgid "No mobile connection. Do you want to continue?"
+msgstr "Nema mobilne veze. Da li želite nastaviti?"
+
+#: ../../vmc/gtk/controllers/application.py:1011
+#: ../../vmc/gtk/views/application.py:338
+msgid "Disconnect"
+msgstr "Prekini vezu"
+
+#: ../../vmc/gtk/controllers/application.py:1033
+msgid "Send SMS"
+msgstr "Pošalji SMS"
+
+#: ../../vmc/gtk/controllers/application.py:1047
+msgid "Quit"
+msgstr "Završi"
+
+#: ../../vmc/gtk/controllers/application.py:1059
+msgid "_Send SMS"
+msgstr "_Pošalji SMS"
+
+#: ../../vmc/gtk/controllers/application.py:1078
+msgid "_Add to contacts"
+msgstr "_Dodaj u kontakte"
+
+#: ../../vmc/gtk/controllers/application.py:1087
+msgid "Save to draft"
+msgstr "Spremi u Nedovršeno"
+
+#: ../../vmc/gtk/controllers/application.py:1098
+msgid "Delete"
+msgstr "Obriši"
+
+#: ../../vmc/gtk/controllers/application.py:1198
+msgid "Illegal Operation!"
+msgstr "Ilegalna Operacija!"
+
+#: ../../vmc/gtk/controllers/application.py:1199
+msgid ""
+"\n"
+"Your device only has one port and you are currently connected\n"
+"to Internet, you cannot perform any operation while connected"
+msgstr ""
+"\n"
+"Vaš Uređaj ima samo jedan port i vi ste trenutno spojeni na Internet\n"
+"Ne možete izvesti nikakve operacije dok ste spojeni"
+
+#: ../../vmc/gtk/controllers/application.py:1213
+#: ../../vmc/gtk/views/application.py:352
+#: ../../vmc/gtk/views/application.py:353
+msgid "N/A"
+msgstr "N/A"
+
+#: ../../vmc/gtk/controllers/application.py:1230
+#, python-format
+msgid "<small>SMS received from %s</small>"
+msgstr "<small>SMS primljen od %s</small>"
+
+#: ../../vmc/gtk/controllers/application.py:1233
+#, python-format
+msgid ""
+"<small>Received at %(date)s</small>\n"
+"<b>%(text)s</b>"
+msgstr ""
+"<small>Primljeno u %(date)s</small>\n"
+"<b>%(text)s</b>"
+
+#: ../../vmc/gtk/controllers/application.py:1245
+msgid "Invalid DNS recibed from APN"
+msgstr "Nevaljan DNS primljen od APN"
+
+#: ../../vmc/gtk/controllers/application.py:1247
+msgid ""
+"\n"
+"<small>The DNS settings received from the APN are invalid. You will\n"
+"probably want to restart the connection, or if the problem persists, you\n"
+"can specify a static DNS entry in the connection preferences</small>\n"
+msgstr ""
+"\n"
+"<small>DNS postavke primljene od APN nisu valjane. Najvjerovatnije\n"
+"ćete htjeti ponovno pokrenuti vezu, ili ako problem i dalje postoji, možete\n"
+"ručno upisati DNS podatke u postavkama veze</small>\n"
+
+#: ../../vmc/gtk/controllers/application.py:1262
+msgid "Disconnected from Internet"
+msgstr "Prekinuta veza na Internet"
+
+#: ../../vmc/gtk/controllers/application.py:1263
+#, python-format
+msgid ""
+"\n"
+"<small>%s has given\n"
+"up after trying to connect three times to Internet. This might\n"
+"be provoked by a problem in the configuration or just the fact\n"
+"that there's no carrier.</small>"
+msgstr ""
+"\n"
+"<small>%s je odustao\n"
+"nakon 3 neuspjela pokušaja spajanja na Internet. To može\n"
+"biti izazvano sa krivom konfiguracijom ili\n"
+"nedostatkom signala.</small>"
+
+#: ../../vmc/gtk/controllers/application.py:1275
+msgid "Device in use removed"
+msgstr "Uređaj u upotrebi izvađen"
+
+#: ../../vmc/gtk/controllers/application.py:1277
+#, python-format
+msgid ""
+"\n"
+"The 3G device in use has been removed. Now\n"
+"%s\n"
+"is going to shutdown. In order to continue,\n"
+"plug in the 3G device and start again."
+msgstr ""
+"\n"
+"3G uređaj u upotrebi je izvađen. sada će se\n"
+"%s\n"
+"ugasiti. Da bi mogao nastaviti,\n"
+"ubacite 3G uređaj krenite ponovno."
+
+#: ../../vmc/gtk/controllers/application.py:1309
+msgid "3G Device added"
+msgstr "3G Uređaj dodan"
+
+#: ../../vmc/gtk/controllers/application.py:1310
+#, python-format
+msgid ""
+"\n"
+"A new 3G device (%(device_name)s)\n"
+"has been added, in around 15 seconds\n"
+"(%(app_name)s) will resume its functioning"
+msgstr ""
+"\n"
+"Novi 3G Uređaj (%(device_name)s)\n"
+"je dodan, za otprilike 15 sekundi\n"
+"(%(app_name)s) će nastaviti sa radom"
+
+#: ../../vmc/gtk/controllers/application.py:1318
+msgid "Setting up device..."
+msgstr "Postavljanje uređaja..."
+
+#: ../../vmc/gtk/controllers/contacts.py:92
+msgid "No contact found"
+msgstr "Nema pronađenih kontakata"
+
+#: ../../vmc/gtk/controllers/contacts.py:93
+#, python-format
+msgid "No contact with the name %s found"
+msgstr "Kontakt sa imenom %s nije pronađen"
+
+#: ../../vmc/gtk/controllers/contacts.py:143
+#: ../../vmc/gtk/views/application.py:379
+#: ../../vmc/gtk/views/application.py:410
+msgid "Type"
+msgstr "Tip"
+
+#: ../../vmc/gtk/controllers/contacts.py:149
+#: ../../vmc/gtk/views/application.py:385
+#: ../../vmc/gtk/views/initialconf.py:246
+msgid "Name"
+msgstr "Ime"
+
+#: ../../vmc/gtk/controllers/contacts.py:156
+#: ../../vmc/gtk/views/application.py:394
+msgid "Number"
+msgstr "Broj"
+
+#: ../../vmc/gtk/controllers/initialconf.py:88
+msgid "Configuration details found for Operator!"
+msgstr "Kofiguracijski detalji nađeni za Operatora!"
+
+#: ../../vmc/gtk/controllers/initialconf.py:90
+#, python-format
+msgid "Do you want to load stored settings for %s?"
+msgstr "Želite li učitati spremljene postavke za %s?"
+
+#: ../../vmc/gtk/controllers/initialconf.py:230
+#: ../../vmc/gtk/controllers/initialconf.py:281
+msgid "Invalid characters in profile name"
+msgstr "Nepravilni znakovi u profilu imena"
+
+#: ../../vmc/gtk/controllers/initialconf.py:231
+#: ../../vmc/gtk/controllers/initialconf.py:282
+#, python-format
+msgid ""
+"\n"
+"The following characters are not allowed in a profile name:\n"
+"%s"
+msgstr ""
+"\n"
+"Sljedeći znakovi nisu dozvoljeni u imenima profila:\n"
+"%s"
+
+#: ../../vmc/gtk/controllers/initialconf.py:370
+#: ../../vmc/gtk/startup.py:188
+#: ../../vmc/gtk/startup.py:207
+#: ../../vmc/gtk/startup.py:258
+msgid "Device setup not completed"
+msgstr "Postavljanje uređaja nije dovršeno"
+
+#: ../../vmc/gtk/controllers/initialconf.py:371
+#, python-format
+msgid ""
+"\n"
+"An unknown error occur when setting up the device:\n"
+"%s"
+msgstr ""
+"\n"
+"Nepoznata greška prilikom postavljanja uređaja:\n"
+"%s"
+
+#: ../../vmc/gtk/controllers/initialconf.py:436
+#, python-format
+msgid "Authentication Error from %s !"
+msgstr "Autorizacijska greška na %s !"
+
+#: ../../vmc/gtk/controllers/initialconf.py:440
+#, python-format
+msgid "Connecting to %s ..."
+msgstr "Spajanje na %s ..."
+
+#: ../../vmc/gtk/controllers/initialconf.py:488
+msgid "Discovery started..."
+msgstr "Počinjem pretragu..."
+
+#: ../../vmc/gtk/controllers/initialconf.py:492
+msgid "Discovery finished!"
+msgstr "Pretraga završena!"
+
+#: ../../vmc/gtk/controllers/initialconf.py:516
+msgid "No control port"
+msgstr "Nema kontrolnog porta"
+
+#: ../../vmc/gtk/controllers/initialconf.py:522
+msgid "Connecting to device..."
+msgstr "Spajanje na uređaj..."
+
+#: ../../vmc/gtk/controllers/initialconf.py:530
+#, python-format
+msgid "Exception received connecting to %s"
+msgstr "Iznimka primljena pri spajanju na %s"
+
+#: ../../vmc/gtk/controllers/initialconf.py:531
+#, python-format
+msgid ""
+"\n"
+"The following error was received while trying to establish a connection:\n"
+"%s"
+msgstr ""
+"\n"
+"Dogodila se greška prilikom pokušaja uspostavljanja veze:\n"
+"%s"
+
+#: ../../vmc/gtk/controllers/pin.py:48
+#: ../../vmc/gtk/controllers/pin.py:218
+msgid "Incorrect PIN"
+msgstr "Nevaljan PIN"
+
+#: ../../vmc/gtk/controllers/pin.py:49
+msgid ""
+"\n"
+"<small>The PIN you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PINs you'll be asked\n"
+"for the PUK code</small>\n"
+msgstr ""
+"\n"
+"<small>PIN koji ste upisali je\n"
+"nevaljan. Imajte na umu da nakon\n"
+"tri kriva PINa biti ćete pitani\n"
+"za PUK kod</small>\n"
+
+#: ../../vmc/gtk/controllers/pin.py:65
+msgid "Invalid PIN"
+msgstr "Nevaljan PIN"
+
+#: ../../vmc/gtk/controllers/pin.py:66
+msgid ""
+"\n"
+"<small>The PIN you've just entered is\n"
+"invalid. The PIN must be a 4 digit code</small>\n"
+msgstr ""
+"\n"
+"<small>PIN koji ste upisali je\n"
+"nevaljan. PIN mora biti 4 znamenke</small>\n"
+
+#: ../../vmc/gtk/controllers/pin.py:84
+msgid "Error"
+msgstr "Greška"
+
+#: ../../vmc/gtk/controllers/pin.py:85
+msgid "Passwords don't match"
+msgstr "Neodgovarajuće lozinke"
+
+#: ../../vmc/gtk/controllers/pin.py:171
+msgid "Incorrect PUK"
+msgstr "Nevaljan PUK"
+
+#: ../../vmc/gtk/controllers/pin.py:172
+msgid ""
+"\n"
+"<small>The PUK you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PUKs you'll be asked\n"
+"for the PUK2 code. Your PIN code\n"
+"should be your last PIN.</small>\n"
+msgstr ""
+"\n"
+"<small>PUK koji ste upisali je\n"
+"nevaljan. Imajte na umu da nakon\n"
+"tri kriva PUKa biti ćete pitani\n"
+"za PUK2 kod. Vaš PIN kod\n"
+"bi trebao biti vaš zadnji PIN.</small>\n"
+
+#: ../../vmc/gtk/controllers/pin.py:219
+msgid ""
+"\n"
+"The PIN you've just entered is\n"
+"incorrect. Bear in mind that after\n"
+"three failed PINs you'll be asked\n"
+"for the PUK code\n"
+msgstr ""
+"\n"
+"PIN koji ste upisali je\n"
+"nevaljan. Imajte na umu da nakon\n"
+"tri kriva PINa biti ćete pitani\n"
+"za PUK kod\n"
+
+#: ../../vmc/gtk/views/application.py:54
+msgid "B"
+msgstr "B"
+
+#: ../../vmc/gtk/views/application.py:55
+msgid "KB"
+msgstr "KB"
+
+#: ../../vmc/gtk/views/application.py:56
+msgid "MB"
+msgstr "MB"
+
+#: ../../vmc/gtk/views/application.py:57
+msgid "GB"
+msgstr "GB"
+
+#: ../../vmc/gtk/views/application.py:350
+msgid "No device present"
+msgstr "Nema prisutnog uređaja"
+
+#: ../../vmc/gtk/views/application.py:417
+msgid "Text"
+msgstr "Tekst"
+
+#: ../../vmc/gtk/views/application.py:428
+msgid "Recipient"
+msgstr "Primatelj"
+
+#: ../../vmc/gtk/views/application.py:428
+msgid "Sender"
+msgstr "Pošiljatelj"
+
+#: ../../vmc/gtk/views/application.py:436
+msgid "Date"
+msgstr "Datum"
+
+#: ../../vmc/gtk/views/initialconf.py:161
+msgid "No known devices found"
+msgstr "Nisu pronađeni nikakvi poznati uređaji"
+
+#: ../../vmc/gtk/views/initialconf.py:253
+msgid "Address"
+msgstr "Adresa"
+
+#: ../../vmc/gtk/views/pin.py:63
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK codes"
+msgstr ""
+"\n"
+"Da bi otključali vaš SIM, trebamo vaše\n"
+"PIN i PUK kodove"
+
+#: ../../vmc/gtk/views/pin.py:69
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK2 codes"
+msgstr ""
+"\n"
+"Da bi otključali vaš SIM, trebamo vaše\n"
+"PIN i PUK2 kodove"
+
+#: ../../vmc/gtk/startup.py:146
+msgid "Initial setup..."
+msgstr "Početna konfiguracija..."
+
+#: ../../vmc/gtk/startup.py:189
+#, python-format
+msgid ""
+"\n"
+"Your device has been detected but it has been impossible to connect to it.\n"
+"\n"
+"%s"
+msgstr ""
+"\n"
+"Vaš uređaj je detektiran ali je nemoguće spojiti se na njega.\n"
+"\n"
+"%s"
+
+#: ../../vmc/gtk/startup.py:208
+#, python-format
+msgid ""
+"\n"
+"Your device \"%(name)s\" is not properly registered with the kernel. %(vmc)s\n"
+"needs at least two serial ports to communicate with your %(name)s.\n"
+"The program includes a set of udev rules plus some binaries that make sure\n"
+"that your device is always recognised properly. If you've installed from\n"
+"source, then make sure to copy the relevant files in the contrib dir\n"
+msgstr ""
+"\n"
+"Vaš uređaj \"%(name)s\" nije pravilno registriran sa kernelom. %(vmc)s\n"
+"treba najmanje dva serijska porta za komunikaciju %(name)s.\n"
+"U programu su uključena udev pravila plus nekoliko binarnih datoteka koje osiguravaju\n"
+"da se vaš uređaj pravilno registrira. Ako ste instalirali iz\n"
+"izvornih datoteka, provjerite da se datoteke kopiraju u contrib direktorij\n"
+
+#: ../../vmc/gtk/startup.py:224
+msgid "Device not responding"
+msgstr "Uređaj ne odgovara"
+
+#: ../../vmc/gtk/startup.py:225
+msgid ""
+"\n"
+"Your device took more than 15 seconds to reply to my last command. Unplug it,\n"
+"plug it again, and try in a moment."
+msgstr ""
+"\n"
+"Uređaju je trebalo više od 15 sekundi da odgovori na zadnju komandu. Izvadite uređaj,\n"
+"stavite ga ponovno, i probajte za par trenutaka."
+
+#: ../../vmc/gtk/startup.py:259
+#, python-format
+msgid ""
+"\n"
+"%(vmc)s cannot connect with the selected device (%(name)s).\n"
+msgstr ""
+"\n"
+"%(vmc)s se nemože spojiti sa izabranim uređajem (%(name)s).\n"
+
+#: ../../vmc/gtk/startup.py:318
+msgid "Authenticated!"
+msgstr "Autorizacija uspješna!"
+
+#: ../../vmc/gtk/startup.py:321
+msgid "Authenticating..."
+msgstr "Autorizacija..."
+
+#: ../../vmc/common/uptime.py:83
+#, python-format
+msgid "%(day)d days, %(msg)s"
+msgstr "%(day)d dani, %(msg)s"
+
+#: ../../vmc/common/uptime.py:85
+#, python-format
+msgid "%(day)d day, %(msg)s"
+msgstr "%(day)d dan, %(msg)s"
+
+#: ../../vmc/common/dialers/__init__.py:31
+#: ../../vmc/common/dialers/__init__.py:37
+msgid "Default"
+msgstr "Uobičajno"
+
+#: ../../vmc/common/dialers/__init__.py:32
+#: ../../vmc/common/dialers/__init__.py:38
+msgid "PAP"
+msgstr "PAP"
+
+#: ../../vmc/common/dialers/__init__.py:33
+#: ../../vmc/common/dialers/__init__.py:39
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../../vmc/common/dialers/wvdial.py:245
+msgid "WVDial directive error"
+msgstr "WVDial greška"
+
+#: ../../vmc/common/dialers/wvdial.py:246
+#, python-format
+msgid ""
+"\n"
+"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
+"'plugin passwordfd.so' directive should not appear on the\n"
+"current wvdial profile, please remove it manually. Go to\n"
+"Tools -> Preferences, select the wvdial profiles tab, and\n"
+"remove from the current wvdial profile the\n"
+"'plugin passwordfd.so' line."
+msgstr ""
+"\n"
+"Od verzije 0.9.7 %s upravlja pppd's /etc/ppp/{p,ch}ap-secrets,\n"
+"'plugin passwordfd.so' direktiva se nebi smjela pojaviti na\n"
+"trenutnom wvdial profilu, molimo obrišite je ručno. Odite na\n"
+"Tools -> Preferences, izaberite wvdial profiles tab, i\n"
+"obrišite iz trenutnog wvdial profila liniju\n"
+"'plugin passwordfd.so'."
+
+#: ../../vmc/common/shutdown.py:52
+msgid "Shutting down..."
+msgstr "Gašenje..."
+
+#: ../../vmc/common/hardware/__init__.py:36
+#: ../../vmc/common/hardware/__init__.py:43
+msgid "GPRS only"
+msgstr "Samo GPRS"
+
+#: ../../vmc/common/hardware/__init__.py:37
+#: ../../vmc/common/hardware/__init__.py:44
+msgid "3G only"
+msgstr "Samo 3G"
+
+#: ../../vmc/common/hardware/__init__.py:38
+#: ../../vmc/common/hardware/__init__.py:45
+msgid "GPRS preferred"
+msgstr "Preferiraj GPRS"
+
+#: ../../vmc/common/hardware/__init__.py:39
+#: ../../vmc/common/hardware/__init__.py:46
+msgid "3G preferred"
+msgstr "Preferiraj 3G"
+
+#: ../../vmc/common/middleware.py:450
+msgid "Unknown Network"
+msgstr "Nepoznata Mreža"
+
+#: ../../gtk-tap.py:51
+msgid "Missing dependencies"
+msgstr "Nerješene međuzavisnosti"
+
+#: ../../gtk-tap.py:53
+#, python-format
+msgid ""
+"The following dependencies are not satisfied:\n"
+"%s"
+msgstr ""
+"Sljedeće međuzavisnosti nisu rješene:\n"
+"%s"
+
+#: ../../gtk-tap.py:62
+msgid "OS/Distro not registered"
+msgstr "OS/Distro nije registriran"
+
+#: ../../gtk-tap.py:74
+msgid "Permissions problems"
+msgstr "Problemi sa dozvolama"
+
+#~ msgid "<b>Connectivy test</b>"
+#~ msgstr "<b>Test povezivanja</b>"
+
+#, fuzzy
+#~ msgid "Network testing"
+#~ msgstr "Mreža"
+
+#, fuzzy
+#~ msgid ""
+#~ "Some information is going to be collected from your system and some basic "
+#~ "connectivity tests are going to be performed to find out what is causing "
+#~ "the network problems"
+#~ msgstr ""
+#~ "Sakupiti ćemo potrebne informacije\n"
+#~ "sa vašeg sistema i izvesti\n"
+#~ "osnovne testove povezivanja\n"
+#~ "da bi utvrdili šta uzrokuje mrežne probleme"
+#~ msgid "Performing connectivity test..."
+#~ msgstr "Izvađam test povezivosti..."
+#~ msgid "Card setup"
+#~ msgstr "Podešavanje Kartice"
+#~ msgid "<b>Initial device configuration</b>"
+#~ msgstr "<b>Početna konfiguracija uređaja</b>"
+#~ msgid "Connection : "
+#~ msgstr "Veza : "
+#~ msgid "<b>Number: </b>"
+#~ msgstr "<b>Broj: </b>"
+#~ msgid "Save in:"
+#~ msgstr "Spremi u:"
+#~ msgid ""
+#~ "Find out where your\n"
+#~ "network problem is!"
+#~ msgstr ""
+#~ "Pronađite gdje se nalazi\n"
+#~ "vaš mrežni problem!"
+#~ msgid "Minimize"
+#~ msgstr "Minimaliziraj"
+#~ msgid "Help topics"
+#~ msgstr "Teme pomoći"
+#~ msgid "Manage my /etc/ppp/{ch,p}ap-secrets"
+#~ msgstr "Uredi moje /etc/ppp/{ch,p}ap-secrets"
+#~ msgid ""
+#~ "<b>Do not change this unless you\n"
+#~ "are completely sure you know\n"
+#~ "what you are doing</b>"
+#~ msgstr ""
+#~ "<b>Ne mjenjajte ovo ukoliko\n"
+#~ "niste potpuno sigurni da znate\n"
+#~ "šta radite</b>"
+#~ msgid "Use a custom profile"
+#~ msgstr "Koristite kustomizirani profil"
+#~ msgid "<b>Manage your wvdial profile</b>"
+#~ msgstr "<b>Uredi moj wvdial profil</b>"
+#~ msgid "Wvdial Profiles"
+#~ msgstr "Wvdial Profili"
+#~ msgid "Insert your PIN and PUK codes"
+#~ msgstr "Upišite vaš PIN i PUK kod"
+#~ msgid "System information"
+#~ msgstr "Informacije o sistemu"
+#~ msgid ""
+#~ "You can't delete profile %s as this would leave the application in\n"
+#~ "an unusable state"
+#~ msgstr ""
+#~ "Ne možete obrisati profil %s jel to stavlja aplikaciju u\n"
+#~ "neupotrebljivo stanje"
+#~ msgid "Are you sure that you want to delete profile %s"
+#~ msgstr "Dali ste sigurni da želite obrisati profil %s"
+#~ msgid "Error while deleting profile"
+#~ msgstr "Greška kod brisanja profila"
+#~ msgid "Profile %s does not exists"
+#~ msgstr "Profil %s ne postoji"
+#~ msgid "Profile %s can not be deleted"
+#~ msgstr "Profil %s ne može biti obrisan"
+#~ msgid "Associating..."
+#~ msgstr "Autorizacija..."
+#~ msgid "_Use detail"
+#~ msgstr "_Koristi detalje"
+#~ msgid "Problems with SIM card connection"
+#~ msgstr "Problem sa vezom SIM kartice"
+#~ msgid "Running hardware wizard..."
+#~ msgstr "Pokrečem čarobnjak za hardwer..."
+

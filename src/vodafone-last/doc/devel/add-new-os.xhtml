@@ -1,0 +1,96 @@
+<!-- $Id:add-new-os.xhtml 439 2007-04-02 17:19:55Z /C=ES/O=Warp Networks S.L./CN=pmarti@warp.es $ -->
+
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Add new OS/Distro</title>
+</head>
+
+<body>
+
+<h1>Add new OS/Distro</h1>
+
+<h2>OS support overview</h2>
+
+<p>VMCCdfL was originally developed on a Ubuntu system. Being a python
+application it should run on any Unix-based system with python support
+relatively easily right? Well, unfortunately, that is not the case. Distros
+like to patch packages, add and remove features, patch command line options,
+ship 'em vanilla, etc. This results on some minor (and not so minor)
+differences in packages and paths between distributions that made necessary
+to develop a small layer to abstracts these differences. The module
+<code>vmc.common.oal</code> was born, OAL stands for OS Abstraction Layer.</p>
+
+
+<h3>Differences found so far</h3>
+
+<ol>
+<li>Depending on the distribution, trying to open a serial port will result in
+a "no permissions" exception. This is because depending on the distro and
+the security capabilities enabled the default user doesn't has permissions
+to open it.</li>
+<li>Depending on the distribution, pppd includes a patch that enables a new
+directive (replacedefaultroute) that is not included in upstream's pppd. So
+far the only distro we have seen without these patches included is
+Fedora.</li>
+<li>Depending on the distribution, pppd will be suid or not. This means that in
+distributions like SuSe we will have to start wvdial with gksudo. Oh did I
+mention that gksudo only exists in some distributions? SuSe provides gnomesu,
+(which of course has a different syntax from gksudo), while Fedora doesn't
+provides anything. This means that in distros like Ubuntu we won't need any
+special setup to connect to the internet, in SuSe we will have to provide
+a valid password in order to start wvdial, and in Fedora we have to install
+gksu from an external repository. This gksu has yet another syntax of
+course</li>
+<li>Depending on the distribution, wvdial has a different command line syntax.
+In Ubuntu/Debian, the parameter to specify a custom config file is
+<code>'-C'</code>, while in Fedora/Suse is <code>'--config'</code>.</li>
+</ol>
+
+<h2>OAL overview</h2>
+
+<p>OAL provides a function called
+<code class="API" base="vmc.common.oal">mark_for_oal</code> that must be used
+like gettext's <code>_</code>. If you have a path/string that is OS dependent,
+you can mark it and it will be translated in runtime to the appropiated
+value.</p>
+
+<p>Obviously you must specify beforehand the value of those translations. In
+order to do so, you must override the
+<code class="API" base="vmc.common.oal">BaseDistribution</code> class. Take
+for example the DebianBasedDistribution class:</p>
+
+<pre class="python">
+
+class DebianBasedDistribution(BaseDistribution):
+    __required__ = '/etc/debian_version'
+</pre>
+
+<p>The <code>__required__</code> attribute specifies a file which if exists,
+means that VMCCdfL is running on the given OS/Distro.</p>
+
+<p>Now lets have a look at the SuSeBasedDistribution class:</p>
+
+<pre class="python">
+class SuseBasedDistribution(BaseDistribution):
+    __required__ = '/etc/SuSE-release'
+    customization = {'WVDIAL_CONN_SWITCH' : '--config',
+                     'gksudo_name' : 'gnomesu'}
+</pre>
+ 
+<p>The <code>customization</code> attribute is a dictionary whose keys are
+the <code>mark_for_oal</code> identifier and the corresponding value for that
+OS/Distro. If the attribute is present in a class, the default dictionary will
+be updated with the new values.</p>
+
+<h3>Register the new OS with the OS DB</h3>
+
+You have to register your new class with the OS DB. Add a reference of your
+class to <code class="API" base="vmc.common.oal">OSNAME_COLLECTION</code>.
+In the future, you will have to copy your plugin to the plugin dir.
+
+</body>
+</html>

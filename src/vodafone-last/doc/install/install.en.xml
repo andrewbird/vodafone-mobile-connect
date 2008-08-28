@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+<article lang='en'>
+
+  <articleinfo>
+    <title>Vodafone Mobile Connect Card Driver for Linux 2.0</title>
+    <subtitle>Installation guide</subtitle>
+
+    <author>
+        <firstname>Jaime</firstname>
+        <surname>Soriano Pastor</surname>
+        <affiliation>
+            <address><email>jsoriano@warp.es</email></address>
+        </affiliation>
+    </author>
+
+    <copyright>
+      <year>2007</year>
+      <holder>Vodafone España S.A.</holder>
+    </copyright>
+
+    <legalnotice>
+      <para>Some rights reserved.  Permission is granted to copy, redistribute it and/or modify this document under the terms of the Attribution-ShareAlike license as published by Creative Commons; either version 3.0 of the License, or (at your option) any later version.</para>
+
+      <para>The complete text of the License can be found in <ulink url="http://creativecommons.org/licenses/by-sa/3.0/legalcode">http://creativecommons.org/licenses/by-sa/3.0/legalcode</ulink>.</para>
+    </legalnotice>
+
+  </articleinfo>
+
+
+  <sect1 id="start">
+      <title>Support Matrix</title>
+
+		<para>Since version 2.0, Vodafone Mobile Connection Card Driver for Linux is distributed as an auto-instalable script. This package has been tested and works with the devices and distributions specified in the next table:</para>
+
+		<table frame='all'><title>Support Matrix</title>
+			<tgroup cols='4' align='left' colsep='1' rowsep='1'>
+			<colspec colname='Card' />
+			<colspec colname='Ubuntu' />
+			<colspec colname='Fedora' />
+			<colspec colname='OpenSUSE' />
+			<thead>
+				<row>
+					<entry>Card</entry>
+					<entry>Ubuntu 7.10 Gutsy Gibbon</entry>
+					<entry>Fedora 7</entry>
+					<entry>OpenSUSE 10.3</entry>
+				</row>
+			</thead>
+			<tbody>
+				<row>
+					<entry>Huawei E220</entry>
+					<entry>Yes</entry>
+					<entry>Yes</entry>
+					<entry>Yes</entry>
+				</row>
+				<row>
+					<entry>Huawei E272</entry>
+					<entry>Yes</entry>
+					<entry>Yes</entry>
+					<entry>Yes</entry>
+				</row>
+				<row>
+					<entry>Huawei E620</entry>
+					<entry>Needs kernel &lt;= 2.6.18.4<footnote id='E620-kernel-regression'><para>There's a regression affecting some devices. See <ulink url="http://bugzilla.kernel.org/show_bug.cgi?id=8830" /></para></footnote></entry>
+					<entry>Needs kernel &lt;= 2.6.18.4<footnoteref linkend='E620-kernel-regression' /></entry>
+					<entry>Needs kernel &lt;= 2.6.18.4<footnoteref linkend='E620-kernel-regression' /></entry>				
+				</row>
+				<row>
+					<entry>Novatel Ovation MC950D</entry>
+					<entry>Yes</entry>
+					<entry>Yes</entry>
+					<entry>Yes</entry>				
+				</row>
+				<row>
+					<entry>Option GlobeTrotter 3G+ EMEA</entry>
+					<entry>Yes</entry>
+					<entry>Needs nozomi's RPM <footnote><para>Fedora's stock kernel does not provide nozomi module, required to use this device. You can get it from Vodafone Betavine's Forge: <ulink url="https://forge.vodafonebetavine.net/frs/?group_id=12"/></para></footnote></entry>
+					<entry>Yes</entry>
+				</row>
+			</tbody>
+			</tgroup>
+		</table>
+
+		<para>It should work also in other distributions.</para>
+
+		<para>Experimental or contributed devices which have been reported to be working to some extent are:</para>
+
+		<itemizedlist spacing='compact'>
+			<listitem><para>Huawei E270</para></listitem>
+			<listitem><para>Huawei E660A</para></listitem>
+			<listitem><para>Option GlobeSurfer Icon</para></listitem>
+			<listitem><para>Option GT Fusion</para></listitem>
+			<listitem><para>Option GT Fusion Quad Lite</para></listitem>
+			<listitem><para>Option GT Max 3.6</para></listitem>
+			<listitem><para>Novatel U630</para></listitem>
+			<listitem><para>Novatel U740</para></listitem>
+			<listitem><para>Sierra Wireless 875</para></listitem>
+		</itemizedlist>
+			
+	</sect1>
+
+	<sect1>
+		<title>Installation</title>
+
+		<sect2>
+			<title>Dependencies</title>
+				<para>The bundled version needs the next dependencies to work correctly, most of them are satisfied by the most of the modern GNU/Linux distributions:</para>
+				<itemizedlist spacing='compact'>
+					<listitem><para>Linux Kernel (2.6.20 or superior recommended for most of the cards) with usbserial and udev support. Nozomi module driver also needed for Option GlobeTrotter 3G+ EMEA card</para></listitem>
+					<listitem><para>dbus 1.1 or superior.</para></listitem>
+					<listitem><para>Hardware Abstraction Layer HAL.</para></listitem>
+					<listitem><para>X Window System.</para></listitem>
+				</itemizedlist>
+		</sect2>
+
+		<sect2>
+			<title>Installation</title>
+				<orderedlist>
+					<listitem><para>Download the installer from <ulink url="https://forge.vodafonebetavine.net/projects/vodafonemobilec/">Project page</ulink></para></listitem>
+					<listitem><para>Run the installer from a terminal as user root.</para></listitem>
+					<listitem><para>The installer will ask you for the users allowed to run the application. It automatizes the adding of inserted users in the needed groups. Introduce them space separated.</para></listitem>
+					<listitem><para>When installation has been completed, restart your session to make the system refresh your user groups.</para></listitem>
+				</orderedlist>
+		</sect2>
+	</sect1>
+
+	<sect1>
+		<title>Uninstallation</title>
+
+		<para>For uninstalling Vodafone Mobile Connection Card Driver for Linux run <command>/opt/vmc/usr/bin/uninstall-vodafone-mobile-connect</command></para>
+		<para>If you want to remove your personal configuration and profiles, delete ~/.vmc2 directory.</para>
+	</sect1>
+
+	<sect1>
+		<title>Known issues</title>
+
+		<sect2>
+			<title>SELinux</title>
+			
+			<para>Vodafone Mobile Connection Card Driver for Linux does a lot of things that SELinux doesn't like, as load libraries and run binaries installed in non-standard paths, load and unload kernel modules, use and lock devices... This installer includes some policies and labeling commands for telling SELinux what we are doing so it can trust in us. In this way, this application works on Fedora 7 and 8 with out of the box SELinux settings. It should also work on other distributions with SELinux, if not, please give us some feedback.</para>
+		</sect2>
+
+		<sect2>
+			<title>Permissions</title>
+
+			<para>If you are experiencing permission issues (you cannot write devices, or they seems always locked), check out the next tips:</para>
+			<itemizedlist>
+				<listitem><para>Make sure you have the permissions needed to connect with a serial device. You can see in what groups you are with the command <command>id</command>. Check what group owns /dev/ttyUSB* (<command>ls -l /dev/ttyUSB*</command>) and see if your user belongs to it. You should be part of groups vmc, uucp, dialout and probably lock. From command-line you can add a user to those groups with the command <command>/usr/sbin/usermod -a -G vmc, uucp, dialout, lock &lt;user&gt;</command></para></listitem>
+				<listitem><para>If you have selected a user as allowed to run the application during installation, or you have added him or her to the required groups and you follow experiencing permission issues, make sure the session permissions have been updated (watch <command>id &lt;user&gt;</command>) and restart all sessions of this user. If you want to be sure that all sessions are restarted reboot your computer.</para></listitem>
+			</itemizedlist>
+		</sect2>
+
+		<sect2>
+			<title>If you are using other serial devices... or &quot;Why isn't my GPRS/3G card detected?&quot;</title>
+
+			<para>Specially if you are using Novatel Ovation MC950D you can experience problems with the detection of your card when using other serial devices. It's because we reload usbserial module while configuring the device. You can unplug all your usb serial devices (including your GPRS/3G card), remove the modules that are using usbserial (last column in <command>lsmod | grep usbserial</command>) and plug again your GPRS/3G card.</para>
+		</sect2>
+	</sect1>
+
+	<sect1>
+		<title>More help</title>
+
+		<para>For more help about this application, please refer to Vodafone Betavine's Forge project page:</para>
+		<itemizedlist>
+			<listitem><para><ulink url="https://forge.vodafonebetavine.net/forum/?group_id=12">Main forum's page</ulink></para></listitem>
+			<listitem><para><ulink url="https://forge.vodafonebetavine.net/forum/forum.php?forum_id=20">Help forum (user-oriented)</ulink></para></listitem>
+			<listitem><para><ulink url="https://forge.vodafonebetavine.net/forum/forum.php?forum_id=21">Development forum</ulink></para></listitem>
+		</itemizedlist>
+
+		<para>Or send a mail to our <ulink url="https://forge.vodafonebetavine.net/mail/?group_id=12">mailing lists</ulink>.</para>
+
+	</sect1>
+
+</article>

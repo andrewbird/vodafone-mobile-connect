@@ -1,0 +1,1 @@
+link /home/gmv/svndir/VodafoneMobileConnectCard/build/opt/vmc/usr/share/vodafone-mobile-connect-card-driver-for-linux/gtk-tap.py

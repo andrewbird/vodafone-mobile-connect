@@ -1,0 +1,299 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.gtkmvc.model.Model&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.g.m.Model(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.gtkmvc.html">gtkmvc</a>.<a href="vmc.contrib.gtkmvc.model.html">model</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.gtkmvc.model.Model">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.gtkmvc.model.ListStoreModel.html">vmc.contrib.gtkmvc.model.ListStoreModel</a>, <a href="vmc.contrib.gtkmvc.model.TextBufferModel.html">vmc.contrib.gtkmvc.model.TextBufferModel</a>, <a href="vmc.contrib.gtkmvc.model.TreeStoreModel.html">vmc.contrib.gtkmvc.model.TreeStoreModel</a>, <a href="vmc.contrib.gtkmvc.model_mt.ModelMT.html">vmc.contrib.gtkmvc.model_mt.ModelMT</a></p>
+    </div>
+    <pre>This class is the application model base class. It handles a set
+of observable properties which you are interested in showing by
+one ore more view - via one or more observers of course. The
+mechanism is the following:
+
+1. You are interested in showing a set of model property, that
+   you can declare in the __properties__ member map.
+
+2. You define one or more observers that observe one or more
+   properties you registered. When someone changes a property
+   value the model notifies the changing to each observer.
+
+The property-observer[s] association is given by the implicit
+rule in observers method names: if you want the model notified
+the changing event of the value of the property 'p' you have to
+define the method called 'property_p_value_change' in each
+listening observer class.
+
+Notice that tipically 'controllers' implement the observer
+pattern. The notification method gets the emitting model, the
+old value for the property and the new one.  Properties
+functionalities are automatically provided by the
+ObservablePropertyMeta meta-class.</pre>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id897">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#register_property">register_property</a></td>
+    <td><span>Registers an existing property to be monitored, and sets
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#has_property">has_property</a></td>
+    <td><span>Returns true if given property name refers an observable
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#register_observer">register_observer</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#unregister_observer">unregister_observer</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#__notify_observer__">__notify_observer__</a></td>
+    <td><span>This can be overridden by derived class in order to call
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#notify_property_value_change">notify_property_value_change</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#notify_method_before_change">notify_method_before_change</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#notify_method_after_change">notify_method_after_change</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.model.Model.html#notify_signal_emit">notify_signal_emit</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.model.ListStoreModel.html">vmc.contrib.gtkmvc.model.ListStoreModel</a>, <a href="vmc.contrib.gtkmvc.model.TextBufferModel.html">vmc.contrib.gtkmvc.model.TextBufferModel</a>, <a href="vmc.contrib.gtkmvc.model.TreeStoreModel.html">vmc.contrib.gtkmvc.model.TreeStoreModel</a>, <a href="vmc.contrib.gtkmvc.model_mt.ModelMT.html">vmc.contrib.gtkmvc.model_mt.ModelMT</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.register_property"></a>
+        <a name="register_property"></a>
+        <div class="functionHeader">
+        
+        def register_property(self, name):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Registers an existing property to be monitored, and sets up notifiers 
+for notifications
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.has_property"></a>
+        <a name="has_property"></a>
+        <div class="functionHeader">
+        
+        def has_property(self, name):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns true if given property name refers an observable property inside
+self or inside derived classes
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.register_observer"></a>
+        <a name="register_observer"></a>
+        <div class="functionHeader">
+        
+        def register_observer(self, observer):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.model_mt.ModelMT.html">vmc.contrib.gtkmvc.model_mt.ModelMT</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.unregister_observer"></a>
+        <a name="unregister_observer"></a>
+        <div class="functionHeader">
+        
+        def unregister_observer(self, observer):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.model_mt.ModelMT.html">vmc.contrib.gtkmvc.model_mt.ModelMT</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model._reset_property_notification"></a>
+        <a name="_reset_property_notification"></a>
+        <div class="functionHeader">
+        
+        def _reset_property_notification(self, prop_name):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Called when it has be done an assignment that changes the type of a 
+property or the instance of the property has been changed to a different 
+instance. In this case it must be unregistered and registered again
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.__add_observer_notification"></a>
+        <a name="__add_observer_notification"></a>
+        <div class="functionHeader">
+        
+        def __add_observer_notification(self, observer, prop_name):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Searches in the observer for any possible listener, and stores the 
+notification methods to be called later
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.__remove_observer_notification"></a>
+        <a name="__remove_observer_notification"></a>
+        <div class="functionHeader">
+        
+        def __remove_observer_notification(self, observer, prop_name):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.__notify_observer__"></a>
+        <a name="__notify_observer__"></a>
+        <div class="functionHeader">
+        
+        def __notify_observer__(self, observer, method, *args, **kwargs):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.model_mt.ModelMT.html">vmc.contrib.gtkmvc.model_mt.ModelMT</a></div>
+          <div>This can be overridden by derived class in order to call the method in a
+different manner (for example, in multithreading, or a rpc, etc.)  This 
+implementation simply calls the given method with the given arguments
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.notify_property_value_change"></a>
+        <a name="notify_property_value_change"></a>
+        <div class="functionHeader">
+        
+        def notify_property_value_change(self, prop_name, old, new):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.notify_method_before_change"></a>
+        <a name="notify_method_before_change"></a>
+        <div class="functionHeader">
+        
+        def notify_method_before_change(self, prop_name, instance, meth_name, args, kwargs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.notify_method_after_change"></a>
+        <a name="notify_method_after_change"></a>
+        <div class="functionHeader">
+        
+        def notify_method_after_change(self, prop_name, instance, meth_name, res, args, kwargs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.model.Model.notify_signal_emit"></a>
+        <a name="notify_signal_emit"></a>
+        <div class="functionHeader">
+        
+        def notify_signal_emit(self, prop_name, args, kwargs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

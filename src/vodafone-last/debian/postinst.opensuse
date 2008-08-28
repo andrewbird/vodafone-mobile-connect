@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function fix_peers(){
+	if [ -e /etc/ppp/peers ];then
+	   chown :uucp /etc/ppp/peers
+	   chmod g+w /etc/ppp/peers
+	fi
+}
+
+function fix_pap(){
+	if [ -e /etc/ppp/pap-secrets ];then
+		chown :uucp /etc/ppp/pap-secrets
+		chmod g+rw /etc/ppp/pap-secrets
+	fi
+}
+
+function fix_chap(){ 
+    if [ -e /etc/ppp/chap-secrets ];then
+	   chown :uucp /etc/ppp/chap-secrets
+	   chmod g+rw /etc/ppp/chap-secrets
+    fi
+}
+
+fix_peers
+fix_pap
+fix_chap

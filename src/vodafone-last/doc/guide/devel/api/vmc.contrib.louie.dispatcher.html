@@ -1,0 +1,222 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.louie.dispatcher&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="module">Module v.c.l.dispatcher</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.louie.html">louie</a></span>
+      
+      
+    </p>
+    <div>
+      
+    </div>
+    <pre>Multiple-producer-multiple-consumer signal-dispatching.
+
+``dispatcher`` is the core of Louie, providing the primary API and the
+core logic for the system.
+
+Internal attributes:
+
+- ``WEAKREF_TYPES``: Tuple of types/classes which represent weak
+  references to receivers, and thus must be dereferenced on retrieval
+  to retrieve the callable object
+        
+- ``connections``::
+
+    { senderkey (id) : { signal : [receivers...] } }
+    
+- ``senders``: Used for cleaning up sender references on sender
+  deletion::
+
+    { senderkey (id) : weakref(sender) }
+    
+- ``senders_back``: Used for cleaning up receiver references on receiver
+  deletion::
+
+    { receiverkey (id) : [senderkey (id)...] }</pre>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id831">
+  
+  
+  
+  
+  <tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.louie.dispatcher.html#print_stats">print_stats</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.louie.dispatcher.html#get_receivers">get_receivers</a></td>
+    <td><span>Get list of receivers from global tables.
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.louie.dispatcher.html#live_receivers">live_receivers</a></td>
+    <td><span>Filter sequence of receivers to get resolved, live receivers.
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.louie.dispatcher.print_stats"></a>
+        <a name="print_stats"></a>
+        <div class="functionHeader">
+        
+        def print_stats():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher.get_receivers"></a>
+        <a name="get_receivers"></a>
+        <div class="functionHeader">
+        
+        def get_receivers(sender=Any, signal=All):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Get list of receivers from global tables.</p>
+<p>This function allows you to retrieve the raw list of receivers from the 
+connections table for the given sender and signal pair.</p>
+<p>Note: There is no guarantee that this is the actual list stored in the 
+connections table, so the value should be treated as a simple 
+iterable/truth value rather than, for instance a list to which you might 
+append new records.</p>
+Normally you would use ``live_receivers(get_receivers(...))`` to 
+retrieve the actual receiver objects as an iterable object.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher.live_receivers"></a>
+        <a name="live_receivers"></a>
+        <div class="functionHeader">
+        
+        def live_receivers(receivers):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Filter sequence of receivers to get resolved, live receivers.</p>
+This is a generator which will iterate over the passed sequence, 
+checking for weak references and resolving them, then returning all live 
+receivers.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher._remove_receiver"></a>
+        <a name="_remove_receiver"></a>
+        <div class="functionHeader">
+        
+        def _remove_receiver(receiver):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Remove ``receiver`` from connections.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher._cleanup_connections"></a>
+        <a name="_cleanup_connections"></a>
+        <div class="functionHeader">
+        
+        def _cleanup_connections(senderkey, signal):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Delete empty signals for ``senderkey``. Delete ``senderkey`` if 
+empty.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher._remove_sender"></a>
+        <a name="_remove_sender"></a>
+        <div class="functionHeader">
+        
+        def _remove_sender(senderkey):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Remove ``senderkey`` from connections.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher._remove_back_refs"></a>
+        <a name="_remove_back_refs"></a>
+        <div class="functionHeader">
+        
+        def _remove_back_refs(senderkey):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Remove all back-references to this ``senderkey``.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher._remove_old_back_refs"></a>
+        <a name="_remove_old_back_refs"></a>
+        <div class="functionHeader">
+        
+        def _remove_old_back_refs(senderkey, signal, receiver, receivers):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Kill old ``senders_back`` references from ``receiver``.</p>
+<p>This guards against multiple registration of the same receiver for a 
+given signal and sender leaking memory as old back reference records build 
+up.</p>
+Also removes old receiver instance from receivers.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.dispatcher._kill_back_ref"></a>
+        <a name="_kill_back_ref"></a>
+        <div class="functionHeader">
+        
+        def _kill_back_ref(receiver, senderkey):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Do actual removal of back reference from ``receiver`` to 
+``senderkey``.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

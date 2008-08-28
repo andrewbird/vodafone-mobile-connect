@@ -1,0 +1,328 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.dependency&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="module">Module v.c.a.dependency</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a></span>
+      
+      
+    </p>
+    <div>
+      
+    </div>
+    <div>A dependency management system for items.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id499">
+  
+  
+  
+  
+  <tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#dependentsOf">dependentsOf</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#dependsOn">dependsOn</a></td>
+    <td><span>This function behaves like <a 
+href="vmc.contrib.axiom.attributes.reference.html"><code>axiom.attributes.reference</code></a>
+but with
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#classDependsOn">classDependsOn</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#installOn">installOn</a></td>
+    <td><span>Install this object on the target, tracking that the object now
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#uninstallFrom">uninstallFrom</a></td>
+    <td><span>Remove this object from the target, as well as any dependencies
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#installedOn">installedOn</a></td>
+    <td><span>If this item is installed on another item, return the install
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#installedDependents">installedDependents</a></td>
+    <td><span>Return an iterable of things installed on the target that
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#installedUniqueRequirements">installedUniqueRequirements</a></td>
+    <td><span>Return an iterable of things installed on the target that this item
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#installedRequirements">installedRequirements</a></td>
+    <td><span>Return an iterable of things installed on the target that this
+</span></td>
+  </tr><tr class="function">
+    
+    
+    <td>Function</td>
+    <td><a href="vmc.contrib.axiom.dependency.html#onlyInstallPowerups">onlyInstallPowerups</a></td>
+    <td><span>Only power up the target with this object's powerups, without 
+interacting
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.dependency.dependentsOf"></a>
+        <a name="dependentsOf"></a>
+        <div class="functionHeader">
+        
+        def dependentsOf(cls):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.dependsOn"></a>
+        <a name="dependsOn"></a>
+        <div class="functionHeader">
+        
+        def dependsOn(itemType, itemCustomizer=None, doc='', indexed=True, whenDeleted=reference.NULLIFY):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>This function behaves like <a 
+href="vmc.contrib.axiom.attributes.reference.html"><code>axiom.attributes.reference</code></a>
+but with an extra behaviour: when this item is installed (via <a 
+href="vmc.contrib.axiom.dependency.html#installOn"><code>axiom.dependency.installOn</code></a>
+on a target item, the type named here will be instantiated and installed on
+the target as well.</p>
+For example:
+<pre class="literalblock">
+ class Foo(Item):
+     counter = integer()
+     thingIDependOn = dependsOn(Baz, lambda baz: baz.setup())
+</pre>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">itemType</td><td>The Item class to instantiate and install.
+</td></tr><tr><td></td><td class="fieldArg">itemCustomizer</td><td>A callable that accepts the item installed as a dependency as its first 
+argument. It will be called only if an item is created to satisfy this 
+dependency.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">An <a 
+href="vmc.contrib.axiom.attributes.reference.html"><code>axiom.attributes.reference</code></a>
+instance.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency._dependsOn_advice"></a>
+        <a name="_dependsOn_advice"></a>
+        <div class="functionHeader">
+        
+        def _dependsOn_advice(cls):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.classDependsOn"></a>
+        <a name="classDependsOn"></a>
+        <div class="functionHeader">
+        
+        def classDependsOn(cls, itemType, itemCustomizer, ref):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.installOn"></a>
+        <a name="installOn"></a>
+        <div class="functionHeader">
+        
+        def installOn(self, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Install this object on the target, tracking that the object now depends 
+on the target, and the object was explicitly installed and therefore should
+not be uninstalled by subsequent uninstallation operations unless it is 
+explicitly removed.</p>
+<p>If the type of the object being installed has a 
+&quot;powerupInterfaces&quot; attribute (containing either a sequence of 
+interfaces, or a sequence of (interface, priority) tuples), the target will
+be powered up with this object on those interfaces.</p>
+If this object has a &quot;__getPowerupInterfaces__&quot; method, it 
+will be called with an iterable of (interface, priority) tuples. The 
+iterable of (interface, priority) tuples it returns will then be 
+installed.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency._getPowerupInterfaces"></a>
+        <a name="_getPowerupInterfaces"></a>
+        <div class="functionHeader">
+        
+        def _getPowerupInterfaces(obj):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency._installOn"></a>
+        <a name="_installOn"></a>
+        <div class="functionHeader">
+        
+        def _installOn(self, target, __explicitlyInstalled=False):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.uninstallFrom"></a>
+        <a name="uninstallFrom"></a>
+        <div class="functionHeader">
+        
+        def uninstallFrom(self, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Remove this object from the target, as well as any dependencies that it 
+automatically installed which were not explicitly &quot;pinned&quot; by 
+calling &quot;install&quot;, and raising an exception if anything still 
+depends on this.</p>
+<p>If the type of the object being installed has a 
+&quot;powerupInterfaces&quot; attribute (containing either a sequence of 
+interfaces, or a sequence of (interface, priority) tuples), the target will
+be powered down with this object on those interfaces.</p>
+If this object has a &quot;__getPowerupInterfaces__&quot; method, it 
+will be called with an iterable of (interface, priority) tuples. The 
+iterable of (interface, priority) tuples it returns will then be 
+uninstalled.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.installedOn"></a>
+        <a name="installedOn"></a>
+        <div class="functionHeader">
+        
+        def installedOn(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>If this item is installed on another item, return the install target. 
+Otherwise return None.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.installedDependents"></a>
+        <a name="installedDependents"></a>
+        <div class="functionHeader">
+        
+        def installedDependents(self, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return an iterable of things installed on the target that require this 
+item.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.installedUniqueRequirements"></a>
+        <a name="installedUniqueRequirements"></a>
+        <div class="functionHeader">
+        
+        def installedUniqueRequirements(self, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return an iterable of things installed on the target that this item 
+requires and are not required by anything else.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.installedRequirements"></a>
+        <a name="installedRequirements"></a>
+        <div class="functionHeader">
+        
+        def installedRequirements(self, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return an iterable of things installed on the target that this item 
+requires.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.dependency.onlyInstallPowerups"></a>
+        <a name="onlyInstallPowerups"></a>
+        <div class="functionHeader">
+        
+        def onlyInstallPowerups(self, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Only power up the target with this object's powerups, without 
+interacting with the dependency system. Useful for situations where 
+multiple instances of a class can be powered up on the same target.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

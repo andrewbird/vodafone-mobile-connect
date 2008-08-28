@@ -1,0 +1,324 @@
+<!-- $Id: add-new-device.xhtml 1172 2007-12-19 09:29:24Z /C=ES/O=Warp Networks S.L./CN=pmarti@warp.es $ -->
+<html>
+    <head><title>How to add support for a new device</title></head>
+    <body>
+    
+        <h1>How to support a new device</h1>
+    
+        <p>All devices should inherit from
+        <code class="API" base="vmc.common.plugin">DevicePlugin</code>, so far
+        there are two main subclasses:
+        <code class="API" base="vmc.common.plugin">DBusDevicePlugin</code> and
+        <code class="API" base="vmc.common.plugin">RemoteDevicePlugin</code>.
+        </p>
+    
+        <p>A <code class="API" base="vmc.common.plugin">DevicePlugin</code>
+        object has the following attributes that you can customise for your
+        plugin:
+        <ul>
+            <li><code>custom</code>: An instance or subclass of
+            <code class="API"
+            base="vmc.common.hardware.base">Customizer</code></li>
+            <li><code>simklass</code>: An instance or subclass of
+            <code class="API" base="vmc.common.sim">SIMBaseClass</code></li>
+            <li><code>baudrate</code>: At what speed are we going to talk with
+            this device (default: 115200).</li>
+            <li><code>__remote_name__</code>: As some devices share the same
+            vendor_id and product_id, we will issue an <code>AT+CGMR</code>
+            command right at the beginning to find out the real device model,
+            set this attribute to whatever your device replies to
+            <code>AT+CGMR</code>.</li>
+        </ul>
+        </p>
+    
+        <p>The object <code class="API"
+        base="vmc.common.hardware.base">Customizer</code> acts as a container
+        for all the device-specific customizations, such as:
+        <ul>
+            <li>
+                <code>adapter</code>: Specifies the adapter that should be
+                used to parse the regular expressions generated in
+                <code class="API"
+                base="vmc.common.protocol">SIMCardConnection</code>. Further,
+                this adapter should graciously handle potential troublesome
+                operations such as <code>get_phonebook_size</code>. The
+                default adapter is <code class="API"
+                base="vmc.common.middleware">SIMCardConnAdapter</code>
+            </li>
+            
+            <li>State machines: Each device its a world on its own, and even
+            though they are supposed to support the relevant GSM and 3GPP
+            standards, some devices prefer to differ from them. C{Customizer}
+            contains references to the state machines that the device should
+            use:
+                <ul>
+                    <li><code>authklass</code>: The state machine used to
+                    authenticate against the device, default is
+                    <code class="API"
+                    base="vmc.common.statem.auth">AuthStateMachine</code>
+                    </li>
+                    <li><code>netrklass</code>: The state machine used to
+                    register on the network, default is
+                    <code class="API"
+                    base="vmc.common.statem.networkreg">NetworkRegStateMachine
+                    </code></li>
+                    <li><code>connklass</code>: The state machine used during
+                    runtime (once device is properly initalized, authenticated,
+                    etc. default is <code class="API"
+                    base="vmc.common.statem.networkreg">NetworkRegStateMachine
+                    </code>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <code>async_regexp</code>: regular expression object that
+                will match whatever pattern of unsolicited notifications the
+                given device sends us.
+            </li>
+            <li>
+                <code>signal_translations</code>: Dictionary of tuples, each
+                tuple has two members: the first is the signal id and the
+                second is a function that will translate the signal arguments
+                and the signal to the internal representation that VMC uses.
+                You can find some example in the <code class="API"
+                base="vmc.common.hardware">huawei</code> module.
+            </li>
+            <li>
+                <code>conn_dict</code>: Dictionary with 4 items, each one
+                defines the AT string that must be sent to the device in order
+                to configure the connection mode preferences (Gprs only,
+                3G preferred, etc.) This dictionaries can be shared most of
+                the time between different models from the same manufacturer.
+            </li>
+            <li>
+                <code>cmd_dict</code>: Dictionary with information about how
+                each command should be processed. <code>cmd_dict</code>
+                most of the time will be a shallow copy of the
+                <code class="API" base="vmc.common">command</code> dict with
+                minor modifications about how a particular command is
+                processed on the given device.
+            </li>
+            <li>
+                <code>device_capabilities</code>: List with all the
+                unsolicited notifications that this device will send us. If
+                the device sends us every RSSI change that detects, we don't
+                need to poll manually the device for that information.
+            </li>
+        </ul>
+        </p>
+        
+        <h2>Overview of a relatively simple DevicePlugin</h2>
+        
+        <p>Take for example the HuaweiE620 class:</p>
+        
+        <pre class="python">
+        from vmc.common.plugin import DBusDevicePlugin
+
+        from vmc.common.hardware.huawei import HuaweiCustomizer
+        
+        class HuaweiE620(DBusDevicePlugin):
+            """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's E620"""
+            name = "Huawei E620"
+            version = "0.1"
+            author = u"Pablo Martí"
+            custom = HuaweiCustomizer
+            
+            __remote_name__ = "E620"
+        
+            __properties__ = {
+                'usb_device.vendor_id': [0x12d1],
+                'usb_device.product_id': [0x1001],
+            }
+        </pre>
+        
+        <p>HuaweiE620 is a DBusDevicePlugin, that means that its meant to be
+        discovered through DBus. All DBusDevicePlugins sport an attribute that
+        we haven't mentioned yet, <code>__properties__</code>. Its just a dict
+        with one or more pairs of key, values that must be satisfied so the
+        system can say that has "found" the given device. <span
+        class="footnote"> Devices are found through dbus/hal, the parameter
+        'usb_device.vendor_id' its a hal attribute usually found on usbserial
+        devices. In most of the cases, specifying 'usb_device.vendor_id' and
+        'usb_device.product_id' should be enough for most of the devices.
+        However there are some devices, like Option's GlobeTrotter 3G+,
+        that are found in the pci bus.</span>
+        </p>
+        
+        <p>The majority of this 3G devices, will register three serial ports
+        with the OS: <code>/dev/ttyUSB{0,1,2}</code> (on Linux). Out of this
+        three, usually we will be interested in ttyUSB0 (used for connecting
+        to Internet) and ttyUSB2 (used to monitor the device). Finding and
+        associating these ports is done in the <code class="API"
+        base="vmc.common.plugin.DevicePlugin.extract_info">extract_info</code>.
+        If a device doesn't follows this convention, <code>extract_info</code>
+        can be overriden and its behaviour modified for that particular
+        device.</p>
+        
+        <h2>Overview of a not so simple DevicePlugin</h2>
+        
+        <p>Huawei's E220, despite sharing its manufacturer with the E620, has
+        a couple of minor differences that deserve some explanation. There's
+        a bug in its firmware that will reset the device if you ask its SMSC.
+        The workaround is to get once the SMSC before switching to UCS2, you'd
+        be amazed of how long took me to discover the fix. The second
+        difference with the E620 is that the E220 can have several
+        product_ids, thus its allowed to specify them in a list. The third and
+        last difference, is that the E220 uses ttyUSB1 instead of ttyUSB2 for
+        monitoring the device, thus we have to override
+        <code>extract_info</code>.
+        
+        <pre class="python">
+        from vmc.common.exceptions import DeviceLacksExtractInfo
+        from vmc.common.sim import SIMBaseClass
+        from vmc.common.plugin import DBusDevicePlugin
+        from vmc.common.hardware.huawei import HuaweiCustomizer
+        
+        class HuaweiE220SIMClass(SIMBaseClass):
+            """Nozomi SIM Class"""
+            def __init__(self, sconn):
+                super(HuaweiE220SIMClass, self).__init__(sconn)
+            
+            def postinit(self):
+                d = super(HuaweiE220SIMClass, self).postinit(ucs2=False)
+                def postinit_cb(size):
+                    self.sconn.get_smsc()
+                    # before switching to UCS2, we need to get once the SMSC number
+                    # otherwise as soon as we send a SMS, the device would reset
+                    # as if it had been unplugged and replugged to the system
+                    def process_charset(charset):
+                        """
+                        Do not set charset to UCS2 if is not necessary, returns size
+                        """
+			if charset == "UCS2":
+			    self.set_charset('UCS2')
+			    return size
+			else:
+			    d = self.sconn.set_charset("UCS2")
+			    d.addCallback(lambda ignored: size)
+			    return d
+                    
+                    d2 = self.sconn.get_charset()
+                    d2.addCallback(process_charset)
+                    return d2
+        
+                d.addCallback(postinit_cb)
+                return d
+        
+        class HuaweiE220(DBusDevicePlugin):
+            """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's E220"""
+            name = "Huawei E220"
+            version = "0.1"
+            author = u"Pablo Martí"
+            custom = HuaweiCustomizer
+            simklass = HuaweiE220SIMClass
+            
+            __remote_name__ = "E220"
+        
+            __properties__ = {
+                'usb_device.vendor_id': [0x12d1],
+                'usb_device.product_id': [0x1003, 0x1004],
+            }
+            
+            def extract_info(self, children):
+                # HW 220 uses ttyUSB0 and ttyUSB1
+                for device in children:
+                    try:
+                        if device['serial.port'] == 1: # control port
+                            self.cport = device['serial.device'].encode('utf8')
+                        elif device['serial.port'] == 0: # data port
+                            self.dport = device['serial.device'].encode('utf8')
+                    except KeyError:
+                        pass
+                
+                if not self.cport or not self.dport:
+                    raise DeviceLacksExtractInfo(self)
+        </pre>
+        </p>
+        
+        <h2>Overview of a complex DevicePlugin</h2>
+        
+        <p>Option 3G Datacard is the buggiest card we've found so far, and
+        has proven to be an excellent challenge for the extensibility and
+        granularity of our plugin system. Basically we've found the following
+        bugs on the card's firmware:
+        <ul>
+            <li>If PIN authentication is disabled and you issue an
+            <code>AT+CPIN?</code>, the card will reply with a
+            <code>+CPIN: SIM PUK2</code>.
+            </li>
+            <li>Don't ask me why, but <code>AT+CPBR=1,250</code> does not
+            work once the application is running. I have tried replacing the
+            command with an equivalent one (<code>AT+CPBF=""</code>) without
+            luck. Thus the main screen never loads completely. This is were we
+            are stuck at, and some input would be really helpful.
+            </li>
+        </ul>
+        
+        So we had to modify the AuthStateMachine for this particular device
+        and its <code>cmd_dict</code>:
+        
+        <pre class="python">
+        import re
+        
+        from twisted.python import log
+        
+        from vmc.common.aterrors import ERROR_REGEXP
+        from vmc.common.command import ATCmd
+        import vmc.common.exceptions as ex
+        from vmc.common.hardware.option import (OptionDBusDevicePlugin,
+                                                OptionCustomizer)
+        from vmc.common.middleware import SIMCardConnAdapter
+        from vmc.common.protocol import SIMCardConnection
+        from vmc.common.statem.auth import AuthStateMachine
+        from vmc.contrib.epsilon.modal import mode
+            
+        class Option3GDatacardAuthStateMachine(AuthStateMachine):
+            """
+            Custom AuthStateMachine for Option's 3G Datacard
+            
+            This device has a rather buggy firmware that yields all sort of
+            weird errors. For example, if PIN authentication is disabled on the SIM
+            and you issue an AT+CPIN? command, it will reply with a +CPIN: SIM PUK2
+            """
+            pin_needed_status = AuthStateMachine.pin_needed_status
+            puk_needed_status = AuthStateMachine.puk_needed_status
+            puk2_needed_status = AuthStateMachine.puk2_needed_status
+            
+            class get_pin_status(mode):
+                def __enter__(self):
+                    pass
+                def __exit__(self):
+                    pass
+                    
+                def do_next(self):
+                    log.msg("Instantiating get_pin_status mode....")
+                    d = self.device.sconn.get_pin_status()
+                    d.addCallback(self.get_pin_status_cb)
+                    d.addErrback(self.sim_failure_eb)
+                    d.addErrback(self.sim_busy_eb)
+                    d.addErrback(self.sim_no_present_eb)
+                    d.addErrback(log.err)
+        
+        class Option3GDatacardCustomizer(OptionCustomizer):
+            """L{vmc.common.hardware.Customizer} for Option's 3G Datacard"""
+            authklass = Option3GDatacardAuthStateMachine
+        
+        class Option3GDatacard(OptionDBusDevicePlugin):
+            """L{vmc.common.plugin.DBusDevicePlugin} for Option's 3G Datacard"""
+            name = "Option 3G Datacard"
+            version = "0.1"
+            author = u"Pablo Martí"
+            custom = Option3GDatacardCustomizer
+            
+            __remote_name__ = "129"
+            
+            __properties__ = {
+                'usb_device.vendor_id' : [0x0af0],
+                'usb_device.product_id' : [0x5000],
+            }
+        
+        option3gdatacard = Option3GDatacard()
+        </pre>
+        </p>
+    </body>
+</html>

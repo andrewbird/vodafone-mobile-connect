@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Vodafone Mobile Connect Card Driver for Linux 2.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Installation"
+HREF="x89.html"></HEAD
+><BODY
+CLASS="article"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="ARTICLE"
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+><A
+NAME="AEN2"
+>Vodafone Mobile Connect Card Driver for Linux 2.0</A
+></H1
+><H2
+CLASS="subtitle"
+>Installation guide</H2
+><H3
+CLASS="author"
+><A
+NAME="AEN5"
+>Jaime Soriano Pastor</A
+></H3
+><DIV
+CLASS="affiliation"
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+><CODE
+CLASS="email"
+>&#60;<A
+HREF="mailto:jsoriano@warp.es"
+>jsoriano@warp.es</A
+>&#62;</CODE
+></P
+></DIV
+></DIV
+><P
+CLASS="copyright"
+>Copyright &copy; 2007 Vodafone España S.A.</P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="index.html#start"
+>Support Matrix</A
+></DT
+><DT
+>2. <A
+HREF="x89.html"
+>Installation</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="x89.html#AEN91"
+>Dependencies</A
+></DT
+><DT
+>2.2. <A
+HREF="x89.html#AEN103"
+>Installation</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="x115.html"
+>Uninstallation</A
+></DT
+><DT
+>4. <A
+HREF="x120.html"
+>Known issues</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="x120.html#AEN122"
+>SELinux</A
+></DT
+><DT
+>4.2. <A
+HREF="x120.html#AEN125"
+>Permissions</A
+></DT
+><DT
+>4.3. <A
+HREF="x120.html#AEN137"
+>If you are using other serial devices... or "Why isn't my GPRS/3G card detected?"</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="x141.html"
+>More help</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="start"
+>1. Support Matrix</A
+></H1
+><P
+>Since version 2.0, Vodafone Mobile Connection Card Driver for Linux is distributed as an auto-instalable script. This package has been tested and works with the devices and distributions specified in the next table:</P
+><DIV
+CLASS="table"
+><A
+NAME="AEN21"
+></A
+><P
+><B
+>Table 1. Support Matrix</B
+></P
+><TABLE
+BORDER="1"
+FRAME="border"
+RULES="all"
+CLASS="CALSTABLE"
+><COL
+WIDTH="1*"
+TITLE="Card"><COL
+WIDTH="1*"
+TITLE="Ubuntu"><COL
+WIDTH="1*"
+TITLE="Fedora"><COL
+WIDTH="1*"
+TITLE="OpenSUSE"><THEAD
+><TR
+><TH
+>Card</TH
+><TH
+>Ubuntu 7.10 Gutsy Gibbon</TH
+><TH
+>Fedora 7</TH
+><TH
+>OpenSUSE 10.3</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>Huawei E220</TD
+><TD
+>Yes</TD
+><TD
+>Yes</TD
+><TD
+>Yes</TD
+></TR
+><TR
+><TD
+>Huawei E272</TD
+><TD
+>Yes</TD
+><TD
+>Yes</TD
+><TD
+>Yes</TD
+></TR
+><TR
+><TD
+>Huawei E620</TD
+><TD
+>Needs kernel &#60;= 2.6.18.4<A
+NAME="E620-kernel-regression"
+HREF="#FTN.E620-kernel-regression"
+><SPAN
+CLASS="footnote"
+>[a]</SPAN
+></A
+></TD
+><TD
+>Needs kernel &#60;= 2.6.18.4<A
+HREF="index.html#FTN.E620-kernel-regression"
+><SPAN
+CLASS="footnote"
+>[a]</SPAN
+></A
+></TD
+><TD
+>Needs kernel &#60;= 2.6.18.4<A
+HREF="index.html#FTN.E620-kernel-regression"
+><SPAN
+CLASS="footnote"
+>[a]</SPAN
+></A
+></TD
+></TR
+><TR
+><TD
+>Novatel Ovation MC950D</TD
+><TD
+>Yes</TD
+><TD
+>Yes</TD
+><TD
+>Yes</TD
+></TR
+><TR
+><TD
+>Option GlobeTrotter 3G+ EMEA</TD
+><TD
+>Yes</TD
+><TD
+>Needs nozomi's RPM <A
+NAME="AEN64"
+HREF="#FTN.AEN64"
+><SPAN
+CLASS="footnote"
+>[b]</SPAN
+></A
+></TD
+><TD
+>Yes</TD
+></TR
+></TBODY
+><TR
+><TD
+COLSPAN="4"
+>Notes:<BR><A
+NAME="FTN.E620-kernel-regression"
+>a. </A
+>There's a regression affecting some devices. See <A
+HREF="http://bugzilla.kernel.org/show_bug.cgi?id=8830"
+TARGET="_top"
+>http://bugzilla.kernel.org/show_bug.cgi?id=8830</A
+><BR><A
+NAME="FTN.AEN64"
+>b. </A
+>Fedora's stock kernel does not provide nozomi module, required to use this device. You can get it from Vodafone Betavine's Forge: <A
+HREF="https://forge.vodafonebetavine.net/frs/?group_id=12"
+TARGET="_top"
+>https://forge.vodafonebetavine.net/frs/?group_id=12</A
+><BR></TD
+></TR
+></TABLE
+></DIV
+><P
+>It should work also in other distributions.</P
+><P
+>Experimental or contributed devices which have been reported to be working to some extent are:</P
+><P
+></P
+><UL
+COMPACT="COMPACT"
+><LI
+><P
+>Huawei E270</P
+></LI
+><LI
+><P
+>Huawei E660A</P
+></LI
+><LI
+><P
+>Option GlobeSurfer Icon</P
+></LI
+><LI
+><P
+>Option GT Fusion</P
+></LI
+><LI
+><P
+>Option GT Fusion Quad Lite</P
+></LI
+><LI
+><P
+>Option GT Max 3.6</P
+></LI
+><LI
+><P
+>Novatel U630</P
+></LI
+><LI
+><P
+>Novatel U740</P
+></LI
+><LI
+><P
+>Sierra Wireless 875</P
+></LI
+></UL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x89.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

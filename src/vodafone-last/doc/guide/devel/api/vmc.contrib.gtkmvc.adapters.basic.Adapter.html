@@ -1,0 +1,324 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.gtkmvc.adapters.basic.Adapter&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.g.a.b.Adapter(<span title="vmc.contrib.gtkmvc.Observer">Observer</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.gtkmvc.html">gtkmvc</a>.<a href="vmc.contrib.gtkmvc.adapters.html">adapters</a>.<a href="vmc.contrib.gtkmvc.adapters.basic.html">basic</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.gtkmvc.adapters.basic.Adapter">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter.html">vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter</a></p>
+    </div>
+    <div class="undocumented">No class docstring</div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id916">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.adapters.basic.Adapter.html#__init__">__init__</a></td>
+    <td><span>Creates a new adapter that handles setting of value of a
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.adapters.basic.Adapter.html#connect_widget">connect_widget</a></td>
+    <td><span>Called when the widget is instantiated, and the adapter is
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.adapters.basic.Adapter.html#update_model">update_model</a></td>
+    <td><span>Forces the property to be updated from the value hold by
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.adapters.basic.Adapter.html#update_widget">update_widget</a></td>
+    <td><span>Forces the widget to be updated from the property
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, model, prop_name, prop_read=None, prop_write=None, value_error=None):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter.html">vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter</a></div>
+          <div><p>Creates a new adapter that handles setting of value of a model single 
+model property when a corresponding widgets set is changed and viceversa 
+when the property is also observable.</p>
+<p>This class handles only assignments to properties. For other kinds of 
+setting (e.g. user-defined classes used as observable properties, 
+containers, etc.) use other types of Adapters derived from this class.</p>
+<p>prop_name is the model's property name (as a string). It is possible to 
+use a dotted notation to identify a property contained into a hierarchy of 
+models. For example 'a.b.c' identifies property 'c' into model 'b' inside 
+model 'a', where model 'a' is an attribute of given top level model. Last 
+name must be an observable or non-observable attribute, and previous names 
+(if specified) must all refer to instances of class Model. First name from 
+the left must be the name of a model instance inside the given model.</p>
+<p>prop_{write,read} are two optional functions that apply custom 
+modifications to the value of the property before setting and reading it. 
+Both take a value and must return a transformed value whose type must be 
+compatible with the type of the property.</p>
+value_error can be a function (or a method) to be called when a 
+ValueError exception occurs while trying to set a wrong value for the 
+property inside the model. The function will receive: the adapter, the 
+property name and the value coming from the widget that offended the 
+model.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter.connect_widget"></a>
+        <a name="connect_widget"></a>
+        <div class="functionHeader">
+        
+        def connect_widget(self, wid, getter=None, setter=None, signal=None, arg=None, update=True):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter.html">vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter</a></div>
+          <div><p>Called when the widget is instantiated, and the adapter is ready to 
+connect the widget and the property inside the observed model. arg is the 
+(optional) argument that will be passed when connecting the signal.</p>
+<p>getter and setter are the (optional) methods used for reading and 
+writing the widget's value. When not specified, default getter and setter 
+will be guessed by looking at the widget type the adapter will be connected
+with. Guessing is carried out by querying information specified into module
+'adapters.default'.</p>
+Finally, if update is false, the widget will not be updated
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter.update_model"></a>
+        <a name="update_model"></a>
+        <div class="functionHeader">
+        
+        def update_model(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter.html">vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter</a></div>
+          <div>Forces the property to be updated from the value hold by the widget. 
+This method should be called directly by the user in very unusual 
+coditions.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter.update_widget"></a>
+        <a name="update_widget"></a>
+        <div class="functionHeader">
+        
+        def update_widget(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter.html">vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter</a></div>
+          <div>Forces the widget to be updated from the property value. This method 
+should be called directly by the user when the property is not observable, 
+or in very unusual coditions.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._connect_model"></a>
+        <a name="_connect_model"></a>
+        <div class="functionHeader">
+        
+        def _connect_model(self, model):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Used internally to connect the property into the model, and register 
+self as a value observer for that property
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._get_observer_src"></a>
+        <a name="_get_observer_src"></a>
+        <div class="functionHeader">
+        
+        def _get_observer_src(self, prop_name):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter.html">vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter</a></div>
+          <div>This is the code for an value change observer
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._add_method"></a>
+        <a name="_add_method"></a>
+        <div class="functionHeader">
+        
+        def _add_method(self, src):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Private service to add a new method to the instance, given method 
+code
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._get_property"></a>
+        <a name="_get_property"></a>
+        <div class="functionHeader">
+        
+        def _get_property(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter.html">vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter</a></div>
+          <div>Private method that returns the value currently stored into the 
+property
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._set_property"></a>
+        <a name="_set_property"></a>
+        <div class="functionHeader">
+        
+        def _set_property(self, val):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter.html">vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter</a></div>
+          <div>Private method that sets the value currently of the property.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._read_property"></a>
+        <a name="_read_property"></a>
+        <div class="functionHeader">
+        
+        def _read_property(self, *args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns the (possibly transformed) value that is stored into the 
+property
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._write_property"></a>
+        <a name="_write_property"></a>
+        <div class="functionHeader">
+        
+        def _write_property(self, val, *args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sets the value of property. Given val is transformed accodingly to 
+prop_write function when specified at construction-time. A try to cast the 
+value to the property type is given.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._read_widget"></a>
+        <a name="_read_widget"></a>
+        <div class="functionHeader">
+        
+        def _read_widget(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter.html">vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter</a></div>
+          <div>Returns the value currently stored into the widget, after transforming 
+it accordingly to possibly specified function.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._write_widget"></a>
+        <a name="_write_widget"></a>
+        <div class="functionHeader">
+        
+        def _write_widget(self, val):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter.html">vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter</a></div>
+          <div>Writes value into the widget. If specified, user setter is invoked.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._cast_value"></a>
+        <a name="_cast_value"></a>
+        <div class="functionHeader">
+        
+        def _cast_value(self, val, totype):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Casts given val to given totype. Raises TypeError if not able to 
+cast.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._on_wid_changed"></a>
+        <a name="_on_wid_changed"></a>
+        <div class="functionHeader">
+        
+        def _on_wid_changed(self, wid):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter.html">vmc.contrib.gtkmvc.adapters.containers.StaticContainerAdapter</a></div>
+          <div>Called when the widget is changed
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.adapters.basic.Adapter._on_prop_changed"></a>
+        <a name="_on_prop_changed"></a>
+        <div class="functionHeader">
+        
+        def _on_prop_changed(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter.html">vmc.contrib.gtkmvc.adapters.basic.UserClassAdapter</a></div>
+          <div>Called by the observation code, when the value in the observed property 
+is changed
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

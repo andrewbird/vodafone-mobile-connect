@@ -1,0 +1,309 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.batch.JuiceChild&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.b.JuiceChild(<a href="vmc.contrib.epsilon.juice.Juice.html">juice.Juice</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.batch.html">batch</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.batch.JuiceChild">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.axiom.batch.BatchProcessingProtocol.html">vmc.contrib.axiom.batch.BatchProcessingProtocol</a></p>
+    </div>
+    <div><p>Protocol class which runs in the child process</p>
+This just defines one behavior on top of a regular juice protocol: the 
+shutdown command, which drops the connection and stops the reactor.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id455">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.batch.JuiceChild.html#connectionLost">connectionLost</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.batch.JuiceChild.html#command_SHUTDOWN">command_SHUTDOWN</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.juice.Juice.html">Juice</a>:
+        </p>
+        <table class="children sortable" id="id456">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#__init__">__init__</a></td>
+    <td></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#_lock">_lock</a></td>
+    <td><span>Lock this Juice instance so that no further Juice traffic may be 
+sent.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#_switchTo">_switchTo</a></td>
+    <td><span>Switch this Juice instance to a new protocol.  You need to do this
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#juiceBoxReceived">juiceBoxReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#sendPacket">sendPacket</a></td>
+    <td><span>Send a juice.Box to my peer.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#sendCommand">sendCommand</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#makeConnection">makeConnection</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#prepareTLS">prepareTLS</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#startTLS">startTLS</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#dataReceived">dataReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#lineReceived">lineReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#rawDataReceived">rawDataReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#_setProtocolVersion">_setProtocolVersion</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#renegotiateVersion">renegotiateVersion</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#command_NEGOTIATE">command_NEGOTIATE</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.liner.LineReceiver.html">LineReceiver</a> (via <a href="vmc.contrib.epsilon.juice.Juice.html">Juice</a>):
+        </p>
+        <table class="children sortable" id="id457">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.liner.LineReceiver.html#setLineMode">setLineMode</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.liner.LineReceiver.html#isDisconnecting">isDisconnecting</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.liner.LineReceiver.html#setRawMode">setRawMode</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html">JuiceParserBase</a> (via <a href="vmc.contrib.epsilon.juice.Juice.html">Juice</a>):
+        </p>
+        <table class="children sortable" id="id458">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#_puke">_puke</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#_nextTag">_nextTag</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#failAllOutgoing">failAllOutgoing</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#sendBoxCommand">sendBoxCommand</a></td>
+    <td><span>Send a command across the wire with the given 
+<code>juice.Box</code>.
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.juice.DispatchMixin.html">DispatchMixin</a> (via <a href="vmc.contrib.epsilon.juice.Juice.html">Juice</a>, <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html">JuiceParserBase</a>):
+        </p>
+        <table class="children sortable" id="id459">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#_auto">_auto</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#_wrap">_wrap</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#normalizeCommand">normalizeCommand</a></td>
+    <td><span>Return the canonical form of a command.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#lookupFunction">lookupFunction</a></td>
+    <td><span>Return a callable to invoke when executing the named command.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#dispatchCommand">dispatchCommand</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.batch.JuiceChild.connectionLost"></a>
+        <a name="connectionLost"></a>
+        <div class="functionHeader">
+        
+        def connectionLost(self, reason):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.epsilon.juice.Juice.html#connectionLost">vmc.contrib.epsilon.juice.Juice.connectionLost</a></div><div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.batch.BatchProcessingProtocol.html">vmc.contrib.axiom.batch.BatchProcessingProtocol</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.batch.JuiceChild.command_SHUTDOWN"></a>
+        <a name="command_SHUTDOWN"></a>
+        <div class="functionHeader">
+        
+        def command_SHUTDOWN(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>
