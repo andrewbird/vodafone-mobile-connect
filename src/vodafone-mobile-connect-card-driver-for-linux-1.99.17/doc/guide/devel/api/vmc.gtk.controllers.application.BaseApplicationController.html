@@ -1,0 +1,1301 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.gtk.controllers.application.BaseApplicationController&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.g.c.a.BaseApplicationController(<a href="vmc.gtk.controllers.base.WidgetController.html">WidgetController</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.gtk.html">gtk</a>.<a href="vmc.gtk.controllers.html">controllers</a>.<a href="vmc.gtk.controllers.application.html">application</a></span>
+      
+      <a href="classIndex.html#vmc.gtk.controllers.application.BaseApplicationController">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.gtk.controllers.application.ApplicationController.html">vmc.gtk.controllers.application.ApplicationController</a></p>
+    </div>
+    <div>Controller for the main window
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id59">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#quit_application">quit_application</a></td>
+    <td><span>Closes open connections and exits the application
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#start">start</a></td>
+    <td><span>Overrides the register_view method and starts the whole thing up
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#start_device_activities">start_device_activities</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#usage_notifier">usage_notifier</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#update_usage_view">update_usage_view</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#setup">setup</a></td>
+    <td><span>Presents the main screen and configures profiles and devices
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#paint_initial_values">paint_initial_values</a></td>
+    <td><span>Sets the signal level and network name in the GUI
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_quit_menu_item_activate">on_quit_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_tools_menu_item_activate">on_tools_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_diagnostics_item_activate">on_diagnostics_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_help_topics_menuitem_activate">on_help_topics_menuitem_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_about_menu_item_activate">on_about_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_change_pin1_menu_item_child_activate">on_change_pin1_menu_item_child_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_request_pin1_activate">on_request_pin1_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_new_profile_menuitem_activate">on_new_profile_menuitem_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_inspect_menu_item_activate">on_inspect_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_preferences_menu_item_activate">on_preferences_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_mobile1_activate">on_mobile1_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_import_contacts1_activate">on_import_contacts1_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_export_contacts1_activate">on_export_contacts1_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_connect_button_toggled">on_connect_button_toggled</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_sms_menu_item_activate">on_sms_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_usage_menu_item_activate">on_usage_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_support_menu_item_activate">on_support_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_minimize_menu_item_activate">on_minimize_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_sms_preferences_activate">on_sms_preferences_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_mail_button_clicked">on_mail_button_clicked</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_sms_button_toggled">on_sms_button_toggled</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_internet_button_clicked">on_internet_button_clicked</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_usage_button_clicked">on_usage_button_clicked</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_support_button_toggled">on_support_button_toggled</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_new_contact_menu_item_activate">on_new_contact_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_search_contact_menu_item_activate">on_search_contact_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_new_sms_activate">on_new_sms_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_reply_sms_no_quoting_menu_item_activate">on_reply_sms_no_quoting_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_reply_sms_quoting_menu_item_activate">on_reply_sms_quoting_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_forward_sms_menu_item_activate">on_forward_sms_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_add_contact_menu_item_activate">on_add_contact_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_delete_menu_item_activate">on_delete_menu_item_activate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_generic_treeview_row_button_press_event">on_generic_treeview_row_button_press_event</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_cursor_changed_treeview_event">on_cursor_changed_treeview_event</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#on_main_notebook_switch_page">on_main_notebook_switch_page</a></td>
+    <td><span>Callback for whenever VMC's main notebook is switched
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#delete_entries">delete_entries</a></td>
+    <td><span>Deletes the entries selected in the treeview
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#get_trayicon_popup_menu">get_trayicon_popup_menu</a></td>
+    <td><span>Returns a popup menu when you right click on the trayicon
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#get_contacts_popup_menu">get_contacts_popup_menu</a></td>
+    <td><span>Returns a popup menu for the contacts treeview
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#get_generic_popup_menu">get_generic_popup_menu</a></td>
+    <td><span>Returns a popup menu for the rest of treeviews
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#get_obj_from_selected_row">get_obj_from_selected_row</a></td>
+    <td><span>Returns the data from the selected row
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#start_network_stats_timer">start_network_stats_timer</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.application.BaseApplicationController.html#stop_network_stats_timer">stop_network_stats_timer</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.gtk.controllers.base.WidgetController.html">WidgetController</a>:
+        </p>
+        <table class="children sortable" id="id60">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.base.WidgetController.html#hide_widgets">hide_widgets</a></td>
+    <td><span>Hides all the widgets that we're weeping track of
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.controllers.base.WidgetController.html#append_widget">append_widget</a></td>
+    <td><span>Appends a widget to <code>self._widgets</code>
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, model, device_listener, splash):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.gtk.controllers.base.WidgetController.html#__init__">vmc.gtk.controllers.base.WidgetController.__init__</a></div><div class="interfaceinfo">overridden in <a href="vmc.gtk.controllers.application.ApplicationController.html">vmc.gtk.controllers.application.ApplicationController</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._quit_or_minimize"></a>
+        <a name="_quit_or_minimize"></a>
+        <div class="functionHeader">
+        
+        def _quit_or_minimize(self, *args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.quit_application"></a>
+        <a name="quit_application"></a>
+        <div class="functionHeader">
+        
+        def quit_application(self, *args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Closes open connections and exits the application
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.start"></a>
+        <a name="start"></a>
+        <div class="functionHeader">
+        
+        def start(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Overrides the register_view method and starts the whole thing up
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._setup_signals"></a>
+        <a name="_setup_signals"></a>
+        <div class="functionHeader">
+        
+        def _setup_signals(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.start_device_activities"></a>
+        <a name="start_device_activities"></a>
+        <div class="functionHeader">
+        
+        def start_device_activities(self, widget=None, hotplug=False):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._setup_menubar_hacks"></a>
+        <a name="_setup_menubar_hacks"></a>
+        <div class="functionHeader">
+        
+        def _setup_menubar_hacks(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._empty_treeviews"></a>
+        <a name="_empty_treeviews"></a>
+        <div class="functionHeader">
+        
+        def _empty_treeviews(self, treeviews):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._fill_contacts"></a>
+        <a name="_fill_contacts"></a>
+        <div class="functionHeader">
+        
+        def _fill_contacts(self, ignored=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Fills the contacts treeview with SIM &amp; DB contacts
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._fill_messages"></a>
+        <a name="_fill_messages"></a>
+        <div class="functionHeader">
+        
+        def _fill_messages(self, contacts=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Fills the messages treeview with SIM &amp; DB SMS</p>
+We're receiving the contacts list produced by _fill_contacts because 
+otherwise, adding dozens of SMS to the treeview would be very inefficient, 
+as we would have to lookup the sender number of every SMS to find out 
+whether is a known contact or not. The solution is to cache the previous 
+result and pass the contacts list to the <a 
+href="vmc.gtk.models.sms.SMSStoreModel.html"><code>vmc.gtk.models.sms.SMSStoreModel</code></a>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._fill_treeviews"></a>
+        <a name="_fill_treeviews"></a>
+        <div class="functionHeader">
+        
+        def _fill_treeviews(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Fills the treeviews with SMS and contacts from the SIM and DB
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._update_usage_panel"></a>
+        <a name="_update_usage_panel"></a>
+        <div class="functionHeader">
+        
+        def _update_usage_panel(self, name, offset):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._update_usage_session"></a>
+        <a name="_update_usage_session"></a>
+        <div class="functionHeader">
+        
+        def _update_usage_session(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.usage_notifier"></a>
+        <a name="usage_notifier"></a>
+        <div class="functionHeader">
+        
+        def usage_notifier(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.update_usage_view"></a>
+        <a name="update_usage_view"></a>
+        <div class="functionHeader">
+        
+        def update_usage_view(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.setup"></a>
+        <a name="setup"></a>
+        <div class="functionHeader">
+        
+        def setup(self, ignored=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Presents the main screen and configures profiles and devices
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.paint_initial_values"></a>
+        <a name="paint_initial_values"></a>
+        <div class="functionHeader">
+        
+        def paint_initial_values(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Sets the signal level and network name in the GUI
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._network_reg_cb"></a>
+        <a name="_network_reg_cb"></a>
+        <div class="functionHeader">
+        
+        def _network_reg_cb(self, netinfo):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._change_signal_level"></a>
+        <a name="_change_signal_level"></a>
+        <div class="functionHeader">
+        
+        def _change_signal_level(self, rssi):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._hide_splash_and_show_ourselves"></a>
+        <a name="_hide_splash_and_show_ourselves"></a>
+        <div class="functionHeader">
+        
+        def _hide_splash_and_show_ourselves(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_quit_menu_item_activate"></a>
+        <a name="on_quit_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_quit_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._build_profiles_menu"></a>
+        <a name="_build_profiles_menu"></a>
+        <div class="functionHeader">
+        
+        def _build_profiles_menu(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_tools_menu_item_activate"></a>
+        <a name="on_tools_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_tools_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_diagnostics_item_activate"></a>
+        <a name="on_diagnostics_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_diagnostics_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_help_topics_menuitem_activate"></a>
+        <a name="on_help_topics_menuitem_activate"></a>
+        <div class="functionHeader">
+        
+        def on_help_topics_menuitem_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_about_menu_item_activate"></a>
+        <a name="on_about_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_about_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_change_pin1_menu_item_child_activate"></a>
+        <a name="on_change_pin1_menu_item_child_activate"></a>
+        <div class="functionHeader">
+        
+        def on_change_pin1_menu_item_child_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_request_pin1_activate"></a>
+        <a name="on_request_pin1_activate"></a>
+        <div class="functionHeader">
+        
+        def on_request_pin1_activate(self, checkmenuitem):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_new_profile_menuitem_activate"></a>
+        <a name="on_new_profile_menuitem_activate"></a>
+        <div class="functionHeader">
+        
+        def on_new_profile_menuitem_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_inspect_menu_item_activate"></a>
+        <a name="on_inspect_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_inspect_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_preferences_menu_item_activate"></a>
+        <a name="on_preferences_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_preferences_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_mobile1_activate"></a>
+        <a name="on_mobile1_activate"></a>
+        <div class="functionHeader">
+        
+        def on_mobile1_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_import_contacts1_activate"></a>
+        <a name="on_import_contacts1_activate"></a>
+        <div class="functionHeader">
+        
+        def on_import_contacts1_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_export_contacts1_activate"></a>
+        <a name="on_export_contacts1_activate"></a>
+        <div class="functionHeader">
+        
+        def on_export_contacts1_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_connect_button_toggled"></a>
+        <a name="on_connect_button_toggled"></a>
+        <div class="functionHeader">
+        
+        def on_connect_button_toggled(self, button):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_sms_menu_item_activate"></a>
+        <a name="on_sms_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_sms_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_usage_menu_item_activate"></a>
+        <a name="on_usage_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_usage_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_support_menu_item_activate"></a>
+        <a name="on_support_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_support_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_minimize_menu_item_activate"></a>
+        <a name="on_minimize_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_minimize_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_sms_preferences_activate"></a>
+        <a name="on_sms_preferences_activate"></a>
+        <div class="functionHeader">
+        
+        def on_sms_preferences_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_mail_button_clicked"></a>
+        <a name="on_mail_button_clicked"></a>
+        <div class="functionHeader">
+        
+        def on_mail_button_clicked(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_sms_button_toggled"></a>
+        <a name="on_sms_button_toggled"></a>
+        <div class="functionHeader">
+        
+        def on_sms_button_toggled(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_internet_button_clicked"></a>
+        <a name="on_internet_button_clicked"></a>
+        <div class="functionHeader">
+        
+        def on_internet_button_clicked(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_usage_button_clicked"></a>
+        <a name="on_usage_button_clicked"></a>
+        <div class="functionHeader">
+        
+        def on_usage_button_clicked(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_support_button_toggled"></a>
+        <a name="on_support_button_toggled"></a>
+        <div class="functionHeader">
+        
+        def on_support_button_toggled(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_new_contact_menu_item_activate"></a>
+        <a name="on_new_contact_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_new_contact_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_search_contact_menu_item_activate"></a>
+        <a name="on_search_contact_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_search_contact_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_new_sms_activate"></a>
+        <a name="on_new_sms_activate"></a>
+        <div class="functionHeader">
+        
+        def on_new_sms_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_reply_sms_no_quoting_menu_item_activate"></a>
+        <a name="on_reply_sms_no_quoting_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_reply_sms_no_quoting_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_reply_sms_quoting_menu_item_activate"></a>
+        <a name="on_reply_sms_quoting_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_reply_sms_quoting_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_forward_sms_menu_item_activate"></a>
+        <a name="on_forward_sms_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_forward_sms_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_add_contact_menu_item_activate"></a>
+        <a name="on_add_contact_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_add_contact_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_delete_menu_item_activate"></a>
+        <a name="on_delete_menu_item_activate"></a>
+        <div class="functionHeader">
+        
+        def on_delete_menu_item_activate(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_generic_treeview_row_button_press_event"></a>
+        <a name="on_generic_treeview_row_button_press_event"></a>
+        <div class="functionHeader">
+        
+        def on_generic_treeview_row_button_press_event(self, treeview, event):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_cursor_changed_treeview_event"></a>
+        <a name="on_cursor_changed_treeview_event"></a>
+        <div class="functionHeader">
+        
+        def on_cursor_changed_treeview_event(self, treeview):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.on_main_notebook_switch_page"></a>
+        <a name="on_main_notebook_switch_page"></a>
+        <div class="functionHeader">
+        
+        def on_main_notebook_switch_page(self, notebook, ptr, pagenum):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Callback for whenever VMC's main notebook is switched</p>
+Basically takes care of showing and hiding the appropiate menubars 
+depending on the page the user is viewing
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._name_contact_cell_edited"></a>
+        <a name="_name_contact_cell_edited"></a>
+        <div class="functionHeader">
+        
+        def _name_contact_cell_edited(self, widget, path, newname):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Handler for the cell-edited signal of the name column
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._number_contact_cell_edited"></a>
+        <a name="_number_contact_cell_edited"></a>
+        <div class="functionHeader">
+        
+        def _number_contact_cell_edited(self, widget, path, newnumber):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Handler for the cell-edited signal of the number column
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._setup_trayicon"></a>
+        <a name="_setup_trayicon"></a>
+        <div class="functionHeader">
+        
+        def _setup_trayicon(self, ignoreconf=False):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Attaches VMC's trayicon to the systray
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._detach_trayicon"></a>
+        <a name="_detach_trayicon"></a>
+        <div class="functionHeader">
+        
+        def _detach_trayicon(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Detachs VMC's trayicon from the systray
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._show_hide_window"></a>
+        <a name="_show_hide_window"></a>
+        <div class="functionHeader">
+        
+        def _show_hide_window(self, *args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._row_activated_tv"></a>
+        <a name="_row_activated_tv"></a>
+        <div class="functionHeader">
+        
+        def _row_activated_tv(self, treeview, path, col):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._check_if_connected"></a>
+        <a name="_check_if_connected"></a>
+        <div class="functionHeader">
+        
+        def _check_if_connected(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns True if connected or the user doesn't cares is not connected
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.__on_treeview_key_press"></a>
+        <a name="__on_treeview_key_press"></a>
+        <div class="functionHeader">
+        
+        def __on_treeview_key_press(self, widget, event):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Handler for key_press_button in treeviews
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.delete_entries"></a>
+        <a name="delete_entries"></a>
+        <div class="functionHeader">
+        
+        def delete_entries(self, menuitem, pathlist, treeview):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Deletes the entries selected in the treeview</p>
+This entries are deleted in SIM/DB and the treeview
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._send_sms_to_contact"></a>
+        <a name="_send_sms_to_contact"></a>
+        <div class="functionHeader">
+        
+        def _send_sms_to_contact(self, menuitem, treeview):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.get_trayicon_popup_menu"></a>
+        <a name="get_trayicon_popup_menu"></a>
+        <div class="functionHeader">
+        
+        def get_trayicon_popup_menu(self, *args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a popup menu when you right click on the trayicon
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.get_contacts_popup_menu"></a>
+        <a name="get_contacts_popup_menu"></a>
+        <div class="functionHeader">
+        
+        def get_contacts_popup_menu(self, pathinfo, treeview):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a popup menu for the contacts treeview
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.get_generic_popup_menu"></a>
+        <a name="get_generic_popup_menu"></a>
+        <div class="functionHeader">
+        
+        def get_generic_popup_menu(self, pathinfo, treeview):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns a popup menu for the rest of treeviews
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._save_sms_to_draft"></a>
+        <a name="_save_sms_to_draft"></a>
+        <div class="functionHeader">
+        
+        def _save_sms_to_draft(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>This will save the selected SMS to the drafts tv and the DB
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController._use_detail_add_contact"></a>
+        <a name="_use_detail_add_contact"></a>
+        <div class="functionHeader">
+        
+        def _use_detail_add_contact(self, widget):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Handler for the use detail menu
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.get_obj_from_selected_row"></a>
+        <a name="get_obj_from_selected_row"></a>
+        <div class="functionHeader">
+        
+        def get_obj_from_selected_row(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Returns the data from the selected row
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.start_network_stats_timer"></a>
+        <a name="start_network_stats_timer"></a>
+        <div class="functionHeader">
+        
+        def start_network_stats_timer(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.gtk.controllers.application.ApplicationController.html">vmc.gtk.controllers.application.ApplicationController</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.controllers.application.BaseApplicationController.stop_network_stats_timer"></a>
+        <a name="stop_network_stats_timer"></a>
+        <div class="functionHeader">
+        
+        def stop_network_stats_timer(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.gtk.controllers.application.ApplicationController.html">vmc.gtk.controllers.application.ApplicationController</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+function fix_peers(){
+	if [ -e /etc/ppp/peers ];then
+	   chown :dialout /etc/ppp/peers
+	   chmod g+w /etc/ppp/peers
+	fi
+}
+
+function fix_pap(){
+	if [ -e /etc/ppp/pap-secrets ];then
+		chown :dialout /etc/ppp/pap-secrets
+		chmod g+rw /etc/ppp/pap-secrets
+	fi
+}
+
+function fix_chap(){ 
+        if [ -e /etc/ppp/chap-secrets ];then
+	   chown :dialout /etc/ppp/chap-secrets
+	   chmod g+rw /etc/ppp/chap-secrets
+        fi
+}
+
+dpkg-divert --package vodafone-mobile-connect-card-driver-for-linux \
+            --rename --quiet --add /etc/ppp/peers/wvdial
+
+ln -fs /etc/ppp/peers/wvdial.default /etc/ppp/peers/wvdial
+
+fix_peers
+fix_pap
+fix_chap

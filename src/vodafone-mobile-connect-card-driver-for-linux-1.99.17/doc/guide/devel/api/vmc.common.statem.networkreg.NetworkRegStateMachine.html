@@ -1,0 +1,291 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.statem.networkreg.NetworkRegStateMachine&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.s.n.NetworkRegStateMachine(<a href="vmc.common.statem.base.StateMachineMixin.html">StateMachineMixin</a>, <a href="vmc.contrib.epsilon.modal.Modal.html">Modal</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.statem.html">statem</a>.<a href="vmc.common.statem.networkreg.html">networkreg</a></span>
+      
+      <a href="classIndex.html#vmc.common.statem.networkreg.NetworkRegStateMachine">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div>I register with the network
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id225">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#on_notification_received">on_notification_received</a></td>
+    <td><span>Called whenever a notification is received
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#check_if_i_registered_with_any_net">check_if_i_registered_with_any_net</a></td>
+    <td><span>Executed when Timeout has expired while on wait_to_register
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#get_net_names_cb">get_net_names_cb</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#process_roaming_ids">process_roaming_ids</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.html#start_netreg">start_netreg</a></td>
+    <td><span>Starts the network registration process
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.check_registered.html">check_registered</a></td>
+    <td><span>Check if we are currently registered with the network
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.wait_to_register.html">wait_to_register</a></td>
+    <td><span>Wait till we are registered with the network, if after
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.obtain_netinfo.html">obtain_netinfo</a></td>
+    <td><span>Find out what network are we registered with
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.search_operators.html">search_operators</a></td>
+    <td><span>Find out what operators are around
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.international_roaming.html">international_roaming</a></td>
+    <td><span>We couldn't find an operator to connect with, we're abroad. Check
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.register_with_operator.html">register_with_operator</a></td>
+    <td><span>We've found the operator that we must register with
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_finished.html">registration_finished</a></td>
+    <td><span>Find out what network are we registered with
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.statem.networkreg.NetworkRegStateMachine.registration_failed.html">registration_failed</a></td>
+    <td><span>Registration failed, send
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.modal.Modal.html">Modal</a>:
+        </p>
+        <table class="children sortable" id="id226">
+  
+  
+  
+  
+  <tr class="baseclass">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.epsilon.modal.Modal.nil.html">nil</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.modal.Modal.html#transitionTo">transitionTo</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, device):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.on_notification_received"></a>
+        <a name="on_notification_received"></a>
+        <div class="functionHeader">
+        
+        def on_notification_received(self, notification):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.INotificationListener.html#on_notification_received">vmc.common.interfaces.INotificationListener</a></div><div class="interfaceinfo">overrides <a href="vmc.common.statem.base.StateMachineMixin.html#on_notification_received">vmc.common.statem.base.StateMachineMixin.on_notification_received</a></div>
+          <div>Called whenever a notification is received
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">notification</td><td> (type: vmc.common.notifications.Notification
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.check_if_i_registered_with_any_net"></a>
+        <a name="check_if_i_registered_with_any_net"></a>
+        <div class="functionHeader">
+        
+        def check_if_i_registered_with_any_net(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Executed when Timeout has expired while on wait_to_register</p>
+some cards like to not notify you that they're registered
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine._process_netreg_status"></a>
+        <a name="_process_netreg_status"></a>
+        <div class="functionHeader">
+        
+        def _process_netreg_status(self, netregstatus):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Process get_netreg_status response from &quot;check_registered&quot; 
+mode
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine._process_imsi_cb"></a>
+        <a name="_process_imsi_cb"></a>
+        <div class="functionHeader">
+        
+        def _process_imsi_cb(self, imsi_prefix):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.get_net_names_cb"></a>
+        <a name="get_net_names_cb"></a>
+        <div class="functionHeader">
+        
+        def get_net_names_cb(self, net_objs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.process_roaming_ids"></a>
+        <a name="process_roaming_ids"></a>
+        <div class="functionHeader">
+        
+        def process_roaming_ids(self, net_objs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.statem.networkreg.NetworkRegStateMachine.start_netreg"></a>
+        <a name="start_netreg"></a>
+        <div class="functionHeader">
+        
+        def start_netreg(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Starts the network registration process
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"> (type: <code>defer.Deferred</code>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">ex.NetworkTemporalyUnavailableError</td><td>If AT+COPS keeps replying +COPS: 0 (No network)
+</td></tr><tr><td></td><td class="fieldArg">ex.NetworkRegistrationError</td><td>Raised when we can't register with the network we want to register 
+to
+</td></tr></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

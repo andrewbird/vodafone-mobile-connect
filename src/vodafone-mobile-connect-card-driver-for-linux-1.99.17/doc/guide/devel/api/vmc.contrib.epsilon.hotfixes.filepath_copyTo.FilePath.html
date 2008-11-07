@@ -1,0 +1,793 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.e.h.f.FilePath:</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.epsilon.html">epsilon</a>.<a href="vmc.contrib.epsilon.hotfixes.html">hotfixes</a>.<a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.html">filepath_copyTo</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div><p>I am a path on the filesystem that only permits 'downwards' access.</p>
+<p>Instantiate me with a pathname (for example, 
+FilePath('/home/myuser/public_html')) and I will attempt to only provide 
+access to files which reside inside that path.  I may be a path to a file, 
+a directory, or a file which does not exist.</p>
+<p>The correct way to use me is to instantiate me, and then do ALL 
+filesystem access through me.  In other words, do not import the 'os' 
+module; if you need to open a file, call my 'open' method.  If you need to 
+list a directory, call my 'path' method.</p>
+Even if you pass me a relative path, I will convert that to an absolute 
+path internally.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Instance Variables</td><td class="fieldArg">alwaysCreate</td><td>When opening this file, only succeed if the file does not already 
+exist.
+ (type: <code>bool</code>
+)</td></tr></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id816">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#__getstate__">__getstate__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#child">child</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#preauthChild">preauthChild</a></td>
+    <td><span>Use me if `path' might have slashes in it, but you know they're 
+safe.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#childSearchPreauth">childSearchPreauth</a></td>
+    <td><span>Return my first existing child with a name in 'paths'.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#siblingExtensionSearch">siblingExtensionSearch</a></td>
+    <td><span>Attempt to return a path with my name, given multiple possible
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#siblingExtension">siblingExtension</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#open">open</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#restat">restat</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#getsize">getsize</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#getmtime">getmtime</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#getctime">getctime</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#getatime">getatime</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#exists">exists</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#isdir">isdir</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#isfile">isfile</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#islink">islink</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#isabs">isabs</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#listdir">listdir</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#splitext">splitext</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#touch">touch</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#remove">remove</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#makedirs">makedirs</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#globChildren">globChildren</a></td>
+    <td><span>Assuming I am representing a directory, return a list of
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#basename">basename</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#dirname">dirname</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#parent">parent</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#setContent">setContent</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#getContent">getContent</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#__cmp__">__cmp__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#createDirectory">createDirectory</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#requireCreate">requireCreate</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#create">create</a></td>
+    <td><span>Exclusively create a file, only if this file previously did not 
+exist.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#temporarySibling">temporarySibling</a></td>
+    <td><span>Create a path naming a temporary sibling of this path in a secure 
+fashion.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#children">children</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#walk">walk</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#copyTo">copyTo</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.html#moveTo">moveTo</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, path, alwaysCreate=False):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.__getstate__"></a>
+        <a name="__getstate__"></a>
+        <div class="functionHeader">
+        
+        def __getstate__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.child"></a>
+        <a name="child"></a>
+        <div class="functionHeader">
+        
+        def child(self, path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.preauthChild"></a>
+        <a name="preauthChild"></a>
+        <div class="functionHeader">
+        
+        def preauthChild(self, path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Use me if `path' might have slashes in it, but you know they're 
+safe.</p>
+(NOT slashes at the beginning. It still needs to be a _child_).
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.childSearchPreauth"></a>
+        <a name="childSearchPreauth"></a>
+        <div class="functionHeader">
+        
+        def childSearchPreauth(self, *paths):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Return my first existing child with a name in 'paths'.</p>
+<p>paths is expected to be a list of *pre-secured* path fragments; in most 
+cases this will be specified by a system administrator and not an arbitrary
+user.</p>
+If no appropriately-named children exist, this will return None.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.siblingExtensionSearch"></a>
+        <a name="siblingExtensionSearch"></a>
+        <div class="functionHeader">
+        
+        def siblingExtensionSearch(self, *exts):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Attempt to return a path with my name, given multiple possible 
+extensions.</p>
+<p>Each extension in exts will be tested and the first path which exists 
+will be returned.  If no path exists, None will be returned.  If '' is in 
+exts, then if the file referred to by this path exists, 'self' will be 
+returned.</p>
+The extension '*' has a magic meaning, which means &quot;any path that 
+begins with self.path+'.' is acceptable&quot;.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.siblingExtension"></a>
+        <a name="siblingExtension"></a>
+        <div class="functionHeader">
+        
+        def siblingExtension(self, ext):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.open"></a>
+        <a name="open"></a>
+        <div class="functionHeader">
+        
+        def open(self, mode='r'):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.restat"></a>
+        <a name="restat"></a>
+        <div class="functionHeader">
+        
+        def restat(self, reraise=True):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.getsize"></a>
+        <a name="getsize"></a>
+        <div class="functionHeader">
+        
+        def getsize(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.getmtime"></a>
+        <a name="getmtime"></a>
+        <div class="functionHeader">
+        
+        def getmtime(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.getctime"></a>
+        <a name="getctime"></a>
+        <div class="functionHeader">
+        
+        def getctime(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.getatime"></a>
+        <a name="getatime"></a>
+        <div class="functionHeader">
+        
+        def getatime(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.exists"></a>
+        <a name="exists"></a>
+        <div class="functionHeader">
+        
+        def exists(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.isdir"></a>
+        <a name="isdir"></a>
+        <div class="functionHeader">
+        
+        def isdir(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.isfile"></a>
+        <a name="isfile"></a>
+        <div class="functionHeader">
+        
+        def isfile(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.islink"></a>
+        <a name="islink"></a>
+        <div class="functionHeader">
+        
+        def islink(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.isabs"></a>
+        <a name="isabs"></a>
+        <div class="functionHeader">
+        
+        def isabs(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.listdir"></a>
+        <a name="listdir"></a>
+        <div class="functionHeader">
+        
+        def listdir(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.splitext"></a>
+        <a name="splitext"></a>
+        <div class="functionHeader">
+        
+        def splitext(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.touch"></a>
+        <a name="touch"></a>
+        <div class="functionHeader">
+        
+        def touch(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.remove"></a>
+        <a name="remove"></a>
+        <div class="functionHeader">
+        
+        def remove(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.makedirs"></a>
+        <a name="makedirs"></a>
+        <div class="functionHeader">
+        
+        def makedirs(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.globChildren"></a>
+        <a name="globChildren"></a>
+        <div class="functionHeader">
+        
+        def globChildren(self, pattern):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Assuming I am representing a directory, return a list of FilePaths 
+representing my children that match the given pattern.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.basename"></a>
+        <a name="basename"></a>
+        <div class="functionHeader">
+        
+        def basename(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.dirname"></a>
+        <a name="dirname"></a>
+        <div class="functionHeader">
+        
+        def dirname(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.parent"></a>
+        <a name="parent"></a>
+        <div class="functionHeader">
+        
+        def parent(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.setContent"></a>
+        <a name="setContent"></a>
+        <div class="functionHeader">
+        
+        def setContent(self, content, ext='.new'):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.getContent"></a>
+        <a name="getContent"></a>
+        <div class="functionHeader">
+        
+        def getContent(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.__cmp__"></a>
+        <a name="__cmp__"></a>
+        <div class="functionHeader">
+        
+        def __cmp__(self, other):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.createDirectory"></a>
+        <a name="createDirectory"></a>
+        <div class="functionHeader">
+        
+        def createDirectory(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.requireCreate"></a>
+        <a name="requireCreate"></a>
+        <div class="functionHeader">
+        
+        def requireCreate(self, val=1):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.create"></a>
+        <a name="create"></a>
+        <div class="functionHeader">
+        
+        def create(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Exclusively create a file, only if this file previously did not 
+exist.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.temporarySibling"></a>
+        <a name="temporarySibling"></a>
+        <div class="functionHeader">
+        
+        def temporarySibling(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Create a path naming a temporary sibling of this path in a secure 
+fashion.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.children"></a>
+        <a name="children"></a>
+        <div class="functionHeader">
+        
+        def children(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.walk"></a>
+        <a name="walk"></a>
+        <div class="functionHeader">
+        
+        def walk(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.copyTo"></a>
+        <a name="copyTo"></a>
+        <div class="functionHeader">
+        
+        def copyTo(self, destination):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.filepath_copyTo.FilePath.moveTo"></a>
+        <a name="moveTo"></a>
+        <div class="functionHeader">
+        
+        def moveTo(self, destination):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

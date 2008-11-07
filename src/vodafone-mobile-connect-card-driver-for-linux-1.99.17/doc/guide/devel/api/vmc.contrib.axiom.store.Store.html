@@ -1,0 +1,1214 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.store.Store&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.s.Store(<a href="vmc.contrib.axiom.item.Empowered.html">Empowered</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.store.html">store</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.store.Store">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Implements interfaces: <a href="vmc.contrib.axiom.iaxiom.IBeneficiary.html">vmc.contrib.axiom.iaxiom.IBeneficiary</a></p>
+    </div>
+    <pre>I am a database that Axiom Items can be stored in.
+
+Store an item in me by setting its 'store' attribute to be me.
+
+I can be created one of two ways:
+
+    Store()                      # Create an in-memory database
+
+    Store("/path/to/file.axiom") # create an on-disk database in the
+                                 # directory /path/to/file.axiom
+
+@ivar typeToTableNameCache: a dictionary mapping Item subclass type objects
+to the fully-qualified sqlite table name where items of that type are
+stored.  This cache is generated from the saved schema metadata when this
+store is opened and updated when schema changes from other store objects
+(such as in other processes) are detected.</pre>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id401">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#__init__">__init__</a></td>
+    <td><span>Create a store.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#attachToParent">attachToParent</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#findOrCreate">findOrCreate</a></td>
+    <td><span>Usage:
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#newFilePath">newFilePath</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#newTemporaryFilePath">newTemporaryFilePath</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#newFile">newFile</a></td>
+    <td><span>Open a new file somewhere in this Store's file area.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#newDirectory">newDirectory</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#checkTypeSchemaConsistency">checkTypeSchemaConsistency</a></td>
+    <td><span>Called for all known types at database startup: make sure that what we 
+know
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#whenFullyUpgraded">whenFullyUpgraded</a></td>
+    <td><span>Return a Deferred which fires when this Store has been fully 
+upgraded.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getOldVersionOf">getOldVersionOf</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#findUnique">findUnique</a></td>
+    <td><span>Find an Item in the database which should be unique.  If it is 
+found,
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#findFirst">findFirst</a></td>
+    <td><span>Usage:
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#query">query</a></td>
+    <td><span>Return a generator of instances of <code>tableClass</code>,
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#sum">sum</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#count">count</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#batchInsert">batchInsert</a></td>
+    <td><span>Create multiple items in the store without loading
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#changed">changed</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#checkpoint">checkpoint</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#transact">transact</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#revert">revert</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#close">close</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#avgms">avgms</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getTableName">getTableName</a></td>
+    <td><span>Retrieve the fully qualified name of the table holding items
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getShortColumnName">getShortColumnName</a></td>
+    <td><span>Retreive the column name for a particular attribute in this
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getColumnName">getColumnName</a></td>
+    <td><span>Retreive the fully qualified column name for a particular
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getTypeID">getTypeID</a></td>
+    <td><span>Retrieve the typeID associated with a particular table in the
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getTableQuery">getTableQuery</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#getItemByID">getItemByID</a></td>
+    <td><span>Retrieve an item by its storeID, and return it.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#querySchemaSQL">querySchemaSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#querySQL">querySQL</a></td>
+    <td><span>For use with SELECT (or SELECT-like PRAGMA) statements.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#createSQL">createSQL</a></td>
+    <td><span>For use with auto-committing statements such as CREATE TABLE or 
+CREATE
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#executeSchemaSQL">executeSchemaSQL</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.store.Store.html#executeSQL">executeSQL</a></td>
+    <td><span>For use with UPDATE or INSERT statements.
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.item.Empowered.html">Empowered</a>:
+        </p>
+        <table class="children sortable" id="id402">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerUp">powerUp</a></td>
+    <td><span>Installs a powerup (e.g. plugin) on an item or store.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerDown">powerDown</a></td>
+    <td><span>Remove a powerup.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#__conform__">__conform__</a></td>
+    <td><span>For 'normal' interfaces, returns the first powerup found when doing
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#powerupsFor">powerupsFor</a></td>
+    <td><span>Returns powerups installed using <code>powerUp</code>, in order of 
+descending
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Empowered.html#interfacesFor">interfacesFor</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.store.Store._currentlyValidAsReferentFor"></a>
+        <a name="_currentlyValidAsReferentFor"></a>
+        <div class="functionHeader">
+        
+        def _currentlyValidAsReferentFor(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>necessary because I can be a target of attributes.reference()
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, dbdir=None, filesdir=None, debug=False, parent=None, idInParent=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Create a store.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">dbdir</td><td>A name of an existing Axiom directory, or the name of a directory that 
+does not exist yet which will be created as this Store is instantiated.  If
+unspecified, this database will be kept in memory.
+</td></tr><tr><td></td><td class="fieldArg">filesdir</td><td>A name of a directory to keep files in for in-memory stores. An 
+exception will be raised if both this attribute and <code>dbdir</code> are 
+specified.
+</td></tr><tr><td></td><td class="fieldArg">debug</td><td>set to True if this Store should print out every SQL statement it sends 
+to SQLite.
+</td></tr><tr><td></td><td class="fieldArg">parent</td><td>(internal) If this is opened using an 
+<code>axiom.substore.Substore</code>, a reference to its parent.
+</td></tr><tr><td></td><td class="fieldArg">idInParent</td><td>(internal) If this is opened using an 
+<code>axiom.substore.Substore</code>, the storeID of the item within its 
+parent which opened it.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td colspan="2"><code>ValueError</code> if both <code>dbdir</code> and 
+<code>filesdir</code> are specified
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._attachChild"></a>
+        <a name="_attachChild"></a>
+        <div class="functionHeader">
+        
+        def _attachChild(self, child):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>attach a child database, returning an identifier for it
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.attachToParent"></a>
+        <a name="attachToParent"></a>
+        <div class="functionHeader">
+        
+        def attachToParent(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._initSchema"></a>
+        <a name="_initSchema"></a>
+        <div class="functionHeader">
+        
+        def _initSchema(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._startup"></a>
+        <a name="_startup"></a>
+        <div class="functionHeader">
+        
+        def _startup(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Called during __init__.  Check consistency of schema in database with 
+classes in memory.  Load all Python modules for stored items, and load 
+version information for upgrader service to run later.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._initdb"></a>
+        <a name="_initdb"></a>
+        <div class="functionHeader">
+        
+        def _initdb(self, dbfname):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.findOrCreate"></a>
+        <a name="findOrCreate"></a>
+        <div class="functionHeader">
+        
+        def findOrCreate(self, userItemClass, __ifnew=None, **attrs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <pre>Usage:
+
+    s.findOrCreate(userItemClass [, function] [, x=1, y=2, ...])
+
+Example:
+
+    class YourItemType(Item):
+        a = integer()
+        b = text()
+        c = integer()
+
+    def f(x):
+        print x, "-- it's new!"
+    s.findOrCreate(YourItemType, f, a=1, b=u'2')
+
+Search for an item with columns in the database that match the passed
+set of keyword arguments, returning the first match if one is found,
+creating one with the given attributes if not.  Takes an optional
+positional argument function to call on the new item if it is new.</pre>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.newFilePath"></a>
+        <a name="newFilePath"></a>
+        <div class="functionHeader">
+        
+        def newFilePath(self, *path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.newTemporaryFilePath"></a>
+        <a name="newTemporaryFilePath"></a>
+        <div class="functionHeader">
+        
+        def newTemporaryFilePath(self, *path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.newFile"></a>
+        <a name="newFile"></a>
+        <div class="functionHeader">
+        
+        def newFile(self, *path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Open a new file somewhere in this Store's file area.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">path</td><td>a sequence of path segments.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">an <a 
+href="vmc.contrib.axiom.store.AtomicFile.html"><code>AtomicFile</code></a>.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.newDirectory"></a>
+        <a name="newDirectory"></a>
+        <div class="functionHeader">
+        
+        def newDirectory(self, *path):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.checkTypeSchemaConsistency"></a>
+        <a name="checkTypeSchemaConsistency"></a>
+        <div class="functionHeader">
+        
+        def checkTypeSchemaConsistency(self, actualType):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Called for all known types at database startup: make sure that what we 
+know (in memory) about this type is
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._prepareOldVersionOf"></a>
+        <a name="_prepareOldVersionOf"></a>
+        <div class="functionHeader">
+        
+        def _prepareOldVersionOf(self, typeID, typename, version):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Note that this database contains old versions of a particular type. 
+Create the appropriate dummy item subclass.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._upgradeOneThing"></a>
+        <a name="_upgradeOneThing"></a>
+        <div class="functionHeader">
+        
+        def _upgradeOneThing(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Upgrade one Item; return True if there may be more work to do, False if 
+this store is definitely fully upgraded.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._upgradeEverything"></a>
+        <a name="_upgradeEverything"></a>
+        <div class="functionHeader">
+        
+        def _upgradeEverything(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.whenFullyUpgraded"></a>
+        <a name="whenFullyUpgraded"></a>
+        <div class="functionHeader">
+        
+        def whenFullyUpgraded(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return a Deferred which fires when this Store has been fully 
+upgraded.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getOldVersionOf"></a>
+        <a name="getOldVersionOf"></a>
+        <div class="functionHeader">
+        
+        def getOldVersionOf(self, typename, version):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.findUnique"></a>
+        <a name="findUnique"></a>
+        <div class="functionHeader">
+        
+        def findUnique(self, tableClass, comparison=None, default=_noItem):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Find an Item in the database which should be unique.  If it is found, 
+return it.  If it is not found, return 'default' if it was passed, 
+otherwise raise <a 
+href="vmc.contrib.axiom.errors.ItemNotFound.html"><code>errors.ItemNotFound</code></a>.
+If more than one item is found, raise <a 
+href="vmc.contrib.axiom.errors.DuplicateUniqueItem.html"><code>errors.DuplicateUniqueItem</code></a>.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">comparison</td><td>implementor of <a 
+href="vmc.contrib.axiom.iaxiom.IComparison.html"><code>iaxiom.IComparison</code></a>.
+</td></tr><tr><td></td><td class="fieldArg">default</td><td>value to use if the item is not found.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.findFirst"></a>
+        <a name="findFirst"></a>
+        <div class="functionHeader">
+        
+        def findFirst(self, tableClass, comparison=None, offset=None, sort=None, default=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <pre>Usage:
+
+    s.findFirst(tableClass [, query arguments except 'limit'])
+
+Example:
+
+    class YourItemType(Item):
+        a = integer()
+        b = text()
+        c = integer()
+    ...
+    it = s.findFirst(YourItemType,
+                     AND(YourItemType.a == 1,
+                         YourItemType.b == u'2'),
+                         sort=YourItemType.c.descending)
+
+Search for an item with columns in the database that match the passed
+comparison, offset and sort, returning the first match if one is found,
+or the passed default (None if none is passed) if one is not found.</pre>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.query"></a>
+        <a name="query"></a>
+        <div class="functionHeader">
+        
+        def query(self, tableClass, comparison=None, limit=None, offset=None, sort=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Return a generator of instances of <code>tableClass</code>, or tuples of
+instances if <code>tableClass</code> is a tuple of classes.</p>
+Examples:
+<pre class="literalblock">
+   fastCars = s.query(Vehicle,
+       axiom.attributes.AND(
+           Vehicle.wheels == 4,
+           Vehicle.maxKPH &gt; 200),
+       limit=100,
+       sort=Vehicle.maxKPH.descending)
+
+   quotesByClient = s.query( (Client, Quote),
+       axiom.attributes.AND(
+           Client.active == True,
+           Quote.client == Client.storeID,
+           Quote.created &gt;= someDate),
+       limit=10,
+       sort=(Client.name.ascending,
+             Quote.created.descending))
+</pre>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>a subclass of Item to look for instances of, or a tuple of 
+subclasses.
+</td></tr><tr><td></td><td class="fieldArg">comparison</td><td>a provider of <a 
+href="vmc.contrib.axiom.iaxiom.IComparison.html"><code>IComparison</code></a>,
+or None, to match all items available in the store. If tableClass is a 
+tuple, then the comparison must refer to all Item subclasses in that tuple,
+and specify the relationships between them.
+</td></tr><tr><td></td><td class="fieldArg">limit</td><td>an int to limit the total length of the results, or None for all 
+available results.
+</td></tr><tr><td></td><td class="fieldArg">offset</td><td>an int to specify a starting point within the available results, or None
+to start at 0.
+</td></tr><tr><td></td><td class="fieldArg">sort</td><td>an <code>ISort</code>, something that comes from an SQLAttribute's 
+'ascending' or 'descending' attribute.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">an <a 
+href="vmc.contrib.axiom.store.ItemQuery.html"><code>ItemQuery</code></a> 
+object, which is an iterable of Items or tuples of Items, according to 
+tableClass.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.sum"></a>
+        <a name="sum"></a>
+        <div class="functionHeader">
+        
+        def sum(self, summableAttribute, *a, **k):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.count"></a>
+        <a name="count"></a>
+        <div class="functionHeader">
+        
+        def count(self, *a, **k):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.batchInsert"></a>
+        <a name="batchInsert"></a>
+        <div class="functionHeader">
+        
+        def batchInsert(self, itemType, itemAttributes, dataRows):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Create multiple items in the store without loading corresponding Python 
+objects into memory.</p>
+<p>the items' <code>stored</code> callback will not be called.</p>
+Example:
+<pre class="literalblock">
+   myData = [(37, u&quot;Fred&quot;,  u&quot;Wichita&quot;),
+             (28, u&quot;Jim&quot;,   u&quot;Fresno&quot;),
+             (43, u&quot;Betty&quot;, u&quot;Dubuque&quot;)]
+   myStore.batchInsert(FooItem,
+                       [FooItem.age, FooItem.name, FooItem.city],
+                       myData)
+</pre>
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">itemType</td><td>an Item subclass to create instances of.
+</td></tr><tr><td></td><td class="fieldArg">itemAttributes</td><td>an iterable of attributes on the Item subclass.
+</td></tr><tr><td></td><td class="fieldArg">dataRows</td><td>an iterable of iterables, each the same length as 
+<code>itemAttributes</code> and containing data corresponding to each 
+attribute in it.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">None.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._loadedItem"></a>
+        <a name="_loadedItem"></a>
+        <div class="functionHeader">
+        
+        def _loadedItem(self, itemClass, storeID, attrs):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.changed"></a>
+        <a name="changed"></a>
+        <div class="functionHeader">
+        
+        def changed(self, item):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.checkpoint"></a>
+        <a name="checkpoint"></a>
+        <div class="functionHeader">
+        
+        def checkpoint(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.transact"></a>
+        <a name="transact"></a>
+        <div class="functionHeader">
+        
+        def transact(self, f, *a, **k):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._begin"></a>
+        <a name="_begin"></a>
+        <div class="functionHeader">
+        
+        def _begin(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._setupTxnState"></a>
+        <a name="_setupTxnState"></a>
+        <div class="functionHeader">
+        
+        def _setupTxnState(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._commit"></a>
+        <a name="_commit"></a>
+        <div class="functionHeader">
+        
+        def _commit(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._postCommitHook"></a>
+        <a name="_postCommitHook"></a>
+        <div class="functionHeader">
+        
+        def _postCommitHook(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._rollback"></a>
+        <a name="_rollback"></a>
+        <div class="functionHeader">
+        
+        def _rollback(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.revert"></a>
+        <a name="revert"></a>
+        <div class="functionHeader">
+        
+        def revert(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._inMemoryRollback"></a>
+        <a name="_inMemoryRollback"></a>
+        <div class="functionHeader">
+        
+        def _inMemoryRollback(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._cleanupTxnState"></a>
+        <a name="_cleanupTxnState"></a>
+        <div class="functionHeader">
+        
+        def _cleanupTxnState(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.close"></a>
+        <a name="close"></a>
+        <div class="functionHeader">
+        
+        def close(self, _report=True):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.avgms"></a>
+        <a name="avgms"></a>
+        <div class="functionHeader">
+        
+        def avgms(self, l):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._indexNameOf"></a>
+        <a name="_indexNameOf"></a>
+        <div class="functionHeader">
+        
+        def _indexNameOf(self, tableClass, attrname):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._tableNameFor"></a>
+        <a name="_tableNameFor"></a>
+        <div class="functionHeader">
+        
+        def _tableNameFor(self, typename, version):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getTableName"></a>
+        <a name="getTableName"></a>
+        <div class="functionHeader">
+        
+        def getTableName(self, tableClass):
+        
+      </div>
+        <div class="functionBody">
+          
+          <pre>Retrieve the fully qualified name of the table holding items
+of a particular class in this store.  If the table does not
+exist in the database, it will be created as a side-effect.
+
+@param tableClass: an Item subclass
+
+@raises L{axiom.errors.ItemClassesOnly}: if an object other than a subclass of Item is passed.
+
+@return: a string</pre>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getShortColumnName"></a>
+        <a name="getShortColumnName"></a>
+        <div class="functionHeader">
+        
+        def getShortColumnName(self, attribute):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Retreive the column name for a particular attribute in this store.  The 
+attribute must be bound to an Item subclass (its type must be valid). If 
+the underlying table does not exist in the database, it will be created as 
+a side-effect.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>an Item subclass
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"><p>a string</p>
+XXX: The current implementation does not really match the description, 
+which is actually more restrictive. But it will be true soon, so I guess it
+is ok for now.  The reason is that this method is used during table 
+creation.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getColumnName"></a>
+        <a name="getColumnName"></a>
+        <div class="functionHeader">
+        
+        def getColumnName(self, attribute):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Retreive the fully qualified column name for a particular attribute in 
+this store.  The attribute must be bound to an Item subclass (its type must
+be valid). If the underlying table does not exist in the database, it will 
+be created as a side-effect.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>an Item subclass
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">a string
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getTypeID"></a>
+        <a name="getTypeID"></a>
+        <div class="functionHeader">
+        
+        def getTypeID(self, tableClass):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Retrieve the typeID associated with a particular table in the 
+in-database schema for this Store.  A typeID is an opaque integer 
+representing the Item subclass, and the associated table in this Store's 
+SQLite database.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>a subclass of Item
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">an integer
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._maybeCreateTable"></a>
+        <a name="_maybeCreateTable"></a>
+        <div class="functionHeader">
+        
+        def _maybeCreateTable(self, tableClass, key):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>A type ID has been requested for an Item subclass whose table was not 
+present when this Store was opened.  Attempt to create the table, and if 
+that fails because another Store object (perhaps in another process) has 
+created the table, re-read the schema.  When that's done, return the 
+typeID.</p>
+This method is internal to the implementation of getTypeID.  It must be 
+run in a transaction.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">tableClass</td><td>an Item subclass
+</td></tr><tr><td></td><td class="fieldArg">key</td><td>a 2-tuple of the tableClass's typeName and schemaVersion
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">a typeID for the table; a new one if no table exists, or the existing 
+one if the table was created by another Store object referencing this 
+database.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._createIndexesFor"></a>
+        <a name="_createIndexesFor"></a>
+        <div class="functionHeader">
+        
+        def _createIndexesFor(self, tableClass):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getTableQuery"></a>
+        <a name="getTableQuery"></a>
+        <div class="functionHeader">
+        
+        def getTableQuery(self, typename, version):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.getItemByID"></a>
+        <a name="getItemByID"></a>
+        <div class="functionHeader">
+        
+        def getItemByID(self, storeID, default=_noItem, autoUpgrade=True):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Retrieve an item by its storeID, and return it.</p>
+Note: most of the failure modes of this method are catastrophic and 
+should not be handled by application code.  The only one that application 
+programmers should be concerned with is KeyError.  They are listed for 
+educational purposes.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">storeID</td><td>an <code>int</code> which refers to the store.
+</td></tr><tr><td></td><td class="fieldArg">default</td><td>if passed, return this value rather than raising in the case where no 
+Item is found.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">an Item, or the given default, if it was passed and no row corresponding
+to the given storeID can be located in the database.
+</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">TypeError</td><td>if storeID is not an integer.
+</td></tr><tr><td></td><td class="fieldArg">UnknownItemType</td><td>if the storeID refers to an item row in the database, but the 
+corresponding type information is not available to Python.
+</td></tr><tr><td></td><td class="fieldArg">RuntimeError</td><td>if the found item's class version is higher than the current application
+is aware of.  (In other words, if you have upgraded a database to a new 
+schema and then attempt to open it with a previous version of the 
+code.)
+</td></tr><tr><td></td><td class="fieldArg">KeyError</td><td>if no item corresponded to the given storeID.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._normalizeSQL"></a>
+        <a name="_normalizeSQL"></a>
+        <div class="functionHeader">
+        
+        def _normalizeSQL(self, sql):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.querySchemaSQL"></a>
+        <a name="querySchemaSQL"></a>
+        <div class="functionHeader">
+        
+        def querySchemaSQL(self, sql, args=()):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.querySQL"></a>
+        <a name="querySQL"></a>
+        <div class="functionHeader">
+        
+        def querySQL(self, sql, args=()):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>For use with SELECT (or SELECT-like PRAGMA) statements.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._queryandfetch"></a>
+        <a name="_queryandfetch"></a>
+        <div class="functionHeader">
+        
+        def _queryandfetch(self, sql, args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.createSQL"></a>
+        <a name="createSQL"></a>
+        <div class="functionHeader">
+        
+        def createSQL(self, sql, args=()):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>For use with auto-committing statements such as CREATE TABLE or CREATE 
+INDEX.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store._execSQL"></a>
+        <a name="_execSQL"></a>
+        <div class="functionHeader">
+        
+        def _execSQL(self, sql, args):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.executeSchemaSQL"></a>
+        <a name="executeSchemaSQL"></a>
+        <div class="functionHeader">
+        
+        def executeSchemaSQL(self, sql, args=()):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.store.Store.executeSQL"></a>
+        <a name="executeSQL"></a>
+        <div class="functionHeader">
+        
+        def executeSQL(self, sql, args=()):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>For use with UPDATE or INSERT statements.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.louie.saferef.BoundMethodWeakref&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.l.s.BoundMethodWeakref(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.louie.html">louie</a>.<a href="vmc.contrib.louie.saferef.html">saferef</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.louie.saferef.BoundMethodWeakref">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <pre>'Safe' and reusable weak references to instance methods.
+
+BoundMethodWeakref objects provide a mechanism for referencing a
+bound method without requiring that the method object itself
+(which is normally a transient object) is kept alive.  Instead,
+the BoundMethodWeakref object keeps weak references to both the
+object and the function which together define the instance method.
+
+Attributes:
+
+- ``key``: The identity key for the reference, calculated by the
+  class's calculate_key method applied to the target instance method.
+
+- ``deletion_methods``: Sequence of callable objects taking single
+  argument, a reference to this object which will be called when
+  *either* the target object or target function is garbage
+  collected (i.e. when this object becomes invalid).  These are
+  specified as the on_delete parameters of safe_ref calls.
+
+- ``weak_self``: Weak reference to the target object.
+
+- ``weak_func``: Weak reference to the target function.
+
+Class Attributes:
+    
+- ``_all_instances``: Class attribute pointing to all live
+  BoundMethodWeakref objects indexed by the class's
+  calculate_key(target) method applied to the target objects.
+  This weak value dictionary is used to short-circuit creation so
+  that multiple references to the same (object, function) pair
+  produce the same BoundMethodWeakref instance.</pre>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id833">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#__new__">__new__</a></td>
+    <td><span>Create new instance or return current instance.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#__init__">__init__</a></td>
+    <td><span>Return a weak-reference-like instance for a bound method.
+</span></td>
+  </tr><tr class="classmethod">
+    
+    
+    <td>Class Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#calculate_key">calculate_key</a></td>
+    <td><span>Calculate the reference key for this reference.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#__str__">__str__</a></td>
+    <td><span>Give a friendly representation of the object.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#__nonzero__">__nonzero__</a></td>
+    <td><span>Whether we are still a valid reference.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#__cmp__">__cmp__</a></td>
+    <td><span>Compare with another reference.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.louie.saferef.BoundMethodWeakref.html#__call__">__call__</a></td>
+    <td><span>Return a strong reference to the bound method.
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.__new__"></a>
+        <a name="__new__"></a>
+        <div class="functionHeader">
+        
+        def __new__(cls, target, *arguments, on_delete=None, **named):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Create new instance or return current instance.</p>
+Basically this method of construction allows us to short-circuit 
+creation of references to already- referenced instance methods.  The key 
+corresponding to the target is calculated, and if there is already an 
+existing reference, that is returned, with its deletion_methods attribute 
+updated. Otherwise the new instance is created and registered in the table 
+of already-referenced methods.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, target, on_delete=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <pre>Return a weak-reference-like instance for a bound method.
+
+- ``target``: The instance-method target for the weak reference,
+  must have im_self and im_func attributes and be
+  reconstructable via the following, which is true of built-in
+  instance methods::
+    
+    target.im_func.__get__( target.im_self )
+
+- ``on_delete``: Optional callback which will be called when
+  this weak reference ceases to be valid (i.e. either the
+  object or the function is garbage collected).  Should take a
+  single argument, which will be passed a pointer to this
+  object.</pre>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.calculate_key"></a>
+        <a name="calculate_key"></a>
+        <div class="functionHeader">
+        @classmethod<br />
+        def calculate_key(cls, target):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Calculate the reference key for this reference.</p>
+Currently this is a two-tuple of the id()'s of the target object and the
+target function respectively.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.__str__"></a>
+        <a name="__str__"></a>
+        <div class="functionHeader">
+        
+        def __str__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Give a friendly representation of the object.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.__nonzero__"></a>
+        <a name="__nonzero__"></a>
+        <div class="functionHeader">
+        
+        def __nonzero__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Whether we are still a valid reference.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.__cmp__"></a>
+        <a name="__cmp__"></a>
+        <div class="functionHeader">
+        
+        def __cmp__(self, other):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Compare with another reference.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.louie.saferef.BoundMethodWeakref.__call__"></a>
+        <a name="__call__"></a>
+        <div class="functionHeader">
+        
+        def __call__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Return a strong reference to the bound method.</p>
+<p>If the target cannot be retrieved, then will return None, otherwise 
+returns a bound instance method for our object and function.</p>
+Note: You may call this method any number of times, as it does not 
+invalidate the reference.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

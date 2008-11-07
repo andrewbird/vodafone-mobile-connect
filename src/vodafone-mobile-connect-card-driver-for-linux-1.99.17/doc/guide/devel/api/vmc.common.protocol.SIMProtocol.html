@@ -1,0 +1,291 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.protocol.SIMProtocol&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.p.SIMProtocol(<a href="vmc.common.protocol.BufferingStateMachine.html">BufferingStateMachine</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.protocol.html">protocol</a></span>
+      
+      <a href="classIndex.html#vmc.common.protocol.SIMProtocol">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.common.protocol.SIMCardConnection.html">vmc.common.protocol.SIMCardConnection</a></p>
+    </div>
+    <div><p>SIMProtocol defines the protocol used to communicate with the SIM 
+card</p>
+<p>SIMProtocol communicates with the SIM synchronously, only one command at
+a time. However, SIMProtocol offers an asynchronous interface <a 
+href="vmc.common.protocol.SIMProtocol.html#queue_at_cmd"><code>queue_at_cmd</code></a>
+which accepts and queues an <a 
+href="vmc.common.command.ATCmd.html"><code>vmc.common.command.ATCmd</code></a>
+and returns a <code>Deferred</code> that will be callbacked with the 
+commands response, or errback if an exception is raised.</p>
+SIMProtocol actually is an specially tailored Finite State Machine. 
+After several redesigns and simplifications, this FSM has just two 
+states:
+<ul>
+  <li>
+    idle: sitting idle for user input or an unsolicited response, when a
+    command is received we send the command and transition to the waiting 
+    state
+  </li>
+  <li>
+    <p>waiting: the FSM is buffering and parsing all the SIM's response to 
+    the command till it matches the regexp that signals the end of the 
+    command. If the command has an associated regexp to extract 
+    information, the buffered response will be parsed and the command's 
+    deferred will be callbacked with the regexp as argument. There are 
+    commands that don't have an associated regexp to extract information as
+    we are not interested in the &quot;all went ok&quot; response, only if 
+    an exception occurred (e.g. when deleting a contact we are only 
+    interested if something went wront, not if all went ok)</p>
+    The transition to each state is driven by regular expressions, each 
+    command has associated a set of regular expressions that make the FSM 
+    change states. This regexps are defined in 
+    <code>vmc.common.command.CMD_DICT</code> although the plugin mechanism 
+    offers the possibility of customizing the CMD_DICT through 
+    <code>vmc.common.hardware.Customizer</code> if a card uses a different 
+    AT string than the rest for that particular command.
+  </li>
+</ul>
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id349">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#transition_to_idle">transition_to_idle</a></td>
+    <td><span>Transitions to idle and processes next queued <code>ATCmd</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#send_splitcmd">send_splitcmd</a></td>
+    <td><span>Used to send the second part of a split command after prompt appears
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.SIMProtocol.html#queue_at_cmd">queue_at_cmd</a></td>
+    <td><span>Queues an <code>ATCmd</code> and returns a deferred
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.protocol.BufferingStateMachine.html">BufferingStateMachine</a>:
+        </p>
+        <table class="children sortable" id="id350">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#_timeout_eb">_timeout_eb</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#cancel_current_delayed_call">cancel_current_delayed_call</a></td>
+    <td><span>Cancels current <code>ATCmd</code> dellayed call if active
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#notify_success">notify_success</a></td>
+    <td><span>Notify success to current <code>ATCmd</code> callbacks
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#notify_failure">notify_failure</a></td>
+    <td><span>Notify failure to current <code>ATCmd</code> errbacks
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#set_cmd">set_cmd</a></td>
+    <td><span>Sets self.cmd to <code>cmd</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#set_state">set_state</a></td>
+    <td><span>Sets and logs the new state
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#enque_notification">enque_notification</a></td>
+    <td><span>Enqueues a notification
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#dataReceived">dataReceived</a></td>
+    <td><span>See <code>twisted.internet.protocol.Protocol.dataReceived</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#process_notifications">process_notifications</a></td>
+    <td><span>Processes unsolicited notifications in <code>buffer</code>
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#handle_idle">handle_idle</a></td>
+    <td><span>See the method comments
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.protocol.BufferingStateMachine.html#handle_waiting">handle_waiting</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.protocol.SIMProtocol.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, device):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.protocol.BufferingStateMachine.html#__init__">vmc.common.protocol.BufferingStateMachine.__init__</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.protocol.SIMCardConnection.html">vmc.common.protocol.SIMCardConnection</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMProtocol.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMProtocol.transition_to_idle"></a>
+        <a name="transition_to_idle"></a>
+        <div class="functionHeader">
+        
+        def transition_to_idle(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.protocol.BufferingStateMachine.html#transition_to_idle">vmc.common.protocol.BufferingStateMachine.transition_to_idle</a></div>
+          <div>Transitions to idle and processes next queued <code>ATCmd</code>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMProtocol.send_splitcmd"></a>
+        <a name="send_splitcmd"></a>
+        <div class="functionHeader">
+        
+        def send_splitcmd(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.protocol.BufferingStateMachine.html#send_splitcmd">vmc.common.protocol.BufferingStateMachine.send_splitcmd</a></div>
+          <div>Used to send the second part of a split command after prompt appears
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMProtocol._process_at_cmd"></a>
+        <a name="_process_at_cmd"></a>
+        <div class="functionHeader">
+        
+        def _process_at_cmd(self, cmd):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMProtocol._check_queue"></a>
+        <a name="_check_queue"></a>
+        <div class="functionHeader">
+        
+        def _check_queue(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.protocol.SIMProtocol.queue_at_cmd"></a>
+        <a name="queue_at_cmd"></a>
+        <div class="functionHeader">
+        
+        def queue_at_cmd(self, cmd):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Queues an <code>ATCmd</code> and returns a deferred</p>
+This deferred will be callbacked with the command's response
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

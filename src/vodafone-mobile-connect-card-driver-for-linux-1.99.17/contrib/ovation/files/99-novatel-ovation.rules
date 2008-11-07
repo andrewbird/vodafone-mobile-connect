@@ -1,0 +1,4 @@
+# Space after Novatel vendor attribute is needed
+# (sudo udevinfo --name=/dev/scd? --attribute-walk)
+SUBSYSTEMS=="scsi", KERNEL=="sr[0-9]*", ATTRS{vendor}=="Novatel ", SYMLINK="novatel-storage"
+SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5010", RUN+="/usr/sbin/ovation.sh"

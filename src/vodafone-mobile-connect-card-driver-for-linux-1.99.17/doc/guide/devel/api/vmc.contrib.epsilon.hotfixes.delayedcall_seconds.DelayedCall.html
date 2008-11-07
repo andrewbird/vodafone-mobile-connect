@@ -1,0 +1,236 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.e.h.d.DelayedCall(<span title="twisted.persisted.styles.Ephemeral">styles.Ephemeral</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.epsilon.html">epsilon</a>.<a href="vmc.contrib.epsilon.hotfixes.html">hotfixes</a>.<a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.html">delayedcall_seconds</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Implements interfaces: twisted.internet.interfaces.IDelayedCall</p>
+    </div>
+    <div class="undocumented">No class docstring</div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id818">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#getTime">getTime</a></td>
+    <td><span>Return the time at which this call will fire
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#cancel">cancel</a></td>
+    <td><span>Unschedule this call
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#reset">reset</a></td>
+    <td><span>Reschedule this call for a different time
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#delay">delay</a></td>
+    <td><span>Reschedule this call for a later time
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#activate_delay">activate_delay</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#active">active</a></td>
+    <td><span>Determine whether this call is still pending
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#__le__">__le__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.html#__str__">__str__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, time, func, args, kw, cancel, reset, seconds=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.getTime"></a>
+        <a name="getTime"></a>
+        <div class="functionHeader">
+        
+        def getTime(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return the time at which this call will fire
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">The number of seconds after the epoch at which this call is scheduled to
+be made.
+ (type: <code>float</code>
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.cancel"></a>
+        <a name="cancel"></a>
+        <div class="functionHeader">
+        
+        def cancel(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Unschedule this call
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">AlreadyCancelled</td><td>Raised if this call has already been unscheduled.
+</td></tr><tr><td></td><td class="fieldArg">AlreadyCalled</td><td>Raised if this call has already been made.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.reset"></a>
+        <a name="reset"></a>
+        <div class="functionHeader">
+        
+        def reset(self, secondsFromNow):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Reschedule this call for a different time
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">secondsFromNow</td><td>The number of seconds from the time of the <code>reset</code> call at 
+which this call will be scheduled.
+ (type: <code>float</code>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">AlreadyCancelled</td><td>Raised if this call has been cancelled.
+</td></tr><tr><td></td><td class="fieldArg">AlreadyCalled</td><td>Raised if this call has already been made.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.delay"></a>
+        <a name="delay"></a>
+        <div class="functionHeader">
+        
+        def delay(self, secondsLater):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Reschedule this call for a later time
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">secondsLater</td><td>The number of seconds after the originally scheduled time for which to 
+reschedule this call.
+ (type: <code>float</code>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">AlreadyCancelled</td><td>Raised if this call has been cancelled.
+</td></tr><tr><td></td><td class="fieldArg">AlreadyCalled</td><td>Raised if this call has already been made.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.activate_delay"></a>
+        <a name="activate_delay"></a>
+        <div class="functionHeader">
+        
+        def activate_delay(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.active"></a>
+        <a name="active"></a>
+        <div class="functionHeader">
+        
+        def active(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Determine whether this call is still pending
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">True if this call has not yet been made or cancelled, False 
+otherwise.
+ (type: <code>bool</code>
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.__le__"></a>
+        <a name="__le__"></a>
+        <div class="functionHeader">
+        
+        def __le__(self, other):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.hotfixes.delayedcall_seconds.DelayedCall.__str__"></a>
+        <a name="__str__"></a>
+        <div class="functionHeader">
+        
+        def __str__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

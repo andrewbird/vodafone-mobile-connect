@@ -1,0 +1,4 @@
+#!/bin/bash
+twistd -r gtk2 --pidfile /tmp/vmc.pid \
+	-noy /usr/share/vodafone-mobile-connect-card-driver-for-linux/gtk-tap.py \
+	-l /dev/null

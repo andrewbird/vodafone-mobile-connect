@@ -1,0 +1,144 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMetaMT&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.g.s.m.ObservablePropertyMetaMT(<a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMeta.html">ObservablePropertyMeta</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.gtkmvc.html">gtkmvc</a>.<a href="vmc.contrib.gtkmvc.support.html">support</a>.<a href="vmc.contrib.gtkmvc.support.metaclasses.html">metaclasses</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMetaMT">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyGObjectMetaMT.html">vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyGObjectMetaMT</a>, <a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyGObjectMetaMT%200.html">vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyGObjectMetaMT 0</a></p>
+    </div>
+    <div>This class provides multithreading support for accesing properties, 
+through a locking mechanism. It is assumed a lock is owned by the class 
+that uses it. A Lock object called _prop_lock is assumed to be a member of 
+the using class. see for example class ModelMT
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id862">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMetaMT.html#__init__">__init__</a></td>
+    <td><span>class constructor
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMetaMT.html#get_setter_source">get_setter_source</a></td>
+    <td><span>This must be overrided if you need a different implementation.
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html">PropertyMeta</a> (via <a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMeta.html">ObservablePropertyMeta</a>):
+        </p>
+        <table class="children sortable" id="id863">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html#__msg__">__msg__</a></td>
+    <td><span>if level is less or equal to VERBOSE_LEVEL, ths message will
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html#__create_prop_accessors__">__create_prop_accessors__</a></td>
+    <td><span>Private method that creates getter and setter, and the
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html#__create_property">__create_property</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html#check_value_change">check_value_change</a></td>
+    <td><span>Checks whether the value of the property changed in type
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html#create_value">create_value</a></td>
+    <td><span>This is used to create a value to be assigned to a
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.gtkmvc.support.metaclass_base.PropertyMeta.html#get_getter_source">get_getter_source</a></td>
+    <td><span>This must be overrided if you need a different implementation.
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMetaMT.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(cls, name, bases, dict):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMeta.html#__init__">vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMeta.__init__</a></div>
+          <div>class constructor
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMetaMT.get_setter_source"></a>
+        <a name="get_setter_source"></a>
+        <div class="functionHeader">
+        
+        def get_setter_source(cls, setter_name, prop_name):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMeta.html#get_setter_source">vmc.contrib.gtkmvc.support.metaclasses.ObservablePropertyMeta.get_setter_source</a></div>
+          <div>This must be overrided if you need a different implementation. Simply 
+the generated implementation sets the variable _prop_name
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

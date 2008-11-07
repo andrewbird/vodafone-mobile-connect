@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.oses.unix.UnixPlugin&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.o.u.UnixPlugin(<a href="vmc.common.plugin.OSPlugin.html">OSPlugin</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.oses.html">oses</a>.<a href="vmc.common.oses.unix.html">unix</a></span>
+      
+      <a href="classIndex.html#vmc.common.oses.unix.UnixPlugin">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.common.oses.__init__.FreeBSDPlugin.html">vmc.common.oses.__init__.FreeBSDPlugin</a>, <a href="vmc.common.oses.__init__.LinuxPlugin.html">vmc.common.oses.__init__.LinuxPlugin</a>, <a href="vmc.common.oses.__init__.OpenBSDPlugin.html">vmc.common.oses.__init__.OpenBSDPlugin</a></p>
+    </div>
+    <div>Plugin for Unix
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id179">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.unix.UnixPlugin.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.unix.UnixPlugin.html#get_iface_stats">get_iface_stats</a></td>
+    <td><span>Returns a list with bits recv, sent for <code>iface</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.unix.UnixPlugin.html#get_timezone">get_timezone</a></td>
+    <td><span>Returns the timezone of the OS
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.plugin.OSPlugin.html">OSPlugin</a>:
+        </p>
+        <table class="children sortable" id="id180">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#are_privileges_needed">are_privileges_needed</a></td>
+    <td><span>Sets <code>self.privileges_needed</code> to True if pppd is suid
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#get_tzinfo">get_tzinfo</a></td>
+    <td><span>Returns a <code>tzinfo</code> instance relative to the timezone
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#is_valid">is_valid</a></td>
+    <td><span>Returns True if we are on the given OS/Distro
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#initialize">initialize</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.oses.unix.UnixPlugin.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.plugin.OSPlugin.html#__init__">vmc.common.plugin.OSPlugin.__init__</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.oses.__init__.FreeBSDPlugin.html">vmc.common.oses.__init__.FreeBSDPlugin</a>, <a href="vmc.common.oses.__init__.LinuxPlugin.html">vmc.common.oses.__init__.LinuxPlugin</a>, <a href="vmc.common.oses.__init__.OpenBSDPlugin.html">vmc.common.oses.__init__.OpenBSDPlugin</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.unix.UnixPlugin.get_iface_stats"></a>
+        <a name="get_iface_stats"></a>
+        <div class="functionHeader">
+        
+        def get_iface_stats(self, iface):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#get_iface_stats">vmc.common.interfaces.IOSPlugin</a></div><div class="interfaceinfo">overrides <a href="vmc.common.plugin.OSPlugin.html#get_iface_stats">vmc.common.plugin.OSPlugin.get_iface_stats</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.oses.__init__.LinuxPlugin.html">vmc.common.oses.__init__.LinuxPlugin</a></div>
+          <div>Returns a list with bits recv, sent for <code>iface</code>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.unix.UnixPlugin.get_timezone"></a>
+        <a name="get_timezone"></a>
+        <div class="functionHeader">
+        
+        def get_timezone(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#get_timezone">vmc.common.interfaces.IOSPlugin</a></div><div class="interfaceinfo">overrides <a href="vmc.common.plugin.OSPlugin.html#get_timezone">vmc.common.plugin.OSPlugin.get_timezone</a></div>
+          <div>Returns the timezone of the OS
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2"> (type: str
+)</td></tr></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

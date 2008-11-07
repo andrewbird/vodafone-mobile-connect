@@ -1,0 +1,194 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.attributes.SequenceComparison&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.a.SequenceComparison:</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.attributes.html">attributes</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.attributes.SequenceComparison">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Implements interfaces: <a href="vmc.contrib.axiom.iaxiom.IComparison.html">vmc.contrib.axiom.iaxiom.IComparison</a></p>
+    </div>
+    <div class="undocumented">No class docstring</div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id554">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SequenceComparison.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SequenceComparison.html#getQuery">getQuery</a></td>
+    <td><span>Return an SQL string with ?-style bind parameter syntax thingies.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SequenceComparison.html#getInvolvedTables">getInvolvedTables</a></td>
+    <td><span>Return a sequence of <a 
+href="vmc.contrib.axiom.item.Item.html"><code>Item</code></a> subclasses 
+which are referenced by this
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, attribute, container, negate):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison._columnContainer"></a>
+        <a name="_columnContainer"></a>
+        <div class="functionHeader">
+        
+        def _columnContainer(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Return the fully qualified name of the column being examined so as to 
+push all of the containment testing into the database.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison._columnArgs"></a>
+        <a name="_columnArgs"></a>
+        <div class="functionHeader">
+        
+        def _columnArgs(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>The IColumn form of this has no arguments, just a column name specified 
+in the SQL, specified by _columnContainer.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison._queryContainer"></a>
+        <a name="_queryContainer"></a>
+        <div class="functionHeader">
+        
+        def _queryContainer(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Generate and cache the subselect SQL and its arguments.  Return the 
+subselect SQL.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison._queryArgs"></a>
+        <a name="_queryArgs"></a>
+        <div class="functionHeader">
+        
+        def _queryArgs(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Make sure subselect arguments have been generated and then return 
+them.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison._sequenceContainer"></a>
+        <a name="_sequenceContainer"></a>
+        <div class="functionHeader">
+        
+        def _sequenceContainer(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Smash whatever we got into a list and save the result in case we are 
+executed multiple times.  This keeps us from tripping up over generators 
+and the like.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison._sequenceArgs"></a>
+        <a name="_sequenceArgs"></a>
+        <div class="functionHeader">
+        
+        def _sequenceArgs(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Filter each element of the data using the attribute type being tested 
+for containment and hand back the resulting list.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison.getQuery"></a>
+        <a name="getQuery"></a>
+        <div class="functionHeader">
+        
+        def getQuery(self, store):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.contrib.axiom.iaxiom.IComparison.html#getQuery">vmc.contrib.axiom.iaxiom.IComparison</a></div>
+          <div>Return an SQL string with ?-style bind parameter syntax thingies.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SequenceComparison.getInvolvedTables"></a>
+        <a name="getInvolvedTables"></a>
+        <div class="functionHeader">
+        
+        def getInvolvedTables(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.contrib.axiom.iaxiom.IComparison.html#getInvolvedTables">vmc.contrib.axiom.iaxiom.IComparison</a></div>
+          <div>Return a sequence of <a 
+href="vmc.contrib.axiom.item.Item.html"><code>Item</code></a> subclasses 
+which are referenced by this comparison.  A class may appear at most 
+once.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

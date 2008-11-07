@@ -1,0 +1,67 @@
+How to install Vodafone Mobile Connect Card driver for Linux
+
+This mini howto assumes that the system is a Ubuntu 7.04+ [based] distro.
+
+Attention: Installing from source won't work unless your distribution is
+supported by an OSPlugin. This guide is intended for developers interested
+on adding support for your distro.
+
+Preliminary steps:
+
+Add universe to /etc/apt/sources.list
+
+sudo apt-get update
+
+Dependencies:
+
+sudo apt-get install python-dbus python-twisted python-serial \
+  python-glade2 python-pysqlite2 wvdial python-notify \
+  python-gnome2 python-gnome2-extras python-serial hal python-tz
+
+Suggested dependencies:
+
+sudo apt-get install bluez-gnome python-gnome2-desktop
+
+Extra steps:
+
+sudo chown :dialout /etc/ppp/peers
+sudo chmod g+rw /etc/ppp/peers
+
+sudo chown :dialout /etc/ppp/*-secrets
+sudo chmod g+rw /etc/ppp/*-secrets
+
+Install it:
+(inside the package)
+sudo python setup.py install
+
+Copy the following files:
+
+cp resources/extra/95VMC-up /etc/ppp/ip-up.d
+cp resources/extra/95VMC-down /etc/ppp/ip-down.d
+
+ Note: Fedora uses a different path, on Fedora run:
+  cp resources/extra/95VMC-up /etc/ppp/ip-up.local
+  cp resources/extra/95VMC-down /etc/ppp/ip-down.local
+
+
+The binaries are at:
+
+/usr/bin/vodafone-mobile-connect-card-driver-for-linux
+/usr/bin/vodafone-mobile-connect-card-driver-for-linux-debug
+
+Debian users will have to add their username to the dip group
+Fedora and OpenSUSE users will have to add their username to the uucp group
+
+Fedora users:
+
+gksu is a bit tricky to install on FC, you'll have to use FC5 packages
+as gksu is broken for FC6+, you can install it from the following links:
+
+http://ftp.freshrpms.net/pub/dag/dries/packages/libgksu/fc5-i386/libgksu-1.3.7-1.2.fc5.rf.i386.rpm
+http://ftp.freshrpms.net/pub/dag/dries/packages/libgksuui/fc5-i386/libgksuui-1.0.7-1.2.fc5.rf.i386.rpm
+http://ftp.freshrpms.net/pub/dag/dries/packages/gksu/fc5-i386/gksu-1.3.4-1.2.fc5.rf.i386.rpm
+
+OpenSUSE 10.3 users:
+rpm -i http://download.opensuse.org/repositories/home:/pablomarti/openSUSE_10.3/noarch/pytz-2006p-7.1.noarch.rpm
+rpm -i http://download.opensuse.org/repositories/Education:/desktop/openSUSE_10.3/i586/python-sqlite2-2.3.4-4.2.i586.rpm
+rpm -i http://ftp.skynet.be/pub/packman/suse/10.2/i586/python-notify-0.1.0-0.pm.2.i586.rpm

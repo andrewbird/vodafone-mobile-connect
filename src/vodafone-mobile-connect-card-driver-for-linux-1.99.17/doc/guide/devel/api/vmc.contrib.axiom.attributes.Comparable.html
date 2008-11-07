@@ -1,0 +1,209 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.attributes.Comparable&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.a.Comparable(<a href="vmc.contrib.axiom.attributes._ContainableMixin.html">_ContainableMixin</a>, <a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html">_ComparisonOperatorMuxer</a>, <a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html">_MatchingOperationMuxer</a>, <a href="vmc.contrib.axiom.attributes._OrderingMixin.html">_OrderingMixin</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.attributes.html">attributes</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.attributes.Comparable">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.axiom.attributes.SQLAttribute.html">vmc.contrib.axiom.attributes.SQLAttribute</a></p>
+    </div>
+    <div>Helper for a thing that can be compared like an SQLAttribute (or is in 
+fact an SQLAttribute).  Requires that 'self' have 'type' (Item-subclass) 
+and 'columnName' (str) attributes, as well as an 'infilter' method in the 
+spirit of SQLAttribute, documented below.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id528">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.Comparable.html#compare">compare</a></td>
+    <td><span>Override this in a subclass.
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._ContainableMixin.html">_ContainableMixin</a>:
+        </p>
+        <table class="children sortable" id="id529">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ContainableMixin.html#oneOf">oneOf</a></td>
+    <td><span>Choose items whose attributes are in a fixed set.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ContainableMixin.html#notOneOf">notOneOf</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html">_ComparisonOperatorMuxer</a>:
+        </p>
+        <table class="children sortable" id="id530">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__eq__">__eq__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__ne__">__ne__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__gt__">__gt__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__lt__">__lt__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__ge__">__ge__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__le__">__le__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html">_MatchingOperationMuxer</a>:
+        </p>
+        <table class="children sortable" id="id531">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#_like">_like</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#like">like</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#notLike">notLike</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#startswith">startswith</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#endswith">endswith</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._OrderingMixin.html">_OrderingMixin</a>:
+        </p>
+        <table class="children sortable" id="id532">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._OrderingMixin.html#_asc">_asc</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._OrderingMixin.html#_desc">_desc</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.attributes.Comparable.compare"></a>
+        <a name="compare"></a>
+        <div class="functionHeader">
+        
+        def compare(self, other, sqlop):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#compare">vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.compare</a></div><div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.AbstractFixedPointDecimal.html">vmc.contrib.axiom.attributes.AbstractFixedPointDecimal</a></div>
+          <div>Override this in a subclass.
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

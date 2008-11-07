@@ -1,0 +1,547 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.attributes.SQLAttribute&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.a.SQLAttribute(<a href="vmc.contrib.axiom.slotmachine.Attribute.html">inmemory</a>, <a href="vmc.contrib.axiom.attributes.Comparable.html">Comparable</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.attributes.html">attributes</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.attributes.SQLAttribute">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.axiom.attributes.boolean.html">vmc.contrib.axiom.attributes.boolean</a>, <a href="vmc.contrib.axiom.attributes.bytes.html">vmc.contrib.axiom.attributes.bytes</a>, <a href="vmc.contrib.axiom.attributes.ieee754_double.html">vmc.contrib.axiom.attributes.ieee754_double</a>, <a href="vmc.contrib.axiom.attributes.integer.html">vmc.contrib.axiom.attributes.integer</a>, <a href="vmc.contrib.axiom.attributes.text.html">vmc.contrib.axiom.attributes.text</a></p><p>Implements interfaces: <a href="vmc.contrib.axiom.iaxiom.IColumn.html">vmc.contrib.axiom.iaxiom.IColumn</a></p>
+    </div>
+    <div><p>Abstract superclass of all attributes.</p>
+_Not_ an attribute itself.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Instance Variables</td><td class="fieldArg">indexed</td><td>A <code>bool</code> indicating whether this attribute will be indexed in
+the database.
+</td></tr><tr><td></td><td class="fieldArg">default</td><td>The value used for this attribute, if no value is specified.
+</td></tr></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id536">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#computeDefault">computeDefault</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#reprFor">reprFor</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#getShortColumnName">getShortColumnName</a></td>
+    <td></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#getColumnName">getColumnName</a></td>
+    <td></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#prepareInsert">prepareInsert</a></td>
+    <td><span>Override this method to do something to an item to prepare for its
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#coercer">coercer</a></td>
+    <td><span>must return a value equivalent to the data being passed in for it to 
+be
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#infilter">infilter</a></td>
+    <td><span>used to convert a Python value to something that lives in the 
+database;
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#outfilter">outfilter</a></td>
+    <td><span>used to convert an SQL value to something that lives in memory; so
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#requiredSlots">requiredSlots</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#fullyQualifiedName">fullyQualifiedName</a></td>
+    <td></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#type">type</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#__get__">__get__</a></td>
+    <td></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#loaded">loaded</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.SQLAttribute.html#__set__">__set__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes.Comparable.html">Comparable</a>:
+        </p>
+        <table class="children sortable" id="id537">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes.Comparable.html#compare">compare</a></td>
+    <td><span>Override this in a subclass.
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._ContainableMixin.html">_ContainableMixin</a> (via <a href="vmc.contrib.axiom.attributes.Comparable.html">Comparable</a>):
+        </p>
+        <table class="children sortable" id="id538">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ContainableMixin.html#oneOf">oneOf</a></td>
+    <td><span>Choose items whose attributes are in a fixed set.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ContainableMixin.html#notOneOf">notOneOf</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html">_ComparisonOperatorMuxer</a> (via <a href="vmc.contrib.axiom.attributes.Comparable.html">Comparable</a>):
+        </p>
+        <table class="children sortable" id="id539">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__eq__">__eq__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__ne__">__ne__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__gt__">__gt__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__lt__">__lt__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__ge__">__ge__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._ComparisonOperatorMuxer.html#__le__">__le__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html">_MatchingOperationMuxer</a> (via <a href="vmc.contrib.axiom.attributes.Comparable.html">Comparable</a>):
+        </p>
+        <table class="children sortable" id="id540">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#_like">_like</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#like">like</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#notLike">notLike</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#startswith">startswith</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._MatchingOperationMuxer.html#endswith">endswith</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.axiom.attributes._OrderingMixin.html">_OrderingMixin</a> (via <a href="vmc.contrib.axiom.attributes.Comparable.html">Comparable</a>):
+        </p>
+        <table class="children sortable" id="id541">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._OrderingMixin.html#_asc">_asc</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.attributes._OrderingMixin.html#_desc">_desc</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, doc='', indexed=False, default=None, allowNone=True, defaultFactory=None):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.axiom.slotmachine.Attribute.html#__init__">vmc.contrib.axiom.slotmachine.Attribute.__init__</a></div><div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.AbstractFixedPointDecimal.html">vmc.contrib.axiom.attributes.AbstractFixedPointDecimal</a>, <a href="vmc.contrib.axiom.attributes.reference.html">vmc.contrib.axiom.attributes.reference</a>, <a href="vmc.contrib.axiom.attributes.text.html">vmc.contrib.axiom.attributes.text</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.computeDefault"></a>
+        <a name="computeDefault"></a>
+        <div class="functionHeader">
+        
+        def computeDefault(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.reprFor"></a>
+        <a name="reprFor"></a>
+        <div class="functionHeader">
+        
+        def reprFor(self, oself):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.reference.html">vmc.contrib.axiom.attributes.reference</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.getShortColumnName"></a>
+        <a name="getShortColumnName"></a>
+        <div class="functionHeader">
+        
+        def getShortColumnName(self, store):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.contrib.axiom.iaxiom.IColumn.html#getShortColumnName">vmc.contrib.axiom.iaxiom.IColumn</a></div>
+          <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">Just the name of this column.
+ (type: <code>str</code>
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.getColumnName"></a>
+        <a name="getColumnName"></a>
+        <div class="functionHeader">
+        
+        def getColumnName(self, store):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.contrib.axiom.iaxiom.IColumn.html#getColumnName">vmc.contrib.axiom.iaxiom.IColumn</a></div>
+          <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">The fully qualified name of this object as a column within the database,
+eg, <code>&quot;main_database.some_table.[this_column]&quot;</code>.
+ (type: <code>str</code>
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.prepareInsert"></a>
+        <a name="prepareInsert"></a>
+        <div class="functionHeader">
+        
+        def prepareInsert(self, oself, store):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.path.html">vmc.contrib.axiom.attributes.path</a>, <a href="vmc.contrib.axiom.attributes.reference.html">vmc.contrib.axiom.attributes.reference</a></div>
+          <div>Override this method to do something to an item to prepare for its 
+insertion into a database.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.coercer"></a>
+        <a name="coercer"></a>
+        <div class="functionHeader">
+        
+        def coercer(self, value):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>must return a value equivalent to the data being passed in for it to be 
+considered valid for a value of this attribute.  for example, 'int' or 
+'str'.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.infilter"></a>
+        <a name="infilter"></a>
+        <div class="functionHeader">
+        
+        def infilter(self, pyval, oself, store):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.boolean.html">vmc.contrib.axiom.attributes.boolean</a>, <a href="vmc.contrib.axiom.attributes.bytes.html">vmc.contrib.axiom.attributes.bytes</a>, <a href="vmc.contrib.axiom.attributes.ieee754_double.html">vmc.contrib.axiom.attributes.ieee754_double</a>, <a href="vmc.contrib.axiom.attributes.integer.html">vmc.contrib.axiom.attributes.integer</a>, <a href="vmc.contrib.axiom.attributes.text.html">vmc.contrib.axiom.attributes.text</a></div>
+          <div>used to convert a Python value to something that lives in the database; 
+so called because it is called when objects go in to the database.  It 
+takes a Python value and returns an SQL value.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.outfilter"></a>
+        <a name="outfilter"></a>
+        <div class="functionHeader">
+        
+        def outfilter(self, dbval, oself):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.AbstractFixedPointDecimal.html">vmc.contrib.axiom.attributes.AbstractFixedPointDecimal</a>, <a href="vmc.contrib.axiom.attributes.boolean.html">vmc.contrib.axiom.attributes.boolean</a>, <a href="vmc.contrib.axiom.attributes.bytes.html">vmc.contrib.axiom.attributes.bytes</a>, <a href="vmc.contrib.axiom.attributes.ieee754_double.html">vmc.contrib.axiom.attributes.ieee754_double</a>, <a href="vmc.contrib.axiom.attributes.reference.html">vmc.contrib.axiom.attributes.reference</a>, <a href="vmc.contrib.axiom.attributes.text.html">vmc.contrib.axiom.attributes.text</a>, <a href="vmc.contrib.axiom.attributes.timestamp.html">vmc.contrib.axiom.attributes.timestamp</a></div>
+          <div>used to convert an SQL value to something that lives in memory; so 
+called because it is called when objects come out of the database.  It 
+takes an SQL value and returns a Python value.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.requiredSlots"></a>
+        <a name="requiredSlots"></a>
+        <div class="functionHeader">
+        
+        def requiredSlots(self, modname, classname, attrname):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.axiom.slotmachine.Attribute.html#requiredSlots">vmc.contrib.axiom.slotmachine.Attribute.requiredSlots</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.fullyQualifiedName"></a>
+        <a name="fullyQualifiedName"></a>
+        <div class="functionHeader">
+        
+        def fullyQualifiedName(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.contrib.axiom.iaxiom.IColumn.html#fullyQualifiedName">vmc.contrib.axiom.iaxiom.IColumn</a></div>
+          <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">The fully qualfied name of this object as an attribute in Python code, 
+eg, <code>myproject.mymodule.MyClass.myAttribute</code>.  If this attribute
+is represented by an actual Python code object, it will be a dot-separated 
+sequence of Python identifiers; otherwise, it will contain invalid 
+identifier characters other than '.'.
+ (type: <code>str</code>
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.type"></a>
+        <a name="type"></a>
+        <div class="functionHeader">
+        
+        def type():
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.__get__"></a>
+        <a name="__get__"></a>
+        <div class="functionHeader">
+        
+        def __get__(self, oself, type=None):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.contrib.axiom.iaxiom.IColumn.html#__get__">vmc.contrib.axiom.iaxiom.IColumn</a></div><div class="interfaceinfo">overrides <a href="vmc.contrib.axiom.slotmachine.Attribute.html#__get__">vmc.contrib.axiom.slotmachine.Attribute.__get__</a></div><div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.attributes.reference.html">vmc.contrib.axiom.attributes.reference</a></div>
+          <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">row</td><td>an item that has this column.
+ (type: <a 
+href="vmc.contrib.axiom.item.Item.html"><code>axiom.item.Item</code></a>
+)</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">The value of the column described by this object, for the given row.
+ (type: depends on the underlying type of the column.
+)</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.loaded"></a>
+        <a name="loaded"></a>
+        <div class="functionHeader">
+        
+        def loaded(self, oself, dbval):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute._convertPyval"></a>
+        <a name="_convertPyval"></a>
+        <div class="functionHeader">
+        
+        def _convertPyval(self, oself, pyval):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Convert a Python value to a value suitable for inserting into the 
+database.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">oself</td><td>The object on which this descriptor is an attribute.
+</td></tr><tr><td></td><td class="fieldArg">pyval</td><td>The value to be converted.
+</td></tr><tr class="fieldStart"><td class="fieldName">Returns</td><td colspan="2">A value legal for this column in the database.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.attributes.SQLAttribute.__set__"></a>
+        <a name="__set__"></a>
+        <div class="functionHeader">
+        
+        def __set__(self, oself, pyval):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

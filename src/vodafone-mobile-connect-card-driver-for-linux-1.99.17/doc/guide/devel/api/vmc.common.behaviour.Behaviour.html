@@ -1,0 +1,340 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.behaviour.Behaviour&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.b.Behaviour(<a href="vmc.contrib.epsilon.modal.Modal.html">Modal</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.behaviour.html">behaviour</a></span>
+      
+      <a href="classIndex.html#vmc.common.behaviour.Behaviour">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.cli.behaviour.CLIBehaviour.html">vmc.cli.behaviour.CLIBehaviour</a>, <a href="vmc.gtk.behaviour.GTKBehaviour.html">vmc.gtk.behaviour.GTKBehaviour</a></p><p>Implements interfaces: <a href="vmc.common.interfaces.INotificationListener.html">vmc.common.interfaces.INotificationListener</a></p>
+    </div>
+    <div><p>I am a meta-statemachine that synchronizes different state machines</p>
+I will make sure that each state machine is called in order and will 
+notify any registered errback about any possible error that might occur 
+during the process. Basically this process can succeed, or fail because one
+of the following reasons:
+<ul>
+  <li>
+    AlreadyConnected: Raised when we are connected to Internet and user 
+    tries to connect to Internet
+  </li>
+  <li>
+    AlreadyConnecting: Raised when we are already connecting and user 
+    tries to connect to Internet again
+  </li>
+  <li>
+    CMEErrorSIMFailure: Raised when there is an error with the SIM, this
+    could be just the case that the SIM is not inserted or that there is an
+    error with the device's firmware.
+  </li>
+  <li>
+    CMEErrorSIMNotInserted: Raised when the SIM is not inserted
+  </li>
+  <li>
+    IllegalOperationError: Raised on single-port devices already 
+    connected to Internet (and thus its only port is already busy) and 
+    tries to issue an ATCmd.
+  </li>
+  <li>
+    NetworkRegistrationError: Raised when we couldn't find a network to 
+    register with during NetReg
+  </li>
+</ul>
+In adittion, you can connect to several signals that I will emit when I 
+transition from one state machine to another:
+<ul>
+  <li>
+    PreInitEnter: Executed when we enter into PreInit state
+  </li>
+  <li>
+    PreInitExit: Executed when we exit from PreInit state
+  </li>
+  <li>
+    AuthEnter: Executed when we enter into Auth state
+  </li>
+  <li>
+    AuthExit: Executed when we exit from Auth state
+  </li>
+  <li>
+    PostInitEnter: Executed when we enter into PostInit state
+  </li>
+  <li>
+    PostInitExit: Executed when we exit from PostInit state
+  </li>
+  <li>
+    NetRegEnter: Executed when we enter into NetReg state
+  </li>
+  <li>
+    NetRegExit: Executed when we exit from NetReg state
+  </li>
+  <li>
+    ImDoneEnter: Executed when we enter into ImDone state
+  </li>
+  <li>
+    ImDoneExit: Executed when we exit from ImDone state
+  </li>
+</ul>
+For example, GTKBehaviour connects to PostInitExit and shows the main 
+UI, this is done because NetReg can be a potentially expensive (time) 
+operation and its better to show the UI asap. GTKBehaviour also connects to
+NetRegExit to stop the throbber and show the result.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id327">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#register_callback_for_signal">register_callback_for_signal</a></td>
+    <td><span>Register <code>callback</code> for <code>signal</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#register_errback_for_signal">register_errback_for_signal</a></td>
+    <td><span>Register <code>errback</code> for <code>signal</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#on_notification_received">on_notification_received</a></td>
+    <td><span>Called whenever a notification is received
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#error_handler">error_handler</a></td>
+    <td><span>Executed whenever an error occurs on one of my sub-state machines
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.behaviour.Behaviour.html#start">start</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.behaviour.Behaviour.PreInit.html">PreInit</a></td>
+    <td><span>PreInit is the initial state, here we will set up the communication
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.behaviour.Behaviour.Auth.html">Auth</a></td>
+    <td><span>Auth is the second state, here we will authenticate against the 
+device
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.behaviour.Behaviour.PostInit.html">PostInit</a></td>
+    <td><span>PostInit is the third state, after successfully authenticating with
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.behaviour.Behaviour.NetReg.html">NetReg</a></td>
+    <td><span>NetReg tries to register with the network and do the right thing.
+</span></td>
+  </tr><tr class="class">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.common.behaviour.Behaviour.ImDone.html">ImDone</a></td>
+    <td><span>final state
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.modal.Modal.html">Modal</a>:
+        </p>
+        <table class="children sortable" id="id328">
+  
+  
+  
+  
+  <tr class="baseclass">
+    
+    
+    <td>Class</td>
+    <td><a href="vmc.contrib.epsilon.modal.Modal.nil.html">nil</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.modal.Modal.html#transitionTo">transitionTo</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.behaviour.Behaviour.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, device, dialer, sm_callbacks, sm_errbacks):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.cli.behaviour.CLIBehaviour.html">vmc.cli.behaviour.CLIBehaviour</a>, <a href="vmc.gtk.behaviour.GTKBehaviour.html">vmc.gtk.behaviour.GTKBehaviour</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour._try_execute_callback"></a>
+        <a name="_try_execute_callback"></a>
+        <div class="functionHeader">
+        
+        def _try_execute_callback(self, cb_name, *args, **kwds):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour.register_callback_for_signal"></a>
+        <a name="register_callback_for_signal"></a>
+        <div class="functionHeader">
+        
+        def register_callback_for_signal(self, signal, callback):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Register <code>callback</code> for <code>signal</code>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour.register_errback_for_signal"></a>
+        <a name="register_errback_for_signal"></a>
+        <div class="functionHeader">
+        
+        def register_errback_for_signal(self, signal, errback):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Register <code>errback</code> for <code>signal</code>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour.on_notification_received"></a>
+        <a name="on_notification_received"></a>
+        <div class="functionHeader">
+        
+        def on_notification_received(self, notification):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.INotificationListener.html#on_notification_received">vmc.common.interfaces.INotificationListener</a></div>
+          <div><p>Called whenever a notification is received</p>
+I will notify the current SM about it
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour._transition_to"></a>
+        <a name="_transition_to"></a>
+        <div class="functionHeader">
+        
+        def _transition_to(self, _mode, *args, **kwds):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Transitions to state <code>mode</code></p>
+I will try to execute my registered exit and enter callbacks with *args 
+and **kwds
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour.error_handler"></a>
+        <a name="error_handler"></a>
+        <div class="functionHeader">
+        
+        def error_handler(self, failure):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Executed whenever an error occurs on one of my sub-state machines</p>
+If I receive a FooError, I will try to execute the registered errback 
+for FooError.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.behaviour.Behaviour.start"></a>
+        <a name="start"></a>
+        <div class="functionHeader">
+        
+        def start(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

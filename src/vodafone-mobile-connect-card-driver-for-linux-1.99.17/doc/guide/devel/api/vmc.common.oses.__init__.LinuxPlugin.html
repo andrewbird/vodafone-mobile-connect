@@ -1,0 +1,240 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.oses.__init__.LinuxPlugin&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.o._.LinuxPlugin(<a href="vmc.common.oses.unix.UnixPlugin.html">UnixPlugin</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.oses.html">oses</a></span>
+      
+      <a href="classIndex.html#vmc.common.oses.__init__.LinuxPlugin">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div>OSPlugin for Linux-based distros
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id175">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#check_dialer_assumptions">check_dialer_assumptions</a></td>
+    <td><span>Returns a message with whatever error happened configuring the 
+dialer
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#check_permissions">check_permissions</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#get_connection_args">get_connection_args</a></td>
+    <td><span>Returns the args necessary to start wvdial
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#get_disconnection_args">get_disconnection_args</a></td>
+    <td><span>Returns the args necessary to stop wvdial
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#get_iface_stats">get_iface_stats</a></td>
+    <td><span>Returns a list with bits recv, sent for <code>iface</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.__init__.LinuxPlugin.html#is_valid">is_valid</a></td>
+    <td><span>Returns True if we are on the given OS/Distro
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.oses.unix.UnixPlugin.html">UnixPlugin</a>:
+        </p>
+        <table class="children sortable" id="id176">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.oses.unix.UnixPlugin.html#get_timezone">get_timezone</a></td>
+    <td><span>Returns the timezone of the OS
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.common.plugin.OSPlugin.html">OSPlugin</a> (via <a href="vmc.common.oses.unix.UnixPlugin.html">UnixPlugin</a>):
+        </p>
+        <table class="children sortable" id="id177">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#are_privileges_needed">are_privileges_needed</a></td>
+    <td><span>Sets <code>self.privileges_needed</code> to True if pppd is suid
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#get_tzinfo">get_tzinfo</a></td>
+    <td><span>Returns a <code>tzinfo</code> instance relative to the timezone
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.plugin.OSPlugin.html#initialize">initialize</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.common.oses.unix.UnixPlugin.html#__init__">vmc.common.oses.unix.UnixPlugin.__init__</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.check_dialer_assumptions"></a>
+        <a name="check_dialer_assumptions"></a>
+        <div class="functionHeader">
+        
+        def check_dialer_assumptions(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#check_dialer_assumptions">vmc.common.interfaces.IOSPlugin</a></div>
+          <div><p>Returns a message with whatever error happened configuring the 
+dialer</p>
+It returns a tuple of message, detail if something went wrong and 
+returns None if every dialer assumption is met
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.check_permissions"></a>
+        <a name="check_permissions"></a>
+        <div class="functionHeader">
+        
+        def check_permissions(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.get_connection_args"></a>
+        <a name="get_connection_args"></a>
+        <div class="functionHeader">
+        
+        def get_connection_args(self, dialer):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#get_connection_args">vmc.common.interfaces.IOSPlugin</a></div>
+          <div><p>Returns the args necessary to start wvdial</p>
+Some distributions ship with a setuid pppd, others don't. Thus what we 
+return here will mainly depend on each distribution.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.get_disconnection_args"></a>
+        <a name="get_disconnection_args"></a>
+        <div class="functionHeader">
+        
+        def get_disconnection_args(self, dialer):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#get_disconnection_args">vmc.common.interfaces.IOSPlugin</a></div>
+          <div>Returns the args necessary to stop wvdial
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.get_iface_stats"></a>
+        <a name="get_iface_stats"></a>
+        <div class="functionHeader">
+        
+        def get_iface_stats(self, iface='ppp0'):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#get_iface_stats">vmc.common.interfaces.IOSPlugin</a></div><div class="interfaceinfo">overrides <a href="vmc.common.oses.unix.UnixPlugin.html#get_iface_stats">vmc.common.oses.unix.UnixPlugin.get_iface_stats</a></div>
+          <div>Returns a list with bits recv, sent for <code>iface</code>
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.oses.linux.LinuxPlugin.is_valid"></a>
+        <a name="is_valid"></a>
+        <div class="functionHeader">
+        
+        def is_valid(self, os_info=lsb_info):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IOSPlugin.html#is_valid">vmc.common.interfaces.IOSPlugin</a></div><div class="interfaceinfo">overrides <a href="vmc.common.plugin.OSPlugin.html#is_valid">vmc.common.plugin.OSPlugin.is_valid</a></div>
+          <div>Returns True if we are on the given OS/Distro
+<table class="fieldTable"></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

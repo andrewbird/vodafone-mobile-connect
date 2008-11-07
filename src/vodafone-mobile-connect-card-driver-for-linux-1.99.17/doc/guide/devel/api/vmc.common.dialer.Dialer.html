@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.common.dialer.Dialer&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.d.Dialer(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.common.html">common</a>.<a href="vmc.common.dialer.html">dialer</a></span>
+      
+      <a href="classIndex.html#vmc.common.dialer.Dialer">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.common.dialers.wvdial.WvdialDialer.html">vmc.common.dialers.wvdial.WvdialDialer</a></p><p>Implements interfaces: <a href="vmc.common.interfaces.IDialer.html">vmc.common.interfaces.IDialer</a></p>
+    </div>
+    <div><p>Base Dialer class</p>
+Override me for new OSes
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id165">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.dialer.Dialer.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.dialer.Dialer.html#configure">configure</a></td>
+    <td><span>Configures <code>device</code> with <code>config</code>
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.dialer.Dialer.html#connect">connect</a></td>
+    <td><span>Connects to Internet
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.common.dialer.Dialer.html#disconnect">disconnect</a></td>
+    <td><span>Disconnects from Internet
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.common.dialer.Dialer.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.dialers.wvdial.WvdialDialer.html">vmc.common.dialers.wvdial.WvdialDialer</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.dialer.Dialer.configure"></a>
+        <a name="configure"></a>
+        <div class="functionHeader">
+        
+        def configure(self, config, device):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IDialer.html#configure">vmc.common.interfaces.IDialer</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.dialers.wvdial.WvdialDialer.html">vmc.common.dialers.wvdial.WvdialDialer</a></div>
+          <div><p>Configures <code>device</code> with <code>config</code></p>
+This method should perform any necessary actions to connect to Internet 
+like generating configuration files, modifying any necessary files, 
+etc.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.dialer.Dialer.connect"></a>
+        <a name="connect"></a>
+        <div class="functionHeader">
+        
+        def connect(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IDialer.html#connect">vmc.common.interfaces.IDialer</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.dialers.wvdial.WvdialDialer.html">vmc.common.dialers.wvdial.WvdialDialer</a></div>
+          <div><p>Connects to Internet</p>
+Returns a <code>Deferred</code> that will be callbacked when 
+connected
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Raises</td><td class="fieldArg">vmc.common.exceptions.AlreadyConnected</td><td></td></tr><tr><td></td><td class="fieldArg">vmc.common.exceptions.AlreadyConnecting</td><td></td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.dialer.Dialer.disconnect"></a>
+        <a name="disconnect"></a>
+        <div class="functionHeader">
+        
+        def disconnect(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">from <a href="vmc.common.interfaces.IDialer.html#disconnect">vmc.common.interfaces.IDialer</a></div><div class="interfaceinfo">overridden in <a href="vmc.common.dialers.wvdial.WvdialDialer.html">vmc.common.dialers.wvdial.WvdialDialer</a></div>
+          <div><p>Disconnects from Internet</p>
+Returns a <code>Deferred</code> that will be callbacked when 
+disconnected
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.common.dialer.Dialer._generate_config"></a>
+        <a name="_generate_config"></a>
+        <div class="functionHeader">
+        
+        def _generate_config(self):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.common.dialers.wvdial.WvdialDialer.html">vmc.common.dialers.wvdial.WvdialDialer</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

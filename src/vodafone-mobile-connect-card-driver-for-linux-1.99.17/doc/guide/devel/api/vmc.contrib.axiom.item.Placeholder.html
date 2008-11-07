@@ -1,0 +1,183 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.axiom.item.Placeholder&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.a.i.Placeholder(<span title="object">object</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.axiom.html">axiom</a>.<a href="vmc.contrib.axiom.item.html">item</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.axiom.item.Placeholder">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div><p>Wrap an existing <a 
+href="vmc.contrib.axiom.item.Item.html"><code>Item</code></a> type to 
+provide a different name for it.</p>
+This can be used to join a table against itself which is useful for 
+flattening normalized data.  For example, given a schema defined like 
+this:
+<pre class="literalblock">
+   class Tag(Item):
+       taggedObject = reference()
+       tagName = text()
+
+
+   class SomethingElse(Item):
+       ...
+</pre>
+It might be useful to construct a query for instances of SomethingElse 
+which have been tagged both with <code>&quot;foo&quot;</code> and 
+<code>&quot;bar&quot;</code>:
+<pre class="literalblock">
+   t1 = Placeholder(Tag)
+   t2 = Placeholder(Tag)
+   store.query(SomethingElse, AND(t1.taggedObject == SomethingElse.storeID,
+                                  t1.tagName == u&quot;foo&quot;,
+                                  t2.taggedObject == SomethingElse.storeID,
+                                  t2.tagName == u&quot;bar&quot;))
+</pre>
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id438">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html#__cmp__">__cmp__</a></td>
+    <td><span>Provide a deterministic sort order between Placeholder instances.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html#__getattr__">__getattr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html#getSchema">getSchema</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html#getTableName">getTableName</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.axiom.item.Placeholder.html#getTableAlias">getTableAlias</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.axiom.item.Placeholder.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, itemClass):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.Placeholder.__cmp__"></a>
+        <a name="__cmp__"></a>
+        <div class="functionHeader">
+        
+        def __cmp__(self, other):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Provide a deterministic sort order between Placeholder instances. Those 
+instantiated first will compare as less than than instantiated later.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.Placeholder.__getattr__"></a>
+        <a name="__getattr__"></a>
+        <div class="functionHeader">
+        
+        def __getattr__(self, name):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.Placeholder.getSchema"></a>
+        <a name="getSchema"></a>
+        <div class="functionHeader">
+        
+        def getSchema(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.Placeholder.getTableName"></a>
+        <a name="getTableName"></a>
+        <div class="functionHeader">
+        
+        def getTableName(self, store):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.axiom.item.Placeholder.getTableAlias"></a>
+        <a name="getTableAlias"></a>
+        <div class="functionHeader">
+        
+        def getTableAlias(self, store, currentAliases):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

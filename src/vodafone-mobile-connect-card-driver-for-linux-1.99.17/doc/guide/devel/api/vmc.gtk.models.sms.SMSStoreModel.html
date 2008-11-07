@@ -1,0 +1,160 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.gtk.models.sms.SMSStoreModel&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.g.m.s.SMSStoreModel(<span title="vmc.gtk.ListStoreModel">ListStoreModel</span>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.gtk.html">gtk</a>.<a href="vmc.gtk.models.html">models</a>.<a href="vmc.gtk.models.sms.html">sms</a></span>
+      
+      <a href="classIndex.html#vmc.gtk.models.sms.SMSStoreModel">View In Hierarchy</a>
+    </p>
+    <div>
+      
+    </div>
+    <div><p>SMS ListStoreModel with some convenience methods</p>
+Accepts a callable because as we live in a hotplugging world we need a 
+way to obtain a reference to the new plugged device.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id23">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.models.sms.SMSStoreModel.html#__init__">__init__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.models.sms.SMSStoreModel.html#device_removed_handler">device_removed_handler</a></td>
+    <td><span>I take care of {self.sconn} and will update it as necessary
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.models.sms.SMSStoreModel.html#add_messages">add_messages</a></td>
+    <td><span>Adds a list of messages
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.gtk.models.sms.SMSStoreModel.html#add_message">add_message</a></td>
+    <td><span>Adds <code>message</code> to the ListStoreModel
+</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.gtk.models.sms.SMSStoreModel.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, _callable):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.models.sms.SMSStoreModel.device_removed_handler"></a>
+        <a name="device_removed_handler"></a>
+        <div class="functionHeader">
+        
+        def device_removed_handler(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>I take care of {self.sconn} and will update it as necessary
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.models.sms.SMSStoreModel.add_messages"></a>
+        <a name="add_messages"></a>
+        <div class="functionHeader">
+        
+        def add_messages(self, messages, contacts=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Adds a list of messages</p>
+See <a 
+href="vmc.gtk.models.sms.SMSStoreModel.html#add_message"><code>add_message</code></a>
+docs
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.models.sms.SMSStoreModel._add_sim_message"></a>
+        <a name="_add_sim_message"></a>
+        <div class="functionHeader">
+        
+        def _add_sim_message(self, message, contacts=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.models.sms.SMSStoreModel._add_db_message"></a>
+        <a name="_add_db_message"></a>
+        <div class="functionHeader">
+        
+        def _add_db_message(self, message, contacts=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.gtk.models.sms.SMSStoreModel.add_message"></a>
+        <a name="add_message"></a>
+        <div class="functionHeader">
+        
+        def add_message(self, message, contacts=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Adds <code>message</code> to the ListStoreModel</p>
+Whenever a new message is inserted, I lookup the number on the phonebook
+and will show the name instead of the number if its a contact. As this can 
+be really expensive for mass insertions, such as during startup, it also 
+accepts a list of contacts to save the lookup.
+<table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">message</td><td> (type: <code>vmc.common.sms.ShortMessage</code>
+)</td></tr><tr><td></td><td class="fieldArg">contacts</td><td> (type: list
+)</td></tr></table></div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

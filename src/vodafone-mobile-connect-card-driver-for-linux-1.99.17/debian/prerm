@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -f /etc/ppp/peers/wvdial
+dpkg-divert --package vodafone-mobile-connect-card-driver-for-linux --rename --quiet --remove /etc/ppp/peers/wvdial
+
+rm -rf /usr/bin/vodafone-mobile-connect-card-driver-for-linux*

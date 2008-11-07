@@ -1,0 +1,470 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>API docs for &ldquo;vmc.contrib.epsilon.juice.Juice&rdquo;</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link href="apidocs.css" type="text/css" rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+    <h1 class="class">Class v.c.e.j.Juice(<a href="vmc.contrib.epsilon.liner.LineReceiver.html">LineReceiver</a>, <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html">JuiceParserBase</a>):</h1>
+    <p>
+      <span id="part">Part of <a href="vmc.html">vmc</a>.<a href="vmc.contrib.html">contrib</a>.<a href="vmc.contrib.epsilon.html">epsilon</a>.<a href="vmc.contrib.epsilon.juice.html">juice</a></span>
+      
+      <a href="classIndex.html#vmc.contrib.epsilon.juice.Juice">View In Hierarchy</a>
+    </p>
+    <div>
+      <p>Known subclasses: <a href="vmc.contrib.axiom.batch.JuiceChild.html">vmc.contrib.axiom.batch.JuiceChild</a></p>
+    </div>
+    <div><p>JUICE (JUice Is Concurrent Events) is a simple connection-oriented 
+request/response protocol.  Packets, or &quot;boxes&quot;, are collections 
+of RFC2822-inspired headers, plus a body.  Note that this is NOT a literal 
+interpretation of any existing RFC, 822, 2822 or otherwise, but a simpler 
+version that does not do line continuations, does not specify any 
+particular format for header values, dispatches semantic meanings of most 
+headers on the -Command header rather than giving them global meaning, and 
+allows multiple sets of headers (messages, or JuiceBoxes) on a 
+connection.</p>
+All headers whose names begin with a dash ('-') are reserved for use by 
+the protocol.  All others are for application use - their meaning depends 
+on the value of the &quot;-Command&quot; header.
+<table class="fieldTable"></table></div>
+    
+    
+    <div id="splitTables">
+      <table class="children sortable" id="id772">
+  
+  
+  
+  
+  <tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#__init__">__init__</a></td>
+    <td></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#__repr__">__repr__</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#juiceBoxReceived">juiceBoxReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#sendPacket">sendPacket</a></td>
+    <td><span>Send a juice.Box to my peer.
+</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#sendCommand">sendCommand</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#makeConnection">makeConnection</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#prepareTLS">prepareTLS</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#startTLS">startTLS</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#dataReceived">dataReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#connectionLost">connectionLost</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#lineReceived">lineReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#rawDataReceived">rawDataReceived</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#renegotiateVersion">renegotiateVersion</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="method">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.Juice.html#command_NEGOTIATE">command_NEGOTIATE</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.liner.LineReceiver.html">LineReceiver</a>:
+        </p>
+        <table class="children sortable" id="id773">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.liner.LineReceiver.html#setLineMode">setLineMode</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.liner.LineReceiver.html#isDisconnecting">isDisconnecting</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.liner.LineReceiver.html#setRawMode">setRawMode</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html">JuiceParserBase</a>:
+        </p>
+        <table class="children sortable" id="id774">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#_puke">_puke</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#_nextTag">_nextTag</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#failAllOutgoing">failAllOutgoing</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#sendBoxCommand">sendBoxCommand</a></td>
+    <td><span>Send a command across the wire with the given 
+<code>juice.Box</code>.
+</span></td>
+  </tr>
+  
+</table>
+      
+        <p>
+          Inherited from <a href="vmc.contrib.epsilon.juice.DispatchMixin.html">DispatchMixin</a> (via <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html">JuiceParserBase</a>):
+        </p>
+        <table class="children sortable" id="id775">
+  
+  
+  
+  
+  <tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#_auto">_auto</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#_wrap">_wrap</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#normalizeCommand">normalizeCommand</a></td>
+    <td><span>Return the canonical form of a command.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#lookupFunction">lookupFunction</a></td>
+    <td><span>Return a callable to invoke when executing the named command.
+</span></td>
+  </tr><tr class="basemethod">
+    
+    
+    <td>Method</td>
+    <td><a href="vmc.contrib.epsilon.juice.DispatchMixin.html#dispatchCommand">dispatchCommand</a></td>
+    <td><span class="undocumented">Undocumented</span></td>
+  </tr>
+  
+</table>
+      
+      
+    </div>
+    
+    
+    
+    <div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.__init__"></a>
+        <a name="__init__"></a>
+        <div class="functionHeader">
+        
+        def __init__(self, issueGreeting):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#__init__">vmc.contrib.epsilon.juice.JuiceParserBase.__init__</a></div><div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.batch.BatchProcessingProtocol.html">vmc.contrib.axiom.batch.BatchProcessingProtocol</a></div>
+          <div><table class="fieldTable"><tr class="fieldStart"><td class="fieldName">Parameters</td><td class="fieldArg">issueGreeting</td><td>whether to issue a greeting when connected.  This should be set on 
+server-side Juice protocols.
+</td></tr></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.__repr__"></a>
+        <a name="__repr__"></a>
+        <div class="functionHeader">
+        
+        def __repr__(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice._lock"></a>
+        <a name="_lock"></a>
+        <div class="functionHeader">
+        
+        def _lock(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Lock this Juice instance so that no further Juice traffic may be sent. 
+This is used when sending a request to switch underlying protocols. You 
+probably want to subclass ProtocolSwitchCommand rather than calling this 
+directly.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice._switchTo"></a>
+        <a name="_switchTo"></a>
+        <div class="functionHeader">
+        
+        def _switchTo(self, newProto, clientFactory=None):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div>Switch this Juice instance to a new protocol.  You need to do this 
+'simultaneously' on both ends of a connection; the easiest way to do this 
+is to use a subclass of ProtocolSwitchCommand.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.juiceBoxReceived"></a>
+        <a name="juiceBoxReceived"></a>
+        <div class="functionHeader">
+        
+        def juiceBoxReceived(self, box):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.epsilon.juice.JuiceParserBase.html#juiceBoxReceived">vmc.contrib.epsilon.juice.JuiceParserBase.juiceBoxReceived</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.sendPacket"></a>
+        <a name="sendPacket"></a>
+        <div class="functionHeader">
+        
+        def sendPacket(self, completeBox):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div><p>Send a juice.Box to my peer.</p>
+Note: transport.write is never called outside of this method.
+<table class="fieldTable"></table></div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.sendCommand"></a>
+        <a name="sendCommand"></a>
+        <div class="functionHeader">
+        
+        def sendCommand(self, command, __content='', __answer=True, **kw):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.makeConnection"></a>
+        <a name="makeConnection"></a>
+        <div class="functionHeader">
+        
+        def makeConnection(self, transport):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.prepareTLS"></a>
+        <a name="prepareTLS"></a>
+        <div class="functionHeader">
+        
+        def prepareTLS(self):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.startTLS"></a>
+        <a name="startTLS"></a>
+        <div class="functionHeader">
+        
+        def startTLS(self, certificate, *verifyAuthorities):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.dataReceived"></a>
+        <a name="dataReceived"></a>
+        <div class="functionHeader">
+        
+        def dataReceived(self, data):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.epsilon.liner.LineReceiver.html#dataReceived">vmc.contrib.epsilon.liner.LineReceiver.dataReceived</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.connectionLost"></a>
+        <a name="connectionLost"></a>
+        <div class="functionHeader">
+        
+        def connectionLost(self, reason):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overridden in <a href="vmc.contrib.axiom.batch.JuiceChild.html">vmc.contrib.axiom.batch.JuiceChild</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.lineReceived"></a>
+        <a name="lineReceived"></a>
+        <div class="functionHeader">
+        
+        def lineReceived(self, line):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.epsilon.liner.LineReceiver.html#lineReceived">vmc.contrib.epsilon.liner.LineReceiver.lineReceived</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.rawDataReceived"></a>
+        <a name="rawDataReceived"></a>
+        <div class="functionHeader">
+        
+        def rawDataReceived(self, data):
+        
+      </div>
+        <div class="functionBody">
+          <div class="interfaceinfo">overrides <a href="vmc.contrib.epsilon.liner.LineReceiver.html#rawDataReceived">vmc.contrib.epsilon.liner.LineReceiver.rawDataReceived</a></div>
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice._setProtocolVersion"></a>
+        <a name="_setProtocolVersion"></a>
+        <div class="functionHeader">
+        
+        def _setProtocolVersion(self, version):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.renegotiateVersion"></a>
+        <a name="renegotiateVersion"></a>
+        <div class="functionHeader">
+        
+        def renegotiateVersion(self, newVersion):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div><div class="function">
+        <a name="vmc.contrib.epsilon.juice.Juice.command_NEGOTIATE"></a>
+        <a name="command_NEGOTIATE"></a>
+        <div class="functionHeader">
+        
+        def command_NEGOTIATE(self, versions):
+        
+      </div>
+        <div class="functionBody">
+          
+          <div class="undocumented">Undocumented</div>
+        </div>
+      </div>
+    
+    <address>
+      <a href="index.html">API Documentation</a> for vodafone-mobile-connect-card-driver-for-linux, generated by <a href="http://codespeak.net/~mwh/pydoctor/">pydoctor</a> at 2008-01-10 13:06:31.
+    </address>
+  </body>
+</html>

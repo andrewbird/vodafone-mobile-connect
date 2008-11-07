@@ -1,0 +1,34 @@
+LICENSE
+
+Vodafone Mobile Connect Card driver for Linux is distributed under the GPLv2.
+See the LICENSE.gpl file for more details.
+
+Vodafone Mobile Connect Card driver for Linux includes the following
+"exotic" python packages (to avoid hassle the user with more dependencies)
+under their respective licenses:
+- pygtkmvc (See the LICENSE.lglp file)
+- louie (See the LICENSE.bsd file)
+- Divmod's Axiom (See the LICENSE.mit file)
+- Divmod's Epsilon (See the LICENSE.mit file)
+
+Vodafone Mobile Connect Card driver for Linux also includes some files from
+the Phebe and the PyMobile projects. This files are located in the common.sms
+dir. During development I had to merge them and sanitize the code in order to
+be able to add new features. The results are in vmc.common.sms.
+
+Vodafone Mobile Connect Card driver for Linux includes a .c file fetched from
+http://www.kanoistika.sk/bobovsky/archiv/umts . With this file (and a udev
+rule) the E220 is always recognised as a 3 serial port device.
+
+Vodafone Mobile Connect driver Linux includes some icons from the Tango
+Project (http://tango.freedesktop.org)
+This icons are redistributed under their own license:
+  http://creativecommons.org/licenses/by-sa/2.5/
+
+Vodafone Mobile Connect driver for Linux includes some icons from the Gnome
+project, this icons are redistributed under their own license (See the
+LICENSE.lglp file)
+
+Vodafone Mobile Connect driver for Linux includes some icons from the
+NetworkManager project. ( http://www.gnome.org/projects/NetworkManager ), this
+are redistributed under their own license (See the LICENSE.lglp file)

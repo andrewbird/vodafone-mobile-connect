@@ -1,0 +1,51 @@
+Vodafone Mobile Connect Card driver for Linux:
+
+3G Device Manager for Linux. It has been tested with the following 3G devices:
+
+- Option GT 3G+ EMEA (a.k.a Nozomi)
+- Huawei E620 (Kernel paniks on kernels > 2.18.4)
+- Huawei E220 (Properly supported after 2.6.20)
+- Huawei E270 (Properly supported after 2.6.20)
+- Option Colt (It's recommended to disable PIN, it has a rather buggy fw)
+
+Not (officially) supported devices:
+
+- Option GlobeSurfer Icon (plugin contributed by Simone Tolotti)
+- Option GT Fusion (plugin contributed by Stefano Rivera)
+- Option GT Fusion Quad Lite (plugin contributed by Stefano Rivera)
+- Option GT Max 3.6 (plugin contributed by kgb0y)
+- Novatel U630 (plugin written by Pablo Marti with help from Andrew Gee)
+- Novatel U740 (plugin written by Adam King)
+
+
+
+This software should work (in theory) with any device that follows the
+relevants GSM and 3G specs. Nonetheless, every device is different and it may
+not work in an untested device. Try it at your own risk. If you speak Python
+and feel venturous you could get involved by supporting a new device / Distro
+or even new OS.
+
+LICENSE
+
+Vodafone Mobile Connect Card driver for Linux is distributed under the GPLv2.
+See the LICENSE file for more details.
+
+FAQ
+
+0 .- Does it works with other operators?
+
+   Yes, despite the Vodafone branding this is an operator agnostic application
+
+1 .- Vodafone Mobile Connect Card driver for Linux fails horribly with my OS
+
+   This application has been tested on the following distros:
+     - Ubuntu 6.10+/Guadalinex v4+
+     - OpenSuSe 10.3
+     - Fedora 7
+
+   You can find instructions of how to add a new OS/Distro in the doc/guide dir
+
+2 .- Vodafone Mobile Connect Card driver for Linux fails horribly with my device
+
+   See the README file for the list of supported devices. You can find
+   instructions of how to add a new device in the doc/guide dir
