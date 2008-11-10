@@ -1,0 +1,11 @@
+Source: usb-modeswitch
+Section: multiverse/net
+Priority: optional
+Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
+
+Package: usb-modeswitch
+Architecture: any
+Description: Generic USB device switch tool
+  This can be used to switch the many USB Mobile modem devices from storage
+  mode to modem mode. Such devices typically appear as CD storage to host
+  auto installing MS Windows drivers

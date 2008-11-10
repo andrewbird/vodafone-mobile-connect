@@ -1,0 +1,7 @@
+usb-modeswitch (0.9.4-1) stable; urgency=low
+
+  * Packaging by the Vodafone Mobile Connect team for those
+    platforms that don't have it already
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Mon, 10 Nov 2008 16:58:02 +0000
+
