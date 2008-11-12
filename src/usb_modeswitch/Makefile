@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
 
 PROG=usb_modeswitch
+VER=0.9.4
+
 BUILDDIR=debian/tmp
 
 $(PROG): $(PROG).c
@@ -23,11 +25,24 @@ install: $(PROG)
 
 deb:
 	dpkg-buildpackage -rfakeroot -B -us -uc
+
+rpm:
+	# you might want to setup your ~/.rpmmacros file to allow building by non root
+	# create it and add the following
+	# %_topdir    /home/username/rpm
+	# then you should create the usual rpm directory structure underneath
+	# so mkdir ~/rpm/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+	rm -rf rpm
+	mkdir -p rpm/tmp/$(PROG)-$(VER)
+	cp $(PROG).* Makefile rpm/tmp/$(PROG)-$(VER)
+	(cd rpm/tmp && tar -jcvf $(PROG)-$(VER).tar.bz2 $(PROG)-$(VER))
+	rpmbuild -ta rpm/tmp/$(PROG)-$(VER).tar.bz2
 	
 clean:
 	rm -f $(PROG)
 	rm -rf $(BUILDDIR)
 	rm -f debian/files
+	rm -rf rpm
 
-.PHONY: build clean install binary binary-indep binary-arch
+.PHONY: build clean install binary binary-indep binary-arch rpm
 
