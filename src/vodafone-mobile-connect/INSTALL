@@ -36,12 +36,12 @@ sudo python setup.py install
 
 Copy the following files:
 
-cp resources/extra/95VMC-up /etc/ppp/ip-up.d
-cp resources/extra/95VMC-down /etc/ppp/ip-down.d
+cp resources/platform/debian/etc/ppp/ip-up /etc/ppp/ip-up.d/95VMC-up
+cp resources/platform/debian/etc/ppp/ip-down /etc/ppp/ip-down.d/95VMC-down
 
  Note: Fedora uses a different path, on Fedora run:
-  cp resources/extra/95VMC-up /etc/ppp/ip-up.local
-  cp resources/extra/95VMC-down /etc/ppp/ip-down.local
+  cp resources/platform/fedora/etc/ppp/ip-up /etc/ppp/ip-up.local
+  cp resources/platform/fedora/etc/ppp/ip-down /etc/ppp/ip-down.local
 
 
 The binaries are at:

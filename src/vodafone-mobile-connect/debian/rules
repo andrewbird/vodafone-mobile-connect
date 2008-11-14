@@ -36,8 +36,8 @@ install: build
 	dh_install contrib/ovation/files/99-novatel-ovation.rules etc/udev/rules.d/
 	dh_install contrib/ovation/files/ovation.sh usr/sbin/
 	# rest of the stuff...
-	dh_install resources/extra/95VMC-up etc/ppp/ip-up.d
-	dh_install resources/extra/95VMC-down etc/ppp/ip-down.d
+	dh_install resources/platform/debian/etc/ppp/ip-up /etc/ppp/ip-up.d/95VMC-up
+	dh_install resources/platform/debian/etc/ppp/ip-down /etc/ppp/ip-down.d/95VMC-down
 	dh_install INSTALL usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
 	dh_install doc/guide usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
 	dh_install LICENSE usr/share/doc/vodafone-mobile-connect-card-driver-for-linux
