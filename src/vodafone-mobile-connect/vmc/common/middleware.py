@@ -416,9 +416,10 @@ class SIMCardConnAdapter(SIMCardConnection):
                 # +COPS: 0 which means that we don't have network temporaly
                 # we should raise an exception here
                 raise ex.NetworkTemporalyUnavailableError
-            
+
             status = int(netinfo.group('status'))
             conn_type = (status == 0) and 'GPRS' or '3G'
+                
             netname = netinfo.group('netname')
             
             if netname in ['Limited Service',
@@ -445,7 +446,9 @@ class SIMCardConnAdapter(SIMCardConnection):
                 from vmc.common.persistent import net_manager
                 network = net_manager.get_network_by_id(netname)
                 if network:
-                    return network.get_full_name(), conn_type
+                    return network.get_name(), conn_type
+# ajb: make consistent display between network returned via id or name
+                #    return network.get_full_name(), conn_type
                 
                 return _('Unknown Network'), conn_type
         

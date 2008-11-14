@@ -230,6 +230,9 @@ class DBNetworkOperator(item.Item):
     def __repr__(self):
         return '<%s netid=%s>' % (self.__class__.__name__, self.netid)
     
+    def get_name(self):
+        return self.name
+
     def get_full_name(self):
         return self.name + ' ' + self.country
 
@@ -253,6 +256,9 @@ class NetworkOperatorManager(AxiomDBManager):
                               dns1=dns1,
                               dns2=dns2)
     
+# FIXME - ajb: need to deal with multiple matches here at some point
+#               specifically the case where Contract, Prepaid and 
+#               Corporate APN definitions exist
     def get_network_by_id(self, netid):
         # XXX: O(N) here!
         for network in self.store.query(DBNetworkOperator):
