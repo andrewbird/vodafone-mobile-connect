@@ -100,17 +100,23 @@ def populate_dbs():
     """
     try:
         # only will succeed on development 
-        networks = __import__('resources/extra/networks')
+        vf_networks = __import__('resources/extra/vf_networks')
+        xx_networks = __import__('resources/extra/xx_networks')
     except ImportError:
         try:
             # this fails on feisty but not on gutsy
-            networks = __import__(os.path.join(consts.EXTRA_DIR, 'networks'))
+            vf_networks = __import__(os.path.join(consts.EXTRA_DIR, 'vf_networks'))
+            xx_networks = __import__(os.path.join(consts.EXTRA_DIR, 'xx_networks'))
         except ImportError:
             sys.path.insert(0, consts.EXTRA_DIR)
-            import networks
+            import vf_networks
+            import xx_networks
     
-    instances = [getattr(networks, item)() for item in dir(networks)
-            if (not item.startswith('__') and item != 'NetworkOperator')]
+    vf_instances = [getattr(vf_networks, item)() for item in dir(vf_networks)
+                    if (not item.startswith('__') and item != 'NetworkOperator')]
+    xx_instances = [getattr(xx_networks, item)() for item in dir(xx_networks)
+                    if (not item.startswith('__') and item != 'NetworkOperator')]
+
     from vmc.common.persistent import net_manager
-    net_manager.populate_networks(instances)
+    net_manager.populate_networks(vf_instances + xx_instances)
     
