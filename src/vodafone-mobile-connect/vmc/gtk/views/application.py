@@ -321,8 +321,9 @@ class ApplicationView(View):
         self['connect_button'].set_label(_("Connect"))
         self['connect_button'].set_active(False)
         
-        self['signal_image'].set_from_file(
-                   os.path.join(consts.IMAGES_DIR, 'signal-0.png'))
+# ajb: this is wrong, just because we disconnect, doesn't mean we lose signal
+#        self['signal_image'].set_from_file(
+#                   os.path.join(consts.IMAGES_DIR, 'signal-0.png'))
         
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
