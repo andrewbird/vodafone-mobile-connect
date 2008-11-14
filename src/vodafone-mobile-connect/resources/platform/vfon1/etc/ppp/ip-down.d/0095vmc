@@ -1,0 +1,33 @@
+#!/bin/sh -e
+
+# $Rev: 810 $
+
+DEV="$1"
+IPPARAM="$6"
+
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin
+ETC="/etc"
+TMP="/tmp"
+ROUTEBACK="${TMP}/defaultroute.vmc"
+VMCCONN="${TMP}/vmc-conn.lock"
+
+# Make sure we are only being called by a vmc invoked pppd
+[ "${IPPARAM}" = "vmc" ] || exit 0
+
+# just in case anyone relying on old behaviour
+rm -f ${VMCCONN}
+
+# Ubuntu now manages DNS for us
+
+# now replace original default route
+if [ -f ${ROUTEBACK} ] ; then
+	. ${ROUTEBACK} # source it
+
+	if [ -n "${ROUTEBACK}" ] ; then
+		route add default gw ${OLDGW}
+	fi
+
+	rm -f ${ROUTEBACK}
+fi
+
+
