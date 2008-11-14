@@ -43,6 +43,40 @@ BASE_PATH_DICT = {
       'CFG_TEMPLATE' : 'vmc.cfg.tpl',
 }
 
+DEFAULT_TEMPLATE = """
+debug
+noauth
+name wvdial
+ipparam vmc
+noipdefault
+nomagic
+usepeerdns
+ipcp-accept-local
+ipcp-accept-remote
+nomp
+noccp
+nopredictor1
+novj
+novjccomp
+nobsdcomp"""
+
+PAP_TEMPLATE = DEFAULT_TEMPLATE + """
+refuse-chap
+refuse-mschap
+refuse-mschap-v2
+refuse-eap
+"""
+
+CHAP_TEMPLATE = DEFAULT_TEMPLATE + """
+refuse-pap
+"""
+
+TEMPLATES_DICT = {
+    'default' : DEFAULT_TEMPLATE,
+    'PAP' : PAP_TEMPLATE,
+    'CHAP' : CHAP_TEMPLATE,
+}
+
 class DevicePlugin(object):
     """Base class of all DevicePlugins"""
     
@@ -285,6 +319,9 @@ class OSPlugin(object):
     
     def is_valid(self, os_info=None):
         raise NotImplementedError()
+
+    def get_config_template(self, dialer_profile):
+        return TEMPLATES_DICT[dialer_profile]
     
     def initialize(self):
         self.privileges_needed = self.are_privileges_needed()
@@ -340,7 +377,9 @@ class PluginManager(object):
         """
         for plugin in cls.get_plugins(interface, vmc.common.plugins):
             try:
+                log.msg("PluginManager: trying plugin %s" % plugin.__remote_name__)
                 if plugin.__remote_name__ == name:
+                    log.msg("PluginManager: matched plugin %s with %s" % (plugin.__remote_name__ , name) )
                     return plugin
             
             except AttributeError:

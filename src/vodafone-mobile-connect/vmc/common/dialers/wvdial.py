@@ -42,40 +42,6 @@ from vmc.contrib import louie
 PAP_SECRETS = os.path.join(consts.TOP_DIR, 'etc', 'ppp', 'pap-secrets')
 CHAP_SECRETS = os.path.join(consts.TOP_DIR, 'etc', 'ppp', 'chap-secrets')
 
-DEFAULT_TEMPLATE = """
-debug
-noauth
-name wvdial
-replacedefaultroute
-noipdefault
-nomagic
-usepeerdns
-ipcp-accept-local
-ipcp-accept-remote
-nomp
-noccp
-nopredictor1
-novj
-novjccomp
-nobsdcomp"""
-
-PAP_TEMPLATE = DEFAULT_TEMPLATE + """
-refuse-chap
-refuse-mschap
-refuse-mschap-v2
-refuse-eap
-"""
-
-CHAP_TEMPLATE = DEFAULT_TEMPLATE + """
-refuse-pap
-"""
-
-TEMPLATES_DICT = {
-    'default' : DEFAULT_TEMPLATE,
-    'PAP' : PAP_TEMPLATE,
-    'CHAP' : CHAP_TEMPLATE,
-}
-
 ### wvdial.conf stuff
 def get_wvdial_conf_file(conf, serial_port):
     """Returns the path of the generated wvdial.conf"""
@@ -349,6 +315,7 @@ remove from the current wvdial profile the
         return d
     
     def _generate_config(self, dialconf, device):
+
         # generate wvdial.conf from template
         self.conf_path = get_wvdial_conf_file(dialconf, device.dport)
         
@@ -359,7 +326,8 @@ remove from the current wvdial profile the
             generate_vmc_dns_lock(self.dialconf.dns1, self.dialconf.dns2)
         
         # create profile in /etc/ppp/peers/wvdial
-        data = TEMPLATES_DICT[self.dialconf.dialer_profile]
+        from vmc.common.oal import osobj # plugin retrieval taken from beta 3
+        data = osobj.get_config_template(self.dialconf.dialer_profile)
         try:
             os.unlink(consts.WVDIAL_AUTH_CONF)
         except OSError:
