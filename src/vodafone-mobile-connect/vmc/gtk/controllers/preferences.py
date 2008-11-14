@@ -272,6 +272,7 @@ class SMSPreferencesController(Controller):
             # we will setup the combobox options here
             items = []
             
+# FIXME - ajb: problem with length(MCC+MNC) > 5 
             network = net_manager.get_network_by_id(imsi[:5])
             if not network:
                 # we dont know anything about this network operator, we will

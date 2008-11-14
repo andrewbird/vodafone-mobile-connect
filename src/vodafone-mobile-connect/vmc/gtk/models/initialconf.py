@@ -81,6 +81,8 @@ class NewProfileModel(Model):
             return failure
         
         d = device.sconn.get_imsi()
+# FIXME - ajb: this doesn't work for length(MCC+MNC) > 5 such as for some Nordic networks
+# we should compare the other way around,so match the network id against the same length of imsi
         d.addCallback(lambda imsi: imsi[:5])
         d.addCallback(lambda prefix: net_manager.get_network_by_id(prefix))
         d.addErrback(get_imsi_eb)
