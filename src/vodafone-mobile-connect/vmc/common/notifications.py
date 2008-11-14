@@ -35,6 +35,7 @@ SIG_NEW_CONN_MODE = 'new_conn_mode'
 SIG_CALL = 'call'
 SIG_CREG = 'creg'
 SIG_RSSI = 'rssi'
+SIG_RFSWITCH = 'rfswitch'
 SIG_SMS = 'sms'
 SIG_SPEED = 'speed'
 SIG_TIMEOUT = 'timeout'
@@ -49,6 +50,8 @@ HSPA_SIGNAL = 'HSPA_SIGNAL'
 
 THREEG_SIGNALS = [UMTS_SIGNAL, HSDPA_SIGNAL, HSUPA_SIGNAL, HSPA_SIGNAL]
 
+RADIO_ON = 'RADIO_ON'
+RADIO_OFF = 'RADIO_OFF'
 
 class Notification(object):
     """Base class for Notifications"""

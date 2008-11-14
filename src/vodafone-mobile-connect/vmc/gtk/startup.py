@@ -290,6 +290,7 @@ def hook_it_up(splash, device_listener, device=None):
     
     unsolicited_notifications_callbacks = {
         N.SIG_RSSI : ctrl._change_signal_level,
+        N.SIG_RFSWITCH : ctrl._change_radio_state,
         N.SIG_SPEED : ctrl._change_net_stats_cb,
         N.SIG_NEW_CONN_MODE : ctrl._conn_mode_changed,
         N.SIG_SMS : ctrl._on_sms_received,

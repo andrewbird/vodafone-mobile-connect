@@ -94,6 +94,7 @@ class BaseApplicationController(WidgetController):
         self.usage_updater = None
         self.user_limit_notified = False
         self._setup_trayicon()
+        self.radio = 1
     
     def _quit_or_minimize(self, *args):
         if config.getboolean('preferences', 'close_minimizes'):
@@ -384,9 +385,21 @@ New profile available, do you want to load it?""")
             netname, conn_type = netinfo
             self.view['cell_type_label'].set_text(conn_type)
             self.view['network_name_label'].set_text(netname)
+
+    def _change_radio_state(self, mode):
+        if mode == N.RADIO_OFF:
+            self.radio = 0
+        elif mode == N.RADIO_ON:
+            self.radio = 1
+        # always set rssi 0, it's fine after radio switch on to show zero
+        self._change_signal_level('0')
+        self._conn_mode_changed(N.NO_SIGNAL)
     
     def _change_signal_level(self, rssi):
-        image = 'signal-%d.png' % get_signal_level_from_rssi(int(rssi))
+        if self.radio == 0:
+            image = 'radio-off.png'
+        else:
+            image = 'signal-%d.png' % get_signal_level_from_rssi(int(rssi))
         self.view['signal_image'].set_from_file(
                 os.path.join(consts.IMAGES_DIR, image))
     
@@ -1208,8 +1221,10 @@ to Internet, you cannot perform any operation while connected""")
             if self.model.is_connected():
                 msg = _('Connected to %s') % newmode
                 self.view['net_statusbar'].push(1, msg)
-        
-        if mode == N.NO_SIGNAL:
+
+        if self.radio == 0:
+            _change_mode(_('Radio Disabled'))
+        elif mode == N.NO_SIGNAL:
             _change_mode(_('N/A'))
         elif mode == N.GPRS_SIGNAL:
             _change_mode(_('GPRS'))
@@ -1328,7 +1343,7 @@ has been added, in around 15 seconds
                 self.apb.close()
                 if self.added_devices:
                     added_device = self.added_devices.pop()
-                    self.try_to_configure_device(added_device,                                                                   configure_added_devices)
+                    self.try_to_configure_device(added_device,configure_added_devices)
                 else:
                     self.mode = NO_DEVICE_PRESENT  
 
@@ -1342,6 +1357,7 @@ has been added, in around 15 seconds
 
         unsolicited_notifications_callbacks = {
             N.SIG_RSSI : self._change_signal_level,
+            N.SIG_RFSWITCH : self._change_radio_state,
             N.SIG_SPEED : self._change_net_stats_cb,
             N.SIG_NEW_CONN_MODE : self._conn_mode_changed,
             N.SIG_SMS : self._on_sms_received,
