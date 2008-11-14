@@ -23,11 +23,15 @@ __version__ = "$Rev: 1172 $"
 
 from vmc.common.hardware.base import Customizer
 
+# Sphere changes 
+# 1/ Preferred modes were actually forced
+# 2/ No such thing as 'GPRS pref' on NVTL, just 'Automatic' which is '3G pref'
+# 3/ Domains now all CS+PS
 NOVATEL_DICT = {
-   'GPRSONLY' : 'AT$NWRAT=1,1',
-   '3GONLY'   : 'AT$NWRAT=2,1',
-   'GPRSPREF' : 'AT$NWRAT=1,2',
-   '3GPREF'   : 'AT$NWRAT=2,2',
+   'GPRSONLY' : 'AT$NWRAT=1,2',
+   '3GONLY'   : 'AT$NWRAT=2,2',
+   'GPRSPREF' : 'AT$NWRAT=0,2',
+   '3GPREF'   : 'AT$NWRAT=0,2',
 }
     
 class NovatelCustomizer(Customizer):
