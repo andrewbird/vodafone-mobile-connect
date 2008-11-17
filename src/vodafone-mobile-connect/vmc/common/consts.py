@@ -27,7 +27,7 @@ from consts_prefix import TOP_DIR
 APP_SHORT_NAME = 'VMCCdfL'
 APP_LONG_NAME = 'Vodafone Mobile Connect Card driver for Linux'
 APP_VERSION = '1.99.17'
-APP_SLUG_NAME = 'vodafone-mobile-connect-card-driver-for-linux'
+APP_SLUG_NAME = 'vodafone-mobile-connect'
 APP_URL = 'https://forge.betavine.net/projects/vodafonemobilec/'
 
 # credits

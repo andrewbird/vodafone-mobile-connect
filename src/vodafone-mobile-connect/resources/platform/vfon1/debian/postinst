@@ -1,0 +1,76 @@
+#!/bin/bash
+
+function fix_peers(){
+	if [ -e /etc/ppp/peers ];then
+	   chown :dialout /etc/ppp/peers
+	   chmod g+w /etc/ppp/peers
+	fi
+}
+
+function fix_pap(){
+	if [ -e /etc/ppp/pap-secrets ];then
+		chown :dialout /etc/ppp/pap-secrets
+		chmod g+rw /etc/ppp/pap-secrets
+	fi
+}
+
+function fix_chap(){ 
+        if [ -e /etc/ppp/chap-secrets ];then
+	   chown :dialout /etc/ppp/chap-secrets
+	   chmod g+rw /etc/ppp/chap-secrets
+        fi
+}
+
+function fix_chap(){ 
+        if [ -e /etc/ppp/chap-secrets ];then
+	   chown :dialout /etc/ppp/chap-secrets
+	   chmod g+rw /etc/ppp/chap-secrets
+        fi
+}
+
+function fix_pppd(){ 
+        if [ -e /usr/sbin/pppd ];then
+	   chown :dialout /usr/sbin/pppd
+	   chmod 4754 /usr/sbin/pppd
+        fi
+}
+
+
+#function add_icon(){ 
+#	uif=/opt/xandros/share/AsusLauncher/simpleui.rc
+#	vmc="`grep vmc.desktop ${uif}`"
+#	if [ -z "${vmc}" ] ; then
+#		cp -p ${uif} ${uif}.vmc.inst
+#		/opt/vmc/scripts/add_vmc.pl < ${uif}.vmc.inst > ${uif}	
+#		chmod 644 ${uif} 
+#	fi
+#	pkill -USR1 AsusLauncher
+#}
+
+#function tidy_up_previous_install(){
+#	# incorrectly marked as config files, 
+#        # so no auto removal on update will occur
+#	rm -f /etc/udev/rules.d/99-huawei-e220.rules
+#	rm -f /etc/udev/rules.d/99-novatel-ovation.rules
+#	rm -f /etc/udev/rules.d/99-option-icon.rules
+#}
+
+function udev_reload(){
+	/sbin/udevcontrol reload_rules
+}
+
+dpkg-divert --package vodafone-mobile-connect \
+            --rename --quiet --add /etc/ppp/peers/wvdial
+
+ln -fs /etc/ppp/peers/wvdial.distrib /etc/ppp/peers/wvdial
+
+fix_peers
+fix_pap
+fix_chap
+fix_pppd
+
+#add_icon
+
+#tidy_up_previous_install
+udev_reload
+
