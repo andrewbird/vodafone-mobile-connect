@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+BUILDDIR:=$(shell cat builddir)
+
+build:
+	mkdir -p $(BUILDDIR)/DEBIAN
+	#cp -p debian/postinst $(BUILDDIR)/DEBIAN/.
+	#cp -p debian/prerm $(BUILDDIR)/DEBIAN/.
+
+binary: build
+	chown -R root:root $(BUILDDIR)
+	dpkg-gencontrol -P$(BUILDDIR)
+	dpkg-deb -b $(BUILDDIR) ..
+
+binary-arch binary-indep: binary
+
+clean:
+	rm -rf $(BUILDDIR)/DEBIAN
+	rm -f debian/files
+
+.PHONY: build clean install binary binary-indep binary-arch
+
+
