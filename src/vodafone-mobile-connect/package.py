@@ -221,9 +221,9 @@ def produce_tree():
         sh("sed -i %s -e 's,Source.*$,Source: %s,' -e 's,Package.*$,Package: %s,'" % (control,name,name))
 
 # so make can find out the root directory
-	f = open('%s/builddir' % tmp,'w')
-	f.write('%s-%s' % (name,version))
-	f.close()
+        f = open('%s/builddir' % tmp,'w')
+        f.write('%s-%s' % (name,version))
+        f.close()
     except:
         pass
     
