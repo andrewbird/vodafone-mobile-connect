@@ -23,7 +23,7 @@ rm -f ${VMCCONN}
 if [ -f ${ROUTEBACK} ] ; then
 	. ${ROUTEBACK} # source it
 
-	if [ -n "${ROUTEBACK}" ] ; then
+	if [ -n "${OLDGW}" ] ; then
 		route add default gw ${OLDGW}
 	fi
 

@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc
 
 %post
-usermod -a -G dip,uucp user
+usermod -a -G dip,uucp,lock user
 
 chown :dip /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
 chmod 660 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
@@ -69,6 +69,7 @@ fi
 if [ -f /etc/linpus-release.vmc ] ; then
    mv /etc/linpus-release.vmc /etc/linpus-release
 fi
+
 chown :root /usr/sbin/pppd
 chmod 555 /usr/sbin/pppd
 
@@ -76,7 +77,7 @@ chown :root /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
 chmod 600 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
 chmod 755 /etc/ppp/peers
 
-echo remove user from dip and uucp groups
+echo remove user from dip uucp and lock groups
 
 
 

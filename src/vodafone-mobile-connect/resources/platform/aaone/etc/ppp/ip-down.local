@@ -10,7 +10,7 @@ ETC="/etc"
 TMP="/tmp"
 RESOLVCONF=$(readlink --canonicalize $ETC/resolv.conf)
 BACKRESOLV="${RESOLVCONF}.vmc"
-BACKROUTE="${TMP}/defaultroute.vmc"
+ROUTEBACK="${TMP}/defaultroute.vmc"
 VMCCONN="${TMP}/vmc-conn.lock"
 
 # Make sure we are only being called by a vmc invoked pppd
@@ -28,14 +28,14 @@ if [ -e /var/run/nscd.pid ] ; then
 fi
 
 # now replace original default route
-if [ -f ${BACKROUTE} ] ; then
-	. ${BACKROUTE} # source it
+if [ -f ${ROUTEBACK} ] ; then
+	. ${ROUTEBACK} # source it
 
-	if [ -n "${BACKROUTE}" ] ; then
+	if [ -n "${OLDGW}" ] ; then
 		route add default gw ${OLDGW}
 	fi
 
-	rm -f ${BACKROUTE}
+	rm -f ${ROUTEBACK}
 fi
 
 
