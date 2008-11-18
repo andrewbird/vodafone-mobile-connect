@@ -64,11 +64,17 @@ if lsb_release -i | grep -q 'n/a' ; then
    sed 's/v/release /' /etc/linpus-release.vmc > /etc/linpus-release
 fi
 
+/usr/bin/vmc-manage-icon.sh install user
+/usr/bin/vmc-manage-icon.sh update  user
+
 %preun
 # undo horrid lsb_release fix
 if [ -f /etc/linpus-release.vmc ] ; then
    mv /etc/linpus-release.vmc /etc/linpus-release
 fi
+
+/usr/bin/vmc-manage-icon.sh remove  user
+/usr/bin/vmc-manage-icon.sh update  user
 
 chown :root /usr/sbin/pppd
 chmod 555 /usr/sbin/pppd
