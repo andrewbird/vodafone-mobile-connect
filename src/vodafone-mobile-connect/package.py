@@ -26,6 +26,7 @@ __version__ = "$Rev: 1189 $"
 # python package.py
 ##################
 
+# Obtaining setuptools-0.6c5-py2.5.egg if not available.
 from ez_setup import use_setuptools                                                                                                                      
 use_setuptools()
 
