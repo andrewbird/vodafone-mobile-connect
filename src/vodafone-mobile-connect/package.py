@@ -26,6 +26,9 @@ __version__ = "$Rev: 1189 $"
 # python package.py
 ##################
 
+from ez_setup import use_setuptools                                                                                                                      
+use_setuptools()
+
 import os
 from glob import glob
 
