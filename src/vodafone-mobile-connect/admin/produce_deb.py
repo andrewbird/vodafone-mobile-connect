@@ -104,7 +104,7 @@ def paint_file(path, text):
     from PIL import Image, ImageFont, ImageDraw
     im = Image.open(path)
     draw = ImageDraw.Draw(im)
-    font = ImageFont.truetype("resources/extra/FreeSans.ttf", 20)
+    font = ImageFont.truetype("resources/tools/FreeSans.ttf", 20)
     draw.text((50, 30), text, font=font)
     im.save(path)
     
