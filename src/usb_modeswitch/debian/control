@@ -2,6 +2,7 @@ Source: usb-modeswitch
 Section: multiverse/net
 Priority: optional
 Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
+Build-Depends: libusb-dev
 
 Package: usb-modeswitch
 Architecture: any
