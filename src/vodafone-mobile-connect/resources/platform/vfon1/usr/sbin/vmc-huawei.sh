@@ -5,6 +5,7 @@ PID="$2"
 
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
+modprobe -r airprime
 modprobe -r option
 modprobe -r pl2303
 modprobe -r usbserial
