@@ -81,7 +81,7 @@ class LinuxPlugin(UnixPlugin):
         CMD = 'cat'
         PATH = '/proc/net/dev'
         regexp = re.compile(r"""
-            \s+%(iface)s:\s+
+            \s+%(iface)s:\s*
             (?P<in>\d+)
             \s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+
             (?P<out>\d+)
