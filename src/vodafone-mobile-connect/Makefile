@@ -7,6 +7,11 @@ tree:
 	# TARGET passed through environment
 	# RELEASE passed through environment
 	python package.py install
+	-if [ -x tmp/*/postscript ] ; then \
+		ROOT=`dirname tmp/*/postscript` ; \
+		( cd $$ROOT && ./postscript ) ; \
+	fi
+	rm -f tmp/*/postscript
 
 pkg: tree
 	# RPM based distro
