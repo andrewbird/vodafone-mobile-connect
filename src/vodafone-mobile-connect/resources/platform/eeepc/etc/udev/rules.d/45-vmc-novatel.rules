@@ -1,0 +1,3 @@
+# Space after Novatel vendor attribute is needed
+ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="Novatel ", SYMLINK="novatel-storage"
+ACTION=="add", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5010", RUN+="/usr/sbin/vmc-novatel.sh 1410 5010"

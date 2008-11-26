@@ -1,0 +1,26 @@
+#!/bin/bash
+
+rm -f /etc/ppp/peers/wvdial
+dpkg-divert --package vodafone-mobile-connect --rename --quiet --remove /etc/ppp/peers/wvdial
+
+rm -rf /usr/bin/vodafone-mobile-connect-card-driver-for-linux*
+
+function unfix_pppd(){
+        if [ -e /usr/sbin/pppd ];then
+           chown :dip /usr/sbin/pppd
+	   chmod 0754 /usr/sbin/pppd
+        fi
+}
+
+function del_icon(){
+        uif=/opt/xandros/share/AsusLauncher/simpleui.rc
+        vmc="`grep vmc.desktop ${uif}`"
+        if [ -n "${vmc}" ] ; then
+                cp -p ${uif} ${uif}.vmc.remv
+                /opt/vmc/scripts/del_vmc.pl < ${uif}.vmc.remv > ${uif}
+        fi
+}
+
+unfix_pppd
+
+del_icon

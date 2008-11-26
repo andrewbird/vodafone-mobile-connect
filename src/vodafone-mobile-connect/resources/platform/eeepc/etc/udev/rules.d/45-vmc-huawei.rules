@@ -1,0 +1,6 @@
+# Spaces after HUAWEI vendor attribute is needed
+# udevinfo -a -p /block/sr1
+BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="HUAWEI  ", OPTIONS+="ignore_device last_rule"
+
+ACTION=="add", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", RUN+="/usr/sbin/vmc-huawei.sh 12d1 1001"
+ACTION=="add", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", RUN+="/usr/sbin/vmc-huawei.sh 12d1 1003"

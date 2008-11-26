@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Bodge since eeePC is missing lsb_release
+
+case $1 in 
+	-i)
+		printf "Distributor ID:\tDebian\n"
+	;;
+	-r)
+		printf "Release:\t4.0\n"
+	;;
+esac

@@ -1,0 +1,2 @@
+SYSFS{idVendor}=="05c6", SYSFS{idProduct}=="1000", RUN+="/usr/sbin/vmc-option.sh 05c6 1000"
+

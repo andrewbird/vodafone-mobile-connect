@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export PATH=/opt/vmc/bin:$PATH
+
+DBUS_RUNNING="`ps -ef | grep dbu[s]-daemon`"
+
+if [ -z "${DBUS_RUNNING}" ] ; then
+        sudo invoke-rc.d dbus restart
+fi
+
+twistd -r gtk2 --pidfile /tmp/vmc.pid \
+	-noy /usr/share/vodafone-mobile-connect/gtk-tap.py
