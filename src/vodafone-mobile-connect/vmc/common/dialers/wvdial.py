@@ -55,8 +55,16 @@ def _generate_wvdial_conf(conf, sport):
     """
     Generates a specially crafted wvdial.conf with the given serial_port
     """
-    user = conf.username
-    passwd = conf.password
+    if len(conf.username) > 0: # Wvdial doesn't like empty assignments
+        user = conf.username
+    else:
+        user = '*'
+
+    if len(conf.password) > 0:
+        passwd = conf.password
+    else:
+        passwd = '*'
+
     theapn = conf.apn_host
     
     # build template
