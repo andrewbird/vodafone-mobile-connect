@@ -231,9 +231,7 @@ def get_about_dialog():
     abt.set_documenters(consts.APP_DOCUMENTERS)
     abt.set_artists(consts.APP_ARTISTS)
     abt.set_website(consts.APP_URL)
-    
-    # XXX: pango here? I tried w/o success
-    abt.set_website_label('http://forge.vodafonebetavine.net/..')
+    abt.set_website_label('/'.join(consts.APP_URL.split('/')[0:3] + ['...']))
     
     trans_credits = _('translated to $LANG by $translater')
     # only enable them when necessary
