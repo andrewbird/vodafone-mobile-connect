@@ -26,7 +26,6 @@ from vmc.common.runtime import app_is_frozen
 
 from vmc.common.plugin import PluginManager
 from vmc.common.interfaces import IOSPlugin
-from vmc.common.hardware import hw_reg
 
 bundled_customization = {
     'WVDIAL_CONN_SWITCH' : '--config',

@@ -20,19 +20,10 @@ The hardware module manages device discovery via dbus/hal
 """
 __version__ = "$Rev: 1172 $"
 
-import os
-
 from vmc.common.encoding import _
 from vmc.utils.utilities import dict_reverter
 
 from vmc.common.hardware._dbus import DbusComponent
-if os.name == 'posix':
-    from vmc.common.hardware._unixhardwarereg import HardwareRegistry as UXHR
-    hw_reg = UXHR()
-elif os.name == 'nt':
-    from vmc.common.hardware._winhardwarereg import HardwareRegistry as WINR
-    hw_reg = WINR()
-
 
 CONN_OPTS_LIST = [
    unicode(_('GPRS only'), 'utf8'),
@@ -50,5 +41,5 @@ CONN_OPTS_DICT = {
 
 CONN_OPTS_DICT_REV = dict_reverter(CONN_OPTS_DICT)
 
-__all__ = ["CONN_OPTS_LIST", "CONN_OPTS_LIST_REV", "DbusComponent", "hw_reg"]
+__all__ = ["CONN_OPTS_LIST", "CONN_OPTS_LIST_REV", "DbusComponent"]
 

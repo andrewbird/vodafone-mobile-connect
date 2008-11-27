@@ -76,8 +76,15 @@ def touch(path):
 
 def get_file_data(path):
     """Returns the data of the file at path C{path}"""
+    if not os.path.exists(path):
+        return None
+
     try:
-        fileobj = open(path, 'r')
+        try:
+            fileobj = open(path, 'r')
+        except IOError:
+            return None
+
         data = fileobj.read()
         return data
     finally:

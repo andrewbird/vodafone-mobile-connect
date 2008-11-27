@@ -25,7 +25,7 @@ import os
 
 from twisted.trial.unittest import TestCase, SkipTest
 
-from vmc.common.hardware import hw_reg
+from vmc.common.hardware.hardwarereg import hw_reg
 from vmc.common.startup import attach_serial_protocol
 from vmc.common.configbase import VMCConfigBase
 from vmc.common.statem.auth import AuthStateMachine

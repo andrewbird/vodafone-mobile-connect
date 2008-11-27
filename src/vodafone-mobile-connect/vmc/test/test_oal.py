@@ -33,7 +33,7 @@ from vmc.common.consts import TOP_DIR
 from vmc.common.oal import osobj
 from vmc.common.runtime import app_is_frozen
 from vmc.common.plugin import PluginManager
-from vmc.common.hardware import hw_reg
+from vmc.common.hardware.hardwarereg import hw_reg
 from vmc.common.plugins.linuxbundled import BundledDistro
 from vmc.common.interfaces import IOSPlugin
 

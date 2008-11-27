@@ -390,3 +390,5 @@ class HardwareRegistry(DbusComponent):
 
         self.call_id = None
 
+hw_reg = HardwareRegistry()
+

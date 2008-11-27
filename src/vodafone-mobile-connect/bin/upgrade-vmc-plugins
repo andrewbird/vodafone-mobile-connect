@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (C) 2006-2008  Vodafone España, S.A.
+# Author:  Pablo Martí
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+import os
+import shutil
+
+from vmc.common import plugin
+from vmc.utils.utilities import get_file_data, save_file
+import vmc.common.consts as consts
+
+LOCK = os.path.join(consts.VMC_HOME, '.setup-done')
+
+def upgrade_plugins_if_necessary():
+    old = get_file_data(LOCK)
+    print "I GOT OLD", old
+    if old and int(old) == plugin.VERSION:
+        # nothing to do
+        return
+    elif old is None:
+        # do not run the routine
+        return
+
+    shutil.rmtree(consts.PLUGINS_HOME)
+    shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
+    # regenerate plugins
+    plugin.PluginManager.regenerate_cache()
+    save_file(LOCK, str(plugin.VERSION))
+
+if __name__ == '__main__':
+    upgrade_plugins_if_necessary()

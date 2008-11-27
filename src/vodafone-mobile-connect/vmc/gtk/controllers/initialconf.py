@@ -512,7 +512,7 @@ The following error was received while trying to establish a connection:
 %s""") % failure.getErrorMessage()
             dialogs.open_warning_dialog(message, details)
         
-        from vmc.common.hardware import hw_reg
+        from vmc.common.hardware.hardwarereg import hw_reg
         
         d = hw_reg.get_plugin_for_remote_dev(speed, dport, cport)
         d.addCallback(self._im_done, apb)

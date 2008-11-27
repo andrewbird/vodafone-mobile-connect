@@ -39,7 +39,7 @@ from vmc.common.config import config
 from vmc.common.configbase import DeviceProfileCache
 from vmc.common.encoding import _
 import vmc.common.exceptions as ex
-from vmc.common.hardware import hw_reg
+from vmc.common.hardware.hardwarereg import hw_reg
 import vmc.common.notifications as N
 from vmc.common.startup import populate_dbs
 from vmc.common.plugin import DBusDevicePlugin

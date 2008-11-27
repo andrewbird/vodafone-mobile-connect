@@ -28,7 +28,6 @@ from twisted.internet.utils import getProcessOutput
 
 from vmc.common.dialers.wvdial import WvdialDialer
 from vmc.common.oses.unix import UnixPlugin
-from vmc.common.hardware import hw_reg
 
 class LinuxPlugin(UnixPlugin):
     """
@@ -97,6 +96,7 @@ class LinuxPlugin(UnixPlugin):
         return d
     
     def is_valid(self):
+        from vmc.common.hardware.hardwarereg import hw_reg
         os_info = hw_reg.os_info
         try:
             if self.os_name.match(os_info['os_name']):

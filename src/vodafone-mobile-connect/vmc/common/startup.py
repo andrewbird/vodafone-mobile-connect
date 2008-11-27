@@ -29,7 +29,7 @@ from twisted.internet import reactor
 from twisted.python import log
 
 import vmc.common.consts as consts
-from vmc.utils.utilities import touch, get_file_data, save_file
+from vmc.utils.utilities import save_file, touch
 
 DELAY = 10
 
@@ -63,27 +63,10 @@ def attach_serial_protocol(device, test=False):
     device.sconn = sconn
     return device
 
-def update_plugins_if_necessary():
-    from twisted.plugin import getPlugins, IPlugin
-    from vmc.common import plugin
-    import vmc.common.plugins
-
-    old = get_file_data(LOCK)
-    if old and int(old) == plugin.VERSION:
-        # nothing to do
-        return
-
-    shutil.rmtree(consts.PLUGINS_HOME)
-    shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
-    # regenerate plugins
-    list(getPlugins(IPlugin, package=vmc.common.plugins))
-    save_file(LOCK, str(plugin.VERSION))
-
 
 def create_skeleton_and_do_initial_setup():
     """I perform the operations needed for the initial user setup"""
     if os.path.exists(LOCK):
-        update_plugins_if_necessary()
         return
     
     try:
@@ -99,6 +82,7 @@ def create_skeleton_and_do_initial_setup():
     shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
     
     from vmc.common.oal import osobj
+    from vmc.common import plugin
 
     join = os.path.join
     cfg_path = join(consts.TEMPLATES_DIR, osobj.abstraction['CFG_TEMPLATE'])
@@ -109,7 +93,7 @@ def create_skeleton_and_do_initial_setup():
     touch(consts.PAP_PROFILE)
     
     os.chmod(consts.VMC_CFG, 0600)
-    touch(LOCK)
+    save_file(LOCK, str(plugin.VERSION))
     
 def populate_dbs():
     """
