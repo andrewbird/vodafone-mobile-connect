@@ -162,6 +162,7 @@ class DBusDevicePlugin(DevicePlugin):
         super(DBusDevicePlugin, self).__init__()
         self.udi = None
         self.parent_udi = None
+        self.mapping = None
     
     def __eq__(self, other):
         # I can be compared against a DBusDevicePlugin

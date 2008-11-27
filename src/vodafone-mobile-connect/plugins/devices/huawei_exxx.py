@@ -20,6 +20,7 @@ __version__ = "$Rev: 1172 $"
 
 from vmc.common.plugin import DBusDevicePlugin
 
+from vmc.common.plugins.huawei_e172 import HuaweiE172
 from vmc.common.plugins.huawei_e220 import HuaweiE220
 from vmc.common.plugins.huawei_e270 import HuaweiE270
 from vmc.common.plugins.huawei_e272 import HuaweiE272
@@ -47,6 +48,7 @@ class HuaweiEXXX1003(DBusDevicePlugin):
         super(HuaweiEXXX1003, self).__init__()
 
         self.mapping = {
+            'E17X' : HuaweiE172,
             'E220' : HuaweiE220,
             'E270' : HuaweiE270,
             'E272' : HuaweiE272,

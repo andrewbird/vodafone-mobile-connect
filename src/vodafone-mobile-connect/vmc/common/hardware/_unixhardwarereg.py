@@ -297,7 +297,22 @@ class HardwareRegistry(DbusComponent):
         if plugin:
             # set its udi
             plugin.udi = udi
-            dport, cport = probe_ports(ports)
+
+            if hasattr(plugin, 'hardcoded_ports'):
+                # this plugin registers its ports in a funky way and thus
+                # the probe algorithm wont work for it. hardcoded_ports is
+                # a tuple of size two that contains the indexes of the ports
+                # that should be used for dport and cport.
+                dport_index, cport_index = plugin.hardcoded_ports
+                dport = ports[dport_index]
+                try:
+                    cport = ports[cport_index]
+                except Exception, e:
+                    log.err()
+                    cport = None
+            else:
+                # probe ports
+                dport, cport = probe_ports(ports)
 
             if not dport and not cport:
                 # this shouldn't happen

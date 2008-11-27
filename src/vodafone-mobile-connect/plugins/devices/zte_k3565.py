@@ -18,6 +18,7 @@
 
 __version__ = "$Rev: 1209 $"
 
+from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.hardware.zte import ZTECustomizer
 from vmc.common.plugin import DBusDevicePlugin
 
@@ -27,16 +28,16 @@ class ZTEK3565(DBusDevicePlugin):
     version = "0.1"
     author = "Andrew Bird"
     custom = ZTECustomizer
-    
+
     __remote_name__ = "K3565-Z"
 
     __properties__ = {
         'usb_device.vendor_id': [0x19d2],
         'usb_device.product_id': [0x0049, 0x0052], # depends on firmware version
     }
-    
-# K3565-Z uses ttyUSB2(data) and ttyUSB1(status)
-# Leave this for reference, since new plugin layer might not 
-# recognise that the data and control ports are not the usual way around
 
-zte_k3520 = ZTEK3520()
+    # K3565-Z uses ttyUSB2(data) and ttyUSB1(status)
+    hardcoded_ports = (2, 1)
+
+zte_k3565 = ZTEK3565()
+

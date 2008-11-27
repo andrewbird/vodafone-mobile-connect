@@ -18,6 +18,7 @@
 
 __version__ = "$Rev: 1209 $"
 
+from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.hardware.zte import ZTECustomizer
 from vmc.common.plugin import DBusDevicePlugin
 
@@ -27,12 +28,16 @@ class ZTEK3520(DBusDevicePlugin):
     version = "0.1"
     author = "Andrew Bird"
     custom = ZTECustomizer
-    
+
     __remote_name__ = "K3520-Z"
 
     __properties__ = {
         'usb_device.vendor_id': [0x19d2],
         'usb_device.product_id': [0x0025, 0x0055], # depends on firmware revision
     }
-    
+
+    # K3520-Z uses ttyUSB1(data) and ttyUSB3(status)
+    hardcoded_ports = (1, 3)
+
 zte_k3520 = ZTEK3520()
+

@@ -158,7 +158,6 @@ class GTKStartupController(object):
         self.detect_hardware()
          
     def detect_hardware(self, ignored=None):
-        from vmc.common.plugin import DBusDevicePlugin
         def _ask_user_for_device(devices, callback, splash):
             cached_devices = DeviceProfileCache.get_cached_devices()
 

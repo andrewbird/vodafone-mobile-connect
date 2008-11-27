@@ -44,7 +44,7 @@ def attach_serial_protocol(device, test=False):
     
     if not test:
         # Use the adapter that device specifies
-        if device.custom and hasattr(device.custom, 'adapter'):
+        if device.custom.adapter:
             adapter_klass = device.custom.adapter
         else:
             adapter_klass = SIMCardConnAdapter
@@ -66,6 +66,7 @@ def attach_serial_protocol(device, test=False):
 def update_plugins_if_necessary():
     from twisted.plugin import getPlugins, IPlugin
     from vmc.common import plugin
+    import vmc.common.plugins
 
     old = get_file_data(LOCK)
     if old and int(old) == plugin.VERSION:
@@ -75,7 +76,7 @@ def update_plugins_if_necessary():
     shutil.rmtree(consts.PLUGINS_HOME)
     shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
     # regenerate plugins
-    list(getPlugins(IPlugin))
+    list(getPlugins(IPlugin, package=vmc.common.plugins))
     save_file(LOCK, str(plugin.VERSION))
 
 
