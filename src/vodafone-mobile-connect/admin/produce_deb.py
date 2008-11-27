@@ -54,6 +54,7 @@ def produce_devel_doc(basepath, guidepath):
        "--config baseurl=api/%%s.html "
        "%(doc_dir)s/*.xhtml" % dict(doc_dir=DOC_DIR, tpl_path=TPL_PATH)
        )
+    sh("mkdir -p %s" % guidepath)
     sh("cp %s/*.html doc/devel/*.css %s" % (DOC_DIR, guidepath))
     sh("cp -R %s %s/images" % (IMAGES_DIR, guidepath))
 
@@ -76,6 +77,7 @@ def produce_source():
     final_path = os.path.join(tmp_dir, pkg_name)
     sh("cp -R %s %s" % (os.getcwd(), final_path))
     sh('find %s -name ".svn" | xargs rm -rf' % final_path)
+    sh('find %s -name ".git" | xargs rm -rf' % final_path)
     sh('find %s -name ".pyc" | xargs rm -rf' % final_path)
     img_to_patch_path = os.path.join(final_path, 'resources', 'glade',
                                      'splash.png')
