@@ -148,36 +148,3 @@ class MobileProfile(VMCConfigBase):
         
         profile.write()
         return profile
-
-class DeviceProfileCache(object):
-    """
-    I am a device cache
-    """
-
-    @classmethod
-    def new_id(cls):
-        id = 0
-        while os.path.exists(os.path.join(CACHED_DEVICES, "%.4d" % id)):
-            id += 1
-        return "%.4d" % id
-
-    @classmethod
-    def load(cls, cached_id):
-        path = os.path.join(CACHED_DEVICES, cached_id)
-        return pickle.load(open(path, 'rb'))
-
-    @classmethod
-    def store(cls, device):
-        if not (hasattr(device, 'cached_id') and device.cached_id):
-            device.cached_id = cls.new_id()
-        path = os.path.join(CACHED_DEVICES, device.cached_id)
-        pickle.dump(device, open(path,'wb'), pickle.HIGHEST_PROTOCOL)
-
-    @classmethod
-    def get_cached_devices(cls):
-        devices = []
-        for cached_device in os.listdir(CACHED_DEVICES):
-            path = os.path.join(CACHED_DEVICES, cached_device)
-            device = cls.load(path)
-            devices.append(device)
-        return devices

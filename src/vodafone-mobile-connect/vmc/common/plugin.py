@@ -247,7 +247,7 @@ class UnknownDevicePlugin(DevicePlugin):
 
 
 def get_unknown_device_plugin(dataport, controlport=None, baudrate=115200,
-        name='Unknown Device', cached_id=None):
+        name='Unknown Device'):
     """
     Returns a C{UnknownDevicePlugin} instance configured with the given params
     """
@@ -258,7 +258,6 @@ def get_unknown_device_plugin(dataport, controlport=None, baudrate=115200,
     plugin.cport = controlport
     plugin.baudrate = baudrate
     plugin.name = name
-    plugin.cached_id = cached_id
     def identify_device_cb(model):
         plugin.__remote_name__ = model
         return plugin

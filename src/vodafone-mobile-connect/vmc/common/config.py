@@ -52,15 +52,6 @@ class VMCConfig(VMCConfigBase):
         self.current_profile = profile
         self.write()
     
-    def set_last_device(self, cached_device_id):
-        #XXX: Store last device in current profile
-        self.set('profile', 'last_device', cached_device_id)
-        self.write()
-
-    def get_last_device(self):
-        #XXX: Store last device in current_profile
-        return self.get('profile', 'last_device')
-    
     def close(self):
         super(VMCConfig, self).close()
         if self.current_profile:

@@ -36,7 +36,6 @@ install_plugin(plugin.TwistedDispatchPlugin())
 
 from vmc.common.consts import APP_LONG_NAME
 from vmc.common.config import config
-from vmc.common.configbase import DeviceProfileCache
 from vmc.common.encoding import _
 import vmc.common.exceptions as ex
 from vmc.common.hardware.hardwarereg import hw_reg
@@ -159,35 +158,14 @@ class GTKStartupController(object):
          
     def detect_hardware(self, ignored=None):
         def _ask_user_for_device(devices, callback, splash):
-            cached_devices = DeviceProfileCache.get_cached_devices()
-
-            for cached_device in list(cached_devices):
-                if isinstance(cached_device, DBusDevicePlugin) \
-                        and not cached_device in devices:
-                    cached_devices.remove(cached_device)
-
-            all_devices = cached_devices + [device for device in devices
-                                            if device not in cached_devices]
-            controller = DeviceSelectionController(Model(),
-                                                all_devices, callback, splash)
+            controller = DeviceSelectionController(Model(), devices,
+                                                   callback, splash)
             view = DeviceSelectionView(controller)
             view.show()
 
         def _device_select(devices, callback, splash):
-            try:
-                last_device_id = config.get_last_device()
-                device = DeviceProfileCache.load(last_device_id)
-            
-                #If device is a DBus device, it has to have been detected to be
-                #used.
-                if (isinstance(device, DBusDevicePlugin) and 
-                    not device in devices):
-                    _ask_user_for_device(devices, callback, splash)
-                else:
-                    callback(device)
-            except IOError:
-                _ask_user_for_device(devices, callback, splash)
-                
+            _ask_user_for_device(devices, callback, splash)
+
         def device_serial_eb(failure):
             from vmc.gtk import dialogs
             failure.trap(SerialException)
@@ -247,10 +225,6 @@ plug it again, and try in a moment.""")
     
     def configure_hardware(self, device):
         self.device = device
-
-        DeviceProfileCache.store(device)
-        config.set_last_device(device.cached_id)
-
         hook_it_up(self.splash, self.device)
 
 def hook_it_up(splash, device=None):

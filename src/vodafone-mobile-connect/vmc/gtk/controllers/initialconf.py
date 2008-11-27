@@ -24,7 +24,6 @@ from twisted.internet import threads
 
 from serial.serialutil import SerialException
 
-from vmc.common.configbase import DeviceProfileCache
 from vmc.common.dialers import AUTH_OPTS_DICT, AUTH_OPTS_DICT_REV
 from vmc.common.encoding import _
 from vmc.common.hardware import CONN_OPTS_DICT, CONN_OPTS_DICT_REV
@@ -318,16 +317,6 @@ class DeviceSelectionController(Controller, DbusComponent):
         louie.disconnect(self.device_removed, N.SIG_DEVICE_REMOVED)
 
     def device_added(self, device):
-        properties = self.get_devices_properties()
-
-        cached_id = None
-        for dev in DeviceProfileCache.get_cached_devices():
-            if dev in properties.values() and dev == device:
-                cached_id = dev.cached_id
-
-        if cached_id:
-            device.cached_id = cached_id
-
         self.udi_device[str(device.udi)] = device
         self.device_list.append(device)
         self.view.device_added(device)
