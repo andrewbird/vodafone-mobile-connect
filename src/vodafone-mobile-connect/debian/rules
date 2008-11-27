@@ -4,7 +4,6 @@ build:
 	dh_testdir
 	make -C resources/po/ mo
 	# devices
-	make -C contrib/e220/ compile
 	make -C contrib/option_icon/ compile
 clean:
 	dh_testdir
@@ -15,7 +14,6 @@ clean:
 	# locale
 	make -C resources/po/ clean
 	# devices
-	make -C contrib/e220/ clean
 	make -C contrib/option_icon clean
 	dh_clean
 
@@ -26,9 +24,6 @@ install: build
 	dh_installdirs
 	python setup.py install --root $(PWD)/debian/vodafone-mobile-connect-card-driver-for-linux
 	dh_install resources/po/locale usr/share
-	# Huawei E220 stuff...
-	dh_install contrib/e220/files/huaweiAktBbo usr/sbin/
-	dh_install contrib/e220/files/99-huawei-e220.rules etc/udev/rules.d/
 	# Option Icon stuff...
 	dh_install contrib/option_icon/files/icon_switch usr/sbin
 	dh_install contrib/option_icon/files/99-option-icon.rules etc/udev/rules.d/

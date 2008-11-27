@@ -1,4 +1,0 @@
-# From http://www.kanoistika.sk/bobovsky/archiv/umts/
-SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", RUN+="/usr/sbin/huaweiAktBbo"
-SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", RUN+="/usr/sbin/huaweiAktBbo"
-
