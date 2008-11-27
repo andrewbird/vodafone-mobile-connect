@@ -18,7 +18,6 @@
 
 __version__ = "$Rev: 1209 $"
 
-from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.hardware.zte import ZTECustomizer
 from vmc.common.plugin import DBusDevicePlugin
 
@@ -36,19 +35,4 @@ class ZTEK3520(DBusDevicePlugin):
         'usb_device.product_id': [0x0025, 0x0055], # depends on firmware revision
     }
     
-    def extract_info(self, children):
-        # K3520-Z uses ttyUSB1(data) and ttyUSB3(status)
-        for device in children:
-            try:
-                if device['serial.port'] == 3: # control port
-                    self.cport = device['serial.device'].encode('utf8')
-                elif device['serial.port'] == 1: # data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.cport or not self.dport:
-            raise DeviceLacksExtractInfo(self)
-
-zte_k3520= ZTEK3520()
-
+zte_k3520 = ZTEK3520()
