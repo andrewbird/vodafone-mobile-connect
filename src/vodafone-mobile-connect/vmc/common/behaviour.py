@@ -187,11 +187,7 @@ class Behaviour(Modal):
         
         def do_next(self):
             d = self.device.initialize()
-            def init_cb(size):
-                self.device.sim.set_size(size)
-                self._transition_to('NetReg')
-        
-            d.addCallback(init_cb)
+            d.addCallback(lambda ign: self._transition_to('NetReg'))
             d.addErrback(log.err)
             d.addErrback(self.error_handler)
     
