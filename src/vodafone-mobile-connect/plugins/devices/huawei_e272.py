@@ -18,7 +18,6 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.hardware.huawei import HuaweiE2XXCustomizer
 from vmc.common.plugin import DBusDevicePlugin
 
@@ -35,19 +34,4 @@ class HuaweiE272(DBusDevicePlugin):
         'usb_device.vendor_id': [0x12d1],
         'usb_device.product_id': [0x1003],
     }
-    
-    def extract_info(self, children):
-        # HW 272 uses ttyUSB0 and ttyUSB1
-        for device in children:
-            try:
-                if device['serial.port'] == 1: # control port
-                    self.cport = device['serial.device'].encode('utf8')
-                elif device['serial.port'] == 0: # data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.cport or not self.dport:
-            raise DeviceLacksExtractInfo(self)
 
-huaweiE272 = HuaweiE272()

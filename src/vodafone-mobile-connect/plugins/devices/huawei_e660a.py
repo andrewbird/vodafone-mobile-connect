@@ -19,7 +19,6 @@
 __version__ = "$Rev: 1172 $"
 
 from vmc.common.plugin import DBusDevicePlugin
-
 from vmc.common.hardware.huawei import HuaweiCustomizer
 
 class HuaweiE660A(DBusDevicePlugin):
@@ -36,4 +35,3 @@ class HuaweiE660A(DBusDevicePlugin):
         'usb_device.product_id': [0x1001],
     }
 
-huaweiE660A = HuaweiE660A()

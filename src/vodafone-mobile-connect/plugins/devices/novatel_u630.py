@@ -19,7 +19,6 @@
 __version__ = "$Rev: 1172 $"
 
 from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.exceptions import DeviceLacksExtractInfo
 
 from vmc.common.hardware.novatel import NovatelCustomizer
 
@@ -34,17 +33,6 @@ class NovatelU630(DBusDevicePlugin):
         'pcmcia.manf_id': [0xa4],
         'pcmcia.card_id': [0x276],
     }
-    
-    def extract_info(self, children):
-        # U630 sports just one serial port
-        for device in children:
-            try:
-                if device['serial.port'] == 0: # data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.dport:
-            raise DeviceLacksExtractInfo(self)
+
 
 novatelu630 = NovatelU630()

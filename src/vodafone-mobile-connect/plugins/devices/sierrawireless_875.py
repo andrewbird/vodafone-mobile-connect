@@ -22,9 +22,7 @@ DevicePlugin for the Sierra Wireless 875 datacard
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.plugin import DBusDevicePlugin
-
 from vmc.common.hardware.sierra import SierraWirelessCustomizer
 
 class SierraWireless875(DBusDevicePlugin):
@@ -33,24 +31,12 @@ class SierraWireless875(DBusDevicePlugin):
     version = "0.1"
     author = "anmsid & kgb0y"
     custom = SierraWirelessCustomizer
-    
-    __remote_name__ = "AC875"   #response from AT+CGMM
+
+    __remote_name__ = "AC875"
 
     __properties__ = {
         'usb_device.vendor_id' : [0x1199],
         'usb_device.product_id': [0x6820],
     }
-    
-    def extract_info(self, children):
-        # HW 220 uses ttyUSB0 and ttyUSB1
-        for device in children:
-            try:
-                if device['serial.port'] == 0: # data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.dport:
-            raise DeviceLacksExtractInfo(self)
 
 sierrawireless875 = SierraWireless875()

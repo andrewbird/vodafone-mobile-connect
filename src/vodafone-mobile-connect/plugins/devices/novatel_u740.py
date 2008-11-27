@@ -18,8 +18,6 @@
 __version__ = "$Rev: 1172 $"
 
 from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.exceptions import DeviceLacksExtractInfo
-
 from vmc.common.hardware.novatel import NovatelCustomizer
 
 class NovatelU740(DBusDevicePlugin):
@@ -35,17 +33,5 @@ class NovatelU740(DBusDevicePlugin):
         'usb_device.vendor_id' : [0x1410],
         'usb_device.product_id' : [0x1400, 0x1410]
     }
-
-    def extract_info(self, children):
-        # U740 uses ttyUSB0
-        for device in children:
-            try:
-                if device['serial.port'] == 0: #data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-
-        if not self.dport:
-            raise DeviceLacksExtractInfo(self)
 
 novatelu740 = NovatelU740()

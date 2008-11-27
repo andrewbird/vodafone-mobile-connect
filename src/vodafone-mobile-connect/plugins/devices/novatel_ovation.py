@@ -21,7 +21,6 @@ from twisted.python import log
 
 import vmc.common.exceptions as ex
 from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.hardware.novatel import NovatelCustomizer
 from vmc.common.statem.networkreg import NetworkRegStateMachine
 
@@ -91,17 +90,5 @@ class NovatelOvation(DBusDevicePlugin):
         'usb_device.vendor_id' : [0x1410],
         'usb_device.product_id' : [0x4400],
     }
-
-    def extract_info(self, children):
-        # Ovation uses ttyUSB0 and ttyUSB1
-        for device in children:
-            try:
-                if device['serial.port'] == 0: #data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.dport:
-            raise DeviceLacksExtractInfo(self)
 
 novatelovation = NovatelOvation()

@@ -19,7 +19,6 @@
 __version__ = "$Rev: 1172 $"
 
 from vmc.common.plugin import DBusDevicePlugin
-
 from vmc.common.hardware.huawei import HuaweiCustomizer
 
 class HuaweiE620(DBusDevicePlugin):
@@ -28,7 +27,7 @@ class HuaweiE620(DBusDevicePlugin):
     version = "0.1"
     author = u"Pablo Martí"
     custom = HuaweiCustomizer
-    
+
     __remote_name__ = "E620"
 
     __properties__ = {
@@ -36,4 +35,3 @@ class HuaweiE620(DBusDevicePlugin):
         'usb_device.product_id': [0x1001],
     }
 
-huaweiE620 = HuaweiE620()

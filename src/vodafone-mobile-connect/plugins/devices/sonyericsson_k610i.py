@@ -22,7 +22,6 @@ from vmc.common.hardware.sonyericsson import SonyEricssonCustomizer
 from vmc.common.plugin import RemoteDevicePlugin, DBusDevicePlugin
 
 from vmc.common.middleware import SIMCardConnAdapter
-from vmc.common.exceptions import DeviceLacksExtractInfo
 
 class K610iSIMCardConnAdapter(SIMCardConnAdapter):
     def set_charset(self, charset):
@@ -61,17 +60,6 @@ class SonyEricssonK610iUSB(DBusDevicePlugin):
         'usb_device.vendor_id': [0x0fce],
         'usb_device.product_id': [0xd046],
     }
-
-    def extract_info(self, children):
-        for device in children:
-            try:
-                if device['serial.port'] == 0: #data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.dport:
-            raise DeviceLacksExtractInfo(self)
 
 sonyericsson_k610iBT = SonyEricssonK610iBT()
 sonyericsson_k610iUSB = SonyEricssonK610iUSB()

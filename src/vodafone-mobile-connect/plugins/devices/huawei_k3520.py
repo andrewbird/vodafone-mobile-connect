@@ -15,42 +15,24 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-# Modified for K3520 by Andrew Bird
-#
 
-__version__ = "$Rev: 1172 $"
+__version__ = "$Rev$"
 
-from vmc.common.exceptions import DeviceLacksExtractInfo
-from vmc.common.hardware.huawei import HuaweiE2XXCustomizer
 from vmc.common.plugin import DBusDevicePlugin
+
+from vmc.common.hardware.huawei import HuaweiCustomizer
 
 class HuaweiK3520(DBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's K3520"""
     name = "Huawei K3520"
     version = "0.1"
     author = u"Pablo Martí"
-    custom = HuaweiE2XXCustomizer
-    
+    custom = HuaweiCustomizer
+
     __remote_name__ = "K3520"
 
     __properties__ = {
         'usb_device.vendor_id': [0x12d1],
         'usb_device.product_id': [0x1001],
     }
-    
-    def extract_info(self, children):
-        # HW K3520 uses ttyUSB0 and ttyUSB2
-        for device in children:
-            try:
-                if device['serial.port'] == 2: # control port
-                    self.cport = device['serial.device'].encode('utf8')
-                elif device['serial.port'] == 0: # data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.cport or not self.dport:
-            raise DeviceLacksExtractInfo(self)
 
-huaweiK3520 = HuaweiK3520()
