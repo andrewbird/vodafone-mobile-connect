@@ -27,9 +27,11 @@ from vmc.utils.utilities import dict_reverter
 
 from vmc.common.hardware._dbus import DeviceListener, DbusComponent
 if os.name == 'posix':
-    from vmc.common.hardware._unixhardwarereg import HardwareRegistry
+    from vmc.common.hardware._unixhardwarereg import HardwareRegistry as UXHR
+    hw_reg = UXHR()
 elif os.name == 'nt':
-    from vmc.common.hardware._winhardwarereg import HardwareRegistry
+    from vmc.common.hardware._winhardwarereg import HardwareRegistry as WINR
+    hw_reg = WINR()
 
 
 CONN_OPTS_LIST = [
@@ -49,4 +51,4 @@ CONN_OPTS_DICT = {
 CONN_OPTS_DICT_REV = dict_reverter(CONN_OPTS_DICT)
 
 __all__ = ["CONN_OPTS_LIST", "CONN_OPTS_LIST_REV", "DbusComponent",
-           "DeviceListener", "HardwareRegistry"]
+           "DeviceListener", "hw_reg"]

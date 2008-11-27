@@ -19,10 +19,7 @@
 
 __version__ = "$Rev: 1172 $"
 
-import sys
-
 from twisted.trial import unittest
-from twisted.python import log
 
 from vmc.common.middleware import BasicNetworkOperator
 from vmc.common.statem.networkreg import NetworkRegStateMachine
@@ -31,10 +28,6 @@ from stub import DeviceStub, DeferredNotification
 
 class TestNetworkRegistrationSM(unittest.TestCase):
     """Tests for vmc.test.stub.DeviceStub"""
-    def setUpClass(self):
-        import sys
-        # uncomment me to see whats going on
-        #log.startLogging(sys.stdout)
 
     def test_already_connected(self):
         """

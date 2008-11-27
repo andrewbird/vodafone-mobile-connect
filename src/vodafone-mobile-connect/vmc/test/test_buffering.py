@@ -19,10 +19,7 @@
 
 __version__ = "$Rev: 1172 $"
 
-import sys
-
 from twisted.trial import unittest
-from twisted.python import log
 
 import vmc.common.notifications as N
 from vmc.common.protocol import BufferingStateMachine
@@ -34,7 +31,6 @@ class TestBuffering(unittest.TestCase):
     
     def setUpClass(self):
         # uncomment me to see whats going on
-        # self.log = log.startLogging(sys.stdout)
         huawei = PluginManager.get_plugin_by_name('Huawei E220')
         stub = test_protocol(huawei, SerialPortStub, BufferingStateMachine)
         self.stub = stub

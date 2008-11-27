@@ -37,7 +37,7 @@ create_skeleton_and_do_initial_setup()
 
 import vmc.common.exceptions as ex
 from vmc.common.dialer import DialerConf
-from vmc.common.hardware import HardwareRegistry
+from vmc.common.hardware import hw_reg
 
 class Options(usage.Options):
     optFlags = [
@@ -79,8 +79,6 @@ def start_cli_client():
         log.msg("from DBus what ports should use to communicate with device")
         reactor.stop()
     
-    hw = HardwareRegistry()
-    hw_reg = HardwareRegistry()
     d = hw_reg.get_devices()
     d.addCallback(get_devices_cb)
     d.addErrback(device_not_found_eb)

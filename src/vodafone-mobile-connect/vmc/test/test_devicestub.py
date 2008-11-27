@@ -19,10 +19,7 @@
 
 __version__ = "$Rev: 1172 $"
 
-import sys
-
 from twisted.trial import unittest
-from twisted.python import log
 
 from stub import DeviceStub
 

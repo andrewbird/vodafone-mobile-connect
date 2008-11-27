@@ -39,7 +39,7 @@ from vmc.common.config import config
 from vmc.common.configbase import DeviceProfileCache
 from vmc.common.encoding import _
 import vmc.common.exceptions as ex
-from vmc.common.hardware import DeviceListener, HardwareRegistry
+from vmc.common.hardware import DeviceListener, hw_reg
 import vmc.common.notifications as N
 from vmc.common.startup import populate_dbs
 
@@ -231,7 +231,6 @@ plug it again, and try in a moment.""")
         def get_devices_cb(devices):
             _device_select(devices, self.configure_hardware, self.splash)
         
-        hw_reg = HardwareRegistry()
         d = hw_reg.get_devices()
         d.addCallback(get_devices_cb)
         d.addErrback(device_not_found_eb)

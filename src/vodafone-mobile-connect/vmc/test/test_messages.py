@@ -28,7 +28,7 @@ import datetime
 
 from twisted.trial.unittest import TestCase, SkipTest
 
-from vmc.common.hardware import HardwareRegistry
+from vmc.common.hardware import hw_reg
 from vmc.common.startup import attach_serial_protocol
 from vmc.common.configbase import VMCConfigBase
 from vmc.common.statem.auth import AuthStateMachine
@@ -54,8 +54,7 @@ class TestMessages(TestCase):
         self.device = None
         self.messages = None
         
-        hw = HardwareRegistry()
-        d = hw.get_devices()
+        d = hw_reg.get_devices()
         def get_devices_cb(devices):
             self.device = attach_serial_protocol(devices[0], test=False)
             self.sconn = self.device.sconn

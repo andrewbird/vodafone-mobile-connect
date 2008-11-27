@@ -349,6 +349,7 @@ class DeviceSelectionController(Controller, DbusComponent):
                                 self.view.device_added(plugin)
                             except Exception, e:
                                 print e
+
                         d.addCallback(select_and_configure)
                     except Exception, e:
                         pass
@@ -535,10 +536,9 @@ The following error was received while trying to establish a connection:
 %s""") % failure.getErrorMessage()
             dialogs.open_warning_dialog(message, details)
         
-        from vmc.common.hardware import HardwareRegistry
-        hw = HardwareRegistry()
+        from vmc.common.hardware import hw_reg
         
-        d = hw.get_plugin_for_remote_dev(speed, dport, cport)
+        d = hw_reg.get_plugin_for_remote_dev(speed, dport, cport)
         d.addCallback(self._im_done, apb)
         d.addErrback(get_remote_plugin_eb)
         

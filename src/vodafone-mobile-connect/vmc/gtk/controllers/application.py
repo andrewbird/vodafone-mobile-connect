@@ -1314,12 +1314,12 @@ plug in the 3G device and start again.""") % consts.APP_LONG_NAME
     def device_added_handler(self, device):
         """
         Handler for the device_added signal
-        """        
+        """
         if self.mode != DEVICE_ADDED:
             self.mode = DEVICE_ADDED
-            
+
             self.hide_widgets()
-            
+
             info = dict(device_name=device.name, app_name=consts.APP_LONG_NAME)
             message = _("3G Device added")
             details = _("""
@@ -1329,7 +1329,7 @@ has been added, in around 15 seconds
 
             notification = show_normal_notification(self.tray, message, details)
             self.append_widget(notification)
-            
+
             title = _("Setting up device...")
             self.apb = dialogs.ActivityProgressBar(title, self, initnow=True,
                                               disable_cancel=True)
@@ -1337,15 +1337,16 @@ has been added, in around 15 seconds
             # we're gonna wait for 15 seconds till the device has settled
             # before starting the device activities
             # the last parameter means hotplug=True
-    
+
             self.added_devices = set()
             def configure_added_devices():
                 self.apb.close()
                 if self.added_devices:
                     added_device = self.added_devices.pop()
-                    self.try_to_configure_device(added_device,configure_added_devices)
+                    self.try_to_configure_device(added_device,
+                                                 configure_added_devices)
                 else:
-                    self.mode = NO_DEVICE_PRESENT  
+                    self.mode = NO_DEVICE_PRESENT
 
             # 15 seconds to accept devices when a device is plugged in
             reactor.callLater(15, configure_added_devices)
