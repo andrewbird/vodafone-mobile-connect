@@ -50,10 +50,10 @@ sports an asynchronous core built upon the superb Twisted framework.</p>
 
 <p>The <code class="API">vmc.common.hardware.HardwareRegistry</code> class
 manages all the device discovery on Unix/Linux systems through
-<a href="http://dbus.freedesktop.org">DBus</a>. The
-<code class="API">vmc.common.hardware.DeviceListener</code> class listens
-for DeviceAdded and DeviceRemoved signals and informs the upper layers
-accordingly.</p>
+<a href="http://dbus.freedesktop.org">DBus</a> and
+<a href="http://hal.freedesktop.org">Hal</a>. <code>HardwareRegistry</code>
+will emit <code>DeviceAdded</code> and <code>DeviceRemoved</code> signals
+upon hotplugging events.</p>
 
 <p>A device found through the HardwareRegistry will be attached to the
 <code class="API" base="vmc.common.protocol">SIMCardConnection</code> class.

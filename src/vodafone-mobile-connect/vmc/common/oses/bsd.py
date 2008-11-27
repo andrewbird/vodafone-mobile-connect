@@ -31,7 +31,7 @@ class FreeBSDPlugin(UnixPlugin):
     def __init__(self):
         super(FreeBSDPlugin, self).__init__()
     
-    def is_valid(self, os_info=None):
+    def is_valid(self):
         try:
             import freebsd
         except ImportError:
@@ -50,7 +50,7 @@ class OpenBSDPlugin(UnixPlugin):
     def __init__(self):
         super(OpenBSDPlugin, self).__init__()
     
-    def is_valid(self, os_info=None):
+    def is_valid(self):
         try:
             import openbsd
         except ImportError:

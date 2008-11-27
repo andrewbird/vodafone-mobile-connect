@@ -28,14 +28,7 @@ from twisted.internet.utils import getProcessOutput
 
 from vmc.common.dialers.wvdial import WvdialDialer
 from vmc.common.oses.unix import UnixPlugin
-from vmc.utils.utilities import LSB_INFO
-from vmc.common.runtime import app_is_frozen
-
-if app_is_frozen():
-    lsb_info = None
-else:
-    lsb_info = LSB_INFO
-
+from vmc.common.hardware import hw_reg
 
 class LinuxPlugin(UnixPlugin):
     """
@@ -103,11 +96,8 @@ class LinuxPlugin(UnixPlugin):
         d.addCallback(_parse_input)
         return d
     
-    def is_valid(self, os_info=lsb_info):
-        if not os_info:
-            # lsb_info will be None on any OS != Linux
-            return False
-        
+    def is_valid(self):
+        os_info = hw_reg.os_info
         try:
             if self.os_name.match(os_info['os_name']):
                 if self.os_version:

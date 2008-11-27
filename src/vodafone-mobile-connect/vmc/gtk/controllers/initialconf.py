@@ -20,7 +20,7 @@ Controller for the initial configuration window
 """
 __version__ = "$Rev: 1172 $"
 
-from twisted.internet import threads, reactor
+from twisted.internet import threads
 
 from serial.serialutil import SerialException
 
@@ -31,10 +31,11 @@ from vmc.common.hardware import CONN_OPTS_DICT, CONN_OPTS_DICT_REV
 from vmc.common.hardware._dbus import DbusComponent
 from vmc.common.profiles import get_profile_manager
 from vmc.common.shutdown import shutdown_core
-from vmc.common.interfaces import IDBusDevicePlugin
+import vmc.common.notifications as N
 from vmc.gtk import Controller
 import vmc.gtk.dialogs as dialogs
 from vmc.contrib.ValidatedEntry import ValidatedEntry, v_ip
+from vmc.contrib import louie
 
 INVALID_CHARS = ['/', '\\']
 
@@ -297,64 +298,39 @@ class DeviceSelectionController(Controller, DbusComponent):
     def __init__(self, model, device_list, device_callback, splash=None):
         Controller.__init__(self, model)
         DbusComponent.__init__(self)
+
         self.device_list = device_list
         self.device_callback = device_callback
         self.splash = splash
-        self.register_handlers()
+        self.connect_to_signals()
         self.udi_device = {}
+
         for device in device_list:
             if hasattr(device, 'udi'):
                 self.udi_device[device.udi] = device
 
-    def register_handlers(self):
-        connect = self.manager.connect_to_signal
-        self.handlers = []
-        self.handlers.append(connect('DeviceAdded', self.device_added))
-        self.handlers.append(connect('DeviceRemoved', self.device_removed))
+    def connect_to_signals(self):
+        louie.connect(self.device_added, N.SIG_DEVICE_ADDED)
+        louie.connect(self.device_removed, N.SIG_DEVICE_REMOVED)
 
-    def unregister_handlers(self):
-        for handler in self.handlers:
-            handler.remove()
+    def disconnect_from_signals(self):
+        louie.disconnect(self.device_added, N.SIG_DEVICE_ADDED)
+        louie.disconnect(self.device_removed, N.SIG_DEVICE_REMOVED)
 
-    def device_added(self, udi):
-        from vmc.common.hardware.base import DeviceResolver
-        from vmc.common.plugin import PluginManager
-        def process_device_added():
-            properties = self.get_devices_properties()
-            cached_id = None
+    def device_added(self, device):
+        properties = self.get_devices_properties()
 
-            for device in DeviceProfileCache.get_cached_devices():
-                if device in properties.values():
-                    cached_id = device.cached_id
+        cached_id = None
+        for dev in DeviceProfileCache.get_cached_devices():
+            if dev in properties.values() and dev == device:
+                cached_id = dev.cached_id
 
-            for plugin in PluginManager.get_plugins(IDBusDevicePlugin):
-                if plugin in properties.values():
-                    try:
-                        plugin.setup(properties)
-                        if cached_id:
-                            plugin.cached_id = cached_id
-                        if (plugin.udi in self.udi_device):
-                            continue
+        if cached_id:
+            device.cached_id = cached_id
 
-                        self.udi_device[str(plugin.udi)] = plugin
-                        # XXX: Port it
-                        d = DeviceResolver.identify_device(plugin)
-                        def select_and_configure(name):
-                            try:
-                                plugin = \
-                                  PluginManager.get_plugin_by_remote_name(name)
-                                plugin.setup(properties)
-                                self.udi_device[str(plugin.udi)] = plugin
-                                self.device_list.append(plugin)
-                                self.view.device_added(plugin)
-                            except Exception, e:
-                                print e
-
-                        d.addCallback(select_and_configure)
-                    except Exception, e:
-                        pass
-
-        reactor.callLater(4, process_device_added)
+        self.udi_device[str(device.udi)] = device
+        self.device_list.append(device)
+        self.view.device_added(device)
 
     def device_removed(self, udi):
         if self.udi_device.has_key(udi):
@@ -399,8 +375,8 @@ An unknown error occur when setting up the device:
             self.view.disable_custom_device_controls()
 
     def hide_ourselves(self):
+        self.disconnect_from_signals()
         self.view.get_top_widget().destroy()
-        self.unregister_handlers()
         self.manager = None
         self.view = None
 

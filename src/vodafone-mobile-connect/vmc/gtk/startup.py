@@ -39,9 +39,10 @@ from vmc.common.config import config
 from vmc.common.configbase import DeviceProfileCache
 from vmc.common.encoding import _
 import vmc.common.exceptions as ex
-from vmc.common.hardware import DeviceListener, hw_reg
+from vmc.common.hardware import hw_reg
 import vmc.common.notifications as N
 from vmc.common.startup import populate_dbs
+from vmc.common.plugin import DBusDevicePlugin
 
 from vmc.gtk.controllers.initialconf import (NewProfileController,
                                              DeviceSelectionController)
@@ -77,7 +78,10 @@ class SplashContainer(object):
         self.view.show()
     
     def pulse(self):
-        self.view['splash_progress_bar'].pulse()
+        try:
+            self.view['splash_progress_bar'].pulse()
+        except TypeError:
+            pass
     
     def start_pulse(self):
         if not self.loop:
@@ -108,8 +112,12 @@ class SplashContainer(object):
             pass
     
     def close(self):
-        self.ctrl.model.unregister_observer(self.ctrl)
-        self.view.get_top_widget().destroy()
+        try:
+            self.ctrl.model.unregister_observer(self.ctrl)
+            self.view.get_top_widget().destroy()
+        except AttributeError:
+            pass
+
         self.ctrl = None
         self.view = None
     
@@ -158,7 +166,7 @@ class GTKStartupController(object):
                 if isinstance(cached_device, DBusDevicePlugin) \
                         and not cached_device in devices:
                     cached_devices.remove(cached_device)
-                    
+
             all_devices = cached_devices + [device for device in devices
                                             if device not in cached_devices]
             controller = DeviceSelectionController(Model(),
@@ -167,7 +175,6 @@ class GTKStartupController(object):
             view.show()
 
         def _device_select(devices, callback, splash):
-            from vmc.common.plugin import DBusDevicePlugin
             try:
                 last_device_id = config.get_last_device()
                 device = DeviceProfileCache.load(last_device_id)
@@ -245,9 +252,9 @@ plug it again, and try in a moment.""")
         DeviceProfileCache.store(device)
         config.set_last_device(device.cached_id)
 
-        hook_it_up(self.splash, DeviceListener(self.device), self.device)
+        hook_it_up(self.splash, self.device)
 
-def hook_it_up(splash, device_listener, device=None):
+def hook_it_up(splash, device=None):
     """Attachs comms core to GUI and presents main screen"""
     # get main screen up
     from vmc.gtk.models.application import ApplicationModel
@@ -257,7 +264,7 @@ def hook_it_up(splash, device_listener, device=None):
     splash.pulse()
     
     model = ApplicationModel()
-    ctrl = ApplicationController(model, device_listener, splash)
+    ctrl = ApplicationController(model, splash)
     view = ApplicationView(ctrl)
     # we keep a reference of the controller in the model
     model.ctrl = ctrl

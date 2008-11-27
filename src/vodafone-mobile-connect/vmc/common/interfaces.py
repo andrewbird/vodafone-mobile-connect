@@ -207,7 +207,7 @@ class IOSPlugin(IVMCPlugin):
         @rtype: datetime.tzinfo
         """
     
-    def is_valid(init_var):
+    def is_valid():
         """Returns True if we are on the given OS/Distro"""
 
 

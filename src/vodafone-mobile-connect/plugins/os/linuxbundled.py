@@ -26,7 +26,7 @@ from vmc.common.runtime import app_is_frozen
 
 from vmc.common.plugin import PluginManager
 from vmc.common.interfaces import IOSPlugin
-from vmc.utils.utilities import LSB_INFO
+from vmc.common.hardware import hw_reg
 
 bundled_customization = {
     'WVDIAL_CONN_SWITCH' : '--config',
@@ -40,13 +40,12 @@ class BundledDistro(LinuxPlugin):
 
     def initialize(self):
         super(BundledDistro, self).initialize()
-        if LSB_INFO:
-            for osplugin in PluginManager.get_plugins(IOSPlugin):
-                if osplugin.is_valid(LSB_INFO) and osplugin.__class__ != self.__class__:
-                    self.__class__.__bases__ = (osplugin.__class__, )
-                    return
+        for plugin in PluginManager.get_plugins(IOSPlugin):
+            if (plugin.is_valid() and plugin.__class__ != self.__class__):
+                self.__class__.__bases__ = (plugin.__class__,)
+                return
 
-    def is_valid(self, os_info=None):
+    def is_valid(self):
         return app_is_frozen()
     
     def get_connection_args(self, dialer):

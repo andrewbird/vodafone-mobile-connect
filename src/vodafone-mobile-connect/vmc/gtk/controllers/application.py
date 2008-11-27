@@ -85,9 +85,8 @@ def get_fake_toggle_button():
 class BaseApplicationController(WidgetController):
     """Controller for the main window"""
     
-    def __init__(self, model, device_listener, splash):
+    def __init__(self, model, splash):
         super(BaseApplicationController, self).__init__(model)
-        self.device_listener = device_listener
         self.tray = None
         self.mode = None
         self.splash = splash
@@ -1168,9 +1167,8 @@ class ApplicationController(BaseApplicationController):
     """
     I extend BaseApplicationController with some signal handlers
     """
-    def __init__(self, model, device_listener, splash):
-        super(ApplicationController,
-                            self).__init__(model, device_listener, splash)
+    def __init__(self, model, splash):
+        super(ApplicationController, self).__init__(model, splash)
         self._setup_louie_signals()
         self.signal_loop = None
         self.net_loop = None
@@ -1305,9 +1303,9 @@ plug in the 3G device and start again.""") % consts.APP_LONG_NAME
         if self.model.is_connected():
             self.view.set_disconnected()
             self.stop_network_stats_timer()
-            self.stop_signal_quality_timer()
             self.model.disconnect_internet(hotplug=True)
         
+        self.stop_signal_quality_timer()
         # clean treeviews
         self._empty_treeviews(['inbox_treeview', 'contacts_treeview'])
     
@@ -1332,7 +1330,7 @@ has been added, in around 15 seconds
 
             title = _("Setting up device...")
             self.apb = dialogs.ActivityProgressBar(title, self, initnow=True,
-                                              disable_cancel=True)
+                                                   disable_cancel=True)
             self.append_widget(self.apb)
             # we're gonna wait for 15 seconds till the device has settled
             # before starting the device activities

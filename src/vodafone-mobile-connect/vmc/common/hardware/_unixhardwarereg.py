@@ -20,13 +20,21 @@ The hardware module manages device discovery via dbus/hal on Unix/Linux
 """
 __version__ = "$Rev: 1172 $"
 
+from time import time
+
 import serial
+from twisted.internet import defer, reactor
+from twisted.python import log
 
-from twisted.internet import defer
-
+from vmc.contrib import louie
 from vmc.common.hardware._dbus import DbusComponent
-from vmc.common.hardware.base import identify_device
+from vmc.common.hardware.base import identify_device, Customizer
 from vmc.utils.utilities import extract_lsb_info, natsort
+from vmc.common import notifications
+
+
+IDLE, BUSY = range(2)
+ADD_THRESHOLD = 10.
 
 def probe_port(port):
     """
@@ -98,15 +106,62 @@ class HardwareRegistry(DbusComponent):
         self.call_id = None
         self.os_info = extract_lsb_info()
 
+        self.mode = IDLE
+        self.get_devices_deferred = None
+        self.devices = {}
+        self.added_udis = []
+        self.call_id = None
+
+        self.connect_to_dbus_signals()
+        # prepopulate device list
+        d = self.get_devices()
+        d.addCallback(self._register_devices, to_idle=True)
+
+    def connect_to_dbus_signals(self):
+        self.manager.connect_to_signal('DeviceAdded', self._dev_added_cb)
+        self.manager.connect_to_signal('DeviceRemoved', self._dev_removed_cb)
+
     def get_devices(self):
         """
         Returns a list with all the devices present in the system
 
         List of deferreds of course
         """
+        if self.mode == BUSY:
+            # we are populating the initial device list and we've received
+            # another request in the middle, will finish the current one
+            # and will callback with the result in the _register_devices cb
+            assert self.get_devices_deferred is None
+            self.get_devices_deferred = defer.Deferred()
+            return self.get_devices_deferred
+
+        if self.mode == IDLE and self.devices:
+            # we are IDLE and we've prepopulated our devices dict, return
+            # the current values of the dict.
+            return self.devices.values()
+
+        # we are IDLE and self.devices is empty, lets populate it
+        self.mode = BUSY
         parent_udis = self._get_parent_udis()
         d = self._get_devices_from_udis(parent_udis)
+        d.addCallback(self._register_devices, to_idle=True)
         return d
+
+    def _register_devices(self, devices, to_idle=False):
+        for device in devices:
+            udi = device.udi
+            if device.udi not in self.devices:
+                self.devices[udi] = device
+                louie.send(notifications.SIG_DEVICE_ADDED, None, device)
+
+        if to_idle:
+            self.mode = IDLE
+
+        if self.get_devices_deferred is not None:
+            self.get_devices_deferred.callback(self.devices.values())
+            self.get_devices_deferred = None
+
+        return self.devices.values()
 
     def _get_device_from_udi(self, udi):
         """
@@ -190,7 +245,6 @@ class HardwareRegistry(DbusComponent):
         return last_udi
 
     def _get_info_from_udi(self, udi):
-        # log.msg("Obtaining info from udi %s" % udi)
         return extract_info(self.get_properties_from_udi(udi))
 
     def _get_child_udis_from_udi(self, udi):
@@ -256,10 +310,68 @@ class HardwareRegistry(DbusComponent):
 
     def get_plugin_for_remote_dev(self, speed, dport, cport):
         from vmc.common.plugin import UnknownDevicePlugin
-        from vmc.common.hardware.base import Customizer
         dev = UnknownDevicePlugin()
         dev.custom = Customizer()
         dev.dport, dev.cport, dev.baudrate = dport, cport, speed
         port = cport and cport or dport
         return identify_device(port)
+
+    # hotplugging methods
+
+    def _dev_added_cb(self, udi):
+        self.mode = BUSY
+        self.last_action = time()
+
+        assert udi not in self.added_udis
+        self.added_udis.append(udi)
+
+        try:
+            if not self.call_id:
+                self.call_id = reactor.callLater(ADD_THRESHOLD,
+                                             self._process_added_udis)
+            else:
+                self.call_id.reset(ADD_THRESHOLD)
+        except:
+            log.err()
+            # call has already been fired
+            self.added_udis = []
+            self.call_id = None
+            self.mode = IDLE
+
+    def _dev_removed_cb(self, udi):
+        if self.mode == BUSY:
+            # we're in the middle of a hotpluggin event and the udis that
+            # we just added to self.added_udis are disappearing!
+            # whats going on? Some devices such as the Huawei E870 will
+            # add some child udis, and will remove them once libusual kicks
+            # in, so we need to wait for at most ADD_THRESHOLD seconds
+            # since the last removal/add to find out what really got added
+            if udi in self.added_udis:
+                self.added_udis.remove(udi)
+                return
+
+        if udi in self.devices:
+            louie.send(notifications.SIG_DEVICE_REMOVED, None)
+            del self.devices[udi]
+
+    def _process_added_udis(self):
+        assert self.mode == BUSY
+        # obtain the parent udis of all the devices with modem capabilities
+        parent_udis = self._get_parent_udis()
+        # we're only interested on devices not being handled and just added
+        not_handled_udis = set(self.devices.keys()) ^ parent_udis
+        just_added_udis = not_handled_udis & set(self.added_udis)
+        # get devices out of UDIs and register them emitting DeviceAdded
+        d = self._get_devices_from_udis(just_added_udis)
+        d.addCallback(self._register_devices)
+
+        # cleanup
+        self.mode = IDLE
+        self.added_udis = []
+        try:
+            self.call_id.cancel()
+        except:
+            pass
+
+        self.call_id = None
 

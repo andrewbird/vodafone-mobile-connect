@@ -316,7 +316,7 @@ class OSPlugin(object):
     def get_iface_stats(self, iface):
         raise NotImplementedError()
     
-    def is_valid(self, os_info=None):
+    def is_valid(self):
         raise NotImplementedError()
 
     def get_config_template(self, dialer_profile):

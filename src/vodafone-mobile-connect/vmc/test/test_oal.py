@@ -33,9 +33,9 @@ from vmc.common.consts import TOP_DIR
 from vmc.common.oal import osobj
 from vmc.common.runtime import app_is_frozen
 from vmc.common.plugin import PluginManager
+from vmc.common.hardware import hw_reg
 from vmc.common.plugins.linuxbundled import BundledDistro
 from vmc.common.interfaces import IOSPlugin
-from vmc.utils.utilities import LSB_INFO
 
 class TestOAL(TestCase):
     
@@ -55,20 +55,17 @@ class TestOAL(TestCase):
             raise SkipTest("Test for frozen distribution")
 
     def get_os_by_lsb(self, lsb):
-        for osplugin in PluginManager.get_plugins(IOSPlugin):
-            if osplugin.is_valid(lsb) and not isinstance(osplugin, 
-                                                         BundledDistro):
-                return osplugin
-
+        for plugin in PluginManager.get_plugins(IOSPlugin):
+            if plugin.is_valid() and not isinstance(osplugin, BundledDistro):
+                return plugin
 
     def test_bundle_mixin(self):
         self.check_frozen()
-        if LSB_INFO:
-            os = self.get_os_by_lsb(LSB_INFO)
-            if not os: raise SkipTest("I couldn't find a suitable OS plugin")
+        if hw_reg.os_info:
+            os = self.get_os_by_lsb(hw_reg.os_info)
+            if not os:
+                raise SkipTest("I couldn't find a suitable OS plugin")
             self.failUnlessEqual(self.os.__class__.__bases__, (os.__class__,))
-            
-                
 
     def test_get_iface_stats(self):
         """

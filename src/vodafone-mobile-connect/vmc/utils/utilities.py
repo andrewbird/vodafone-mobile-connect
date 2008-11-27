@@ -55,8 +55,6 @@ def extract_lsb_info():
     
     return info
 
-LSB_INFO = extract_lsb_info()
-
 def dict_reverter(dict_in):
     """Returns a reverted copy of C{dict_in}"""
     dict_out = {}

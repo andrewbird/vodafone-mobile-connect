@@ -23,13 +23,6 @@ if getattr(dbus, 'version', (0, 0, 0)) >= (0, 41, 0):
     # otherwise wont work
     import dbus.glib
 
-from twisted.internet import reactor
-from twisted.python import log
-
-from vmc.contrib import louie
-from vmc.common.interfaces import IDBusDevicePlugin, IRemoteDevicePlugin
-import vmc.common.notifications as notifications
-
 
 class DbusComponent(object):
     """I provide a couple of useful methods to deal with DBus"""
@@ -53,56 +46,4 @@ class DbusComponent(object):
             props[udi] = self.get_properties_from_udi(udi)
 
         return props
-
-
-class DeviceListener(DbusComponent):
-    """
-    I listen for Device{Added,Removed} signals
-    
-    If a new device is added and I don't have a registered device, I will send
-    a L{vmc.common.notifications.SIG_DEVICE_ADDED} so the upper parts of the
-    system will do whatever they want to do with the device. If the device in
-    use is removed, I will notify the upper parts of the system and they will
-    act accordingly
-    """
-    def __init__(self, device):
-        DbusComponent.__init__(self)
-        self.device = device
-        self.register_handlers()
-    
-    def register_handlers(self):
-        self.manager.connect_to_signal('DeviceAdded', self.device_added)
-        self.manager.connect_to_signal('DeviceRemoved', self.device_removed)
-    
-    def device_added(self, udi):
-        """Called when a device has been added"""
-        if self.device:
-            # if we already have an active device, ignore the new device
-            return
-        
-        # leave it alone four seconds so the device can settle and register
-        # itself with the kernel properly
-        reactor.callLater(4, self.process_device_added)
-    
-    def process_device_added(self):
-        from vmc.common.plugin import PluginManager
-        properties = self.get_devices_properties()
-        for plugin in PluginManager.get_plugins(IDBusDevicePlugin):
-            if plugin in properties:
-                plugin.setup(properties)
-                louie.send(notifications.SIG_DEVICE_ADDED, None, plugin)
-                self.device = plugin
-    
-    def device_removed(self, udi):
-        """Called when a device has been removed"""
-        if not self.device:
-            return
-        
-        if IRemoteDevicePlugin.providedBy(self.device):
-            log.msg("DEVICE %s REMOVED" % udi)
-            return
-        
-        if self.device.udi == udi:
-            louie.send(notifications.SIG_DEVICE_REMOVED, None)
-            self.device = None
 
