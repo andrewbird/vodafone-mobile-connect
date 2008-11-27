@@ -28,7 +28,7 @@ from vmc.contrib.epsilon.modal import mode, Modal
 import vmc.common.exceptions as ex
 from vmc.common.statem.base import StateMachineMixin
 
-DELAY = 45
+DELAY = 15
 SIM_FAIL_DELAY = 15
 MAX_NUM_SIM_ERRORS = 3
 MAX_NUM_SIM_BUSY = 5
