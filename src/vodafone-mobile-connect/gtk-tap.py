@@ -25,7 +25,6 @@ import locale
 import signal
 
 from twisted.application.service import Application, IProcess
-from twisted.application import strports
 
 __version__ = "$Rev: 1172 $"
 
@@ -84,7 +83,11 @@ signal.signal(signal.SIGINT, shutdown_core)
 
 service = GTKSerialService()
 application = Application(APP_SHORT_NAME)
-factory = shell.getManholeFactory(globals(), admin='admin')
-strports.service(SSH_PORT, factory).setServiceParent(application)
+
+# Enable only for debugging
+#from twisted.application import strports
+#factory = shell.getManholeFactory(globals(), admin='admin')
+#strports.service(SSH_PORT, factory).setServiceParent(application)
+
 IProcess(application).processName = APP_SHORT_NAME
 service.setServiceParent(application)
