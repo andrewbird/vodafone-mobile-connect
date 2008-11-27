@@ -21,7 +21,7 @@ __version__ = "$Rev: 1172 $"
 
 import datetime
 
-from twisted.internet.defer import DeferredList, succeed, FirstError
+from twisted.internet.defer import DeferredList, succeed
 
 from vmc.common.config import config as config
 import vmc.common.consts as consts

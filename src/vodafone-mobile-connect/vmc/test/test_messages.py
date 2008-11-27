@@ -28,13 +28,11 @@ import datetime
 
 from twisted.trial.unittest import TestCase, SkipTest
 
-import vmc.common.exceptions as ex
 from vmc.common.hardware import HardwareRegistry
 from vmc.common.startup import attach_serial_protocol
 from vmc.common.configbase import VMCConfigBase
 from vmc.common.statem.auth import AuthStateMachine
 from vmc.common.sms import ShortMessage, ShortMessageSubmit
-from vmc.common.persistent import DBShortMessage
 from vmc.cli.collaborator import CLICollaboratorFactory
 from vmc.common.messages import get_messages_obj
 

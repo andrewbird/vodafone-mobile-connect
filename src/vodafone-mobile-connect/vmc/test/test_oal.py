@@ -21,15 +21,16 @@ Unit tests for the Operating System Abstraction Layer
 
 __version__ = "$Rev$"
 
+from os.path import join
+
 from pytz import timezone
 
 from twisted.trial.unittest import TestCase, SkipTest
 from twisted.internet.utils import getProcessValue
-from twisted.python import log, procutils
+from twisted.python import procutils
 
 from vmc.common.consts import TOP_DIR
-from vmc.common.oal import osobj, get_os_object
-from vmc.common.exceptions import OSNotRegisteredError
+from vmc.common.oal import osobj
 from vmc.common.runtime import app_is_frozen
 from vmc.common.plugin import PluginManager
 from vmc.common.plugins.linuxbundled import BundledDistro
