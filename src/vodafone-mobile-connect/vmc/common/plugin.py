@@ -36,6 +36,8 @@ import vmc.common.interfaces as interfaces
 from vmc.common.runtime import app_is_frozen
 from vmc.common.sim import SIMBaseClass
 
+VERSION = 2
+
 BASE_PATH_DICT = {
       'WVDIAL_AUTH_CONF': WVDIAL_AUTH_CONF,
       'WVDIAL_CONN_SWITCH' : '-C',
