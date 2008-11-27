@@ -34,8 +34,7 @@ class GTKBehaviour(Behaviour):
     """
     collaborator = GTKCollaboratorFactory
     
-    PreInit = Behaviour.PreInit
-    PostInit = Behaviour.PostInit
+    Init = Behaviour.Init
     NetReg = Behaviour.NetReg
     ImDone = Behaviour.ImDone
     
@@ -57,6 +56,6 @@ class GTKBehaviour(Behaviour):
             authklass = self.device.custom.authklass
             authsm = authklass(self.device, self.collaborator, self.ctrl.view)
             d = authsm.start_auth()
-            d.addCallback(lambda ignored: self._transition_to('PostInit'))
+            d.addCallback(lambda ignored: self._transition_to('Init'))
             d.addErrback(self.error_handler)
             self.current_sm = authsm

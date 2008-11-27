@@ -27,9 +27,9 @@ class HuaweiE220SIMClass(SIMBaseClass):
     def __init__(self, sconn):
         super(HuaweiE220SIMClass, self).__init__(sconn)
     
-    def postinit(self):
-        d = super(HuaweiE220SIMClass, self).postinit(set_encoding=False)
-        def postinit_cb(size):
+    def initialize(self):
+        d = super(HuaweiE220SIMClass, self).initialize(set_encoding=False)
+        def initialize_cb(size):
             self.sconn.get_smsc()
             # before switching to UCS2, we need to get once the SMSC number
             # otherwise as soon as we send a SMS, the device would reset
@@ -50,7 +50,7 @@ class HuaweiE220SIMClass(SIMBaseClass):
             d2.addCallback(process_charset)
             return d2
 
-        d.addCallback(postinit_cb)
+        d.addCallback(initialize_cb)
         return d
 
 

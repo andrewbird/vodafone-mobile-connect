@@ -48,8 +48,11 @@ class DbusComponent(object):
     
     def get_devices_properties(self):
         """Returns all the properties from all devices registed in HAL"""
-        return [self.get_properties_from_udi(udi)
-                    for udi in self.manager.GetAllDevices()]
+        props = {}
+        for udi in self.manager.GetAllDevices():
+            props[udi] = self.get_properties_from_udi(udi)
+
+        return props
 
 
 class DeviceListener(DbusComponent):

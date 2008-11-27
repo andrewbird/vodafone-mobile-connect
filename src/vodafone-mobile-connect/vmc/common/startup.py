@@ -44,7 +44,7 @@ def attach_serial_protocol(device, test=False):
     
     if not test:
         # Use the adapter that device specifies
-        if device.custom.adapter:
+        if device.custom and hasattr(device.custom, 'adapter'):
             adapter_klass = device.custom.adapter
         else:
             adapter_klass = SIMCardConnAdapter

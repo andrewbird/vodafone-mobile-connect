@@ -28,10 +28,8 @@ from vmc.common.configbase import DeviceProfileCache
 from vmc.common.dialers import AUTH_OPTS_DICT, AUTH_OPTS_DICT_REV
 from vmc.common.encoding import _
 from vmc.common.hardware import CONN_OPTS_DICT, CONN_OPTS_DICT_REV
-from vmc.common.hardware.base import DeviceResolver
 from vmc.common.hardware._dbus import DbusComponent
 from vmc.common.profiles import get_profile_manager
-from vmc.common.plugin import PluginManager
 from vmc.common.shutdown import shutdown_core
 from vmc.common.interfaces import IDBusDevicePlugin
 from vmc.gtk import Controller
@@ -319,23 +317,27 @@ class DeviceSelectionController(Controller, DbusComponent):
             handler.remove()
 
     def device_added(self, udi):
+        from vmc.common.hardware.base import DeviceResolver
+        from vmc.common.plugin import PluginManager
         def process_device_added():
             properties = self.get_devices_properties()
             cached_id = None
 
             for device in DeviceProfileCache.get_cached_devices():
-                if device in properties:
+                if device in properties.values():
                     cached_id = device.cached_id
 
             for plugin in PluginManager.get_plugins(IDBusDevicePlugin):
-                if plugin in properties:
+                if plugin in properties.values():
                     try:
                         plugin.setup(properties)
                         if cached_id:
                             plugin.cached_id = cached_id
                         if (plugin.udi in self.udi_device):
                             continue
+
                         self.udi_device[str(plugin.udi)] = plugin
+                        # XXX: Port it
                         d = DeviceResolver.identify_device(plugin)
                         def select_and_configure(name):
                             try:

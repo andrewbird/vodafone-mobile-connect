@@ -22,7 +22,6 @@ __version__ = "$Rev: 1172 $"
 from zope.interface import implements
 from twisted.python import log
 
-from vmc.common.plugin import PluginManager
 from vmc.common.interfaces import INotificationPlugin, INotificationListener
 
 # SIGNALS
@@ -135,6 +134,7 @@ class NotificationsManager(object):
     
     def __init__(self, wrapper, device, kwds):
         super(NotificationsManager, self).__init__()
+        from vmc.common.plugin import PluginManager
         self.wrapper = wrapper
         self.queue = device.sconn.notifications
         self.listeners = []

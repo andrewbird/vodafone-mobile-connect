@@ -75,9 +75,9 @@ class OptionColtSIMClass(SIMBaseClass):
     def __init__(self, sconn):
         super(OptionColtSIMClass, self).__init__(sconn)
     
-    def postinit(self):
+    def initialize(self):
         self.charset = 'IRA'
-        d = super(OptionColtSIMClass, self).postinit(set_encoding=False)
+        d = super(OptionColtSIMClass, self).initialize(set_encoding=False)
         d.addCallback(lambda size: self.set_size(size))
         return d
 

@@ -20,9 +20,9 @@ Base classes for the hardware module
 """
 __version__ = "$Rev: 1172 $"
 
-from serial.serialutil import SerialException
+import serial
 
-from twisted.internet import defer, reactor, serialport
+from twisted.internet.threads import deferToThread
 from twisted.python import log
 
 from vmc.common.command import get_cmd_dict_copy
@@ -30,6 +30,7 @@ from vmc.common.middleware import SIMCardConnAdapter
 from vmc.common.statem.auth import AuthStateMachine
 from vmc.common.statem.connection import ConnectStateMachine
 from vmc.common.statem.networkreg import NetworkRegStateMachine
+import vmc.common.exceptions as ex
 
 class Customizer(object):
     """
@@ -60,31 +61,58 @@ class Customizer(object):
     netrklass = NetworkRegStateMachine
 
 
-class DeviceResolver(object):
+def _identify_device(port):
     """
-    I identify unkown devices attached to the serial port
+    Returns the model of the device present at C{port}
     """
-    def __init__(self):
-        super(DeviceResolver, self).__init__()
-    
-    @classmethod
-    def identify_device(cls, dev):
-        sconn = SIMCardConnAdapter(dev)
-        try:
-            dport, speed = dev.dport, dev.baudrate
-            _sp = serialport.SerialPort(sconn, dport, reactor, baudrate=speed)
-        except SerialException, e:
-            return defer.fail(e)
-        
-        deferred = defer.Deferred()
-        def get_model_no():
-            def get_model_cb(name):
-                _sp.loseConnection('Bye bye!')
-                deferred.callback(name)
-            
-            d = sconn.get_card_model()
-            d.addCallback(get_model_cb)
-            d.addErrback(log.err)
-        
-        reactor.callLater(1, get_model_no)
-        return deferred
+    # as the readlines method blocks, this is executed in a parallel thread
+    # with deferToThread
+    ser = serial.Serial(port, timeout=1)
+    ser.write('ATZ E0 V1 X4 &C1\r\n')
+    ser.readlines()
+
+    ser.flushOutput()
+    ser.flushInput()
+
+    ser.write('AT+CGMM\r\n')
+    # clean up unsolicited notifications and \r\n's
+    response = [r.replace('\r\n', '') for r in ser.readlines()
+                    if not r.startswith(('^', '_')) and r.replace('\r\n','')]
+    log.msg("AT+CGMM response: %r" % response)
+    ser.close()
+
+    assert len(response), "Modem didn't reply anything meaningless"
+    return response[0]
+
+def identify_device(plugin):
+    def identify_device_cb(model):
+        # plugin to return
+        _plugin = None
+
+        if plugin.mapping:
+            if model in plugin.mapping:
+                _plugin = plugin.mapping[model]()
+
+        # the plugin has no mapping, chances are that we already identified
+        # it by its vendor & product id
+        elif plugin.__remote_name__ != model:
+            from vmc.common.plugin import PluginManager
+            # so we basically have a device identified by vendor & product id
+            # but we know nuthin of this model
+            try:
+                _plugin = PluginManager.get_plugin_by_remote_name(model)
+            except ex.UnknownPluginNameError:
+                plugin.name = model
+
+        if _plugin is not None:
+            # we found another plugin during the process
+            _plugin.patch(plugin)
+            return _plugin
+        else:
+            return plugin
+
+    port = plugin.has_two_ports() and plugin.cport or plugin.dport
+    d = deferToThread(_identify_device, port)
+    d.addCallback(identify_device_cb)
+    return d
+

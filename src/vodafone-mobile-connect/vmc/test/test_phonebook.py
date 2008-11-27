@@ -58,9 +58,7 @@ class TestPhoneBook(TestCase):
             self.device = attach_serial_protocol(devices[0], test=False)
             self.sconn = self.device.sconn
             self.sport = self.device.sport
-            d2 = self.device.preinit()
-            d2.addCallback(self._authenticate)
-            return d2
+            return self._authenticate()
         
         d.addCallback(get_devices_cb)
         return d
@@ -77,7 +75,7 @@ class TestPhoneBook(TestCase):
             raise SkipTest("Not config")
         
         def post_configure_device(ignored):
-            d = self.device.postinit()
+            d = self.device.initialize()
             d.addCallback(lambda _: self.sconn.delete_all_sms())
             d.addCallback(lambda _: self.sconn.delete_all_contacts())
             self.phonebook = get_phonebook(self.sconn)

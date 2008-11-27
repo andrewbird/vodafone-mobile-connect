@@ -54,8 +54,8 @@ class OptionSIMClass(SIMBaseClass):
     def __init__(self, sconn):
         super(OptionSIMClass, self).__init__(sconn)
     
-    def postinit(self, set_encoding=True):
-        d = super(OptionSIMClass, self).postinit(set_encoding=set_encoding)
+    def initialize(self, set_encoding=True):
+        d = super(OptionSIMClass, self).initialize(set_encoding=set_encoding)
         def init_callback(size):
             # setup asynchronous notifications
             self.sconn.send_at('AT_OSSYS=1')

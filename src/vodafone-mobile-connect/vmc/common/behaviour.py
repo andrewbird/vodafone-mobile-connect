@@ -56,18 +56,16 @@ class Behaviour(Modal):
     In adittion, you can connect to several signals that I will emit when I
     transition from one state machine to another:
     
-     - PreInitEnter: Executed when we enter into PreInit state
-     - PreInitExit: Executed when we exit from PreInit state
      - AuthEnter: Executed when we enter into Auth state
      - AuthExit: Executed when we exit from Auth state
-     - PostInitEnter: Executed when we enter into PostInit state
-     - PostInitExit: Executed when we exit from PostInit state
+     - InitEnter: Executed when we enter into Init state
+     - InitExit: Executed when we exit from Init state
      - NetRegEnter: Executed when we enter into NetReg state
      - NetRegExit: Executed when we exit from NetReg state
      - ImDoneEnter: Executed when we enter into ImDone state
      - ImDoneExit: Executed when we exit from ImDone state
      
-    For example, GTKBehaviour connects to PostInitExit and shows the main
+    For example, GTKBehaviour connects to InitExit and shows the main
     UI, this is done because NetReg can be a potentially expensive (time)
     operation and its better to show the UI asap. GTKBehaviour also connects
     to NetRegExit to stop the throbber and show the result.
@@ -75,7 +73,7 @@ class Behaviour(Modal):
     implements(INotificationListener)
     
     modeAttribute = 'mode'
-    initialMode = 'PreInit'
+    initialMode = 'Auth'
     # collaborator for AuthStateMachine
     collaborator = None
     
@@ -154,27 +152,9 @@ class Behaviour(Modal):
     def start(self):
         self.do_next()
     
-    class PreInit(mode):
-        """
-        PreInit is the initial state, here we will set up the communication
-        parameters with the device
-        """
-        def __enter__(self):
-            pass
-        def __exit__(self):
-            pass
-        
-        def do_next(self):
-            d = self.device.preinit()
-            def preinit_cb(ignored):
-                self._transition_to('Auth')
-            
-            d.addCallback(preinit_cb)
-            d.addErrback(self.error_handler)
-    
     class Auth(mode):
         """
-        Auth is the second state, here we will authenticate against the device
+        Auth is the first state, here we will authenticate against the device
         """
         def __enter__(self):
             pass
@@ -185,13 +165,17 @@ class Behaviour(Modal):
             authklass = self.device.custom.authklass
             authsm = authklass(self.device, self.collaborator)
             d = authsm.start_auth()
-            d.addCallback(lambda ignored: self._transition_to('PostInit'))
+            def on_auth_ok_cb(ignored):
+                self._transition_to('Init')
+                self.do_next()
+
+            d.addCallback(on_auth_ok_cb)
             d.addErrback(self.error_handler)
             self.current_sm = authsm
     
-    class PostInit(mode):
+    class Init(mode):
         """
-        PostInit is the third state, after successfully authenticating with
+        Init is the second state, after successfully authenticating with
         the device, we will set up the rest of parameters that needed an
         authentication beforehand (encoding, SMS notifications, SIM size, ...)
         """
@@ -202,12 +186,13 @@ class Behaviour(Modal):
             pass
         
         def do_next(self):
-            d = self.device.postinit()
-            def postinit_cb(size):
+            d = self.device.initialize()
+            def init_cb(size):
                 self.device.sim.set_size(size)
                 self._transition_to('NetReg')
-            
-            d.addCallback(postinit_cb)
+        
+            d.addCallback(init_cb)
+            d.addErrback(log.err)
             d.addErrback(self.error_handler)
     
     class NetReg(mode):

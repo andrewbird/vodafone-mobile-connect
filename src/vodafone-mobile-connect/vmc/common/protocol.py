@@ -239,7 +239,7 @@ function %s can not handle notification %s""" % (func, value))
         self.waitbuf = self.process_notifications(self.waitbuf)
         if not self.waitbuf:
             return
-        
+
         cmdinfo = self.custom.cmd_dict[self.cmd.name]
         match = cmdinfo['end'].search(self.waitbuf)
         if match: # end of response

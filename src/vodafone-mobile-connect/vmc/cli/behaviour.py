@@ -30,8 +30,7 @@ from vmc.cli.collaborator import CLICollaboratorFactory
 from vmc.contrib.epsilon.modal import mode
 
 class CLIBehaviour(Behaviour):
-    PreInit = Behaviour.PreInit
-    PostInit = Behaviour.PostInit
+    Init = Behaviour.Init
     NetReg = Behaviour.NetReg
     ImDone = Behaviour.ImDone
     
@@ -55,6 +54,6 @@ class CLIBehaviour(Behaviour):
             authklass = self.device.custom.authklass
             authsm = authklass(self.device, self.collaborator, self.conf)
             d = authsm.start_auth()
-            d.addCallback(lambda ignored: self._transition_to('PostInit'))
+            d.addCallback(lambda ignored: self._transition_to('Init'))
             d.addErrback(self.error_handler)
             self.current_sm = authsm

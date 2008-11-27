@@ -25,6 +25,15 @@ import subprocess
 
 from vmc.common.consts import VMC_DNS_LOCK
 
+def natsort(l):
+    """
+    Naturally sort list C{l} in place
+    """
+    # extracted from http://nedbatchelder.com/blog/200712.html#e20071211T054956
+    convert = lambda text: int(text) if text.isdigit() else text
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    l.sort(key=alphanum_key)
+
 def run_lsb_cmd(cmd):
     def run_command(cmd):
         proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,)

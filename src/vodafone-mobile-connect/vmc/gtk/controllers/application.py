@@ -1374,11 +1374,11 @@ has been added, in around 15 seconds
                 _view.show()
             
             statemachine_callbacks = {
-                'PostInitExit' : configure_device,
+                'InitExit' : configure_device,
             }
         else:
             statemachine_callbacks = {
-                'PostInitExit' : self.start,
+                'InitExit' : self.start,
             }
         
         statemachine_errbacks = {

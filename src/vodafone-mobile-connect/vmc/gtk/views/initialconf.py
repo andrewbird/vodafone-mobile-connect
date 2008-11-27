@@ -28,7 +28,6 @@ from twisted.internet import defer
 from vmc.common.dialers import AUTH_OPTS_LIST
 from vmc.common.hardware import CONN_OPTS_LIST
 from vmc.common.encoding import _
-from vmc.common.plugin import get_unknown_device_plugin
 import vmc.common.consts as consts
 
 from vmc.gtk import View
@@ -205,6 +204,7 @@ class DeviceSelectionView(View):
             controlport = self['control_port_entry'].get_text() or None
             baudrate = int(self['speed_entry'].get_text()) or 115200
 
+            from vmc.common.plugin import get_unknown_device_plugin
             d = get_unknown_device_plugin(dataport, controlport, baudrate)
             return d
 

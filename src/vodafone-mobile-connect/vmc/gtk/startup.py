@@ -41,9 +41,7 @@ from vmc.common.encoding import _
 import vmc.common.exceptions as ex
 from vmc.common.hardware import DeviceListener, HardwareRegistry
 import vmc.common.notifications as N
-from vmc.common.plugin import DBusDevicePlugin
 from vmc.common.startup import populate_dbs
-
 
 from vmc.gtk.controllers.initialconf import (NewProfileController,
                                              DeviceSelectionController)
@@ -152,7 +150,7 @@ class GTKStartupController(object):
         self.detect_hardware()
          
     def detect_hardware(self, ignored=None):
-        
+        from vmc.common.plugin import DBusDevicePlugin
         def _ask_user_for_device(devices, callback, splash):
             cached_devices = DeviceProfileCache.get_cached_devices()
 
@@ -169,6 +167,7 @@ class GTKStartupController(object):
             view.show()
 
         def _device_select(devices, callback, splash):
+            from vmc.common.plugin import DBusDevicePlugin
             try:
                 last_device_id = config.get_last_device()
                 device = DeviceProfileCache.load(last_device_id)
@@ -242,32 +241,12 @@ plug it again, and try in a moment.""")
         d.addErrback(log.err)
     
     def configure_hardware(self, device):
-        from vmc.common.hardware.base import DeviceResolver
-        def identify_dev_cb(model):
-            self.device = device
+        self.device = device
 
-            DeviceProfileCache.store(device)
-            config.set_last_device(device.cached_id)
+        DeviceProfileCache.store(device)
+        config.set_last_device(device.cached_id)
 
-            hook_it_up(self.splash, DeviceListener(self.device), self.device)
-
-        def identify_dev_eb(failure):
-            failure.trap(SerialException)
-            
-            from vmc.gtk import dialogs
-            info = dict(name=device.name, vmc=APP_LONG_NAME)
-            message = _('Device setup not completed')
-            details = _("""
-%(vmc)s cannot connect with the selected device (%(name)s).
-""") % info
-            dialogs.open_warning_dialog(message, details)
-            config.set_last_device('')
-            self.detect_hardware()
-
-        d = DeviceResolver.identify_device(device)
-        d.addCallback(identify_dev_cb)
-        d.addErrback(identify_dev_eb)
-
+        hook_it_up(self.splash, DeviceListener(self.device), self.device)
 
 def hook_it_up(splash, device_listener, device=None):
     """Attachs comms core to GUI and presents main screen"""
@@ -310,9 +289,9 @@ def hook_it_up(splash, device_listener, device=None):
             _view.set_parent_view(view) # center on main screen
             _view.show()
         
-        statemachine_callbacks['PostInitExit'] = configure_device
+        statemachine_callbacks['InitExit'] = configure_device
     else:
-        statemachine_callbacks['PostInitExit'] = ctrl.start
+        statemachine_callbacks['InitExit'] = ctrl.start
     
     splash.start_pulse()
     
@@ -320,7 +299,7 @@ def hook_it_up(splash, device_listener, device=None):
         splash.set_text(_('Authenticated!'))
         splash.stop_pulse()
         
-    statemachine_callbacks['PreInitExit'] = lambda: splash.set_text(_('Authenticating...'))
+    statemachine_callbacks['AuthEnter'] = lambda: splash.set_text(_('Authenticating...'))
     statemachine_callbacks['AuthExit'] = on_auth_exit
     
     statemachine_errbacks = {

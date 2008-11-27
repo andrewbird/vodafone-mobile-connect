@@ -58,7 +58,6 @@ class TestSIMCard(TestCase):
             self.device = attach_serial_protocol(devices[0], test=False)
             self.sconn = self.device.sconn
             self.sport = self.device.sport
-            return self.device.preinit()
         
         d.addCallback(get_devices_cb)
         return d
@@ -81,7 +80,7 @@ class TestSIMCard(TestCase):
             raise SkipTest("Not config")
         
         def post_configure_device(ignored):
-            d = self.device.postinit()
+            d = self.device.initialize()
             d.addCallback(lambda _: self.sconn.delete_all_sms())
             d.addCallback(lambda _: self.sconn.delete_all_contacts())
             return d

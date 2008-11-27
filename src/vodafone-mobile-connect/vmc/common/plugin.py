@@ -77,6 +77,19 @@ TEMPLATES_DICT = {
     'CHAP' : CHAP_TEMPLATE,
 }
 
+def flatten_list(x):
+    """
+    Flattens C{x} into a single list
+    """
+    result = []
+    for el in x:
+        if hasattr(el, "__iter__") and not isinstance(el, basestring):
+            result.extend(flatten_list(el))
+        else:
+            result.append(el)
+    return result
+
+
 class DevicePlugin(object):
     """Base class of all DevicePlugins"""
     
@@ -106,30 +119,33 @@ class DevicePlugin(object):
         self.dport = None
         # sim instance
         self.sim = None
-    
-    def preinit(self):
-        """
-        Pre-initializes the SIM
-        
-        @rtype: L{twisted.internet.defer.Deferred}
-        """
-        self.sim = self.simklass(self.sconn)
-        return self.sim.preinit()
-    
-    def postinit(self):
+
+    def initialize(self):
         """
         Post-initializes the SIM
-        
+
         @rtype: L{twisted.internet.defer.Deferred}
         @return: SIM phonebook size
         """
-        return self.sim.postinit()
-    
+        self.sim = self.simklass(self.sconn)
+        return self.sim.initialize()
+
     def has_two_ports(self):
         try:
             return self.cport != None
         except AttributeError:
             return False
+
+    def patch(self, other):
+        """
+        Patch myself in-place with the settings of another plugin
+        """
+        if not isinstance(other, DevicePlugin):
+            raise ValueError("Cannot patch myself with a %s" % type(other))
+
+        self.cport = other.cport
+        self.dport = other.dport
+        self.baudrate = other.baudrate
 
 
 class DBusDevicePlugin(DevicePlugin):
@@ -207,30 +223,10 @@ class DBusDevicePlugin(DevicePlugin):
                 pass
         
         return children
-    
-    def extract_info(self, children):
-        """
-        Extracts the cport and dport from C{children}
-        
-        Most of the cards use the below schema for their cports and dports,
-        if a card uses different ports (like the E220) this is the method
-        to override.
-        """
-        for device in children:
-            try:
-                if device['serial.port'] == 2: # control port
-                    self.cport = device['serial.device'].encode('utf8')
-                elif device['serial.port'] == 0: # data port
-                    self.dport = device['serial.device'].encode('utf8')
-            except KeyError:
-                pass
-        
-        if not self.cport or not self.dport:
-            raise ex.DeviceLacksExtractInfo(self)
-    
-    def setup(self, device_props):
-        children = self._get_my_children(device_props)
-        self.extract_info(children)
+
+    def patch(self, other):
+        super(DBusDevicePlugin, self).patch(other)
+        self.udi = other.udi
 
 
 class RemoteDevicePlugin(DevicePlugin):
@@ -252,7 +248,7 @@ def get_unknown_device_plugin(dataport, controlport=None, baudrate=115200,
     """
     Returns a C{UnknownDevicePlugin} instance configured with the given params
     """
-    from vmc.common.hardware.base import Customizer, DeviceResolver
+    from vmc.common.hardware.base import Customizer
     plugin = UnknownDevicePlugin()
     plugin.custom = Customizer()
     plugin.dport = dataport
@@ -263,8 +259,9 @@ def get_unknown_device_plugin(dataport, controlport=None, baudrate=115200,
     def identify_device_cb(model):
         plugin.__remote_name__ = model
         return plugin
-    
-    d = DeviceResolver.identify_device(plugin)
+
+    from vmc.common.hardware.base import identify_device
+    d = identify_device(plugin)
     d.addCallback(identify_device_cb)
     return d
 
@@ -387,12 +384,25 @@ class PluginManager(object):
                 pass
         
         raise ex.UnknownPluginNameError(name)
-    
+
     @classmethod
     def get_plugin_by_vendor_product_id(cls, product_id, vendor_id):
+        log.msg("get_plugin_by_id called with 0x%X and 0x%X" % (product_id,
+                                                            vendor_id))
         for plugin in cls.get_plugins(interfaces.IDBusDevicePlugin):
-            if (product_id in plugin.__properties__.items() and
-                vendor_id in plugin.__properties__.items()):
-                return plugin
-                
+            props = flatten_list(plugin.__properties__.values())
+            if int(product_id) in props and int(vendor_id) in props:
+                if not plugin.mapping:
+                    # regular plugin
+                    return plugin
+
+                # device has multiple personalities...
+                # this will just return the default plugin for
+                # the mapping, we keep a reference to the mapping
+                # once the device is properly identified by
+                # vmc.common.hardware.base::identify_device
+                _plugin = plugin.mapping['default']()
+                _plugin.mapping = plugin.mapping
+                return _plugin
+
         return None
