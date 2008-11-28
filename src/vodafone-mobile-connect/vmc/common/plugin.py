@@ -28,6 +28,7 @@ from pytz import timezone
 from zope.interface import implements
 
 from twisted.python import log, procutils
+from twisted.internet import defer
 from twisted.plugin import IPlugin, getPlugins
 
 from vmc.common.consts import WVDIAL_AUTH_CONF, TOP_DIR
@@ -163,73 +164,25 @@ class DBusDevicePlugin(DevicePlugin):
         self.udi = None
         self.parent_udi = None
         self.mapping = None
-    
-    def __eq__(self, other):
-        # I can be compared against a DBusDevicePlugin
-        if isinstance(other, DBusDevicePlugin):
-            for k in self.__properties__:
-                if k not in other.__properties__:
-                    # not the same plugin for sure!
-                    return False
-                
-                self_pvalues = self.__properties__[k]
-                other_pvalues = other.__properties__[k]
-                if not len(set(self_pvalues) & set(other_pvalues)):
-                    # selfp_values is a list of ints (valid product/device ids
-                    # to consider that this plugin exists in the system).
-                    # If the result of the AND of the set of selfvalues and
-                    # othervalues is 0 means that they don't share any id
-                    return False
-            
-            # Now that we know they share ids, its time to compare ports
-            return self.cport == other.cport and self.dport == other.dport
-        
-        # I can be compared against a DevicePlugin
-        if isinstance(other, DevicePlugin):
-            return (self.__remote_name__ == other.__remote_name__ and
-                    self.cport == other.cport and self.dport == other.dport)
-        
-        # And I can also be compared against a dict (dbus)
-        if not isinstance(other, dict):
-            raise ValueError("Cannot reliably compare me with %s" % other)
-        
-        for k, v in self.__properties__.iteritems():
-            try:
-                if other[k] not in v:
-                    return False
-            except KeyError:
-                return False
-        
-        # if we've arrived here means that all the __properties__ pairs are
-        # satisfied, thus we've found the device. We are going to store its
-        # udi and the parent's udi. The device's udi is going to be used to
-        # get its children. The tipical 3G device will have 1-3 children
-        # (one for each serial port). The parent's udi is also stored because
-        # in some systems with python-dbus >= 0.8 the parent of an Option
-        # GlobeTrotter 3G+ EMEA's children will be the cardbus driver udi
-        # instead of the udi of the pci device itself.
-        self.udi = other['info.udi']
-        self.parent_udi = other['info.parent']
-        return True
-    
-    def __ne__(self, other):
-        return not self.__eq__(other)
-    
-    def _get_my_children(self, device_props):
-        children = []
-        for device in device_props:
-            try:
-                if (device['info.parent'].startswith(self.udi) or
-                        device['info.parent'].startswith(self.parent_udi)):
-                    children.append(device)
-            except KeyError:
-                pass
-        
-        return children
 
     def patch(self, other):
         super(DBusDevicePlugin, self).patch(other)
         self.udi = other.udi
+
+    def get_serialized_udi(self):
+        product_id = self.__properties__['usb_device.product_id'][0]
+        vendor_id = self.__properties__['usb_device.vendor_id'][0]
+
+        def get_model_cb(model):
+            return "%d/%d/%s" % (vendor_id, product_id, model)
+
+        if self.sconn:
+            d = self.sconn.get_card_model()
+        else:
+            d = defer.succeed(self.__remote_name__)
+
+        d.addCallback(get_model_cb)
+        return d
 
 
 class RemoteDevicePlugin(DevicePlugin):
@@ -247,7 +200,7 @@ class UnknownDevicePlugin(DevicePlugin):
 
 
 def get_unknown_device_plugin(dataport, controlport=None, baudrate=115200,
-        name='Unknown Device'):
+                              name='Unknown Device'):
     """
     Returns a C{UnknownDevicePlugin} instance configured with the given params
     """
@@ -352,20 +305,7 @@ class PluginManager(object):
     def regenerate_cache(cls):
         log.msg("PluginManager: Regenerating plugin cache...")
         list(getPlugins(IPlugin, package=vmc.common.plugins))
-    
-    @classmethod
-    def get_plugin_by_name(cls, name, interface=IPlugin):
-        """Get a plugin by its name"""
-        for plugin in cls.get_plugins(interface, vmc.common.plugins):
-            try:
-                if plugin.name == name:
-                    return plugin
-            
-            except AttributeError:
-                pass
-        
-        return None
-    
+
     @classmethod
     def get_plugin_by_remote_name(cls, name,
                                   interface=interfaces.IDevicePlugin):
@@ -388,9 +328,10 @@ class PluginManager(object):
         raise ex.UnknownPluginNameError(name)
 
     @classmethod
-    def get_plugin_by_vendor_product_id(cls, product_id, vendor_id):
-        log.msg("get_plugin_by_id called with 0x%X and 0x%X" % (product_id,
-                                                            vendor_id))
+    def get_plugin_by_vendor_product_id(cls, vendor_id, product_id):
+        args = (vendor_id, product_id)
+        log.msg("get_plugin_by_id called with 0x%X and 0x%X" % args)
+
         for plugin in cls.get_plugins(interfaces.IDBusDevicePlugin):
             props = flatten_list(plugin.__properties__.values())
             if int(product_id) in props and int(vendor_id) in props:

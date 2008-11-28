@@ -28,7 +28,6 @@ LOCK = os.path.join(consts.VMC_HOME, '.setup-done')
 
 def upgrade_plugins_if_necessary():
     old = get_file_data(LOCK)
-    print "I GOT OLD", old
     if old and int(old) == plugin.VERSION:
         # nothing to do
         return

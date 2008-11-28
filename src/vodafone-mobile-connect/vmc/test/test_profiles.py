@@ -37,6 +37,7 @@ TMP_PATH = '/tmp/profiles.foo'
 TEMPLATE = """
 [profile]
 name = profile-test
+last_device =
 updater =
 """
 

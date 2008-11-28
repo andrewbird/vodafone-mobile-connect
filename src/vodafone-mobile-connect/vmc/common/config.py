@@ -58,6 +58,17 @@ class VMCConfig(VMCConfigBase):
             self.current_profile.close()
             self.current_profile = None
 
+    def set_last_device(self, device):
+        def get_serialized_udi_cb(udi):
+            self.set('profile', 'last_device', udi)
+            self.write()
+
+        d = device.get_serialized_udi()
+        d.addCallback(get_serialized_udi_cb)
+
+    def get_last_device(self):
+        return self.get('profile', 'last_device')
+
 
 # configuration singleton
 config = VMCConfig()

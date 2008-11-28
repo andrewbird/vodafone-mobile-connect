@@ -3,7 +3,8 @@
 
 [profile]
 name =
-updater = 
+last_device =
+updater =
 
 [preferences]
 

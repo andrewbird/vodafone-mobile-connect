@@ -164,6 +164,24 @@ class GTKStartupController(object):
             view.show()
 
         def _device_select(devices, callback, splash):
+            last_device_udi = config.get_last_device()
+            if last_device_udi and len(devices) == 1:
+                # if theres a saved last_device_udi and there's only one
+                # device (otherwise user has to select one) and udis
+                # match, skip the device selection dialog
+                def serialized_udi_cb(udi):
+                    if udi == last_device_udi:
+                        callback(devices[0])
+                        return
+
+                    _ask_user_for_device(devices, callback, splash)
+
+                d = devices[0].get_serialized_udi()
+                d.addCallback(serialized_udi_cb)
+                return
+
+            # either there's no last_device_udi (first time) or there's
+            # more than one device on the system and user needs to select
             _ask_user_for_device(devices, callback, splash)
 
         def device_serial_eb(failure):
@@ -174,11 +192,11 @@ class GTKStartupController(object):
 Your device has been detected but it has been impossible to connect to it.
 
 %s""") % failure.getErrorMessage()
-            dialogs.open_warning_dialog(message, details)  
+            dialogs.open_warning_dialog(message, details)
             _device_select([], self.configure_hardware, self.splash)
 
         def device_not_found_eb(failure):
-            failure.trap(ex.DeviceNotFoundError)       
+            failure.trap(ex.DeviceNotFoundError)
             _device_select([], self.configure_hardware, self.splash)
 
         def device_lacks_extractinfo_eb(failure):
@@ -225,6 +243,7 @@ plug it again, and try in a moment.""")
     
     def configure_hardware(self, device):
         self.device = device
+        config.set_last_device(device)
         hook_it_up(self.splash, self.device)
 
 def hook_it_up(splash, device=None):

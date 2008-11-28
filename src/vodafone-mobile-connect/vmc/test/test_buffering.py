@@ -31,7 +31,7 @@ class TestBuffering(unittest.TestCase):
     
     def setUpClass(self):
         # uncomment me to see whats going on
-        huawei = PluginManager.get_plugin_by_name('Huawei E220')
+        huawei = PluginManager.get_plugin_by_remote_name('E220')
         stub = test_protocol(huawei, SerialPortStub, BufferingStateMachine)
         self.stub = stub
 
