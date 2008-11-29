@@ -74,29 +74,6 @@ def paint_file(path, text):
     draw.text((300, 0), text, font=font)
     im.save(path)
     
-def produce_devel_doc(basepath, guidepath):
-    TPL_PATH = os.path.join(basepath, 'doc', 'devel', 'template.tpl')
-    DOC_DIR = os.path.join(basepath, 'doc', 'devel')
-    IMAGES_DIR = os.path.join(basepath, 'doc', 'user', 'images')
-    sh("lore --config template=%(tpl_path)s "
-       "--config baseurl=api/%%s.html "
-       "%(doc_dir)s/*.xhtml" % dict(doc_dir=DOC_DIR, tpl_path=TPL_PATH)
-       )
-    sh("cp %s/*.html doc/devel/*.css %s" % (DOC_DIR, guidepath))
-    sh("cp -R %s %s/images" % (IMAGES_DIR, guidepath))
-
-def produce_api_doc(path):
-    os.system("pydoctor --system-class=%(sysclass)s "
-       "--project-name=%(projname)s "
-       "--html-output=%(path)s/api "
-       "--make-html "
-       "--add-package vmc" % \
-               {'sysclass' : 'pydoctor.twistedmodel.TwistedSystem',
-                # XXX: otherwise we'll just get "Vodafone"
-                'projname' : get_app_name(),
-                'path' : path}
-       )
-
 def produce_tree():
     name = get_vmc_name()
     version = get_vmc_version()
