@@ -165,7 +165,6 @@ def produce_tree():
 
 # Apply platform specific overrides
     sh('(cd resources/platform/%s && tar -cf - . --exclude=./debian) | (cd %s && tar -xf -)' % (target, root))
-    sh('(cd resources/platform/%s && tar -cf - debian) | (cd %s && tar -xf -)' % (target, tmp))
 
 # I18N
     sh('(cd resources && tar -cf - po) | (cd %s && tar -xf -)' % tmp)
@@ -191,24 +190,21 @@ def produce_tree():
     except:
         pass
 
-# if we have a debian changelog we must be building for a DEB based distro
-    try:
+# if we have a platform/debian directory we must be building for a DEB based distro
+    if os.path.exists('resources/platform/%s/debian' % target):
+        # copy it
+        sh('(cd resources/platform/%s && tar -cf - debian) | (cd %s && tar -xf -)' % (target, tmp))
+
     	changelog='%s/debian/changelog' % tmp
-        os.stat(changelog)
         sh("sed -i %s -e 's,name,%s,' -e 's,version,%s,' -e 's,release,%s,'" % (changelog,name,version,release))
 
     	control='%s/debian/control' % tmp
-        os.stat(control)
         sh("sed -i %s -e 's,Source.*$,Source: %s,' -e 's,Package.*$,Package: %s,'" % (control,name,name))
 
 # so make can find out the root directory
         f = open('%s/builddir' % tmp,'w')
         f.write('%s-%s' % (name,version))
         f.close()
-    except:
-        pass
-    
-
 
 ################################# 
 
