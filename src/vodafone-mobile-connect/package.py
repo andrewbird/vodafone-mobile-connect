@@ -155,8 +155,8 @@ def produce_tree():
     sh('rm -f %s/vmc/common/consts-dev.py' % root)
 
 # Generate user doc
-#    sh('make -C %s/doc/install html' % root)
-#    sh('make -C %s/doc/user html' % root)
+    sh('tar -cf - doc/user | (cd %s && tar -xf -)' % tmp)
+    sh('(cd %s/doc/user && make -f Makefile.pkg ROOT=../../%s-%s/%s/guide)' % (tmp, name, version,get_vmc_doc_dir())) 
 
 # Apply platform specific overrides
     sh('(cd resources/platform/%s && tar -cf - . --exclude=./debian) | (cd %s && tar -xf -)' % (target, root))

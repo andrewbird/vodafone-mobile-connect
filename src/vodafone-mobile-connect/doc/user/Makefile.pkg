@@ -1,0 +1,18 @@
+export SP_ENCODING=XML
+
+all: es en
+
+en es: images index
+	mkdir -p $(ROOT)/user-$@
+	docbook2html manual.$@.xml -o $(ROOT)/user-$@
+	(cd $(ROOT)/user-$@ && ln -s ../images .)
+
+images:
+	mkdir -p $(ROOT)/images
+	cp -R images/* $(ROOT)/images/.
+
+index:
+	cp -p index.html $(ROOT)/.
+
+.PHONY: images index
+
