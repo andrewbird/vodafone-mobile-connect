@@ -175,7 +175,7 @@ def produce_tree():
     paint_file(img_to_patch_path, '%s' % version)
 
 # Remove developer overrides
-    sh('rm -rf %s/vmc/common/consts-dev.py' % root)
+    sh('rm -f %s/vmc/common/consts-dev.py' % root)
 
 # Generate devel doc
     #guide_path = os.path.join(root, 'doc', 'guide', 'devel')
