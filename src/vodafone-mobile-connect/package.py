@@ -154,11 +154,6 @@ def produce_tree():
 # Remove developer overrides
     sh('rm -f %s/vmc/common/consts-dev.py' % root)
 
-# Generate devel doc
-    #guide_path = os.path.join(root, 'doc', 'guide', 'devel')
-    #produce_devel_doc(root, guide_path)
-    #produce_api_doc(guide_path)
-
 # Generate user doc
 #    sh('make -C %s/doc/install html' % root)
 #    sh('make -C %s/doc/user html' % root)
