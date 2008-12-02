@@ -17,7 +17,8 @@ fi
 # work out home area
 hdir="$(getent passwd ${user} | cut -d: -f6)"
 
-cd ${hdir}/.config/xfce4/desktop || exit
+# let postinstall succeed too
+cd ${hdir}/.config/xfce4/desktop || exit 0
 
 function install() {
 # make first backup
