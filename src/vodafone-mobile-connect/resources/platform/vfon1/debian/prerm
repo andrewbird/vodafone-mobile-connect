@@ -40,16 +40,6 @@ function unfix_pppd(){
         fi
 }
 
-#function del_icon(){
-#        uif=/opt/xandros/share/AsusLauncher/simpleui.rc
-#        vmc="`grep vmc.desktop ${uif}`"
-#        if [ -n "${vmc}" ] ; then
-#                cp -p ${uif} ${uif}.vmc.remv
-#                /opt/vmc/scripts/del_vmc.pl < ${uif}.vmc.remv > ${uif}
-#        fi
-#}
-
 unfix_pppd
 
-#del_icon
 del_dell_mini_icon
