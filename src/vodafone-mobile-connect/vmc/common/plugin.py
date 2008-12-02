@@ -196,6 +196,26 @@ class UnknownDevicePlugin(DevicePlugin):
     """
     UnknownDevicePlugin
     """
+    def __init__(self):
+        super(UnknownDevicePlugin, self).__init__()
+        self.mapping = None
+
+    def get_serialized_udi(self):
+        product_id = 0xffff
+        vendor_id = 0xffff
+
+        def get_model_cb(model):
+            return "%d/%d/%s" % (vendor_id, product_id, model)
+
+        if self.sconn:
+            d = self.sconn.get_card_model()
+        else:
+            d = defer.succeed(self.__remote_name__)
+
+        d.addCallback(get_model_cb)
+        return d
+
+
     implements(IPlugin, interfaces.IRemoteDevicePlugin)
 
 
