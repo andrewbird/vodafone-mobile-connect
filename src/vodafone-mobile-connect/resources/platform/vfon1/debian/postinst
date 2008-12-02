@@ -59,6 +59,37 @@ function udev_reload(){
 	/sbin/udevcontrol reload_rules
 }
 
+function add_dell_mini_icon(){
+        DELL_LAUNCHER_DIR="/usr/share/dell-launcher/applications";
+	DELL_LAUNCHER_HOME_DIR=".config/dell-launcher/applications";
+	APPLICATIONS_DIR="/usr/share/applications";
+	VMC="vmc.desktop";
+    
+	if [[ -d $DELL_LAUNCHER_DIR ]]; then
+	    echo "Detected dell-launcher applications directory";
+	    echo "Adding vmc icon to dell-launcher bar";
+	
+	    # copying VMC to DELL_LAUNCHER_DIR
+	    cp "$APPLICATIONS_DIR/$VMC" "$DELL_LAUNCHER_DIR/$VMC"
+	
+	    # copying VMC to DELL_LAUNCHER_HOME_DIR
+	    cat /etc/passwd | grep '/bin/bash' | cut -d ':' -f 6 | while read line
+	    do
+		if [[ -d $line ]]; then
+		    app_dir="$line/$DELL_LAUNCHER_HOME_DIR";
+		    if [[ -d $app_dir ]]; then
+			echo "Installing vmc icon in $app_dir";
+			cp "$APPLICATIONS_DIR/$VMC" "$app_dir"
+			# Setting right user and group for $VMC file.
+			ownership=$(stat -c %U:%G $app_dir);
+			chown $ownership "$app_dir/$VMC";
+		    fi
+		fi
+	    done
+	fi
+} # End add_dell_mini_icon
+
+
 dpkg-divert --package vodafone-mobile-connect \
             --rename --quiet --add /etc/ppp/peers/wvdial
 
@@ -69,8 +100,8 @@ fix_pap
 fix_chap
 fix_pppd
 
-#add_icon
-
 #tidy_up_previous_install
 udev_reload
 
+#add_icon
+add_dell_mini_icon
