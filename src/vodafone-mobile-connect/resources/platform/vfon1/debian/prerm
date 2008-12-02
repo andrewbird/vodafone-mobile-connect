@@ -1,5 +1,33 @@
 #!/bin/bash
 
+function del_dell_mini_icon(){
+        DELL_LAUNCHER_DIR="/usr/share/dell-launcher/applications";
+	DELL_LAUNCHER_HOME_DIR=".config/dell-launcher/applications";
+	APPLICATIONS_DIR="/usr/share/applications";
+	VMC="vmc.desktop";
+
+	if [[ -d $DELL_LAUNCHER_DIR ]]; then
+	    echo "Detected dell-launcher applications directory";
+	    echo "Deleting vmc icon to dell-launcher bar";
+
+	    # Deleting VMC from DELL_LAUNCHER_DIR                                                                                            
+            rm -f "$DELL_LAUNCHER_DIR/$VMC"
+
+	    # Deleting VMC from DELL_LAUNCHER_HOME_DIR
+            cat /etc/passwd | grep '/bin/bash' | cut -d ':' -f 6 | while read line
+            do
+                if [[ -d $line ]]; then
+                    app_dir="$line/$DELL_LAUNCHER_HOME_DIR";
+                    if [[ -d $app_dir ]]; then
+                        echo "Deleting vmc icon from $app_dir";
+                        rm -f "$app_dir/$VMC";
+                    fi
+                fi
+            done
+	fi
+} # End del_dell_mini_icon
+
+
 rm -f /etc/ppp/peers/wvdial
 dpkg-divert --package vodafone-mobile-connect --rename --quiet --remove /etc/ppp/peers/wvdial
 
@@ -24,3 +52,4 @@ function unfix_pppd(){
 unfix_pppd
 
 #del_icon
+del_dell_mini_icon
