@@ -36,7 +36,8 @@ function fix_pppd(){
 }
 
 function udev_reload(){
-	/sbin/udevcontrol reload_rules
+#	/sbin/udevcontrol reload_rules
+        /sbin/udevadm control --reload_rules
 }
 
 function add_dell_mini_icon(){
