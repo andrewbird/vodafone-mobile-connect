@@ -2375,7 +2375,7 @@
 This menu can be accesed if you click on the &quot;Help&quot; label on the menu bar located in the top side of the window, and selecting the &quot;Help topics&quot; option.
 
 You can also find help, updates and tips in Vodafone Mobile Connect's web:
-http://empresas.vodafone.es.
+https://forge.betavine.net/projects/vodafonemobilec.
 
 If you use the mail and browser buttons to access other programs in your system, you might need to ask your Systems Administrator any doubt that you might have.</property>
 		    </widget>
@@ -2523,7 +2523,7 @@ your company's System Administrator.</property>
 		      <property name="indent">0</property>
 		      <property name="text" translatable="yes">You can easily find answers to the most common questions in the
 help menu, in your company's support center and in the support
-area at http://empresas.vodafone.es .
+area at https://forge.betavine.net/projects/vodafonemobilec .
 
 If you still have difficulties you can call to Vodafone's Customer Support Center,
 the numbers are:
