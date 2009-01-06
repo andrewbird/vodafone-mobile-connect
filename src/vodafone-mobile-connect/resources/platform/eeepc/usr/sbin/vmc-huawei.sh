@@ -5,16 +5,19 @@ PID="$2"
 
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
-if [ -e /dev/ttyUSB1 ] ; then 
-   # switched already :-)
-   exit 0
+if [ -d /sys/bus/usb-serial/drivers/option1/ttyUSB1 ] ; then
+	# already switched and module loaded successfully
+	exit 0
 fi
 
+# let the device settle
+sleep 1
+
+# seems to be switched already on some devices, not sure why
 usb_modeswitch -v ${VID} -p ${PID} -H 1
 
-# it may not use this driver if the product id is already 
-# compiled into another driver
-# best to blacklist pl2303
-modprobe -a option
+
+# load the driver if necessary
+[ -f /sys/bus/usb-serial/drivers/option1/new_id ] || modprobe -a option
 echo "0x${VID} 0x${PID}" > /sys/bus/usb-serial/drivers/option1/new_id
 
