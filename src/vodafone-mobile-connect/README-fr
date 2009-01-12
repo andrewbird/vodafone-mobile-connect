@@ -1,0 +1,46 @@
+Vodafone Mobile Connect Card driver pour Linux:
+
+Gestionnaire de périphériques 3G pour Linux. A été testé avec les périphériques 3G suivants:
+
+- Option GT 3G+ EMEA (également connu comme Nozomi)
+- Huawei E620 (Kernel paniques sur le kernel > 2.18.4)
+- Huawei E220 (Supporté proprement après after 2.6.20)
+- Huawei E270 (Supporté proprement après after 2.6.20)
+- Option Colt (Il est recommandé de désactiver le code, le pare-feu bug)
+
+Périphériques non supportés (officiellement):
+
+- Option GlobeSurfer Icon (contribution de Simone Tolotti)
+- Option GT Fusion (contribution de by Stefano Rivera)
+- Option GT Fusion Quad Lite (contribution de Stefano Rivera)
+- Option GT Max 3.6 (contribution de kgb0y)
+- Novatel U630 (plugin écrit par Pablo Marti avec l'aide de Andrew Gee)
+- Novatel U740 (plugin écrit par Adam King)
+
+
+
+Cette application devrait fonctionner (en théorie) avec b'importe quel périphérique qui respecte les spécifications GSM et 3G. Ceci dit, chaque périphérique est différent et peut ne pas fonctionner avec un périphérique non testé. Testez le à vos risques et périls. Si vous maîtrisez le Python et que vous vous sentez l'âme d'un aventurier, vous pourriez réussir à intégrer un nouveau périphérique ou une nouvelle distribution, ou même un nouvel OS.
+
+LICENCE
+
+Vodafone Mobile Connect Card driver for Linux est distribué sous la licence GPLv2.
+Référez vous au fichier LICENSE pour plus de détails.
+
+FAQ
+
+0 .- Est ce que ce la fonctionne avec d'autres opérateurs ?
+
+   Oui, en dépit de l'appelation Vodafone l'application n'est pas liée à un fournisseur d'accès
+
+1 .- Vodafone Mobile Connect Card driver pour Linux échoue horriblement avec mon OS
+
+   Cette application a été testée sur les distributions suivantes :
+     - Ubuntu 6.10+/Guadalinex v4+
+     - OpenSuSe 10.3
+     - Fedora 7
+
+   Vous pouvez trouvez des instructions sur comment ajouter une nouvelle distribution ou un nouvel OS dans le répertoire doc/guide.
+
+2 .- Vodafone Mobile Connect Card driver for Linux échoue horriblement avec mon périphérique
+
+   Référez-vous au fichier README pour la liste des périphériques supportés. Vous pouvez trouvez des instructions sur comment ajouter un nouveau périphérique dans le répertoire doc/guide
