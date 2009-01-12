@@ -40,11 +40,11 @@ note any changes.
 How to install
 ==============
 
-A x86 binary is included.
+A x86 binary is included (compiled on VIA C7 Mandriva 2008.0).
 
 If you want to compile it for yourself, just run "compile.sh" or type on the
-shell:
-> gcc -l usb -o usb_modeswitch usb_modeswitch.c
+shell (with other options of your choice):
+ > gcc -l usb -o usb_modeswitch usb_modeswitch.c
 That's as easy as it gets ...
 
 Take the fresh executable "usb_modeswitch" (or the one provided with the
@@ -56,7 +56,7 @@ It's heavily commented and should tell you what to do.
 Alternatively you can use the command line to tell USB_ModeSwitch the things
 it needs to know; try "usb_modeswitch -h" to list the parameters.
 This way you can handle multiple configurations. If any command line parameters
-are used, the default config file is NOT read.
+except -W and -q are used, the default config file is NOT read.
 
 Important: libusb stuff - like this tool - needs to be run as root!
 
@@ -66,25 +66,7 @@ For details how to automate the process visit the homepage (see above).
 Known working hardware
 ======================
 
-For details and specific setup see the homepage.
-
-* Option GlobeSurfer Icon (aka "Vodafone EasyBox")
-* Option GlobeSurfer Icon 7.2
-* Several Option 7.2 devices with new packet driver interface
-* Option GT MAX 3.6 (aka "T-Mobile wnw Card Compact II")
-* Option GlobeTrotter GT MAX "7.2 Ready"
-* Option GlobeTrotter EXPRESS 7.2 (aka "T-Mobile wnw Express II") 
-* probably all nonlisted Option devices with the "ZeroCD" feature
-* Huawei E169
-* Huawei E220 (aka "Vodafone EasyBox II", aka "T-Mobile wnw Box Micro")
-* Huawei E270
-* Huawei E630
-* ZTE MF620 (aka "Onda MH600HS")
-* ZTE MF622
-* Novatel Wireless Ovation MC950D HSUPA
-* Novatel Wireless Merlin XU950D
-* Novatel Wireless Ovation 930D
-* Alcatel OT-X020
+For details and specific setup see the homepage and the config file.
 
 
 Contribute
@@ -108,7 +90,8 @@ Copyright 2007, 2008 Josua Dietze (mail to the name from "usb_modeswitch.c" at t
  domain "draisberghof.de"; please do not post the complete address to The Net !)
  or write a personal message through the forum to "Josh"
 
-Command line parsing, decent usage/config output + handling, bugfixes added by:
+Command line parsing, decent usage/config output and handling, advanced options
+ and bugfixes:
  Joakim Wennergren (jokedst) (gmail.com)
 
 TargetClass parameter implementation to support new Option devices/firmware:
@@ -129,6 +112,8 @@ Code, fixes and ideas from:
  Lucas Benedicic 
  Roman Laube 
  Luigi Iotti
+ Vincent Teoh
+ Tommy Cheng
 
 More contributors are listed in the config file.
 
@@ -136,6 +121,10 @@ More contributors are listed in the config file.
 History
 =======
 
+Version 0.9.6, 2009/01/08
+	Special modes added for Sierra and Sony Ericsson, new devices
+Version 0.9.5, 2008/10/27
+    New options for USB tuning (jokedst), lots of new devices, clean up
 Version 0.9.4, 2008/06/09
     Compat fix for libusb on FreeBSD quirks, more devices
 Version 0.9.4beta2, 2008/03/19
@@ -178,4 +167,4 @@ Or find it as the file COPYING in this folder.
 
 
 
-Last revised: 2008-06-09, Josua Dietze
+Last revised: 2008-01-08, Josua Dietze

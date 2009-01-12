@@ -2,7 +2,7 @@
   This file is part of usb_modeswitch, a mode switching tool for controlling
   flip flop (multiple device) USB gear
 
-  Copyright (C) 2007  Josua Dietze
+  Copyright (C) 2007, 2008  Josua Dietze
 
   Created with help from usbsnoop2libusb.pl (http://iki.fi/lindi/usb/usbsnoop2libusb.pl)
 
@@ -54,15 +54,15 @@ extern char *TempPP;
 		
 #define ParseParamInt(ParamFileName, Int) \
 	if ((TempPP=ReadParseParam((ParamFileName), #Int))!=NULL) \
-		Int=atoi(TempPP); else Int=0
+		Int=atoi(TempPP)
 
 #define ParseParamHex(ParamFileName, Int) \
 	if ((TempPP=ReadParseParam((ParamFileName), #Int))!=NULL) \
-		Int=strtol(TempPP, NULL, 16); else Int=0
+		Int=strtol(TempPP, NULL, 16)
 
 #define ParseParamFloat(ParamFileName, Flt) \
 	if ((TempPP=ReadParseParam((ParamFileName), #Flt))!=NULL) \
-		Flt=atof(TempPP); else Flt=0
+		Flt=atof(TempPP)
 
 #define ParseParamBool(ParamFileName, B) \
 	if ((TempPP=ReadParseParam((ParamFileName), #B))!=NULL) \
