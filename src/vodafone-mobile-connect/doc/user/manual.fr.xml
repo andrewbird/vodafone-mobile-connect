@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+
+<article lang='en'>
+
+  <articleinfo>
+    <title>Vodafone Mobile Connect Card Driver for Linux</title>
+    <subtitle>User's guide</subtitle>
+
+    <author>
+        <firstname>Enrique</firstname>
+        <surname>Matías Sánchez</surname>
+        <affiliation>
+            <address><email>cronopios@gmail.com</email></address>
+        </affiliation>
+    </author>
+
+    <copyright>
+      <year>2007</year>
+      <holder>Vodafone España S.A.</holder>
+    </copyright>
+
+    <legalnotice>
+      <para>Some rights reserved.  Permission is granted to copy, redistribute it and/or modify this document under the terms of the Attribution-ShareAlike license as published by Creative Commons; either version 3.0 of the License, or (at your option) any later version.</para>
+
+      <para>The complete text of the License can be found in <ulink url="http://creativecommons.org/licenses/by-sa/3.0/legalcode">http://creativecommons.org/licenses/by-sa/3.0/legalcode</ulink>.</para>
+    </legalnotice>
+
+    <para>Translated by Sissie <email>sissie@bullteam.net</email>  <ulink url="http://www.bullteam.net/">www.bullteam.net</ulink></para>
+
+  </articleinfo>
+
+
+  <sect1 id="start">
+      <title>Démarrer</title>
+
+      <para><application>Vodafone Mobile Connect Card driver pour Linux</application> est un outil qui vous permet d'établir une connexion à Internet en utilisant une carte 3G. Il vous permet également d'envoyer et de recevoir des SMS depuis votre ordinateur. Les cartes actuellement supportées sont les suivantes: Huawei E620, Huawei E220 et Option GlobeTrotter 3G+ EMEA. <note>(This needs update)</note> <footnote><para>Si vous êtes un programmeur, il devrait être simple de faire fonctionner l'application avec d'autres cartes.  Référez vous à la documentation pour les développeurs incluse avec le code source.</para></footnote>.</para>
+
+		<para>Pour utiliser votre périphérique <acronym>3G</acronym> vous deiez utiliser uneverion récente du kernel.Vous pouvez connaître la version que vous utilisez, e utilisant un terminal (tel que <application>gnome-terminal</application> ou <application>konsole</application>) et en tapant la commande <command>uname -sr</command>. a été testé sur Linux 2.6.17 et suivants. Si votre version est plus ancienne, nous vous recommandons de la mettre à jour avant de commencer.  Votre distribution propose très certainement une version récente du kernel Linux, téléchargeable sur Internet.</para>
+
+		<note>
+			<para>Using Option GT cards with Fedora requires installing nozomi's kernel module RPM package, provided at Vodafone Betavine's Forge.</para>
+		</note>
+
+      <para>Si <application>Vodafone Mobile Connect Card driver pour Linux</application> n'est  pas inclus dans votre distribution, vous pouvez néanmoins l'installer en utilisant les paquets correspondant à votre systême (.deb sur les systèmes basés sur Debian/Ubuntu, .rpm pour Fedora, Mandriva, SUSE, etc).  Avant de procéder à cette installation, assurez-vous d'avoir sur votre systême les dépendances nécessaires (python-central, python-notify, python-twisted, etc).  Si vous utilisez un autre type de distribution, vous aurez sans doute à installer le programme à partir de son code source (voir la documentation).</para>
+
+      <para>>Sur les systêmes basés sur Debian, Votre utilisateur doit être dans le groupe "dip" pour pouvoir établir une connexion à Internet. Vous pouvez connaître les groupes auquel appartient votre utilisateur en tapant en console la commande <command>groups</command>.  Si vous n'êtes pas dans le groupe "dip", vous pouvez vous ajouter à ce groupe en tapant <command>addgroup <userinput>fred</userinput> dip</command>, replacez "fred" par votre nom d'utiisateur.</para>
+
+      <para>Sur les autres systêmes, tels que Fedora, vous devrez avoir gksu ou kdesu installé pour pourvoir vous connecter à Internet.  Ces programmes demanderons votre mot de passe administrateur avant d'établir la connexion.</para>
+      
+      <para>Insérez votre périphérique <acronym>3G</acronym> dans l'ordinateur, en suivant les indications de son mode d'emploi. Selon le modèle dont vous disposez, vous devrez l'insérer sur un slot <acronym>PCMCIA</acronym> ou un port <acronym>USB</acronym> Certaines versions de Linux ont des difficultés à reconaître certains modèles de cartes.  Il est possible que vous ayez à brancher et débrancher plusieurs fois votre carte pour qu'elle soit reconnue proprement par le systême.</para>
+
+      <para>Vous êtes à présent prêt à utiliser votre périphérique <acronym>3G</acronym> sur GNU/Linux.</para>
+      
+      <para>Lancez <application>Vodafone Mobile Connect Card driver pour Linux</application>.  Cela peut être fait en utilisant les menus de votre bureau ou en utilisant en terminal la commande: <command>vodafone-mobile-connect-card-driver-for-linux</command>.</para>
+
+
+      <tip><para>If you find any kind of problem while using this tool, try launching it with the command <command>vodafone-mobile-connect-card-driver-for-linux-debug</command>.  This will show additional info on the console, which will help you to diagnose the problem.</para></tip>
+
+      <para>First time you run the program, you will have to do the initial setup.  The program will automatically recognize the card model, but you will have to specify your preferred kind of connection.</para>
+
+      <para>Si vous rencontrez un quelconque problème en utilisant cet utilitaire, essayez de le lancer avec la commande <command>vodafone-mobile-connect-card-driver-for-linux-debug</command>.  Cela vous donnera des informations complémentaires en console, qui vous permettrons de diagnostiquer le problème.</para>
+
+      <para>Au premier lancement, vous devrez effectuer la configuration initiale. Le programme reconnaîtra automatiquement votre modèle de carte, mais vous aurez à spécifier votre mode de connexion préféré.</para>
+
+      <informalfigure>
+          <synopsis>Configuration initiale</synopsis>
+          <graphic fileref="images/config.jpg" format="JPEG" align="center" scale="70"/>
+      </informalfigure>
+
+      <para><acronym>GPRS</acronym> (General Packet Radio System) n'est pas une connexion à haut débit, mais  est basé sur une technologie actuelle qui permet une couverture presque absolue. D'un autre côté, la <acronym>3G</> permet une connexion plus rapide, mais cette technologie est récente et il existe des zones où elle n'est pas encore déplooyée.</para>
+
+      <informalfigure>
+          <synopsis>Configurer la technologie à utiliser</synopsis>
+          <graphic fileref="images/config2.jpg" format="JPEG" align="center" scale="60"/>
+      </informalfigure>
+
+      <para>En règle générale, il peut être raisonnable de choisir l'option<guilabel>3G preferré</guilabel> De cette manière, le système tentera de se connecter en utilisant la technologie <acronym>3G</acronym> Si cela n'est pas possible, il reviendra au <acronym>GPRS</acronym>.</para>
+      
+      <para>Par dessus l'écran de lancement, une fenêtre popup vous demandera d'entrer votre code <acronym>PIN</acronym> (Personal Identification Number) qui vous a été transmis par votre fournisseur d'accès avec votre carte <acronym>SIM</acronym> (Subscriber Identity Module).</para>
+
+      <informalfigure>
+          <synopsis>PIN request</synopsis>
+          <graphic fileref="images/pin.jpg" format="JPEG" align="center" scale="50"/>
+      </informalfigure>
+
+      <para>Soyez attentifs en tapant votre code <acronym>PIN</acronym>; si vous entrez un code erroné à trois reprise, la carte sera bloquée, et vous aurez besoin du code <acronym>PUK</acronym> (PIN Unblocking Key) pour débloquer la carte.</para>
+
+      <informalfigure>
+          <synopsis>PIN erroné</synopsis>
+          <graphic fileref="images/wrong-pin.jpg" format="JPEG" align="center" scale="50"/>
+      </informalfigure>
+
+      <para>L'application va lire les messages et contacts stockés sur votre carte  <acronym>SIM</acronym>, et vous les montrera sur l'écran pricipal.</para>
+
+  </sect1>
+
+
+  <sect1 id="internet">
+      <title>Se connecter à Internet</title>
+
+      <para>Pour vous connecter à Internet, appuyez sur l'icône verte <guibutton>Connecter</guibutton> dans la barre d'icônes (juste sous lla barre de menu).  Une petite fenêtre va s'ouvrir, vous indiquant que la connexion va être établie.  Si la connexion est réalisée, cette fenêtre disparaitra rapidement, et la barre de statut (au bas de l'écran) va montrer le mode de connexion et le traffic réception/émission.</para>
+
+      <informalfigure>
+          <synopsis>Statut de la connexion</synopsis>
+          <graphic fileref="images/statusbar.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+
+      <para>Selon le pays dans lequel vous êtes et le FAI utilisé, vous aurez éventuellement à modifier les données de connexion en utilisant l'entrée de menu  <menuchoice><guimenu>Outils</guimenu><guimenuitem>Préférences</guimenuitem></menuchoice>.  Vous pouvez également avoir de multiples profils <application>wvdial</application> personnalisables depuis l'application elle-même.</para>
+
+      <para>Pour utiliser les services Internet (explorateur, e-mail, chat, messagerie instantannée, etc), vous n'avez qu'à lancer le programme approprié et à l'utiliser comme vous le faites habituellement.  VMCCdfL founit les icônes <guibutton>Mail</guibutton> et <guibutton>Internet</guibutton> qui ouvrent votre client e-mail et explorateur Internet par défaut.</para>
+
+      <para>Si vous rencontrez des soucis en vous connectant à  Internet, vous pouvez essayer le test de connectivité qui se situe dans le menu <guimenu>Outils</guimenu><guimenuitem>Diagnostics</guimenuitem>.  Ce test collecte des informations qui pourrraient être utiles à l'équipe de support technique.</para>
+
+      <para>Quand vous aurez fini d'utiliser Internet, appuyez sur le bouton rouge <guibutton>Déconnecter</guibutton> à la place même où le bouton de connexion se trouvait.</para>
+
+      <informalfigure>
+          <synopsis>Disconnect</synopsis>
+          <graphic fileref="images/disconnect.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+  </sect1>
+
+
+  <sect1 id="usage">
+      <title>Controlling usage</title>
+
+      <para>You can control your usage toggling on the <guibutton>Usage</guibutton> button. It will show you a panel in what you will see on one side some information about your connections along the current month and session and on the other side a pair of bar graphs with your usage of 3G and GPRS connections.</para>
+	
+      <informalfigure>
+          <synopsis>Usage</synopsis>
+          <graphic fileref="images/usage.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+	
+      <para>The information you can get here is:
+          <itemizedlist>
+		<listitem><para>The month whose information is showed</para></listitem>
+		<listitem><para>The transferred data in the month. Using GPRS and 3G, and se sum of both.</para></listitem>
+		<listitem><para>The same data of the current session</para></listitem>
+		<listitem><para>There is also another tab to watch the same information of the last month.</para></listitem>
+	  </itemizedlist>
+      </para>
+
+      <para>In the usage tab of preferences window, you can choose to receive a notification if a threshold is reached, so you can control your consumption.</para>
+  </sect1>
+
+
+  <sect1 id="sms">
+      <title>Envoyer et recevoir des SMS</title>
+
+      <para>VMCCdfL vous permet d'envoyer et de recevoir des <acronym>SMS</acronym> depuis votre ordinateur. Dans les menu et barre d'icône, vous trouverez les outils pour les SMS et carnet d'adresse, dont les boutons <guibutton>Nouveau</guibutton>, <guibutton>Répondre</guibutton>, <guibutton>Transférer</guibutton> et <guibutton>Supprimer</guibutton>.</para>
+
+      <informalfigure>
+          <synopsis>Boutons pour envoyer et gérer les SMS</synopsis>
+          <graphic fileref="images/sms-buttons.jpg" format="JPEG" align="center" scale="40"/>
+      </informalfigure>
+
+      <para>Pour écrire un SMS, choisissez <guimenu>Nouveau</guimenu><guimenuitem>SMS</guimenuitem>, ou pressez sur les touches <keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>.  Une nouvelle fenêtre va s'ouvrir, où vous pourrez taper le numéro de téléphone auquel vous voulez envoyer le sms, ainsi que le texte de ce message. Le numéro de téléphone doit être introduit en utilisant le format international tel que +33670123456, où 33 est le code pays. Vous pouvez également sélectionner un numéro stocké dans votre carnet d'adresses.</para>
+
+      <informalfigure>
+          <synopsis>Composer un SMS</synopsis>
+          <graphic fileref="images/write.jpg" format="JPEG" align="center" scale="70"/>
+      </informalfigure>
+
+      <para>La barre de statut montre le nombre de caractères écrits jusque là. Les SMS ont une limite à 160 caractères latins ou 70 caractères UCS2 (utilisés pour écrire dans certaines langues tel le chinois). Pour envoyer votre message, appuyez sur le bouton <guibutton>Accepter</guibutton>.  Si vous voulez reporter l'envoi ou la composition du message, vous pouvez le stocker dans les Brouillons en appuyant sur le bouton <guibutton>Sauvegarder</guibutton>.</para>
+
+      <para>Sous la barre de boutons, se trouve une autre barre avec des étiquettes telles que <guilabel>Boîte de réception</guilabel>, <guilabel>Brouillons</guilabel>, <guilabel>Boîte d'envoi</guilabel> et <guilabel>Contacts</guilabel>.</para>
+
+      <para>Les messages reçus sont stockés dans la <guilabel>Boîte de réception</guilabel>.  Ils peuvent être triés par date, expéditeur ou sujet. Lorsque vous sélectionnez un message, son contenu apparaît sous la liste des messages.</para>
+
+      <informalfigure>
+          <synopsis>Voir un message</synopsis>
+          <graphic fileref="images/view-sms.jpg" format="JPEG" align="center" scale="50"/>
+      </informalfigure>
+
+      <para>Pour supprimer un message, selectionnez le et appuyez sur le bouton <guibutton>Supprimer</guibutton>.  Pour répondre ou transférer un message, utilisez les boutons <guibutton>Répondre</guibutton> et <guibutton>Transférer</guibutton>.</para>
+
+
+      <para>Les étiquettes <guilabel>Brouillons</guilabel> et <guilabel>Envoyé</guilabel> fonctionnent de la même manière, et comme leur nom l'indique, contiennent les messages en cours et les messages déjà envoyés.</para>
+
+      <sect2 id="contacts">
+        <title>Carnet d'adresses</title>
+
+      <para>L'étiquette <guilabel>Contacts</guilabel> liste le contenu de votre carnet d'adresses. Pour ajouter un nouveau contact choisissez <menuchoice><guimenu>Contacts</guimenu><guimenuitem>Nouveau</guimenuitem></menuchoice>, et tapez les noms et numéro de téléphone de la personne. Spécifiez également si vous souhaitez sauvegarder ces informations sur le disque dur de votre ordinateur ou sur la mémoire de votre carte SIM.</para>
+
+      <para>Si vous souhaitez ajouter l'expéditeur d'un message à votre carnet d'adresses, faites un clic droit sur le message et choisissez <menuchoice><guimenu>Détails d'utilisation</guimenu><guimenuitem>Ajouter aux contacts</guimenuitem></menuchoice> dans le menu popup.</para>
+
+        <informalfigure>
+            <synopsis>Ajouter un contact</synopsis>
+            <graphic fileref="images/add-contact.jpg" format="JPEG" align="center" scale="40"/>
+        </informalfigure>
+
+        <para>Les contacts peuvent également être importés et exportés en utilisant des fichiers.csv (comma-separated values / valeurs séparées par des virgules) depuis le menu <menuchoice><guimenu>Fichier</guimenu></menuchoice>.</para>
+
+        <para>Pour trouver l'un des contacts stockés, choisissez <menuchoice><guimenu>Contacts</guimenu><guimenuitem>Chercher</guimenuitem></menuchoice> et entrez son nom. Pour éditer contact, selectionnez le puis faites un clc droit sur l'entrée que vous voulez modifier. Pour supprimer un contact, sélectionnez un contact et pressez le bouton <guibutton>Borrar</guibutton>.</para>
+
+      </sect2>
+
+  </sect1>
+
+</article>
