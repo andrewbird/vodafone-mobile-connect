@@ -2,7 +2,7 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
   "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
 
-<article lang='en'>
+<article lang='fr'>
 
   <articleinfo>
     <title>Vodafone Mobile Connect Card Driver for Linux</title>
@@ -17,7 +17,7 @@
     </author>
 
     <copyright>
-      <year>2007</year>
+      <year>2009</year>
       <holder>Vodafone España S.A.</holder>
     </copyright>
 
@@ -57,12 +57,9 @@
       
       <para>Lancez <application>Vodafone Mobile Connect Card driver pour Linux</application>.  Cela peut être fait en utilisant les menus de votre bureau ou en utilisant en terminal la commande: <command>vodafone-mobile-connect-card-driver-for-linux</command>.</para>
 
-
-      <tip><para>If you find any kind of problem while using this tool, try launching it with the command <command>vodafone-mobile-connect-card-driver-for-linux-debug</command>.  This will show additional info on the console, which will help you to diagnose the problem.</para></tip>
-
       <para>First time you run the program, you will have to do the initial setup.  The program will automatically recognize the card model, but you will have to specify your preferred kind of connection.</para>
 
-      <para>Si vous rencontrez un quelconque problème en utilisant cet utilitaire, essayez de le lancer avec la commande <command>vodafone-mobile-connect-card-driver-for-linux-debug</command>.  Cela vous donnera des informations complémentaires en console, qui vous permettrons de diagnostiquer le problème.</para>
+      <tip><para>Si vous rencontrez un quelconque problème en utilisant cet utilitaire, essayez de le lancer avec la commande <command>vodafone-mobile-connect-card-driver-for-linux-debug</command>.  Cela vous donnera des informations complémentaires en console, qui vous permettrons de diagnostiquer le problème.</para></tip>
 
       <para>Au premier lancement, vous devrez effectuer la configuration initiale. Le programme reconnaîtra automatiquement votre modèle de carte, mais vous aurez à spécifier votre mode de connexion préféré.</para>
 
