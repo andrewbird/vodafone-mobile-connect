@@ -1,8 +1,8 @@
 export SP_ENCODING=XML
 
-all: es en
+all: es en fr
 
-en es: images index
+en es fr: images index
 	mkdir -p $(ROOT)/user-$@
 	docbook2html manual.$@.xml -o $(ROOT)/user-$@
 	(cd $(ROOT)/user-$@ && ln -s ../images .)
