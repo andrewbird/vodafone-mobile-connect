@@ -27,7 +27,7 @@
       <para>The complete text of the License can be found in <ulink url="http://creativecommons.org/licenses/by-sa/3.0/legalcode">http://creativecommons.org/licenses/by-sa/3.0/legalcode</ulink>.</para>
     </legalnotice>
 
-    <para>Translated by Sissie <email>sissie@bullteam.net</email>  <ulink url="http://www.bullteam.net/">www.bullteam.net</ulink></para>
+
 
   </articleinfo>
 
@@ -35,7 +35,9 @@
   <sect1 id="start">
       <title>Démarrer</title>
 
-      <para><application>Vodafone Mobile Connect Card driver pour Linux</application> est un outil qui vous permet d'établir une connexion à Internet en utilisant une carte 3G. Il vous permet également d'envoyer et de recevoir des SMS depuis votre ordinateur. Les cartes actuellement supportées sont les suivantes: Huawei E620, Huawei E220 et Option GlobeTrotter 3G+ EMEA. <note>(This needs update)</note> <footnote><para>Si vous êtes un programmeur, il devrait être simple de faire fonctionner l'application avec d'autres cartes.  Référez vous à la documentation pour les développeurs incluse avec le code source.</para></footnote>.</para>
+      <para>Translated by Sissie <email>sissie@bullteam.net</email>  <ulink url="http://www.bullteam.net/">www.bullteam.net</ulink></para>
+
+      <para><application>Vodafone Mobile Connect Card driver pour Linux</application> est un outil qui vous permet d'établir une connexion à Internet en utilisant une carte 3G. Il vous permet également d'envoyer et de recevoir des SMS depuis votre ordinateur. Les cartes actuellement supportées sont les suivantes: Huawei E620, Huawei E220 et Option GlobeTrotter 3G+ EMEA. <footnote><para>Si vous êtes un programmeur, il devrait être simple de faire fonctionner l'application avec d'autres cartes.  Référez vous à la documentation pour les développeurs incluse avec le code source.</para></footnote>.</para>
 
 		<para>Pour utiliser votre périphérique <acronym>3G</acronym> vous deiez utiliser uneverion récente du kernel.Vous pouvez connaître la version que vous utilisez, e utilisant un terminal (tel que <application>gnome-terminal</application> ou <application>konsole</application>) et en tapant la commande <command>uname -sr</command>. a été testé sur Linux 2.6.17 et suivants. Si votre version est plus ancienne, nous vous recommandons de la mettre à jour avant de commencer.  Votre distribution propose très certainement une version récente du kernel Linux, téléchargeable sur Internet.</para>
 
@@ -69,7 +71,7 @@
           <graphic fileref="images/config.jpg" format="JPEG" align="center" scale="70"/>
       </informalfigure>
 
-      <para><acronym>GPRS</acronym> (General Packet Radio System) n'est pas une connexion à haut débit, mais  est basé sur une technologie actuelle qui permet une couverture presque absolue. D'un autre côté, la <acronym>3G</> permet une connexion plus rapide, mais cette technologie est récente et il existe des zones où elle n'est pas encore déplooyée.</para>
+      <para><acronym>GPRS</acronym> (General Packet Radio System) n'est pas une connexion à haut débit, mais  est basé sur une technologie actuelle qui permet une couverture presque absolue. D'un autre côté, la <acronym>3G</acronym> permet une connexion plus rapide, mais cette technologie est récente et il existe des zones où elle n'est pas encore déplooyée.</para>
 
       <informalfigure>
           <synopsis>Configurer la technologie à utiliser</synopsis>
