@@ -2,7 +2,7 @@ export SP_ENCODING=XML
 
 all: es en fr
 
-en es fr: images index
+en es fr: images index devices_distros
 	mkdir -p $(ROOT)/user-$@
 	docbook2html manual.$@.xml -o $(ROOT)/user-$@
 	(cd $(ROOT)/user-$@ && ln -s ../images .)
@@ -14,5 +14,8 @@ images:
 index:
 	cp -p index.html $(ROOT)/.
 
-.PHONY: images index
+devices_distros:
+	cp devices_distros.* $(ROOT)/.
+
+.PHONY: images index devices_distros
 
