@@ -1,0 +1,17 @@
+
+# UDEV 090 as installed on EeePC 701 doesn't like backslashed newlines
+# so formatting is not human friendly.
+# udevinfo -a -p /block/sr0 will show the usable attributes
+
+# Kill the Volume Manager popup for the built in driver CD + eject to flip
+# Spaces after ZTE vendor attribute are significant
+ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="ZTE     ", RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="ZTE Corp", RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+
+# Call the driver loading script
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0025", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0049", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0052", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0055", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+
+
