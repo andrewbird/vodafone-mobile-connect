@@ -13,12 +13,16 @@ function unfix_pppd(){
 }
 
 function del_icon(){
-        uif=/opt/xandros/share/AsusLauncher/simpleui.rc
-        vmc="`grep vmc.desktop ${uif}`"
-        if [ -n "${vmc}" ] ; then
-                cp -p ${uif} ${uif}.vmc.remv
-                /opt/vmc/scripts/del_vmc.pl < ${uif}.vmc.remv > ${uif}
-        fi
+	for uif in /opt/xandros/share/AsusLauncher/simpleui.rc /var/lib/AsusLauncher/simpleui.rc ; do
+		if [ -f ${uif} ] ; then
+        		vmc="`grep vmc.desktop ${uif}`"
+			if [ -n "${vmc}" ] ; then
+				cp -p ${uif} ${uif}.vmc.remv
+				/opt/vmc/scripts/del_vmc.pl < ${uif}.vmc.remv > ${uif}
+			fi
+		fi
+	done
+	pkill -USR1 AsusLauncher
 }
 
 unfix_pppd

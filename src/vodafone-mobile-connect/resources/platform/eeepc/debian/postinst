@@ -37,13 +37,16 @@ function fix_pppd(){
 
 
 function add_icon(){ 
-	uif=/opt/xandros/share/AsusLauncher/simpleui.rc
-	vmc="`grep vmc.desktop ${uif}`"
-	if [ -z "${vmc}" ] ; then
-		cp -p ${uif} ${uif}.vmc.inst
-		/opt/vmc/scripts/add_vmc.pl < ${uif}.vmc.inst > ${uif}	
-		chmod 644 ${uif} 
-	fi
+	for uif in /opt/xandros/share/AsusLauncher/simpleui.rc /var/lib/AsusLauncher/simpleui.rc ; do
+		if [ -f ${uif} ] ; then
+			vmc="`grep vmc.desktop ${uif}`"
+			if [ -z "${vmc}" ] ; then
+				cp -p ${uif} ${uif}.vmc.inst
+				/opt/vmc/scripts/add_vmc.pl < ${uif}.vmc.inst > ${uif}	
+				chmod 644 ${uif} 
+			fi
+		fi
+	done
 	pkill -USR1 AsusLauncher
 }
 
