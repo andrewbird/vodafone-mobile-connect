@@ -124,7 +124,7 @@ def produce_tree():
         ('share/pixmaps', ['resources/desktop/vodafone.png']),
 
 # Doc
-        (get_vmc_doc_dir(), ['debian/copyright', 'README'] + glob('LICENSE*')),
+        (get_vmc_doc_dir(), ['debian/copyright', 'README', 'README-fr'] + glob('LICENSE*')),
 
 # Bin
         (get_vmc_bin_dir(), glob('bin/*')),
