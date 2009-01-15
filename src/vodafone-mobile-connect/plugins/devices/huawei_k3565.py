@@ -29,7 +29,7 @@ class HuaweiK3565(DBusDevicePlugin):
     author = u"Andrew Bird"
     custom = HuaweiCustomizer
 
-    __remote_name__ = "K3565"
+    __remote_name__ = "E160X" # strange but I have forum post to show it :-)
 
     __properties__ = {
         'usb_device.vendor_id': [0x12d1],

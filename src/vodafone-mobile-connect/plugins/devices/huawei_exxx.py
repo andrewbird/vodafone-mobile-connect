@@ -28,6 +28,7 @@ from vmc.common.plugins.huawei_e620 import HuaweiE620
 from vmc.common.plugins.huawei_e660 import HuaweiE660
 from vmc.common.plugins.huawei_e660a import HuaweiE660A
 from vmc.common.plugins.huawei_k3520 import HuaweiK3520
+from vmc.common.plugins.huawei_k3565 import HuaweiK3565
 from vmc.common.plugins.huawei_k3715 import HuaweiK3715
 from vmc.common.plugins.huawei_em730v import HuaweiEM730V
 
@@ -53,7 +54,8 @@ class HuaweiEXXX1003(DBusDevicePlugin):
             'E220' : HuaweiE220,
             'E270' : HuaweiE270,
             'E272' : HuaweiE272,
-            'K3565' : HuaweiK3565,
+            'E160X' : HuaweiK3565, # strange but I have forum post to show it :-)
+
 
             'default' : HuaweiE220,
         }
