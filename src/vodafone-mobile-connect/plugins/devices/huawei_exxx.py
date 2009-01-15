@@ -53,6 +53,7 @@ class HuaweiEXXX1003(DBusDevicePlugin):
             'E220' : HuaweiE220,
             'E270' : HuaweiE270,
             'E272' : HuaweiE272,
+            'K3565' : HuaweiK3565,
 
             'default' : HuaweiE220,
         }
