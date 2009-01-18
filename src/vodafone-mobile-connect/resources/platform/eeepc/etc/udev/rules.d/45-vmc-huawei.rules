@@ -11,3 +11,7 @@ ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="HUAWEI  ", OPTIONS+="i
 ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
 ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
 
+# Stop ASUS-3gtool from stealing the ports, but still trigger the HAL update
+ACTION=="add", BUS=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", RUN:="socket:/org/freedesktop/hal/udev_event"
+ACTION=="add", BUS=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", RUN:="socket:/org/freedesktop/hal/udev_event"
+
