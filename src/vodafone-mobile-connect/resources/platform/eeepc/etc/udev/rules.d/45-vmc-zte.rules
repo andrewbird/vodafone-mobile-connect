@@ -9,9 +9,9 @@ ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="ZTE     ", RUN:="/usr/
 ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="ZTE Corp", RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
 
 # Call the driver loading script
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0025", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0049", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0052", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0055", RUN:="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0025", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0049", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0052", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0055", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
 
 
