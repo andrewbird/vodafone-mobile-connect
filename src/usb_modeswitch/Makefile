@@ -5,6 +5,14 @@ VER=0.9.6
 
 BUILDDIR=debian/tmp
 
+ifeq ($(ARCH),"")
+   TARGET_ARCH+=""
+else
+   TARGET_ARCH+="-a$(ARCH)"
+endif
+
+
+
 $(PROG): $(PROG).c
 	$(CC) -o $@ -lusb $< 
 
@@ -24,7 +32,7 @@ install: $(PROG)
 	install -D $(PROG).conf $(DESTDIR)/etc/$(PROG).conf
 
 deb:
-	dpkg-buildpackage -rfakeroot -B -us -uc
+	dpkg-buildpackage $(TARGET_ARCH) -rfakeroot -B -us -uc
 
 rpm:
 	# you might want to setup your ~/.rpmmacros file to allow building by non root
