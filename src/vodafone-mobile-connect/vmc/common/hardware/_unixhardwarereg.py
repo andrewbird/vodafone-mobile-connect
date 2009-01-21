@@ -318,6 +318,10 @@ class HardwareRegistry(DbusComponent):
                 # this shouldn't happen
                 raise RuntimeError("No data port and no control port")
 
+            log.msg("data port is %s" % dport)
+            if cport:
+                log.msg("ctrl port is %s" % cport)
+
             plugin.cport, plugin.dport = cport, dport
             return plugin
 
