@@ -9,14 +9,40 @@ export PATH=/sbin:/bin:/usr/sbin:/usr/bin
 ETC="/etc"
 TMP="/tmp"
 ROUTEBACK="${TMP}/defaultroute.vmc"
+STATICDNS="/tmp/vmc-conn.lock"
 
 # Make sure we are only being called by a vmc invoked pppd
 [ "${IPPARAM}" = "vmc" ] || exit 0
 
-# Ubuntu now manages DNS for us
+# Ubuntu8 manages DNS for us if we are gleaning info from the mobile network
+# but if we have static settings we have to do it ourselves
+if [ -z "${USEPEERDNS}" ] ; then
+	# follow any symlink to find the real file
+	REALRESOLVCONF=$(readlink --canonicalize /etc/resolv.conf)
 
-# now save old default route and replace it with our own
+	if [ -r "${STATICDNS}" ] ; then
+		. "${STATICDNS}" # source it
+		if [ -n "${DNS1}" ] || [ -n "${DNS2}"] ; then
+			{
+				[ -n "${DNS1}" ] && printf "nameserver\t${DNS1}\n"
+				[ -n "${DNS2}" ] && printf "nameserver\t${DNS2}\n"
+			} > "$REALRESOLVCONF.tmp"
+			# backup the old configuration and install the new one
+			cp -a "$REALRESOLVCONF" "$REALRESOLVCONF.vmc"
+			mv -f "$REALRESOLVCONF.tmp" "$REALRESOLVCONF"
+
+			# restart nscd because resolv.conf has changed
+			if [ -e /var/run/nscd.pid ]; then
+				/etc/init.d/nscd restart || true
+			fi
+		fi
+	fi
+fi
+
+# If the default route is not ours, save it and replace with our own
 OLDGW="`route -n | awk '{ if ($1 == "0.0.0.0") { print $2 ; exit } }'`"
-printf "OLDGW=%s" ${OLDGW} > ${ROUTEBACK}
-route delete default gw ${OLDGW}
-route add default dev ${DEV}
+if [ "${OLDGW}" != "${RIP}" ] ; then
+	printf "OLDGW=%s" ${OLDGW} > ${ROUTEBACK}
+	route delete default gw ${OLDGW}
+	route add default dev ${DEV}
+fi
