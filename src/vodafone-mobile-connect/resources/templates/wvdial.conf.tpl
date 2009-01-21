@@ -8,6 +8,7 @@ Password = $password
 Stupid Mode = 1
 Dial Command = ATDT
 Check Def Route = on
+Auto DNS = $autodns
 Dial Attempts = 3
 
 [Dialer connect]

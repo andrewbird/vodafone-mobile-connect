@@ -53,7 +53,6 @@ name wvdial
 ipparam vmc
 noipdefault
 nomagic
-usepeerdns
 ipcp-accept-local
 ipcp-accept-remote
 nomp

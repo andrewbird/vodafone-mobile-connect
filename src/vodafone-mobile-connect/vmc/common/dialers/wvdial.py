@@ -65,6 +65,11 @@ def _generate_wvdial_conf(conf, sport):
     else:
         passwd = '*'
 
+    if conf.staticdns:
+        autodns = 'Off'
+    else:
+        autodns = 'On'
+
     theapn = conf.apn_host
     
     # build template
@@ -72,7 +77,7 @@ def _generate_wvdial_conf(conf, sport):
     template = Template(data.getvalue())
     data.close()
     # return template
-    opts = dict(serialport=sport, username=user, password=passwd, apn=theapn)
+    opts = dict(serialport=sport, username=user, password=passwd, apn=theapn, autodns=autodns)
     return template.substitute(opts)
 
 
