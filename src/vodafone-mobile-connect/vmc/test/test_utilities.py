@@ -57,7 +57,7 @@ class TestUtilities(unittest.TestCase):
         dns2 = '212.33.21.2'
         
         path = '/tmp/test-vmc.lock'
-        expected = 'DNS1  212.33.21.1\nDNS2  212.33.21.2\n'
+        expected = 'DNS1=212.33.21.1\nDNS2=212.33.21.2\n'
         
         generate_vmc_dns_lock(dns1, dns2, path)
         self.assertEqual(get_file_data(path), expected)

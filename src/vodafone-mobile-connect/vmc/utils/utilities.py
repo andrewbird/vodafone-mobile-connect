@@ -102,8 +102,8 @@ def generate_vmc_dns_lock(dns1, dns2, path=VMC_DNS_LOCK):
     """
     Generates a DNS lock for VMC in /tmp
     """
-    text = "DNS1  " + dns1 + '\n'
-    text += "DNS2  " + dns2 + '\n'
+    text = "DNS1=" + dns1 + '\n'
+    text += "DNS2=" + dns2 + '\n'
     save_file(path, text)
 
 def is_bogus_ip(ip):
