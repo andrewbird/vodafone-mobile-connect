@@ -20,7 +20,7 @@ VMCCONN="${TMP}/vmc-conn.lock"
 # follow any symlink to find the real file
 REALRESOLVCONF=$(readlink --canonicalize /etc/resolv.conf)
 
-if [ -f "$REALRESOLVCONF.vmc" ; then
+if [ -f "$REALRESOLVCONF.vmc" ] ; then
 	mv -f "$REALRESOLVCONF.vmc" "$REALRESOLVCONF"
 
 	# restart nscd because resolv.conf has changed
