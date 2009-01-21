@@ -196,6 +196,10 @@ def produce_tree():
     	control='%s/debian/control' % tmp
         sh("sed -i %s -e 's,Source.*$,Source: %s,' -e 's,Package.*$,Package: %s,'" % (control,name,name))
 
+	# compile all of the python objects
+	import compileall
+	compileall.compile_dir('%s/' % root, force=True)
+
 # so make can find out the root directory
         f = open('%s/builddir' % tmp,'w')
         f.write('%s-%s' % (name,version))
