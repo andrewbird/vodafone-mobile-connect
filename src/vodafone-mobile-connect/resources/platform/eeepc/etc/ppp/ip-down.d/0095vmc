@@ -17,6 +17,7 @@ VMCCONN="${TMP}/vmc-conn.lock"
 rm -f ${VMCCONN}
 
 # On EeePC we have resolvconf(8) to manage DNS
+resolvconf -d "${DEV}.${IPPARAM}"
 
 # Now replace original default route if it's saved
 ROUTEBACK="${TMP}/defaultroute.vmc"

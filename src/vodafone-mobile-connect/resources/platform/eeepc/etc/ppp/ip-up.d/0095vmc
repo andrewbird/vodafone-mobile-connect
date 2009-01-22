@@ -10,15 +10,28 @@ export PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
 ETC="/etc"
 TMP="/tmp"
+ROUTEBACK="${TMP}/defaultroute.vmc"
+STATICDNS="/tmp/vmc-conn.lock"
 
 # Make sure we are only being called by a vmc invoked pppd
 [ "${IPPARAM}" = "vmc" ] || exit 0
 
-# On EeePC we have resolvconf(8) to manage DNS
+# On EeePC we have resolvconf(8) to manage DNS but if we have 
+# static settings we have to derive them ourselves
+if [ -z "${USEPEERDNS}" ] ; then
+	if [ -r "${STATICDNS}" ] ; then
+		. "${STATICDNS}" # source it
+		if [ -n "${DNS1}" ] || [ -n "${DNS2}"] ; then
+			{
+				[ -n "${DNS1}" ] && printf "nameserver\t${DNS1}\n"
+				[ -n "${DNS2}" ] && printf "nameserver\t${DNS2}\n"
+			} | resolvconf -a "${DEV}.${IPPARAM}"
+		fi
+	fi
+fi
 
 # If the default route is not ours, save it and replace with our own
 OLDGW="`route -n | awk '{ if ($1 == "0.0.0.0") { print $2 ; exit } }'`"
-ROUTEBACK="${TMP}/defaultroute.vmc"
 if [ "${OLDGW}" != "${RIP}" ] ; then 
     printf "OLDGW=%s" ${OLDGW} > ${ROUTEBACK}
     route delete default gw ${OLDGW}
