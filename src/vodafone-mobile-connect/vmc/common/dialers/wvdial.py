@@ -430,9 +430,6 @@ class WVDialProtocol(protocol.ProcessProtocol):
             self.__connected = True
 
     def extract_dns_strings(self, data):
-        if self.__connected:
-            return
-
         if not self.staticdns: # check if they're valid DNS IPs only if she didn't specify static DNS
             for match in re.finditer(DNS_REGEXP, data):
                 dns_ip = match.group('ip')
