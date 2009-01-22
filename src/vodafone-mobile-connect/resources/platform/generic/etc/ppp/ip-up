@@ -18,8 +18,13 @@ test -f "$VMCCONN" || exit 0
 
 # get DNS addresses
 
-PRIMARYDNS=`grep DNS1 $VMCCONN | awk {'print $2'}`
-SECONDARYDNS=`grep DNS2 $VMCCONN | awk {'print $2'}`
+if [ -z "${USEPEERDNS}" ] ; then # Use VMC supplied static addresses
+	if [ -r "${VMCCONN}" ] ; then
+		. "${VMCCONN}" # source it
+	fi
+else # DNS addresses are passed in env
+	:
+fi
 
 # Back up resolv.conf
 # Other backup file can have been created by other script
@@ -30,8 +35,8 @@ fi
 
 # create new resolv.conf
 cat > $RESOLVCONF <<-EOA
-nameserver $PRIMARYDNS
-nameserver $SECONDARYDNS
+nameserver $DNS1
+nameserver $DNS2
 EOA
 
 # on Fedora 7 umask leaves /etc/resolv.conf as 0600
