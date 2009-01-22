@@ -368,6 +368,7 @@ remove from the current wvdial profile the
 
 MAX_ATTEMPTS_REGEXP = re.compile('Maximum Attempts Exceeded')
 PPPD_DIED_REGEXP = re.compile('The PPP daemon has died')
+AUTH_SUCCESS_REGEXP = re.compile('Authentication.*(CHAP|PAP).*successful')
 DNS_REGEXP = re.compile(r"""
    DNS\saddress
    \s                                     # beginning of the string
@@ -417,35 +418,41 @@ class WVDialProtocol(protocol.ProcessProtocol):
         if not self.__connected:
             if not self.ignore_disconnect:
                 louie.send(N.SIG_DISCONNECTED, None)
-    
-    def extract_dns_strings(self, data):
+
+    def extract_connected(self, data):
         if self.__connected:
             return
-        
-        for match in re.finditer(DNS_REGEXP, data):
-            dns_ip = match.group('ip')
-            self.dns.append(dns_ip)
-        
-        if len(self.dns) == 2:
+
+        if AUTH_SUCCESS_REGEXP.search(data):
             # Notify the user we are connected
             louie.send(N.SIG_CONNECTED, None)
             self.deferred.callback(True)
             self.__connected = True
-            # check if they're valid DNS ips
-            if is_bogus_ip(self.dns[0]) or is_bogus_ip(self.dns[1]):
-                # the DNS assigned by the APN is probably invalid
-                # lets notify the user only if she didn't specify static DNS
-                if not self.staticdns:
+
+    def extract_dns_strings(self, data):
+        if self.__connected:
+            return
+
+        if not self.staticdns: # check if they're valid DNS IPs only if she didn't specify static DNS
+            for match in re.finditer(DNS_REGEXP, data):
+                dns_ip = match.group('ip')
+                self.dns.append(dns_ip)
+
+            if len(self.dns) == 2:
+                if is_bogus_ip(self.dns[0]) or is_bogus_ip(self.dns[1]):
+                    # the DNS assigned by the APN is probably invalid
+                    # let's notify the user
                     louie.send(N.SIG_INVALID_DNS, None, self.dns)
-    
+
     def extract_disconnected(self, data):
         disconnected = MAX_ATTEMPTS_REGEXP.search(data)
         pppd_died = PPPD_DIED_REGEXP.search(data)
         if disconnected or pppd_died:
             if not self.ignore_disconnect:
                 louie.send(N.SIG_DISCONNECTED, None)
-    
+
     def parse_output(self, data):
+        self.extract_connected(data)
         self.extract_dns_strings(data)
         self.extract_disconnected(data)
 
