@@ -3,6 +3,7 @@
 # $Rev: 1186 $
 
 DEV="$1"
+RIP="$5"
 IPPARAM="$6"
 
 export PATH=/sbin:/bin:/usr/sbin:/usr/bin
