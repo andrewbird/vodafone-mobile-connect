@@ -1007,18 +1007,17 @@ The csv file that you have tried to import has an invalid format.""")
     
     def get_trayicon_popup_menu(self, *args):
         """Returns a popup menu when you right click on the trayicon"""
+
+        connect_button = self.view['connect_button']
+        
         def _disconnect_from_inet(widget):
-            button = gtk.ToggleButton()
-            button.set_active(False)
-            self.on_connect_button_toggled(button)
+            connect_button.set_active(False)
         
         def _connect_to_inet(widget):
-            button = gtk.ToggleButton()
-            button.set_active(True)
-            self.on_connect_button_toggled(button)
+            connect_button.set_active(True)
         
         menu = gtk.Menu()
-        
+
         if self.model.is_connected():
             item = gtk.ImageMenuItem(_("Disconnect"))
             img = gtk.Image()
