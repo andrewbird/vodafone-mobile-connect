@@ -68,7 +68,9 @@ def _identify_device(port):
     # as the readlines method blocks, this is executed in a parallel thread
     # with deferToThread
     ser = serial.Serial(port, timeout=1)
-    ser.write('ATZ E0 V1 X4 &C1\r\n')
+    ser.write('ATZ\r\n')    # Ericsson does not support ATZ, but we must echo off
+    ser.readlines()         # at the very least or we won't match model name
+    ser.write('ATE0 V1 X4 &C1\r\n')
     ser.readlines()
 
     ser.flushOutput()
@@ -81,7 +83,7 @@ def _identify_device(port):
     log.msg("AT+CGMM response: %r" % response)
     ser.close()
 
-    assert len(response), "Modem didn't reply anything meaningless"
+    assert len(response), "Modem didn't reply anything meaningful"
     return response[0]
 
 def identify_device(plugin):
