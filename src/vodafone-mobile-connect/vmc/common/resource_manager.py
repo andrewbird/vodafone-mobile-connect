@@ -46,8 +46,12 @@ class ResourceManager(object):
         # get the daemon collection for this device
         args = [device, self.notimanager]
         self.daemons = VMCDaemonFactory.build_daemon_collection(*args)
-        self.daemons.start_daemons()
+        # start daemons only after exit from auth stage
+        # self.daemons.start_daemons()
         return self.notimanager, self.daemons
+
+    def start_daemons(self):
+        self.daemons.start_daemons()
     
     def get_dialer(self):
         return osobj.dialer

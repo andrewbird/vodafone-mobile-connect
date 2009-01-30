@@ -59,6 +59,7 @@ class BaseWrapper(object):
         self.rmanager.notimanager.add_listener(self.behaviour)
         self.behaviour.notification_manager = self.rmanager.notimanager
         self.behaviour.start()
+        self.behaviour.register_callback_for_signal('AuthExit',self.rmanager.start_daemons)
     
     def get_current_sm(self):
         """
