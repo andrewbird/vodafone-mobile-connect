@@ -335,9 +335,9 @@ class PluginManager(object):
         """
         for plugin in cls.get_plugins(interface, vmc.common.plugins):
             try:
-                log.msg("PluginManager: trying plugin %s" % plugin.__remote_name__)
+                log.msg("PluginManager: trying plugin %s" % plugin.name)
                 if plugin.__remote_name__ == name:
-                    log.msg("PluginManager: matched plugin %s with %s" % (plugin.__remote_name__ , name) )
+                    log.msg("PluginManager: matched plugin %s with %s" % (plugin.name , name) )
                     return plugin
             
             except AttributeError:
