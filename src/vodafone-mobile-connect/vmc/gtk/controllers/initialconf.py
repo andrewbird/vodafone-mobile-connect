@@ -247,6 +247,11 @@ class NewProfileController(BaseProfileController):
         self.hotplug = hotplug
         self.aux_ctrl = aux_ctrl
     
+    def register_view(self, view):
+        super(NewProfileController, self).register_view(view)
+        self.view['profile_name_entry'].set_sensitive(True)
+        self.view['profile_name_entry'].set_editable(True)
+
     def on_ok_button_clicked(self, widget):
         settings = self.get_profile_settings()
         
@@ -278,8 +283,10 @@ class EditProfileController(BaseProfileController):
     
     def register_view(self, view):
         super(EditProfileController, self).register_view(view)
+        self.view['profile_name_entry'].set_sensitive(False)
+        self.view['profile_name_entry'].set_editable(False)
         self.load_mobile_profile(self.profile)
-    
+
     def on_ok_button_clicked(self, widget):
         settings = self.get_profile_settings()
         
