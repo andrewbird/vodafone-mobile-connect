@@ -198,6 +198,45 @@ class BaseProfileController(Controller):
         self.view = None
         self.model = None
 
+    def settings_valid(self,settings):
+        class Problem(Exception):
+            def __init__(self,detail):
+                self.detail = detail
+            def __str__(self):
+                return repr(self.detail)
+
+        try:
+            if not settings:
+                raise Problem("Profile settings are Null") # preferred connection or auth not specified
+
+            if settings['staticdns']:
+                if self.dns1_entry.get_text() == '' and self.dns2_entry.get_text() == '':
+                    raise Problem("If static DNS is enabled, you must define at least one address")
+
+                if not self.dns1_entry.isvalid() and not self.dns1_entry.get_text() == '':
+                    raise Problem("Primary DNS address is invalid")
+
+                if not self.dns2_entry.isvalid() and not self.dns2_entry.get_text() == '':
+                    raise Problem("Secondary DNS address is invalid")
+
+            if settings['apn'] == '':
+                raise Problem("You must specify an APN")
+
+            if not settings['profile_name'] or settings['profile_name'] == '':
+                self.view['profile_name_entry'].grab_focus()
+                raise Problem("profile name is invalid")
+        
+            if self.is_profile_name_insane():
+                raise Problem(_("""The following characters are not allowed in a profile name: %s""") % ' '.join(INVALID_CHARS))
+
+        except Problem, (instance): 
+                message = _('Invalid value in profile')
+                dialogs.open_warning_dialog(message, instance.detail)
+                return False
+
+        return True
+
+
 class NewProfileController(BaseProfileController):
     """
     Controller for the initial configuration window
@@ -211,25 +250,7 @@ class NewProfileController(BaseProfileController):
     def on_ok_button_clicked(self, widget):
         settings = self.get_profile_settings()
         
-        if not settings:
-            # preferred connection or auth not specified
-            return
-        
-        if settings['staticdns']:
-            if not self.dns1_entry.isvalid() or not self.dns2_entry.isvalid():
-                # DNS must be valid
-                return
-        
-        if not settings['profile_name'] or settings['profile_name'] == '':
-            self.view['profile_name_entry'].grab_focus()
-            return
-        
-        if self.is_profile_name_insane():
-            message = _('Invalid characters in profile name')
-            details = _("""
-The following characters are not allowed in a profile name:
-%s""") % ' '.join(INVALID_CHARS)
-            dialogs.open_warning_dialog(message, details)
+        if not self.settings_valid(settings):
             return
         
         from vmc.common.config import config
@@ -262,25 +283,7 @@ class EditProfileController(BaseProfileController):
     def on_ok_button_clicked(self, widget):
         settings = self.get_profile_settings()
         
-        if not settings:
-            # preferred connection or auth not specified
-            return
-        
-        if settings['staticdns']:
-            if not self.dns1_entry.isvalid() or not self.dns2_entry.isvalid():
-                # DNS must be valid
-                return
-        
-        if not settings['profile_name'] or settings['profile_name'] == '':
-            self.view['profile_name_entry'].grab_focus()
-            return
-        
-        if self.is_profile_name_insane():
-            message = _('Invalid characters in profile name')
-            details = _("""
-The following characters are not allowed in a profile name:
-%s""") % ' '.join(INVALID_CHARS)
-            dialogs.open_warning_dialog(message, details)
+        if not self.settings_valid(settings):
             return
         
         prof_manager = get_profile_manager(self.model.get_device())
