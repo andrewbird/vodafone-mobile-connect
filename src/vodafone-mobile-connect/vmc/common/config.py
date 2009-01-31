@@ -45,8 +45,8 @@ class VMCConfig(VMCConfigBase):
             self.set_current_profile(profile)
     
     def set_current_profile(self, profile):
-        if self.current_profile:
-            self.current_profile.write()
+#        if self.current_profile:           # AJB - this overwrites the profile we've just saved
+#            self.current_profile.write()   #       with the old settings if the name's the same
         
         self.set('profile', 'name', profile.name)
         self.current_profile = profile
