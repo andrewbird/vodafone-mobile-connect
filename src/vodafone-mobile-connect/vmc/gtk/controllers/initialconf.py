@@ -101,10 +101,9 @@ class BaseProfileController(Controller):
         self.view['username_entry'].set_text(profile.get(CON, 'username'))
         self.view['password_entry'].set_text(profile.get(CON, 'username'))
         self.view['apn_entry'].set_text(profile.get(CON, 'apn'))
-        if profile.get(CON, 'dns1') or profile.get(CON, 'dns2'):
-            self.view['dns_checkbutton'].set_active(True)
-            self.dns1_entry.set_text(profile.get(CON, 'dns1'))
-            self.dns2_entry.set_text(profile.get(CON, 'dns2'))
+        self.view['dns_checkbutton'].set_active(profile.getboolean(CON, 'staticdns'))
+        self.dns1_entry.set_text(profile.get(CON, 'dns1'))
+        self.dns2_entry.set_text(profile.get(CON, 'dns2'))
         
         # now set auth and combobox
         self.set_auth_combobox_opt(profile.get(CON, 'dialer_profile'))
@@ -118,7 +117,7 @@ class BaseProfileController(Controller):
             self.view['dns_checkbutton'].set_active(True)
             self.dns1_entry.set_text(profile.dns1)
             self.dns2_entry.set_text(profile.dns2)
-    
+
     def get_auth_combobox_opt(self):
         model = self.view['auth_combobox'].get_model()
         index = self.view['auth_combobox'].get_active()

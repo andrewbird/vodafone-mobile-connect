@@ -138,13 +138,9 @@ class MobileProfile(VMCConfigBase):
         profile.set('connection', 'apn', opts['apn'])
         profile.set('connection', 'connection', opts['connection'])
         profile.set('connection', 'dialer_profile', opts['dialer_profile'])
-        
-        static = opts['staticdns']
-        profile.setboolean('connection', 'staticdns', static)
-        if static:
-            # only if needed
-            profile.set('connection', 'dns1', opts['dns1'])
-            profile.set('connection', 'dns2', opts['dns2'])
+        profile.setboolean('connection', 'staticdns', opts['staticdns'])
+        profile.set('connection', 'dns1', opts['dns1'])
+        profile.set('connection', 'dns2', opts['dns2'])
         
         profile.write()
         return profile
