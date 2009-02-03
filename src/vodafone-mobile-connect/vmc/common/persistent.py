@@ -255,16 +255,27 @@ class NetworkOperatorManager(AxiomDBManager):
                               password=to_u(net.password),
                               dns1=dns1,
                               dns2=dns2)
-    
-# FIXME - ajb: need to deal with multiple matches here at some point
-#               specifically the case where Contract, Prepaid and 
-#               Corporate APN definitions exist
+
     def get_network_by_id(self, netid):
         # XXX: O(N) here!
         for network in self.store.query(DBNetworkOperator):
-            if str(netid) in network.netid:
-                return network
+            for n in network.netid:
+                if str(netid).startswith(n):
+                    return network
         return None
+
+    def get_all_networks_by_id(self, netid):
+        # XXX: O(N) here!
+        list=[]
+        for network in self.store.query(DBNetworkOperator):
+            for n in network.netid:
+                if str(netid).startswith(n):
+                    list.append(network)
+                    break
+        if len(list) > 0:
+            return list
+        else:
+            return None
 
 # net_manager singleton
 net_manager = NetworkOperatorManager()
