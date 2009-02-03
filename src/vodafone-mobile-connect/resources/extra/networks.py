@@ -2,6 +2,7 @@ class NetworkOperator(object):
     netid = []
     name = None
     country = None
+    type = None
     smsc = None
     apn = None
     username = None

@@ -4,6 +4,7 @@ class SFRFrance(NetworkOperator):
     netid = ["20810"]
     name = "SFR"
     country = "France"
+    type = ""
     smsc = "+33609001930"
     apn = "websfr"
     username = "websfr"
@@ -16,6 +17,7 @@ class VodafoneSpain(NetworkOperator):
     netid = ["21401"]
     name = "Vodafone"
     country = "Spain"
+    type = ""
     smsc = "+34607003110"
     apn = "ac.vodafone.es"
     username = "vodafone"
@@ -28,6 +30,7 @@ class MovistarSpain(NetworkOperator):
     netid = ["21402", "21407"]
     name = "Movistar"
     country = "Spain"
+    type = ""
     smsc = "+34609090909"
     apn = "movistar.es"
     username = "movistar"
@@ -36,20 +39,22 @@ class MovistarSpain(NetworkOperator):
     dns2 = "194.179.001.101"
 
 class YoigoSpain(NetworkOperator):
-   netid = ["21404"] + VodafoneSpain.netid
-   name = "Yoigo"
-   country = "Spain"
-   smsc = "+34600000000"
-   apn = "internet"
-   username = "yoigo"
-   password = "yoigo"
-   dns1 = "10.8.0.20"
-   dns2 = "10.8.0.21"
+    netid = ["21404"] + VodafoneSpain.netid
+    name = "Yoigo"
+    country = "Spain"
+    type = ""
+    smsc = "+34600000000"
+    apn = "internet"
+    username = "yoigo"
+    password = "yoigo"
+    dns1 = "10.8.0.20"
+    dns2 = "10.8.0.21"
 
 class VIPCroatia(NetworkOperator):
     netid = ["21910"]
     name = "VIP"
     country = "Croatia"
+    type = ""
     smsc = "+385910401"
     apn = "data.vip.hr"
     username = "38591"
@@ -62,6 +67,7 @@ class VodacomSouthAfrica(NetworkOperator):
     netid = ["65501"]
     name = "Vodacom"
     country = "South Africa"
+    type = ""
     smsc = "+27829129"
     apn = "internet"
     username = "vodafone"
@@ -74,6 +80,7 @@ class VodafoneItaly(NetworkOperator):
     netid = ["22210"]
     name = "Vodafone"
     country = "Italy"
+    type = ""
     smsc = "+393492000200"
     apn = "web.omnitel.it"
     username = "vodafone"
@@ -86,6 +93,7 @@ class VodafonePortugal(NetworkOperator):
     netid = ["26801"]
     name = "Vodafone"
     country = "Portugal"
+    type = ""
     smsc = "+351911616161"
     apn = "internet.vodafone.pt"
     username = "vodafone"
@@ -98,6 +106,7 @@ class VodafoneNetherlands(NetworkOperator):
     netid = ["20404"]
     name = "Vodafone"
     country = "Netherlands"
+    type = ""
     smsc = "+316540881000"
     apn = "live.vodafone.com"
     username = "vodafone"
@@ -110,6 +119,7 @@ class NetComNorway(NetworkOperator):
     netid = ["24202"]
     name = "NetCom"
     country = "Norway"
+    type = ""
     smsc = "+4792001000"
     apn = "internet"
     username = "internet"
@@ -122,6 +132,7 @@ class MobileOneSingapore(NetworkOperator):
     netid = ["52503"]
     name = "MobileOne"
     country = "Singapore"
+    type = ""
     smsc = "+6596845999"
     apn = "sunsurf"
     username = "M1"
@@ -134,6 +145,7 @@ class TelkomSelIndonesia(NetworkOperator):
     netid = ["51010"]
     name = "TelkomSel"
     country = "Indonesia"
+    type = ""
     smsc = "+6281100000"
     apn = "flash"
     username = "flash"
@@ -145,6 +157,7 @@ class SATelindoIndonesia(NetworkOperator):
     netid = ["51001"]
     name = "PT. SATelindo C"
     country = "Indonesia"
+    type = ""
     smsc = "+62816124"
     apn = "indosat3g"
     username = "indosat"
@@ -156,6 +169,7 @@ class IM3Indonesia(NetworkOperator):
     netid = ["51021"]
     name = "IM3"
     country = "Indonesia"
+    type = ""
     smsc = "+62855000000"
     apn = "www.indosat-m3.net"
     username = "im3"
@@ -167,6 +181,7 @@ class ProXLndonesia(NetworkOperator):
     netid = ["51011"]
     name = "Pro XL"
     country = "Indonesia"
+    type = ""
     smsc = "+62818445009"
     apn = "www.xlgprs.net"
     username = "xlgprs"
@@ -178,6 +193,7 @@ class TMNPortugal(NetworkOperator):
     netid = ["26806"]
     name = "TMN"
     country = "Portugal"
+    type = ""
     smsc = "+351936210000"
     apn = "internet"
     username = "tmn"
@@ -189,6 +205,7 @@ class ThreeItaly(NetworkOperator):
     netid = ["22299"]
     name = "3"
     country = "Italy"
+    type = ""
     smsc = "+393916263333"
     apn = "naviga.tre.it"
     username = "anon"
@@ -200,6 +217,7 @@ class ThreeAustralia(NetworkOperator):
     netid = ["50503"]
     name = "3"
     country = "Australia"
+    type = ""
     smsc = "+61430004010"
     apn = "3netaccess"
     username = "*"
@@ -211,6 +229,7 @@ class TimItaly(NetworkOperator):
     netid = ["22201"]
     name = "TIM"
     country = "Italy"
+    type = ""
     smsc = "+393359609600"
     apn = "ibox.tim.it"
     username = "anon"
@@ -222,6 +241,7 @@ class WindItaly(NetworkOperator):
     netid = ["22288"]
     name = "Wind"
     country = "Italy"
+    type = ""
     smsc = "+393205858500"
     apn = "internet.wind"
     username = "anon"
@@ -234,6 +254,7 @@ class VodafoneRomania(NetworkOperator):
     netid = ["22601"]
     name = "Vodafone RO"
     country = "Romania"
+    type = ""
     smsc = "+4092004000"
     apn = "internet.vodafone.ro"
     username = "internet.vodafone.ro"

@@ -218,8 +218,9 @@ class SMSManager(AxiomDBManager):
 
 class DBNetworkOperator(item.Item):
     netid = attributes.textlist(allowNone=False)
-    country = attributes.text(allowNone=False)
     name = attributes.text(allowNone=False)
+    country = attributes.text(allowNone=False)
+    type = attributes.text(allowNone=False)
     smsc = attributes.text(allowNone=False)
     apn = attributes.text(allowNone=False)
     username = attributes.text(allowNone=False)
@@ -249,6 +250,7 @@ class NetworkOperatorManager(AxiomDBManager):
                               netid=net.netid,
                               name=to_u(net.name),
                               country=to_u(net.country),
+                              type=to_u(net.type),
                               smsc=to_u(net.smsc),
                               apn=to_u(net.apn),
                               username=to_u(net.username),
