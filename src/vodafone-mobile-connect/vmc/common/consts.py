@@ -92,7 +92,6 @@ CHAP_PROFILE = join(DIALER_PROFILES, 'CHAP')
 # databases, they should be merged in the future
 CONTACTS_DB = join(VMC_HOME, 'contacts.db')
 MESSAGES_DB = join(VMC_HOME, 'messages.db')
-NETWORKS_DB = join(VMC_HOME, 'networks.db')
 SMSC_DB = join(VMC_HOME, 'smsc.db')
 USAGE_DB = join(VMC_HOME, 'usage.db')
 

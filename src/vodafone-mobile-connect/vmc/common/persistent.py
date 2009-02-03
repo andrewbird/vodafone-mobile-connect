@@ -238,7 +238,7 @@ class DBNetworkOperator(item.Item):
 
 
 class NetworkOperatorManager(AxiomDBManager):
-    def __init__(self, path=consts.NETWORKS_DB):
+    def __init__(self, path=None):
         super(NetworkOperatorManager, self).__init__(path)
     
     def populate_networks(self, network_list):
