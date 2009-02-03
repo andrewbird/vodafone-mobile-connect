@@ -6,6 +6,21 @@
   <device>
     <match key="info.category" string="serial">
 
+ <!-- Dell based mobile devices -->
+      <match key="@info.parent:usb.vendor_id" int="0x413c">
+
+	<!-- D5530 (Ericsson F3507G) has multiple interfaces tagged as modem -->
+        <match key="@info.parent:usb.product_id" int="0x8147">
+          <match key="@info.parent:usb.interface.number" int="3">
+            <remove key="info.capabilities" type="strlist">modem</remove>
+          </match>
+          <match key="@info.parent:usb.interface.number" int="9">
+            <remove key="info.capabilities" type="strlist">modem</remove>
+          </match>
+        </match>
+
+      </match>
+
  <!-- Huawei based mobile devices -->
       <match key="@info.parent:usb.vendor_id" int="0x12d1">
 
