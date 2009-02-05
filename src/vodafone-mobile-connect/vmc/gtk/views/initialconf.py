@@ -80,6 +80,67 @@ class EditProfileView(BaseProfileView):
         super(EditProfileView, self).setup_view()
 
 
+class APNSelectionView(View):
+    GLADE_FILE = os.path.join(consts.GLADE_DIR, "apnsel.glade")
+    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "apnsel.png")
+    
+    def __init__(self, ctrl):
+        View.__init__(self, ctrl, self.GLADE_FILE,
+                      'apn_selection_window', domain="VMC")
+        self.ctrl = ctrl
+        self.setup_view()
+        self.init_model(self.ctrl.apn_list)
+        self.init_view_columns()
+
+    def setup_view(self):
+        self._view = self['apn_list_treeview']
+        self['APNimage'].set_from_file(self.IMAGE_FILE)
+
+    def init_view_columns(self):
+        render_text = gtk.CellRendererText()
+        col0=gtk.TreeViewColumn('Name')
+        col0.pack_start(render_text, expand=True)
+        col0.add_attribute(render_text, 'text', 0)
+        col1=gtk.TreeViewColumn('Country')
+        col1.pack_start(render_text, expand=True)
+        col1.add_attribute(render_text, 'text', 1)
+        col2=gtk.TreeViewColumn('Type')
+        col2.pack_start(render_text, expand=True)
+        col2.add_attribute(render_text, 'text', 2)
+        self._view.append_column(col0)
+        self._view.append_column(col1)
+        self._view.append_column(col2)
+
+    def init_model(self, profiles):
+        # name, country, type, profile object
+        self.store = gtk.TreeStore(gobject.TYPE_STRING,
+                                   gobject.TYPE_STRING,
+                                   gobject.TYPE_STRING,
+                                   gobject.TYPE_PYOBJECT)
+        self._view.set_model(self.store)
+
+        # load data
+        for profile in profiles:
+            self.store.append(None,[profile.name,
+                                    profile.country,
+                                    profile.type,
+                                    profile])
+
+        # select the first row
+        iter = self.store.get_iter(0)
+        self._view.get_selection().select_iter(iter)
+
+    def get_selected_apn(self):
+        def get_selected_apn_cb(self):
+            model, selected = self._view.get_selection().get_selected_rows()
+            if not selected:
+                _iter = model.get_iter(0)    # 1st row if no selection
+            else:
+                _iter = model.get_iter(selected[0])
+            return model.get_value(_iter, 3) # the object
+        return defer.maybeDeferred(get_selected_apn_cb,self)
+
+
 class DeviceList(gtk.TreeView):
     def __init__(self, device_list, callback, _window):
         super(gtk.TreeView, self).__init__()

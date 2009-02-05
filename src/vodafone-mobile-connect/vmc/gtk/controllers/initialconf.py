@@ -31,19 +31,19 @@ from vmc.common.hardware._dbus import DbusComponent
 from vmc.common.profiles import get_profile_manager
 from vmc.common.shutdown import shutdown_core
 import vmc.common.notifications as N
-from vmc.gtk import Controller
+from vmc.gtk import Controller, Model
 import vmc.gtk.dialogs as dialogs
 from vmc.contrib.ValidatedEntry import ValidatedEntry, v_ip
 from vmc.contrib import louie
+from vmc.gtk.views.initialconf import APNSelectionView
 
 INVALID_CHARS = ['/', '\\']
 
 
 class BaseProfileController(Controller):
-    def __init__(self, model, quiet=False):
+    def __init__(self, model):
         super(BaseProfileController, self).__init__(model)
         self.suggested_name = None
-        self.quiet = quiet
         # XXX: One day this could live in the glade file, we need to add
         # it as a custom widget to glade3
         self.dns1_entry = ValidatedEntry(v_ip)
@@ -61,9 +61,6 @@ class BaseProfileController(Controller):
         name = self.model.get_device().name
         self.view['device_model_label'].set_text(name)
         
-        if not self.quiet:
-            self.try_to_load_profile_from_imsi_prefix()
-    
     def propose_profile_name(self):
         self.suggested_name = '-'.join([self.model.get_device().name,
                         self.get_connection_combobox_opt()]).replace(' ', '')
@@ -79,20 +76,6 @@ class BaseProfileController(Controller):
                 return True
         
         return False
-    
-    def try_to_load_profile_from_imsi_prefix(self):
-        def get_profile_cb(profile):
-            if profile:
-                message = _('Configuration details found for Operator!')
-                details = _(
-"""Do you want to load stored settings for %s?""") % profile.get_full_name()
-                resp = dialogs.open_confirm_action_dialog(_('Load'),
-                                                          message, details)
-                if resp:
-                    self.load_network_profile(profile)
-                    self.propose_profile_name()
-        
-        self.model.get_profile_from_imsi_prefix().addCallback(get_profile_cb)
     
     def load_mobile_profile(self, profile):
         CON = 'connection'
@@ -251,6 +234,8 @@ class NewProfileController(BaseProfileController):
         self.view['profile_name_entry'].set_sensitive(True)
         self.view['profile_name_entry'].set_editable(True)
 
+        self.try_to_load_profile_from_imsi_prefix()
+
     def on_ok_button_clicked(self, widget):
         settings = self.get_profile_settings()
         
@@ -271,13 +256,26 @@ class NewProfileController(BaseProfileController):
         # now hide
         self.hide_ourselves()
 
+    def try_to_load_profile_from_imsi_prefix(self):
+        def get_profiles_cb(profiles):
+            if profiles:
+                def get_profile_from_apn_selection(profile):
+                    self.load_network_profile(profile)
+                    self.propose_profile_name()
+                
+                controller = APNSelectionController(Model(), profiles, get_profile_from_apn_selection)
+                view = APNSelectionView(controller)
+                view.show()
+
+        self.model.get_profiles_from_imsi_prefix().addCallback(get_profiles_cb)
+
 
 class EditProfileController(BaseProfileController):
     """
     Controller to edit mobile profiles
     """
     def __init__(self, model, profile):
-        super(EditProfileController, self).__init__(model, quiet=True)
+        super(EditProfileController, self).__init__(model)
         self.profile = profile
     
     def register_view(self, view):
@@ -297,6 +295,36 @@ class EditProfileController(BaseProfileController):
         
         # now hide
         self.hide_ourselves()
+
+
+class APNSelectionController(Controller):
+    """
+    Controller for the apn selection window
+    """
+    def __init__(self, model, apn_list, apn_callback):
+        Controller.__init__(self, model)
+
+        self.apn_list = apn_list
+        self.apn_callback = apn_callback
+
+    def on_apn_selection_window_delete_event(self, widget, userdata):
+        self.hide_ourselves()
+
+    def on_ok_button_clicked(self, widget):
+        def get_selected_apn_cb(apn):
+            self.hide_ourselves()
+            self.apn_callback(apn)
+        
+        d = self.view.get_selected_apn()
+        d.addCallback(get_selected_apn_cb)
+    
+    def on_cancel_button_clicked(self, widget):
+        self.hide_ourselves()
+
+    def hide_ourselves(self):
+        self.view.get_top_widget().destroy()
+        self.manager = None
+        self.view = None
 
 
 class DeviceSelectionController(Controller, DbusComponent):

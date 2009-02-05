@@ -63,7 +63,7 @@ class NewProfileModel(Model):
     def get_device(self):
         return self.device
     
-    def get_profile_from_imsi_prefix(self):
+    def get_profiles_from_imsi_prefix(self):
         from vmc.common.persistent import net_manager
         from vmc.common.startup import attach_serial_protocol
         # we just need the IMSI, but the device is not setup yet. We'll setup
@@ -81,10 +81,7 @@ class NewProfileModel(Model):
             return failure
         
         d = device.sconn.get_imsi()
-# FIXME - ajb: this doesn't work for length(MCC+MNC) > 5 such as for some Nordic networks
-# we should compare the other way around,so match the network id against the same length of imsi
-        d.addCallback(lambda imsi: imsi[:5])
-        d.addCallback(lambda prefix: net_manager.get_network_by_id(prefix))
+        d.addCallback(lambda imsi: net_manager.get_all_networks_by_id(imsi))
         d.addErrback(get_imsi_eb)
         
         return d
