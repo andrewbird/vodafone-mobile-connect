@@ -250,10 +250,16 @@ class StatsBar(gtk.DrawingArea):
 
 class ApplicationView(View):
     """Main view for application"""
-    GLADE_FILE = os.path.join(consts.GLADE_DIR, "VMC.glade")
     
     def __init__(self, ctrl):
-        super(ApplicationView, self).__init__(ctrl, self.GLADE_FILE,
+        if gtk.gdk.screen_height() < 600:
+            height = 420
+            GLADE_FILE = os.path.join(consts.GLADE_DIR, "VMC-reduced.glade")
+        else:
+            height = WIN_HEIGHT
+            GLADE_FILE = os.path.join(consts.GLADE_DIR, "VMC.glade")
+
+        super(ApplicationView, self).__init__(ctrl, GLADE_FILE,
             'main_window', register=False, domain="VMC")
 
         #Usage statistics
@@ -262,20 +268,16 @@ class ApplicationView(View):
         self.usage_units = UNIT_KB
         self.usage_bars = None
 
-        self.setup_view()
+        self.setup_view(height)
         ctrl.register_view(self)
         self.throbber = None
         ctrl.update_usage_view()
         self.setup_treeview(ctrl)
     
-    def setup_view(self):
+    def setup_view(self,height):
         self.set_name()
         window = self.get_top_widget()
         window.set_position(gtk.WIN_POS_CENTER)
-        if gtk.gdk.screen_height() < 600:
-            height = 420
-        else:
-            height = WIN_HEIGHT
         window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_usage_view()
 
