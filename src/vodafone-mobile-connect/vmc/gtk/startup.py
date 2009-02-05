@@ -150,8 +150,9 @@ class GTKStartupController(object):
         if not profile_name: # user never never ran the app
             self.splash.set_text(_('Initial setup...'))
             self.splash.pulse()
-            # populate databases and configure hardware afterwards
-            populate_dbs()
+
+        # populate network database into memory and configure hardware afterwards
+        populate_dbs()
         
         self.splash.pulse()
         self.detect_hardware()
