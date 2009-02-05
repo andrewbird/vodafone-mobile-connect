@@ -272,7 +272,11 @@ class ApplicationView(View):
         self.set_name()
         window = self.get_top_widget()
         window.set_position(gtk.WIN_POS_CENTER)
-        window.set_size_request(width=WIN_WIDTH, height=WIN_HEIGHT)
+        if gtk.gdk.screen_height() < 600:
+            height = 420
+        else:
+            height = WIN_HEIGHT
+        window.set_size_request(width=WIN_WIDTH, height=height)
         self._setup_usage_view()
 
     def _setup_usage_view(self):
