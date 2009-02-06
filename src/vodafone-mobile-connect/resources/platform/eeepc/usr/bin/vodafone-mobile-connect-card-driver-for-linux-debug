@@ -5,8 +5,15 @@ export PATH=/opt/vmc/bin:$PATH
 DBUS_RUNNING="`ps -ef | grep dbu[s]-daemon`"
 
 if [ -z "${DBUS_RUNNING}" ] ; then
-        sudo invoke-rc.d dbus restart
+	sudo invoke-rc.d dbus restart
+else
+	# Early EeePCs have dubious udev/hal update mechanism
+	if ! hal-find-by-capability --capability=modem >/dev/null 2>&1 ; then
+		sudo /etc/dbus-1/event.d/20hal stop
+		sudo /etc/dbus-1/event.d/20hal start
+	fi
 fi
+
 
 twistd -r gtk2 --pidfile /tmp/vmc.pid \
 	-noy /usr/share/vodafone-mobile-connect/gtk-tap.py
