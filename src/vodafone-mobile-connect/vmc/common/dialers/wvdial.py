@@ -369,6 +369,7 @@ remove from the current wvdial profile the
 MAX_ATTEMPTS_REGEXP = re.compile('Maximum Attempts Exceeded')
 PPPD_DIED_REGEXP = re.compile('The PPP daemon has died')
 AUTH_SUCCESS_REGEXP = re.compile('Authentication.*(CHAP|PAP).*successful')
+LOCAL_IP_SUCCESS_REGEXP = re.compile('local\s+IP\s+address\s+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
 DNS_REGEXP = re.compile(r"""
    DNS\saddress
    \s                                     # beginning of the string
@@ -423,7 +424,7 @@ class WVDialProtocol(protocol.ProcessProtocol):
         if self.__connected:
             return
 
-        if AUTH_SUCCESS_REGEXP.search(data):
+        if LOCAL_IP_SUCCESS_REGEXP.search(data):
             # Notify the user we are connected
             louie.send(N.SIG_CONNECTED, None)
             self.deferred.callback(True)
