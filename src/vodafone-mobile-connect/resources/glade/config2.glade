@@ -42,7 +42,7 @@
 	      <property name="spacing">12</property>
 
 	      <child>
-		<widget class="GtkImage" id="image1">
+		<widget class="GtkImage" id="PROimage">
 		  <property name="visible">True</property>
 		  <property name="stock">gtk-preferences</property>
 		  <property name="icon_size">6</property>
@@ -899,7 +899,7 @@ you with the relevant information.</property>
 	      <property name="spacing">12</property>
 
 	      <child>
-		<widget class="GtkImage" id="image3">
+		<widget class="GtkImage" id="DEVimage">
 		  <property name="visible">True</property>
 		  <property name="stock">gtk-preferences</property>
 		  <property name="icon_size">6</property>

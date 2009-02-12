@@ -34,9 +34,9 @@ from vmc.gtk import View
 from vmc.gtk.models.initialconf import BluetoothDeviceStoreModel
 from vmc.gtk.images import get_pixbuf_for_device
 
-
 class BaseProfileView(View):
     GLADE_FILE = os.path.join(consts.GLADE_DIR, "config2.glade")
+    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "proedt.png")
     
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
@@ -47,6 +47,8 @@ class BaseProfileView(View):
     def setup_view(self):
         window = self.get_top_widget()
         window.set_position(gtk.WIN_POS_CENTER)
+        self['PROimage'].set_from_file(self.IMAGE_FILE)
+
         # setup connection combobox
         model = gtk.ListStore(gobject.TYPE_STRING)
         for opt in CONN_OPTS_LIST:
@@ -205,6 +207,7 @@ class DeviceSelectionView(View):
     View for the device selection dialog
     """
     GLADE_FILE = os.path.join(consts.GLADE_DIR, "config2.glade")
+    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "devsel.png")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
@@ -215,6 +218,7 @@ class DeviceSelectionView(View):
         self.setup_view()
 
     def setup_view(self):
+        self['DEVimage'].set_from_file(self.IMAGE_FILE)
         self.device_list = DeviceList(self.ctrl.device_list,
                                           self.ctrl.device_callback,
                                           self.get_top_widget())
