@@ -207,7 +207,7 @@ class DeviceSelectionView(View):
     View for the device selection dialog
     """
     GLADE_FILE = os.path.join(consts.GLADE_DIR, "config2.glade")
-    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "devsel.png")
+    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "devsel-dongle.png")
 
     def __init__(self, ctrl):
         View.__init__(self, ctrl, self.GLADE_FILE,
