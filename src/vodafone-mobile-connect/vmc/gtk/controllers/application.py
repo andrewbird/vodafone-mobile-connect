@@ -984,11 +984,18 @@ The csv file that you have tried to import has an invalid format.""")
         manager.delete_objs(objs)
         
         for _iter in iters:
+            _inxt=model.iter_next(_iter)
             model.remove(_iter) # delete from treeview
-        
-        # If we are in a sms treeview and no sms is selected, clear textview
+        if _inxt:
+            treeview.get_selection().select_iter(_inxt) # select next item
+
+        # If we are in a sms treeview update displayed text
         if treeview.get_name() != 'contacts_treeview':
-            if not self.get_obj_from_selected_row():
+            _obj = self.get_obj_from_selected_row()
+            if _obj:
+                self.view['smsbody_textview'].get_buffer().set_text(_obj.get_text())
+                self.view['vbox17'].show()
+            else:
                 self.view['smsbody_textview'].get_buffer().set_text('')
                 self.view['vbox17'].hide()
     
