@@ -162,6 +162,12 @@ class DeviceList(gtk.TreeView):
         for device in device_list:
             self.show_device(device)
 
+        # select the first row if there
+        if len(device_list) > 0:
+            iter = self.get_model().get_iter_first()
+            if iter:
+                self.get_selection().select_iter(iter)
+
     def hide_device(self, device):
         store = self.get_model()
         store.remove(self.device_iters[device])
