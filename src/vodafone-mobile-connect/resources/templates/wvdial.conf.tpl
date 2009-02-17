@@ -15,7 +15,8 @@ Dial Attempts = 3
 
 Modem = $serialport
 Baud = 460800
-Init2 = ATZ
+Init1 = AT
+Init2 = AT
 Init3 = ATQ0 V1 E0 S0=0 &C1 &D2 +FCLASS=0
 Init4 = AT+CGDCONT=1,"IP","$apn"
 ISDN = 0
