@@ -18,7 +18,7 @@
 __version__ = "$Rev: 1172 $"
 
 from twisted.python import log
-
+import serial
 import vmc.common.exceptions as ex
 from vmc.common.plugin import DBusDevicePlugin
 from vmc.common.hardware.novatel import NovatelCustomizer
@@ -90,5 +90,14 @@ class NovatelOvation(DBusDevicePlugin):
         'usb_device.vendor_id' : [0x1410],
         'usb_device.product_id' : [0x4400],
     }
+
+    def preprobe_init(self, ports):
+        # Novatel secondary port needs to be flipped from DM to AT mode
+        # before it will answer our AT queries. So the primary port
+        # needs this string first or auto detection of ctrl port fails.
+        # Note: Early models/firmware were DM only
+        ser = serial.Serial(ports[0], timeout=1)
+        ser.write('AT$NWDMAT=1\r\n')
+        ser.close()
 
 novatelovation = NovatelOvation()
