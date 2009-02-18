@@ -1,0 +1,147 @@
+Switch off ZERO-CD:
+
+The new USB Option WWAN modem device support a CDROM device, which holds the needed Windows driver to use the WWAN modem.
+Therefore the firmware of the WWAN modem announce during the USB enumeration process to work as a virtual CDROM device with
+its vendor name "ZOPTION". This device is now called ZERO-CD.
+
+The Linux OS does currently not use this ZERO-CD, because the image can not hold all the needed binary kernel drivers, which 
+may exists in the world. Also it is often strange to identify the exact matching drivers to your system, because the 2.6.xx 
+kernel has today a lot of Distro specific patches. So we will currently not use this ZERO-CD device for Linux and have to switch
+it off. Once you send this switch off command to the WWAN modem, another new USB enumeration will be requested by the WWAN modem
+firmware. Afterwards the real WWAN modem interface is available on the USB bus.
+
+Looking on the Linux USB core system, it has another restriction. If there are more than one possible drivers, which can work
+successfully with that USB WWAN modem, the USB core system will allow probing the WWAN modem by these drivers in a special order.
+First the already loaded driver will be allowed to do the probe. If then this driver do a successful probe, another potential 
+driver will never become a chance to do also a probing with that hardware. Therefore it is (currently) impossible to use the final
+WWAN modem driver to send the ZERO-CD switch off command, because often the USB mass storge driver will be already loaded and
+is working in your Linux system.
+If the probing of an already loaded module is not successful or no module is loaded, the udev system will trigger a modeprobe
+to load the needed driver(s). But the loading order of the drivers is not clear specified, although is may depends on the order 
+of the appearance in the modules dependency files created by depmod.
+
+But this probe order is also important to know for some old Option WWAN modems, which could be handled by the mainstream 'option'
+kernel driver. Unfortunately this is a bug, because the mainstream 'option' driver looks on the wrong USB device ID.
+
+
+
+
+Solution switch off the ZERO-CD:
+
+The ZERO-CD switch off command is simple a SCSI 'rezero' command. The easiest way to send this command to the WWAN modem is by
+using the standard Linux USB mass storage driver. Because the WWAN modem will initiate a hard disconnect from the SCSI bus
+connection after receiving that rezero command and the USB mass storage driver is not prepared for such a situation, we risk
+a possible system freeze.
+Therefore we use a short C-program 'ozerocdoff', based on the Linux USB lib together with some special udev rules. These rules 
+ensure a USB mass storage disconnection in the very early communication state, often in the time frame, when this driver waits 
+for a bus stabilization. Naturally we test,
+- if only a known USB device ID is used, which ensures the driver can support also the plugged-in WWAN modem
+- if parts of the USB device address match, which ensures proper ZERO-CD disabling for the correct device
+- if the device is really in ZERO-CD mode
+The ozerocd can be easy compiled by calling the Makefile. You find also a short man page, which explains the usage of the ozerocdoff
+tool. Note that you must call the ozerocdoff as root user.
+
+The trick is now to tell the Linux udev hotplug system to look carefully on a new USB device, which announce to be a CDROM device.
+We check here only the USB vendor and device ID and have not to wait for a CDROM vendor option like "ZOPTION" to guarantee starting
+the ozerocdoff program as early as possible. Otherwise the USB SCSI mass storage driver would need to do communication to the WWAN-
+modem which is here not really needed. If the udev system detects such a device, it has to start simply ozercdoff program, which 
+do additional test on that found USB device, disconnects the USB SCSI mass storage driver, sends the rezero command and finally checks
+if the WWAN-modem has properly switch to its WWAN modem interface.
+The automatic triggering will be done by a udev rule. An example can be found here in the file:
+
+	hso.udev
+
+This file has to be copied as '049_hso-udev.rules' file into the 
+
+	/etc/udev/rules.d/
+
+directory. Finally don't forget to tell the udev system to reload its rule files. This can be done by
+
+	udevcontrol reload_rules
+
+
+
+
+
+Solution use the correct HSO Option driver:
+
+Because we have now two drivers for some Option WWAN-modems, we simply blacklist the mainstream 'option' kernel module driver, which
+we do not like to use. Note that this 'option' driver does support only Option WWAN modem with Version 3 Interface, which support 
+only virtual serial modem ports. The new 'hso' driver supports the newer Version 4 Interface. Here also an IP network device is 
+available, which allow high speed communication also by using the slow USB 1.1 bus system. Note also that this network interface is
+not identical to a virtual ethernet, because it "speaks" only IP. So e.g. running a dhcpclient is here not possible, because this would
+require the support of the simple ether transport package frames.
+The 'option' mainstream driver can be prevent to be automatically loaded be adding a line like:
+	blacklist option
+
+in the blacklist file found here:
+	
+	/etc/modprobe.d/blacklist
+
+But note that this will not unload a currently running 'option' driver. This has to be done by the commands:
+
+	rmmod option
+	lsmod | grep option
+
+The 2nd grep to the option kernel module should not find a 'option' driver still loader. Otherwise the driver maybe currently in usage
+and the 'option' driver can not be successfully unloaded. Then please unplug your WWAN modem and repeat the procedure.
+
+
+
+
+
+
+Auto Linking device node with self-explanatory names:
+
+This 'hso' driver supports 'self-explanatory' device node names. Because of the big number of different virtual serial device
+nodes, which will be supported by some WWAN modems and modem firmware, specially optional ports will not always match to the same
+numbered device node. E.g. the serial modem port can be /dev/ttyHS3 or for another firmware /dev/ttyHS4.
+Some important links to device node names are:
+
+	/dev/wmodem0	: the /dev/tty modem interface
+	/dev/wapp0	: the /dev/tty application port
+	/dev/wctrl0	: the /dev/tty control port
+
+Note that currently only one plugged-in WWAN modem is supported. In the future also more than one WWAN modem can be supported. The
+2nd WWAN modem tty port would than be called '/dev/wmodem1'.
+
+
+
+
+
+WWAN Net device:
+
+This 'hso' driver supports the WWAN like an Ethernet device. Additionlly this ethernet port is registered in sysfs. Normerlly the
+hald distinguish only between 802.03 wired Ethernet and 802.11 Wireless Ethernet. The 10-wwan-quirk.fdi enables now also support of
+WWAN devices by the hald. this is especially needed fot the Network Manager. It detects the network category entry and would use
+a WWAN modem as wireed device without that fdi quirk.
+The 10-wwan-quirk.fdi should be copied into the /usr/share/hal/fdi/information/20thirdparty directory.
+Naturally this fdi quirk should be exchanged by a new version of the hald. But the hald new a mechanism, how it can distguish
+between wirless 802.11, wired 802.03 and wwan devices. Therefore and currently not enabled dpatch is part of the module package.
+It could be enabled, if the following line will be part of the debian/patches/00list.hso_modules
+	02_hso_modules_sysfs_wwan_dir
+Please add this line and rebuild the whole debian package. It will add a subdirectory "wwan" in the /sys/class/net/hso0/ sysfs
+directory.
+
+
+
+WWAM USB suspend:
+The older driver package does not enable automatic entering USB suspend state after a short configurable timeout. But now the hso
+driver will be load with the extra option "enable_autopm=1". Although this option could be set after loading the driver, it is very
+important to set it just _before_ the device will be probed. So enabling this module parameter by an udev rule would only work as
+long as the WWAN device has an enabled ZERO-CD device. Only in that case the udev rule will be used processed twice and just before
+the 2nd and final device WWAN modem device probe will be done.
+Anyway a udev rule will setup the suspend timeout value found in the configuration file from
+	/etc/hso-suspend.conf
+and copy it into the corresponding USB core sysfs /power/autosuspend property. The osetsuspend script will handle this. The same
+script can be used to change manually the time value or disable automatic suspend.
+
+
+
+
+The complete solution:
+
+All that installation and configuration stuff will be done automatically, if you install the Debian hso-udev package in you system. 
+Because this little helper tool and script does not make you happy without the driver, the hso-udev package requires also to install 
+a Debian binary HSO kernel module, which is part of the hso-module package.
+Note that the HSO kernel binary module has to match exactly you current Distro kernel sub release. Otherwise you system may crash.

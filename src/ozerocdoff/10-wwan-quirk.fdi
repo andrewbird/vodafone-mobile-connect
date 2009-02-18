@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- -*- SGML -*- --> 
+
+<!--
+  This changes the network interface of a Option WWAN-modem from the default
+  wired network category 802.03 into the new wwan categrory and changes the
+  serial control and application port from default category serial into
+  the new wwan, debug or gps category need for Network-Manager version 0.7.0
+
+  This fdi file has to be installed into the following directory:
+  /usr/share/hal/fdi/information/20thirdparty
+-->
+
+<deviceinfo version="0.2">
+  <device>
+    <match key="linux.subsystem" string="net">
+    <match key="info.category" string="net.80203">
+    <!-- network device -->
+
+      <!-- High Speed Option network interface, test by vendor id to allow device name renaming -->
+      <match key="@info.parent:usb.vendor_id" int="0xaf0">
+        <merge key="info.category" type="string">net.wwan</merge>
+        <merge key="info.capabilities" type="strlist">net</merge>
+        <append key="info.capabilities" type="strlist">net.wwan</append>
+        <merge key="net.wwan.mac_address" type="copy_property">net.80203.mac_address</merge>
+
+        <remove key="net.80203.mac_address"></remove>
+      </match>
+    </match>
+    </match>
+
+    <match key="linux.subsystem" string="tty">
+    <match key="info.category" string="serial">
+    <!-- serial devices -->
+
+      <!-- High Speed Option network interface, test by vendor id to allow device name renaming -->
+      <match key="@info.parent:usb.vendor_id" int="0xaf0">
+
+        <merge key="serial.type" type="string">usb</merge>
+        <match key="info.hsotype" string="Control">
+          <merge key="info.category" type="string">wwan</merge>
+          <merge key="info.capabilities" type="strlist">serial</merge>
+          <append key="info.capabilities" type="strlist">wwan</append>
+          <remove key="modem.command_sets"></remove>
+        </match>
+        <match key="info.hsotype" contains="Application">
+          <merge key="info.category" type="string">wwan</merge>
+          <merge key="info.capabilities" type="strlist">serial</merge>
+          <append key="info.capabilities" type="strlist">wwan</append>
+          <remove key="modem.command_sets"></remove>
+        </match>
+        <match key="info.hsotype" contains="Diagnostic">
+          <merge key="info.category" type="string">debug</merge>
+          <merge key="info.capabilities" type="strlist">serial</merge>
+          <append key="info.capabilities" type="strlist">debug</append>
+          <remove key="modem.command_sets"></remove>
+        </match>
+        <match key="info.hsotype" string="Modem">
+          <merge key="info.capabilities" type="strlist">serial</merge>
+          <append key="info.capabilities" type="strlist">modem</append>
+          <merge key="modem.command_sets" type="strlist">GSM-07.07</merge>
+          <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+        </match>
+        <match key="info.hsotype" contains="GPS">
+          <merge key="info.category" type="string">GPS</merge>
+          <merge key="info.capabilities" type="strlist">serial</merge>
+          <append key="info.capabilities" type="strlist">GPS</append>
+          <remove key="modem.command_sets"></remove>
+        </match>
+      </match>
+    </match>
+    </match>
+  </device>
+</deviceinfo>

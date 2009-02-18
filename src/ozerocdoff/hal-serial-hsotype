@@ -1,0 +1,22 @@
+#!/bin/bash
+# 
+# Hal-Daemon script, which fetches additional data from the hso driver via
+# udev and save it in an additional property into the Hal database.
+# If you like to use these additional hal properties also in a fdi file,
+# it is strongly recommended to call this script as a preprobe callout.
+#
+# activate this script by adding this rule to the hso serial sub device:
+# <append key="info.callouts.preprobe" type="strlist">hal-serial-hsotype</append>
+#
+case "${HALD_ACTION}" in
+    preprobe|add)
+	UDEV_PATH=$(udevinfo --name $HAL_PROP_LINUX_DEVICE_FILE --query=path )
+	HSOTYPE=$( cat /sys${UDEV_PATH}/hsotype )
+	/usr/bin/hal-set-property --udi ${UDI} --key "info.hsotype" --string "${HSOTYPE}"
+	exit 0
+	;;
+    *)
+	echo "unsupported HALD_ACTION: ${HALD_ACTION}"
+	exit 1
+	;;
+esac

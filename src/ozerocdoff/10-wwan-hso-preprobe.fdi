@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- -*- SGML -*- --> 
+
+<!--
+  This preprobe callout copies the hsotype of an Option WWAN-modem from the udev
+  configuration into the hal daemon database with key "info.hsotype".
+  Using a preprobe callout gives the possibility to use the new genrated key 
+  "info.hsotype" as match rule for further configuration by a fdi file.
+
+  This fdi file has to be installed into the following directory:
+  /usr/share/hal/fdi/preprobe/20thirdparty
+-->
+
+<deviceinfo version="0.2">
+  <device>
+    <match key="linux.subsystem" string="tty">
+    <match key="info.category" string="serial">
+    <!-- only needed for serial devices -->
+
+      <!-- High Speed Option network interface, test by vendor id to allow device name renaming -->
+      <match key="@info.parent:usb.vendor_id" int="0xaf0">
+        <append key="info.callouts.preprobe" type="strlist">hal-serial-hsotype</append>
+
+      </match>
+    </match>
+    </match>
+  </device>
+</deviceinfo>

@@ -1,0 +1,7 @@
+#!/bin/bash
+# $1 Device node, e.g. /dev/ttyHS0
+# $2 Device property, e.g. Control"
+sleep 30
+UDI="$( /usr/bin/hal-find-by-property --key "linux.device_file" --string "$1" )"
+echo "osethalproperty $1 $2 $UDI" >> /tmp/log
+/usr/bin/hal-set-property --udi ${UDI} --key "hso_type" --string "$2"

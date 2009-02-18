@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# Sample Script to find out the ttyHSO to functional matching
+
+
+# search_device
+# search for all Option USB WWAN modem and
+# return the full path of the base device
+# input parameter:
+#   none
+# return:
+#   in RETVAL the result
+#   0 on susscess
+#   1 on error
+function search_device() {
+    local ROOT="/sys/bus/usb/devices"
+    local VENDOR="0af0"
+    RETVAL=""
+    for DIR in $( ls ${ROOT} ); do
+	if [ -L "${ROOT}/${DIR}" ]; then
+	    if [ -f "${ROOT}/${DIR}/idVendor" ]; then
+		IDVENDOR=$( cat "${ROOT}/${DIR}/idVendor" )
+		if [ "${IDVENDOR}" = "${VENDOR}" ]; then
+		    RETVAL="${RETVAL} ${ROOT}/${DIR}"
+		fi
+	    fi
+	fi
+    done
+    if [ -z "${RETVAL}" ]; then
+	return 1
+    fi
+    return 0
+}
+
+
+search_device
+for dev in  ${RETVAL}; do
+    cd ${dev}
+    DEVID=0x$( cat idProduct )
+    echo "Found Option Device with DeviceID = ${DEVID}"
+    for ttytype in $( find . -name hsotype ); do
+	HSOTYPE=$( cat ${ttytype} )
+	TTYHSO=/dev/$( echo ${ttytype} | sed -e "s/.*\/\(ttyHS[0-9]\+\)\/hsotype/\1/" )
+	echo "${TTYHSO} is ${HSOTYPE}"
+    done
+done

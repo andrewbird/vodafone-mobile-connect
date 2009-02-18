@@ -1,0 +1,82 @@
+.TH OSETSUSPEND "8" "May 2008" "Option Wireless" "System Administration Utilities"
+.SH NAME
+osetsuspend \- configures suspend capabilities of an Option WWAN modem
+.SH SYNOPSIS
+.B osetsuspend
+[
+.B -hv
+]
+.I command
+[
+.I parameter
+]
+.SH DESCRIPTION
+.B osetsuspend
+is a maintenance script which allow to set up a time after an Option WWAN-modem will 
+automatically enter suspend state or disable suspend for Option WWAN-modems. Therefore 
+.B osetsuspend 
+use the USB selective suspend from the Linux USB core and the sysfs for configuration 
+setup. Note that the driver must also support this suspend feature.
+
+.SH OPTIONS
+.IP "-h, --help"
+show help text
+.IP "-v, --version"
+show version string
+
+.SH COMMANDS
+.IP "set \fItime\fR"
+set a new 
+.I time
+in seconds, which will be used as timeout to enter automatic a USB suspend state of all 
+found Option WWAN-modem USB devices. A value of 
+.B none, NONE
+or 
+.B 0
+will be recognize as disabling suspend for the WWAN-modem. Values lower than 4 seconds will 
+be currently increased to 5 seconds without any notification. Note that you must have 
+root privileges to set new automatic suspend values!
+
+.IP get
+.RS
+read automatic suspend time values from all found Option WWAN modems in the system. If
+suspend is disabled, the time value will be 
+.B none.
+No further argument is required.
+.RE
+.IP "udev \fIusb-directory\fR"
+should only be used form an udev rule. This command requires the exact 
+.B usb-directory
+name of the WWAN-modem device. The osetsuspend will read the automatic suspend time 
+value from a configration file found here:
+.RS
+    /etc/hso-suspend.conf
+.RE
+.RS
+Note: All found Option WWAN-modem devices will be setup with the same suspend time value.
+An example of a udev rule may looks like:
+.RE
+.RS 
+    ACTION="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="0af0", \\
+    RUN+="/usr/sbin/osetsuspend udev %k"
+.RE
+.RS
+or:
+.RE
+.RS 
+    ACTION="add", SUBSYSTEM=="usb", ATTR{bDeviceClass}=="ff", \\
+    ATTR{idVendor}=="0af0", RUN+="/usr/sbin/osetsuspend udev %k"
+.RE
+.IP help
+.RS
+show help text. No argument is required.
+.RE
+.IP version
+show version string. No argument is required.
+
+.SH EXAMPLES
+ osetsuspend set 10
+ osetsuspend set none 
+
+.SH AUTHOR
+Peter Henn <support@option.com>

@@ -1,0 +1,97 @@
+.TH OZEROCDOFF "8" "April 2008" "Option Wireless" "System Administration Utilities"
+.SH NAME
+ozerocdoff \- disables the Option ZERO-CD device
+.SH SYNOPSIS
+.B ozerocdoff 
+[
+.B -hqwqdv
+]
+.B -i
+.I DeviceID
+.RS
+.RS
+[
+.B -f
+.I name
+] [
+.B -n
+.I len
+] [
+.B -s
+.I time
+] [
+.B -l
+.I file
+]
+.RE
+.RE
+.SH DESCRIPTION
+.B ozerocdoff
+is used for Option WWAN modem cards to switch off the ZERO-CD device. Therefore a
+SCSI rezero command will be send to the SCSI mass storage device of the WWAN modem without
+the usage of the usb mass storage driver itself, but with the support of the usb lib.
+The ZERO-CD device will be found normally for driver installation just after plugging-in
+an Option WWAN modem.
+
+Note that ozerocdoff requires to be called as root user and should be triggered by a corresponding
+udev rule.
+.SH OPTIONS
+.IP "-h, --help"
+output this help file
+.IP "-i, --device_id <n>"
+target USB device ID, required option
+.IP "-f, --usb_filename <str>"
+target usb_device USB file name in sysfs, optional
+.IP "-n, --namelen <n>"
+target USB file name len of the right part of the file name string; default 1, so only the last 
+character will be checked
+.IP "-w, --warn_only"
+prints warning instead of errors and does not abort program
+.IP "-q, --quiet"
+don't show messages
+.IP "-l, --log <file>"
+prints all messages into log file instead to stdout or stderr
+.IP "-s, --searchtime <n>"
+searches for the Zero-CD device up to <n> ms. Note: Default ozerocdoff will automatically initialize
+this value to 800 ms, if the kernel does 
+.B not 
+support the usb_device class. Otherwise the search time will be set to 0 ms, which means there will be no 
+additional wait or settling time. Setting this parameter in the command line will naturally override 
+the automatic initialized value. 
+
+If the kernel does not support the usb_device class, the udev daemon will setup the usb device nodes in parallel
+with starting this ozerocdoff. So during startup of ozerocdoff there is no guarantee that the device nodes already
+exists. Ozerocdoff will prevent timing hazards by searching for the Zero-CD device with a period of 100 ms up to
+the maximum search time.
+.IP "-t, --test"
+test only, no SCSI rezero command will be send
+.IP "-d, --debug"
+output some debug messages
+.IP "-v, --version"
+show version string
+.SH EXAMPLES
+You should use such a kind of udev rule:
+.RE
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", GOTO="Zero-CD"
+.RE
+SUBSYSTEM=="usb_device", GOTO="Zero-CD"
+.RE
+GOTO="End"
+
+LABEL="Zero-CD"
+.RE
+ATTRS{idProduct}=="6711", RUN+="/usr/sbin/ozerocdoff -i 0x%s{idProduct}"
+
+Note that the first udev rule will be triggered also on kernels, which support the usb_device class. This means 
+that here zerocdoff will be triggered twice, also by the rule of the 2nd line.
+
+Here some examples using the zerocdoff from the command line:
+.RE
+ozerocdoff -i 0xc031
+.RE
+ozerocdoff -i 0xc031 -f usbdev5.28 -n 2
+.RE
+ozerocdoff -i 0xc031 -w -l /var/log/ozerocdoff.log
+
+.SH AUTHOR
+Peter Henn <support@option.com>

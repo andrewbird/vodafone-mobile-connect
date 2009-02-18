@@ -1,0 +1,147 @@
+ACTION!="add", GOTO="hso_end"
+
+# Syntax switch, need possibly for upcoming Distros
+ATTR{dev}!="?*", GOTO="hso_old_syntax"
+
+############################### NEW SYNTAX ###############################
+
+LABEL="hso_new_syntax"
+#RUN+="/bin/touch /tmp/udev-syntax-new"
+
+# enable Selective suspend in USB core system by a helper script
+SUBSYSTEM=="usb", ATTR{idVendor}=="0af0", ATTR{bDeviceClass}=="ff", RUN+="/usr/sbin/osetsuspend udev %k"
+
+# usb_device switch need for kernel 2.6.24 and newer, which does no longer support usb_device directly
+# send rezero command via ozerocdoff, which uses usblib for all known ZCOPTION devices, supported by bundled driver
+SUBSYSTEM=="usb_device", ATTR{bDeviceClass}!="ff", GOTO="hso_zerocd_disabler"
+SUBSYSTEM=="usb", ATTR{bDeviceClass}!="ff" ,ENV{DEVTYPE}=="usb_device", GOTO="hso_zerocd_disabler"
+SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", GOTO="hso_zerocd_disabler"
+GOTO="hso_device_links"
+
+LABEL="hso_zerocd_disabler"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6711", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6731", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6751", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6771", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6791", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6811", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6911", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6951", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6971", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7011", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7031", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7051", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7071", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7111", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7211", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7251", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7271", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7311", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="c031", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="d031", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="d033", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7301", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7361", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7401", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7501", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="7601", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+GOTO="hso_end"
+
+
+LABEL="hso_device_links"
+# add device node links to all possible device
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Control",	   SYMLINK+="wctrl0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Application", SYMLINK+="wapp0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Application", SYMLINK+="wappa0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Application2",SYMLINK+="wappb0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Diagnostic",  SYMLINK+="wdiag0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Diagnostic",  SYMLINK+="wdiaga0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Diagnostic2", SYMLINK+="wdiagb0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="Modem",	   SYMLINK+="wmodem0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="GPS",	   SYMLINK+="wgps0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="GPS_Control", SYMLINK+="wgpsc0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{hsotype}=="PCSC",	   SYMLINK+="wpcsc0"
+GOTO="hso_tty_permission"
+
+
+############################### OLD SYNTAX ###############################
+
+LABEL="hso_old_syntax"
+#RUN+="/binb/touch /tmp/udev-syntax-old"
+
+# enable Selective suspend in USB core system by a helper script
+SUBSYSTEM=="usb", SYSFS{idVendor}=="0af0", SYSFS{bDeviceClass}=="ff", RUN+="/usr/sbin/osetsuspend udev %k"
+
+# send rezero command via ozerocdoff, which uses usblib for all known ZCOPTION devices, supported by bundled driver
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6711", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6731", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6751", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6771", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6791", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6811", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6911", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6951", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="6971", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7011", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7031", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7051", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7071", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7111", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7211", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7251", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7271", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7311", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="c031", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="d031", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="d033", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7301", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7361", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7401", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7501", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0af0", SYSFS{idProduct}=="7601", SYSFS{bDeviceClass}=="00", RUN+="/usr/sbin/ozerocdoff -wi 0x%s{idProduct}"
+# Note SYSTEMS and ATTRS is not supported by udev from Xandros/EeePC
+
+# add device node links to all possible device
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Control",	 SYMLINK+="wctrl0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Application", SYMLINK+="wapp0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Application", SYMLINK+="wappa0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Application2",SYMLINK+="wappb0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Diagnostic",	 SYMLINK+="wdiag0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Diagnostic",	 SYMLINK+="wdiaga0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Diagnostic2", SYMLINK+="wdiagb0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="Modem",	 SYMLINK+="wmodem0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="GPS",	 SYMLINK+="wgps0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="GPS_Control", SYMLINK+="wgpsc0"
+SUBSYSTEM=="tty", SYSFS{hsotype}=="PCSC",	 SYMLINK+="wpcsc0"
+# Note use here SYSFS instead of ATTR to be compatible to Xandros/EeePC
+# Note use no extra check for  SUBSYSTEMS=="usb", ATTRS{DRIVERS}="hso", because it is not supported by Xandros/EeePC
+
+
+############################### COMMON SYNTAX ###############################
+
+LABEL="hso_tty_permission"
+# setup group proper group rights 
+KERNEL=="ttyHS[0-9]*", NAME="%k", GROUP="dialout", MODE="0660"
+
+
+SUBSYSTEM!="usb", GOTO="hso_end"
+# The follwing lines are only needed for testing and debugging.
+# Because the old option mainline driver "option" is blacklisted and
+# the new option hso driver is installed into one kernel modules tree
+# - hopefully your current one - there is normally nothing special to do.
+#
+# But if you like to load instead of the default hso driver a special one
+# you can use these lines as a template for your own setting.
+# Therefore blacklist also the hso driver. This prevents loading the default
+# driver in the current kernel modules and loading the driver manually works 
+# anyway.
+#
+# Don't forget to corret the path to your needed alternative driver!
+#
+#SYSFS{idVendor}=="0af0", SYSFS[idProduct}=="6911", RUN+="/sbin/modprobe hso"
+#SYSFS{idVendor}=="0af0", SYSFS[idProduct}=="c031", PROGRAM="/bin/sh -c 'uname -r'", RUN+="/sbin/insmod /lib/modules/%c/kernel/drivers/net/wwan/hso.ko debug=0xff"
+#SYSFS{idVendor}=="0af0", SYSFS[idProduct}=="d013", PROGRAM="/bin/sh -c 'uname -r'", RUN+="/sbin/insmod /lib/modules/%c/kernel/drivers/net/wwan/hso.ko debug=0xff"
+#SYSFS{idVendor}=="0af0", SYSFS[idProduct}=="d033", PROGRAM="/bin/sh -c 'uname -r'", RUN+="/sbin/insmod /lib/modules/%c/kernel/drivers/net/wwan/hso.ko debug=0xff"
+#SYSFS{idVendor}=="05c6", SYSFS[idProduct}=="1000", PROGRAM="/bin/sh -c 'uname -r'", RUN+="/sbin/insmod /lib/modules/%c/kernel/drivers/net/wwan/hso.ko debug=0xff"
+
+LABEL="hso_end"

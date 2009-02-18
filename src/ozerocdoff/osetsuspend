@@ -1,0 +1,271 @@
+#!/bin/bash
+#
+# Helper script to enable selective suspend in USB core system
+#
+# for libsysfs V1 or V2 you should add the following line in a udev rule:
+# ACTION="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="0af0", RUN+="/usr/sbin/osetsuspend -i %k"
+# 
+# for libsysfs V2 you can add this line as udev rule:
+# ACTION="add", SUBSYSTEM=="usb", ATTR{bDeviceClass}=="ff", ATTR{idVendor}=="0af0", RUN+="/usr/sbin/osetsuspend -i %k"
+# This would prevent triggering that script also for subsystem devices
+#
+#
+# version
+# 0.1, 2008/05/07 P.Henn
+#      - initial version
+# 0.2, 2008/06/02 P.Henn
+#      - add compatibility to mainstream kernel hso driver
+#      - set suspend level, too
+# 0.3, 2008/08/11 P.Henn
+#      - prevent check_hso_asuspend to correct enable_autopm, if not really needed
+
+HSO_ASUSPEND_DEF=5
+HSO_ASUSPEND_CONFIG="/etc/hso-suspend.conf"
+HSO_ASUSPEND_PARAM="/sys/module/hso/parameters/enable_autopm"
+
+
+# checks if uid is root
+function check_root_uid() {
+    if [ $( id -u) != "0" ]; then
+	echo "ERROR: wrong uid, call osetsuspend as root user"
+        exit 1
+    fi
+}
+
+# checks if parameter is blank
+function check_value() {
+    if [ -z "${1}" ]; then
+	echo "ERROR: no parameter given"
+	exit 1
+    fi
+    if [ "${1}" != "NONE" ] && [ "${1}" != "none" ] && [ "${1}" -lt 0 ]; then
+	echo "ERROR: wrong parameter given"
+	echo "       only numeric values >= 0 and \"none\" or \"NONE\" are allowed"
+	exit 1
+    fi
+}
+
+
+# checks if autosuspend parameter in hso driver is enabled
+function check_hso_asuspend() {
+    if [ -e ${HSO_ASUSPEND_PARAM} ]; then
+	if [ "$( cat ${HSO_ASUSPEND_PARAM} )" = "0" ]; then
+	    echo "WARNING: HSO Autosuspend parameter is not enabled"
+	    if [ "${1}" = "correct" ]; then
+		echo "==> It will be now enabled, but the device needs to be new plugged-in"
+		echo 1 > ${HSO_ASUSPEND_PARAM}
+	    fi
+	fi
+    else
+        # We possibly have the new mainstream kernel, which does no longer support this paramter
+        HSO_VERSION=$( /sbin/modinfo -F Version hso )
+        if [[ $HSO_VERSION < 1.2 ]]; then
+            echo "ERROR: HSO driver autosuspend not found"
+            exit 1
+        fi
+     fi
+}
+
+
+# udev_set_suspend <usb device directoy>
+# special interface function used for udev fule
+# it reads default setting of auto suspend from HSO_ASUSPEND_CONFIG
+# input parameter 1: 
+#   usb device directoy given from udev rule
+# return: 
+#   none
+function udev_set_suspend() {
+    local USB_ASUSPEND_FILE="/sys/bus/usb/devices/${1}/power"
+    check_root_uid
+    # additional check for libsysfs V1 compatibility
+    if [ -e ${USB_ASUSPEND_FILE}/autosuspend ]; then
+        # read config file, if it exists
+	if [ -r ${HSO_ASUSPEND_CONFIG} ]; then
+	    source ${HSO_ASUSPEND_CONFIG}
+        fi
+        # set default if needed
+        [ -n "${HSO_AUTOSUSPEND}" ] || HSO_AUTOSUSPEND=${HSO_ASUSPEND_DEF}
+	set_suspend ${USB_ASUSPEND_FILE} ${HSO_AUTOSUSPEND}
+    fi
+}
+
+
+# set_suspend <usb_auto-suspend_file> <usb_auto-suspend_value>
+# set auto suspend value and enable it. Otherwise disable it
+# input parameter 1:
+#   usb autosuspend file
+# input parameter 2:
+#   autosuspend time value
+#     none, NONE or 0 will result in disabling autosuspend
+#     values lower than 4 will be increased to 5
+# return:
+#   0 on susscess
+#   1 on error
+function set_suspend() {
+    local USB_ASUSPEND_FILE="$1"
+    local HSO_ASUSPEND_VAL="$2"
+    check_root_uid
+    check_value "${HSO_ASUSPEND_VAL}"
+    # check if we should enable autosuspend
+    if [ "${HSO_ASUSPEND_VAL}" = "NONE" -o "${HSO_ASUSPEND_VAL}" = "none" -o "${HSO_ASUSPEND_VAL}" = "0" ] ; then
+	check_hso_asuspend
+	if [ -e ${USB_ASUSPEND_FILE}/autosuspend ]; then
+	    echo "-1" > ${USB_ASUSPEND_FILE}/autosuspend
+	    echo "on" > ${USB_ASUSPEND_FILE}/level
+	    return 0
+	fi
+    else
+	check_hso_asuspend correct
+	# check for minimum value
+	[ ${HSO_ASUSPEND_VAL} -lt 5 ] && HSO_ASUSPEND_VAL=5
+	# finaly set value
+	if [ -e ${USB_ASUSPEND_FILE}/autosuspend ]; then
+	    echo ${HSO_ASUSPEND_VAL} > ${USB_ASUSPEND_FILE}/autosuspend
+	    echo "auto" > ${USB_ASUSPEND_FILE}/level
+	    return 0;
+
+	fi
+    fi
+    return 1;
+}
+
+
+# get_suspend <usb_auto-suspend_file>
+# get auto suspend value or none if suspend disabled
+# input parameter:
+#   usb autosuspend file
+# return:
+#   in RETVAL the result
+#   0 on susscess
+#   1 on error
+function get_suspend() {
+    local USB_ASUSPEND_FILE="$1"
+    # check if we auto suspend is enabled
+    check_hso_asuspend
+    if  [ -e ${USB_ASUSPEND_FILE}/autosuspend ]; then
+	if [ "$( cat ${USB_ASUSPEND_FILE}/level )" = "auto" ]; then
+	    RETVAL=$( cat ${USB_ASUSPEND_FILE}/autosuspend )
+	else
+	    RETVAL=-1
+	fi
+    else
+	RETVAL="none"
+	return 1;
+    fi
+    if [ ${RETVAL} -lt 0 ]; then
+	RETVAL="none"
+    fi
+    return 0
+}
+
+
+# search_device
+# search for all Option USB WWAN modem and
+# return the full path of the usb autosuspend file
+# input parameter:
+#   none
+# return:
+#   in RETVAL the result
+#   0 on susscess
+#   1 on error
+function search_device() {
+    local ROOT="/sys/bus/usb/devices"
+    local VENDOR="0af0"
+    RETVAL=""
+    for DIR in $( ls ${ROOT} ); do
+	if [ -L "${ROOT}/${DIR}" ]; then
+	    if [ -f "${ROOT}/${DIR}/idVendor" ]; then
+		IDVENDOR=$( cat "${ROOT}/${DIR}/idVendor" )
+		if [ "${IDVENDOR}" = "${VENDOR}" ]; then
+		    RETVAL="${RETVAL} ${ROOT}/${DIR}/power"
+		fi
+	    fi
+	fi
+    done
+    if [ -z "${RETVAL}" ]; then
+	return 1
+    fi
+    return 0
+}
+
+
+
+case "${1}" in
+    set)
+	search_device || (echo "ERROR: No Option WWAN-Modem device found"; exit 1)
+	DEVICES=${RETVAL}
+	for DEV in ${DEVICES}; do
+	    set_suspend "${DEV}" "${2}" && echo "Successfully set Option WWAN-modem Autosuspend at ${DEV}/autosuspend" || echo "ERROR: Autosuspend not supported"
+	done
+	echo
+	echo "Note: If the WWAN-modem device will be new plugged-in, the default autosuspend"
+	echo "value will we rewritten from the config file found here: '${HSO_ASUSPEND_CONFIG}'"
+	;;
+    get)
+	search_device || (echo "ERROR: No Option WWAN-Modem device found"; exit 1)
+	DEVICES=${RETVAL}
+	for DEV in ${DEVICES}; do
+	    get_suspend "${DEV}" && echo "Option WWAN-modem Autosuspend at ${DEV}/autosuspend = ${RETVAL}" || echo "ERROR: Autosuspend not supported"
+	done
+	;;
+    udev)
+        udev_set_suspend "${2}"
+	;;
+    help|--help|-h)
+        echo "Usage: osetsuspend"
+	echo " maintenance script which allow to set up a time after an Option WWAN-modem"    
+        echo " will automatically enter suspend state or disable suspend for Option WWAN-"
+	echo " modems. Therefore osetsuspend use the USB selective suspend from the Linux"
+	echo " USB core and the sysfs for configuration setup. Note that the driver must "
+	echo " also support this suspend feature."
+	echo
+	echo "synopsis:"
+	echo " osetsuspend <command> [<parameter>]"
+	echo
+	echo "command:"
+	echo " The following commands are defined"
+	echo
+	echo "set <time>"
+	echo "    set a new <time> in seconds, which will be used as timeout to enter "
+	echo "    automatic a USB suspend state of all found Option WWAN-modem USB devices."
+	echo "    A value of 'none', 'NONE' or '0' will be recognize as disabling suspend"
+	echo "    for the WWAN-modem. Values lower than 4 seconds will be currently increased"
+	echo "    to 5 seconds without any notification. Note that you must have root"
+	echo "    privileges to set new automatic suspend values!"
+	echo
+	echo "get"
+	echo "    read automatic suspend time values from all found Option WWAN modems in"
+	echo "    the system. If suspend is disabled, the time value will be 'none'. No"
+	echo "    further argument is required."
+        echo
+	echo "udev <usb-directory>"
+	echo "    should only be used form an udev rule. This command requires the exact"
+	echo "    usb-directory name of the WWAN-modem device. The osetsuspend will read the"
+	echo "    automatic suspend time value from a configration file found here:"
+	echo "       ${HSO_ASUSPEND_CONFIG}"
+	echo "    Note: All found Option WWAN-modem devices will be setup with the same"
+	echo "    suspend time value."
+	echo "    An example of a udev rule may looks like:"
+	echo "       ACTION=\"add\", SUBSYSTEM==\"usb\", SYSFS{idVendor}==\"0af0\", \\"
+        echo "                RUN+=\"/usr/sbin/osetsuspend udev %k\""
+        echo "    or:"
+	echo "       ACTION=\"add\", SUBSYSTEM==\"usb\", ATTR{bDeviceClass}==\"ff\", \\"
+	echo "                ATTR{idVendor}==\"0af0\", RUN+=\"/usr/sbin/osetsuspend udev %k\""
+	echo
+	echo "help"
+	echo "    show this help screen. No argument is required."
+	echo
+	echo "version"
+	echo "     show current version of this script."
+	;;
+    version|--version|-v)
+        echo "osetsuspend version 0.3"
+	;;
+    *)
+        echo "osetsuspend is called with unknown command '${1}'" >&2
+        $0 help
+        exit 1
+        ;;
+esac
+
+exit 0
