@@ -298,6 +298,10 @@ class HardwareRegistry(DbusComponent):
             # set its udi
             plugin.udi = udi
 
+            if hasattr(plugin, 'preprobe_init'):
+                # this plugin requires special initialisation before probing
+                plugin.preprobe_init(ports)
+
             if hasattr(plugin, 'hardcoded_ports'):
                 # this plugin registers its ports in a funky way and thus
                 # the probe algorithm wont work for it. hardcoded_ports is
