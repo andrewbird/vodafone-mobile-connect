@@ -1,0 +1,11 @@
+Source: ozerocdoff
+Section: multiverse/net
+Priority: optional
+Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
+Build-Depends: libusb-dev
+
+Package: ozerocdoff
+Architecture: any
+Description: An improved ZeroCD switching utility
+  This is the improved Option software for temporarily disabling
+  ZeroCD and allowing the modem to be a modem. It has replaced rezero.

@@ -1,0 +1,8 @@
+ozerocdoff (0.4) stable; urgency=low
+
+  * Packaging by the Vodafone Mobile Connect team for those
+    platforms that don't have it already
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Wed, 18 Feb 2009 17:37:02 +0000
+
+
