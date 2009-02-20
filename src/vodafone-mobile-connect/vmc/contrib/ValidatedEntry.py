@@ -39,16 +39,16 @@ Provides ValidatedEntry, a subclass of gtk.Entry which validates
 input.
 
 Usage: create an instance of ValidatedEntry, specifying the function
-to validate input.  E.g.:
+to validate input.  E.g.::
 
- :   def money(text):
- :       "validate input to be monetary value"
- :       ...
- :
- :   money_entry = ValidatedEntry(money)
+     def money(text):
+         "validate input to be monetary value"
+         ...
+  
+     money_entry = ValidatedEntry(money)
 
 Validation functions must accept one argument, the text to be
-validated, and must return one of:
+validated, and must return one of::
 
     1: the input is valid.
     0: the input is invalid and should not be displayed.
@@ -107,23 +107,23 @@ class ValidatedEntry(gtk.Entry):
         """
         Create instance of validating gtk.Entry.
 
-        valid_func: the function to validate input.  See module doc
-                    string for details.
+        @type valid_func: the function to validate input.  See module doc
+                          string for details.
 
-        max: passed to gtk.Entry constructor. (default: 0)
+        @type _max: passed to gtk.Entry constructor. (default: 0)
 
-        use_bg: if True (the default) set the base color of the
-                widget to indicate validity; see valid_bg and partial_bg.
+        @type use_bg: if True (the default) set the base color of the
+                      widget to indicate validity; see valid_bg and partial_bg.
 
-        valid_bg: a gtk.gdk.Color; the base color of the widget when
-                  the input is valid. (default: white)
+        @type valid_bg: a gtk.gdk.Color; the base color of the widget when
+                        the input is valid. (default: white)
 
-        partial_bg: a gtk.gdk.Color; the base color of the widget when
-                    the input is partially valid. (default: yellow)
+        @type partial_bg: a gtk.gdk.Color; the base color of the widget when
+                          the input is partially valid. (default: yellow)
 
-        error_func: a function to call (with no arguments) when
-                    valid_func returns INVALID.  If None (the default)
-                    the default action will be to emit a short beep.
+        @type error_func: a function to call (with no arguments) when
+                          valid_func returns INVALID.  If None (the default)
+                          the default action will be to emit a short beep.
         """
 
         assert valid_func('') != INVALID, \
@@ -291,7 +291,7 @@ def empty_valid(vfunc):
     v_money will not consider empty input VALID.  Instead of writing
     another validation function you can instead use empty_valid().  By
     wrapping a validation function with empty_valid(), input (after
-    stripping), if empty, will be considered VALID.  E.g.:
+    stripping), if empty, will be considered VALID.  E.g.::
 
         ventry = ValidatedEntry(empty_valid(v_money))
 
@@ -314,22 +314,11 @@ def bounded(vfunc, conv, minv=None, maxv=None):
     bounded is a factory function returning a validation function
     providing bounded input.  E.g., you may want an entry that accepts
     integers, but within a range, say, a score on a test graded in
-    whole numbers from 0 to 100:
+    whole numbers from 0 to 100::
 
         score_entry = ValidatedEntry(bounded(v_int, int, 0, 100))
 
     Arguments:
-
-        vfunc: A validation function.
-        conv: A callable that accepts a string argument (the text in
-              the entry) and returns a value to be compared to minv
-              and maxv.
-        minv: None or a value of the same type returned by conv.  If
-              None, there is no minimum value enforced.  If a value,
-              it will be the minimum value considered VALID.
-        maxv: None or a value of the same type returned by conv.  If
-              None, there is no maximum value enforced.  If a value,
-              it will be the maximum value considered VALID.
 
     One or both of minv/maxv must be specified.
 
@@ -338,6 +327,17 @@ def bounded(vfunc, conv, minv=None, maxv=None):
     minv/maxv.  If the converted value is within the bounds of
     minv/maxv then VALID will be returned, else PARTIAL will be
     returned.
+
+        @type vfunc: A validation function.
+        @type conv: A callable that accepts a string argument (the text in
+                    the entry) and returns a value to be compared to minv
+                    and maxv.
+        @type minv: None or a value of the same type returned by conv.  If
+                    None, there is no minimum value enforced.  If a value,
+                    it will be the minimum value considered VALID.
+        @type maxv: None or a value of the same type returned by conv.  If
+                    None, there is no maximum value enforced.  If a value,
+                    it will be the maximum value considered VALID.
 
     """
 
