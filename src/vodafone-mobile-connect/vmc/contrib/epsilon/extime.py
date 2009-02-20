@@ -820,7 +820,7 @@ class Time(object):
         insignificant for instances with a resolution greater or equal to 1
         day.
 
-        To illustrate the problem, consider a Time instance:
+        To illustrate the problem, consider a Time instance::
 
             T = Time.fromHumanly('today', tzinfo=anything)
 

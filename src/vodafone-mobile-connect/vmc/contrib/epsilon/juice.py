@@ -83,9 +83,9 @@ class JuiceBox(dict):
         Serialize and send this box to a Juice instance.  By the time it is
         being sent, several keys are required.  I must have exactly ONE of:
 
-            -ask
-            -answer
-            -error
+            - ask
+            - answer
+            - error
 
         If the '-ask' header is set, then the '-command' header must also be
         set.
