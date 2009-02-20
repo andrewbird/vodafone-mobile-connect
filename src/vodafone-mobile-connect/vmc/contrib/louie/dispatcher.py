@@ -5,21 +5,21 @@ core logic for the system.
 
 Internal attributes:
 
-- ``WEAKREF_TYPES``: Tuple of types/classes which represent weak
-  references to receivers, and thus must be dereferenced on retrieval
-  to retrieve the callable object
+  - ``WEAKREF_TYPES``: Tuple of types/classes which represent weak
+    references to receivers, and thus must be dereferenced on retrieval
+    to retrieve the callable object
         
-- ``connections``::
+  - ``connections``::
 
     { senderkey (id) : { signal : [receivers...] } }
     
-- ``senders``: Used for cleaning up sender references on sender
-  deletion::
+  - ``senders``: Used for cleaning up sender references on sender
+    deletion::
 
     { senderkey (id) : weakref(sender) }
     
-- ``senders_back``: Used for cleaning up receiver references on receiver
-  deletion::
+  - ``senders_back``: Used for cleaning up receiver references on receiver
+    deletion::
 
     { receiverkey (id) : [senderkey (id)...] }
 """
@@ -81,49 +81,49 @@ def reset():
 def connect(receiver, signal=All, sender=Any, weak=True):
     """Connect ``receiver`` to ``sender`` for ``signal``.
 
-    - ``receiver``: A callable Python object which is to receive
-      messages/signals/events.  Receivers must be hashable objects.
+      - ``receiver``: A callable Python object which is to receive
+        messages/signals/events.  Receivers must be hashable objects.
 
-      If weak is ``True``, then receiver must be weak-referencable (more
-      precisely ``saferef.safe_ref()`` must be able to create a
-      reference to the receiver).
+        If weak is ``True``, then receiver must be weak-referencable (more
+        precisely ``saferef.safe_ref()`` must be able to create a
+        reference to the receiver).
     
-      Receivers are fairly flexible in their specification, as the
-      machinery in the ``robustapply`` module takes care of most of the
-      details regarding figuring out appropriate subsets of the sent
-      arguments to apply to a given receiver.
+        Receivers are fairly flexible in their specification, as the
+        machinery in the ``robustapply`` module takes care of most of the
+        details regarding figuring out appropriate subsets of the sent
+        arguments to apply to a given receiver.
 
-      Note: If ``receiver`` is itself a weak reference (a callable), it
-      will be de-referenced by the system's machinery, so *generally*
-      weak references are not suitable as receivers, though some use
-      might be found for the facility whereby a higher-level library
-      passes in pre-weakrefed receiver references.
+        Note: If ``receiver`` is itself a weak reference (a callable), it
+        will be de-referenced by the system's machinery, so *generally*
+        weak references are not suitable as receivers, though some use
+        might be found for the facility whereby a higher-level library
+        passes in pre-weakrefed receiver references.
 
-    - ``signal``: The signal to which the receiver should respond.
+      - ``signal``: The signal to which the receiver should respond.
     
-      If ``All``, receiver will receive all signals from the indicated
-      sender (which might also be ``All``, but is not necessarily
-      ``All``).
+        If ``All``, receiver will receive all signals from the indicated
+        sender (which might also be ``All``, but is not necessarily
+        ``All``).
         
-      Otherwise must be a hashable Python object other than ``None``
-      (``DispatcherError`` raised on ``None``).
+        Otherwise must be a hashable Python object other than ``None``
+        (``DispatcherError`` raised on ``None``).
         
-    - ``sender``: The sender to which the receiver should respond.
+      - ``sender``: The sender to which the receiver should respond.
     
-      If ``Any``, receiver will receive the indicated signals from any
-      sender.
+        If ``Any``, receiver will receive the indicated signals from any
+        sender.
         
-      If ``Anonymous``, receiver will only receive indicated signals
-      from ``send``/``send_exact`` which do not specify a sender, or
-      specify ``Anonymous`` explicitly as the sender.
+        If ``Anonymous``, receiver will only receive indicated signals
+        from ``send``/``send_exact`` which do not specify a sender, or
+        specify ``Anonymous`` explicitly as the sender.
 
-      Otherwise can be any python object.
+        Otherwise can be any python object.
         
-    - ``weak``: Whether to use weak references to the receiver.
+      - ``weak``: Whether to use weak references to the receiver.
       
-      By default, the module will attempt to use weak references to
-      the receiver objects.  If this parameter is ``False``, then strong
-      references will be used.
+        By default, the module will attempt to use weak references to
+        the receiver objects.  If this parameter is ``False``, then strong
+        references will be used.
 
     Returns ``None``, may raise ``DispatcherTypeError``.
     """
@@ -176,13 +176,13 @@ def connect(receiver, signal=All, sender=Any, weak=True):
 def disconnect(receiver, signal=All, sender=Any, weak=True):
     """Disconnect ``receiver`` from ``sender`` for ``signal``.
 
-    - ``receiver``: The registered receiver to disconnect.
+      - ``receiver``: The registered receiver to disconnect.
     
-    - ``signal``: The registered signal to disconnect.
+      - ``signal``: The registered signal to disconnect.
     
-    - ``sender``: The registered sender to disconnect.
+      - ``sender``: The registered sender to disconnect.
     
-    - ``weak``: The weakref state to disconnect.
+      - ``weak``: The weakref state to disconnect.
 
     ``disconnect`` reverses the process of ``connect``, the semantics for
     the individual elements are logically equivalent to a tuple of
@@ -303,28 +303,28 @@ def get_all_receivers(sender=Any, signal=All):
 def send(signal=All, sender=Anonymous, *arguments, **named):
     """Send ``signal`` from ``sender`` to all connected receivers.
     
-    - ``signal``: (Hashable) signal value; see ``connect`` for details.
+      - ``signal``: (Hashable) signal value; see ``connect`` for details.
 
-    - ``sender``: The sender of the signal.
+      - ``sender``: The sender of the signal.
     
-      If ``Any``, only receivers registered for ``Any`` will receive the
-      message.
+        If ``Any``, only receivers registered for ``Any`` will receive the
+        message.
 
-      If ``Anonymous``, only receivers registered to receive messages
-      from ``Anonymous`` or ``Any`` will receive the message.
+        If ``Anonymous``, only receivers registered to receive messages
+        from ``Anonymous`` or ``Any`` will receive the message.
 
-      Otherwise can be any Python object (normally one registered with
-      a connect if you actually want something to occur).
+        Otherwise can be any Python object (normally one registered with
+        a connect if you actually want something to occur).
 
-    - ``arguments``: Positional arguments which will be passed to *all*
-      receivers. Note that this may raise ``TypeError`` if the receivers
-      do not allow the particular arguments.  Note also that arguments
-      are applied before named arguments, so they should be used with
-      care.
+      - ``arguments``: Positional arguments which will be passed to *all*
+        receivers. Note that this may raise ``TypeError`` if the receivers
+        do not allow the particular arguments.  Note also that arguments
+        are applied before named arguments, so they should be used with
+        care.
 
-    - ``named``: Named arguments which will be filtered according to the
-      parameters of the receivers to only provide those acceptable to
-      the receiver.
+      - ``named``: Named arguments which will be filtered according to the
+        parameters of the receivers to only provide those acceptable to
+        the receiver.
 
     Return a list of tuple pairs ``[(receiver, response), ...]``
 
@@ -407,28 +407,28 @@ def send_robust(signal=All, sender=Anonymous, *arguments, **named):
     """Send ``signal`` from ``sender`` to all connected receivers catching
     errors
 
-    - ``signal``: (Hashable) signal value, see connect for details
+      - ``signal``: (Hashable) signal value, see connect for details
 
-    - ``sender``: The sender of the signal.
+      - ``sender``: The sender of the signal.
     
-      If ``Any``, only receivers registered for ``Any`` will receive the
-      message.
+        If ``Any``, only receivers registered for ``Any`` will receive the
+        message.
 
-      If ``Anonymous``, only receivers registered to receive messages
-      from ``Anonymous`` or ``Any`` will receive the message.
+        If ``Anonymous``, only receivers registered to receive messages
+        from ``Anonymous`` or ``Any`` will receive the message.
 
-      Otherwise can be any Python object (normally one registered with
-      a connect if you actually want something to occur).
+        Otherwise can be any Python object (normally one registered with
+        a connect if you actually want something to occur).
 
-    - ``arguments``: Positional arguments which will be passed to *all*
-      receivers. Note that this may raise ``TypeError`` if the receivers
-      do not allow the particular arguments.  Note also that arguments
-      are applied before named arguments, so they should be used with
-      care.
+      - ``arguments``: Positional arguments which will be passed to *all*
+        receivers. Note that this may raise ``TypeError`` if the receivers
+        do not allow the particular arguments.  Note also that arguments
+        are applied before named arguments, so they should be used with
+        care.
 
-    - ``named``: Named arguments which will be filtered according to the
-      parameters of the receivers to only provide those acceptable to
-      the receiver.
+      - ``named``: Named arguments which will be filtered according to the
+        parameters of the receivers to only provide those acceptable to
+        the receiver.
 
     Return a list of tuple pairs ``[(receiver, response), ... ]``
 
