@@ -39,8 +39,8 @@ def observed(func):
     """Use this decorator to make your class methods observable.
     
     Your observer will receive at most two notifications:
-    - property_<name>_before_change
-    - property_<name>_after_change
+      - property_<name>_before_change
+      - property_<name>_after_change
 
     """
 

@@ -41,7 +41,8 @@ class Controller (Observer):
     parameter spurious controls the way spurious value change
     notifications are handled. If True, assignments to observable
     properties that do not actually change the value are
-    notified anyway."""
+    notified anyway.
+    """
 
     def __init__(self, model, spurious=False):
         Observer.__init__(self, model, spurious)
@@ -86,25 +87,25 @@ class Controller (Observer):
 
         This method is provided in three flavours:
         
-        1. An instance of an Adapter class can be created by the
-           caller and passed as a unique argument. The adapter must
-           be already fully configured.
+          1. An instance of an Adapter class can be created by the
+             caller and passed as a unique argument. The adapter must
+             be already fully configured.
 
-        2. The name of a model's property is passed as a unique
-           argument.  A correponding widget name is searched and if
-           found, an adapter is created. Name matching is performed
-           by searching into view's widget names for words that end
-           with the given property name. Matching is case
-           insensitive and words can be separated by spaces,
-           underscore (_) and CapitalizedWords. For example property
-           'prop' will match widget 'cb_prop'. If no matches or
-           multiple matches are found, a ValueError will be raised.
-           The way names are matched can be customized by deriving
-           method match_prop_name.
+          2. The name of a model's property is passed as a unique
+             argument.  A correponding widget name is searched and if
+             found, an adapter is created. Name matching is performed
+             by searching into view's widget names for words that end
+             with the given property name. Matching is case
+             insensitive and words can be separated by spaces,
+             underscore (_) and CapitalizedWords. For example property
+             'prop' will match widget 'cb_prop'. If no matches or
+             multiple matches are found, a ValueError will be raised.
+             The way names are matched can be customized by deriving
+             method match_prop_name.
 
-        3. Two strings can be passed, respectively containing the
-           name of an observable property in the model, and the name
-           of a widget in the view.
+          3. Two strings can be passed, respectively containing the
+             name of an observable property in the model, and the name
+             of a widget in the view.
 
         Flavour 1 allows for a full control, but flavour 2 and 3
         make easier to create adpaters with basic (default)

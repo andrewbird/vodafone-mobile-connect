@@ -30,15 +30,15 @@ class Model (object):
     """
     This class is the application model base class. It handles a set
     of observable properties which you are interested in showing by
-    one ore more view - via one or more observers of course. The
+    one or more views, via one or more observers of course. The
     mechanism is the following:
 
-    1. You are interested in showing a set of model property, that
-       you can declare in the __properties__ member map.
+      1. You are interested in showing a set of model property, that
+         you can declare in the __properties__ member map.
 
-    2. You define one or more observers that observe one or more
-       properties you registered. When someone changes a property
-       value the model notifies the changing to each observer.
+      2. You define one or more observers that observe one or more
+         properties you registered. When someone changes a property
+         value the model notifies the changing to each observer.
 
     The property-observer[s] association is given by the implicit
     rule in observers method names: if you want the model notified
@@ -46,11 +46,12 @@ class Model (object):
     define the method called 'property_p_value_change' in each
     listening observer class.
 
-    Notice that tipically 'controllers' implement the observer
+    Notice that typically 'controllers' implement the observer
     pattern. The notification method gets the emitting model, the
     old value for the property and the new one.  Properties
     functionalities are automatically provided by the
-    ObservablePropertyMeta meta-class."""
+    ObservablePropertyMeta meta-class.
+    """
 
     __metaclass__  = support.metaclasses.ObservablePropertyMeta
     __properties__ = {} # override this
