@@ -71,7 +71,7 @@ class OptionColtAuthStateMachine(AuthStateMachine):
 
 
 class OptionColtSIMClass(SIMBaseClass):
-    """Huawei E220 SIM Class"""
+    """Option Colt SIM Class"""
     def __init__(self, sconn):
         super(OptionColtSIMClass, self).__init__(sconn)
     
