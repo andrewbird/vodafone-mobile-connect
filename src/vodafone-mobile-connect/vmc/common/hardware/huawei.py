@@ -130,7 +130,7 @@ class HuaweiE2XXCustomizer(HuaweiCustomizer):
     
 class HuaweiEMXXAdapter(HuaweiE2XXAdapter):
     """
-    Adapter for all Huawei E2XX cards
+    Adapter for all Huawei embedded modules
     """
     def __init__(self, device):
         super(HuaweiEMXXAdapter, self).__init__(device)
@@ -149,7 +149,7 @@ class HuaweiEMXXAdapter(HuaweiE2XXAdapter):
 
 class HuaweiEMXXCustomizer(HuaweiCustomizer):
     """
-    Customizer for all Huawei E2XX cards
+    Customizer for all Huawei embedded modules
     """
     adapter = HuaweiEMXXAdapter
 
