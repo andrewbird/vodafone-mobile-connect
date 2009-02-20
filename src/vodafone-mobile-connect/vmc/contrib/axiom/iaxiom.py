@@ -14,17 +14,17 @@ class IStatEvent(Interface):
 
     Log messages conforming to this interface must have these keys:
 
-    - 'name': the name to be used for the backing Statoscope. This is used to
-      group related stats for a component. Examples: "IMAP grabber",
-      "database".
+      - 'name': the name to be used for the backing Statoscope. This is used to
+        group related stats for a component. Examples: "IMAP grabber",
+        "database".
 
     Optional keys:
 
-    - 'user': if this stat is something that can be blamed squarely on one
-      user, set this to the username (avatar.name)
+      - 'user': if this stat is something that can be blamed squarely on one
+        user, set this to the username (avatar.name)
 
-    - keys starting with 'stat_' map 'stuffs' to 'how many stuffs'. For
-      example, stat_bytes=3182.
+      - keys starting with 'stat_' map 'stuffs' to 'how many stuffs'. For
+        example, stat_bytes=3182.
 
     """
 

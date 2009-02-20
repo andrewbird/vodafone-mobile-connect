@@ -1137,7 +1137,7 @@ class reference(integer):
 
 class ieee754_double(SQLAttribute):
     """
-    From the SQLite documentation:
+    From the SQLite documentation::
 
         'Each value stored in an SQLite database (or manipulated by the
         database engine) has one of the following storage classes: (...)
@@ -1192,11 +1192,11 @@ class AbstractFixedPointDecimal(integer):
 
     For more information on Python's Decimal class:
 
-        http://www.python.org/doc/current/lib/module-decimal.html
+        - U{http://www.python.org/doc/current/lib/module-decimal.html}
 
     and on general computerized Decimal math in general:
 
-        http://www2.hursley.ibm.com/decimal/decarith.html
+        - U{http://www2.hursley.ibm.com/decimal/decarith.html}
 
     This is currently a private helper superclass because we cannot store
     additional metadata about column types; maybe we should fix that.

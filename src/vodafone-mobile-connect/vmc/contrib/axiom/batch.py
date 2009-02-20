@@ -561,53 +561,53 @@ class ProcessController(object):
     a transient exception class,
 
     Mode is one of
-      'stopped'       (no process running or starting)
-      'starting'      (process begun but not ready for requests)
-      'ready'         (process ready for requests)
-      'stopping'      (process being torn down)
-      'waiting_ready' (process beginning but will be shut down
+      - 'stopped'       (no process running or starting)
+      - 'starting'      (process begun but not ready for requests)
+      - 'ready'         (process ready for requests)
+      - 'stopping'      (process being torn down)
+      - 'waiting_ready' (process beginning but will be shut down
                           as soon as it starts up)
 
     Transitions are as follows
 
-       getProcess:
-           stopped -> starting:
+       - getProcess:
+           - stopped -> starting:
                launch process
                create/save in waitingForStartup/return Deferred
-           starting -> starting:
+           - starting -> starting:
                create/save/return Deferred
-           ready -> ready:
+           - ready -> ready:
                 return saved process
-           stopping:
+           - stopping:
                 return failing Deferred indicating transient failure
-           waiting_ready:
+           - waiting_ready:
                 return failing Deferred indicating transient failure
 
-       stopProcess:
-           stopped -> stopped:
+       - stopProcess:
+           - stopped -> stopped:
                return succeeding Deferred
-           starting -> waiting_ready:
+           - starting -> waiting_ready:
                create Deferred, add transient failure errback handler, return
-           ready -> stopping:
+           - ready -> stopping:
                call shutdown on process
                return Deferred which fires when shutdown is done
 
-       childProcessCreated:
-           starting -> ready:
+       - childProcessCreated:
+           - starting -> ready:
                callback saved Deferreds
                clear saved Deferreds
-           waiting_ready:
+           - waiting_ready:
                errback saved Deferred indicating transient failure
                return _shutdownIndexerProcess()
 
-       childProcessTerminated:
-           starting -> stopped:
+       - childProcessTerminated:
+           - starting -> stopped:
                errback saved Deferreds indicating transient failure
-           waiting_ready -> stopped:
+           - waiting_ready -> stopped:
                errback saved Deferreds indicating transient failure
-           ready -> stopped:
+           - ready -> stopped:
                drop reference to process object
-           stopping -> stopped:
+           - stopping -> stopped:
                Callback saved shutdown deferred
 
     @ivar process: A reference to the process object.  Set in every non-stopped

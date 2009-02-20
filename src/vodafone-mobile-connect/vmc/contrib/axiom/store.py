@@ -210,9 +210,9 @@ class BaseQuery:
         A debugging API, exposing SQLite's 'EXPLAIN' statement.
 
         While this is not a private method, you also probably don't have any
-        use for it unless you understand this page very well:
+        use for it unless you understand this page very well::
 
-            http://www.sqlite.org/opcode.html
+            U{http://www.sqlite.org/opcode.html}
 
         Once you do, it can be handy to call this interactively to get a sense
         of the complexity of a query.
@@ -390,7 +390,7 @@ class BaseQuery:
                 => [1, 2, 3]
 
         You can also use distinct queries to eliminate duplicate results from
-        joining two Item types together in a query, like so:
+        joining two Item types together in a query, like so::
 
             x = X(store=s, value=1, name=u'hello')
             Y(store=s, other=x, ident=u'a')
@@ -955,7 +955,7 @@ class Store(Empowered):
 
     Store an item in me by setting its 'store' attribute to be me.
 
-    I can be created one of two ways:
+    I can be created one of two ways::
 
         Store()                      # Create an in-memory database
 
@@ -1030,7 +1030,7 @@ class Store(Empowered):
         L{axiom.substore.Substore}, the storeID of the item within its parent
         which opened it.
 
-        @raises: C{ValueError} if both C{dbdir} and C{filesdir} are specified
+        @raises ValueError: if both C{dbdir} and C{filesdir} are specified
         """
         if parent is not None or idInParent is not None:
             assert parent is not None
@@ -1273,11 +1273,11 @@ class Store(Empowered):
 
     def findOrCreate(self, userItemClass, __ifnew=None, **attrs):
         """
-        Usage:
+        Usage::
 
             s.findOrCreate(userItemClass [, function] [, x=1, y=2, ...])
 
-        Example:
+        Example::
 
             class YourItemType(Item):
                 a = integer()
@@ -1494,11 +1494,11 @@ class Store(Empowered):
     def findFirst(self, tableClass, comparison=None,
                   offset=None, sort=None, default=None):
         """
-        Usage:
+        Usage::
 
             s.findFirst(tableClass [, query arguments except 'limit'])
 
-        Example:
+        Example::
 
             class YourItemType(Item):
                 a = integer()
@@ -1816,7 +1816,7 @@ class Store(Empowered):
 
         @param tableClass: an Item subclass
 
-        @raises L{axiom.errors.ItemClassesOnly}: if an object other than a subclass of Item is passed.
+        @raises axiom.errors.ItemClassesOnly: if an object other than a subclass of Item is passed.
 
         @return: a string
         """
@@ -1837,7 +1837,7 @@ class Store(Empowered):
         type must be valid). If the underlying table does not exist in
         the database, it will be created as a side-effect.
 
-        @param tableClass: an Item subclass
+        @param attribute: an Item subclass
 
         @return: a string
 
@@ -1859,7 +1859,7 @@ class Store(Empowered):
         table does not exist in the database, it will be created as a
         side-effect.
 
-        @param tableClass: an Item subclass
+        @param attribute: an Item subclass
 
         @return: a string
         """
