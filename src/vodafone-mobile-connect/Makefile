@@ -23,3 +23,18 @@ clean:
 	rm -rf tmp build *.egg-info *.deb *.changes
 	find . -name \*.pyc -exec rm {} \;
 	find . -name \*.pyo -exec rm {} \;
+
+distclean: clean
+	rm -rf apidocs
+
+apidocs:
+	rm -rf apidocs
+	pydoctor --add-package=$(shell pwd)/vmc \
+		 --project-name="vodafone-mobile-connect" \
+		 --make-html \
+		 --html-output=apidocs
+
+apiview:
+	firefox file://$(shell pwd)/apidocs/index.html
+
+.PHONY: apidocs apiview
