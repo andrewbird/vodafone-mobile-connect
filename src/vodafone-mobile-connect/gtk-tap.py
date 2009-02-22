@@ -89,5 +89,8 @@ application = Application(APP_SHORT_NAME)
 #factory = shell.getManholeFactory(globals(), admin='admin')
 #strports.service(SSH_PORT, factory).setServiceParent(application)
 
-IProcess(application).processName = APP_SHORT_NAME
+# Causes reinitialisation and consequently double probing
+# Disabling saves 2 secs on 2.2Ghz laptop and 8 secs on EeePC-701
+#IProcess(application).processName = APP_SHORT_NAME
+
 service.setServiceParent(application)
