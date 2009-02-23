@@ -37,7 +37,8 @@ class FedoraBasedDistro(LinuxPlugin):
     os_name = re.compile("Fedora")
     os_version = None
     customization = fedora_customization
-   
+    os_groups = ['dip', 'uucp', 'lock']
+
     #XXX: Almost duplicated code with Suse plugin
     def get_timezone(self):
         timezone_re = re.compile('ZONE="(?P<tzname>[\w/]+)"')
