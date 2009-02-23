@@ -22,6 +22,9 @@ Linux-based OS plugin
 __version__ = "$Rev: 1172 $"
 
 import re
+import os
+import grp
+import pwd
 
 from twisted.python.procutils import which
 from twisted.internet.utils import getProcessOutput
@@ -33,6 +36,8 @@ class LinuxPlugin(UnixPlugin):
     """
     OSPlugin for Linux-based distros
     """
+
+    os_groups = None  # groups user executing vmc has to pertaint to.
     
     dialer = WvdialDialer()
     
@@ -42,7 +47,23 @@ class LinuxPlugin(UnixPlugin):
     def check_dialer_assumptions(self):
         return self.dialer.check_assumptions()
     
+
     def check_permissions(self):
+        # Checks if user pertains to needed distro groups.
+        uid = os.getuid()
+        print "Efective user id:", uid
+        if self.os_groups and (uid != 0):
+            # User has not root privileges and groups are not None.
+            print "Distro Groups:", self.os_groups
+            userinfo = pwd.getpwuid(uid)
+            username = userinfo[0]
+            print "username", username
+            for gr in self.os_groups:
+                group_info = grp.getgrnam(gr)
+                if username not in group_info.gr_mem:
+                    msg = 'user %s should be a member of group %s' % (username, self.os_groups)
+                    return msg
+                
         return self.dialer.check_permissions()
     
     def get_connection_args(self, dialer):
