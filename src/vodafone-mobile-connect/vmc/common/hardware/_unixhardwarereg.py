@@ -41,6 +41,7 @@ def probe_port(port):
     Returns C{True} if C{port} works, otherwise returns C{False}
     """
     try:
+        ser = None
         ser = serial.Serial(port, timeout=1)
         ser.write('AT+CGMR\r\n')
         if not ser.readlines():
@@ -51,9 +52,13 @@ def probe_port(port):
 
         return True
     except serial.SerialException:
-        return False
+        if ser is None:
+            raise RuntimeError('Port %s not available: check permissions' % port)
+        else:
+            return False
     finally:
-        ser.close()
+        if ser is not None:
+            ser.close()
 
 def probe_ports(ports):
     """
