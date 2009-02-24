@@ -83,7 +83,11 @@ class CellTypeDaemon(VMCDaemon):
     """
     def function(self):
         def get_network_info_cb(netinfo):
-            noti = N.UnsolicitedNotification(N.SIG_NEW_CONN_MODE, netinfo[1])
+            if netinfo[1] in 'GPRS':
+                sig = N.GPRS_SIGNAL
+            else:
+                sig = N.UMTS_SIGNAL
+            noti = N.UnsolicitedNotification(N.SIG_NEW_CONN_MODE, sig)
             self.manager.on_notification_received(noti)
         
         def get_network_info_eb(failure):
