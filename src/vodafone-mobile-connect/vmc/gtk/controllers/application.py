@@ -1207,6 +1207,18 @@ class ApplicationController(BaseApplicationController):
         self.view['upload_statusbar'].push(1, upmsg)
         self.view['download_statusbar'].push(1, downmsg)
     
+    def start_polling_stats(self):
+        if self.model.daemons.has_daemon('signal'):
+            self.model.daemons.start_daemon('signal')
+        if self.model.daemons.has_daemon('conn_mode'):
+            self.model.daemons.start_daemon('conn_mode')
+
+    def stop_polling_stats(self):
+        if self.model.daemons.has_daemon('conn_mode'):
+            self.model.daemons.stop_daemon('conn_mode')
+        if self.model.daemons.has_daemon('signal'):
+            self.model.daemons.stop_daemon('signal')
+
     #################################################################
     # SIGNAL HANDLERS                                               #
     #################################################################
@@ -1311,7 +1323,7 @@ plug in the 3G device and start again.""") % consts.APP_LONG_NAME
             self.stop_network_stats_timer()
             self.model.disconnect_internet(hotplug=True)
         
-        self.stop_signal_quality_timer()
+        self.stop_polling_stats()
         # clean treeviews
         self._empty_treeviews(['inbox_treeview', 'contacts_treeview'])
     
@@ -1380,10 +1392,12 @@ has been added, in around 15 seconds
             
             statemachine_callbacks = {
                 'InitExit' : configure_device,
+                'NetRegExit' : self.start_polling_stats,
             }
         else:
             statemachine_callbacks = {
                 'InitExit' : self.start,
+                'NetRegExit' : self.start_polling_stats,
             }
         
         statemachine_errbacks = {

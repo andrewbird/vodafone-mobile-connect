@@ -150,6 +150,13 @@ class VMCDaemonCollection(object):
         except KeyError:
             raise 
     
+    def start_daemon(self, name):
+        """Starts daemon with C{name}"""
+        try:
+            self.daemons[name].start()
+        except KeyError:
+            raise
+
     def start_daemons(self):
         """Starts all daemons"""
         for daemon in self.daemons.values():

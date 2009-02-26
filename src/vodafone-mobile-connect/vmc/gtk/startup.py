@@ -300,6 +300,7 @@ def hook_it_up(splash, device=None):
         
     statemachine_callbacks['AuthEnter'] = lambda: splash.set_text(_('Authenticating...'))
     statemachine_callbacks['AuthExit'] = on_auth_exit
+    statemachine_callbacks['NetRegExit'] = ctrl.start_polling_stats
     
     statemachine_errbacks = {
         'AlreadyConnecting' : None,
