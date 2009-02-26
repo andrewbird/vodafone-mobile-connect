@@ -375,9 +375,13 @@ New profile available, do you want to load it?""")
         """
         Sets the signal level and network name in the GUI
         """
+        def paint_initial_values_eb(failure):
+            """Need to handle the exception if get_network_info gets +COPS: 0"""
+            return
         self.model.get_signal_level().addCallback(self._change_signal_level)
         d = self.model.get_network_info()
         d.addCallback(self._network_reg_cb)
+        d.addErrback(paint_initial_values_eb)
     
     def _network_reg_cb(self, netinfo):
         if netinfo:
