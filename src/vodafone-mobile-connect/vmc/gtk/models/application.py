@@ -87,9 +87,13 @@ class ApplicationModel(BaseWrapperModel):
             pass
         
         # get the connection type for the last time
+        def connect_internet_eb(failure):
+            """Need to handle the exception if get_network_info gets +COPS: 0"""
+            return
         d = self.wrapper.device.sconn.get_network_info()
         d.addCallback(lambda netinfo:
                       self.connsm.tracker.set_conn_mode(netinfo[1]))
+        d.addErrback(connect_internet_eb)
         
         # What if the device has just one serial port? We must stop whatever
         # daemons we've got running and lose the transport connection in
