@@ -273,6 +273,10 @@ def hook_it_up(splash, device=None):
         N.SIG_NEW_CONN_MODE : ctrl._conn_mode_changed,
         N.SIG_SMS : ctrl._on_sms_received,
         N.SIG_CALL : None,
+        N.SIG_CREG : None,
+        N.SIG_CONNECTED : None,
+        N.SIG_CONN : None, # Why are there two notifications for 'Connect'?
+        N.SIG_DISCONNECTED : None,
     }
     
     profile_name = config.get('profile', 'name')
