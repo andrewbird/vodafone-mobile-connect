@@ -1,7 +1,6 @@
 """
-Automatically generated from a VMC Opcos.XML file which had these properties
-    CreationDate: 2008-06-29T11:54:37
-    VersionInfo: 9.3.3.10453
+Automatically generated from a VMC Opcos.XML file embedded 
+in a zip file called Opco_9.3.6.12095_RP43.zip
 """
 
 from networks import NetworkOperator
@@ -96,7 +95,7 @@ class Vodafone_20205_Prepaid(NetworkOperator):
     country = "Greece"
     type = "Prepaid"
     smsc = "+306942190000"
-    apn = "vmckarta"
+    apn = "web.session"
     username = ""
     password = ""
     dns1 = None
@@ -231,8 +230,8 @@ class Vodafone_23801_Contract(NetworkOperator):
     apn = "internet"
     username = ""
     password = ""
-    dns1 = "194.239.134.83"
-    dns2 = "193.162.159.194"
+    dns1 = None
+    dns2 = None
 
 class Vodafone_23801_Prepaid(NetworkOperator):
     netid = ["23801"]
@@ -267,8 +266,8 @@ class Vodafone_2380171_Contract(NetworkOperator):
     apn = "internet.no"
     username = ""
     password = ""
-    dns1 = "80.232.41.10"
-    dns2 = "80.232.41.20"
+    dns1 = None
+    dns2 = None
 
 class Vodafone_2380171_Prepaid(NetworkOperator):
     netid = ["2380171"]
@@ -303,8 +302,8 @@ class Vodafone_2380172_Contract(NetworkOperator):
     apn = "internet.se"
     username = ""
     password = ""
-    dns1 = "213.50.29.170"
-    dns2 = "213.50.29.180"
+    dns1 = None
+    dns2 = None
 
 class Vodafone_2380172_Prepaid(NetworkOperator):
     netid = ["2380172"]
@@ -315,8 +314,8 @@ class Vodafone_2380172_Prepaid(NetworkOperator):
     apn = "internet.se"
     username = ""
     password = ""
-    dns1 = "213.50.29.170"
-    dns2 = "213.50.29.180"
+    dns1 = None
+    dns2 = None
 
 class Vodafone_2380172_Corporate(NetworkOperator):
     netid = ["2380172"]
@@ -327,8 +326,8 @@ class Vodafone_2380172_Corporate(NetworkOperator):
     apn = "internet.se"
     username = ""
     password = ""
-    dns1 = "213.50.29.170"
-    dns2 = "213.50.29.180"
+    dns1 = None
+    dns2 = None
 
 class Vodafone_24802_Contract(NetworkOperator):
     netid = ["24802"]
@@ -1062,18 +1061,6 @@ class Vodafone_54201_Prepaid(NetworkOperator):
     dns1 = None
     dns2 = None
 
-class Vodafone_54201_Corporate(NetworkOperator):
-    netid = ["54201"]
-    name = "Vodafone Fiji"
-    country = "Fiji"
-    type = "Corporate"
-    smsc = "+679901400"
-    apn = "vfinternet.fj"
-    username = ""
-    password = ""
-    dns1 = None
-    dns2 = None
-
 class Vodafone_28001_Contract(NetworkOperator):
     netid = ["28001"]
     name = "Cytamobile-Vodafone"
@@ -1212,7 +1199,7 @@ class Vodafone_23003_Contract(NetworkOperator):
     country = "Czech Republic"
     type = "Contract"
     smsc = "+420608005681"
-    apn = "dataplus.vodafone.cz"
+    apn = "ointernet"
     username = ""
     password = ""
     dns1 = None
@@ -1224,7 +1211,7 @@ class Vodafone_23003_Prepaid(NetworkOperator):
     country = "Czech Republic"
     type = "Prepaid"
     smsc = "+420608005681"
-    apn = "dataplus.vodafone.cz"
+    apn = "ointernet"
     username = ""
     password = ""
     dns1 = None
@@ -1236,7 +1223,7 @@ class Vodafone_23003_Corporate(NetworkOperator):
     country = "Czech Republic"
     type = "Corporate"
     smsc = "+420608005681"
-    apn = "dataplus.vodafone.cz"
+    apn = "internet"
     username = ""
     password = ""
     dns1 = None
@@ -1380,7 +1367,7 @@ class Vodafone_41302_Prepaid(NetworkOperator):
     country = "Sri Lanka"
     type = "Prepaid"
     smsc = "+9477000003"
-    apn = "ppinternet"
+    apn = "ppwap"
     username = ""
     password = ""
     dns1 = None
@@ -1491,6 +1478,54 @@ class Vodafone_23403_Prepaid(NetworkOperator):
     apn = "airtel-ci-gprs.com"
     username = ""
     password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_73001_Contract(NetworkOperator):
+    netid = ["73001"]
+    name = "Entel PCS"
+    country = "Chile"
+    type = "Contract"
+    smsc = "+5698890005"
+    apn = "imovil.entelpcs.cl"
+    username = "entelpcs"
+    password = "entelpcs"
+    dns1 = None
+    dns2 = None
+
+class Vodafone_73001_Prepaid(NetworkOperator):
+    netid = ["73001"]
+    name = "Entel PCS"
+    country = "Chile"
+    type = "Prepaid"
+    smsc = "+5698890005"
+    apn = "imovil.entelpcs.cl"
+    username = "entelpcs"
+    password = "entelpcs"
+    dns1 = None
+    dns2 = None
+
+class Vodafone_73001_WebSession(NetworkOperator):
+    netid = ["73001"]
+    name = "Entel PCS"
+    country = "Chile"
+    type = "WebSession"
+    smsc = "+5698890005"
+    apn = "imovil.entelpcs.cl"
+    username = "entelpcs"
+    password = "entelpcs"
+    dns1 = None
+    dns2 = None
+
+class Vodafone_73001_Corporate(NetworkOperator):
+    netid = ["73001"]
+    name = "Entel PCS"
+    country = "Chile"
+    type = "Corporate"
+    smsc = "+5698890005"
+    apn = "imovil.entelpcs.cl"
+    username = "entelpcs"
+    password = "entelpcs"
     dns1 = None
     dns2 = None
 
@@ -2075,7 +2110,7 @@ class Vodafone_405750_Contract(NetworkOperator):
     name = "Vodafone India Jammu and Kasmir"
     country = "India"
     type = "Contract"
-    smsc = "+919796099990"
+    smsc = "+919796009905"
     apn = "www"
     username = ""
     password = ""
@@ -2087,7 +2122,7 @@ class Vodafone_405750_Prepaid(NetworkOperator):
     name = "Vodafone India Jammu and Kasmir"
     country = "India"
     type = "Prepaid"
-    smsc = "+919796099990"
+    smsc = "+919796009905"
     apn = "www"
     username = ""
     password = ""
@@ -2099,7 +2134,7 @@ class Vodafone_405750_Corporate(NetworkOperator):
     name = "Vodafone India Jammu and Kasmir"
     country = "India"
     type = "Corporate"
-    smsc = "+919796099990"
+    smsc = "+919796009905"
     apn = "hutchvpn.hutch.co.in"
     username = ""
     password = ""
@@ -2219,7 +2254,7 @@ class Vodafone_405754_Contract(NetworkOperator):
     name = "Vodafone India Himachal Pradesh"
     country = "India"
     type = "Contract"
-    smsc = "+919736099990"
+    smsc = "+919796009905"
     apn = "www"
     username = ""
     password = ""
@@ -2231,7 +2266,7 @@ class Vodafone_405754_Prepaid(NetworkOperator):
     name = "Vodafone India Himachal Pradesh"
     country = "India"
     type = "Prepaid"
-    smsc = "+919736099990"
+    smsc = "+919796009905"
     apn = "www"
     username = ""
     password = ""
@@ -2243,7 +2278,7 @@ class Vodafone_405754_Corporate(NetworkOperator):
     name = "Vodafone India Himachal Pradesh"
     country = "India"
     type = "Corporate"
-    smsc = "+919736099990"
+    smsc = "+919796009905"
     apn = "hutchvpn.hutch.co.in"
     username = ""
     password = ""
@@ -2291,7 +2326,7 @@ class Vodafone_405756_Contract(NetworkOperator):
     name = "Vodafone India Madhya Pradesh"
     country = "India"
     type = "Contract"
-    smsc = "+919784099990"
+    smsc = "+919713099990"
     apn = "www"
     username = ""
     password = ""
@@ -2303,7 +2338,7 @@ class Vodafone_405756_Prepaid(NetworkOperator):
     name = "Vodafone India Madhya Pradesh"
     country = "India"
     type = "Prepaid"
-    smsc = "+919784099990"
+    smsc = "+919713099990"
     apn = "www"
     username = ""
     password = ""
@@ -2315,7 +2350,7 @@ class Vodafone_405756_Corporate(NetworkOperator):
     name = "Vodafone India Madhya Pradesh"
     country = "India"
     type = "Corporate"
-    smsc = "+919784099990"
+    smsc = "+919713099990"
     apn = "hutchvpn.hutch.co.in"
     username = ""
     password = ""
