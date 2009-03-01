@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="vmc-devices.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2412"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2425"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2438"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2451"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2464"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2594"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2609"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3413">
+      <rect
+         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3415"
+         width="100"
+         height="50"
+         x="160"
+         y="407.36218"
+         inkscape:transform-center-x="-70"
+         inkscape:transform-center-y="45"
+         transform="matrix(0,1,-1,0,0,0)" />
+    </clipPath>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask3427">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3429"
+         width="100"
+         height="50"
+         x="160"
+         y="407.36218"
+         inkscape:transform-center-x="-70"
+         inkscape:transform-center-y="45"
+         transform="matrix(0,1,-1,0,0,0)" />
+    </mask>
+    <inkscape:perspective
+       id="perspective3438"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3464">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3466"
+         width="100"
+         height="50"
+         x="160"
+         y="487.36218"
+         inkscape:transform-center-x="-70"
+         inkscape:transform-center-y="45" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective3487"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3502"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3515"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3528"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3538">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3540"
+         width="100"
+         height="50"
+         x="15"
+         y="492.36218"
+         inkscape:transform-center-x="-70"
+         inkscape:transform-center-y="45" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective3555"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3567">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3569"
+         width="85"
+         height="130"
+         x="-10"
+         y="362.36218"
+         inkscape:transform-center-x="-59.5"
+         inkscape:transform-center-y="117" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective3584"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3596">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3598"
+         width="75"
+         height="130"
+         x="60"
+         y="517.36218"
+         inkscape:transform-center-x="-52.5"
+         inkscape:transform-center-y="117" />
+    </clipPath>
+    <inkscape:perspective
+       id="perspective3607"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3615">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect3617"
+         width="270"
+         height="85"
+         x="-180"
+         y="587.36218"
+         inkscape:transform-center-x="-189"
+         inkscape:transform-center-y="76.5"
+         transform="matrix(0.7265411,-0.687123,0.687123,0.7265411,0,0)" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffff8f"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.68235294"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="447.34822"
+     inkscape:cy="390.09184"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1077"
+     inkscape:window-height="867"
+     inkscape:window-x="445"
+     inkscape:window-y="144">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2403"
+       visible="true"
+       enabled="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       y="32.362183"
+       x="152"
+       id="image2453"
+       height="128"
+       width="128"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/trunk/src/vodafone-mobile-connect/resources/glade/novatel-mc950d.png"
+       xlink:href="/home/nherriot/workspace/vodafonemobilec/trunk/src/vodafone-mobile-connect/resources/glade/novatel-mc950d.png" />
+    <image
+       y="192.36218"
+       x="332"
+       id="image2466"
+       height="128"
+       width="128"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/trunk/src/vodafone-mobile-connect/resources/glade/option-gt-3g+-emea.png"
+       xlink:href="/home/nherriot/workspace/vodafonemobilec/trunk/src/vodafone-mobile-connect/resources/glade/option-gt-3g+-emea.png" />
+    <image
+       y="49.362183"
+       x="808"
+       id="image2596"
+       height="243"
+       width="512"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/E272-AA.jpg"
+       xlink:href="E272-AA.jpg" />
+    <g
+       id="g2621"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-e272.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:transform-center-y="45"
+         inkscape:transform-center-x="-70"
+         y="342.36218"
+         x="160"
+         height="50"
+         width="100"
+         id="rect2617"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <image
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-e272.png.png"
+         xlink:href="E272-AA.jpg"
+         sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/E272-AA.jpg"
+         width="100"
+         height="47.460938"
+         id="image2600"
+         x="160"
+         y="344.90125" />
+    </g>
+    <image
+       y="332.36218"
+       x="800"
+       id="image2611"
+       height="497.8125"
+       width="300"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/RGB Low Resolution(24189).jpg"
+       xlink:href="RGB Low Resolution(24189).jpg" />
+    <image
+       y="160"
+       x="-462.36218"
+       id="image2615"
+       height="100"
+       width="60.263653"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/RGB Low Resolution(24189).jpg"
+       xlink:href="RGB Low Resolution(24189).jpg"
+       transform="matrix(0,-1,1,0,0,-10.101525)"
+       clip-path="url(#clipPath3413)"
+       mask="url(#mask3427)" />
+    <image
+       y="-307.63782"
+       x="822"
+       id="image3440"
+       height="250"
+       width="378"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/vodafone-usb-modem-lite-h1.png"
+       xlink:href="vodafone-usb-modem-lite-h1.png" />
+    <g
+       id="g3476"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-k3565.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:transform-center-y="45"
+         inkscape:transform-center-x="-70"
+         y="452.36218"
+         x="160"
+         height="50"
+         width="100"
+         id="rect3474"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <image
+         transform="translate(-0.7142858,-31.428571)"
+         clip-path="url(#clipPath3464)"
+         xlink:href="vodafone-usb-modem-lite-h1.png"
+         sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/vodafone-usb-modem-lite-h1.png"
+         width="80"
+         height="52.910049"
+         id="image3450"
+         x="170"
+         y="478.02356" />
+    </g>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3472"
+       width="100"
+       height="50"
+       x="280"
+       y="337.36218"
+       inkscape:transform-center-x="-70"
+       inkscape:transform-center-y="45" />
+    <image
+       y="332.36218"
+       x="1232"
+       id="image3489"
+       height="200"
+       width="408"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/793254_huaweie172.jpg"
+       xlink:href="793254_huaweie172.jpg" />
+    <image
+       y="512.36218"
+       x="160"
+       id="image3493"
+       height="50"
+       width="100"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/793254_huaweie172.jpg"
+       xlink:href="793254_huaweie172.jpg"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-e172.png.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <image
+       y="-390"
+       x="682.36218"
+       id="image3504"
+       height="80"
+       width="80"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/trunk/src/vodafone-mobile-connect/resources/glade/huawei-e620.png"
+       xlink:href="/home/nherriot/workspace/vodafonemobilec/trunk/src/vodafone-mobile-connect/resources/glade/huawei-e620.png"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <image
+       y="572.36218"
+       x="1182"
+       id="image3530"
+       height="391"
+       width="398"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/K3520_2.jpg"
+       xlink:href="K3520_2.jpg" />
+    <g
+       id="g3544"
+       transform="translate(160,70)"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-k3520.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:transform-center-y="45"
+         inkscape:transform-center-x="-70"
+         y="502.36218"
+         x="0"
+         height="50"
+         width="100"
+         id="rect3542"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <image
+         transform="translate(-15.357144,8.9285684)"
+         clip-path="url(#clipPath3538)"
+         inkscape:transform-center-y="328.70353"
+         inkscape:transform-center-x="184"
+         xlink:href="K3520_2.jpg"
+         sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/K3520_2.jpg"
+         width="80"
+         height="78.592964"
+         id="image3534"
+         x="24.642864"
+         y="494.14792" />
+    </g>
+    <g
+       id="g3573"
+       transform="translate(90,-5)"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-e270.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:transform-center-y="45"
+         inkscape:transform-center-x="-70"
+         y="637.36218"
+         x="70"
+         height="50"
+         width="100"
+         id="rect3571"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <image
+         transform="matrix(0,0.6153846,-0.6153846,0,382.12522,642.23747)"
+         clip-path="url(#clipPath3567)"
+         xlink:href="usb_modem_E270_small.gif"
+         sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/usb_modem_E270_small.gif"
+         width="75"
+         height="140"
+         id="image3557"
+         x="-5"
+         y="362.36218" />
+    </g>
+    <g
+       id="g3619"
+       transform="translate(170,0)"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/huawei-e870.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:transform-center-y="45"
+         inkscape:transform-center-x="-70"
+         y="692.36218"
+         x="-10"
+         height="50"
+         width="100"
+         id="rect2619"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <image
+         clip-path="url(#clipPath3615)"
+         transform="matrix(0.2421803,0.229041,-0.229041,0.2421803,52.857143,509.67002)"
+         xlink:href="E870.jpg"
+         sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/E870.jpg"
+         width="260"
+         height="249"
+         id="image3609"
+         x="271.0658"
+         y="359.38318" />
+    </g>
+  </g>
+</svg>
