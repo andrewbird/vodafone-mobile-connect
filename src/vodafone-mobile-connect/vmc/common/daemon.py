@@ -199,9 +199,18 @@ class VMCDaemonFactory(object):
             daemon = SignalQualityDaemon(freq, device, notification_manager)
             col.append_daemon('signal', daemon)
             
-            if N.SIG_NEW_CONN_MODE not in device.custom.device_capabilities:
-                daemon = CellTypeDaemon(60, device, notification_manager)
-                col.append_daemon('conn_mode', daemon)
+            if N.SIG_NEW_CONN_MODE in device.custom.device_capabilities:
+                # the device says that it can report bearer change, nonetheless
+                # we will poll every 4 minutes
+                freq = 240
+            else:
+                # device doesn't send unsolicited notifications about bearer
+                # changes, we will have to monitor it ourselves every minute
+                freq = 60
+
+            daemon = CellTypeDaemon(freq, device, notification_manager)
+            col.append_daemon('conn_mode', daemon)
+
         else:
             # device with just one port
             daemon = SignalQualityDaemon(15, device, notification_manager)
