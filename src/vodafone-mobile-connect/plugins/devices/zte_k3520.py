@@ -24,7 +24,7 @@ from vmc.common.plugin import DBusDevicePlugin
 
 class ZTEK3520(DBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for ZTE's version of Vodafone's K3520"""
-    name = "Vodafone K3520-Z"
+    name = "ZTE K3520-Z"
     version = "0.1"
     author = "Andrew Bird"
     custom = ZTECustomizer
