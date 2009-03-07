@@ -1276,11 +1276,11 @@ to Internet, you cannot perform any operation while connected""")
         self.model.get_sms_by_index(index).addCallback(get_sms_cb)
     
     def invalid_dns_handler(self, dnslist):
-        """Handler called when wvdial recibes invalid DNS"""
-        title = _("Invalid DNS recibed from APN")
+        """Handler called when wvdial receives invalid DNS"""
+        title = _("Invalid DNS received from Network")
         message = _(
 """
-<small>The DNS settings received from the APN are invalid. You will
+<small>The DNS settings received from the mobile network are invalid. You will
 probably want to restart the connection, or if the problem persists, you
 can specify a static DNS entry in the connection preferences</small>
 """)
