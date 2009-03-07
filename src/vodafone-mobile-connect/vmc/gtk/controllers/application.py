@@ -1306,7 +1306,7 @@ that there's no carrier.</small>""") % consts.APP_LONG_NAME
         self.view['connect_button'].set_active(False)
     
     def device_removed_handler(self):
-        """Handler called when wvdial recibes invalid DNS"""
+        """Handler called when the mobile device is unplugged whilst in use"""
         message = _("Device in use removed")
         details = _(
 """
