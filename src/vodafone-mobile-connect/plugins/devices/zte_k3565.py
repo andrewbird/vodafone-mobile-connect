@@ -19,10 +19,9 @@
 __version__ = "$Rev: 1209 $"
 
 from vmc.common.exceptions import DeviceLacksExtractInfo
-from vmc.common.hardware.zte import ZTECustomizer
-from vmc.common.plugin import DBusDevicePlugin
+from vmc.common.hardware.zte import ZTECustomizer, ZTEDBusDevicePlugin
 
-class ZTEK3565(DBusDevicePlugin):
+class ZTEK3565(ZTEDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for ZTE's version of Vodafone's K3565"""
     name = "ZTE K3565-Z"
     version = "0.1"

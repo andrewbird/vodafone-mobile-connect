@@ -25,6 +25,8 @@ import re
 
 from vmc.common.command import get_cmd_dict_copy, OK_REGEXP, ERROR_REGEXP
 from vmc.common.hardware.base import Customizer
+from vmc.common.sim import SIMBaseClass
+from vmc.common.plugin import DBusDevicePlugin
 
 ZTE_DICT = {
    'GPRSONLY' : 'AT+ZSNT=1,0,0',
@@ -47,6 +49,33 @@ info = dict(echo=None,
                 """, re.VERBOSE))
 
 ZTE_CMD_DICT['get_netreg_status'] = info
+
+
+class ZTESIMClass(SIMBaseClass):
+    """
+    ZTE SIM Class
+    """
+    def __init__(self, sconn):
+        super(ZTESIMClass, self).__init__(sconn)
+
+    def initialize(self, set_encoding=True):
+        d = super(ZTESIMClass, self).initialize(set_encoding=set_encoding)
+        def init_callback(size):
+            # setup SIM storage defaults
+            self.sconn.send_at('AT+CPMS="SM","SM","SM"')
+            return size
+
+        d.addCallback(init_callback)
+        return d
+
+
+class ZTEDBusDevicePlugin(DBusDevicePlugin):
+    """DBusDevicePlugin for ZTE"""
+    simklass = ZTESIMClass
+
+    def __init__(self):
+        super(ZTEDBusDevicePlugin, self).__init__()
+
 
 class ZTECustomizer(Customizer):
     async_regexp = None
