@@ -30,7 +30,7 @@ class OptionK3760(OptionDBusDevicePlugin):
     """
     L{vmc.common.plugin.DBusDevicePlugin} for Option's version of Vodafone K3760
     """
-    name = "Vodafone K3760"
+    name = "Option K3760"
     version = "0.1"
     author = "Andrew Bird"
     custom = OptionCustomizer
