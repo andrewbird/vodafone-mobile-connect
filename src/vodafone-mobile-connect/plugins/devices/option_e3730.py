@@ -30,7 +30,7 @@ class OptionE3730(OptionDBusDevicePlugin):
     """
     L{vmc.common.plugin.DBusDevicePlugin} for Option's version of Vodafone E3730
     """
-    name = "Vodafone E3730"
+    name = "Option E3730"
     version = "0.1"
     author = "Andrew Bird"
     custom = OptionCustomizer
