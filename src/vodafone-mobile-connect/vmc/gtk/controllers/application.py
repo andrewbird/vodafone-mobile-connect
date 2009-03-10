@@ -1256,6 +1256,10 @@ to Internet, you cannot perform any operation while connected""")
         else: # UMTS & HSDPÂ
             _change_mode(_('3G'))
     
+    def _network_changed(self, network):
+        """Handler for the NEW_NETWORK signal"""
+        self.view['network_name_label'].set_text(network)
+
     def _on_sms_received(self, (index, where)):
         def get_sms_cb(sms):
             if not sms:
@@ -1388,6 +1392,7 @@ has been added, in around 15 seconds
             N.SIG_RFSWITCH : self._change_radio_state,
             N.SIG_SPEED : self._change_net_stats_cb,
             N.SIG_NEW_CONN_MODE : self._conn_mode_changed,
+            N.SIG_NEW_NETWORK : self._network_changed,
             N.SIG_SMS : self._on_sms_received,
             N.SIG_CALL : None,
             N.SIG_CREG : None,

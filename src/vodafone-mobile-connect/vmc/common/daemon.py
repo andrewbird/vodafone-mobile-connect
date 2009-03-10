@@ -82,7 +82,13 @@ class CellTypeDaemon(VMCDaemon):
     I enque fake SIG_NEW_CONN_MODE UnsolicitedNotifications
     """
     def function(self):
-        def get_network_info_cb(netinfo):
+
+        def get_network_name_cb(netinfo): # Network name
+            noti = N.UnsolicitedNotification(N.SIG_NEW_NETWORK, netinfo[0])
+            self.manager.on_notification_received(noti)
+            return netinfo
+
+        def get_network_bear_cb(netinfo): # Bearer
             if netinfo[1] in 'GPRS':
                 sig = N.GPRS_SIGNAL
             else:
@@ -95,7 +101,8 @@ class CellTypeDaemon(VMCDaemon):
             log.err(failure, "CellTypeDaemon: FAILURE RECEIVED")
             
         d = self.device.sconn.get_network_info()
-        d.addCallback(get_network_info_cb)
+        d.addCallback(get_network_name_cb)
+        d.addCallback(get_network_bear_cb)
         d.addErrback(get_network_info_eb)
 
 
@@ -156,7 +163,7 @@ class VMCDaemonCollection(object):
             self.daemons[name].start()
         except KeyError:
             raise
-
+    
     def start_daemons(self):
         """Starts all daemons"""
         for daemon in self.daemons.values():

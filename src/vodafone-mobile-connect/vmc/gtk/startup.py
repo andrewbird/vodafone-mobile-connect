@@ -271,6 +271,7 @@ def hook_it_up(splash, device=None):
         N.SIG_RFSWITCH : ctrl._change_radio_state,
         N.SIG_SPEED : ctrl._change_net_stats_cb,
         N.SIG_NEW_CONN_MODE : ctrl._conn_mode_changed,
+        N.SIG_NEW_NETWORK : ctrl._network_changed,
         N.SIG_SMS : ctrl._on_sms_received,
         N.SIG_CALL : None,
         N.SIG_CREG : None,
