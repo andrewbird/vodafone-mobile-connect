@@ -1223,6 +1223,11 @@ class ApplicationController(BaseApplicationController):
         if self.model.daemons.has_daemon('signal'):
             self.model.daemons.stop_daemon('signal')
 
+    def close_serial_connection(self):
+        device = self.model.get_device()
+        if device.sconn:
+            device.sconn = None
+
     #################################################################
     # SIGNAL HANDLERS                                               #
     #################################################################
@@ -1328,6 +1333,8 @@ plug in the 3G device and start again.""") % consts.APP_LONG_NAME
             self.model.disconnect_internet(hotplug=True)
         
         self.stop_polling_stats()
+        self.close_serial_connection()
+
         # clean treeviews
         self._empty_treeviews(['inbox_treeview', 'contacts_treeview'])
     

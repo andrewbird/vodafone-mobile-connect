@@ -25,6 +25,8 @@ from vmc.common.daemon import VMCDaemonFactory
 from vmc.common.notifications import NotificationsManager
 from vmc.common.startup import attach_serial_protocol
 
+from twisted.python import log
+
 class ResourceManager(object):
     """
     I'm the entry point to access system resources at runtime
@@ -36,9 +38,10 @@ class ResourceManager(object):
     
     def setup_device(self, device):
         if device.sconn:
+            log.msg("%s: device.sconn already setup" % self)
             # device might be already configured by configuration dialog
             return device
-        
+
         return attach_serial_protocol(device)
     
     def setup_notifications_and_daemons(self, wrapper, device, noti_cbs):
