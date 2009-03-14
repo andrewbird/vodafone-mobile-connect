@@ -373,8 +373,7 @@ class SIMCardConnAdapter(SIMCardConnection):
             try:
                 smsc = response[0].group('smsc')
                 if not smsc.startswith('+'):
-                    if ('UCS2' in self.device.sim.charset
-                            and check_if_ucs2(smsc)):
+                    if check_if_ucs2(smsc):
                         # the smsc is in UCS2 format
                         smsc = from_u(unpack_ucs2_bytes(smsc))
         
