@@ -447,7 +447,7 @@ class SIMCardConnAdapter(SIMCardConnection):
                 return netname, conn_type
             
             # netname can be in UCS2, as a string, or as a network id (int)
-            if 'UCS2' in self.device.sim.charset and check_if_ucs2(netname):
+            if check_if_ucs2(netname):
                 return unpack_ucs2_bytes(netname), conn_type
             else:
                 # now can be either a string or a network id (int)
