@@ -219,8 +219,24 @@ class SIMCardConnAdapter(SIMCardConnection):
         
         @rtype: C{defer.Deferred}
         """
+        def translate_from_ucs2(arg):
+#            arg[0] = '00470053004D'
+#            arg[1] = '004900520041'
+#            arg[2] = '0038003800350039002D0031'
+#            arg[3] = '005500540046002D0038'
+#            arg[4] = '0055004300530032'
+
+            if not check_if_ucs2(arg[0]):
+                return arg
+
+            cvt = []              # assume all strings are UCS2 and convert
+            for p in arg:
+                cvt.append(unpack_ucs2_bytes(p))
+            return cvt
+
         d = super(SIMCardConnAdapter, self).get_available_charset()
         d.addCallback(lambda resp: [match.group('lang') for match in resp])
+        d.addCallback(translate_from_ucs2)
         return d
     
     def get_card_model(self):
@@ -245,8 +261,12 @@ class SIMCardConnAdapter(SIMCardConnection):
         """
         Returns the current charset
         """
+        def translate_from_ucs2(arg):
+            return (arg == '0055004300530032') and 'UCS2' or arg
+
         d = super(SIMCardConnAdapter, self).get_charset()
         d.addCallback(lambda response: response[0].group('lang'))
+        d.addCallback(translate_from_ucs2)
         return d
     
     def get_imei(self):
