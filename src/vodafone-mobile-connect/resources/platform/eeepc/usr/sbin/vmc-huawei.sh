@@ -16,8 +16,9 @@ sleep 1
 # seems to be switched already on some devices, not sure why
 usb_modeswitch -v ${VID} -p ${PID} -H 1
 
-
-# load the driver if necessary
-[ -f /sys/bus/usb-serial/drivers/option1/new_id ] || modprobe -a option
+# unload the usb_storage driver, eeepc version incorrectly claims tty devs
+modprobe -r option
+modprobe -r usb_storage
+modprobe -a option
 echo "0x${VID} 0x${PID}" > /sys/bus/usb-serial/drivers/option1/new_id
 
