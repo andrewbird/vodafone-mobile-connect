@@ -26,14 +26,14 @@ class ZTEK3565(DBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for ZTE's version of Vodafone's K3565"""
     name = "ZTE K3565-Z"
     version = "0.1"
-    author = "Andrew Bird"
+    author = "Nicholas Herriot"
     custom = ZTECustomizer
 
     __remote_name__ = "K3565-Z"
 
     __properties__ = {
         'usb_device.vendor_id': [0x19d2],
-        'usb_device.product_id': [0x0049, 0x0052], # depends on firmware version
+        'usb_device.product_id': [0x0049, 0x0052, 0x0063], # depends on firmware version
     }
 
     # K3565-Z uses ttyUSB2(data) and ttyUSB1(status)

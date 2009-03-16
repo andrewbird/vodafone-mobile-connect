@@ -70,7 +70,7 @@
           </match>
         </match>
 
-	<!-- Vodafone K3565-Z : 2 pids according to F/W revision -->
+	<!-- Vodafone K3565-Z : 3 pids according to F/W revision -->
         <match key="@info.parent:usb.product_id" int="0x0049">
 	  <match key="@info.parent:usb.interface.number" int="4"> <!-- single working tty -->
             <append key="info.capabilities" type="strlist">modem</append>
@@ -81,6 +81,14 @@
 
         <match key="@info.parent:usb.product_id" int="0x0052">
           <match key="@info.parent:usb.interface.number" int="3">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x0063">
+		<match key="@info.parent:usb.interface.number" int="3"> <!-- guess it's the same -->
             <append key="info.capabilities" type="strlist">modem</append>
             <append key="modem.command_sets" type="strlist">GSM-07.07</append>
             <append key="modem.command_sets" type="strlist">GSM-07.05</append>
