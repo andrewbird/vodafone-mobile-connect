@@ -1,3 +1,5 @@
 blacklist airprime
 blacklist onda
 blacklist pl2303
+blacklist libusual
+blacklist usb_storage
