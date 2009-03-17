@@ -26,8 +26,9 @@ from vmc.common.plugins.huawei_e270 import HuaweiE270
 from vmc.common.plugins.huawei_e272 import HuaweiE272
 from vmc.common.plugins.huawei_e620 import HuaweiE620
 from vmc.common.plugins.huawei_e660 import HuaweiE660
-from vmc.common.plugins.huawei_e870 import HuaweiE870
 from vmc.common.plugins.huawei_e660a import HuaweiE660A
+from vmc.common.plugins.huawei_e870 import HuaweiE870
+from vmc.common.plugins.huawei_e3735 import HuaweiE3735
 from vmc.common.plugins.huawei_k3520 import HuaweiK3520
 from vmc.common.plugins.huawei_k3565 import HuaweiK3565
 from vmc.common.plugins.huawei_k3715 import HuaweiK3715
@@ -83,6 +84,7 @@ class HuaweiEXXX1001(DBusDevicePlugin):
             'E660'  : HuaweiE660,
             'E660A' : HuaweiE660A,
             'E620'  : HuaweiE620,
+            'E3735'  : HuaweiE3735,
             'K3520' : HuaweiK3520,
             'K3715' : HuaweiK3715,
             'EM730V' : HuaweiEM730V,
