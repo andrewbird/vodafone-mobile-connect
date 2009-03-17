@@ -20,12 +20,13 @@ __version__ = "$Rev: 1209 $"
 
 from vmc.common.exceptions import DeviceLacksExtractInfo
 from vmc.common.hardware.zte import ZTECustomizer, ZTEDBusDevicePlugin
+from twisted.python import log
 
 class ZTEK3565(ZTEDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for ZTE's version of Vodafone's K3565"""
     name = "ZTE K3565-Z"
     version = "0.1"
-    author = "Nicholas Herriot"
+    author = "Andrew Bird"
     custom = ZTECustomizer
 
     __remote_name__ = "K3565-Z"
@@ -35,8 +36,13 @@ class ZTEK3565(ZTEDBusDevicePlugin):
         'usb_device.product_id': [0x0049, 0x0052, 0x0063], # depends on firmware version
     }
 
-    # K3565-Z uses ttyUSB2(data) and ttyUSB1(status)
-    hardcoded_ports = (2, 1)
+    def preprobe_init(self, ports, info):
+        if info['usb_device.product_id'] == 0x0052:
+            self.hardcoded_ports = (2,1) # K3565-Z (0x0052) uses ttyUSB2(data) and ttyUSB1(status)
+        elif info['usb_device.product_id'] == 0x0063:
+            self.hardcoded_ports = (3,1) # K3565-Z (0x0063) uses ttyUSB3(data) and ttyUSB1(status)
+        else: # let probing occur
+            log.msg("Unknown K3565-Z product ID, falling through to probing")
 
 zte_k3565 = ZTEK3565()
 
