@@ -87,7 +87,6 @@
           </match>
         </match>
 
-
         <match key="@info.parent:usb.product_id" int="0x0063">
           <match key="@info.parent:usb.interface.number" int="3">
             <append key="info.capabilities" type="strlist">modem</append>
