@@ -31,3 +31,7 @@ ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
    ATTRS{idVendor}=="19d2", ATTRS{idProduct}=="0063", \
    RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
 
+ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
+   ATTRS{idVendor}=="19d2", ATTRS{idProduct}=="2002", \
+   RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+
