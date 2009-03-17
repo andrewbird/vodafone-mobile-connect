@@ -138,6 +138,7 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
         # +CREG: 0,1 - Registered on the "HOME" network of the SIM
         # +CREG: 0,2 - Not registered but is scanning for a GSM network
         # +CREG: 0,3 - Registration is denied (Manual attempt failed)
+        # +CREG: 0,4 - Offically Unknown, but seen with Ericsson modules during radio power up
         # +CREG: 0,5 - Registered on to another network (roaming).
         
         mode, status = netregstatus
@@ -169,6 +170,13 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
             errmsg = 'Registration failed CREG=0,3'
             self.do_next(ex.NetworkRegistrationError(errmsg))
             
+        elif status == 4:
+            # ask again in a while
+            if mode == 0:
+                self.device.sconn.set_netreg_notification(1)
+            self.transitionTo('wait_to_register')
+            self.do_next()
+
         elif status == 5:
             # we are registered and roaming is enabled
             self.transitionTo('registration_finished')
