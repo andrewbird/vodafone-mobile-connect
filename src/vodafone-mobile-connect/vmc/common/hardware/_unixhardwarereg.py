@@ -305,7 +305,7 @@ class HardwareRegistry(DbusComponent):
 
             if hasattr(plugin, 'preprobe_init'):
                 # this plugin requires special initialisation before probing
-                plugin.preprobe_init(ports)
+                plugin.preprobe_init(ports, extract_info(info))
 
             if hasattr(plugin, 'hardcoded_ports'):
                 # this plugin registers its ports in a funky way and thus
