@@ -42,7 +42,7 @@ class OptionE3730(OptionDBusDevicePlugin):
         'usb_device.product_id': [0x7301],
     }
 
-    def preprobe_init(self, ports):
+    def preprobe_init(self, ports, info):
         # It would be really cool to use HAL to figure out the port assignment
         # using the 'info.hsotype' provided by ozerocdoff fdi files, but for now
         # just hardcode :-(

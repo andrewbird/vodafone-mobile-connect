@@ -91,7 +91,7 @@ class NovatelOvation(DBusDevicePlugin):
         'usb_device.product_id' : [0x4400],
     }
 
-    def preprobe_init(self, ports):
+    def preprobe_init(self, ports, info):
         # Novatel secondary port needs to be flipped from DM to AT mode
         # before it will answer our AT queries. So the primary port
         # needs this string first or auto detection of ctrl port fails.
