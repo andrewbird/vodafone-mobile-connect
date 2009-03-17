@@ -28,6 +28,28 @@
 
       </match>
 
+ <!-- Ericsson based mobile devices -->
+      <match key="@info.parent:usb.vendor_id" int="0x0bdb">
+
+	<!-- Ericsson F3507G -->
+        <match key="@info.parent:usb.product_id" int="0x1902">
+	  <!-- No interfaces tagged as modem on early HALs -->
+          <match key="@info.parent:usb.interface.number" int="1">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+	  <!-- Multiple interfaces tagged as modem on later HALs -->
+          <match key="@info.parent:usb.interface.number" int="3">
+            <remove key="info.capabilities" type="strlist">modem</remove>
+          </match>
+          <match key="@info.parent:usb.interface.number" int="9">
+            <remove key="info.capabilities" type="strlist">modem</remove>
+          </match>
+        </match>
+
+      </match>
+
  <!-- Huawei based mobile devices -->
       <match key="@info.parent:usb.vendor_id" int="0x12d1">
 
@@ -92,7 +114,7 @@
           </match>
         </match>
 
-	<!-- Vodafone K3565-Z : 2 pids according to F/W revision -->
+	<!-- Vodafone K3565-Z : 3 pids according to F/W revision -->
         <match key="@info.parent:usb.product_id" int="0x0049">
 	  <match key="@info.parent:usb.interface.number" int="4"> <!-- single working tty -->
             <append key="info.capabilities" type="strlist">modem</append>
@@ -107,6 +129,14 @@
             <append key="modem.command_sets" type="strlist">GSM-07.07</append>
             <append key="modem.command_sets" type="strlist">GSM-07.05</append>
           </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x0063">
+          <match key="@info.parent:usb.interface.number" int="3">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+	  </match>
         </match>
 
 	<!-- Vodafone K3765-Z -->
