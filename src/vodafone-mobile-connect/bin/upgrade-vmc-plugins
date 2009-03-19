@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2008  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Copyright (C) 2006-2008  Vodafone Global.
+# Author:  Pablo Martí & Nicholas Herriot
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,22 +24,35 @@ from vmc.common import plugin
 from vmc.utils.utilities import get_file_data, save_file
 import vmc.common.consts as consts
 
+#VERSION2 = 2.003
 LOCK = os.path.join(consts.VMC_HOME, '.setup-done')
+
+#print " The LOCK is: "
+#print LOCK
+#print " The plugin version is: "
+#print plugin.VERSION
+# print VERSION2
 
 def upgrade_plugins_if_necessary():
     old = get_file_data(LOCK)
-    if old and int(old) == plugin.VERSION:
+#    print " The old LOCK is: "
+#    print old
+    
+    if old and float(old) >= plugin.VERSION:
+#    if old and float(old) > VERSION2:
         # nothing to do
+        # print " old is the same or higher version - do nothing."
         return
-    elif old is None:
-        # do not run the routine
+    else:
+        # ok run the routine
+        # print " ok we should run the routine"
+        shutil.rmtree(consts.PLUGINS_HOME)
+        shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
+        # regenerate plugins
+        plugin.PluginManager.regenerate_cache()
+        save_file(LOCK, str(plugin.VERSION))
         return
 
-    shutil.rmtree(consts.PLUGINS_HOME)
-    shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
-    # regenerate plugins
-    plugin.PluginManager.regenerate_cache()
-    save_file(LOCK, str(plugin.VERSION))
 
 if __name__ == '__main__':
     upgrade_plugins_if_necessary()
