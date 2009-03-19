@@ -14,6 +14,7 @@ else
 	fi
 fi
 
+upgrade-vmc-plugins
 twistd -r gtk2 --pidfile /tmp/vmc.pid \
 	-noy /usr/share/vodafone-mobile-connect/gtk-tap.py \
 	-l /dev/null
