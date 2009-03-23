@@ -36,17 +36,49 @@ MAX_LENGTH_UCS2 = 70
 UNKNOWN = 0
 INTERNATIONAL = ISDNORTELEPHONE = 1
 NATIONAL = 2
+NETWORK_SPECIFIC = 3
+SUBSCRIBER = 4
+ALPHANUMERIC = 5 # (coded according to 3GPP TS 23.038 [9] GSM 7-bit default alphabet)
+ABBREVIATED = 6
+RESERVED = 7
+
 
 class GSMAddress(object):
     
-    def __init__(self, number, numbering_plan_id=ISDNORTELEPHONE):
-        
-        self.type_of_number, self.number = number.startswith('+') and \
-            (INTERNATIONAL, number[1:]) or (UNKNOWN, number)
-        
-        self.numbering_plan_id = numbering_plan_id
+    def __init__(self, number, type=UNKNOWN):
+
+        if type == ALPHANUMERIC:
+            self.type_of_number = ALPHANUMERIC
+            septets = unpack_7bit_bytes(number)
+            self.number = gsm_decoder(septets)
+
+            self.numbering_plan_id = UNKNOWN
+
+        elif type == INTERNATIONAL:
+            self.type_of_number = INTERNATIONAL
+            if number.startswith('+'):
+                self.number = number[1:]
+            else:
+                self.number = number
+
+            self.numbering_plan_id = ISDNORTELEPHONE
+
+        else:
+            if number.startswith('+'):
+                self.type_of_number = INTERNATIONAL
+                self.number = number[1:]
+            else:
+                self.type_of_number = UNKNOWN
+                self.number = number
+
+            self.numbering_plan_id = ISDNORTELEPHONE
 
     def serialize(self):
+
+        if self.type_of_number == ALPHANUMERIC:
+            print "Don't know how to serialize an alphanumeric SMS yet"
+            return ""
+
         result = []
         result.append(int2hexstr(len(self.number)))
 
@@ -55,10 +87,10 @@ class GSMAddress(object):
 
         header = header | (self.type_of_number << 4)
         header = header | self.numbering_plan_id
-        
+    
         result.append(int2hexstr(header))
         result.append(swap(self.number))
-        
+
         return "".join(result)
 
 DEFAULT_ALPHABET = 0x00
@@ -96,8 +128,11 @@ class ShortMessage(object):
         return not self.__eq__(m)
     
     def __str__(self):
-        args = (self.__class__.__name__, self.datetime,
-                self.index, self.number, self.text) 
+        args = (self.__class__.__name__,
+                self.datetime,
+                self.index != None and self.index or 0,
+                self.get_number(),
+                self.text) 
         return "<%s instance (%s): index=%d, number = %s, text: '%s'>" % args
     
     def __repr__(self):
@@ -164,8 +199,7 @@ class ShortMessageDeliver(ShortMessage):
         return coding_scheme
     
     def get_number(self):
-        if self.address.type_of_number == INTERNATIONAL \
-            or self.address.type_of_number == UNKNOWN:
+        if self.address.type_of_number == INTERNATIONAL:
             return '+' + self.address.number
         else:
             return self.address.number
@@ -315,14 +349,22 @@ def gsm_address_from_octets(octets):
 
     returns GSMAddress
     """
-    address_len = octets.pop(0)
-    address_type = octets.pop(0)
-    number = ""
-    while len(number) < address_len:
-        o = octets.pop(0)
-        number += str(o & 15) + str(o >> 4)
-    number = number[:address_len]
-    return GSMAddress(number, address_type)
+    address_len = octets.pop(0) # seems to be the number of significant nybbles
+    address_type = (octets.pop(0) >> 4 ) & 0x07 # bits 654
+
+    if address_type == ALPHANUMERIC:
+        address = []
+        while len(address) < address_len/2: # not sure whether we will actually
+            o = octets.pop(0)               # see an odd number of nybbles here
+            address.append(o)               # TS23.040 is unclear
+    else:
+        address = ""
+        while len(address) < address_len:
+            o = octets.pop(0)
+            address += str(o & 15) + str(o >> 4)
+        address = address[:address_len]
+
+    return GSMAddress(address, address_type)
 
 def datetime_from_octets(octets):
     """
@@ -349,7 +391,7 @@ def datetime_from_octets(octets):
         result -= delta
     else:
         result += delta
-    
+
     return result
 
 def pdu_to_message(pdu):
