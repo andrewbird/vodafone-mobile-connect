@@ -8,13 +8,183 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-18 10:36+0100\n"
+"POT-Creation-Date: 2009-03-24 20:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/apnsel.glade:8
+msgid "APN selection"
+msgstr ""
+
+#: ../glade/apnsel.glade:22
+msgid "APN Selection Window"
+msgstr ""
+
+#: ../glade/apnsel.glade:69
+msgid ""
+"<b>Preconfigured APNs for your Operator.</b>\n"
+"\n"
+"You can choose a preconfigured APN or cancel to enter the information needed "
+"to set up a custom one.\n"
+msgstr ""
+
+#: ../glade/apnsel.glade:193
+msgid "APN Selection Cancel Button"
+msgstr ""
+
+#: ../glade/apnsel.glade:208
+msgid "APN Selection OK Button"
+msgstr ""
+
+#: ../glade/apnsel.glade:228
+msgid "<b>APN Settings</b>"
+msgstr ""
+
+#: ../glade/config2.glade:9
+msgid "New Profile"
+msgstr ""
+
+#: ../glade/config2.glade:23
+msgid "New Profile Window"
+msgstr ""
+
+#: ../glade/config2.glade:64
+msgid ""
+"<b>Create a new profile for your device.</b>\n"
+"\n"
+"If you are not sure about what should you fill in, contact your customer "
+"support center and they should provide\n"
+"you with the relevant information."
+msgstr ""
+
+#: ../glade/config2.glade:115
+msgid "<b>Connection preferences</b>"
+msgstr ""
+
+#: ../glade/config2.glade:152
+msgid "Username:"
+msgstr ""
+
+#: ../glade/config2.glade:177
+msgid "Password:"
+msgstr ""
+
+#: ../glade/config2.glade:202
+msgid "Preferred connection:"
+msgstr ""
+
+#: ../glade/config2.glade:227
+msgid "Authentication mode:"
+msgstr ""
+
+#: ../glade/config2.glade:252
+msgid "APN host:"
+msgstr ""
+
+#: ../glade/config2.glade:410
+msgid "<b>DNS settings</b>"
+msgstr ""
+
+#: ../glade/config2.glade:448
+msgid "Use static DNS"
+msgstr ""
+
+#: ../glade/config2.glade:481
+msgid "Primary DNS:"
+msgstr ""
+
+#: ../glade/config2.glade:506
+msgid "Secondary DNS:"
+msgstr ""
+
+#: ../glade/config2.glade:645
+msgid "<b>Profile settings</b>"
+msgstr ""
+
+#: ../glade/config2.glade:682
+msgid "Profile name:"
+msgstr ""
+
+#: ../glade/config2.glade:707
+msgid "Device model:"
+msgstr ""
+
+#: ../glade/config2.glade:782 ../../vmc/gtk/controllers/preferences.py:280
+#: ../../vmc/gtk/controllers/preferences.py:295
+msgid "Unknown"
+msgstr ""
+
+#: ../glade/config2.glade:859
+msgid "Device selection"
+msgstr ""
+
+#: ../glade/config2.glade:873
+msgid "Device Selection Window"
+msgstr ""
+
+#: ../glade/config2.glade:921
+msgid ""
+"<b>Select a device for your connection.</b>\n"
+"\n"
+"You can choose a known device or insert the needed information to set up a "
+"custom one.\n"
+msgstr ""
+
+#: ../glade/config2.glade:1020
+msgid "Known devices"
+msgstr ""
+
+#: ../glade/config2.glade:1028
+msgid "Known Devices Radio"
+msgstr ""
+
+#: ../glade/config2.glade:1079
+msgid "Device type:"
+msgstr ""
+
+#: ../glade/config2.glade:1104
+msgid "Serial"
+msgstr ""
+
+#: ../glade/config2.glade:1181
+msgid "115200"
+msgstr ""
+
+#: ../glade/config2.glade:1197
+msgid "Data port device:"
+msgstr ""
+
+#: ../glade/config2.glade:1225
+msgid "Control port device:"
+msgstr ""
+
+#: ../glade/config2.glade:1253
+msgid "Speed connection:"
+msgstr ""
+
+#: ../glade/config2.glade:1293
+msgid "Custom device settings"
+msgstr ""
+
+#: ../glade/config2.glade:1302
+msgid "Custom Device Settings Radio"
+msgstr ""
+
+#: ../glade/config2.glade:1333
+msgid "Device Selection Cancel Button"
+msgstr ""
+
+#: ../glade/config2.glade:1348
+msgid "Device Selection OK Button"
+msgstr ""
+
+#: ../glade/config2.glade:1368
+msgid "<b>Device Settings</b>"
+msgstr ""
 
 #: ../glade/config.glade:8
 msgid "Device setup"
@@ -87,9 +257,8 @@ msgstr ""
 msgid "gtk-help"
 msgstr ""
 
-#: ../glade/config.glade:539 ../glade/sms.glade:113 ../glade/dialogs.glade:386
-#: ../glade/config2.glade:408 ../glade/config2.glade:719
-#: ../glade/pin.glade:455
+#: ../glade/config.glade:539 ../glade/dialogs.glade:386 ../glade/pin.glade:473
+#: ../glade/sms.glade:113
 msgid "gtk-cancel"
 msgstr ""
 
@@ -113,7 +282,8 @@ msgstr ""
 msgid "Contacts List"
 msgstr ""
 
-#: ../glade/contacts.glade:159 ../glade/VMC.glade:529
+#: ../glade/contacts.glade:159 ../glade/VMC.glade:541
+#: ../glade/VMC-reduced.glade:726
 msgid "Add a contact"
 msgstr ""
 
@@ -130,6 +300,7 @@ msgid "<b>Save in:</b>"
 msgstr ""
 
 #: ../glade/contacts.glade:301 ../glade/VMC.glade:34
+#: ../glade/VMC-reduced.glade:64
 msgid "Mobile"
 msgstr ""
 
@@ -138,6 +309,7 @@ msgid "Computer"
 msgstr ""
 
 #: ../glade/diagnostics.glade:7 ../glade/VMC.glade:182
+#: ../glade/VMC-reduced.glade:236
 msgid "Diagnostics"
 msgstr ""
 
@@ -213,282 +385,6 @@ msgstr ""
 msgid "label28"
 msgstr ""
 
-#: ../glade/sms.glade:34 ../glade/VMC.glade:716
-msgid "Contacts"
-msgstr ""
-
-#: ../glade/sms.glade:50
-msgid "TO : "
-msgstr ""
-
-#: ../glade/VMC.glade:20 ../glade/helpbrowser.glade:21
-msgid "_File"
-msgstr ""
-
-#: ../glade/VMC.glade:27 ../../vmc/gtk/controllers/application.py:1017
-#: ../../vmc/gtk/views/application.py:321
-msgid "Connect"
-msgstr ""
-
-#: ../glade/VMC.glade:51
-msgid "Import contacts..."
-msgstr ""
-
-#: ../glade/VMC.glade:59
-msgid "Export contacts..."
-msgstr ""
-
-#: ../glade/VMC.glade:85
-msgid "_View"
-msgstr ""
-
-#: ../glade/VMC.glade:93
-msgid "SMS"
-msgstr ""
-
-#: ../glade/VMC.glade:101 ../glade/preferences.glade:590
-msgid "Usage"
-msgstr ""
-
-#: ../glade/VMC.glade:109
-msgid "Support"
-msgstr ""
-
-#: ../glade/VMC.glade:128
-msgid "_Tools"
-msgstr ""
-
-#: ../glade/VMC.glade:136
-msgid "Change PIN"
-msgstr ""
-
-#: ../glade/VMC.glade:143
-msgid "PIN1..."
-msgstr ""
-
-#: ../glade/VMC.glade:155
-msgid "Request PIN"
-msgstr ""
-
-#: ../glade/VMC.glade:169 ../glade/sms-preferences.glade:7
-msgid "SMS preferences"
-msgstr ""
-
-#: ../glade/VMC.glade:203
-msgid "Profiles"
-msgstr ""
-
-#: ../glade/VMC.glade:236
-msgid "Inspect"
-msgstr ""
-
-#: ../glade/VMC.glade:255
-msgid "_Help"
-msgstr ""
-
-#: ../glade/VMC.glade:273
-msgid "_About"
-msgstr ""
-
-#: ../glade/VMC.glade:399 ../glade/VMC.glade:521
-msgid "Contacts menu"
-msgstr ""
-
-#: ../glade/VMC.glade:400 ../glade/VMC.glade:530
-msgid "_New"
-msgstr ""
-
-#: ../glade/VMC.glade:407
-msgid "Create new sms"
-msgstr ""
-
-#: ../glade/VMC.glade:408
-msgid "_SMS"
-msgstr ""
-
-#: ../glade/VMC.glade:417
-msgid "_Contact"
-msgstr ""
-
-#: ../glade/VMC.glade:447
-msgid "Reply message"
-msgstr ""
-
-#: ../glade/VMC.glade:448
-msgid "_Reply"
-msgstr ""
-
-#: ../glade/VMC.glade:455
-msgid "Reply without quoting original text"
-msgstr ""
-
-#: ../glade/VMC.glade:456
-msgid "Send new"
-msgstr ""
-
-#: ../glade/VMC.glade:464
-msgid "Reply quoting original message"
-msgstr ""
-
-#: ../glade/VMC.glade:465
-msgid "Reply quoting"
-msgstr ""
-
-#: ../glade/VMC.glade:483
-msgid "Forward sms to another contact"
-msgstr ""
-
-#: ../glade/VMC.glade:484
-msgid "_Forward"
-msgstr ""
-
-#: ../glade/VMC.glade:498 ../glade/VMC.glade:575
-#: ../../vmc/gtk/controllers/application.py:1065
-msgid "_Delete"
-msgstr ""
-
-#: ../glade/VMC.glade:522
-msgid "_Contacts"
-msgstr ""
-
-#: ../glade/VMC.glade:544
-msgid "Search contacts"
-msgstr ""
-
-#: ../glade/VMC.glade:545
-msgid "_Search"
-msgstr ""
-
-#: ../glade/VMC.glade:627
-msgid "Inbox"
-msgstr ""
-
-#: ../glade/VMC.glade:657
-msgid "Draft"
-msgstr ""
-
-#: ../glade/VMC.glade:687
-msgid "Sent"
-msgstr ""
-
-#: ../glade/VMC.glade:813 ../glade/VMC.glade:1227
-msgid "month_label"
-msgstr ""
-
-#: ../glade/VMC.glade:823 ../glade/VMC.glade:1237
-msgid "<b>Month</b>"
-msgstr ""
-
-#: ../glade/VMC.glade:866 ../glade/VMC.glade:883 ../glade/VMC.glade:939
-#: ../glade/VMC.glade:994 ../glade/VMC.glade:1011 ../glade/VMC.glade:1067
-#: ../glade/VMC.glade:1280 ../glade/VMC.glade:1297 ../glade/VMC.glade:1353
-#: ../glade/pin.glade:363
-msgid "label"
-msgstr ""
-
-#: ../glade/VMC.glade:898 ../glade/VMC.glade:1026 ../glade/VMC.glade:1312
-msgid "3G:"
-msgstr ""
-
-#: ../glade/VMC.glade:913 ../glade/VMC.glade:1041 ../glade/VMC.glade:1327
-msgid "GPRS:"
-msgstr ""
-
-#: ../glade/VMC.glade:926 ../glade/VMC.glade:1340
-msgid "<b>Total:</b>"
-msgstr ""
-
-#: ../glade/VMC.glade:957 ../glade/VMC.glade:1371
-msgid "<b>Transferred Data</b>"
-msgstr ""
-
-#: ../glade/VMC.glade:1054
-msgid "Total:"
-msgstr ""
-
-#: ../glade/VMC.glade:1085
-msgid "<b>Current session</b>"
-msgstr ""
-
-#: ../glade/VMC.glade:1125 ../glade/VMC.glade:1410
-#: ../../vmc/gtk/controllers/application.py:1215
-msgid "GPRS"
-msgstr ""
-
-#: ../glade/VMC.glade:1132 ../glade/VMC.glade:1417
-#: ../../vmc/gtk/controllers/application.py:1217
-msgid "3G"
-msgstr ""
-
-#: ../glade/VMC.glade:1169 ../glade/VMC.glade:1454
-msgid "Remember that this information is only orientative."
-msgstr ""
-
-#: ../glade/VMC.glade:1184
-msgid "Current month"
-msgstr ""
-
-#: ../glade/VMC.glade:1472
-msgid "Last month"
-msgstr ""
-
-#: ../glade/VMC.glade:1486
-msgid "<b>Usage</b>"
-msgstr ""
-
-#: ../glade/VMC.glade:1515
-msgid ""
-"In most cases you can find the answer to your questions about the program in "
-"the help menu.\n"
-"This menu can be accesed if you click on the \"Help\" label on the menu bar "
-"located in the top side of the window, and selecting the \"Help topics\" "
-"option.\n"
-"\n"
-"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
-"https://forge.betavine.net/projects/vodafonemobilec.\n"
-"\n"
-"If you use the mail and browser buttons to access other programs in your "
-"system, you might need to ask your Systems Administrator any doubt that you "
-"might have."
-msgstr ""
-
-#: ../glade/VMC.glade:1529
-msgid "Help menu"
-msgstr ""
-
-#: ../glade/VMC.glade:1554
-msgid ""
-"If you are using this program in an corporate environment, your company\n"
-"probably has a support center to solve the questions that you might have\n"
-"about the program.\n"
-"\n"
-"If your company does not have a support center, you will have to contact\n"
-"your company's System Administrator."
-msgstr ""
-
-#: ../glade/VMC.glade:1574
-msgid "Support center"
-msgstr ""
-
-#: ../glade/VMC.glade:1591
-msgid ""
-"You can easily find answers to the most common questions in the\n"
-"help menu, in your company's support center and in the support\n"
-"area at https://forge.betavine.net/projects/vodafonemobilec .\n"
-"\n"
-"If you still have difficulties you can call to Vodafone's Customer Support "
-"Center,\n"
-"the numbers are:\n"
-"\n"
-"123, if you are using Vodafone's network, or\n"
-"\n"
-"+34 607 123 00 if you are calling from other network."
-msgstr ""
-
-#: ../glade/VMC.glade:1611
-msgid "Customer support"
-msgstr ""
-
 #: ../glade/dialogs.glade:38 ../glade/dialogs.glade:239
 #: ../glade/dialogs.glade:450
 msgid "<big><b>Big title!</b></big>"
@@ -519,14 +415,88 @@ msgstr ""
 msgid "Remember my choice"
 msgstr ""
 
-#: ../glade/dialogs.glade:397 ../glade/usage.glade:36
-#: ../glade/config2.glade:420 ../glade/config2.glade:731
-#: ../glade/pin.glade:466
+#: ../glade/dialogs.glade:397 ../glade/pin.glade:485 ../glade/usage.glade:36
 msgid "gtk-ok"
 msgstr ""
 
-#: ../glade/splash.glade:6
-msgid "3G Devices Manager"
+#: ../glade/helpbrowser.glade:21 ../glade/VMC.glade:20
+#: ../glade/VMC-reduced.glade:46
+msgid "_File"
+msgstr ""
+
+#: ../glade/helpbrowser.glade:31
+msgid "gtk-quit"
+msgstr ""
+
+#: ../glade/helpbrowser.glade:92
+msgid "gtk-home"
+msgstr ""
+
+#: ../glade/pin.glade:7
+msgid "Insert your PIN code"
+msgstr ""
+
+#: ../glade/pin.glade:12
+msgid "Insert PIN Window"
+msgstr ""
+
+#: ../glade/pin.glade:40
+msgid "Please insert your PIN code"
+msgstr ""
+
+#: ../glade/pin.glade:57
+msgid "Insert PIN Entry"
+msgstr ""
+
+#: ../glade/pin.glade:88
+msgid "Manage my PIN through gnome-keyring"
+msgstr ""
+
+#: ../glade/pin.glade:112
+msgid "<b>Advanced Options</b>"
+msgstr ""
+
+#: ../glade/pin.glade:138
+msgid "Insert PIN Cancel Button"
+msgstr ""
+
+#: ../glade/pin.glade:155
+msgid "Insert PIN OK Button"
+msgstr ""
+
+#: ../glade/pin.glade:175
+msgid "Modify PIN code"
+msgstr ""
+
+#: ../glade/pin.glade:202
+msgid "Current PIN code: "
+msgstr ""
+
+#: ../glade/pin.glade:215
+msgid "New PIN code: "
+msgstr ""
+
+#: ../glade/pin.glade:230
+msgid "Confirm PIN code: "
+msgstr ""
+
+#: ../glade/pin.glade:380 ../glade/VMC.glade:878 ../glade/VMC.glade:895
+#: ../glade/VMC.glade:951 ../glade/VMC.glade:1006 ../glade/VMC.glade:1023
+#: ../glade/VMC.glade:1079 ../glade/VMC.glade:1292 ../glade/VMC.glade:1309
+#: ../glade/VMC.glade:1365 ../glade/VMC-reduced.glade:1260
+#: ../glade/VMC-reduced.glade:1288 ../glade/VMC-reduced.glade:1372
+#: ../glade/VMC-reduced.glade:1488 ../glade/VMC-reduced.glade:1516
+#: ../glade/VMC-reduced.glade:1626 ../glade/VMC-reduced.glade:1960
+#: ../glade/VMC-reduced.glade:1988 ../glade/VMC-reduced.glade:2098
+msgid "label"
+msgstr ""
+
+#: ../glade/pin.glade:405
+msgid "PIN:"
+msgstr ""
+
+#: ../glade/pin.glade:414
+msgid "PUK:"
 msgstr ""
 
 #: ../glade/preferences.glade:7
@@ -611,171 +581,23 @@ msgstr ""
 msgid "Notification threshold (MB):"
 msgstr ""
 
-#: ../glade/helpbrowser.glade:31
-msgid "gtk-quit"
+#: ../glade/preferences.glade:590 ../glade/VMC.glade:101
+#: ../glade/VMC-reduced.glade:139
+msgid "Usage"
 msgstr ""
 
-#: ../glade/helpbrowser.glade:92
-msgid "gtk-home"
+#: ../glade/sms.glade:34 ../glade/VMC.glade:728
+#: ../glade/VMC-reduced.glade:1018
+msgid "Contacts"
 msgstr ""
 
-#: ../glade/config2.glade:8
-msgid "New Profile"
+#: ../glade/sms.glade:50
+msgid "TO : "
 msgstr ""
 
-#: ../glade/config2.glade:37
-msgid ""
-"<b>Create a new profile for your device.</b>\n"
-"\n"
-"If you are not sure about what should you fill in, contact\n"
-"your customer support center and they should provide\n"
-"you with the relevant information."
-msgstr ""
-
-#: ../glade/config2.glade:67
-msgid "<b>Profile settings</b>"
-msgstr ""
-
-#: ../glade/config2.glade:85
-msgid "Profile name:"
-msgstr ""
-
-#: ../glade/config2.glade:92
-msgid "Device model:"
-msgstr ""
-
-#: ../glade/config2.glade:128 ../../vmc/gtk/controllers/preferences.py:280
-#: ../../vmc/gtk/controllers/preferences.py:295
-msgid "Unknown"
-msgstr ""
-
-#: ../glade/config2.glade:158
-msgid "<b>Connection preferences</b>"
-msgstr ""
-
-#: ../glade/config2.glade:179
-msgid "Username:"
-msgstr ""
-
-#: ../glade/config2.glade:186
-msgid "Password:"
-msgstr ""
-
-#: ../glade/config2.glade:196
-msgid "Preferred connection:"
-msgstr ""
-
-#: ../glade/config2.glade:206
-msgid "Authentication mode:"
-msgstr ""
-
-#: ../glade/config2.glade:216
-msgid "APN host:"
-msgstr ""
-
-#: ../glade/config2.glade:294
-msgid "<b>DNS settings</b>"
-msgstr ""
-
-#: ../glade/config2.glade:311
-msgid "Use static DNS"
-msgstr ""
-
-#: ../glade/config2.glade:338
-msgid "Primary DNS:"
-msgstr ""
-
-#: ../glade/config2.glade:345
-msgid "Secondary DNS:"
-msgstr ""
-
-#: ../glade/config2.glade:441
-msgid "Device selection"
-msgstr ""
-
-#: ../glade/config2.glade:473
-msgid ""
-"<b>Select a device for your connection.</b>\n"
-"\n"
-"You can choose a known device or insert the needed information to set up a "
-"custom one.\n"
-"\n"
-msgstr ""
-
-#: ../glade/config2.glade:537
-msgid "Known devices"
-msgstr ""
-
-#: ../glade/config2.glade:576
-msgid "Device type:"
-msgstr ""
-
-#: ../glade/config2.glade:587
-msgid "Serial"
-msgstr ""
-
-#: ../glade/config2.glade:607
-msgid "Speed connection:"
-msgstr ""
-
-#: ../glade/config2.glade:620
-msgid "Control port device:"
-msgstr ""
-
-#: ../glade/config2.glade:633
-msgid "Data port device:"
-msgstr ""
-
-#: ../glade/config2.glade:645
-msgid "115200"
-msgstr ""
-
-#: ../glade/config2.glade:692
-msgid "Custom device settings"
-msgstr ""
-
-#: ../glade/config2.glade:755
-msgid "<b>Device Settings</b>"
-msgstr ""
-
-#: ../glade/pin.glade:7
-msgid "Insert your PIN code"
-msgstr ""
-
-#: ../glade/pin.glade:37
-msgid "Please insert your PIN code"
-msgstr ""
-
-#: ../glade/pin.glade:82
-msgid "Manage my PIN through gnome-keyring"
-msgstr ""
-
-#: ../glade/pin.glade:105
-msgid "<b>Advanced Options</b>"
-msgstr ""
-
-#: ../glade/pin.glade:160
-msgid "Modify PIN code"
-msgstr ""
-
-#: ../glade/pin.glade:233
-msgid "Confirm PIN code: "
-msgstr ""
-
-#: ../glade/pin.glade:248
-msgid "New PIN code: "
-msgstr ""
-
-#: ../glade/pin.glade:263
-msgid "Current PIN code: "
-msgstr ""
-
-#: ../glade/pin.glade:388
-msgid "PIN:"
-msgstr ""
-
-#: ../glade/pin.glade:397
-msgid "PUK:"
+#: ../glade/sms-preferences.glade:7 ../glade/VMC.glade:169
+#: ../glade/VMC-reduced.glade:221
+msgid "SMS preferences"
 msgstr ""
 
 #: ../glade/sms-preferences.glade:28
@@ -806,48 +628,508 @@ msgid ""
 "1 day"
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:94
-msgid "Import contacts from..."
+#: ../glade/splash.glade:6
+msgid "3G Devices Manager"
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:102 ../../vmc/gtk/dialogs.py:164
-msgid "Csv files"
+#: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
+#: ../../vmc/gtk/views/application.py:327
+#: ../../vmc/gtk/controllers/application.py:1039
+msgid "Connect"
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:107 ../../vmc/gtk/dialogs.py:132
-#: ../../vmc/gtk/dialogs.py:170
-msgid "All files"
+#: ../glade/VMC.glade:51 ../glade/VMC-reduced.glade:83
+msgid "Import contacts..."
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:123 ../../vmc/gtk/dialogs.py:156
-msgid "Save as ..."
+#: ../glade/VMC.glade:59 ../glade/VMC-reduced.glade:92
+msgid "Export contacts..."
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:142 ../../vmc/gtk/dialogs.py:180
-msgid "Overwrite"
+#: ../glade/VMC.glade:85 ../glade/VMC-reduced.glade:120
+msgid "_View"
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:143 ../../vmc/gtk/dialogs.py:181
-#, python-format
-msgid "Overwrite \"%s\"?"
+#: ../glade/VMC.glade:93 ../glade/VMC-reduced.glade:130
+msgid "SMS"
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:144 ../../vmc/gtk/dialogs.py:182
+#: ../glade/VMC.glade:109 ../glade/VMC-reduced.glade:148
+msgid "Support"
+msgstr ""
+
+#: ../glade/VMC.glade:128 ../glade/VMC-reduced.glade:173
+msgid "_Tools"
+msgstr ""
+
+#: ../glade/VMC.glade:136 ../glade/VMC-reduced.glade:183
+msgid "Change PIN"
+msgstr ""
+
+#: ../glade/VMC.glade:143 ../glade/VMC-reduced.glade:192
+msgid "PIN1..."
+msgstr ""
+
+#: ../glade/VMC.glade:155 ../glade/VMC-reduced.glade:205
+msgid "Request PIN"
+msgstr ""
+
+#: ../glade/VMC.glade:203 ../glade/VMC-reduced.glade:262
+msgid "Profiles"
+msgstr ""
+
+#: ../glade/VMC.glade:236 ../glade/VMC-reduced.glade:302
+msgid "Inspect"
+msgstr ""
+
+#: ../glade/VMC.glade:255 ../glade/VMC-reduced.glade:326
+msgid "_Help"
+msgstr ""
+
+#: ../glade/VMC.glade:273 ../glade/VMC-reduced.glade:345
+msgid "_About"
+msgstr ""
+
+#: ../glade/VMC.glade:304 ../glade/VMC-reduced.glade:392
+msgid "Connect Button"
+msgstr ""
+
+#: ../glade/VMC.glade:340 ../glade/VMC-reduced.glade:443
+msgid "SMS Toggle Button"
+msgstr ""
+
+#: ../glade/VMC.glade:368 ../glade/VMC-reduced.glade:481
+msgid "Usage Toggle Button"
+msgstr ""
+
+#: ../glade/VMC.glade:383 ../glade/VMC-reduced.glade:502
+msgid "Support Toggle Button"
+msgstr ""
+
+#: ../glade/VMC.glade:411 ../glade/VMC.glade:533
+#: ../glade/VMC-reduced.glade:545 ../glade/VMC-reduced.glade:705
+msgid "Contacts menu"
+msgstr ""
+
+#: ../glade/VMC.glade:412 ../glade/VMC.glade:542
+#: ../glade/VMC-reduced.glade:546 ../glade/VMC-reduced.glade:727
+msgid "_New"
+msgstr ""
+
+#: ../glade/VMC.glade:419 ../glade/VMC-reduced.glade:567
+msgid "Create new sms"
+msgstr ""
+
+#: ../glade/VMC.glade:420 ../glade/VMC-reduced.glade:568
+msgid "_SMS"
+msgstr ""
+
+#: ../glade/VMC.glade:429 ../glade/VMC-reduced.glade:578
+msgid "_Contact"
+msgstr ""
+
+#: ../glade/VMC.glade:459 ../glade/VMC-reduced.glade:608
+msgid "Reply message"
+msgstr ""
+
+#: ../glade/VMC.glade:460 ../glade/VMC-reduced.glade:609
+msgid "_Reply"
+msgstr ""
+
+#: ../glade/VMC.glade:467 ../glade/VMC-reduced.glade:629
+msgid "Reply without quoting original text"
+msgstr ""
+
+#: ../glade/VMC.glade:468 ../glade/VMC-reduced.glade:630
+msgid "Send new"
+msgstr ""
+
+#: ../glade/VMC.glade:476 ../glade/VMC-reduced.glade:639
+msgid "Reply quoting original message"
+msgstr ""
+
+#: ../glade/VMC.glade:477 ../glade/VMC-reduced.glade:640
+msgid "Reply quoting"
+msgstr ""
+
+#: ../glade/VMC.glade:495 ../glade/VMC-reduced.glade:653
+msgid "Forward sms to another contact"
+msgstr ""
+
+#: ../glade/VMC.glade:496 ../glade/VMC-reduced.glade:654
+msgid "_Forward"
+msgstr ""
+
+#: ../glade/VMC.glade:510 ../glade/VMC.glade:587
+#: ../glade/VMC-reduced.glade:674 ../glade/VMC-reduced.glade:779
+#: ../../vmc/gtk/controllers/application.py:1087
+msgid "_Delete"
+msgstr ""
+
+#: ../glade/VMC.glade:534 ../glade/VMC-reduced.glade:706
+msgid "_Contacts"
+msgstr ""
+
+#: ../glade/VMC.glade:556 ../glade/VMC-reduced.glade:747
+msgid "Search contacts"
+msgstr ""
+
+#: ../glade/VMC.glade:557 ../glade/VMC-reduced.glade:748
+msgid "_Search"
+msgstr ""
+
+#: ../glade/VMC.glade:639 ../glade/VMC-reduced.glade:857
+msgid "Inbox"
+msgstr ""
+
+#: ../glade/VMC.glade:669 ../glade/VMC-reduced.glade:911
+msgid "Draft"
+msgstr ""
+
+#: ../glade/VMC.glade:699 ../glade/VMC-reduced.glade:965
+msgid "Sent"
+msgstr ""
+
+#: ../glade/VMC.glade:825 ../glade/VMC.glade:1239
+#: ../glade/VMC-reduced.glade:1200 ../glade/VMC-reduced.glade:1900
+msgid "month_label"
+msgstr ""
+
+#: ../glade/VMC.glade:835 ../glade/VMC.glade:1249
+#: ../glade/VMC-reduced.glade:1175 ../glade/VMC-reduced.glade:1875
+msgid "<b>Month</b>"
+msgstr ""
+
+#: ../glade/VMC.glade:910 ../glade/VMC.glade:1038 ../glade/VMC.glade:1324
+#: ../glade/VMC-reduced.glade:1316 ../glade/VMC-reduced.glade:1544
+#: ../glade/VMC-reduced.glade:2016
+msgid "3G:"
+msgstr ""
+
+#: ../glade/VMC.glade:925 ../glade/VMC.glade:1053 ../glade/VMC.glade:1339
+#: ../glade/VMC-reduced.glade:1344 ../glade/VMC-reduced.glade:1572
+#: ../glade/VMC-reduced.glade:2044
+msgid "GPRS:"
+msgstr ""
+
+#: ../glade/VMC.glade:938 ../glade/VMC.glade:1352
+#: ../glade/VMC-reduced.glade:2072
+msgid "<b>Total:</b>"
+msgstr ""
+
+#: ../glade/VMC.glade:969 ../glade/VMC.glade:1383
+#: ../glade/VMC-reduced.glade:1430 ../glade/VMC-reduced.glade:2128
+msgid "<b>Transferred Data</b>"
+msgstr ""
+
+#: ../glade/VMC.glade:1066 ../glade/VMC-reduced.glade:1399
+#: ../glade/VMC-reduced.glade:1600
+msgid "Total:"
+msgstr ""
+
+#: ../glade/VMC.glade:1097 ../glade/VMC-reduced.glade:1656
+msgid "<b>Current session</b>"
+msgstr ""
+
+#: ../glade/VMC.glade:1137 ../glade/VMC.glade:1422
+#: ../glade/VMC-reduced.glade:1716 ../glade/VMC-reduced.glade:2188
+#: ../../vmc/gtk/controllers/application.py:1255
+msgid "GPRS"
+msgstr ""
+
+#: ../glade/VMC.glade:1144 ../glade/VMC.glade:1429
+#: ../glade/VMC-reduced.glade:1741 ../glade/VMC-reduced.glade:2213
+#: ../../vmc/gtk/controllers/application.py:1257
+msgid "3G"
+msgstr ""
+
+#: ../glade/VMC.glade:1181 ../glade/VMC.glade:1466
+msgid "Remember that this information is only orientative."
+msgstr ""
+
+#: ../glade/VMC.glade:1196 ../glade/VMC-reduced.glade:1814
+msgid "Current month"
+msgstr ""
+
+#: ../glade/VMC.glade:1484 ../glade/VMC-reduced.glade:2286
+msgid "Last month"
+msgstr ""
+
+#: ../glade/VMC.glade:1498
+msgid "<b>Usage</b>"
+msgstr ""
+
+#: ../glade/VMC.glade:1527 ../glade/VMC-reduced.glade:2374
 msgid ""
-"A file with this name already exists.\n"
-"If you choose to overwrite this file, the contents will be lost."
+"In most cases you can find the answer to your questions about the program in "
+"the help menu.\n"
+"This menu can be accesed if you click on the \"Help\" label on the menu bar "
+"located in the top side of the window, and selecting the \"Help topics\" "
+"option.\n"
+"\n"
+"You can also find help, updates and tips in Vodafone Mobile Connect's web:\n"
+"https://forge.betavine.net/projects/vodafonemobilec.\n"
+"\n"
+"If you use the mail and browser buttons to access other programs in your "
+"system, you might need to ask your Systems Administrator any doubt that you "
+"might have."
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:196
-msgid "Device List"
+#: ../glade/VMC.glade:1541 ../glade/VMC-reduced.glade:2393
+msgid "Help menu"
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:229
-msgid "Vodafone Spain S.A."
+#: ../glade/VMC.glade:1566 ../glade/VMC-reduced.glade:2457
+msgid ""
+"If you are using this program in an corporate environment, your company\n"
+"probably has a support center to solve the questions that you might have\n"
+"about the program.\n"
+"\n"
+"If your company does not have a support center, you will have to contact\n"
+"your company's System Administrator."
 msgstr ""
 
-#: ../../vmc/gtk/dialogs.py:238
-msgid "translated to $LANG by $translater"
+#: ../glade/VMC.glade:1586 ../glade/VMC-reduced.glade:2479
+msgid "Support center"
+msgstr ""
+
+#: ../glade/VMC.glade:1603 ../glade/VMC-reduced.glade:2524
+msgid ""
+"You can easily find answers to the most common questions in the\n"
+"help menu, in your company's support center and in the support\n"
+"area at https://forge.betavine.net/projects/vodafonemobilec .\n"
+"\n"
+"If you still have difficulties you can call to Vodafone's Customer Support "
+"Center,\n"
+"the numbers are:\n"
+"\n"
+"123, if you are using Vodafone's network, or\n"
+"\n"
+"+34 607 123 00 if you are calling from other network."
+msgstr ""
+
+#: ../glade/VMC.glade:1623 ../glade/VMC-reduced.glade:2546
+msgid "Customer support"
+msgstr ""
+
+#: ../glade/VMC-reduced.glade:2311
+msgid "<b>Usage</b> - Remember that this information is only orientative."
+msgstr ""
+
+#: ../../vmc/common/dialers/__init__.py:31
+#: ../../vmc/common/dialers/__init__.py:37
+msgid "Default"
+msgstr ""
+
+#: ../../vmc/common/dialers/__init__.py:32
+#: ../../vmc/common/dialers/__init__.py:38
+msgid "PAP"
+msgstr ""
+
+#: ../../vmc/common/dialers/__init__.py:33
+#: ../../vmc/common/dialers/__init__.py:39
+msgid "CHAP"
+msgstr ""
+
+#: ../../vmc/common/dialers/wvdial.py:224
+msgid "WVDial directive error"
+msgstr ""
+
+#: ../../vmc/common/dialers/wvdial.py:225
+#, python-format
+msgid ""
+"\n"
+"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
+"'plugin passwordfd.so' directive should not appear on the\n"
+"current wvdial profile, please remove it manually. Go to\n"
+"Tools -> Preferences, select the wvdial profiles tab, and\n"
+"remove from the current wvdial profile the\n"
+"'plugin passwordfd.so' line."
+msgstr ""
+
+#: ../../vmc/common/hardware/__init__.py:29
+#: ../../vmc/common/hardware/__init__.py:36
+msgid "GPRS only"
+msgstr ""
+
+#: ../../vmc/common/hardware/__init__.py:30
+#: ../../vmc/common/hardware/__init__.py:37
+msgid "3G only"
+msgstr ""
+
+#: ../../vmc/common/hardware/__init__.py:31
+#: ../../vmc/common/hardware/__init__.py:38
+msgid "GPRS preferred"
+msgstr ""
+
+#: ../../vmc/common/hardware/__init__.py:32
+#: ../../vmc/common/hardware/__init__.py:39
+msgid "3G preferred"
+msgstr ""
+
+#: ../../vmc/common/uptime.py:83
+#, python-format
+msgid "%(day)d days, %(msg)s"
+msgstr ""
+
+#: ../../vmc/common/uptime.py:85
+#, python-format
+msgid "%(day)d day, %(msg)s"
+msgstr ""
+
+#: ../../vmc/common/shutdown.py:52
+msgid "Shutting down..."
+msgstr ""
+
+#: ../../vmc/common/middleware.py:472
+msgid "Unknown Network"
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:151
+msgid "Initial setup..."
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:191 ../../vmc/gtk/startup.py:210
+#: ../../vmc/gtk/controllers/initialconf.py:375
+msgid "Device setup not completed"
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:192
+#, python-format
+msgid ""
+"\n"
+"Your device has been detected but it has been impossible to connect to it.\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:211
+#, python-format
+msgid ""
+"\n"
+"Your device \"%(name)s\" is not properly registered with the kernel. %(vmc)"
+"s\n"
+"needs at least two serial ports to communicate with your %(name)s.\n"
+"The program includes a set of udev rules plus some binaries that make sure\n"
+"that your device is always recognised properly. If you've installed from\n"
+"source, then make sure to copy the relevant files in the contrib dir\n"
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:227
+msgid "Device not responding"
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:228
+msgid ""
+"\n"
+"Your device took more than 15 seconds to reply to my last command. Unplug "
+"it,\n"
+"plug it again, and try in a moment."
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:303
+msgid "Authenticated!"
+msgstr ""
+
+#: ../../vmc/gtk/startup.py:306
+msgid "Authenticating..."
+msgstr ""
+
+#: ../../vmc/gtk/views/pin.py:63
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK codes"
+msgstr ""
+
+#: ../../vmc/gtk/views/pin.py:69
+msgid ""
+"\n"
+"In order to unlock your SIM, we need your\n"
+"PIN and PUK2 codes"
+msgstr ""
+
+#: ../../vmc/gtk/views/preferences.py:107
+#: ../../vmc/gtk/views/preferences.py:120
+#: ../../vmc/gtk/controllers/preferences.py:287
+msgid "Custom"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:54
+msgid "B"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:55
+msgid "KB"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:56
+msgid "MB"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:57
+msgid "GB"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:337
+#: ../../vmc/gtk/controllers/application.py:955
+msgid "Not connected"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:345
+#: ../../vmc/gtk/controllers/application.py:1033
+msgid "Disconnect"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:357
+msgid "No device present"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:359
+#: ../../vmc/gtk/views/application.py:360
+#: ../../vmc/gtk/controllers/application.py:1253
+msgid "N/A"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:386
+#: ../../vmc/gtk/views/application.py:417
+#: ../../vmc/gtk/controllers/contacts.py:143
+msgid "Type"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:392
+#: ../../vmc/gtk/views/initialconf.py:317
+#: ../../vmc/gtk/controllers/contacts.py:149
+msgid "Name"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:401
+#: ../../vmc/gtk/controllers/contacts.py:156
+msgid "Number"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:424
+msgid "Text"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:435
+msgid "Recipient"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:435
+msgid "Sender"
+msgstr ""
+
+#: ../../vmc/gtk/views/application.py:443
+msgid "Date"
+msgstr ""
+
+#: ../../vmc/gtk/views/initialconf.py:231
+msgid "No known devices found"
+msgstr ""
+
+#: ../../vmc/gtk/views/initialconf.py:324
+msgid "Address"
 msgstr ""
 
 #: ../../vmc/gtk/models/preferences.py:34
@@ -866,7 +1148,7 @@ msgstr ""
 msgid "1 day"
 msgstr ""
 
-#: ../../vmc/gtk/models/application.py:217
+#: ../../vmc/gtk/models/application.py:232
 msgid "%B, %Y"
 msgstr ""
 
@@ -913,359 +1195,6 @@ msgid ""
 "In order to send a SMS, %s needs to know the number of your provider's "
 "SMSC.\n"
 "If you do not know the SMSC number, contact your customer service.\n"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/preferences.py:68
-#: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:572
-#: ../../vmc/gtk/controllers/pin.py:296
-msgid "Missing dependency"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/preferences.py:70
-#: ../../vmc/gtk/controllers/pin.py:298
-msgid "To use this feature you need the gnomekeyring module"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/preferences.py:88
-msgid ""
-"\n"
-"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
-"module\n"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/preferences.py:287
-#: ../../vmc/gtk/views/preferences.py:107
-#: ../../vmc/gtk/views/preferences.py:120
-msgid "Custom"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:113
-#: ../../vmc/gtk/controllers/initialconf.py:545
-msgid "Shutting down"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:131
-msgid "Connected to Internet"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:132
-#, python-format
-msgid ""
-"\n"
-"You need to disconnect from Internet before shutting\n"
-"down %s,\n"
-"if you want to do so, press the OK button.\n"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:253
-msgid "Reading contacts..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:280
-msgid "Reading messages..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:334
-msgid "User Limit"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:335
-msgid "You have reached your limit of maximum usage"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:357
-msgid "New mobile profile available"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:358
-msgid ""
-"\n"
-"New profile available, do you want to load it?"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:360
-#: ../../vmc/gtk/controllers/initialconf.py:91
-msgid "Load"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:413
-#, python-format
-msgid "Quit %s"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:414
-msgid "Are you sure you want to exit?"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:471
-msgid "_New Profile"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:480
-msgid "Load Profile"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:485
-msgid "Edit Profile"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:490
-msgid "Delete Profile"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:573
-msgid "To use this widget you need python-vte installed"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:620
-msgid "Invalid CSV format"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:621
-msgid ""
-"\n"
-"The csv file that you have tried to import has an invalid format."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:652
-#: ../../vmc/gtk/controllers/application.py:674
-msgid "Connecting..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:669
-#: ../../vmc/gtk/controllers/application.py:1209
-#, python-format
-msgid "Connected to %s"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:671
-msgid "Connected"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:939
-#: ../../vmc/gtk/views/application.py:330
-msgid "Not connected"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:940
-msgid "No mobile connection. Do you want to continue?"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1011
-#: ../../vmc/gtk/views/application.py:338
-msgid "Disconnect"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1033
-msgid "Send SMS"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1047
-msgid "Quit"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1059
-msgid "_Send SMS"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1078
-msgid "_Add to contacts"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1087
-msgid "Save to draft"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1098
-msgid "Delete"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1198
-msgid "Illegal Operation!"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1199
-msgid ""
-"\n"
-"Your device only has one port and you are currently connected\n"
-"to Internet, you cannot perform any operation while connected"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1213
-#: ../../vmc/gtk/views/application.py:352
-#: ../../vmc/gtk/views/application.py:353
-msgid "N/A"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1230
-#, python-format
-msgid "<small>SMS received from %s</small>"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1233
-#, python-format
-msgid ""
-"<small>Received at %(date)s</small>\n"
-"<b>%(text)s</b>"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1245
-msgid "Invalid DNS recibed from APN"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1247
-msgid ""
-"\n"
-"<small>The DNS settings received from the APN are invalid. You will\n"
-"probably want to restart the connection, or if the problem persists, you\n"
-"can specify a static DNS entry in the connection preferences</small>\n"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1262
-msgid "Disconnected from Internet"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1263
-#, python-format
-msgid ""
-"\n"
-"<small>%s has given\n"
-"up after trying to connect three times to Internet. This might\n"
-"be provoked by a problem in the configuration or just the fact\n"
-"that there's no carrier.</small>"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1275
-msgid "Device in use removed"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1277
-#, python-format
-msgid ""
-"\n"
-"The 3G device in use has been removed. Now\n"
-"%s\n"
-"is going to shutdown. In order to continue,\n"
-"plug in the 3G device and start again."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1309
-msgid "3G Device added"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1310
-#, python-format
-msgid ""
-"\n"
-"A new 3G device (%(device_name)s)\n"
-"has been added, in around 15 seconds\n"
-"(%(app_name)s) will resume its functioning"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1318
-msgid "Setting up device..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/contacts.py:92
-msgid "No contact found"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/contacts.py:93
-#, python-format
-msgid "No contact with the name %s found"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/contacts.py:143
-#: ../../vmc/gtk/views/application.py:379
-#: ../../vmc/gtk/views/application.py:410
-msgid "Type"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/contacts.py:149
-#: ../../vmc/gtk/views/application.py:385
-#: ../../vmc/gtk/views/initialconf.py:246
-msgid "Name"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/contacts.py:156
-#: ../../vmc/gtk/views/application.py:394
-msgid "Number"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:88
-msgid "Configuration details found for Operator!"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:90
-#, python-format
-msgid "Do you want to load stored settings for %s?"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:230
-#: ../../vmc/gtk/controllers/initialconf.py:281
-msgid "Invalid characters in profile name"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:231
-#: ../../vmc/gtk/controllers/initialconf.py:282
-#, python-format
-msgid ""
-"\n"
-"The following characters are not allowed in a profile name:\n"
-"%s"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:370 ../../vmc/gtk/startup.py:188
-#: ../../vmc/gtk/startup.py:207 ../../vmc/gtk/startup.py:258
-msgid "Device setup not completed"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:371
-#, python-format
-msgid ""
-"\n"
-"An unknown error occur when setting up the device:\n"
-"%s"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:436
-#, python-format
-msgid "Authentication Error from %s !"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:440
-#, python-format
-msgid "Connecting to %s ..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:488
-msgid "Discovery started..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:492
-msgid "Discovery finished!"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:516
-msgid "No control port"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:522
-msgid "Connecting to device..."
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:530
-#, python-format
-msgid "Exception received connecting to %s"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/initialconf.py:531
-#, python-format
-msgid ""
-"\n"
-"The following error was received while trying to establish a connection:\n"
-"%s"
 msgstr ""
 
 #: ../../vmc/gtk/controllers/pin.py:48 ../../vmc/gtk/controllers/pin.py:218
@@ -1323,200 +1252,364 @@ msgid ""
 "for the PUK code\n"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:54
-msgid "B"
+#: ../../vmc/gtk/controllers/pin.py:296
+#: ../../vmc/gtk/controllers/preferences.py:68
+#: ../../vmc/gtk/controllers/preferences.py:87
+#: ../../vmc/gtk/controllers/application.py:588
+msgid "Missing dependency"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:55
-msgid "KB"
+#: ../../vmc/gtk/controllers/pin.py:298
+#: ../../vmc/gtk/controllers/preferences.py:70
+msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:56
-msgid "MB"
-msgstr ""
-
-#: ../../vmc/gtk/views/application.py:57
-msgid "GB"
-msgstr ""
-
-#: ../../vmc/gtk/views/application.py:350
-msgid "No device present"
-msgstr ""
-
-#: ../../vmc/gtk/views/application.py:417
-msgid "Text"
-msgstr ""
-
-#: ../../vmc/gtk/views/application.py:428
-msgid "Recipient"
-msgstr ""
-
-#: ../../vmc/gtk/views/application.py:428
-msgid "Sender"
-msgstr ""
-
-#: ../../vmc/gtk/views/application.py:436
-msgid "Date"
-msgstr ""
-
-#: ../../vmc/gtk/views/initialconf.py:161
-msgid "No known devices found"
-msgstr ""
-
-#: ../../vmc/gtk/views/initialconf.py:253
-msgid "Address"
-msgstr ""
-
-#: ../../vmc/gtk/views/pin.py:63
+#: ../../vmc/gtk/controllers/preferences.py:88
 msgid ""
 "\n"
-"In order to unlock your SIM, we need your\n"
-"PIN and PUK codes"
+"To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
+"module\n"
 msgstr ""
 
-#: ../../vmc/gtk/views/pin.py:69
-msgid ""
-"\n"
-"In order to unlock your SIM, we need your\n"
-"PIN and PUK2 codes"
+#: ../../vmc/gtk/controllers/application.py:113
+#: ../../vmc/gtk/controllers/initialconf.py:549
+msgid "Shutting down"
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:146
-msgid "Initial setup..."
+#: ../../vmc/gtk/controllers/application.py:131
+msgid "Connected to Internet"
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:189
+#: ../../vmc/gtk/controllers/application.py:132
 #, python-format
 msgid ""
 "\n"
-"Your device has been detected but it has been impossible to connect to it.\n"
+"You need to disconnect from Internet before shutting\n"
+"down %s,\n"
+"if you want to do so, press the OK button.\n"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:253
+msgid "Reading contacts..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:280
+msgid "Reading messages..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:334
+msgid "User Limit"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:335
+msgid "You have reached your limit of maximum usage"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:357
+msgid "New mobile profile available"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:358
+msgid ""
 "\n"
+"New profile available, do you want to load it?"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:360
+msgid "Load"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:429
+#, python-format
+msgid "Quit %s"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:430
+msgid "Are you sure you want to exit?"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:487
+msgid "_New Profile"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:496
+msgid "Load Profile"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:501
+msgid "Edit Profile"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:506
+msgid "Delete Profile"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:589
+msgid "To use this widget you need python-vte installed"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:636
+msgid "Invalid CSV format"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:637
+msgid ""
+"\n"
+"The csv file that you have tried to import has an invalid format."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:668
+#: ../../vmc/gtk/controllers/application.py:690
+msgid "Connecting..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:685
+#: ../../vmc/gtk/controllers/application.py:1247
+#, python-format
+msgid "Connected to %s"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:687
+msgid "Connected"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:956
+msgid "No mobile connection. Do you want to continue?"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1055
+msgid "Send SMS"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1069
+msgid "Quit"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1081
+msgid "_Send SMS"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1100
+msgid "_Add to contacts"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1109
+msgid "Save to draft"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1120
+msgid "Delete"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1236
+msgid "Illegal Operation!"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1237
+msgid ""
+"\n"
+"Your device only has one port and you are currently connected\n"
+"to Internet, you cannot perform any operation while connected"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1251
+msgid "Radio Disabled"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1274
+#, python-format
+msgid "<small>SMS received from %s</small>"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1277
+#, python-format
+msgid ""
+"<small>Received at %(date)s</small>\n"
+"<b>%(text)s</b>"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1289
+msgid "Invalid DNS received from Network"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1291
+msgid ""
+"\n"
+"<small>The DNS settings received from the mobile network are invalid. You "
+"will\n"
+"probably want to restart the connection, or if the problem persists, you\n"
+"can specify a static DNS entry in the connection preferences</small>\n"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1306
+msgid "Disconnected from Internet"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1307
+#, python-format
+msgid ""
+"\n"
+"<small>%s has given\n"
+"up after trying to connect three times to Internet. This might\n"
+"be provoked by a problem in the configuration or just the fact\n"
+"that there's no carrier.</small>"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1319
+msgid "Device in use removed"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1321
+#, python-format
+msgid ""
+"\n"
+"The 3G device in use has been removed. Now\n"
+"%s\n"
+"is going to shutdown. In order to continue,\n"
+"plug in the 3G device and start again."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1355
+msgid "3G Device added"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1356
+#, python-format
+msgid ""
+"\n"
+"A new 3G device (%(device_name)s)\n"
+"has been added, in around 15 seconds\n"
+"(%(app_name)s) will resume its functioning"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1364
+msgid "Setting up device..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/contacts.py:92
+msgid "No contact found"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/contacts.py:93
+#, python-format
+msgid "No contact with the name %s found"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:212
+#, python-format
+msgid "The following characters are not allowed in a profile name: %s"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:215
+msgid "Invalid value in profile"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:376
+#, python-format
+msgid ""
+"\n"
+"An unknown error occur when setting up the device:\n"
 "%s"
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:208
+#: ../../vmc/gtk/controllers/initialconf.py:441
+#, python-format
+msgid "Authentication Error from %s !"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:445
+#, python-format
+msgid "Connecting to %s ..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:493
+msgid "Discovery started..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:497
+msgid "Discovery finished!"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:521
+msgid "No control port"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:527
+msgid "Connecting to device..."
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:535
+#, python-format
+msgid "Exception received connecting to %s"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/initialconf.py:536
 #, python-format
 msgid ""
 "\n"
-"Your device \"%(name)s\" is not properly registered with the kernel. %(vmc)"
-"s\n"
-"needs at least two serial ports to communicate with your %(name)s.\n"
-"The program includes a set of udev rules plus some binaries that make sure\n"
-"that your device is always recognised properly. If you've installed from\n"
-"source, then make sure to copy the relevant files in the contrib dir\n"
+"The following error was received while trying to establish a connection:\n"
+"%s"
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:224
-msgid "Device not responding"
+#: ../../vmc/gtk/dialogs.py:94
+msgid "Import contacts from..."
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:225
+#: ../../vmc/gtk/dialogs.py:102 ../../vmc/gtk/dialogs.py:164
+msgid "Csv files"
+msgstr ""
+
+#: ../../vmc/gtk/dialogs.py:107 ../../vmc/gtk/dialogs.py:132
+#: ../../vmc/gtk/dialogs.py:170
+msgid "All files"
+msgstr ""
+
+#: ../../vmc/gtk/dialogs.py:123 ../../vmc/gtk/dialogs.py:156
+msgid "Save as ..."
+msgstr ""
+
+#: ../../vmc/gtk/dialogs.py:142 ../../vmc/gtk/dialogs.py:180
+msgid "Overwrite"
+msgstr ""
+
+#: ../../vmc/gtk/dialogs.py:143 ../../vmc/gtk/dialogs.py:181
+#, python-format
+msgid "Overwrite \"%s\"?"
+msgstr ""
+
+#: ../../vmc/gtk/dialogs.py:144 ../../vmc/gtk/dialogs.py:182
 msgid ""
-"\n"
-"Your device took more than 15 seconds to reply to my last command. Unplug "
-"it,\n"
-"plug it again, and try in a moment."
+"A file with this name already exists.\n"
+"If you choose to overwrite this file, the contents will be lost."
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:259
-#, python-format
-msgid ""
-"\n"
-"%(vmc)s cannot connect with the selected device (%(name)s).\n"
+#: ../../vmc/gtk/dialogs.py:196
+msgid "Device List"
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:318
-msgid "Authenticated!"
+#: ../../vmc/gtk/dialogs.py:229
+msgid "Vodafone Spain S.A."
 msgstr ""
 
-#: ../../vmc/gtk/startup.py:321
-msgid "Authenticating..."
+#: ../../vmc/gtk/dialogs.py:236
+msgid "translated to $LANG by $translater"
 msgstr ""
 
-#: ../../vmc/common/uptime.py:83
-#, python-format
-msgid "%(day)d days, %(msg)s"
-msgstr ""
-
-#: ../../vmc/common/uptime.py:85
-#, python-format
-msgid "%(day)d day, %(msg)s"
-msgstr ""
-
-#: ../../vmc/common/dialers/__init__.py:31
-#: ../../vmc/common/dialers/__init__.py:37
-msgid "Default"
-msgstr ""
-
-#: ../../vmc/common/dialers/__init__.py:32
-#: ../../vmc/common/dialers/__init__.py:38
-msgid "PAP"
-msgstr ""
-
-#: ../../vmc/common/dialers/__init__.py:33
-#: ../../vmc/common/dialers/__init__.py:39
-msgid "CHAP"
-msgstr ""
-
-#: ../../vmc/common/dialers/wvdial.py:245
-msgid "WVDial directive error"
-msgstr ""
-
-#: ../../vmc/common/dialers/wvdial.py:246
-#, python-format
-msgid ""
-"\n"
-"Since version 0.9.7 %s manages pppd's /etc/ppp/{p,ch}ap-secrets, the\n"
-"'plugin passwordfd.so' directive should not appear on the\n"
-"current wvdial profile, please remove it manually. Go to\n"
-"Tools -> Preferences, select the wvdial profiles tab, and\n"
-"remove from the current wvdial profile the\n"
-"'plugin passwordfd.so' line."
-msgstr ""
-
-#: ../../vmc/common/shutdown.py:52
-msgid "Shutting down..."
-msgstr ""
-
-#: ../../vmc/common/hardware/__init__.py:36
-#: ../../vmc/common/hardware/__init__.py:43
-msgid "GPRS only"
-msgstr ""
-
-#: ../../vmc/common/hardware/__init__.py:37
-#: ../../vmc/common/hardware/__init__.py:44
-msgid "3G only"
-msgstr ""
-
-#: ../../vmc/common/hardware/__init__.py:38
-#: ../../vmc/common/hardware/__init__.py:45
-msgid "GPRS preferred"
-msgstr ""
-
-#: ../../vmc/common/hardware/__init__.py:39
-#: ../../vmc/common/hardware/__init__.py:46
-msgid "3G preferred"
-msgstr ""
-
-#: ../../vmc/common/middleware.py:450
-msgid "Unknown Network"
-msgstr ""
-
-#: ../../gtk-tap.py:51
+#: ../../gtk-tap.py:50
 msgid "Missing dependencies"
 msgstr ""
 
-#: ../../gtk-tap.py:53
+#: ../../gtk-tap.py:52
 #, python-format
 msgid ""
 "The following dependencies are not satisfied:\n"
 "%s"
 msgstr ""
 
-#: ../../gtk-tap.py:62
+#: ../../gtk-tap.py:61
 msgid "OS/Distro not registered"
 msgstr ""
 
-#: ../../gtk-tap.py:74
+#: ../../gtk-tap.py:73
 msgid "Permissions problems"
 msgstr ""
