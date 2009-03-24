@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-24 20:07+0000\n"
+"POT-Creation-Date: 2009-03-24 20:25+0000\n"
 "PO-Revision-Date: 2008-01-09 22:11+0100\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
@@ -1189,11 +1189,13 @@ msgstr "N/A"
 
 #: ../../vmc/gtk/views/application.py:386
 #: ../../vmc/gtk/views/application.py:417
+#: ../../vmc/gtk/views/initialconf.py:109
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Tip"
 
 #: ../../vmc/gtk/views/application.py:392
+#: ../../vmc/gtk/views/initialconf.py:103
 #: ../../vmc/gtk/views/initialconf.py:317
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
@@ -1219,6 +1221,11 @@ msgstr "Pošiljatelj"
 #: ../../vmc/gtk/views/application.py:443
 msgid "Date"
 msgstr "Datum"
+
+#: ../../vmc/gtk/views/initialconf.py:106
+#, fuzzy
+msgid "Country"
+msgstr "Računalo"
 
 #: ../../vmc/gtk/views/initialconf.py:231
 msgid "No known devices found"

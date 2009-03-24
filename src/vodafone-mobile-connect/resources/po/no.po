@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-24 20:07+0000\n"
+"POT-Creation-Date: 2009-03-24 20:25+0000\n"
 "PO-Revision-Date: 2007-08-09 09:44+0200\n"
 "Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
@@ -1206,11 +1206,13 @@ msgstr "N/A"
 
 #: ../../vmc/gtk/views/application.py:386
 #: ../../vmc/gtk/views/application.py:417
+#: ../../vmc/gtk/views/initialconf.py:109
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Type"
 
 #: ../../vmc/gtk/views/application.py:392
+#: ../../vmc/gtk/views/initialconf.py:103
 #: ../../vmc/gtk/views/initialconf.py:317
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
@@ -1236,6 +1238,11 @@ msgstr "Avsender"
 #: ../../vmc/gtk/views/application.py:443
 msgid "Date"
 msgstr "Dato"
+
+#: ../../vmc/gtk/views/initialconf.py:106
+#, fuzzy
+msgid "Country"
+msgstr "Datamaskin"
 
 #: ../../vmc/gtk/views/initialconf.py:231
 #, fuzzy

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-24 20:07+0000\n"
+"POT-Creation-Date: 2009-03-24 20:25+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
@@ -1180,11 +1180,13 @@ msgstr "N/A"
 
 #: ../../vmc/gtk/views/application.py:386
 #: ../../vmc/gtk/views/application.py:417
+#: ../../vmc/gtk/views/initialconf.py:109
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Τύπος"
 
 #: ../../vmc/gtk/views/application.py:392
+#: ../../vmc/gtk/views/initialconf.py:103
 #: ../../vmc/gtk/views/initialconf.py:317
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
@@ -1210,6 +1212,11 @@ msgstr "Αποστολέας"
 #: ../../vmc/gtk/views/application.py:443
 msgid "Date"
 msgstr "Ημερομηνία"
+
+#: ../../vmc/gtk/views/initialconf.py:106
+#, fuzzy
+msgid "Country"
+msgstr "Υπολογιστής"
 
 #: ../../vmc/gtk/views/initialconf.py:231
 #, fuzzy

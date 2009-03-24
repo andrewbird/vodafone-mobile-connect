@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-24 20:07+0000\n"
+"POT-Creation-Date: 2009-03-24 20:25+0000\n"
 "PO-Revision-Date: 2007-12-11 17:49+0100\n"
 "Last-Translator: Pablo Martí <pmarti@warp.es>\n"
 "Language-Team: Spanish <ES@li.org>\n"
@@ -1187,11 +1187,13 @@ msgstr "N/D"
 
 #: ../../vmc/gtk/views/application.py:386
 #: ../../vmc/gtk/views/application.py:417
+#: ../../vmc/gtk/views/initialconf.py:109
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Tipo"
 
 #: ../../vmc/gtk/views/application.py:392
+#: ../../vmc/gtk/views/initialconf.py:103
 #: ../../vmc/gtk/views/initialconf.py:317
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
@@ -1217,6 +1219,11 @@ msgstr "Remitente"
 #: ../../vmc/gtk/views/application.py:443
 msgid "Date"
 msgstr "Fecha"
+
+#: ../../vmc/gtk/views/initialconf.py:106
+#, fuzzy
+msgid "Country"
+msgstr "Ordenador"
 
 #: ../../vmc/gtk/views/initialconf.py:231
 msgid "No known devices found"

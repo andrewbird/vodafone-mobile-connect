@@ -100,13 +100,13 @@ class APNSelectionView(View):
 
     def init_view_columns(self):
         render_text = gtk.CellRendererText()
-        col0=gtk.TreeViewColumn('Name')
+        col0=gtk.TreeViewColumn(_('Name'))
         col0.pack_start(render_text, expand=True)
         col0.add_attribute(render_text, 'text', 0)
-        col1=gtk.TreeViewColumn('Country')
+        col1=gtk.TreeViewColumn(_('Country'))
         col1.pack_start(render_text, expand=True)
         col1.add_attribute(render_text, 'text', 1)
-        col2=gtk.TreeViewColumn('Type')
+        col2=gtk.TreeViewColumn(_('Type'))
         col2.pack_start(render_text, expand=True)
         col2.add_attribute(render_text, 'text', 2)
         self._view.append_column(col0)
