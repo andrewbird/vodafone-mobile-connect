@@ -162,8 +162,8 @@ def produce_tree():
     sh('(cd resources/platform/%s && tar -cf - . --exclude=./debian) | (cd %s && tar -xf -)' % (target, root))
 
 # I18N
-    sh('(cd resources && tar -cf - po) | (cd %s && tar -xf -)' % tmp)
-    sh('(cd %s/po && make -f Makefile.pkg ROOT=../%s-%s/)' % (tmp, name, version)) 
+    sh('(cd resources && tar -cf - po glade) | (cd %s && tar -xf -)' % tmp)
+    sh('(cd %s/po && make install ROOT=../%s-%s/ VERSION=%s)' % (tmp, name, version, version)) 
 
 # Remove any svn info in copy
     sh('find %s -name ".svn" | xargs rm -rf' % root)
