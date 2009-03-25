@@ -135,7 +135,7 @@
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
                 <accessibility>
-                  <atkproperty name="AtkObject::accessible_name" translatable="yes">Insert PIN Cancel Button</atkproperty>
+                  <atkproperty name="AtkObject::accessible_name" translatable="yes">Cancel</atkproperty>
                 </accessibility>
                 <signal name="clicked" handler="on_cancel_button_clicked"/>
               </widget>
@@ -152,7 +152,7 @@
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
                 <accessibility>
-                  <atkproperty name="AtkObject::accessible_name" translatable="yes">Insert PIN OK Button</atkproperty>
+                  <atkproperty name="AtkObject::accessible_name" translatable="yes">OK</atkproperty>
                 </accessibility>
                 <signal name="clicked" handler="on_ok_button_clicked"/>
               </widget>
@@ -470,7 +470,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="label" translatable="yes">gtk-cancel</property>
+                <property name="label">gtk-cancel</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
                 <signal name="clicked" handler="on_cancel_button_clicked"/>
@@ -482,7 +482,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="label" translatable="yes">gtk-ok</property>
+                <property name="label">gtk-ok</property>
                 <property name="use_stock">True</property>
                 <property name="response_id">0</property>
                 <signal name="clicked" handler="on_ok_button_clicked"/>

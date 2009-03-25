@@ -190,7 +190,7 @@ You can choose a preconfigured APN or cancel to enter the information needed to 
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>
 			      <accessibility>
-				<atkproperty name="AtkObject::accessible_name" translatable="yes">APN Selection Cancel Button</atkproperty>
+				<atkproperty name="AtkObject::accessible_name" translatable="yes">Cancel</atkproperty>
 			      </accessibility>
 			      <signal name="clicked" handler="on_cancel_button_clicked"/>
 			    </widget>
@@ -205,7 +205,7 @@ You can choose a preconfigured APN or cancel to enter the information needed to 
 			      <property name="relief">GTK_RELIEF_NORMAL</property>
 			      <property name="focus_on_click">True</property>
 			      <accessibility>
-				<atkproperty name="AtkObject::accessible_name" translatable="yes">APN Selection OK Button</atkproperty>
+				<atkproperty name="AtkObject::accessible_name" translatable="yes">OK</atkproperty>
 			      </accessibility>
 			      <signal name="clicked" handler="on_ok_button_clicked"/>
 			    </widget>
