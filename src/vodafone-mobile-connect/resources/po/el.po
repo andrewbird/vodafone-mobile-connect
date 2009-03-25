@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-24 20:25+0000\n"
+"POT-Creation-Date: 2009-03-25 15:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
@@ -33,13 +33,16 @@ msgid ""
 "to set up a custom one.\n"
 msgstr ""
 
-#: ../glade/apnsel.glade:193
-msgid "APN Selection Cancel Button"
-msgstr ""
+#: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
+#: ../glade/pin.glade:138
+#, fuzzy
+msgid "Cancel"
+msgstr "gtk-cancel"
 
-#: ../glade/apnsel.glade:208
-msgid "APN Selection OK Button"
-msgstr ""
+#: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
+#: ../glade/pin.glade:155
+msgid "OK"
+msgstr "OK"
 
 #: ../glade/apnsel.glade:228
 #, fuzzy
@@ -194,16 +197,6 @@ msgstr "Δεν βρέθηκε συσκευή"
 msgid "Custom Device Settings Radio"
 msgstr "Δεν βρέθηκε συσκευή"
 
-#: ../glade/config2.glade:1333
-#, fuzzy
-msgid "Device Selection Cancel Button"
-msgstr "Ρυθμίσεις Συσκευής"
-
-#: ../glade/config2.glade:1348
-#, fuzzy
-msgid "Device Selection OK Button"
-msgstr "Ρυθμίσεις Συσκευής"
-
 #: ../glade/config2.glade:1368
 #, fuzzy
 msgid "<b>Device Settings</b>"
@@ -283,23 +276,6 @@ msgstr "Enable hardware flow control"
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
 msgstr "Enable software flow control"
-
-#: ../glade/config.glade:515 ../glade/VMC.glade:263
-msgid "gtk-help"
-msgstr "gtk-help"
-
-#: ../glade/config.glade:539 ../glade/dialogs.glade:386 ../glade/pin.glade:473
-#: ../glade/sms.glade:113
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
-
-#: ../glade/config.glade:551 ../glade/helpbrowser.glade:59
-msgid "gtk-go-back"
-msgstr "gtk-go-back"
-
-#: ../glade/config.glade:567 ../glade/helpbrowser.glade:75
-msgid "gtk-go-forward"
-msgstr "gtk-go-forward"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
@@ -446,23 +422,10 @@ msgstr "<b>τίτλος</b>"
 msgid "Remember my choice"
 msgstr "Αποθήκευση επιλογής"
 
-#: ../glade/dialogs.glade:397 ../glade/pin.glade:485 ../glade/usage.glade:36
-msgid "gtk-ok"
-msgstr "gtk-ok"
-
 #: ../glade/helpbrowser.glade:21 ../glade/VMC.glade:20
 #: ../glade/VMC-reduced.glade:46
 msgid "_File"
 msgstr "_Αρχείο"
-
-#: ../glade/helpbrowser.glade:31
-msgid "gtk-quit"
-msgstr ""
-
-#: ../glade/helpbrowser.glade:92
-#, fuzzy
-msgid "gtk-home"
-msgstr "gtk-help"
 
 #: ../glade/pin.glade:7
 msgid "Insert your PIN code"
@@ -489,15 +452,6 @@ msgstr "Να διαχειρίζεται το ΡΙΝ μου το gnomekeyring"
 #: ../glade/pin.glade:112
 msgid "<b>Advanced Options</b>"
 msgstr "<b>Προχωρημένες επιλογές</b>"
-
-#: ../glade/pin.glade:138
-msgid "Insert PIN Cancel Button"
-msgstr ""
-
-#: ../glade/pin.glade:155
-#, fuzzy
-msgid "Insert PIN OK Button"
-msgstr "Εισάγετε το ΡΙΝ σας"
 
 #: ../glade/pin.glade:175
 msgid "Modify PIN code"
@@ -1784,6 +1738,37 @@ msgstr "OS/Distro not registered"
 msgid "Permissions problems"
 msgstr "Permissions problems"
 
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
+
+#~ msgid "gtk-ok"
+#~ msgstr "gtk-ok"
+
+#~ msgid "gtk-help"
+#~ msgstr "gtk-help"
+
+#~ msgid "gtk-go-back"
+#~ msgstr "gtk-go-back"
+
+#~ msgid "gtk-go-forward"
+#~ msgstr "gtk-go-forward"
+
+#, fuzzy
+#~ msgid "gtk-home"
+#~ msgstr "gtk-help"
+
+#, fuzzy
+#~ msgid "Device Selection Cancel Button"
+#~ msgstr "Ρυθμίσεις Συσκευής"
+
+#, fuzzy
+#~ msgid "Device Selection OK Button"
+#~ msgstr "Ρυθμίσεις Συσκευής"
+
+#, fuzzy
+#~ msgid "Insert PIN OK Button"
+#~ msgstr "Εισάγετε το ΡΙΝ σας"
+
 #~ msgid "<b>Connectivy test</b>"
 #~ msgstr "<b>Δοκιμή συνδεσιμότητας</b>"
 
@@ -1809,9 +1794,6 @@ msgstr "Permissions problems"
 #~ "Θα συλλεχθούν ορισμένες πληροφορίες του συστήματός σας και θα γίνουν "
 #~ "κάποιες βασικές δοκιμές συνδεσιμότητας για να εξακριβωθεί η αιτία των "
 #~ "δικτυακών προβλημάτων που αντιμετωπίζετε"
-
-#~ msgid "OK"
-#~ msgstr "OK"
 
 #~ msgid "ERROR"
 #~ msgstr "ΣΦΑΛΜΑ"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-24 20:25+0000\n"
+"POT-Creation-Date: 2009-03-25 15:26+0000\n"
 "PO-Revision-Date: 2008-12-26 14:06+0100\n"
 "Last-Translator: sissie <sissie@bullteam.net>\n"
 "Language-Team: bullteam.net <sissie@bullteam.net>\n"
@@ -40,18 +40,21 @@ msgstr ""
 "nécessaires pour configurer un périphérique personnalisé.\n"
 "\n"
 
-#: ../glade/apnsel.glade:193
-msgid "APN Selection Cancel Button"
-msgstr ""
+#: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
+#: ../glade/pin.glade:138
+#, fuzzy
+msgid "Cancel"
+msgstr "gtk-annuler"
 
-#: ../glade/apnsel.glade:208
-msgid "APN Selection OK Button"
+#: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
+#: ../glade/pin.glade:155
+msgid "OK"
 msgstr ""
 
 #: ../glade/apnsel.glade:228
 #, fuzzy
 msgid "<b>APN Settings</b>"
-msgstr "<b>Configuration des DNS</b>"
+msgstr "<b>Configuration des APN</b>"
 
 #: ../glade/config2.glade:9
 msgid "New Profile"
@@ -199,16 +202,6 @@ msgstr "Configuration personnalisée"
 msgid "Custom Device Settings Radio"
 msgstr "Configuration personnalisée"
 
-#: ../glade/config2.glade:1333
-#, fuzzy
-msgid "Device Selection Cancel Button"
-msgstr "Sélection du périphérique"
-
-#: ../glade/config2.glade:1348
-#, fuzzy
-msgid "Device Selection OK Button"
-msgstr "Sélection du périphérique"
-
 #: ../glade/config2.glade:1368
 msgid "<b>Device Settings</b>"
 msgstr "<b>Configuration du périphérique</b>"
@@ -288,23 +281,6 @@ msgstr "Activer le contrôle de flux matériel"
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
 msgstr "Activer le contrôle de flux logiciel"
-
-#: ../glade/config.glade:515 ../glade/VMC.glade:263
-msgid "gtk-help"
-msgstr "gtk-aide"
-
-#: ../glade/config.glade:539 ../glade/dialogs.glade:386 ../glade/pin.glade:473
-#: ../glade/sms.glade:113
-msgid "gtk-cancel"
-msgstr "gtk-annuler"
-
-#: ../glade/config.glade:551 ../glade/helpbrowser.glade:59
-msgid "gtk-go-back"
-msgstr "gtk-précédent"
-
-#: ../glade/config.glade:567 ../glade/helpbrowser.glade:75
-msgid "gtk-go-forward"
-msgstr "gtk-suivant"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
@@ -451,22 +427,10 @@ msgstr "<b>titre</b>"
 msgid "Remember my choice"
 msgstr "Se souvenir de mes choix"
 
-#: ../glade/dialogs.glade:397 ../glade/pin.glade:485 ../glade/usage.glade:36
-msgid "gtk-ok"
-msgstr "gtk-ok"
-
 #: ../glade/helpbrowser.glade:21 ../glade/VMC.glade:20
 #: ../glade/VMC-reduced.glade:46
 msgid "_File"
 msgstr "_Fichier"
-
-#: ../glade/helpbrowser.glade:31
-msgid "gtk-quit"
-msgstr "gtk-quitter"
-
-#: ../glade/helpbrowser.glade:92
-msgid "gtk-home"
-msgstr "gtk-accueil"
 
 #: ../glade/pin.glade:7
 msgid "Insert your PIN code"
@@ -493,15 +457,6 @@ msgstr "Gérer mon code PIN par gnome-keyring"
 #: ../glade/pin.glade:112
 msgid "<b>Advanced Options</b>"
 msgstr "<b>Paramètres avancés</b>"
-
-#: ../glade/pin.glade:138
-msgid "Insert PIN Cancel Button"
-msgstr ""
-
-#: ../glade/pin.glade:155
-#, fuzzy
-msgid "Insert PIN OK Button"
-msgstr "Insérez votre code PIN"
 
 #: ../glade/pin.glade:175
 msgid "Modify PIN code"
@@ -1814,6 +1769,39 @@ msgstr "OS/Distribution non enregistré"
 #: ../../gtk-tap.py:73
 msgid "Permissions problems"
 msgstr "Problème de permissions"
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-annuler"
+
+#~ msgid "gtk-ok"
+#~ msgstr "gtk-ok"
+
+#~ msgid "gtk-help"
+#~ msgstr "gtk-aide"
+
+#~ msgid "gtk-go-back"
+#~ msgstr "gtk-précédent"
+
+#~ msgid "gtk-go-forward"
+#~ msgstr "gtk-suivant"
+
+#~ msgid "gtk-quit"
+#~ msgstr "gtk-quitter"
+
+#~ msgid "gtk-home"
+#~ msgstr "gtk-accueil"
+
+#, fuzzy
+#~ msgid "Device Selection Cancel Button"
+#~ msgstr "Sélection du périphérique"
+
+#, fuzzy
+#~ msgid "Device Selection OK Button"
+#~ msgstr "Sélection du périphérique"
+
+#, fuzzy
+#~ msgid "Insert PIN OK Button"
+#~ msgstr "Insérez votre code PIN"
 
 #~ msgid "Configuration details found for Operator!"
 #~ msgstr ""
