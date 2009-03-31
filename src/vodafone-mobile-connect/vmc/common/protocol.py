@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#o -*- coding: utf-8 -*-
 # Copyright (C) 2006-2007  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
@@ -135,37 +135,48 @@ class BufferingStateMachine(object, protocol.Protocol):
         @type buffer: str
         @param buffer: Buffer to scan
         """
-        if not self.device.custom or not self.device.custom.async_regexp:
+        if not self.device.custom:
             return buffer
         
         custom = self.device.custom
-        # we have to use re.finditer as some cards like to pipeline
-        # several asynchronous notifications in one
-        for match in re.finditer(custom.async_regexp, buffer):
-            stuff = (self, self.device.name, match.group())
-            log.msg("%s::%s NOTIFICATION: %r" % stuff)
-            name, value = match.groups()
-            if name in custom.signal_translations:
-                # we obtain the signal name and the associated function
-                # that will translate the device unsolicited message to
-                # the signal used in VMC internally
-                signal, func = custom.signal_translations[name]
+        
+        # ignore and consume these strings from the buffer
+        if custom.ignore_regexp:
+            for ignore in custom.ignore_regexp:
+                for match in re.finditer(ignore, buffer):
+                    if match:
+                        stuff = (self, self.device.name, match.group())
+                        log.msg("%s::%s Ignore string: %r" % stuff)
+                        buffer = buffer.replace(match.group(), '', 1)
+
+        if custom.async_regexp:
+            # we have to use re.finditer as some cards like to pipeline
+            # several asynchronous notifications in one
+            for match in re.finditer(custom.async_regexp, buffer):
+                stuff = (self, self.device.name, match.group())
+                log.msg("%s::%s NOTIFICATION: %r" % stuff)
+                name, value = match.groups()
+                if name in custom.signal_translations:
+                    # we obtain the signal name and the associated function
+                    # that will translate the device unsolicited message to
+                    # the signal used in VMC internally
+                    signal, func = custom.signal_translations[name]
                 
-                # if we have a transform function defined, then use it
-                # otherwise use value as args
-                try:
-                    args = func and func(value) or value
-                except Exception, e:
-                    log.err(e, """
+                    # if we have a transform function defined, then use it
+                    # otherwise use value as args
+                    try:
+                        args = func and func(value) or value
+                    except Exception, e:
+                        log.err(e, """
 SIGNAL TRANSLATION ERROR:
 function %s can not handle notification %s""" % (func, value))
-                    args = value
+                        args = value
                 
-                self.enque_notification(N.UnsolicitedNotification,
-                                        signal, args)
+                    self.enque_notification(N.UnsolicitedNotification,
+                                            signal, args)
 
-            # remove from the idlebuf the match (but only once please)
-            buffer = buffer.replace(match.group(), '', 1)
+                # remove from the idlebuf the match (but only once please)
+                buffer = buffer.replace(match.group(), '', 1)
         
         return buffer
     

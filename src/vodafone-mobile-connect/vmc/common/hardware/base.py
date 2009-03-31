@@ -52,6 +52,7 @@ class Customizer(object):
     """
     adapter = SIMCardConnAdapter
     async_regexp = None
+    ignore_regexp = None
     conn_dict = {}
     cmd_dict = get_cmd_dict_copy()
     device_capabilities = []
