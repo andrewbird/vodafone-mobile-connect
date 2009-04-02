@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 15:26+0000\n"
+"POT-Creation-Date: 2009-04-02 16:51+0100\n"
 "PO-Revision-Date: 2008-01-09 22:11+0100\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
@@ -635,7 +635,7 @@ msgstr "Uredi 3G uređaje"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
 #: ../../vmc/gtk/views/application.py:327
-#: ../../vmc/gtk/controllers/application.py:1039
+#: ../../vmc/gtk/controllers/application.py:1051
 msgid "Connect"
 msgstr "Povezivanje"
 
@@ -764,7 +764,7 @@ msgstr "_Preusmjeri"
 
 #: ../glade/VMC.glade:510 ../glade/VMC.glade:587
 #: ../glade/VMC-reduced.glade:674 ../glade/VMC-reduced.glade:779
-#: ../../vmc/gtk/controllers/application.py:1087
+#: ../../vmc/gtk/controllers/application.py:1099
 msgid "_Delete"
 msgstr "_Obriši"
 
@@ -836,13 +836,13 @@ msgstr "<b>Sadašnja sesija</b>"
 
 #: ../glade/VMC.glade:1137 ../glade/VMC.glade:1422
 #: ../glade/VMC-reduced.glade:1716 ../glade/VMC-reduced.glade:2188
-#: ../../vmc/gtk/controllers/application.py:1255
+#: ../../vmc/gtk/controllers/application.py:1271
 msgid "GPRS"
 msgstr "GPRS"
 
 #: ../glade/VMC.glade:1144 ../glade/VMC.glade:1429
 #: ../glade/VMC-reduced.glade:1741 ../glade/VMC-reduced.glade:2213
-#: ../../vmc/gtk/controllers/application.py:1257
+#: ../../vmc/gtk/controllers/application.py:1273
 msgid "3G"
 msgstr "3G"
 
@@ -1122,12 +1122,12 @@ msgid "GB"
 msgstr "GB"
 
 #: ../../vmc/gtk/views/application.py:337
-#: ../../vmc/gtk/controllers/application.py:955
+#: ../../vmc/gtk/controllers/application.py:967
 msgid "Not connected"
 msgstr "Nije spojeno"
 
 #: ../../vmc/gtk/views/application.py:345
-#: ../../vmc/gtk/controllers/application.py:1033
+#: ../../vmc/gtk/controllers/application.py:1045
 msgid "Disconnect"
 msgstr "Prekini vezu"
 
@@ -1137,7 +1137,7 @@ msgstr "Nema prisutnog uređaja"
 
 #: ../../vmc/gtk/views/application.py:359
 #: ../../vmc/gtk/views/application.py:360
-#: ../../vmc/gtk/controllers/application.py:1253
+#: ../../vmc/gtk/controllers/application.py:1269
 msgid "N/A"
 msgstr "N/A"
 
@@ -1337,7 +1337,7 @@ msgstr ""
 #: ../../vmc/gtk/controllers/pin.py:296
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:588
+#: ../../vmc/gtk/controllers/application.py:600
 msgid "Missing dependency"
 msgstr "Nedostaju međuzavisnosti"
 
@@ -1409,42 +1409,42 @@ msgstr ""
 msgid "Load"
 msgstr "Učitavanje"
 
-#: ../../vmc/gtk/controllers/application.py:429
+#: ../../vmc/gtk/controllers/application.py:441
 #, python-format
 msgid "Quit %s"
 msgstr "Ugasi %s"
 
-#: ../../vmc/gtk/controllers/application.py:430
+#: ../../vmc/gtk/controllers/application.py:442
 msgid "Are you sure you want to exit?"
 msgstr "Dali ste sigurni da želite ugasiti?"
 
-#: ../../vmc/gtk/controllers/application.py:487
+#: ../../vmc/gtk/controllers/application.py:499
 msgid "_New Profile"
 msgstr "_Novi Profil"
 
-#: ../../vmc/gtk/controllers/application.py:496
+#: ../../vmc/gtk/controllers/application.py:508
 msgid "Load Profile"
 msgstr "Učitaj profil"
 
-#: ../../vmc/gtk/controllers/application.py:501
+#: ../../vmc/gtk/controllers/application.py:513
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Uredi profil"
 
-#: ../../vmc/gtk/controllers/application.py:506
+#: ../../vmc/gtk/controllers/application.py:518
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Obriši profil"
 
-#: ../../vmc/gtk/controllers/application.py:589
+#: ../../vmc/gtk/controllers/application.py:601
 msgid "To use this widget you need python-vte installed"
 msgstr "Za korištenje ovog widget-a trebate imati python-vte instaliran"
 
-#: ../../vmc/gtk/controllers/application.py:636
+#: ../../vmc/gtk/controllers/application.py:648
 msgid "Invalid CSV format"
 msgstr "Nevaljan CSV format"
 
-#: ../../vmc/gtk/controllers/application.py:637
+#: ../../vmc/gtk/controllers/application.py:649
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1452,54 +1452,54 @@ msgstr ""
 "\n"
 "CSV datoteka koju ste pokušali uvesti je nevaljanog formata."
 
-#: ../../vmc/gtk/controllers/application.py:668
-#: ../../vmc/gtk/controllers/application.py:690
+#: ../../vmc/gtk/controllers/application.py:680
+#: ../../vmc/gtk/controllers/application.py:702
 msgid "Connecting..."
 msgstr "Spajanje..."
 
-#: ../../vmc/gtk/controllers/application.py:685
-#: ../../vmc/gtk/controllers/application.py:1247
+#: ../../vmc/gtk/controllers/application.py:697
+#: ../../vmc/gtk/controllers/application.py:1263
 #, python-format
 msgid "Connected to %s"
 msgstr "Spojeno na %s"
 
-#: ../../vmc/gtk/controllers/application.py:687
+#: ../../vmc/gtk/controllers/application.py:699
 msgid "Connected"
 msgstr "Spojeno"
 
-#: ../../vmc/gtk/controllers/application.py:956
+#: ../../vmc/gtk/controllers/application.py:968
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Nema mobilne veze. Da li želite nastaviti?"
 
-#: ../../vmc/gtk/controllers/application.py:1055
+#: ../../vmc/gtk/controllers/application.py:1067
 msgid "Send SMS"
 msgstr "Pošalji SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1069
+#: ../../vmc/gtk/controllers/application.py:1081
 msgid "Quit"
 msgstr "Završi"
 
-#: ../../vmc/gtk/controllers/application.py:1081
+#: ../../vmc/gtk/controllers/application.py:1093
 msgid "_Send SMS"
 msgstr "_Pošalji SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1100
+#: ../../vmc/gtk/controllers/application.py:1112
 msgid "_Add to contacts"
 msgstr "_Dodaj u kontakte"
 
-#: ../../vmc/gtk/controllers/application.py:1109
+#: ../../vmc/gtk/controllers/application.py:1121
 msgid "Save to draft"
 msgstr "Spremi u Nedovršeno"
 
-#: ../../vmc/gtk/controllers/application.py:1120
+#: ../../vmc/gtk/controllers/application.py:1132
 msgid "Delete"
 msgstr "Obriši"
 
-#: ../../vmc/gtk/controllers/application.py:1236
+#: ../../vmc/gtk/controllers/application.py:1252
 msgid "Illegal Operation!"
 msgstr "Ilegalna Operacija!"
 
-#: ../../vmc/gtk/controllers/application.py:1237
+#: ../../vmc/gtk/controllers/application.py:1253
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
@@ -1509,16 +1509,16 @@ msgstr ""
 "Vaš Uređaj ima samo jedan port i vi ste trenutno spojeni na Internet\n"
 "Ne možete izvesti nikakve operacije dok ste spojeni"
 
-#: ../../vmc/gtk/controllers/application.py:1251
+#: ../../vmc/gtk/controllers/application.py:1267
 msgid "Radio Disabled"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1274
+#: ../../vmc/gtk/controllers/application.py:1290
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>SMS primljen od %s</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1277
+#: ../../vmc/gtk/controllers/application.py:1293
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
@@ -1527,12 +1527,12 @@ msgstr ""
 "<small>Primljeno u %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1289
+#: ../../vmc/gtk/controllers/application.py:1305
 #, fuzzy
 msgid "Invalid DNS received from Network"
 msgstr "Nevaljan DNS primljen od APN"
 
-#: ../../vmc/gtk/controllers/application.py:1291
+#: ../../vmc/gtk/controllers/application.py:1307
 #, fuzzy
 msgid ""
 "\n"
@@ -1546,11 +1546,11 @@ msgstr ""
 "ćete htjeti ponovno pokrenuti vezu, ili ako problem i dalje postoji, možete\n"
 "ručno upisati DNS podatke u postavkama veze</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1306
+#: ../../vmc/gtk/controllers/application.py:1322
 msgid "Disconnected from Internet"
 msgstr "Prekinuta veza na Internet"
 
-#: ../../vmc/gtk/controllers/application.py:1307
+#: ../../vmc/gtk/controllers/application.py:1323
 #, python-format
 msgid ""
 "\n"
@@ -1565,11 +1565,11 @@ msgstr ""
 "biti izazvano sa krivom konfiguracijom ili\n"
 "nedostatkom signala.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1319
+#: ../../vmc/gtk/controllers/application.py:1335
 msgid "Device in use removed"
 msgstr "Uređaj u upotrebi izvađen"
 
-#: ../../vmc/gtk/controllers/application.py:1321
+#: ../../vmc/gtk/controllers/application.py:1337
 #, python-format
 msgid ""
 "\n"
@@ -1584,11 +1584,11 @@ msgstr ""
 "ugasiti. Da bi mogao nastaviti,\n"
 "ubacite 3G uređaj krenite ponovno."
 
-#: ../../vmc/gtk/controllers/application.py:1355
+#: ../../vmc/gtk/controllers/application.py:1371
 msgid "3G Device added"
 msgstr "3G Uređaj dodan"
 
-#: ../../vmc/gtk/controllers/application.py:1356
+#: ../../vmc/gtk/controllers/application.py:1372
 #, python-format
 msgid ""
 "\n"
@@ -1601,7 +1601,7 @@ msgstr ""
 "je dodan, za otprilike 15 sekundi\n"
 "(%(app_name)s) će nastaviti sa radom"
 
-#: ../../vmc/gtk/controllers/application.py:1364
+#: ../../vmc/gtk/controllers/application.py:1380
 msgid "Setting up device..."
 msgstr "Postavljanje uređaja..."
 
@@ -1617,10 +1617,7 @@ msgstr "Kontakt sa imenom %s nije pronađen"
 #: ../../vmc/gtk/controllers/initialconf.py:212
 #, fuzzy, python-format
 msgid "The following characters are not allowed in a profile name: %s"
-msgstr ""
-"\n"
-"Sljedeći znakovi nisu dozvoljeni u imenima profila:\n"
-"%s"
+msgstr "Sljedeći znakovi nisu dozvoljeni u imenima profila: %s"
 
 #: ../../vmc/gtk/controllers/initialconf.py:215
 #, fuzzy
