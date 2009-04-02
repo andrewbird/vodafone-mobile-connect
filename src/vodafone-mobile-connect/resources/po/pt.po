@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 15:26+0000\n"
+"POT-Creation-Date: 2009-04-02 16:45+0100\n"
 "PO-Revision-Date: 2007-08-04 12:30+0100\n"
 "Last-Translator: Paulo Arinto <artinto@portugalmail.pt>\n"
 "Language-Team: Portuguese <PT@li.org>\n"
@@ -652,7 +652,7 @@ msgstr "Gestor de dispositivos 3G"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
 #: ../../vmc/gtk/views/application.py:327
-#: ../../vmc/gtk/controllers/application.py:1039
+#: ../../vmc/gtk/controllers/application.py:1051
 msgid "Connect"
 msgstr "Ligar"
 
@@ -781,7 +781,7 @@ msgstr "_Reenviar"
 
 #: ../glade/VMC.glade:510 ../glade/VMC.glade:587
 #: ../glade/VMC-reduced.glade:674 ../glade/VMC-reduced.glade:779
-#: ../../vmc/gtk/controllers/application.py:1087
+#: ../../vmc/gtk/controllers/application.py:1099
 msgid "_Delete"
 msgstr "_Apagar"
 
@@ -856,14 +856,14 @@ msgstr "<b>Preferências SMSC</b>"
 
 #: ../glade/VMC.glade:1137 ../glade/VMC.glade:1422
 #: ../glade/VMC-reduced.glade:1716 ../glade/VMC-reduced.glade:2188
-#: ../../vmc/gtk/controllers/application.py:1255
+#: ../../vmc/gtk/controllers/application.py:1271
 #, fuzzy
 msgid "GPRS"
 msgstr "Só GPRS"
 
 #: ../glade/VMC.glade:1144 ../glade/VMC.glade:1429
 #: ../glade/VMC-reduced.glade:1741 ../glade/VMC-reduced.glade:2213
-#: ../../vmc/gtk/controllers/application.py:1257
+#: ../../vmc/gtk/controllers/application.py:1273
 msgid "3G"
 msgstr ""
 
@@ -1140,12 +1140,12 @@ msgid "GB"
 msgstr ""
 
 #: ../../vmc/gtk/views/application.py:337
-#: ../../vmc/gtk/controllers/application.py:955
+#: ../../vmc/gtk/controllers/application.py:967
 msgid "Not connected"
 msgstr "A desligar"
 
 #: ../../vmc/gtk/views/application.py:345
-#: ../../vmc/gtk/controllers/application.py:1033
+#: ../../vmc/gtk/controllers/application.py:1045
 msgid "Disconnect"
 msgstr "Desligar"
 
@@ -1155,7 +1155,7 @@ msgstr "Nenhum equipamento presente"
 
 #: ../../vmc/gtk/views/application.py:359
 #: ../../vmc/gtk/views/application.py:360
-#: ../../vmc/gtk/controllers/application.py:1253
+#: ../../vmc/gtk/controllers/application.py:1269
 msgid "N/A"
 msgstr "N/D"
 
@@ -1235,7 +1235,7 @@ msgstr ""
 #: ../../vmc/gtk/controllers/sms.py:65
 #, fuzzy, python-format
 msgid "Text message: 0/%d chars"
-msgstr "Mensagem de texto"
+msgstr "Mensagem de texto: 0/%d"
 
 #: ../../vmc/gtk/controllers/sms.py:88
 msgid "Send empty message"
@@ -1353,7 +1353,7 @@ msgstr ""
 #: ../../vmc/gtk/controllers/pin.py:296
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:588
+#: ../../vmc/gtk/controllers/application.py:600
 #, fuzzy
 msgid "Missing dependency"
 msgstr "Falha nas dependências"
@@ -1419,44 +1419,44 @@ msgstr ""
 msgid "Load"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:429
+#: ../../vmc/gtk/controllers/application.py:441
 #, python-format
 msgid "Quit %s"
 msgstr "Sair de %s"
 
-#: ../../vmc/gtk/controllers/application.py:430
+#: ../../vmc/gtk/controllers/application.py:442
 msgid "Are you sure you want to exit?"
 msgstr "¿Tem a certeza que deseja sair?"
 
-#: ../../vmc/gtk/controllers/application.py:487
+#: ../../vmc/gtk/controllers/application.py:499
 #, fuzzy
 msgid "_New Profile"
 msgstr "Novo perfil"
 
-#: ../../vmc/gtk/controllers/application.py:496
+#: ../../vmc/gtk/controllers/application.py:508
 #, fuzzy
 msgid "Load Profile"
 msgstr "Perfis"
 
-#: ../../vmc/gtk/controllers/application.py:501
+#: ../../vmc/gtk/controllers/application.py:513
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
-#: ../../vmc/gtk/controllers/application.py:506
+#: ../../vmc/gtk/controllers/application.py:518
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Apagar perfil"
 
-#: ../../vmc/gtk/controllers/application.py:589
+#: ../../vmc/gtk/controllers/application.py:601
 msgid "To use this widget you need python-vte installed"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:636
+#: ../../vmc/gtk/controllers/application.py:648
 msgid "Invalid CSV format"
 msgstr "Formato CSV inválido"
 
-#: ../../vmc/gtk/controllers/application.py:637
+#: ../../vmc/gtk/controllers/application.py:649
 #, fuzzy
 msgid ""
 "\n"
@@ -1465,72 +1465,72 @@ msgstr ""
 "\n"
 "    O ficheiro cvs que tentou importar não é compativél ou esta danificado."
 
-#: ../../vmc/gtk/controllers/application.py:668
-#: ../../vmc/gtk/controllers/application.py:690
+#: ../../vmc/gtk/controllers/application.py:680
+#: ../../vmc/gtk/controllers/application.py:702
 msgid "Connecting..."
 msgstr "A ligar..."
 
-#: ../../vmc/gtk/controllers/application.py:685
-#: ../../vmc/gtk/controllers/application.py:1247
+#: ../../vmc/gtk/controllers/application.py:697
+#: ../../vmc/gtk/controllers/application.py:1263
 #, python-format
 msgid "Connected to %s"
 msgstr "A ligar a %s"
 
-#: ../../vmc/gtk/controllers/application.py:687
+#: ../../vmc/gtk/controllers/application.py:699
 #, fuzzy
 msgid "Connected"
 msgstr "Ligar"
 
-#: ../../vmc/gtk/controllers/application.py:956
+#: ../../vmc/gtk/controllers/application.py:968
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Sem rede. ¿Deseja continuar?"
 
-#: ../../vmc/gtk/controllers/application.py:1055
+#: ../../vmc/gtk/controllers/application.py:1067
 msgid "Send SMS"
 msgstr "Enviar SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1069
+#: ../../vmc/gtk/controllers/application.py:1081
 msgid "Quit"
 msgstr "Sair"
 
-#: ../../vmc/gtk/controllers/application.py:1081
+#: ../../vmc/gtk/controllers/application.py:1093
 msgid "_Send SMS"
 msgstr "_Enviar SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1100
+#: ../../vmc/gtk/controllers/application.py:1112
 msgid "_Add to contacts"
 msgstr "_Adicionar aos contactos"
 
-#: ../../vmc/gtk/controllers/application.py:1109
+#: ../../vmc/gtk/controllers/application.py:1121
 msgid "Save to draft"
 msgstr "Guardar nos rascunhos"
 
-#: ../../vmc/gtk/controllers/application.py:1120
+#: ../../vmc/gtk/controllers/application.py:1132
 msgid "Delete"
 msgstr "Apagar"
 
-#: ../../vmc/gtk/controllers/application.py:1236
+#: ../../vmc/gtk/controllers/application.py:1252
 msgid "Illegal Operation!"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1237
+#: ../../vmc/gtk/controllers/application.py:1253
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
 "to Internet, you cannot perform any operation while connected"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1251
+#: ../../vmc/gtk/controllers/application.py:1267
 msgid "Radio Disabled"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1274
+#: ../../vmc/gtk/controllers/application.py:1290
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>SMS recebido de %s</small>"
 
 # python-format
-#: ../../vmc/gtk/controllers/application.py:1277
+#: ../../vmc/gtk/controllers/application.py:1293
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
@@ -1539,12 +1539,12 @@ msgstr ""
 "<small>Recibido o %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1289
+#: ../../vmc/gtk/controllers/application.py:1305
 #, fuzzy
 msgid "Invalid DNS received from Network"
 msgstr "Os DNS recebidos pela APN são inválidos"
 
-#: ../../vmc/gtk/controllers/application.py:1291
+#: ../../vmc/gtk/controllers/application.py:1307
 #, fuzzy
 msgid ""
 "\n"
@@ -1558,11 +1558,11 @@ msgstr ""
 "reiniciar a ligação ou, se o problema persistir, especificar uma entrada\n"
 "de DNS estática nas preferências da ligação</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1306
+#: ../../vmc/gtk/controllers/application.py:1322
 msgid "Disconnected from Internet"
 msgstr "A desligar a Internet"
 
-#: ../../vmc/gtk/controllers/application.py:1307
+#: ../../vmc/gtk/controllers/application.py:1323
 #, python-format
 msgid ""
 "\n"
@@ -1577,11 +1577,11 @@ msgstr ""
 "provocado por um problema na comunicação ou simplesmente\n"
 "uma falha de sinal.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1319
+#: ../../vmc/gtk/controllers/application.py:1335
 msgid "Device in use removed"
 msgstr "Dispositivo em uso removido"
 
-#: ../../vmc/gtk/controllers/application.py:1321
+#: ../../vmc/gtk/controllers/application.py:1337
 #, python-format
 msgid ""
 "\n"
@@ -1596,11 +1596,11 @@ msgstr ""
 "vai desligar. Para continuar, Insira de\n"
 "novo a placa 3G e inicie a aplicação."
 
-#: ../../vmc/gtk/controllers/application.py:1355
+#: ../../vmc/gtk/controllers/application.py:1371
 msgid "3G Device added"
 msgstr "Dispositivo 3G ligado"
 
-#: ../../vmc/gtk/controllers/application.py:1356
+#: ../../vmc/gtk/controllers/application.py:1372
 #, python-format
 msgid ""
 "\n"
@@ -1613,7 +1613,7 @@ msgstr ""
 "(%(device_name)s), dentro de 15 segundos\n"
 "(%(app_name)s) estará funcional"
 
-#: ../../vmc/gtk/controllers/application.py:1364
+#: ../../vmc/gtk/controllers/application.py:1380
 msgid "Setting up device..."
 msgstr "A Configurar o dispositivo..."
 
@@ -1649,12 +1649,12 @@ msgstr ""
 #: ../../vmc/gtk/controllers/initialconf.py:441
 #, fuzzy, python-format
 msgid "Authentication Error from %s !"
-msgstr "!Não é preciso autenticação!"
+msgstr "!Não é preciso autenticação %s !"
 
 #: ../../vmc/gtk/controllers/initialconf.py:445
 #, fuzzy, python-format
 msgid "Connecting to %s ..."
-msgstr "A ligar..."
+msgstr "A ligar %s ..."
 
 #: ../../vmc/gtk/controllers/initialconf.py:493
 msgid "Discovery started..."

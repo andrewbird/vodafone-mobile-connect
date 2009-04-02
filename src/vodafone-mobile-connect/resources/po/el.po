@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-25 15:26+0000\n"
+"POT-Creation-Date: 2009-04-02 16:45+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
@@ -635,7 +635,7 @@ msgstr "Διαχειριστής συσκευών 3G"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
 #: ../../vmc/gtk/views/application.py:327
-#: ../../vmc/gtk/controllers/application.py:1039
+#: ../../vmc/gtk/controllers/application.py:1051
 msgid "Connect"
 msgstr "Σύνδεση"
 
@@ -764,7 +764,7 @@ msgstr "_Προώθηση"
 
 #: ../glade/VMC.glade:510 ../glade/VMC.glade:587
 #: ../glade/VMC-reduced.glade:674 ../glade/VMC-reduced.glade:779
-#: ../../vmc/gtk/controllers/application.py:1087
+#: ../../vmc/gtk/controllers/application.py:1099
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
@@ -842,13 +842,13 @@ msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
 
 #: ../glade/VMC.glade:1137 ../glade/VMC.glade:1422
 #: ../glade/VMC-reduced.glade:1716 ../glade/VMC-reduced.glade:2188
-#: ../../vmc/gtk/controllers/application.py:1255
+#: ../../vmc/gtk/controllers/application.py:1271
 msgid "GPRS"
 msgstr "GPRS"
 
 #: ../glade/VMC.glade:1144 ../glade/VMC.glade:1429
 #: ../glade/VMC-reduced.glade:1741 ../glade/VMC-reduced.glade:2213
-#: ../../vmc/gtk/controllers/application.py:1257
+#: ../../vmc/gtk/controllers/application.py:1273
 msgid "3G"
 msgstr "3G"
 
@@ -1113,12 +1113,12 @@ msgid "GB"
 msgstr ""
 
 #: ../../vmc/gtk/views/application.py:337
-#: ../../vmc/gtk/controllers/application.py:955
+#: ../../vmc/gtk/controllers/application.py:967
 msgid "Not connected"
 msgstr "Αποσυνδεμένο"
 
 #: ../../vmc/gtk/views/application.py:345
-#: ../../vmc/gtk/controllers/application.py:1033
+#: ../../vmc/gtk/controllers/application.py:1045
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
@@ -1128,7 +1128,7 @@ msgstr "Δεν βρέθηκε συσκευή"
 
 #: ../../vmc/gtk/views/application.py:359
 #: ../../vmc/gtk/views/application.py:360
-#: ../../vmc/gtk/controllers/application.py:1253
+#: ../../vmc/gtk/controllers/application.py:1269
 msgid "N/A"
 msgstr "N/A"
 
@@ -1208,7 +1208,7 @@ msgstr ""
 #: ../../vmc/gtk/controllers/sms.py:65
 #, fuzzy, python-format
 msgid "Text message: 0/%d chars"
-msgstr "Μήνυμα κειμένου"
+msgstr "Μήνυμα κειμένου: 0/%d"
 
 #: ../../vmc/gtk/controllers/sms.py:88
 msgid "Send empty message"
@@ -1328,7 +1328,7 @@ msgstr ""
 #: ../../vmc/gtk/controllers/pin.py:296
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:588
+#: ../../vmc/gtk/controllers/application.py:600
 msgid "Missing dependency"
 msgstr "Missing dependency"
 
@@ -1401,44 +1401,44 @@ msgstr ""
 msgid "Load"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:429
+#: ../../vmc/gtk/controllers/application.py:441
 #, python-format
 msgid "Quit %s"
 msgstr "Έξοδος από %s"
 
-#: ../../vmc/gtk/controllers/application.py:430
+#: ../../vmc/gtk/controllers/application.py:442
 msgid "Are you sure you want to exit?"
 msgstr "Είστε σίγουροι οτι θέλετε να βγείτε;"
 
-#: ../../vmc/gtk/controllers/application.py:487
+#: ../../vmc/gtk/controllers/application.py:499
 #, fuzzy
 msgid "_New Profile"
 msgstr "Νέο προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:496
+#: ../../vmc/gtk/controllers/application.py:508
 #, fuzzy
 msgid "Load Profile"
 msgstr "Προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:501
+#: ../../vmc/gtk/controllers/application.py:513
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Επεξεργασία προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:506
+#: ../../vmc/gtk/controllers/application.py:518
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Διαγραφή προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:589
+#: ../../vmc/gtk/controllers/application.py:601
 msgid "To use this widget you need python-vte installed"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:636
+#: ../../vmc/gtk/controllers/application.py:648
 msgid "Invalid CSV format"
 msgstr "Άκυρη διαμόρφωση CSV"
 
-#: ../../vmc/gtk/controllers/application.py:637
+#: ../../vmc/gtk/controllers/application.py:649
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1446,54 +1446,54 @@ msgstr ""
 "\n"
 "Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
 
-#: ../../vmc/gtk/controllers/application.py:668
-#: ../../vmc/gtk/controllers/application.py:690
+#: ../../vmc/gtk/controllers/application.py:680
+#: ../../vmc/gtk/controllers/application.py:702
 msgid "Connecting..."
 msgstr "Σύνδεση..."
 
-#: ../../vmc/gtk/controllers/application.py:685
-#: ../../vmc/gtk/controllers/application.py:1247
+#: ../../vmc/gtk/controllers/application.py:697
+#: ../../vmc/gtk/controllers/application.py:1263
 #, python-format
 msgid "Connected to %s"
 msgstr "Συνδέθηκε με %s"
 
-#: ../../vmc/gtk/controllers/application.py:687
+#: ../../vmc/gtk/controllers/application.py:699
 msgid "Connected"
 msgstr "Συνδεδεμένο"
 
-#: ../../vmc/gtk/controllers/application.py:956
+#: ../../vmc/gtk/controllers/application.py:968
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Δεν υπάρχει σύνδεση.  Θέλετε να συνεχίσετε;"
 
-#: ../../vmc/gtk/controllers/application.py:1055
+#: ../../vmc/gtk/controllers/application.py:1067
 msgid "Send SMS"
 msgstr "Αποστολή SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1069
+#: ../../vmc/gtk/controllers/application.py:1081
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ../../vmc/gtk/controllers/application.py:1081
+#: ../../vmc/gtk/controllers/application.py:1093
 msgid "_Send SMS"
 msgstr "_Αποστολή SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1100
+#: ../../vmc/gtk/controllers/application.py:1112
 msgid "_Add to contacts"
 msgstr "_Προσθήκη στις επαφές"
 
-#: ../../vmc/gtk/controllers/application.py:1109
+#: ../../vmc/gtk/controllers/application.py:1121
 msgid "Save to draft"
 msgstr "Αποθήκευση στα πρόχειρα"
 
-#: ../../vmc/gtk/controllers/application.py:1120
+#: ../../vmc/gtk/controllers/application.py:1132
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../../vmc/gtk/controllers/application.py:1236
+#: ../../vmc/gtk/controllers/application.py:1252
 msgid "Illegal Operation!"
 msgstr "Εσφαλμένη λειτουργία!"
 
-#: ../../vmc/gtk/controllers/application.py:1237
+#: ../../vmc/gtk/controllers/application.py:1253
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
@@ -1503,16 +1503,16 @@ msgstr ""
 "Η συσκευή σας διαθέτει μόνο μία θύρα και είστε συνδεδεμένοι\n"
 "με το Ίντερνετ.  Δεν μπορείτε να κάνετε οτιδήποτε όσο είστε συνδεδεμένοι"
 
-#: ../../vmc/gtk/controllers/application.py:1251
+#: ../../vmc/gtk/controllers/application.py:1267
 msgid "Radio Disabled"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1274
+#: ../../vmc/gtk/controllers/application.py:1290
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>Ελήφθη SMS από %s</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1277
+#: ../../vmc/gtk/controllers/application.py:1293
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
@@ -1521,12 +1521,12 @@ msgstr ""
 "<small>Λήψη %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1289
+#: ../../vmc/gtk/controllers/application.py:1305
 #, fuzzy
 msgid "Invalid DNS received from Network"
 msgstr "Άκυρες ρυθμίσεις DNS από τον πάροχο"
 
-#: ../../vmc/gtk/controllers/application.py:1291
+#: ../../vmc/gtk/controllers/application.py:1307
 #, fuzzy
 msgid ""
 "\n"
@@ -1541,11 +1541,11 @@ msgstr ""
 "να κάνετε επανασύνδεση ή αν το πρόβλημα εξακολουθήσει, μπορείτε να ορίσετε\n"
 "χειροκίνητες ρυθμίσεις DNS στις προτιμήσεις συνδέσεων</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1306
+#: ../../vmc/gtk/controllers/application.py:1322
 msgid "Disconnected from Internet"
 msgstr "Έγινε αποσύνδεση από το Ίντερνετ"
 
-#: ../../vmc/gtk/controllers/application.py:1307
+#: ../../vmc/gtk/controllers/application.py:1323
 #, python-format
 msgid ""
 "\n"
@@ -1560,11 +1560,11 @@ msgstr ""
 "σε λάθος ρυθμίσεις ή στο γεγονός οτι δεν υπάρχει προσωρινά διαθέσιμο\n"
 "δίκτυο.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1319
+#: ../../vmc/gtk/controllers/application.py:1335
 msgid "Device in use removed"
 msgstr "Συσκευή σε χρήση αφαιρέθηκε"
 
-#: ../../vmc/gtk/controllers/application.py:1321
+#: ../../vmc/gtk/controllers/application.py:1337
 #, python-format
 msgid ""
 "\n"
@@ -1579,11 +1579,11 @@ msgstr ""
 "θα τερματιστεί. Για να συνεχίσετε,\n"
 "ενώστε τη συσκευή ξανά και αρχίστε απο την αρχή."
 
-#: ../../vmc/gtk/controllers/application.py:1355
+#: ../../vmc/gtk/controllers/application.py:1371
 msgid "3G Device added"
 msgstr "Προσθήκη συσκευής 3G"
 
-#: ../../vmc/gtk/controllers/application.py:1356
+#: ../../vmc/gtk/controllers/application.py:1372
 #, python-format
 msgid ""
 "\n"
@@ -1596,7 +1596,7 @@ msgstr ""
 "ανιχνεύθηκε, σε περίπου 15 δευτερόλεπτα η\n"
 "(%(app_name)s) θα επανέλθει σε λειτουργία"
 
-#: ../../vmc/gtk/controllers/application.py:1364
+#: ../../vmc/gtk/controllers/application.py:1380
 msgid "Setting up device..."
 msgstr "Ενεργοποίηση συσκευής..."
 
