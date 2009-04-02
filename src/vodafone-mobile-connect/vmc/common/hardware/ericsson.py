@@ -159,8 +159,13 @@ class EricssonCustomizer(Customizer):
     adapter = EricssonAdapter
 
     # Multiline so we catch and remove the ESTKSMENU
-    async_regexp = re.compile(r"""\r\n(?P<signal>\*[A-Z]{3,}):(?P<args>.*)\r\n""",
-                        re.MULTILINE)
+#    async_regexp = re.compile(r"""\r\n(?P<signal>\*[A-Z]{3,}):(?P<args>.*)\r\n""",
+#                        re.MULTILINE)
+
+    ignore_regexp = [ re.compile(r"""\r\n(?P<ignore>\*ESTKSMENU:.*)\r\n""", re.MULTILINE|re.DOTALL),
+                      re.compile(r"""\r\n(?P<ignore>\*EMWI.*)\r\n"""),
+                      re.compile(r"""\r\n(?P<ignore>\+PACSP0.*)\r\n"""),
+                    ]
 
     conn_dict = ERICSSON_DICT
 
