@@ -63,7 +63,7 @@ class LinpusBasedDistro(LinuxPlugin):
     os_version = None
 
     def get_config_template(self, dialer_profile):
-	return TEMPLATES_DICT[dialer_profile]
+        return TEMPLATES_DICT[dialer_profile]
 
 
 linpus = LinpusBasedDistro()
