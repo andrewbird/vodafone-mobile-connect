@@ -208,6 +208,7 @@ class Behaviour(Modal):
             d.addCallback(lambda ninfo: self._transition_to('ImDone'))
             d.addErrback(self.error_handler)
             self.current_sm = netregsm
+            self.notification_manager.start()
     
     class ImDone(mode):
         """

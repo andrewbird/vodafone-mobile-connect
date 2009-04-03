@@ -77,7 +77,8 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
             if status == 1:
                 # we are finally registered
                 self.cID.cancel()
-                self.transitionTo('obtain_netinfo')
+                #self.transitionTo('obtain_netinfo')
+                self.transitionTo('registration_finished')
                 self.do_next()
             
             elif status == 2:
