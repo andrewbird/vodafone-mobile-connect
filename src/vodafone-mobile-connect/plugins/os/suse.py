@@ -32,11 +32,48 @@ suse_customization = {
     'CFG_TEMPLATE' : 'vmc.cfg.tpl.sled',
 }
 
+
+DEFAULT_TEMPLATE = """
+plugin passwordfd.so
+debug
+noauth
+name wvdial
+ipparam vmc
+noipdefault
+nomagic
+ipcp-accept-local
+ipcp-accept-remote
+nomp
+noccp
+nopredictor1
+novj
+novjccomp
+nobsdcomp"""
+
+PAP_TEMPLATE = DEFAULT_TEMPLATE + """
+refuse-chap
+refuse-mschap
+refuse-mschap-v2
+refuse-eap
+"""
+
+CHAP_TEMPLATE = DEFAULT_TEMPLATE + """
+refuse-pap
+"""
+
+TEMPLATES_DICT = {
+    'default' : DEFAULT_TEMPLATE,
+    'PAP' : PAP_TEMPLATE,
+    'CHAP' : CHAP_TEMPLATE,
+}
+
+
 class SUSEDistro(LinuxPlugin):
     os_name = re.compile("SUSE LINUX")
     os_version = None
     customization = suse_customization
-    manage_secrets = False
+    os_groups = ['dialout', 'uucp']
+#    manage_secrets = False
 
     #XXX: Almost duplicated code with Fedora plugin
     def get_timezone(self):
