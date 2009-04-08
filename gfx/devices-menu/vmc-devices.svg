@@ -224,6 +224,13 @@
          inkscape:transform-center-y="76.5"
          transform="matrix(0.7265411,-0.687123,0.687123,0.7265411,0,0)" />
     </clipPath>
+    <inkscape:perspective
+       id="perspective4310"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -235,16 +242,16 @@
      objecttolerance="10"
      inkscape:pageopacity="0.68235294"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="447.34822"
-     inkscape:cy="390.09184"
+     inkscape:zoom="2.8"
+     inkscape:cx="201.60053"
+     inkscape:cy="232.74105"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1077"
      inkscape:window-height="867"
-     inkscape:window-x="445"
-     inkscape:window-y="144">
+     inkscape:window-x="352"
+     inkscape:window-y="153">
     <inkscape:grid
        type="xygrid"
        id="grid2403"
@@ -492,6 +499,37 @@
          id="image3609"
          x="271.0658"
          y="359.38318" />
+    </g>
+    <image
+       y="876.36218"
+       x="820"
+       id="image4312"
+       height="116"
+       width="160"
+       sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/k3715.gif"
+       xlink:href="k3715.gif" />
+    <g
+       id="g4320"
+       inkscape:export-filename="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/option-k3760.png"
+       inkscape:export-xdpi="89.418022"
+       inkscape:export-ydpi="89.418022">
+      <rect
+         inkscape:transform-center-y="45"
+         inkscape:transform-center-x="-70"
+         y="822.36218"
+         x="160"
+         height="50"
+         width="100"
+         id="rect4318"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.87086618;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <image
+         xlink:href="k3715.gif"
+         sodipodi:absref="/home/nherriot/workspace/vodafonemobilec/gfx/devices-menu/k3715.gif"
+         width="65"
+         height="47.125"
+         id="image4316"
+         x="175"
+         y="823.79065" />
     </g>
   </g>
 </svg>
