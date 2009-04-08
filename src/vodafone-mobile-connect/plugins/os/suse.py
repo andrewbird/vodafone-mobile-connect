@@ -108,6 +108,9 @@ class SUSEDistro(LinuxPlugin):
         args = " ".join([killall_path, 'pppd', 'wvdial'])
         return [gksudo_path, '-c', args]
 
+    def get_config_template(self, dialer_profile):
+        return TEMPLATES_DICT[dialer_profile]
+
 
 class SLEDDistro(SUSEDistro):
     pass
