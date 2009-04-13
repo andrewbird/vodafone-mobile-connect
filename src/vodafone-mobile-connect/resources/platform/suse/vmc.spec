@@ -43,13 +43,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0644,root,root) /etc/udev/rules.d/45-vmc-option.rules
 %attr(0644,root,root) /etc/udev/rules.d/45-vmc-zte.rules
 %attr(0644,root,root) /etc/modprobe.d/blacklist-vmc
+%attr(0644,root,root) /etc/dbus-1/system.d/vmc.conf
 
 /usr
 
 %doc
 
 %post
-#usermod -a -G dip,uucp,lock user
 
 chown :dialout /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
 chmod 660 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
