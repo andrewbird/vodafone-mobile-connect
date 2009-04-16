@@ -1,5 +1,5 @@
 Name:		usb_modeswitch
-Version:	0.9.6
+Version:	0.9.7
 Release:	1%{?dist}
 Summary:	Generic tool for switching modes of USB devices	
 Packager:	Andrew Bird <ajb@spheresystems.co.uk>
