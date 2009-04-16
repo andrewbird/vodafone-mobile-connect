@@ -1,3 +1,10 @@
+usb-modeswitch (0.9.7) stable; urgency=low
+
+  * Update to get synchronized with upstream version.
+
+ -- Andrew Bird <ajb@spheresystems.co.uk>  Thu, 16 Apr 2009 19:20:05 +0000
+
+
 usb-modeswitch (0.9.6) stable; urgency=low
 
   * Update to get synchronized with upstream version.

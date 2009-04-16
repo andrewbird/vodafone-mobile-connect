@@ -32,21 +32,24 @@ the same thing with Linux.
 USB_ModeSwitch eases the pain considerably by taking just the important para-
 meters from a configuration file and doing all the initialization and communi-
 cation stuff, with heavy help from "libusb".
-It does NOT check for success afterwards as of now. The right approach would be
-to consult /proc/bus/usb/devices (or run lsusb) before and after execution to
-note any changes.
+Starting from version 0.9.7 it has an optional success check which spares the
+manual call of "lsusb" to note any changes after execution.
 
 
 How to install
 ==============
 
-A x86 binary is included (compiled on VIA C7 Mandriva 2008.0).
+A x86 binary is included (compiled on Pentium M, Ubuntu 8.10).
 
-If you want to compile it for yourself, just run "compile.sh" or type on the
-shell (with other options of your choice):
+If you want to compile it for yourself, just delete the binary and run "make".
+
+Or type at the shell (with other options of your choice):
  > gcc -l usb -o usb_modeswitch usb_modeswitch.c
 That's as easy as it gets ...
 
+For installation run "make install" (you still have to edit the config file);
+
+Or follow these manual steps:
 Take the fresh executable "usb_modeswitch" (or the one provided with the
 archive) and put it into your path (preferably "/sbin" or "/usr/sbin").
 
@@ -86,9 +89,9 @@ forum (see above) or send it to the author (see below)!
 Whodunit
 ========
 
-Copyright 2007, 2008 Josua Dietze (mail to the name from "usb_modeswitch.c" at the
- domain "draisberghof.de"; please do not post the complete address to The Net !)
- or write a personal message through the forum to "Josh"
+Copyright 2007, 2008, 2009 Josua Dietze (mail to the name from "usb_modeswitch.c"
+ at the domain "draisberghof.de"; please do not post the complete address to the
+ Net !) or write a personal message through the forum to "Josh"
 
 Command line parsing, decent usage/config output and handling, advanced options
  and bugfixes:
@@ -114,6 +117,8 @@ Code, fixes and ideas from:
  Luigi Iotti
  Vincent Teoh
  Tommy Cheng
+ Daniel Cooper
+ Andrew Bird
 
 More contributors are listed in the config file.
 
@@ -121,6 +126,12 @@ More contributors are listed in the config file.
 History
 =======
 
+Version 0.9.7, 2009/04/15
+	Updated SonyMode, MD 400 now stable; automatic default endpoint
+	detection from Andrew Bird
+Version 0.9.7beta, 2009/03/15
+	Major code clean up, optional success control (both suggested
+	by Daniel Cooper), new devices
 Version 0.9.6, 2009/01/08
 	Special modes added for Sierra and Sony Ericsson, new devices
 Version 0.9.5, 2008/10/27
@@ -167,4 +178,4 @@ Or find it as the file COPYING in this folder.
 
 
 
-Last revised: 2008-01-08, Josua Dietze
+Last revised: 2009-04-15, Josua Dietze

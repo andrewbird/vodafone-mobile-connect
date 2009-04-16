@@ -1,6 +1,6 @@
 /*
   Mode switching tool for controlling flip flop (multiple device) USB gear
-  Version 0.9.6, 2009/01/08
+  Version 0.9.7, 2009/04/15
 
   Copyright (C) 2007, 2008, 2009 Josua Dietze (mail to "usb_admin" at the
   domain from the README; please do not post the complete address to The Net!
@@ -29,6 +29,8 @@
     Roman Laube 
 	Vincent Teoh
 	Tommy Cheng
+	Daniel Cooper
+	Andrew Bird
 
   More contributors are listed in the config file.
 
@@ -59,19 +61,29 @@
 #include "usb_modeswitch.h"
 
 #define LINE_DIM 1024
+#define BUF_SIZE 4096
 
 int write_bulk(int endpoint, char *message, int length);
 int read_bulk(int endpoint, char *buffer, int length);
 
+int find_first_bulk_output_endpoint(struct usb_device *dev);
+int find_first_bulk_input_endpoint(struct usb_device *dev);
+
 char *TempPP=NULL;
 
+struct usb_device *dev;
 struct usb_dev_handle *devh;
 
 int DefaultVendor=0, DefaultProduct=0, TargetVendor=0, TargetProduct=0, TargetClass=0;
 int MessageEndpoint=0, ResponseEndpoint=-1;
+int targetDeviceCount=0;
+int ret;
 char DetachStorageOnly=0, HuaweiMode=0, SierraMode=0, SonyMode=0;
-char verbose=0, show_progress=1, ResetUSB=0;
+char verbose=0, show_progress=1, ResetUSB=0, CheckSuccess=0, config_read=0;
 char MessageContent[LINE_DIM];
+char ByteString[LINE_DIM/2];
+char buf[BUF_SIZE];
+
 // Settable Interface and Configuration (for debugging mostly) (jmw)
 int Interface = 0, Configuration = -1, AltSetting = -1;
 
@@ -88,13 +100,14 @@ static struct option long_options[] =
 	{"ResponseEndpoint",	required_argument, 0, 'r'},
 	{"DetachStorageOnly",	required_argument, 0, 'd'},
 	{"HuaweiMode",			required_argument, 0, 'H'},
-	{"SierraMode",			required_argument, 0, 'H'},
-	{"SonyMode",			required_argument, 0, 'H'},
+	{"SierraMode",			required_argument, 0, 'S'},
+	{"SonyMode",			required_argument, 0, 'O'},
 	{"NeedResponse",		required_argument, 0, 'n'},
 	{"ResetUSB",			required_argument, 0, 'R'},
 	{"config",				required_argument, 0, 'c'},
 	{"verbose",				no_argument, 0, 'W'},
 	{"quiet",				no_argument, 0, 'Q'},
+	{"success",				required_argument, 0, 's'},
 	{"Interface",			required_argument, 0, 'i'},
 	{"Configuration",		required_argument, 0, 'u'},
 	{"AltSetting",			required_argument, 0, 'a'},
@@ -103,6 +116,7 @@ static struct option long_options[] =
 
 void readConfigFile(const char *configFilename)
 {
+	if(verbose) printf("Reading config file: %s\n", configFilename);
 	ParseParamHex(configFilename, TargetVendor);
 	ParseParamHex(configFilename, TargetProduct);
 	ParseParamHex(configFilename, TargetClass);
@@ -117,9 +131,11 @@ void readConfigFile(const char *configFilename)
 //    ParseParamHex(configFilename, NeedResponse);
 	ParseParamHex(configFilename, ResponseEndpoint);
 	ParseParamHex(configFilename, ResetUSB);
+	ParseParamHex(configFilename, CheckSuccess);
 	ParseParamHex(configFilename, Interface);
 	ParseParamHex(configFilename, Configuration);
 	ParseParamHex(configFilename, AltSetting);
+	config_read = 1;
 }
 
 void printConfig()
@@ -138,11 +154,15 @@ void printConfig()
 //	printf ("NeedResponse=%i\n",		(int)NeedResponse);
 	if ( ResponseEndpoint > -1 )
 		printf ("ResponseEndpoint=0x%x\n",	ResponseEndpoint);
-	printf ("Interface=0x%x\n",	Interface);
+	printf ("Interface=0x%x\n",			Interface);
 	if ( Configuration > -1 )
 		printf ("Configuration=0x%x\n",	Configuration);
 	if ( AltSetting > -1 )
 		printf ("AltSetting=0x%x\n",	AltSetting);
+	if ( CheckSuccess )
+		printf ("\nSuccess check enabled, settle time %d seconds\n", CheckSuccess);
+	else
+		printf ("\nSuccess check disabled\n");
 	printf ("\n");
 }
 
@@ -153,7 +173,7 @@ int readArguments(int argc, char **argv)
 
 	while (1)
 	{
-		c = getopt_long (argc, argv, "hWQv:p:V:P:C:m:M:r:d:H:S:O:n:c:R:i:u:a:",
+		c = getopt_long (argc, argv, "hWQs:v:p:V:P:C:m:M:r:d:H:S:O:n:c:R:i:u:a:",
 						long_options, &option_index);
 	
 		/* Detect the end of the options. */
@@ -177,8 +197,9 @@ int readArguments(int argc, char **argv)
 			case 'O': SonyMode = (toupper(optarg[0])=='Y' || toupper(optarg[0])=='T'|| optarg[0]=='1'); break;
 			case 'n': break;
 			case 'c': readConfigFile(optarg); break;
-			case 'W': verbose=1; count--; break;
-			case 'Q': show_progress=0; count--; break;
+			case 'W': verbose = 1; show_progress = 1; count--; break;
+			case 'Q': show_progress = 0; verbose = 0; count--; break;
+			case 's': CheckSuccess= strtol(optarg, NULL, 16); count--; break;
 
 			case 'i': Interface = strtol(optarg, NULL, 16); break;
 			case 'u': Configuration = strtol(optarg, NULL, 16); break;
@@ -189,11 +210,11 @@ int readArguments(int argc, char **argv)
 				printf (" -h, --help                    this help\n");
 				printf (" -v, --DefaultVendor [nr]      set vendor number to look for\n");
 				printf (" -p, --DefaultProduct [nr]     set model number to look for\n");
-				printf (" -V, --TargetVendor [nr]       target vendor; if found, quit\n");
-				printf (" -P, --TargetProduct [nr]      target model, if found quit\n");
-				printf (" -C, --TargetClass [nr]        target device class, if found quit\n");
-				printf (" -m, --MessageEndpoint [nr]    where to write message\n");
-				printf (" -M, --MessageContent [nr]     message to send\n");
+				printf (" -V, --TargetVendor [nr]       target vendor; needed for success check\n");
+				printf (" -P, --TargetProduct [nr]      target model; needed for success check\n");
+				printf (" -C, --TargetClass [nr]        target device class\n");
+				printf (" -m, --MessageEndpoint [nr]    where to direct command sequence\n");
+				printf (" -M, --MessageContent [nr]     command sequence to send\n");
 //				printf (" -n, --NeedResponse [1|0]      whether to try to read a response - OBSOLETE\n");
 				printf (" -r, --ResponseEndpoint [nr]   if given, read response from there\n");
 				printf (" -d, --DetachStorageOnly [1|0] whether to just detach the storage driver\n");
@@ -203,7 +224,8 @@ int readArguments(int argc, char **argv)
 				printf (" -R, --ResetUSB [1|0]          whether to reset the device in the end\n");
 				printf (" -c, --config [filename]       load different config file\n");
 				printf (" -Q, --quiet                   don't show progress or error messages\n");
-				printf (" -W, --verbose                 print all settings before running\n\n");
+				printf (" -W, --verbose                 print all settings before running\n");
+				printf (" -s, --success [nr]            check switching result after [nr] secs\n\n");
 				printf (" -i, --Interface               select initial USB interface (default 0)\n");
 				printf (" -u, --Configuration           select USB configuration\n");
 				printf (" -a, --AltSetting              select alternative USB interface setting\n\n");
@@ -221,39 +243,35 @@ int readArguments(int argc, char **argv)
 
 
 int main(int argc, char **argv) {
-	int ret, message_length;
-	int numTargets = 0;
-	int numDefaults = 0;
-	char buf[65535];
-
-	struct usb_device *dev;
-	char ByteString[LINE_DIM/2];
+	int numDefaults = 0, specialMode = 0, sonySuccess = 0;
 
 	printf("\n * usb_modeswitch: tool for controlling \"flip flop\" mode USB devices\n");
-   	printf(" * Version 0.9.6 (C) Josua Dietze 2009\n");
+   	printf(" * Version 0.9.7 (C) Josua Dietze 2009\n");
    	printf(" * Works with libusb 0.1.12 and probably other versions\n\n");
 
-	// Check command arguments, use them instead of config file if possible
+
+	/*
+	 * Parameter parsing, USB preparation/diagnosis, plausibility checks
+	 */
+
+	// Check command arguments, use params instead of config file when given
 	switch (readArguments(argc, argv)) {
-		case 1: 					// only one argument
-			if (!verbose && show_progress) // the only arguments usable with the default config file
-				break; 				// just one argument and none of the flags above -> MUST be -c
-		case 0:						// no argument or -W or -q
+		case 0:						// no argument or -W, -q or -s
 			readConfigFile("/etc/usb_modeswitch.conf");
 			break;
-		default:					// all params must come as arguments
-			;
+		default:					// one or more arguments except -W, -q or -s 
+			if (!config_read)		// if arguments contain -c, the config file was already processed
+				if(verbose) printf("Taking all parameters from the command line\n\n");
 	}
-
-//	if (!show_progress) printf(" Quiet mode, no progress shown\n\n");
 
 	if(verbose)
 		printConfig();
 
+	// libusb initialization
 	usb_init();
 
 	if (verbose)
-		 usb_set_debug(15);
+		usb_set_debug(15);
 
 	usb_find_busses();
 	usb_find_devices();
@@ -261,224 +279,411 @@ int main(int argc, char **argv) {
 	if (verbose)
 		printf("\n");
 
+	// Plausibility checks. The default IDs are mandatory
 	if (!(DefaultVendor && DefaultProduct)) {
-		if (show_progress) printf("No default vendor/product ID given. Aborting\n\n");
+		if (show_progress) printf("No default vendor/product ID given. Aborting.\n\n");
 		exit(1);
 	}
+	if (strlen(MessageContent)) {
+		if (strlen(MessageContent) % 2 != 0) {
+			if (show_progress) fprintf(stderr, "Error: MessageContent hex string has uneven length. Aborting.\n\n");
+			exit(1);
+		}
+		if ( hexstr2bin(MessageContent, ByteString, strlen(MessageContent)/2) == -1) {
+			if (show_progress) fprintf(stderr, "Error: MessageContent %s\n is not a hex string. Aborting.\n\n", MessageContent);
+			exit(1);
+		}
+	}
+	if (show_progress)
+		if (CheckSuccess && !(TargetVendor && TargetProduct) && !TargetClass)
+			printf("Note: target parameter missing; success check limited\n");
 
-	if (TargetVendor && TargetProduct) {
-		if (show_progress) printf("Looking for target devices\n");
-		search_devices(&numTargets, TargetVendor, TargetProduct, TargetClass);
-		if (numTargets) {
-			if (show_progress) printf(" Found target devices (%d)\n", numTargets);
+	// Count existing target devices (remember for success check)
+	if ((TargetVendor && TargetProduct) || TargetClass) {
+		if (show_progress) printf("Looking for target devices ...\n");
+		search_devices(&targetDeviceCount, TargetVendor, TargetProduct, TargetClass);
+		if (targetDeviceCount) {
+			if (show_progress) printf(" Found devices in target mode or class (%d)\n", targetDeviceCount);
 		} else {
-			if (show_progress) printf(" No target device found\n");
+			if (show_progress) printf(" No devices in target mode or class found\n");
 		}
 	}
 
-	if (show_progress) printf("Looking for default devices\n");
+	// Count default devices, return the last one found
+	if (show_progress) printf("Looking for default devices ...\n");
 	dev = search_devices(&numDefaults, DefaultVendor, DefaultProduct, TargetClass);
 	if (numDefaults) {
 		if (show_progress) printf(" Found default devices (%d)\n", numDefaults);
-		if (TargetClass > 0) {
+		if (TargetClass && !(TargetVendor && TargetProduct)) {
 			if ( dev != NULL ) {
-				if (show_progress) printf(" OK, found default device not in target class mode\n");
+				if (show_progress) printf(" Found a default device NOT in target class mode\n");
 			} else {
-				if (show_progress) printf(" All devices in target class mode\n");
+				if (show_progress) printf(" All devices in target class mode. Nothing to do. Bye!\n\n");
+				exit(0);
 			}
 		}
 	}
 	if (dev != NULL) {
-		if (show_progress) printf("Prepare switching, accessing latest device\n");
+		if (show_progress) printf("Prepare switching, accessing device %03d on bus %03d ...\n", dev->devnum, (int)strtol(dev->bus->dirname,NULL,10));
+		devh = usb_open(dev);
 	} else {
-		if (show_progress) printf(" No default device found. Is it connected? Bye\n\n");
+		if (show_progress) printf(" No default device found. Is it connected? Bye!\n\n");
 		exit(0);
 	}
 
-	devh = usb_open(dev);
-	if (devh == NULL) {
-		if (show_progress) fprintf(stderr, "Error: could not access device. Aborting\n\n");
+	// Check or get endpoint if there is a message to send
+	if (!MessageEndpoint && strlen(MessageContent)) {
+		if (show_progress) printf("No MessageEndpoint given. Trying to autodetect ...\n");
+		MessageEndpoint = find_first_bulk_output_endpoint(dev);
+		if (MessageEndpoint) {
+			if (show_progress)
+				printf(" OK, using endpoint 0x%02x\n", MessageEndpoint);
+		} else {
+			if (show_progress)
+				fprintf(stderr,"Error: Autodetection failed to find endpoint. Aborting.\n\n");
+			exit(1);
+		}
+	}
+
+	// Interface different from default, test it
+	if (Interface > 0) {
+		ret = usb_claim_interface(devh, Interface);
+		if (ret != 0) {
+			if (show_progress) printf("Could not claim interface %d (error %d). Aborting.\n\n", Interface, ret);
+			exit(1);
+		}
+	}
+
+	// Some scenarios are exclusive, so check for unwanted combinations
+	specialMode = DetachStorageOnly + HuaweiMode + SierraMode + SonyMode;
+	if ( specialMode > 1 ) {
+		if (show_progress) printf("Invalid mode combination. Check your configuration. Aborting.\n\n");
 		exit(1);
 	}
-	
-	signal(SIGTERM, release_usb_device);
 
-#ifdef LIBUSB_HAS_GET_DRIVER_NP
-	if ( !HuaweiMode && !SierraMode && !SonyMode ) {
-		if (show_progress) printf("Looking for active default driver to detach it\n");
-		ret = usb_get_driver_np(devh, Interface, buf, sizeof(buf));
-		if (ret == 0) {
-			if (show_progress) printf(" OK, driver found (\"%s\")\n", buf);
-			if ( (DetachStorageOnly && !strcmp(buf,"usb-storage")) || !DetachStorageOnly ) {
-#ifdef LIBUSB_HAS_DETACH_KERNEL_DRIVER_NP
-				ret = usb_detach_kernel_driver_np(devh, Interface);
-				if (ret == 0) {
-					if (show_progress) printf(" OK, Driver \"%s\" successfully detached\n", buf);
-				} else {
-					if (show_progress) printf(" Driver \"%s\" detach failed with error %d. Trying to continue ...\n", buf, ret);
-				}
-#else
-					if (show_progress) printf(" Driver detaching not possible on this platform. ");
-					if (DetachStorageOnly) {
-						if (show_progress) printf("Please remove USB storage driver manually! Bye\n\n");
-						exit(1);
-					}
-					else
-						if (show_progress) printf("Trying to continue ...\n");
-#endif
-			} else {
-				if (show_progress) printf(" No usb-storage driver found. Switching not necessary. Bye\n\n");
-				exit(0);
-			}
+	/*
+	 * The switching actions
+	 */
+
+	if (DetachStorageOnly) {
+		if (show_progress) printf("Only detaching storage driver for switching ...\n");
+		ret = detachDriver();
+		if (ret == 2) {
+			if (show_progress) printf(" You may want to remove the storage driver manually\n");
+		}
+	}
+
+	if ( !MessageEndpoint && strlen(MessageContent) ) {
+	}
+
+	if (HuaweiMode) {
+		switchHuaweiMode();
+	}
+	if (SierraMode) {
+		switchSierraMode();
+	}
+	if (SonyMode) {
+		sonySuccess = switchSonyMode();
+	}
+
+	if (strlen(MessageContent) && MessageEndpoint) {
+		if (specialMode == 0) {
+			detachDriver();
+			ret = switchSendMessage();
+			if (ret && (ResponseEndpoint != -1))
+				switchReadResponse();
 		} else {
-			if (DetachStorageOnly) {
-				if (show_progress) printf(" No driver found. Driver probably detached already. Bye\n\n");
-				exit(0);
+			if (show_progress) printf("Note: ignoring MessageContent. Can't combine with special mode\n");
+		}
+	}
+
+	if (Configuration != -1) {
+		switchConfiguration ();
+	}
+
+	if (AltSetting != -1) {
+		switchAltSetting();
+	}
+
+	if (ResetUSB) {
+		resetUSB();
+	}
+
+	if (devh)
+		usb_close(devh);
+
+	if (CheckSuccess) {
+		signal(SIGTERM, release_usb_device);
+		if (checkSuccess(dev))
+			exit(0);
+		else
+			exit(1);
+	} else {
+		if (SonyMode) {
+			if (sonySuccess) {
+				if (show_progress) printf("-> device should be stable now. Bye\n\n");
 			} else
-				if (show_progress) printf(" No driver found. Device probably not initialized. Trying to continue ...\n");
+				if (show_progress) printf("-> switching was not completed. Bye\n\n");
+		} else {
+			if (show_progress) printf("-> Run lsusb to note any changes. Bye\n\n");
 		}
+		exit(0);
 	}
-#else
-	printf(" Driver detection not possible on this platform. Trying to continue ...\n");
+}
+
+
+int resetUSB () {
+	int success;
+	int bpoint = 0;
+
+	if (show_progress) {
+		printf("Resetting usb device ");
+		fflush(stdout);
+	}
+
+	sleep( 1 );
+	do {
+		success = usb_reset(devh);
+		if ( ((bpoint % 10) == 0) && show_progress ) {
+			printf(".");
+			fflush(stdout);
+		}
+		bpoint++;
+		if (bpoint > 100)
+			success = 1;
+	} while (success < 0);
+
+	if ( success ) {
+		if (show_progress) printf("\n Reset failed. Can be ignored if device switched OK.\n");
+	} else {
+		if (show_progress) printf("\n OK, device was reset\n");
+	}
+}
+
+int switchSendMessage () {
+	int message_length;
+
+	if (show_progress) printf("Setting up communication with interface %d ...\n", Interface);
+	ret = usb_claim_interface(devh, Interface);
+	if (ret != 0) {
+		if (show_progress) printf(" Could not claim interface (error %d). Skipping message sending\n", ret);
+		return 0;
+	}
+	if (show_progress) printf("Trying to send the message to endpoint 0x%02x ...\n", MessageEndpoint);
+	message_length = strlen(MessageContent) / 2;
+	usb_clear_halt(devh, MessageEndpoint);
+	write_bulk(MessageEndpoint, ByteString, message_length);
+
+	usb_clear_halt(devh, MessageEndpoint);
+	usb_release_interface(devh, Interface);
+}
+
+int switchReadResponse () {
+	if (show_progress) printf("Reading the response to the message ...\n");
+	return read_bulk(ResponseEndpoint, ByteString, LINE_DIM/2);
+}
+
+int switchConfiguration () {
+
+	if (show_progress) printf("Changing configuration to %i ...\n", Configuration);
+	ret = usb_set_configuration(devh, Configuration);
+	if (ret == 0 ) {
+		if (show_progress) printf(" OK, configuration set\n");
+		return 1;
+	} else {
+		if (show_progress) printf(" Setting the configuration returned error %d. Trying to continue\n", ret);
+		return 0;
+	}
+}
+
+int switchAltSetting () {
+
+	if (show_progress) printf("Changing to alt setting %i ...\n", AltSetting);
+	ret = usb_claim_interface(devh, Interface);
+	ret = usb_set_altinterface(devh, AltSetting);
+	usb_release_interface(devh, Interface);
+	if (ret != 0) {
+		if (show_progress) fprintf(stderr, " Changing to alt setting returned error %d. Trying to continue\n", ret);
+		return 0;
+	} else {
+		if (show_progress) printf(" OK, changed to alt setting\n");
+		return 1;
+	}
+}
+
+int switchHuaweiMode () {
+
+	if (show_progress) printf("Sending Huawei control message ...\n");
+	ret = usb_control_msg(devh, USB_TYPE_STANDARD + USB_RECIP_DEVICE, USB_REQ_SET_FEATURE, 00000001, 0, buf, 0, 1000);
+	if (ret != 0) {
+		if (show_progress) fprintf(stderr, "Error: sending Huawei control message failed (error %d). Aborting.\n\n", ret);
+		exit(1);
+	} else
+		if (show_progress) printf(" OK, Huawei control message sent\n");
+}
+
+int switchSierraMode () {
+
+	if (show_progress) printf("Trying to send Sierra control message\n");
+	ret = usb_control_msg(devh, 0x40, 0x0b, 00000001, 0, buf, 0, 1000);
+	if (ret != 0) {
+		if (show_progress) fprintf(stderr, "Error: sending Sierra control message failed (error %d). Aborting.\n\n", ret);
+	    exit(1);
+	} else
+		if (show_progress) printf(" OK, Sierra control message sent\n");
+}
+
+int switchSonyMode () {
+
+	int i, found;
+	detachDriver();
+
+	if (CheckSuccess) {
+		printf("Note: CheckSuccess pointless with Sony mode, disabling\n");
+		CheckSuccess = 0;
+	}
+
+	if (show_progress) printf("Trying to send Sony control message\n");
+	ret = usb_control_msg(devh, 0xc0, 0x11, 2, 0, buf, 3, 100);
+	if (ret < 0) {
+		if (show_progress) fprintf(stderr, "Error: sending control message failed (error %d). Aborting.\n\n", ret);
+		exit(1);
+	} else
+		if (show_progress) printf(" OK, control message sent, waiting for device to return ...\n");
+
+	usb_close(devh);
+
+	i=0;
+	dev = NULL;
+	while ( dev == NULL && i < 30 ) {
+		if ( i > 5 ) {
+			usb_find_busses();
+			usb_find_devices();
+			dev = search_devices(&found, DefaultVendor, DefaultProduct, TargetClass);
+		}
+		if ( dev != NULL )
+			break;
+		sleep(1);
+		if (show_progress) {
+			printf("#");
+			fflush(stdout);
+		}
+		i++;
+	}
+	if (show_progress) printf("\n After %d seconds:",i);
+	if ( dev != NULL ) {
+		if (show_progress) printf(" device came back, proceeding\n");
+		devh = NULL;
+		devh = usb_open( dev );
+		if (devh == NULL) {
+			if (show_progress) printf("Error: could not get handle on device\n");
+			return 0;
+		}
+	} else {
+		if (show_progress) printf(" device still gone, cancelling\n");
+		return 0;
+	}
+
+	sleep(1);
+
+//	switchAltSetting();
+//	sleep(1);
+
+	if (show_progress) printf("Sending Sony control message again ...\n");
+	ret = usb_control_msg(devh, 0xc0, 0x11, 2, 0, buf, 3, 100);
+	if (ret < 0) {
+		if (show_progress) fprintf(stderr, "Error: sending control message failed (error %d)\n", ret);
+		return 0;
+	} else {
+		if (show_progress) printf(" OK, control message sent\n");
+		return 1;
+	}
+
+	Interface=8;
+	AltSetting=2;
+}
+
+// Detach driver either as the main action or as preparation for other modes
+int detachDriver() {
+
+#ifndef LIBUSB_HAS_GET_DRIVER_NP
+	printf(" Cant't do driver detection and detaching on this platform.\n");
+	return 2;
 #endif
 
-	if (!DetachStorageOnly && !HuaweiMode && !SierraMode && !SonyMode) {
-		if (show_progress) printf("Setting up communication with device\n");
+	if (show_progress) printf("Looking for active driver ...\n");
+	ret = usb_get_driver_np(devh, Interface, buf, BUF_SIZE);
+	if (ret != 0) {
+		if (show_progress) printf(" No driver found. Either detached before or never attached\n");
+		return 1;
+	}
+	if (show_progress) printf(" OK, driver found (\"%s\")\n", buf);
+	if (DetachStorageOnly && strcmp(buf,"usb-storage")) {
+		if (show_progress) printf(" Driver is not usb-storage, leaving it alone\n");
+		return 1;
+	}
 
-		if (Configuration != -1) {
-			if (show_progress) printf("Setting configuration %i\n", Configuration);
-			ret = usb_set_configuration(devh, Configuration);
-			if (ret == 0 ) {
-				if (show_progress) printf(" OK, configuration was successfully set\n");
-			} else {
-				if (show_progress) printf(" Setting the configuration returned error %d, trying to continue ...\n", ret);
-			}
-		}
-		ret = usb_claim_interface(devh, Interface);
+#ifndef LIBUSB_HAS_DETACH_KERNEL_DRIVER_NP
+	if (show_progress) printf(" Can't do driver detaching on this platform\n");
+	return 2;
+#endif
 
-		if (ret != 0) {
-			if (show_progress) fprintf(stderr, "Error: couldn't claim interface (error %d). Can't communicate. Aborting\n\n", ret);
-			exit(1);
-		}
-		if (AltSetting != -1) {
-			if (show_progress) printf("Setting alt setting %i\n", AltSetting);
-			ret = usb_set_altinterface(devh, AltSetting);
-			if (ret != 0) {
-				if (show_progress) fprintf(stderr, "Error: could not set alt setting (error %d). Aborting\n\n", ret);
-				exit(1);
-			}
-		}
-		ret = usb_clear_halt(devh, MessageEndpoint);
+	ret = usb_detach_kernel_driver_np(devh, Interface);
+	if (ret == 0) {
+		if (show_progress) printf(" OK, driver \"%s\" detached\n", buf);
+	} else {
+		if (show_progress) printf(" Driver \"%s\" detach failed with error %d. Trying to continue\n", buf, ret);
+	}
+	return 1;
+}
 
-		if (strlen(MessageContent) && !MessageEndpoint) {
-			if (show_progress) fprintf(stderr, "Error: no MessageEndpoint given. Can't send message. Aborting\n\n");
-			exit(1);
-		}
-
-		if (strlen(MessageContent) % 2 != 0) {
-			if (show_progress) fprintf(stderr, "Error: MessageContent hex string has uneven length. Aborting\n\n");
-			exit(1);
-		}
-
-		message_length = strlen(MessageContent) / 2;
-		if (!message_length) {
-			if (show_progress) printf("No MessageContent given. Sending nothing\n\n");
-			exit(1);
-		} else {
-			if (hexstr2bin(MessageContent,ByteString,message_length) == -1) {
-				if (show_progress) fprintf(stderr, "Error: MessageContent: %s\n is not a hex string. Aborting\n\n", MessageContent);
-				exit(1);
-			}
-
-			if (show_progress) printf("Trying to send the message\n");
-			write_bulk(MessageEndpoint, ByteString, message_length);
-
-			if (ResponseEndpoint > -1) {
-				if (show_progress) printf("Reading the response\n");
-				read_bulk(ResponseEndpoint, ByteString, LINE_DIM/2);
-			}
-		}
-
-		/* you might try this again if device still does not switch */
-
-//		usb_clear_halt(devh, MessageEndpoint);
-
-	}	
+int checkSuccess(struct usb_device *dev) {
 	
-	if ( HuaweiMode ) {
-		ret = usb_control_msg(devh, USB_TYPE_STANDARD + USB_RECIP_DEVICE, USB_REQ_SET_FEATURE, 00000001, 0, buf, 0, 1000);
-		if (ret != 0) {
-			if (show_progress) fprintf(stderr, "Error: sending Huawei control message failed (error %d). Aborting\n\n", ret);
-			exit(1);
-		} else
-			if (show_progress) printf(" OK, Huawei control message successfully sent.\n");
+	if (show_progress) printf("Checking for mode switch after %d seconds settling time ...\n", CheckSuccess);
+	sleep(CheckSuccess);
+
+	// Test if default device still can be accessed; positive result does
+    // not necessarily mean failure
+	devh = usb_open(dev);
+	ret = usb_claim_interface(devh, Interface);
+	if (ret < 0) {
+		if (show_progress) printf(" Original device can't be accessed anymore. Good.\n");
+	} else {
+		if (show_progress) printf(" Original device can still be accessed. Hmm.\n");
+		usb_release_interface(devh, Interface);
 	}
 
-	if ( SierraMode ) {
-		ret = usb_control_msg(devh, 0x40, 0x0b, 00000001, 0, buf, 0, 1000);
-		if (ret != 0) {
-			if (show_progress) fprintf(stderr, "Error: sending Sierra control message failed (error %d). Aborting\n\n", ret);
-		    exit(1);
-		} else
-			if (show_progress) printf(" OK, Sierra control message successfully sent.\n");
-	}
-
-	if ( SonyMode ) {
-		buf[0] = 0x5a;
-		buf[1] = 0x11;
-		buf[2] = 0x02;
-		ret = usb_control_msg(devh, 0xc0, 0x11, 00000002, 0, buf, 3, 1000);
-		if (ret < 0) {
-			if (show_progress) fprintf(stderr, "Error: sending Sony control message failed (error %d). Aborting\n\n", ret);
-		    exit(1);
-		} else
-			if (show_progress) printf(" OK, Sony control message successfully sent.\n");
-	}
-
-	if ( ResetUSB ) {
-		if (show_progress) printf("Resetting usb device ");
-		sleep( 1 );
-		int success;
-		int bpoint;
-		bpoint = 0;
-		do {
-			success = usb_reset(devh);
-			if (show_progress) printf(".");
-			bpoint++;
-			if (bpoint > 100)
-				success = 1;
-		} while (success < 0);
-
-		if ( success ) {
-			if (show_progress) printf("\n Reset failed. Can be ignored if device switched OK.\n");
+	// Recount target devices (compare with previous count) if target data is given
+	int newTargetCount;
+	if ((TargetVendor && TargetProduct) || TargetClass) {
+		usb_find_devices();
+		search_devices(&newTargetCount, TargetVendor, TargetProduct, TargetClass);
+		if (newTargetCount > targetDeviceCount) {
+			if (show_progress) printf(" Found a new device in target mode or class\n\nMode switch was successful. Bye!\n\n");
+			return 1;
 		} else {
-			if (show_progress) printf("\n OK, device was reset\n");
+			if (show_progress) printf(" No new devices in target mode or class found\n\nMode switch seems to have failed. Bye!\n\n");
+			return 0;
 		}
+	} else {
+		if (show_progress) printf("For a better success check provide target IDs or class. Bye!\n\n");
+		if (ret < 0)
+			return 1;
+		else
+			return 0;
 	}
-
-	if (show_progress) printf("-> See /proc/bus/usb/devices (or call lsusb) for changes. Bye\n\n");
-
-	if (!DetachStorageOnly && !HuaweiMode && !ResetUSB) {
-		ret = usb_release_interface(devh, Interface);
-		if (ret != 0)
-			if (show_progress) fprintf(stderr, "Error: releasing interface failed (error %d). Trying to continue\n", ret);
-	}
-
-	if (!ResetUSB)
-		ret = usb_close(devh);
-
-	return 0;
 }
 
 int write_bulk(int endpoint, char *message, int length) {
 	int ret;
 	ret = usb_bulk_write(devh, endpoint, message, length, 1000);
 	if (ret >= 0 ) {
-		if (show_progress) printf(" OK, message successfully sent.\n");
+		if (show_progress) printf(" OK, message successfully sent\n");
+		return 1;
 	} else {
-		if (show_progress) printf(" Sending the message returned error %d, trying to continue ...\n", ret);
+		if (show_progress) printf(" Sending the message returned error %d. Trying to continue\n", ret);
+		return 0;
 	}
-	return ret;
 }
 
 int read_bulk(int endpoint, char *buffer, int length) {
@@ -487,30 +692,31 @@ int read_bulk(int endpoint, char *buffer, int length) {
 	if (ret >= 0 ) {
 		if (show_progress) printf(" OK, response successfully read (%d bytes).\n", ret);
 	} else {
-		if (show_progress) printf(" Reading the response returned error %d, trying to continue ...\n", ret);
+		if (show_progress) printf(" Reading the response returned error %d, trying to continue\n", ret);
 	}
 	return ret;
 }
 
 void release_usb_device(int dummy) {
 	int ret;
-	if (show_progress) printf("Program cancelled by system. Bye\n\n");
-	ret = usb_release_interface(devh, Interface);
-	if (!ret)
-		if (show_progress) fprintf(stderr, "Error: failed to release interface: %d\n", ret);
+	if (show_progress) printf("Program cancelled by system. Bye!\n\n");
+	usb_release_interface(devh, Interface);
 	usb_close(devh);
-	if (!ret)
-		if (show_progress) fprintf(stderr, "Error: failed to close interface: %d\n", ret);
-	if (show_progress) printf("\n");
-	exit(1);
+	exit(0);
 }
 
+
+// iterates over busses and devices, counts the ones found and returns the last one of them
 
 struct usb_device* search_devices( int *numFound, int vendor, int product, int targetClass) {
 	struct usb_bus *bus;
 	int devClass;
 	struct usb_device* right_dev = NULL;
 	
+	if ( targetClass && !(vendor && product) ) {
+		vendor = DefaultVendor;
+		product = DefaultProduct;
+	}
 	*numFound = 0;
 	for (bus = usb_get_busses(); bus; bus = bus->next) {
 		struct usb_device *dev;
@@ -527,6 +733,46 @@ struct usb_device* search_devices( int *numFound, int vendor, int product, int t
 	}
 	return right_dev;
 }
+
+#define USB_DIR_OUT 0x00
+#define USB_DIR_IN  0x80
+
+
+// Autodetect bulk endpoints (ab)
+
+int find_first_bulk_output_endpoint(struct usb_device *dev) {
+	int i;
+	struct usb_interface_descriptor *alt = &(dev->config[0].interface[0].altsetting[0]);
+	struct usb_endpoint_descriptor *ep;
+
+	for(i=0;i < alt->bNumEndpoints;i++) {
+		ep=&(alt->endpoint[i]);
+		if( ( (ep->bmAttributes & USB_ENDPOINT_TYPE_MASK) == USB_ENDPOINT_TYPE_BULK) &&
+		    ( (ep->bEndpointAddress & USB_ENDPOINT_DIR_MASK) == USB_DIR_OUT ) ) {
+			return ep->bEndpointAddress;
+		}
+	}
+
+	return 0;
+}
+
+// (Will be used in a later version)
+int find_first_bulk_input_endpoint(struct usb_device *dev) {
+	int i;
+	struct usb_interface_descriptor *alt = &(dev->config[0].interface[0].altsetting[0]);
+	struct usb_endpoint_descriptor *ep;
+
+	for(i=0;i < alt->bNumEndpoints;i++) {
+		ep=&(alt->endpoint[i]);
+		if( ( (ep->bmAttributes & USB_ENDPOINT_TYPE_MASK) == USB_ENDPOINT_TYPE_BULK) &&
+		    ( (ep->bEndpointAddress & USB_ENDPOINT_DIR_MASK) == USB_DIR_IN ) ) {
+			return ep->bEndpointAddress;
+		}
+	}
+
+	return 0;
+}
+
 
 
 // the parameter parsing stuff
