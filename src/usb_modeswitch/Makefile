@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 PROG=usb_modeswitch
-VER=0.9.6
+VER=0.9.7
 
 BUILDDIR=debian/tmp
 
