@@ -315,7 +315,10 @@ class HardwareRegistry(DbusComponent):
                 dport_index, cport_index = plugin.hardcoded_ports
                 dport = ports[dport_index]
                 try:
-                    cport = ports[cport_index]
+                    if type(cport_index) == type(None):
+                        cport = None
+                    else:
+                        cport = ports[cport_index]
                 except Exception, e:
                     log.err()
                     cport = None
