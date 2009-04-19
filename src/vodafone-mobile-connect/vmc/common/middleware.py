@@ -436,8 +436,11 @@ class SIMCardConnAdapter(SIMCardConnection):
                 # we should raise an exception here
                 raise ex.NetworkTemporalyUnavailableError
 
-            status = int(netinfo.group('status'))
-            conn_type = (status == 0) and 'GPRS' or '3G'
+            try:
+                status = int(netinfo.group('status'))
+                conn_type = (status == 0) and 'GPRS' or '3G'
+            except IndexError:
+                conn_type = 'GPRS'
                 
             netname = netinfo.group('netname')
             
