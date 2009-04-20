@@ -44,13 +44,17 @@ def huawei_new_conn_mode(args):
     """Translates C{arg} to VMC's language"""
     mode_args_dict = {
         '0,0' : notifications.NO_SIGNAL,
+        '3,0' : notifications.NO_SIGNAL,
+        '3,1' : notifications.GPRS_SIGNAL,
         '3,2' : notifications.GPRS_SIGNAL,
         '3,3' : notifications.GPRS_SIGNAL,
+        '5,0' : notifications.NO_SIGNAL,
         '5,4' : notifications.UMTS_SIGNAL,
         '5,5' : notifications.HSDPA_SIGNAL,
         '5,6' : notifications.HSUPA_SIGNAL,
         '5,7' : notifications.HSPA_SIGNAL, # doc says HSDPA + HSUPA ain't that
                                            # just HSPA?
+        '5,9' : notifications.HSPA_SIGNAL, # doc says HSPA+
     }
     return mode_args_dict[args]
 
