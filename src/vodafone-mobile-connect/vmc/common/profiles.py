@@ -64,13 +64,13 @@ class ProfileManager(object):
         
         preferred = profile.get('connection', 'connection')
         if not self.device.custom.conn_dict:
-            log.msg("No conn_dict registered for device %s") % self.device
+            log.msg("No conn_dict registered for device %s" % self.device)
             return
         try:
             conn_str = self.device.custom.conn_dict[preferred]
         except KeyError:
             args = (self.device, preferred)
-            log.err("Device %s doesn't have key %s in its conn_dict") % args
+            log.err("Device %s doesn't have key %s in its conn_dict" % args)
             return
         
         d = self.device.sconn.send_at(conn_str)
