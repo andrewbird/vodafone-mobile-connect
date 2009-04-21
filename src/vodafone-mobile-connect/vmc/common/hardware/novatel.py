@@ -30,7 +30,7 @@ from vmc.common.hardware.base import Customizer
 NOVATEL_DICT = {
    'GPRSONLY' : 'AT$NWRAT=1,2',
    '3GONLY'   : 'AT$NWRAT=2,2',
-   'GPRSPREF' : 'AT$NWRAT=0,2',
+   'GPRSPREF' : None,
    '3GPREF'   : 'AT$NWRAT=0,2',
 }
     
