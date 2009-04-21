@@ -241,7 +241,7 @@ class Behaviour(Modal):
                     conn_str = self.device.custom.conn_dict[preferred]
                 except KeyError:
                     msg = "Device %s doesn't have key %s in its conn_dict"
-                    log.err(msg) % (self.device, preferred)
+                    log.err(msg % (self.device, preferred))
                     return
                 
                 d = self.device.sconn.send_at(conn_str)
