@@ -26,7 +26,6 @@ import gtk
 from twisted.internet import defer
 
 from vmc.common.dialers import AUTH_OPTS_LIST
-from vmc.common.hardware import CONN_OPTS_LIST
 from vmc.common.encoding import _
 import vmc.common.consts as consts
 
@@ -51,9 +50,6 @@ class BaseProfileView(View):
 
         # setup connection combobox
         model = gtk.ListStore(gobject.TYPE_STRING)
-        for opt in CONN_OPTS_LIST:
-            model.append([opt])
-        
         self['connection_combobox'].set_model(model)
         
         # setup auth combobox
@@ -70,7 +66,6 @@ class NewProfileView(BaseProfileView):
     
     def setup_view(self):
         super(NewProfileView, self).setup_view()
-        self['connection_combobox'].set_active(3)  # 3G Preferred
         self['auth_combobox'].set_active(0)        # Default auth profile
 
 

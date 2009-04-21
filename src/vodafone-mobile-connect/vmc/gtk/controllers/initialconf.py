@@ -60,10 +60,17 @@ class BaseProfileController(Controller):
         # get device model
         name = self.model.get_device().name
         self.view['device_model_label'].set_text(name)
+        self.pop_connection_combobox_opt()
         
     def propose_profile_name(self):
-        self.suggested_name = '-'.join([self.model.get_device().name,
-                        self.get_connection_combobox_opt()]).replace(' ', '')
+        device = self.model.get_device().name
+        bearer = self.get_connection_combobox_opt()
+
+        if not bearer:
+            self.suggested_name = device.replace(' ', '')
+        else:
+            self.suggested_name = '-'.join([device,bearer]).replace(' ', '')
+    
         self.view['profile_name_entry'].set_text(self.suggested_name)
     
     def is_profile_name_insane(self):
@@ -116,7 +123,26 @@ class BaseProfileController(Controller):
             if row[0] == AUTH_OPTS_DICT_REV[opt]:
                 self.view['auth_combobox'].set_active(i)
                 break
+
+    def pop_connection_combobox_opt(self):
+        model = self.view['connection_combobox'].get_model()
+
+        conn_dict = self.model.get_device().custom.conn_dict
+
+        model.clear()
+        for item in conn_dict:
+            if conn_dict[item] != None:
+                opt = CONN_OPTS_DICT_REV[item]
+                model.append([opt])
+
+        for i, row in enumerate(model):
+            if row[0] == CONN_OPTS_DICT_REV['3GPREF']:
+                self.view['connection_combobox'].set_active(i)
+                break
     
+        if not len(model):
+            self.view['connection_combobox'].set_sensitive(0)
+
     def get_connection_combobox_opt(self):
         model = self.view['connection_combobox'].get_model()
         index = self.view['connection_combobox'].get_active()
@@ -135,20 +161,21 @@ class BaseProfileController(Controller):
     
     def get_profile_settings(self):
         conn = self.get_connection_combobox_opt()
+        connection = conn and CONN_OPTS_DICT[conn] or None
+
         auth = self.get_auth_combobox_opt()
-        if not conn or not auth:
-            return None
-        
+        dialer_profile = auth and AUTH_OPTS_DICT[auth] or None
+
         return dict(profile_name=self.view['profile_name_entry'].get_text(),
                     username=self.view['username_entry'].get_text(),
                     password=self.view['password_entry'].get_text(),
-                    connection=CONN_OPTS_DICT[conn],
+                    connection=connection,
                     apn=self.view['apn_entry'].get_text(),
-                    dialer_profile=AUTH_OPTS_DICT[auth],
+                    dialer_profile=dialer_profile,
                     staticdns=self.view['dns_checkbutton'].get_active(),
                     dns1=self.dns1_entry.get_text(),
                     dns2=self.dns2_entry.get_text())
-    
+
     def on_cancel_button_clicked(self, widget):
         self.hide_ourselves()
         if hasattr(self, 'startup') and self.startup:
@@ -189,7 +216,7 @@ class BaseProfileController(Controller):
 
         try:
             if not settings:
-                raise Problem("Profile settings are Null") # preferred connection or auth not specified
+                raise Problem("Profile settings are Null")
 
             if settings['staticdns']:
                 if self.dns1_entry.get_text() == '' and self.dns2_entry.get_text() == '':
