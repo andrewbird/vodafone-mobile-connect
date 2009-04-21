@@ -29,9 +29,12 @@ from vmc.common.plugins.huawei_e660 import HuaweiE660
 from vmc.common.plugins.huawei_e660a import HuaweiE660A
 from vmc.common.plugins.huawei_e870 import HuaweiE870
 from vmc.common.plugins.huawei_e3735 import HuaweiE3735
+
+from vmc.common.plugins.huawei_k2540 import HuaweiK2540
 from vmc.common.plugins.huawei_k3520 import HuaweiK3520
 from vmc.common.plugins.huawei_k3565 import HuaweiK3565
 from vmc.common.plugins.huawei_k3715 import HuaweiK3715
+
 from vmc.common.plugins.huawei_em730v import HuaweiEM730V
 from vmc.common.plugins.huawei_em770 import HuaweiEM770
 
@@ -53,12 +56,13 @@ class HuaweiEXXX1003(DBusDevicePlugin):
         super(HuaweiEXXX1003, self).__init__()
 
         self.mapping = {
-            'E17X' : HuaweiE172,
+            'E870' : HuaweiE870,      # Expresscards
+
+            'E17X' : HuaweiE172,      # USB Sticks
             'E220' : HuaweiE220,
             'E270' : HuaweiE270,
             'E272' : HuaweiE272,
-            'E870' : HuaweiE870,
-            'E160X' : HuaweiK3565, # strange but I have forum post to show it :-)
+            'E160X' : HuaweiK3565,
             'K3565' : HuaweiK3565,
 
             'default' : HuaweiE220,
@@ -81,13 +85,17 @@ class HuaweiEXXX1001(DBusDevicePlugin):
         super(HuaweiEXXX1001, self).__init__()
 
         self.mapping = {
+            'E620'  : HuaweiE620,     # Cardbus
             'E660'  : HuaweiE660,
             'E660A' : HuaweiE660A,
-            'E620'  : HuaweiE620,
-            'E3735'  : HuaweiE3735,
+
+            'E3735'  : HuaweiE3735,   # Expresscards
+
+            'K2540' : HuaweiK2540,    # USB Sticks
             'K3520' : HuaweiK3520,
             'K3715' : HuaweiK3715,
-            'EM730V' : HuaweiEM730V,
+
+            'EM730V' : HuaweiEM730V,  # Embedded Modules
             'EM770' : HuaweiEM770,
 
             'default' : HuaweiE660,
