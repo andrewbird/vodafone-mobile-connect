@@ -115,6 +115,15 @@
  <!-- ZTE based mobile devices -->
       <match key="@info.parent:usb.vendor_id" int="0x19d2">
 
+	<!-- Vodafone K2525 -->
+        <match key="@info.parent:usb.product_id" int="0x0022">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
 	<!-- Vodafone K3520-Z : 2 pids according to F/W revision -->
         <match key="@info.parent:usb.product_id" int="0x0025">
           <match key="@info.parent:usb.interface.number" int="2">
