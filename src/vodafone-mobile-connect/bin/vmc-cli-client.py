@@ -24,6 +24,8 @@ __version__ = "$Rev: 1109 $"
 
 import sys
 
+sys.path.insert(1,'/usr/share/vodafone-mobile-connect')
+
 from twisted.python import usage, log
 from twisted.internet import glib2reactor
 glib2reactor.install()

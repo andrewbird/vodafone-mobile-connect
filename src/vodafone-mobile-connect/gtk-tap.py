@@ -23,6 +23,9 @@ execute it with:  twistd -r gtk2 -noy gtk-tap.py
 
 import locale
 import signal
+import sys
+
+sys.path.insert(1,'/usr/share/vodafone-mobile-connect')
 
 from twisted.application.service import Application, IProcess
 

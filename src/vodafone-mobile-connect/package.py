@@ -26,10 +26,6 @@ __version__ = "$Rev: 1189 $"
 # python package.py
 ##################
 
-# Obtaining setuptools-0.6c5-py2.5.egg if not available.
-from ez_setup import use_setuptools                                                                                                                      
-use_setuptools()
-
 import os
 from glob import glob
 
@@ -91,9 +87,25 @@ def produce_tree():
 
     root = "%s/%s-%s" % (tmp, name, version)
 
-    from setuptools import setup, find_packages
+    import re
 
-    def list_files(path):
+    def list_core_files(path, pattern):
+        result = []
+        def walk_callback(arg, directory, files):
+            if '.svn' in files:
+                files.remove('.svn')
+
+            for file in files:
+                if os.path.isdir(os.path.join(directory, file)):
+                    continue
+                m = re.search(pattern, file)
+                if m:
+                    result.append(os.path.join(directory, file))
+
+        os.path.walk(path, walk_callback, None)
+        return result
+
+    def list_data_files(path):
         result = []
         def walk_callback(arg, directory, files):
             if '.svn' in files:
@@ -104,24 +116,28 @@ def produce_tree():
         os.path.walk(path, walk_callback, None)
         return result
 
+    core_files = [
+        (get_vmc_data_dir(), list_core_files('vmc','.+\.py\Z')),
+    ]
+
     data_files = [
 
 # Plugins
-        (os.path.join(get_vmc_data_dir(), 'plugins', 'os'), list_files('plugins/os')),
-        (os.path.join(get_vmc_data_dir(), 'plugins', 'devices'), list_files('plugins/devices')),
-        (os.path.join(get_vmc_data_dir(), 'plugins', 'notifications'), list_files('plugins/notifications')),
+        (os.path.join(get_vmc_data_dir(), 'plugins', 'os'), list_data_files('plugins/os')),
+        (os.path.join(get_vmc_data_dir(), 'plugins', 'devices'), list_data_files('plugins/devices')),
+        (os.path.join(get_vmc_data_dir(), 'plugins', 'notifications'), list_data_files('plugins/notifications')),
 
 # Resources
-        (os.path.join(get_vmc_resources_dir(), 'extra'), list_files('resources/extra')),
-        (os.path.join(get_vmc_resources_dir(), 'glade'), list_files('resources/glade')),
-        (os.path.join(get_vmc_resources_dir(), 'templates'), list_files('resources/templates')),
+        (os.path.join(get_vmc_resources_dir(), 'extra'), list_data_files('resources/extra')),
+        (os.path.join(get_vmc_resources_dir(), 'glade'), list_data_files('resources/glade')),
+        (os.path.join(get_vmc_resources_dir(), 'templates'), list_data_files('resources/templates')),
 
 # Data
         (get_vmc_data_dir(), ['gtk-tap.py']),
 
 # Icon
-        ('share/applications', ['resources/desktop/vmc.desktop']),
-        ('share/pixmaps', ['resources/desktop/vodafone.png']),
+        ('/usr/share/applications', ['resources/desktop/vmc.desktop']),
+        ('/usr/share/pixmaps', ['resources/desktop/vodafone.png']),
 
 # Doc
         (get_vmc_doc_dir(), ['debian/copyright', 'README', 'README-fr'] + glob('LICENSE*')),
@@ -132,20 +148,24 @@ def produce_tree():
 
 # echo "%_unpackaged_files_terminate_build 0" >> /etc/rpm/macros
 
-    from sys import argv
-    argv.append('--root=%s' % root)
+# Install core and data files
+    for dst, src in core_files:
+        sh("mkdir -p %s%s" % (root, dst))
+        for file in src:
+            (directory,a,b) = file.rpartition('/')
 
-    setup(name=name,
-          version=version,
-          packages=find_packages(),
-          data_files=data_files,
-          )
+            dstdir="%s%s/%s" % (root, dst, directory)
 
-# Bin - patch paths
-    sh("sed -i %s/usr/bin/vodafone-mobile-connect-card-driver-for-linux -e 's,vodafone-mobile-connect-card-driver-for-linux,%s,g'" % \
-        (root, name) )
-    sh("sed -i %s/usr/bin/vodafone-mobile-connect-card-driver-for-linux-debug -e 's,vodafone-mobile-connect-card-driver-for-linux,%s,g'" % \
-        (root, name) )
+            if not os.path.exists(dstdir):
+                sh("mkdir -p %s" % dstdir)
+            
+            sh("cp -p %s %s/." % (file, dstdir))
+
+    for dst, src in data_files:
+        sh("mkdir -p %s%s" % (root, dst))
+        for file in src:
+            dstdir="%s%s" % ( root, dst )
+            sh("cp -p %s %s/." % ( file, dstdir ))
 
 # Splashscreen - apply version
     img_to_patch_path = "%s%s" % (root, os.path.join(get_vmc_resources_dir(), 'glade', 'splash.png'))
@@ -201,9 +221,9 @@ def produce_tree():
 	compileall.compile_dir('%s/' % root, force=True)
 
 # so make can find out the root directory
-        f = open('%s/builddir' % tmp,'w')
-        f.write('%s-%s' % (name,version))
-        f.close()
+    f = open('%s/builddir' % tmp,'w')
+    f.write('%s-%s' % (name,version))
+    f.close()
 
 ################################# 
 

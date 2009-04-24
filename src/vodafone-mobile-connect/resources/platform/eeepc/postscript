@@ -1,6 +1,0 @@
-#!/bin/bash
-
-mv -f ./usr/lib ./opt/vmc/.
-
-echo 'import compileall; compileall.compile_dir("./opt/vmc", force=True)' | python
-

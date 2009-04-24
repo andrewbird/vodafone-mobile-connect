@@ -19,6 +19,9 @@
 
 import os
 import shutil
+import sys
+
+sys.path.insert(1,'/usr/share/vodafone-mobile-connect')
 
 from vmc.common import plugin
 from vmc.utils.utilities import get_file_data, save_file

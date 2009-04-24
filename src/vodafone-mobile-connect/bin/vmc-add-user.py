@@ -25,6 +25,8 @@ import sys
 import os   
 import shutil
 
+sys.path.insert(1,'/usr/share/vodafone-mobile-connect')
+
 from twisted.python import log   # will show log messages.
 from twisted.python import usage # parses command line options.
 from twisted.python.procutils import which
