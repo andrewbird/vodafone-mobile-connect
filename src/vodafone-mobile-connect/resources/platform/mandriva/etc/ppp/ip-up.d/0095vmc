@@ -45,10 +45,10 @@ if [ -n "${DNS1}" ] || [ -n "${DNS2}"] ; then
 fi
 
 # If the default route is not ours, save it and replace with our own
-OLDGW="`route -n | awk '{ if ($1 == "0.0.0.0") { print $2 ; exit } }'`"
-if [ "${OLDGW}" != "${RIP}" ] ; then
-	printf "OLDGW=%s" ${OLDGW} > ${ROUTEBACK}
-	route delete default gw ${OLDGW}
+#OLDGW="`route -n | awk '{ if ($1 == "0.0.0.0") { print $2 ; exit } }'`"
+#if [ "${OLDGW}" != "${RIP}" ] ; then
+#	printf "OLDGW=%s" ${OLDGW} > ${ROUTEBACK}
+#	route delete default gw ${OLDGW}
 	route add default dev ${DEV}
-fi
+#fi
 

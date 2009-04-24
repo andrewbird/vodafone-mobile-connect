@@ -28,15 +28,15 @@ if [ -e /var/run/nscd.pid ] ; then
 fi
 
 # now replace original default route
-if [ -f ${ROUTEBACK} ] ; then
-	. ${ROUTEBACK} # source it
-
-	if [ -n "${OLDGW}" ] ; then
-		route add default gw ${OLDGW}
-	fi
-
-	rm -f ${ROUTEBACK}
-fi
+#if [ -f ${ROUTEBACK} ] ; then
+#	. ${ROUTEBACK} # source it
+#
+#	if [ -n "${OLDGW}" ] ; then
+#		route add default gw ${OLDGW}
+#	fi
+#
+#	rm -f ${ROUTEBACK}
+#fi
 
 
 # Delete mandriva commented nameserver lines, because they were not deleted correctly in ip-down.
