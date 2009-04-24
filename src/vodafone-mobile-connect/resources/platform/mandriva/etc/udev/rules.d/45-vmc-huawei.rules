@@ -1,0 +1,18 @@
+# Spaces after HUAWEI vendor attribute are needed
+# udevinfo -a -p /block/sr1
+
+# Kill the Volume Manager popup for the built in driver CD
+ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
+   ATTRS{vendor}=="HUAWEI  ", \
+   RUN:=""
+
+# Call the driver loading script
+ACTION=="add", SUBSYSTEMS=="usb", \
+   ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1001", \
+   ATTRS{bNumInterfaces}==" 1", \
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEMS=="usb", \
+   ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1003", \
+   ATTRS{bNumInterfaces}==" 1", \
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
