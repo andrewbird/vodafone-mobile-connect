@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -38,6 +38,7 @@ from vmc.common.plugins.huawei_k3715 import HuaweiK3715
 from vmc.common.plugins.huawei_em730v import HuaweiEM730V
 from vmc.common.plugins.huawei_em770 import HuaweiEM770
 
+from vmc.common.plugins.huawei_b970 import HuaweiB970
 
 class HuaweiEXXX1003(DBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's 1003 family"""
@@ -64,6 +65,8 @@ class HuaweiEXXX1003(DBusDevicePlugin):
             'E272' : HuaweiE272,
             'E160X' : HuaweiK3565,
             'K3565' : HuaweiK3565,
+    
+            'B970' : HuaweiB970,      # Routers
 
             'default' : HuaweiE220,
         }
