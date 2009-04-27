@@ -2,6 +2,23 @@
 # udevinfo -a -p /block/sr1
 
 # Kill the Volume Manager popup for the built in driver CD + eject to flip
+ACTION=="add", \
+   SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5010", \
+   RUN:="/usr/bin/eject %k"
+
+ACTION=="add", \
+   SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5020", \
+   RUN:="/usr/bin/eject %k"
+
+ACTION=="add", \
+   SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5041", \
+   RUN:="/usr/bin/eject %k"
+
+ACTION=="add", \
+   SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5051", \
+   RUN:="/usr/bin/eject %k"
+
+# Generic
 ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
    ATTRS{vendor}=="Novatel ", \
    RUN:="/usr/bin/eject %k"
@@ -14,5 +31,10 @@ ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
 # Call the driver loading script
 ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
    ATTRS{idVendor}=="1410", ATTRS{idProduct}=="4400", \
+   RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+
+# Call the driver loading script for the MiFi device
+ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
+   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="7001", \
    RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
 
