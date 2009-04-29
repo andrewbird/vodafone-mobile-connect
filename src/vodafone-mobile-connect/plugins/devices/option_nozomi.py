@@ -23,7 +23,7 @@ from vmc.common.hardware.option import (OptionDBusDevicePlugin,
 
 class OptionNozomi(OptionDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Option's Nozomi"""
-    name = "Option GlobeTrotter 3G+"
+    name = "Option GT 3G+"
     version = "0.1"
     author = u"Pablo Martí"
     custom = OptionCustomizer

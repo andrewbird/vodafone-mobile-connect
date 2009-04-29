@@ -121,6 +121,20 @@
 
       </match>
 
+
+ <!-- Option based mobile devices -->
+      <match key="@info.parent:pci.vendor_id" int="0x1931"> <!-- Qualcomm -->
+
+	<!-- Nozomi -->
+        <match key="@info.parent:pci.product_id" int="0x000c">
+          <append key="info.capabilities" type="strlist">modem</append>
+          <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+          <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+        </match>
+
+      </match>
+
+
  <!-- ZTE based mobile devices -->
       <match key="@info.parent:usb.vendor_id" int="0x19d2">
 
