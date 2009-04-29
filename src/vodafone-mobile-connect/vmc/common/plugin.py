@@ -169,8 +169,17 @@ class DBusDevicePlugin(DevicePlugin):
         self.udi = other.udi
 
     def get_serialized_udi(self):
-        product_id = self.__properties__['usb_device.product_id'][0]
-        vendor_id = self.__properties__['usb_device.vendor_id'][0]
+
+        try:
+            product_id = self.__properties__['usb_device.product_id'][0]
+            vendor_id = self.__properties__['usb_device.vendor_id'][0]
+        except KeyError:
+            try:
+                product_id = self.__properties__['pcmcia.card_id'][0]
+                vendor_id = self.__properties__['pcmcia.manf_id'][0]
+            except KeyError:
+                product_id = self.__properties__['pci.product_id'][0]
+                vendor_id = self.__properties__['pci.vendor_id'][0]
 
         def get_model_cb(model):
             return "%d/%d/%s" % (vendor_id, product_id, model)
@@ -349,7 +358,7 @@ class PluginManager(object):
     @classmethod
     def get_plugin_by_vendor_product_id(cls, vendor_id, product_id):
         args = (vendor_id, product_id)
-        log.msg("get_plugin_by_id called with 0x%04X and 0x%04X" % args)
+        log.msg("get_plugin_by_vendor_product_id called with 0x%04X and 0x%04X" % args)
 
         for plugin in cls.get_plugins(interfaces.IDBusDevicePlugin):
             props = flatten_list(plugin.__properties__.values())
