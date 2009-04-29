@@ -277,6 +277,8 @@ class HardwareRegistry(DbusComponent):
                                             _udi not in childs):
                     childs.append(_udi)
 
+        childs = list(set(childs)) # make unique 
+
         return childs, device_props
 
     def _get_ports_from_udi(self, udi):
