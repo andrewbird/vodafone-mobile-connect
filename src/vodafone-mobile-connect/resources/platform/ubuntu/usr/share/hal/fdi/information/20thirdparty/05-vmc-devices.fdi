@@ -81,7 +81,18 @@
       </match>
 
  <!-- Novatel based mobile devices -->
-      <match key="@info.parent:usb.vendor_id" int="0x1410">
+      <match key="@info.parent:pcmcia.manf_id" int="0x00a4"> <!-- PCMCIA -->
+
+        <!-- U630 -->
+        <match key="@info.parent:pcmcia.card_id" int="0x0276">
+           <append key="info.capabilities" type="strlist">modem</append>
+           <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+           <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+        </match>
+
+      </match>
+
+      <match key="@info.parent:usb.vendor_id" int="0x1410">  <!-- USB -->
 
 	<!-- XU870 -->
         <match key="@info.parent:usb.product_id" int="0x1430">

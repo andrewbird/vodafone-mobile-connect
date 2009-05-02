@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2006-2007  Vodafone España, S.A.
+# Copyright (C) 2006-2009  Vodafone España, S.A.
 # Author:  Pablo Martí
 #
 # This program is free software; you can redistribute it and/or modify
@@ -19,8 +19,8 @@
 __version__ = "$Rev: 1172 $"
 
 from vmc.common.plugin import DBusDevicePlugin
-
 from vmc.common.hardware.novatel import NovatelCustomizer
+
 
 class NovatelU630(DBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's U630"""
@@ -29,10 +29,14 @@ class NovatelU630(DBusDevicePlugin):
     author = u"Pablo Martí"
     custom = NovatelCustomizer
 
+    __remote_name__ = "Merlin U630 (HW REV Rev 2)"
+
     __properties__ = {
-        'pcmcia.manf_id': [0xa4],
-        'pcmcia.card_id': [0x276],
+        'pcmcia.manf_id': [0x00a4],
+        'pcmcia.card_id': [0x0276],
     }
 
+    # Unfortunately it is not possible to switch the Second port from DM
+    # to AT mode on the x6xx models, so we have to run with only one port
 
 novatelu630 = NovatelU630()
