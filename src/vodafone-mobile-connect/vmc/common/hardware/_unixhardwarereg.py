@@ -185,12 +185,53 @@ class HardwareRegistry(DbusComponent):
         deferreds = map(identify_device, unknown_devs)
         return defer.gatherResults(deferreds)
 
+    def _same_pcmcia_slot(self, u1, u2):
+        p1 = self.get_properties_from_udi(u1)
+        p2 = self.get_properties_from_udi(u2)
+
+        if (not 'info.parent' in p1) or (not 'info.parent' in p2):
+            return False
+
+        if not p1['info.parent'] == p2['info.parent']:
+            return False
+
+        if not 'pcmcia.socket_number' in p1:
+            return False
+
+        if not 'pcmcia.socket_number' in p2:
+            return False
+
+        if not p1['pcmcia.socket_number'] == p2['pcmcia.socket_number']:
+            return False
+
+        return True
+
     def _get_parent_udis(self):
         """
         Returns the root udi of all the devices with modem capabilities
         """
-        return set(map(self._get_parent_udi,
-                       self.manager.FindDeviceByCapability("modem")))
+
+        devs = map(self._get_parent_udi,
+                       self.manager.FindDeviceByCapability("modem"))
+
+        # if device is pcmcia based, then separate device ports on a
+        # multifunction device might be seen as distinct devices
+        def is_unique(i, l):
+            for j in l:
+                if i == j:  # duplicate item
+                    return False
+                if self._same_pcmcia_slot(i, j):
+                    return False
+            return True
+
+        def get_unique(old):
+            new = []
+            for udi in old:
+                if is_unique(udi, new):
+                    new.append(udi)
+            return new
+
+        return set(get_unique(devs))
 
     def _get_parent_udi(self, udi):
         """
@@ -258,24 +299,32 @@ class HardwareRegistry(DbusComponent):
         """
         device_props = self.get_devices_properties()
         dev_udis = sorted(device_props.keys(), key=len)
-        dev_udis2 = dev_udis[:]
+
+        # Given the matched udi, we search through the device tree
+        # for any pcmcia siblings. This is necessary for seemingly
+        # unconnected serial ports that are part of a multifunction
+        # device such as the Novatel U630
+        udi_list=[udi]
+        for i in dev_udis:
+            if udi == i:
+                continue
+            if self._same_pcmcia_slot(udi,i):
+                udi_list.append(i)
+
+        # We now search all udis looking for any decendants of our
+        # matched udi, or maybe its pcmcia sibling
         childs = []
-        while dev_udis:
-            _udi = dev_udis.pop()
-            if _udi != udi and 'info.parent' in device_props[_udi]:
-                par_udi = device_props[_udi]['info.parent']
+        for cur_udi in udi_list:             # maybe pcmcia siblings
+            for i in range(2):               # look for children & grandchilren
+                dev_udis2 = dev_udis[:]
+                while dev_udis2:
+                    _udi = dev_udis2.pop()
+                    if _udi != cur_udi and 'info.parent' in device_props[_udi]:
+                        par_udi = device_props[_udi]['info.parent']
 
-                if par_udi == udi or par_udi in childs:
-                    childs.append(_udi)
-
-        while dev_udis2:
-            _udi = dev_udis2.pop()
-            if _udi != udi and 'info.parent' in device_props[_udi]:
-                par_udi = device_props[_udi]['info.parent']
-
-                if par_udi == udi or (par_udi in childs and
-                                            _udi not in childs):
-                    childs.append(_udi)
+                        if par_udi == cur_udi or (par_udi in childs and
+                                                    _udi not in childs):
+                            childs.append(_udi)
 
         childs = list(set(childs)) # make unique 
 
