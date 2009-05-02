@@ -1,0 +1,6 @@
+
+# Flip the MD300 device 
+ACTION=="add", BUS=="usb", \
+   ATTR{idVendor}=="0fce", ATTR{idProduct}=="d0cf", \
+   PROGRAM="/bin/sh -c 'echo 3 > /sys/%p/device/bConfigurationValue'"
+
