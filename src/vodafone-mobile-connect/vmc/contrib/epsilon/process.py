@@ -1,6 +1,6 @@
 # -*- test-case-name: epsilon.test.test_process -*-
 
-import os, sys, imp, sets
+import os, sys, imp
 
 from twisted.internet import reactor
 
@@ -23,7 +23,7 @@ def spawnProcess(processProtocol, executable, args=(), env={},
         if p.startswith(os.path.join(sys.prefix, 'lib')):
             continue
         pythonpath.append(p)
-    pythonpath = list(sets.Set(pythonpath))
+    pythonpath = list(set(pythonpath))
     pythonpath.extend(env.get('PYTHONPATH', '').split(os.pathsep))
     env['PYTHONPATH'] = os.pathsep.join(pythonpath)
 
