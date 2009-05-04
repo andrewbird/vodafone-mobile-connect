@@ -254,21 +254,30 @@ class HardwareRegistry(DbusComponent):
 
         # now that we have an id to lookup for, lets repeat the process till we
         # get another RuntimeError
-        def find_out_if_contained(_info, props):
+        def is_contained(_info, props):
             """
             Returns C{True} if C{_info} values are contained in C{props}
 
             As hal likes to swap between usb.vendor_id and usb_device.vendor_id
             I have got a special case where I will retry
             """
-            def compare_dicts(d1, d2):
+            def container_is_valid(d1, d2):
                 for key in d1:
                     try:
-                        return d1[key] == d2[key]
+                        if d1[key] == d2[key]:                       # Vendor_id match
+                            if 'usb.device_class' in d2:
+                                if d2['usb.device_class'] == 9:      # Hubs aren't valid containers
+                                    return False
+                            if 'usb_device.device_class' in d2:
+                                if d2['usb_device.device_class'] == 9:
+                                    return False
+                            return True
+                        else:
+                            return False
                     except KeyError:
                         return False
 
-            if compare_dicts(_info, props):
+            if container_is_valid(_info, props):
                 # we got a straight map
                 return True
             # hal likes to swap between usb_device.vendor_id and usb.vendor_id
@@ -276,15 +285,15 @@ class HardwareRegistry(DbusComponent):
                 # our last chance, perhaps its swapped
                 newinfo = {'usb.vendor_id' : _info['usb_device.vendor_id'],
                            'usb.product_id' : _info['usb_device.product_id']}
-                return compare_dicts(newinfo, props)
+                return container_is_valid(newinfo, props)
 
-            # the original compare_dicts failed, so return False
+            # the original container_is_valid failed, so return False
             return False
 
         last_udi = current_udi
         while True:
             props = self.get_properties_from_udi(current_udi)
-            if not find_out_if_contained(info, props):
+            if not is_contained(info, props):
                 break
             last_udi, current_udi = current_udi, get_parent(props)
 
