@@ -16,3 +16,8 @@ ACTION=="add", SUBSYSTEMS=="usb", \
    ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1003", \
    ATTRS{bNumInterfaces}==" 1", \
    RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEMS=="usb", \
+   ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1411", \
+   ATTRS{bNumInterfaces}==" 1", \
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
