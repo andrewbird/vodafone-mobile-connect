@@ -1,0 +1,43 @@
+#!/bin/sh -e
+
+# $Rev: 810 $
+
+# THIS FILE IS AUTOMATICALLY EDITED BY VODAFONE MOBILE CONNECT. DO NOT EDIT IT MANUALLY.
+
+DEV="$1"
+IPPARAM="$6"
+
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin
+ETC="/etc"
+TMP="/tmp"
+RESOLVCONF=$(readlink --canonicalize $ETC/resolv.conf)
+BACKRESOLV="${RESOLVCONF}.vmc"
+ROUTEBACK="${TMP}/defaultroute.vmc"
+VMCCONN="${TMP}/vmc-conn.lock"
+
+# Make sure we are only being called by a vmc invoked pppd
+[ "${IPPARAM}" = "vmc" ] || exit 0
+
+# just in case anyone relying on old behaviour
+rm -f ${VMCCONN}
+
+# we are going to replace the original up resolv.conf
+[ -f ${BACKRESOLV} ] && mv -f ${BACKRESOLV} ${RESOLVCONF}
+
+# restart nscd because resolv.conf has changed
+if [ -e /var/run/nscd.pid ] ; then
+	/etc/init.d/nscd restart || true
+fi
+
+# now replace original default route
+if [ -f ${ROUTEBACK} ] ; then
+	. ${ROUTEBACK} # source it
+
+	if [ -n "${OLDGW}" ] ; then
+		route add default gw ${OLDGW}
+	fi
+
+	rm -f ${ROUTEBACK}
+fi
+
+

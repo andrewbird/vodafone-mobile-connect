@@ -11,7 +11,7 @@ Source0:	vmc-1.99.17.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:	usb_modeswitch pyserial python-sqlite2 python-twisted pytz gnome-python2-libegg
+Requires:	usb_modeswitch pyserial python-sqlite2 python-twisted pytz gnome-python2-libegg 
 
 %description
 OSS 3G manager for Linux
@@ -36,8 +36,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 
-%attr(0755,root,root) /etc/ppp/ip-down.local
-%attr(0755,root,root) /etc/ppp/ip-up.local
+#%attr(0755,root,root) /etc/ppp/ip-down.d/0095vmc
+#%attr(0755,root,root) /etc/ppp/ip-up.d/0095vmc
+%attr(0755,root,root) /etc/ppp/ip-up.local.vmc
+%attr(0755,root,root) /etc/ppp/ip-down.local.vmc
 %attr(0644,root,root) /etc/udev/rules.d/45-vmc-huawei.rules
 %attr(0644,root,root) /etc/udev/rules.d/45-vmc-novatel.rules
 %attr(0644,root,root) /etc/udev/rules.d/45-vmc-option.rules

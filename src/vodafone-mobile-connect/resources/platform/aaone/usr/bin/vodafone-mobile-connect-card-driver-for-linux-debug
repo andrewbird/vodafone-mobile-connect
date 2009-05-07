@@ -1,0 +1,5 @@
+#!/bin/bash
+upgrade-vmc-plugins
+sudo vmc-check-permissions.sh
+twistd -r gtk2 --pidfile /tmp/vmc.pid \
+	-noy /usr/share/vodafone-mobile-connect/gtk-tap.py
