@@ -62,30 +62,33 @@ chmod 4754 /usr/sbin/pppd
 
 # horrid lsb_release fix
 if lsb_release -i | grep -q 'n/a' ; then
-   cp -p /etc/linpus-release /etc/linpus-release.vmc
-   sed 's/v/release /' /etc/linpus-release.vmc > /etc/linpus-release
+	cp -p /etc/linpus-release /etc/linpus-release.vmc
+	sed 's/v/release /' /etc/linpus-release.vmc > /etc/linpus-release
 fi
 
 /usr/bin/vmc-manage-icon.sh install user
 /usr/bin/vmc-manage-icon.sh update  user
 
-%preun
-# undo horrid lsb_release fix
-if [ -f /etc/linpus-release.vmc ] ; then
-   mv /etc/linpus-release.vmc /etc/linpus-release
+%postun
+if [ "$1" = "0" ] ; then # last instance of package being removed
+
+	# undo horrid lsb_release fix
+	if [ -f /etc/linpus-release.vmc ] ; then
+		mv /etc/linpus-release.vmc /etc/linpus-release
+	fi
+
+	/usr/bin/vmc-manage-icon.sh remove  user
+	/usr/bin/vmc-manage-icon.sh update  user
+
+	chown :root /usr/sbin/pppd
+	chmod 555 /usr/sbin/pppd
+
+	chown :root /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
+	chmod 600 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
+	chmod 755 /etc/ppp/peers
+
+	echo remove user from dip uucp and lock groups
 fi
-
-/usr/bin/vmc-manage-icon.sh remove  user
-/usr/bin/vmc-manage-icon.sh update  user
-
-chown :root /usr/sbin/pppd
-chmod 555 /usr/sbin/pppd
-
-chown :root /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
-chmod 600 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
-chmod 755 /etc/ppp/peers
-
-echo remove user from dip uucp and lock groups
 
 
 
