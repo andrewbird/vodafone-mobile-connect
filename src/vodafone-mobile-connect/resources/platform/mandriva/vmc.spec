@@ -60,15 +60,17 @@ chown :dialout /usr/sbin/pppd
 chmod 4754 /usr/sbin/pppd
 
 
-%preun
+%postun
+if [ "$1" = "0" ] ; then # last instance of package being removed
 
-chown :root /usr/sbin/pppd
-chmod 555 /usr/sbin/pppd
+	chown :root /usr/sbin/pppd
+	chmod 555 /usr/sbin/pppd
 
-chown :root /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
-chmod 600 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
-chmod 755 /etc/ppp/peers
-#groupdel dialout
+	chown :root /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
+	chmod 600 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
+	chmod 755 /etc/ppp/peers
+	#groupdel dialout
+fi
 
 
 %changelog
