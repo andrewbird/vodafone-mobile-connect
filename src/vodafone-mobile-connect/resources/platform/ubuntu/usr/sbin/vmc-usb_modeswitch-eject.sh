@@ -3,6 +3,8 @@
 VID="$1"
 PID="$2"
 
+PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
 # Need to wait for the device to settle before sending the command
 sleep 1
 
