@@ -358,7 +358,7 @@ class PluginManager(object):
     @classmethod
     def get_plugin_by_vendor_product_id(cls, vendor_id, product_id):
         args = (vendor_id, product_id)
-        log.msg("get_plugin_by_vendor_product_id called with 0x%04X and 0x%04X" % args)
+        print "get_plugin_by_vendor_product_id called with 0x%04X and 0x%04X" % args
 
         for plugin in cls.get_plugins(interfaces.IDBusDevicePlugin):
             props = flatten_list(plugin.__properties__.values())
