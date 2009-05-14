@@ -994,6 +994,11 @@ The csv file that you have tried to import has an invalid format.""")
             model.remove(_iter) # delete from treeview
         if _inxt:
             treeview.get_selection().select_iter(_inxt) # select next item
+        else:
+            n_rows = len(model)                         # select last item
+            if n_rows > 0:
+                _inxt = model[n_rows-1].iter
+                treeview.get_selection().select_iter(_inxt)
 
         # If we are in a sms treeview update displayed text
         if treeview.get_name() != 'contacts_treeview':
