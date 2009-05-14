@@ -270,5 +270,9 @@ class ForwardSmsController(NewSmsController):
         textbuffer = self.view['sms_edit_text_view'].get_buffer()
         textbuffer.set_text(text)
     
+    def set_textbuffer_focus(self):
+        textwindow = self.view['sms_edit_text_view']
+        textwindow.grab_focus()
+
     def set_processed_sms(self, sms):
         self.sms = sms

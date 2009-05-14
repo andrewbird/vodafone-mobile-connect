@@ -787,6 +787,7 @@ The csv file that you have tried to import has an invalid format.""")
             view = ForwardSmsView(ctrl)
             view.set_parent_view(self.view)
             ctrl.set_recipient_numbers(message.get_number())
+            ctrl.set_textbuffer_focus()
             view.show()
     
     def on_reply_sms_quoting_menu_item_activate(self, widget):
@@ -794,9 +795,10 @@ The csv file that you have tried to import has an invalid format.""")
         if message:
             ctrl = ForwardSmsController(Model(), self)
             view = ForwardSmsView(ctrl)
-            ctrl.set_textbuffer_text(message.get_text())
-            ctrl.set_recipient_numbers(message.get_number())
             view.set_parent_view(self.view)
+            ctrl.set_recipient_numbers(message.get_number())
+            ctrl.set_textbuffer_text(message.get_text())
+            ctrl.set_textbuffer_focus()
             view.show()
     
     def on_forward_sms_menu_item_activate(self, widget):
