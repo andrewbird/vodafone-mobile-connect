@@ -101,11 +101,11 @@ class SUSEDistro(LinuxPlugin):
         
         killall_path = which('killall')[0]
         if not self.privileges_needed:
-            return [killall_path, 'pppd', 'wvdial']
+            return [killall_path, 'wvdial']
         
         gksudo_name = self.abstraction['gksudo_name']
         gksudo_path = which(gksudo_name)[0]
-        args = " ".join([killall_path, 'pppd', 'wvdial'])
+        args = " ".join([killall_path, 'wvdial'])
         return [gksudo_path, '-c', args]
 
     def get_config_template(self, dialer_profile):
