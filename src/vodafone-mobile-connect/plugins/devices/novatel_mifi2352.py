@@ -61,7 +61,7 @@ class NovatelMiFi2352(NovatelMiFiDBusDevicePlugin):
 
     __properties__ = {
         'usb_device.vendor_id' : [0x1410],
-        'usb_device.product_id' : [0x7001],
+        'usb_device.product_id' : [0x7003],
     }
 
     def preprobe_init(self, ports, info):
