@@ -30,7 +30,7 @@ class ONDAMSA405HS(ZTEDBusDevicePlugin):
     author = "Igor Moura"
     custom = ZTECustomizer
 
-    __remote_name__ = "MSA405HS"
+    __remote_name__ = "MSA405"
 
     __properties__ = {
         'usb_device.vendor_id': [0x19d2],
