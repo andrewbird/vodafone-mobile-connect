@@ -39,3 +39,6 @@ class ONDAMSA405HS(ZTEDBusDevicePlugin):
 
     # Onda MSA405HS uses ttyUSB2(data) and ttyUSB1(status)
     hardcoded_ports = (2,1)
+
+
+onda_msa405hs = ONDAMSA405HS()
