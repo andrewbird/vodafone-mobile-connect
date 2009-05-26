@@ -10,8 +10,17 @@ URL:		http://www.draisberghof.de/usb_modeswitch/
 Source0:	usb_modeswitch-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:	libusb-devel
-Requires:	libusb
+%define su111 %(if [ "%{suse_version}" = "1110" ]; then echo 1; else echo 0; fi)
+
+%if 0%{?su111} || 0%{?su112}
+Requires:       libusb-0_1-4
+%else
+Requires:       libusb
+%endif
+
+BuildRequires:  libusb-devel
+
+
 
 %description
 USB_ModeSwitch is (surprise!) a mode switching tool for controlling "flip flop" (multiple device) USB gear. Several new USB devices (especially high-speed wireless WAN stuff, they're expensive anyway) have their MS Windows drivers onboard; when plugged in for the first time they act like a flash storage and start installing the driver from there. After that (and on every consecutive plugging) this driver switches the mode internally, the storage device vanishes (in most cases), and a new device (like an USB modem) shows up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".
