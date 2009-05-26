@@ -10,8 +10,17 @@ URL:		http://www.pharscape.org/ozerocdoff.html
 Source0:	ozerocdoff-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
+
+%define su111 %(if [ "%{suse_version}" = "1110" ]; then echo 1; else echo 0; fi)
+
+%if 0%{?su111} || 0%{?su112}
+Requires:       libusb-0_1-4
+%else
+Requires:       libusb
+%endif
+
 BuildRequires:	libusb-devel
-Requires:	libusb
+
 
 %description
 Ozerocdoff - an improved ZeroCD switching utility
