@@ -143,7 +143,6 @@ if you want to do so, press the OK button.
     
     def start(self):
         """Overrides the register_view method and starts the whole thing up"""
-        self.view.set_no_device_present()
         self.view.set_disconnected()
         
         # we're on SMS mode
@@ -158,6 +157,7 @@ if you want to do so, press the OK button.
             self.mode = DEVICE_PRESENT
         else:
             self.mode = NO_DEVICE_PRESENT
+            self.view.set_no_device_present()
         
         self.setup()
     
@@ -1356,7 +1356,9 @@ plug in the 3G device and start again.""") % consts.APP_LONG_NAME
         if self.mode != DEVICE_ADDED:
             self.mode = DEVICE_ADDED
 
-            self.hide_widgets()
+# ajb - Maybe the network registration has occurred, and hence connect_button
+#       has been enabled already. Hiding all widgets disables it again.
+#            self.hide_widgets()
 
             info = dict(device_name=device.name, app_name=consts.APP_LONG_NAME)
             message = _("3G Device added")
@@ -1391,6 +1393,10 @@ has been added, in around 15 seconds
 
         self.added_devices.add(device)
 
+    def on_netreg_exit(self):
+        self.start_polling_stats()
+        self.view['connect_button'].set_sensitive(True)
+
     def try_to_configure_device(self, device, failure_cb):
         log.err("Trying to configure %s" % device.name)
 
@@ -1419,12 +1425,12 @@ has been added, in around 15 seconds
             
             statemachine_callbacks = {
                 'InitExit' : configure_device,
-                'NetRegExit' : self.start_polling_stats,
+                'NetRegExit' : self.on_netreg_exit,
             }
         else:
             statemachine_callbacks = {
                 'InitExit' : self.start,
-                'NetRegExit' : self.start_polling_stats,
+                'NetRegExit' : self.on_netreg_exit,
             }
         
         statemachine_errbacks = {

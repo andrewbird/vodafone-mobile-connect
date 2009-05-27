@@ -36,12 +36,13 @@ from vmc.gtk.controllers.base import TV_DICT
 from vmc.gtk.models.sms import SMSStoreModel
 from vmc.gtk.models.contacts import ContactsStoreModel
 
-WIDGETS_TO_HIDE = ['connect_button', 'connect1',
+WIDGETS_TO_SHOW = ['connect1',
                    'change_pin1_menu_item', 'request_pin1',
                    'import_contacts1', 'export_contacts1', 'new_menu_item',
                    'new_sms_menu_item', 'contact1', 'reply_sms_menu_item',
                    'reply_sms_menu', 'forward_sms_menu_item',
                    'imagemenuitem3', 'preferences_menu_item']
+WIDGETS_TO_HIDE = WIDGETS_TO_SHOW + ['connect_button']
 
 WIN_WIDTH = 600
 WIN_HEIGHT = 500
@@ -360,7 +361,7 @@ class ApplicationView(View):
         self['network_name_label'].set_text(_('N/A'))
     
     def set_device_present(self, ignored=None):
-        for widget in WIDGETS_TO_HIDE:
+        for widget in WIDGETS_TO_SHOW:
             self[widget].set_sensitive(True)
         
         self.set_name()                

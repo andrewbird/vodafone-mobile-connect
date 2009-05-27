@@ -382,6 +382,7 @@
 	      <child>
 		<widget class="GtkToggleToolButton" id="connect_button">
 		  <property name="visible">True</property>
+		  <property name="sensitive">False</property>
 		  <property name="label" translatable="yes"></property>
 		  <property name="use_underline">True</property>
 		  <property name="visible_horizontal">True</property>
