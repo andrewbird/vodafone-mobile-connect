@@ -40,7 +40,7 @@ from vmc.common.command import ATCmd
 ERICSSON_DICT = {
    'GPRSONLY' : 'AT+CFUN=5',
    '3GONLY'   : 'AT+CFUN=6',
-   'GPRSPREF' : 'AT+CFUN=1', # no such possibilty - set to 3g preferred
+   'GPRSPREF' : None,
    '3GPREF'   : 'AT+CFUN=1',
 }
 
