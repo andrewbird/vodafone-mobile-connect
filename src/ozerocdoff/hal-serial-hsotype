@@ -8,9 +8,16 @@
 # activate this script by adding this rule to the hso serial sub device:
 # <append key="info.callouts.preprobe" type="strlist">hal-serial-hsotype</append>
 #
+
+if [ -x /sbin/udevinfo ] ; then
+	UDEVINFO="udevinfo"
+else
+	UDEVINFO="udevadm info"
+fi
+
 case "${HALD_ACTION}" in
     preprobe|add)
-	UDEV_PATH=$(udevinfo --name $HAL_PROP_LINUX_DEVICE_FILE --query=path )
+	UDEV_PATH=$( ${UDEVINFO} --name $HAL_PROP_LINUX_DEVICE_FILE --query=path )
 	HSOTYPE=$( cat /sys${UDEV_PATH}/hsotype )
 	/usr/bin/hal-set-property --udi ${UDI} --key "info.hsotype" --string "${HSOTYPE}"
 	exit 0
