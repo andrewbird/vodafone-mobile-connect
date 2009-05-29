@@ -65,6 +65,10 @@ class NovatelMiFi2352(NovatelMiFiDBusDevicePlugin):
     }
 
     def preprobe_init(self, ports, info):
+        # This device might be found as by means of the mother plugin too
+        if info['usb_device.product_id'] == 0x7001:
+            self.__properties__['usb_device.product_id'][0] = 0x7001
+
         # Novatel secondary port needs to be flipped from DM to AT mode
         # before it will answer our AT queries. So the primary port
         # needs this string first or auto detection of ctrl port fails.

@@ -33,6 +33,11 @@ ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
    ATTRS{idVendor}=="1410", ATTRS{idProduct}=="4400", \
    RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
 
+# Call the driver loading script for the generic Ovation/MiFi device
+ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
+   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="7001", \
+   RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+
 # Call the driver loading script for the MiFi device
 ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
    ATTRS{idVendor}=="1410", ATTRS{idProduct}=="7003", \
