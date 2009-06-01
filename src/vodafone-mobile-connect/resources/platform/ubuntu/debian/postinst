@@ -21,13 +21,6 @@ function fix_chap(){
         fi
 }
 
-function fix_chap(){ 
-        if [ -e /etc/ppp/chap-secrets ];then
-	   chown :dialout /etc/ppp/chap-secrets
-	   chmod g+rw /etc/ppp/chap-secrets
-        fi
-}
-
 function fix_pppd(){ 
         if [ -e /usr/sbin/pppd ];then
 	   chown :dialout /usr/sbin/pppd
