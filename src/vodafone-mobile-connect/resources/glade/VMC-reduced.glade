@@ -804,7 +804,7 @@
 
 		  <child>
 		    <widget class="GtkNotebook" id="main_notebook">
-		      <property name="height_request">238</property>
+		      <property name="height_request">175</property>
 		      <property name="visible">True</property>
 		      <property name="can_focus">True</property>
 		      <property name="show_tabs">True</property>
