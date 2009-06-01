@@ -1,3 +1,16 @@
-# Space after Novatel vendor attribute is needed
-ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="Novatel ", SYMLINK="novatel-storage"
-ACTION=="add", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5010", RUN+="/usr/sbin/vmc-novatel.sh 1410 5010"
+# Specific CD devices
+ACTION=="add", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5010", "RUN:="/usr/bin/eject %k"
+ACTION=="add", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5020", "RUN:="/usr/bin/eject %k"
+ACTION=="add", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5041", "RUN:="/usr/bin/eject %k"
+ACTION=="add", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="5051", "RUN:="/usr/bin/eject %k"
+
+# Generic
+ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="Novatel ", RUN:="/usr/bin/eject %k"
+ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="NVTL    ", RUN:="/usr/bin/eject %k"
+
+# Call the driver loading script
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="1450", RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="4400", RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="7001", RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="1410", SYSFS{idProduct}=="7003", RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+

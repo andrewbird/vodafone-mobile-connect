@@ -66,6 +66,24 @@
           </match>
         </match>
 
+	<!-- generic MiFi / Ovation -->
+        <match key="@info.parent:usb.product_id" int="0x7001">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- MiFi 2352 -->
+        <match key="@info.parent:usb.product_id" int="0x7003">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
       </match>
 
  <!-- ZTE based mobile devices -->
