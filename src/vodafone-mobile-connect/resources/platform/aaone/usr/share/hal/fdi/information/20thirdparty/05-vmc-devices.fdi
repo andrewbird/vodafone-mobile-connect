@@ -115,6 +115,15 @@
           </match>
         </match>
 
+	<!-- ONDA MSA405HS -->
+        <match key="@info.parent:usb.product_id" int="0x0037">
+	  <match key="@info.parent:usb.interface.number" int="3"> <!-- forum post -->
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
 	<!-- Vodafone K3565-Z : 3 pids according to F/W revision -->
         <match key="@info.parent:usb.product_id" int="0x0049">
 	  <match key="@info.parent:usb.interface.number" int="4"> <!-- single working tty -->
