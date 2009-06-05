@@ -203,7 +203,7 @@ def unpack_ucs2_bytes_in_ts31101_82(s):
 
 def check_if_ucs2(text):
     """Returns True if C{text} is a string encoded in UCS2"""
-    if isinstance(text, str) and text.startswith('00'):
+    if isinstance(text, str) and (len(text) % 4 == 0):
         try:
             unpack_ucs2_bytes(text)
         except (UnicodeDecodeError, TypeError):
