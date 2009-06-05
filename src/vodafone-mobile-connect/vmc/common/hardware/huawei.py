@@ -29,9 +29,16 @@ from vmc.common.middleware import SIMCardConnAdapter
 import vmc.common.notifications as notifications
 from vmc.common.sim import SIMBaseClass
 
+from vmc.common.encoding import (from_ucs2, from_u,
+                                unpack_ucs2_bytes_in_ts31101_80,
+                                unpack_ucs2_bytes_in_ts31101_81,
+                                unpack_ucs2_bytes_in_ts31101_82,
+                                pack_ucs2_bytes)
+
 from vmc.common.command import get_cmd_dict_copy, OK_REGEXP, ERROR_REGEXP
 from twisted.python import log
 from vmc.common.command import ATCmd
+import vmc.common.exceptions as ex
 
 HUAWEI_DICT = {
    'GPRSONLY' : 'AT^SYSCFG=13,1,3FFFFFFF,2,4',
@@ -77,7 +84,8 @@ class HuaweiCustomizer(Customizer):
     """
     Base Customizer class for Huawei cards
     """
-    async_regexp = re.compile('\r\n(?P<signal>\^[A-Z]{3,9}):(?P<args>.*)\r\n')
+    async_regexp = re.compile('\r\n(?P<signal>\^MODE|\^RSSI|\^DSFLOWRPT|\^RFSWITCH):(?P<args>.*)\r\n')
+    ignore_regexp = [ re.compile('\r\n(?P<ignore>\^BOOT:.*)\r\n'), ]
     conn_dict = HUAWEI_DICT
     device_capabilities = [notifications.SIG_NEW_CONN_MODE,
                            notifications.SIG_RSSI,
@@ -96,12 +104,39 @@ class HuaweiCustomizer(Customizer):
                     error=ERROR_REGEXP,
                     extract=re.compile('\s*\^RFSWITCH:(?P<switch>\S*)\r\n'))
     
+    cmd_dict['get_contact_by_index'] = dict(echo=None,
+                    end=re.compile('\r\nOK\r\n'),
+                    error=ERROR_REGEXP,
+                    extract=re.compile(r"""
+                       \r\n
+                       \^CPBR:\s(?P<id>\d+),
+                       "(?P<number>\+?\d+)",
+                       (?P<cat>\d+),
+                       "(?P<name>.*)",
+                       (?P<raw>\d+)
+                       \r\n
+                       """, re.VERBOSE))
+
+    cmd_dict['get_contacts'] = dict(echo=None,
+                 # one extra \r\n just in case
+                 end=re.compile('(\r\n)?\r\n(OK)\r\n'),
+                 error=ERROR_REGEXP,
+                 extract=re.compile(r"""
+                       \r\n
+                       \^CPBR:\s(?P<id>\d+),
+                       "(?P<number>\+?\d+)",
+                       (?P<cat>\d+),
+                       "(?P<name>.*)",
+                       (?P<raw>\d+)
+                       """, re.VERBOSE))
+
     signal_translations = {
         '^MODE' : (notifications.SIG_NEW_CONN_MODE, huawei_new_conn_mode),
         '^RSSI' : (notifications.SIG_RSSI, lambda i: int(i)),
         '^DSFLOWRPT' : (notifications.SIG_SPEED, huawei_new_speed_link),
         '^RFSWITCH' : (notifications.SIG_RFSWITCH, huawei_radio_switch),
     }
+
 
 class HuaweiE2XXAdapter(SIMCardConnAdapter):
     """
@@ -122,6 +157,102 @@ class HuaweiE2XXAdapter(SIMCardConnAdapter):
         d.addCallback(lambda _: super(HuaweiE2XXAdapter, self).set_smsc(smsc))
         d.addCallback(lambda _: self.set_charset('UCS2'))
         return d
+
+    def add_contact(self, contact):
+        """
+        Adds C{contact} to the SIM and returns the index where was stored
+
+        @rtype: C{defer.Deferred}
+        """
+
+        def hw_add_contact(name, number, index):
+            """
+            Adds a contact to the SIM card
+            """
+            try:     # are all ascii chars
+                name.encode('ascii')
+                raw = 0
+            except:  # write in TS31.101 type 80 raw format
+                name = '80' + pack_ucs2_bytes(name) + 'FF'
+                raw = 1
+
+            category = number.startswith('+') and 145 or 129
+            args = (index, number, category, name, raw)
+            cmd = ATCmd('AT^CPBW=%d,"%s",%d,"%s",%d' % args, name='add_contact')
+            return self.queue_at_cmd(cmd)
+
+        name = from_u(contact.get_name())
+
+        # common arguments for both operations (name and number)
+        args = [name, from_u(contact.get_number())]
+
+        if contact.index:
+            # contact.index is set, user probably wants to overwrite an
+            # existing contact
+            args.append(contact.index)
+            d = hw_add_contact(*args)
+            d.addCallback(lambda _: contact.index)
+            return d
+
+        # contact.index is not set, this means that we need to obtain the
+        # first slot free on the phonebook and then add the contact
+        def get_next_id_cb(index):
+            args.append(index)
+            d2 = hw_add_contact(*args)
+            # now we just fake add_contact's response and we return the index
+            d2.addCallback(lambda _: index)
+            return d2
+
+        d = super(HuaweiE2XXAdapter, self).get_next_contact_id()
+        d.addCallback(get_next_id_cb)
+        return d
+
+    def hw_process_contact_match(self, match):
+        """I process a contact match and return a C{Contact} object out of it"""
+        from vmc.common.persistent import Contact
+        if int(match.group('raw')) == 0:
+            name = match.group('name')
+        else:
+            encoding = match.group('name')[:2]
+            hexbytes = match.group('name')[2:]
+            if encoding == '80':   # example '80058300440586FF'
+                name = unpack_ucs2_bytes_in_ts31101_80(hexbytes)
+            elif encoding == '81': # example '810602A46563746F72FF'
+                name = unpack_ucs2_bytes_in_ts31101_81(hexbytes)
+            elif encoding == '82': # example '820505302D82D32D31'
+                name = unpack_ucs2_bytes_in_ts31101_82(hexbytes)
+            else:
+                name = "Unsupported encoding"
+
+        number = from_ucs2(match.group('number'))
+        index = int(match.group('id'))
+        
+        return Contact(name, number, index=index)
+
+    def get_contacts(self):
+        """Returns a list with all the contacts in the SIM"""
+        def hw_get_contacts():
+            cmd = ATCmd('AT^CPBR=1,%d' % self.device.sim.size, name='get_contacts')
+            return self.queue_at_cmd(cmd)
+
+        d = hw_get_contacts()
+        def not_found_eb(failure):
+            failure.trap(ex.CMEErrorNotFound, ex.ATError)
+            return []
+
+        d.addCallback(lambda matches: [self.hw_process_contact_match(m) for m in matches])
+        d.addErrback(not_found_eb)
+        return d
+
+    def get_contact_by_index(self, index):
+        def hw_get_contact_by_index(index):
+            cmd = ATCmd('AT^CPBR=%d' % index, name='get_contact_by_index')
+            return self.queue_at_cmd(cmd)
+
+        d = hw_get_contact_by_index(index)
+        d.addCallback(lambda match: self.hw_process_contact_match(match[0]))
+        return d
+
 
 class HuaweiE2XXCustomizer(HuaweiCustomizer):
     """
@@ -150,6 +281,7 @@ class HuaweiEMXXAdapter(HuaweiE2XXAdapter):
         d = self.queue_at_cmd(cmd)
         d.addCallback(lambda _: super(HuaweiEMXXAdapter, self).get_signal_level())
         return d
+
 
 class HuaweiEMXXCustomizer(HuaweiCustomizer):
     """
