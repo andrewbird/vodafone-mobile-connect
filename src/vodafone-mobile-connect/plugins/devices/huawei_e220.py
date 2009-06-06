@@ -20,7 +20,7 @@ __version__ = "$Rev: 1172 $"
 
 from vmc.common.sim import SIMBaseClass
 from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.hardware.huawei import HuaweiE2XXCustomizer
+from vmc.common.hardware.huawei import HuaweiCustomizer
 
 class HuaweiE220SIMClass(SIMBaseClass):
     """Huawei E220 SIM Class"""
@@ -59,7 +59,7 @@ class HuaweiE220(DBusDevicePlugin):
     name = "Huawei E220"
     version = "0.1"
     author = u"Pablo Martí"
-    custom = HuaweiE2XXCustomizer
+    custom = HuaweiCustomizer
     simklass = HuaweiE220SIMClass
     
     __remote_name__ = "E220"

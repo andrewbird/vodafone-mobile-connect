@@ -18,7 +18,7 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.hardware.huawei import HuaweiE2XXCustomizer
+from vmc.common.hardware.huawei import HuaweiCustomizer
 from vmc.common.plugin import DBusDevicePlugin
 
 
@@ -27,8 +27,8 @@ class HuaweiEM770(DBusDevicePlugin):
     name = "Huawei EM770"
     version = "0.1"
     author = u"Andrew Bird"
-    custom = HuaweiE2XXCustomizer   # Radio Switch query/response different from EM730V :-)
-                                    # so ignore that for now until we get a device
+    custom = HuaweiCustomizer   # Radio Switch query/response different from EM730V :-)
+                                # so ignore that for now until we get a device
     
     __remote_name__ = "EM770"
 

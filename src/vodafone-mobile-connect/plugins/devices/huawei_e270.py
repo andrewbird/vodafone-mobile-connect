@@ -18,7 +18,7 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.hardware.huawei import HuaweiE2XXCustomizer
+from vmc.common.hardware.huawei import HuaweiCustomizer
 from vmc.common.plugin import DBusDevicePlugin
 
 class HuaweiE270(DBusDevicePlugin):
@@ -26,7 +26,7 @@ class HuaweiE270(DBusDevicePlugin):
     name = "Huawei E270"
     version = "0.1"
     author = u"Pablo Martí"
-    custom = HuaweiE2XXCustomizer
+    custom = HuaweiCustomizer
     
     __remote_name__ = "E270"
 

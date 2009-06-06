@@ -80,10 +80,128 @@ def huawei_new_speed_link(args):
     return bps_to_human(tx * 8, rx * 8)
 
 
+class HuaweiAdapter(SIMCardConnAdapter):
+    """
+    Adapter for all Huawei E2XX cards
+    """
+    def __init__(self, device):
+        super(HuaweiAdapter, self).__init__(device)
+    
+    def set_smsc(self, smsc):
+        """
+        Sets the SIM's smsc to C{smsc}
+        
+        We wrap the operation with set_charset('IRA') and set_charset('UCS2')
+        """
+        # XXX: The return value of this method is actually the return value
+        # of the set_charset("UCS2") operation
+        d = self.set_charset('IRA')
+        d.addCallback(lambda _: super(HuaweiAdapter, self).set_smsc(smsc))
+        d.addCallback(lambda _: self.set_charset('UCS2'))
+        return d
+
+    def add_contact(self, contact):
+        """
+        Adds C{contact} to the SIM and returns the index where was stored
+
+        @rtype: C{defer.Deferred}
+        """
+
+        def hw_add_contact(name, number, index):
+            """
+            Adds a contact to the SIM card
+            """
+            try:     # are all ascii chars
+                name.encode('ascii')
+                raw = 0
+            except:  # write in TS31.101 type 80 raw format
+                name = '80' + pack_ucs2_bytes(name) + 'FF'
+                raw = 1
+
+            category = number.startswith('+') and 145 or 129
+            args = (index, number, category, name, raw)
+            cmd = ATCmd('AT^CPBW=%d,"%s",%d,"%s",%d' % args, name='add_contact')
+            return self.queue_at_cmd(cmd)
+
+        name = from_u(contact.get_name())
+
+        # common arguments for both operations (name and number)
+        args = [name, from_u(contact.get_number())]
+
+        if contact.index:
+            # contact.index is set, user probably wants to overwrite an
+            # existing contact
+            args.append(contact.index)
+            d = hw_add_contact(*args)
+            d.addCallback(lambda _: contact.index)
+            return d
+
+        # contact.index is not set, this means that we need to obtain the
+        # first slot free on the phonebook and then add the contact
+        def get_next_id_cb(index):
+            args.append(index)
+            d2 = hw_add_contact(*args)
+            # now we just fake add_contact's response and we return the index
+            d2.addCallback(lambda _: index)
+            return d2
+
+        d = super(HuaweiAdapter, self).get_next_contact_id()
+        d.addCallback(get_next_id_cb)
+        return d
+
+    def hw_process_contact_match(self, match):
+        """I process a contact match and return a C{Contact} object out of it"""
+        from vmc.common.persistent import Contact
+        if int(match.group('raw')) == 0:
+            name = match.group('name')
+        else:
+            encoding = match.group('name')[:2]
+            hexbytes = match.group('name')[2:]
+            if encoding == '80':   # example '80058300440586FF'
+                name = unpack_ucs2_bytes_in_ts31101_80(hexbytes)
+            elif encoding == '81': # example '810602A46563746F72FF'
+                name = unpack_ucs2_bytes_in_ts31101_81(hexbytes)
+            elif encoding == '82': # example '820505302D82D32D31'
+                name = unpack_ucs2_bytes_in_ts31101_82(hexbytes)
+            else:
+                name = "Unsupported encoding"
+
+        number = from_ucs2(match.group('number'))
+        index = int(match.group('id'))
+        
+        return Contact(name, number, index=index)
+
+    def get_contacts(self):
+        """Returns a list with all the contacts in the SIM"""
+        def hw_get_contacts():
+            cmd = ATCmd('AT^CPBR=1,%d' % self.device.sim.size, name='get_contacts')
+            return self.queue_at_cmd(cmd)
+
+        d = hw_get_contacts()
+        def not_found_eb(failure):
+            failure.trap(ex.CMEErrorNotFound, ex.ATError)
+            return []
+
+        d.addCallback(lambda matches: [self.hw_process_contact_match(m) for m in matches])
+        d.addErrback(not_found_eb)
+        return d
+
+    def get_contact_by_index(self, index):
+        def hw_get_contact_by_index(index):
+            cmd = ATCmd('AT^CPBR=%d' % index, name='get_contact_by_index')
+            return self.queue_at_cmd(cmd)
+
+        d = hw_get_contact_by_index(index)
+        d.addCallback(lambda match: self.hw_process_contact_match(match[0]))
+        return d
+
+
 class HuaweiCustomizer(Customizer):
     """
     Base Customizer class for Huawei cards
     """
+    adapter = HuaweiAdapter
+
     async_regexp = re.compile('\r\n(?P<signal>\^MODE|\^RSSI|\^DSFLOWRPT|\^RFSWITCH):(?P<args>.*)\r\n')
     ignore_regexp = [ re.compile('\r\n(?P<ignore>\^BOOT:.*)\r\n'), ]
     conn_dict = HUAWEI_DICT
@@ -138,132 +256,7 @@ class HuaweiCustomizer(Customizer):
     }
 
 
-class HuaweiE2XXAdapter(SIMCardConnAdapter):
-    """
-    Adapter for all Huawei E2XX cards
-    """
-    def __init__(self, device):
-        super(HuaweiE2XXAdapter, self).__init__(device)
-    
-    def set_smsc(self, smsc):
-        """
-        Sets the SIM's smsc to C{smsc}
-        
-        We wrap the operation with set_charset('IRA') and set_charset('UCS2')
-        """
-        # XXX: The return value of this method is actually the return value
-        # of the set_charset("UCS2") operation
-        d = self.set_charset('IRA')
-        d.addCallback(lambda _: super(HuaweiE2XXAdapter, self).set_smsc(smsc))
-        d.addCallback(lambda _: self.set_charset('UCS2'))
-        return d
-
-    def add_contact(self, contact):
-        """
-        Adds C{contact} to the SIM and returns the index where was stored
-
-        @rtype: C{defer.Deferred}
-        """
-
-        def hw_add_contact(name, number, index):
-            """
-            Adds a contact to the SIM card
-            """
-            try:     # are all ascii chars
-                name.encode('ascii')
-                raw = 0
-            except:  # write in TS31.101 type 80 raw format
-                name = '80' + pack_ucs2_bytes(name) + 'FF'
-                raw = 1
-
-            category = number.startswith('+') and 145 or 129
-            args = (index, number, category, name, raw)
-            cmd = ATCmd('AT^CPBW=%d,"%s",%d,"%s",%d' % args, name='add_contact')
-            return self.queue_at_cmd(cmd)
-
-        name = from_u(contact.get_name())
-
-        # common arguments for both operations (name and number)
-        args = [name, from_u(contact.get_number())]
-
-        if contact.index:
-            # contact.index is set, user probably wants to overwrite an
-            # existing contact
-            args.append(contact.index)
-            d = hw_add_contact(*args)
-            d.addCallback(lambda _: contact.index)
-            return d
-
-        # contact.index is not set, this means that we need to obtain the
-        # first slot free on the phonebook and then add the contact
-        def get_next_id_cb(index):
-            args.append(index)
-            d2 = hw_add_contact(*args)
-            # now we just fake add_contact's response and we return the index
-            d2.addCallback(lambda _: index)
-            return d2
-
-        d = super(HuaweiE2XXAdapter, self).get_next_contact_id()
-        d.addCallback(get_next_id_cb)
-        return d
-
-    def hw_process_contact_match(self, match):
-        """I process a contact match and return a C{Contact} object out of it"""
-        from vmc.common.persistent import Contact
-        if int(match.group('raw')) == 0:
-            name = match.group('name')
-        else:
-            encoding = match.group('name')[:2]
-            hexbytes = match.group('name')[2:]
-            if encoding == '80':   # example '80058300440586FF'
-                name = unpack_ucs2_bytes_in_ts31101_80(hexbytes)
-            elif encoding == '81': # example '810602A46563746F72FF'
-                name = unpack_ucs2_bytes_in_ts31101_81(hexbytes)
-            elif encoding == '82': # example '820505302D82D32D31'
-                name = unpack_ucs2_bytes_in_ts31101_82(hexbytes)
-            else:
-                name = "Unsupported encoding"
-
-        number = from_ucs2(match.group('number'))
-        index = int(match.group('id'))
-        
-        return Contact(name, number, index=index)
-
-    def get_contacts(self):
-        """Returns a list with all the contacts in the SIM"""
-        def hw_get_contacts():
-            cmd = ATCmd('AT^CPBR=1,%d' % self.device.sim.size, name='get_contacts')
-            return self.queue_at_cmd(cmd)
-
-        d = hw_get_contacts()
-        def not_found_eb(failure):
-            failure.trap(ex.CMEErrorNotFound, ex.ATError)
-            return []
-
-        d.addCallback(lambda matches: [self.hw_process_contact_match(m) for m in matches])
-        d.addErrback(not_found_eb)
-        return d
-
-    def get_contact_by_index(self, index):
-        def hw_get_contact_by_index(index):
-            cmd = ATCmd('AT^CPBR=%d' % index, name='get_contact_by_index')
-            return self.queue_at_cmd(cmd)
-
-        d = hw_get_contact_by_index(index)
-        d.addCallback(lambda match: self.hw_process_contact_match(match[0]))
-        return d
-
-
-class HuaweiE2XXCustomizer(HuaweiCustomizer):
-    """
-    Customizer for all Huawei E2XX cards
-    """
-    adapter = HuaweiE2XXAdapter
-
-##############################################
-# Modules have RFSWITCH
-    
-class HuaweiEMXXAdapter(HuaweiE2XXAdapter):
+class HuaweiEMXXAdapter(HuaweiAdapter):         # Modules have RFSWITCH
     """
     Adapter for all Huawei embedded modules
     """
