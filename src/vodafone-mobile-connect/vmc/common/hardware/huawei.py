@@ -153,7 +153,7 @@ class HuaweiAdapter(SIMCardConnAdapter):
         """I process a contact match and return a C{Contact} object out of it"""
         from vmc.common.persistent import Contact
         if int(match.group('raw')) == 0:
-            name = match.group('name')
+            name = match.group('name').decode('utf8','ignore')
         else:
             encoding = match.group('name')[:2]
             hexbytes = match.group('name')[2:]
