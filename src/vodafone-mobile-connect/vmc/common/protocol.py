@@ -401,7 +401,7 @@ class SIMCardConnection(SIMProtocol):
         """
         Adds a contact to the SIM card
         """
-        category = number.startswith('+') and 145 or 129
+        category = (number.startswith('+') or number.startswith('002B')) and 145 or 129
         args = (index, number, category, name)
         cmd = ATCmd('AT+CPBW=%d,"%s",%d,"%s"' % args, name='add_contact')
         return self.queue_at_cmd(cmd)

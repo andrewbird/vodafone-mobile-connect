@@ -31,7 +31,7 @@ from vmc.common.sim import SIMBaseClass
 
 from vmc.common.plugin import DBusDevicePlugin
 
-from vmc.common.encoding import pack_ucs2_bytes
+from vmc.common.encoding import pack_ucs2_bytes, from_u
 
 from vmc.common.command import get_cmd_dict_copy, OK_REGEXP, ERROR_REGEXP
 from twisted.python import log
@@ -81,6 +81,43 @@ class EricssonAdapter(SIMCardConnAdapter):
     def __init__(self, device):
         log.msg("called EricssonAdapter::__init__")
         super(EricssonAdapter, self).__init__(device)
+
+    def add_contact(self, contact):
+        """
+        Adds C{contact} to the SIM and returns the index where was stored
+        
+        @rtype: C{defer.Deferred}
+        """ 
+        name = from_u(contact.get_name())
+        number =  from_u(contact.get_number())
+
+        if 'UCS2' in self.device.sim.charset:
+            name = pack_ucs2_bytes(name)
+            number = pack_ucs2_bytes(number)
+        
+        # common arguments for both operations (name and number)
+        args = [name, number]
+        
+        if contact.index:
+            # contact.index is set, user probably wants to overwrite an
+            # existing contact
+            args.append(contact.index)
+            d = super(SIMCardConnAdapter, self).add_contact(*args)
+            d.addCallback(lambda _: contact.index)
+            return d
+        
+        # contact.index is not set, this means that we need to obtain the
+        # first slot free on the phonebook and then add the contact
+        def get_next_id_cb(index):
+            args.append(index)
+            d2 = super(SIMCardConnAdapter, self).add_contact(*args)
+            # now we just fake add_contact's response and we return the index
+            d2.addCallback(lambda _: index)
+            return d2
+        
+        d = super(SIMCardConnAdapter, self).get_next_contact_id()
+        d.addCallback(get_next_id_cb)
+        return d
 
     def reset_settings(self):
         """
@@ -176,10 +213,11 @@ class EricssonCustomizer(Customizer):
                     error=ERROR_REGEXP,
                     extract=re.compile('\s*(?P<model>\S*)\r\n'))
 
+    # +CIND: 5,5,0,0,1,0,1,0,1,1,0,0
     cmd_dict['get_signal_indication'] = dict(echo=None,
                     end=OK_REGEXP,
                     error=ERROR_REGEXP,
-                    extract=re.compile('\s*\+CIND:\s+[0-9]*,(?P<sig>[0-9]*),.*')) # +CIND: 5,5,0,0,1,0,1,0,1,1,0,0
+                    extract=re.compile('\s*\+CIND:\s+[0-9]*,(?P<sig>[0-9]*),.*'))
 
     cmd_dict['get_network_info'] = dict(echo=None,
                  end=OK_REGEXP,
@@ -197,4 +235,15 @@ class EricssonCustomizer(Customizer):
                           \r\n
                           """, re.VERBOSE))
 
+    # +CPBR: 1,"002B003500350035",145,"0041004A0042"\r\n'
+    cmd_dict['get_contacts'] = dict(echo=None,
+                 end=re.compile('(\r\n)?\r\n(OK)\r\n'),
+                 error=ERROR_REGEXP,
+                 extract=re.compile(r"""
+                       \r\n
+                       \+CPBR:\s(?P<id>\d+),
+                       "(?P<number>\+?[0123456789ABCDEFabcdef]+)",
+                       (?P<cat>\d+),
+                       "(?P<name>.*)"
+                       """, re.VERBOSE))
 
