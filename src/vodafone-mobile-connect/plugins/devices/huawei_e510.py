@@ -36,6 +36,11 @@ class HuaweiE510(DBusDevicePlugin):
         'usb_device.product_id': [0x1411],
     }
 
+    def preprobe_init(self, ports, info):
+        # This device might be found as by means of the mother plugin too
+        if info['usb_device.product_id'] == 0x1001:
+            self.__properties__['usb_device.product_id'][0] = 0x1001
+
     hardcoded_ports = (0,2)
 
 huaweie510 = HuaweiE510()

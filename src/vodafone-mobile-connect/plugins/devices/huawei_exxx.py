@@ -24,6 +24,7 @@ from vmc.common.plugins.huawei_e172 import HuaweiE172
 from vmc.common.plugins.huawei_e220 import HuaweiE220
 from vmc.common.plugins.huawei_e270 import HuaweiE270
 from vmc.common.plugins.huawei_e272 import HuaweiE272
+from vmc.common.plugins.huawei_e510 import HuaweiE510
 from vmc.common.plugins.huawei_e620 import HuaweiE620
 from vmc.common.plugins.huawei_e660 import HuaweiE660
 from vmc.common.plugins.huawei_e660a import HuaweiE660A
@@ -88,7 +89,8 @@ class HuaweiEXXX1001(DBusDevicePlugin):
         super(HuaweiEXXX1001, self).__init__()
 
         self.mapping = {
-            'E620'  : HuaweiE620,     # Cardbus
+            'E510'  : HuaweiE510,     # Cardbus
+            'E620'  : HuaweiE620,
             'E660'  : HuaweiE660,
             'E660A' : HuaweiE660A,
 
