@@ -2,6 +2,7 @@
 
 PROG=ozerocdoff
 VER=0.4
+RELEASE=2
 
 BUILDDIR=debian/tmp
 
@@ -19,7 +20,7 @@ $(PROG): $(PROG).c
 build: $(PROG)
 	mkdir -p $(BUILDDIR)/DEBIAN
 	$(MAKE) install DESTDIR=$(BUILDDIR)
-	dpkg-gencontrol
+	dpkg-gencontrol -v$(VER)-$(RELEASE)
 	dpkg-deb -b $(BUILDDIR) ..
 
 binary: binary-arch binary-indep
