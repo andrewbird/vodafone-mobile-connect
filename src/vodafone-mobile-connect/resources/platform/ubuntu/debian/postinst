@@ -63,6 +63,10 @@ function add_dell_mini_icon(){
 	fi
 } # End add_dell_mini_icon
 
+function fix_twisted_plugin_cache() {
+	/usr/bin/twistd --help >/dev/null 2>&1
+}
+
 
 dpkg-divert --package vodafone-mobile-connect \
             --rename --quiet --add /etc/ppp/peers/wvdial
@@ -77,3 +81,5 @@ fix_pppd
 udev_reload
 
 add_dell_mini_icon
+
+fix_twisted_plugin_cache
