@@ -2455,7 +2455,7 @@ If you use the mail and browser buttons to access other programs in your system,
 			      <property name="left_margin">0</property>
 			      <property name="right_margin">0</property>
 			      <property name="indent">0</property>
-			      <property name="text" translatable="yes">If you are using this program in an corporate environment, your company
+			      <property name="text" translatable="yes">If you are using this program in a corporate environment, your company
 probably has a support center to solve the questions that you might have
 about the program.
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-02 16:51+0100\n"
+"POT-Creation-Date: 2009-06-11 20:01+0100\n"
 "PO-Revision-Date: 2007-12-11 17:49+0100\n"
 "Last-Translator: Pablo Martí <pmarti@warp.es>\n"
 "Language-Team: Spanish <ES@li.org>\n"
@@ -284,8 +284,8 @@ msgstr " Nombre:"
 msgid "Contacts List"
 msgstr "Lista de contactos"
 
-#: ../glade/contacts.glade:159 ../glade/VMC.glade:541
-#: ../glade/VMC-reduced.glade:726
+#: ../glade/contacts.glade:159 ../glade/VMC.glade:542
+#: ../glade/VMC-reduced.glade:727
 msgid "Add a contact"
 msgstr "Añadir un contacto"
 
@@ -464,14 +464,14 @@ msgstr "Nuevo código PIN: "
 msgid "Confirm PIN code: "
 msgstr "Confirmar código PIN: "
 
-#: ../glade/pin.glade:380 ../glade/VMC.glade:878 ../glade/VMC.glade:895
-#: ../glade/VMC.glade:951 ../glade/VMC.glade:1006 ../glade/VMC.glade:1023
-#: ../glade/VMC.glade:1079 ../glade/VMC.glade:1292 ../glade/VMC.glade:1309
-#: ../glade/VMC.glade:1365 ../glade/VMC-reduced.glade:1260
-#: ../glade/VMC-reduced.glade:1288 ../glade/VMC-reduced.glade:1372
-#: ../glade/VMC-reduced.glade:1488 ../glade/VMC-reduced.glade:1516
-#: ../glade/VMC-reduced.glade:1626 ../glade/VMC-reduced.glade:1960
-#: ../glade/VMC-reduced.glade:1988 ../glade/VMC-reduced.glade:2098
+#: ../glade/pin.glade:380 ../glade/VMC.glade:879 ../glade/VMC.glade:896
+#: ../glade/VMC.glade:952 ../glade/VMC.glade:1007 ../glade/VMC.glade:1024
+#: ../glade/VMC.glade:1080 ../glade/VMC.glade:1293 ../glade/VMC.glade:1310
+#: ../glade/VMC.glade:1366 ../glade/VMC-reduced.glade:1261
+#: ../glade/VMC-reduced.glade:1289 ../glade/VMC-reduced.glade:1373
+#: ../glade/VMC-reduced.glade:1489 ../glade/VMC-reduced.glade:1517
+#: ../glade/VMC-reduced.glade:1627 ../glade/VMC-reduced.glade:1961
+#: ../glade/VMC-reduced.glade:1989 ../glade/VMC-reduced.glade:2099
 msgid "label"
 msgstr ""
 
@@ -572,8 +572,8 @@ msgstr "Umbral de notificación (MB):"
 msgid "Usage"
 msgstr "Uso"
 
-#: ../glade/sms.glade:34 ../glade/VMC.glade:728
-#: ../glade/VMC-reduced.glade:1018
+#: ../glade/sms.glade:34 ../glade/VMC.glade:729
+#: ../glade/VMC-reduced.glade:1019
 msgid "Contacts"
 msgstr "Contactos"
 
@@ -623,8 +623,8 @@ msgid "3G Devices Manager"
 msgstr "Gestor de dispositivos 3G"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
-#: ../../vmc/gtk/views/application.py:327
-#: ../../vmc/gtk/controllers/application.py:1051
+#: ../../vmc/gtk/views/application.py:328
+#: ../../vmc/gtk/controllers/application.py:1046
 msgid "Connect"
 msgstr "Conectar"
 
@@ -680,177 +680,177 @@ msgstr "_Ayuda"
 msgid "_About"
 msgstr "_Acerca de"
 
-#: ../glade/VMC.glade:304 ../glade/VMC-reduced.glade:392
+#: ../glade/VMC.glade:305 ../glade/VMC-reduced.glade:393
 #, fuzzy
 msgid "Connect Button"
 msgstr "Conexión:"
 
-#: ../glade/VMC.glade:340 ../glade/VMC-reduced.glade:443
+#: ../glade/VMC.glade:341 ../glade/VMC-reduced.glade:444
 msgid "SMS Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:368 ../glade/VMC-reduced.glade:481
+#: ../glade/VMC.glade:369 ../glade/VMC-reduced.glade:482
 msgid "Usage Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:383 ../glade/VMC-reduced.glade:502
+#: ../glade/VMC.glade:384 ../glade/VMC-reduced.glade:503
 msgid "Support Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:411 ../glade/VMC.glade:533
-#: ../glade/VMC-reduced.glade:545 ../glade/VMC-reduced.glade:705
+#: ../glade/VMC.glade:412 ../glade/VMC.glade:534
+#: ../glade/VMC-reduced.glade:546 ../glade/VMC-reduced.glade:706
 msgid "Contacts menu"
 msgstr "Menú de contactos"
 
-#: ../glade/VMC.glade:412 ../glade/VMC.glade:542
-#: ../glade/VMC-reduced.glade:546 ../glade/VMC-reduced.glade:727
+#: ../glade/VMC.glade:413 ../glade/VMC.glade:543
+#: ../glade/VMC-reduced.glade:547 ../glade/VMC-reduced.glade:728
 msgid "_New"
 msgstr "_Nuevo"
 
-#: ../glade/VMC.glade:419 ../glade/VMC-reduced.glade:567
+#: ../glade/VMC.glade:420 ../glade/VMC-reduced.glade:568
 msgid "Create new sms"
 msgstr "Crear un nuevo sms"
 
-#: ../glade/VMC.glade:420 ../glade/VMC-reduced.glade:568
+#: ../glade/VMC.glade:421 ../glade/VMC-reduced.glade:569
 msgid "_SMS"
 msgstr "_SMS"
 
-#: ../glade/VMC.glade:429 ../glade/VMC-reduced.glade:578
+#: ../glade/VMC.glade:430 ../glade/VMC-reduced.glade:579
 msgid "_Contact"
 msgstr "_Contactos"
 
-#: ../glade/VMC.glade:459 ../glade/VMC-reduced.glade:608
+#: ../glade/VMC.glade:460 ../glade/VMC-reduced.glade:609
 msgid "Reply message"
 msgstr "Responder mensaje"
 
-#: ../glade/VMC.glade:460 ../glade/VMC-reduced.glade:609
+#: ../glade/VMC.glade:461 ../glade/VMC-reduced.glade:610
 msgid "_Reply"
 msgstr "_Responder"
 
-#: ../glade/VMC.glade:467 ../glade/VMC-reduced.glade:629
+#: ../glade/VMC.glade:468 ../glade/VMC-reduced.glade:630
 msgid "Reply without quoting original text"
 msgstr "Responder sin incluir el texto original"
 
-#: ../glade/VMC.glade:468 ../glade/VMC-reduced.glade:630
+#: ../glade/VMC.glade:469 ../glade/VMC-reduced.glade:631
 msgid "Send new"
 msgstr "Enviar nuevo"
 
-#: ../glade/VMC.glade:476 ../glade/VMC-reduced.glade:639
+#: ../glade/VMC.glade:477 ../glade/VMC-reduced.glade:640
 msgid "Reply quoting original message"
 msgstr "Responder incluyendo el texto original"
 
-#: ../glade/VMC.glade:477 ../glade/VMC-reduced.glade:640
+#: ../glade/VMC.glade:478 ../glade/VMC-reduced.glade:641
 msgid "Reply quoting"
 msgstr "Responder incluyendo texto"
 
-#: ../glade/VMC.glade:495 ../glade/VMC-reduced.glade:653
+#: ../glade/VMC.glade:496 ../glade/VMC-reduced.glade:654
 msgid "Forward sms to another contact"
 msgstr "Reenviar sms a otro contacto"
 
-#: ../glade/VMC.glade:496 ../glade/VMC-reduced.glade:654
+#: ../glade/VMC.glade:497 ../glade/VMC-reduced.glade:655
 msgid "_Forward"
 msgstr "_Reenviar"
 
-#: ../glade/VMC.glade:510 ../glade/VMC.glade:587
-#: ../glade/VMC-reduced.glade:674 ../glade/VMC-reduced.glade:779
-#: ../../vmc/gtk/controllers/application.py:1099
+#: ../glade/VMC.glade:511 ../glade/VMC.glade:588
+#: ../glade/VMC-reduced.glade:675 ../glade/VMC-reduced.glade:780
+#: ../../vmc/gtk/controllers/application.py:1094
 msgid "_Delete"
 msgstr "_Borrar"
 
-#: ../glade/VMC.glade:534 ../glade/VMC-reduced.glade:706
+#: ../glade/VMC.glade:535 ../glade/VMC-reduced.glade:707
 msgid "_Contacts"
 msgstr "_Contactos"
 
-#: ../glade/VMC.glade:556 ../glade/VMC-reduced.glade:747
+#: ../glade/VMC.glade:557 ../glade/VMC-reduced.glade:748
 msgid "Search contacts"
 msgstr "Buscar contactos"
 
-#: ../glade/VMC.glade:557 ../glade/VMC-reduced.glade:748
+#: ../glade/VMC.glade:558 ../glade/VMC-reduced.glade:749
 msgid "_Search"
 msgstr "_Buscar"
 
-#: ../glade/VMC.glade:639 ../glade/VMC-reduced.glade:857
+#: ../glade/VMC.glade:640 ../glade/VMC-reduced.glade:858
 msgid "Inbox"
 msgstr "Bandeja de entrada"
 
-#: ../glade/VMC.glade:669 ../glade/VMC-reduced.glade:911
+#: ../glade/VMC.glade:670 ../glade/VMC-reduced.glade:912
 msgid "Draft"
 msgstr "Borradores"
 
-#: ../glade/VMC.glade:699 ../glade/VMC-reduced.glade:965
+#: ../glade/VMC.glade:700 ../glade/VMC-reduced.glade:966
 msgid "Sent"
 msgstr "Enviados"
 
-#: ../glade/VMC.glade:825 ../glade/VMC.glade:1239
-#: ../glade/VMC-reduced.glade:1200 ../glade/VMC-reduced.glade:1900
+#: ../glade/VMC.glade:826 ../glade/VMC.glade:1240
+#: ../glade/VMC-reduced.glade:1201 ../glade/VMC-reduced.glade:1901
 msgid "month_label"
 msgstr ""
 
-#: ../glade/VMC.glade:835 ../glade/VMC.glade:1249
-#: ../glade/VMC-reduced.glade:1175 ../glade/VMC-reduced.glade:1875
+#: ../glade/VMC.glade:836 ../glade/VMC.glade:1250
+#: ../glade/VMC-reduced.glade:1176 ../glade/VMC-reduced.glade:1876
 msgid "<b>Month</b>"
 msgstr "<b>Mes</b>"
 
-#: ../glade/VMC.glade:910 ../glade/VMC.glade:1038 ../glade/VMC.glade:1324
-#: ../glade/VMC-reduced.glade:1316 ../glade/VMC-reduced.glade:1544
-#: ../glade/VMC-reduced.glade:2016
+#: ../glade/VMC.glade:911 ../glade/VMC.glade:1039 ../glade/VMC.glade:1325
+#: ../glade/VMC-reduced.glade:1317 ../glade/VMC-reduced.glade:1545
+#: ../glade/VMC-reduced.glade:2017
 msgid "3G:"
 msgstr "3G:"
 
-#: ../glade/VMC.glade:925 ../glade/VMC.glade:1053 ../glade/VMC.glade:1339
-#: ../glade/VMC-reduced.glade:1344 ../glade/VMC-reduced.glade:1572
-#: ../glade/VMC-reduced.glade:2044
+#: ../glade/VMC.glade:926 ../glade/VMC.glade:1054 ../glade/VMC.glade:1340
+#: ../glade/VMC-reduced.glade:1345 ../glade/VMC-reduced.glade:1573
+#: ../glade/VMC-reduced.glade:2045
 msgid "GPRS:"
 msgstr "GPRS:"
 
-#: ../glade/VMC.glade:938 ../glade/VMC.glade:1352
-#: ../glade/VMC-reduced.glade:2072
+#: ../glade/VMC.glade:939 ../glade/VMC.glade:1353
+#: ../glade/VMC-reduced.glade:2073
 msgid "<b>Total:</b>"
 msgstr "<b>Total:</b>"
 
-#: ../glade/VMC.glade:969 ../glade/VMC.glade:1383
-#: ../glade/VMC-reduced.glade:1430 ../glade/VMC-reduced.glade:2128
+#: ../glade/VMC.glade:970 ../glade/VMC.glade:1384
+#: ../glade/VMC-reduced.glade:1431 ../glade/VMC-reduced.glade:2129
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Datos transferidos</b>"
 
-#: ../glade/VMC.glade:1066 ../glade/VMC-reduced.glade:1399
-#: ../glade/VMC-reduced.glade:1600
+#: ../glade/VMC.glade:1067 ../glade/VMC-reduced.glade:1400
+#: ../glade/VMC-reduced.glade:1601
 msgid "Total:"
 msgstr "Total:"
 
-#: ../glade/VMC.glade:1097 ../glade/VMC-reduced.glade:1656
+#: ../glade/VMC.glade:1098 ../glade/VMC-reduced.glade:1657
 msgid "<b>Current session</b>"
 msgstr "<b>Sesión actual</b>"
 
-#: ../glade/VMC.glade:1137 ../glade/VMC.glade:1422
-#: ../glade/VMC-reduced.glade:1716 ../glade/VMC-reduced.glade:2188
-#: ../../vmc/gtk/controllers/application.py:1271
+#: ../glade/VMC.glade:1138 ../glade/VMC.glade:1423
+#: ../glade/VMC-reduced.glade:1717 ../glade/VMC-reduced.glade:2189
+#: ../../vmc/gtk/controllers/application.py:1262
 msgid "GPRS"
 msgstr "GPRS"
 
-#: ../glade/VMC.glade:1144 ../glade/VMC.glade:1429
-#: ../glade/VMC-reduced.glade:1741 ../glade/VMC-reduced.glade:2213
-#: ../../vmc/gtk/controllers/application.py:1273
+#: ../glade/VMC.glade:1145 ../glade/VMC.glade:1430
+#: ../glade/VMC-reduced.glade:1742 ../glade/VMC-reduced.glade:2214
+#: ../../vmc/gtk/controllers/application.py:1264
 msgid "3G"
 msgstr "3G"
 
-#: ../glade/VMC.glade:1181 ../glade/VMC.glade:1466
+#: ../glade/VMC.glade:1182 ../glade/VMC.glade:1467
 msgid "Remember that this information is only orientative."
 msgstr "Recuerde que esta información es sólo orientativa."
 
-#: ../glade/VMC.glade:1196 ../glade/VMC-reduced.glade:1814
+#: ../glade/VMC.glade:1197 ../glade/VMC-reduced.glade:1815
 msgid "Current month"
 msgstr "Mes actual"
 
-#: ../glade/VMC.glade:1484 ../glade/VMC-reduced.glade:2286
+#: ../glade/VMC.glade:1485 ../glade/VMC-reduced.glade:2287
 msgid "Last month"
 msgstr "Último mes"
 
-#: ../glade/VMC.glade:1498
+#: ../glade/VMC.glade:1499
 msgid "<b>Usage</b>"
 msgstr "<b>Uso</b>"
 
-#: ../glade/VMC.glade:1527 ../glade/VMC-reduced.glade:2374
+#: ../glade/VMC.glade:1528 ../glade/VMC-reduced.glade:2375
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu.\n"
@@ -877,13 +877,13 @@ msgstr ""
 "sistema, es posible que necesite preguntar a su Administrador de Sistemas "
 "cualquier duda relacionada con los mismos."
 
-#: ../glade/VMC.glade:1541 ../glade/VMC-reduced.glade:2393
+#: ../glade/VMC.glade:1542 ../glade/VMC-reduced.glade:2394
 msgid "Help menu"
 msgstr "Menú ayuda"
 
-#: ../glade/VMC.glade:1566 ../glade/VMC-reduced.glade:2457
+#: ../glade/VMC.glade:1567 ../glade/VMC-reduced.glade:2458
 msgid ""
-"If you are using this program in an corporate environment, your company\n"
+"If you are using this program in a corporate environment, your company\n"
 "probably has a support center to solve the questions that you might have\n"
 "about the program.\n"
 "\n"
@@ -896,11 +896,11 @@ msgstr ""
 "Si su compañía no dispone de un centro de soporte, contacte con el\n"
 "Administrador de sistemas de su empresa usando el procedimiento habitual."
 
-#: ../glade/VMC.glade:1586 ../glade/VMC-reduced.glade:2479
+#: ../glade/VMC.glade:1587 ../glade/VMC-reduced.glade:2480
 msgid "Support center"
 msgstr "Centro de soporte"
 
-#: ../glade/VMC.glade:1603 ../glade/VMC-reduced.glade:2524
+#: ../glade/VMC.glade:1604 ../glade/VMC-reduced.glade:2525
 msgid ""
 "You can easily find answers to the most common questions in the\n"
 "help menu, in your company's support center and in the support\n"
@@ -925,11 +925,11 @@ msgstr ""
 "\n"
 "+34 607 123 000 si llama desde otra red."
 
-#: ../glade/VMC.glade:1623 ../glade/VMC-reduced.glade:2546
+#: ../glade/VMC.glade:1624 ../glade/VMC-reduced.glade:2547
 msgid "Customer support"
 msgstr "Soporte al cliente"
 
-#: ../glade/VMC-reduced.glade:2311
+#: ../glade/VMC-reduced.glade:2312
 #, fuzzy
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr "Recuerde que esta información es sólo orientativa."
@@ -1006,7 +1006,7 @@ msgstr "%(day)d día, %(msg)s"
 msgid "Shutting down..."
 msgstr "Cerrando..."
 
-#: ../../vmc/common/middleware.py:472
+#: ../../vmc/common/middleware.py:475
 msgid "Unknown Network"
 msgstr "Red Desconocida"
 
@@ -1015,7 +1015,7 @@ msgid "Initial setup..."
 msgstr "Configuración inicial..."
 
 #: ../../vmc/gtk/startup.py:191 ../../vmc/gtk/startup.py:210
-#: ../../vmc/gtk/controllers/initialconf.py:375
+#: ../../vmc/gtk/controllers/initialconf.py:402
 msgid "Device setup not completed"
 msgstr "Configuración de dispositivo no completada"
 
@@ -1103,87 +1103,87 @@ msgstr ""
 msgid "Custom"
 msgstr "Personalizado"
 
-#: ../../vmc/gtk/views/application.py:54
+#: ../../vmc/gtk/views/application.py:55
 msgid "B"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:55
+#: ../../vmc/gtk/views/application.py:56
 msgid "KB"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:56
+#: ../../vmc/gtk/views/application.py:57
 msgid "MB"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:57
+#: ../../vmc/gtk/views/application.py:58
 msgid "GB"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:337
-#: ../../vmc/gtk/controllers/application.py:967
+#: ../../vmc/gtk/views/application.py:338
+#: ../../vmc/gtk/controllers/application.py:957
 msgid "Not connected"
 msgstr "Desconectado"
 
-#: ../../vmc/gtk/views/application.py:345
-#: ../../vmc/gtk/controllers/application.py:1045
+#: ../../vmc/gtk/views/application.py:346
+#: ../../vmc/gtk/controllers/application.py:1040
 msgid "Disconnect"
 msgstr "Desconectar"
 
-#: ../../vmc/gtk/views/application.py:357
+#: ../../vmc/gtk/views/application.py:358
 msgid "No device present"
 msgstr "No hay presente ningún dispositivo"
 
-#: ../../vmc/gtk/views/application.py:359
 #: ../../vmc/gtk/views/application.py:360
-#: ../../vmc/gtk/controllers/application.py:1269
+#: ../../vmc/gtk/views/application.py:361
+#: ../../vmc/gtk/controllers/application.py:1260
 msgid "N/A"
 msgstr "N/D"
 
-#: ../../vmc/gtk/views/application.py:386
-#: ../../vmc/gtk/views/application.py:417
-#: ../../vmc/gtk/views/initialconf.py:109
+#: ../../vmc/gtk/views/application.py:387
+#: ../../vmc/gtk/views/application.py:418
+#: ../../vmc/gtk/views/initialconf.py:104
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Tipo"
 
-#: ../../vmc/gtk/views/application.py:392
-#: ../../vmc/gtk/views/initialconf.py:103
-#: ../../vmc/gtk/views/initialconf.py:317
+#: ../../vmc/gtk/views/application.py:393
+#: ../../vmc/gtk/views/initialconf.py:98
+#: ../../vmc/gtk/views/initialconf.py:312
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
 msgstr "Nombre"
 
-#: ../../vmc/gtk/views/application.py:401
+#: ../../vmc/gtk/views/application.py:402
 #: ../../vmc/gtk/controllers/contacts.py:156
 msgid "Number"
 msgstr "Número"
 
-#: ../../vmc/gtk/views/application.py:424
+#: ../../vmc/gtk/views/application.py:425
 msgid "Text"
 msgstr "Asunto"
 
-#: ../../vmc/gtk/views/application.py:435
+#: ../../vmc/gtk/views/application.py:436
 msgid "Recipient"
 msgstr "Destinatario"
 
-#: ../../vmc/gtk/views/application.py:435
+#: ../../vmc/gtk/views/application.py:436
 msgid "Sender"
 msgstr "Remitente"
 
-#: ../../vmc/gtk/views/application.py:443
+#: ../../vmc/gtk/views/application.py:444
 msgid "Date"
 msgstr "Fecha"
 
-#: ../../vmc/gtk/views/initialconf.py:106
+#: ../../vmc/gtk/views/initialconf.py:101
 #, fuzzy
 msgid "Country"
 msgstr "Ordenador"
 
-#: ../../vmc/gtk/views/initialconf.py:231
+#: ../../vmc/gtk/views/initialconf.py:226
 msgid "No known devices found"
 msgstr "No se ha encontrado ningún dispositivo conocido"
 
-#: ../../vmc/gtk/views/initialconf.py:324
+#: ../../vmc/gtk/views/initialconf.py:319
 msgid "Address"
 msgstr "Dirección"
 
@@ -1334,7 +1334,7 @@ msgstr ""
 #: ../../vmc/gtk/controllers/pin.py:296
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:600
+#: ../../vmc/gtk/controllers/application.py:588
 msgid "Missing dependency"
 msgstr "Dependencias no satisfechas"
 
@@ -1351,7 +1351,7 @@ msgid ""
 msgstr ""
 
 #: ../../vmc/gtk/controllers/application.py:113
-#: ../../vmc/gtk/controllers/initialconf.py:549
+#: ../../vmc/gtk/controllers/initialconf.py:576
 msgid "Shutting down"
 msgstr "Cerrando"
 
@@ -1404,40 +1404,40 @@ msgstr ""
 msgid "Load"
 msgstr "Cargar"
 
-#: ../../vmc/gtk/controllers/application.py:441
+#: ../../vmc/gtk/controllers/application.py:429
 #, python-format
 msgid "Quit %s"
 msgstr "Salir de %s"
 
-#: ../../vmc/gtk/controllers/application.py:442
+#: ../../vmc/gtk/controllers/application.py:430
 msgid "Are you sure you want to exit?"
 msgstr "¿Seguro que desea salir?"
 
-#: ../../vmc/gtk/controllers/application.py:499
+#: ../../vmc/gtk/controllers/application.py:487
 msgid "_New Profile"
 msgstr "_Nuevo perfil"
 
-#: ../../vmc/gtk/controllers/application.py:508
+#: ../../vmc/gtk/controllers/application.py:496
 msgid "Load Profile"
 msgstr "Cargar Perfil"
 
-#: ../../vmc/gtk/controllers/application.py:513
+#: ../../vmc/gtk/controllers/application.py:501
 msgid "Edit Profile"
 msgstr "Editar Perfil"
 
-#: ../../vmc/gtk/controllers/application.py:518
+#: ../../vmc/gtk/controllers/application.py:506
 msgid "Delete Profile"
 msgstr "Borrar Perfil"
 
-#: ../../vmc/gtk/controllers/application.py:601
+#: ../../vmc/gtk/controllers/application.py:589
 msgid "To use this widget you need python-vte installed"
 msgstr "Para usar esta utilidad necesita python-vte instalado"
 
-#: ../../vmc/gtk/controllers/application.py:648
+#: ../../vmc/gtk/controllers/application.py:636
 msgid "Invalid CSV format"
 msgstr "Formato CSV inválido"
 
-#: ../../vmc/gtk/controllers/application.py:649
+#: ../../vmc/gtk/controllers/application.py:637
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1445,54 +1445,54 @@ msgstr ""
 "\n"
 "El archivo csv que acaba de intentar importar tiene formato inválido."
 
-#: ../../vmc/gtk/controllers/application.py:680
-#: ../../vmc/gtk/controllers/application.py:702
+#: ../../vmc/gtk/controllers/application.py:668
+#: ../../vmc/gtk/controllers/application.py:690
 msgid "Connecting..."
 msgstr "Conectando..."
 
-#: ../../vmc/gtk/controllers/application.py:697
-#: ../../vmc/gtk/controllers/application.py:1263
+#: ../../vmc/gtk/controllers/application.py:685
+#: ../../vmc/gtk/controllers/application.py:1254
 #, python-format
 msgid "Connected to %s"
 msgstr "Conectado a %s"
 
-#: ../../vmc/gtk/controllers/application.py:699
+#: ../../vmc/gtk/controllers/application.py:687
 msgid "Connected"
 msgstr "Conectado"
 
-#: ../../vmc/gtk/controllers/application.py:968
+#: ../../vmc/gtk/controllers/application.py:958
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Sin conexión móvil. ¿Desea continuar?"
 
-#: ../../vmc/gtk/controllers/application.py:1067
+#: ../../vmc/gtk/controllers/application.py:1062
 msgid "Send SMS"
 msgstr "Enviar SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1081
+#: ../../vmc/gtk/controllers/application.py:1076
 msgid "Quit"
 msgstr "Salir"
 
-#: ../../vmc/gtk/controllers/application.py:1093
+#: ../../vmc/gtk/controllers/application.py:1088
 msgid "_Send SMS"
 msgstr "_Enviar SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1112
+#: ../../vmc/gtk/controllers/application.py:1107
 msgid "_Add to contacts"
 msgstr "_Añadir a contactos"
 
-#: ../../vmc/gtk/controllers/application.py:1121
+#: ../../vmc/gtk/controllers/application.py:1116
 msgid "Save to draft"
 msgstr "Guardar a borradores"
 
-#: ../../vmc/gtk/controllers/application.py:1132
+#: ../../vmc/gtk/controllers/application.py:1127
 msgid "Delete"
 msgstr "Borrar"
 
-#: ../../vmc/gtk/controllers/application.py:1252
+#: ../../vmc/gtk/controllers/application.py:1243
 msgid "Illegal Operation!"
 msgstr "Operación Ilegal!"
 
-#: ../../vmc/gtk/controllers/application.py:1253
+#: ../../vmc/gtk/controllers/application.py:1244
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
@@ -1502,17 +1502,17 @@ msgstr ""
 "Su dispositivo sólo tiene un puerto y está conectado a\n"
 "Internet, no puede realizar ninguna operación mientras esté conectado"
 
-#: ../../vmc/gtk/controllers/application.py:1267
+#: ../../vmc/gtk/controllers/application.py:1258
 msgid "Radio Disabled"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1290
+#: ../../vmc/gtk/controllers/application.py:1281
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>SMS recibido de %s</small>"
 
 # python-format
-#: ../../vmc/gtk/controllers/application.py:1293
+#: ../../vmc/gtk/controllers/application.py:1284
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
@@ -1521,12 +1521,12 @@ msgstr ""
 "<small>Recibido el %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1305
+#: ../../vmc/gtk/controllers/application.py:1296
 #, fuzzy
 msgid "Invalid DNS received from Network"
 msgstr "Los DNS recibidos del APN son inválidos"
 
-#: ../../vmc/gtk/controllers/application.py:1307
+#: ../../vmc/gtk/controllers/application.py:1298
 #, fuzzy
 msgid ""
 "\n"
@@ -1540,11 +1540,11 @@ msgstr ""
 "reiniciar la conexión o, si el problema persiste, especificar una entrada\n"
 "DNS estática en las preferencias de conexión</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1322
+#: ../../vmc/gtk/controllers/application.py:1313
 msgid "Disconnected from Internet"
 msgstr "Desconectado de Internet"
 
-#: ../../vmc/gtk/controllers/application.py:1323
+#: ../../vmc/gtk/controllers/application.py:1314
 #, python-format
 msgid ""
 "\n"
@@ -1559,11 +1559,11 @@ msgstr ""
 "provocado por un problema en la configuración o simplemente el\n"
 "hecho de que no hay señal.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1335
+#: ../../vmc/gtk/controllers/application.py:1326
 msgid "Device in use removed"
 msgstr "Dispositivo en uso expulsado"
 
-#: ../../vmc/gtk/controllers/application.py:1337
+#: ../../vmc/gtk/controllers/application.py:1328
 #, python-format
 msgid ""
 "\n"
@@ -1578,11 +1578,11 @@ msgstr ""
 "va a parar. Para continuar, inserte de\n"
 "nuevo el dispositivo 3G e inicie de nuevo."
 
-#: ../../vmc/gtk/controllers/application.py:1371
+#: ../../vmc/gtk/controllers/application.py:1364
 msgid "3G Device added"
 msgstr "Dispositivo 3G añadido"
 
-#: ../../vmc/gtk/controllers/application.py:1372
+#: ../../vmc/gtk/controllers/application.py:1365
 #, python-format
 msgid ""
 "\n"
@@ -1595,7 +1595,7 @@ msgstr ""
 "(%(device_name)s), dentro de unos 15 segundos\n"
 "(%(app_name)s) reanudará su funcionamiento"
 
-#: ../../vmc/gtk/controllers/application.py:1380
+#: ../../vmc/gtk/controllers/application.py:1373
 msgid "Setting up device..."
 msgstr "Configurando el dispositivo..."
 
@@ -1608,18 +1608,18 @@ msgstr "No se ha encontrado ningún contacto"
 msgid "No contact with the name %s found"
 msgstr "No se ha encontrado ningún contacto con el nombre %s"
 
-#: ../../vmc/gtk/controllers/initialconf.py:212
+#: ../../vmc/gtk/controllers/initialconf.py:239
 #, fuzzy, python-format
 msgid "The following characters are not allowed in a profile name: %s"
 msgstr ""
 "Los siguientes carácteres no están permitidos en el nombre del perfil: %s"
 
-#: ../../vmc/gtk/controllers/initialconf.py:215
+#: ../../vmc/gtk/controllers/initialconf.py:242
 #, fuzzy
 msgid "Invalid value in profile"
 msgstr "Caracteres inválidos en nombre de perfil"
 
-#: ../../vmc/gtk/controllers/initialconf.py:376
+#: ../../vmc/gtk/controllers/initialconf.py:403
 #, python-format
 msgid ""
 "\n"
@@ -1630,38 +1630,38 @@ msgstr ""
 "Un error desconocido ha ocurrido mientras se configuraba el dispositivo:\n"
 "%s"
 
-#: ../../vmc/gtk/controllers/initialconf.py:441
+#: ../../vmc/gtk/controllers/initialconf.py:468
 #, python-format
 msgid "Authentication Error from %s !"
 msgstr "!Error de autenticación de %s !"
 
-#: ../../vmc/gtk/controllers/initialconf.py:445
+#: ../../vmc/gtk/controllers/initialconf.py:472
 #, python-format
 msgid "Connecting to %s ..."
 msgstr "Conectando a %s ..."
 
-#: ../../vmc/gtk/controllers/initialconf.py:493
+#: ../../vmc/gtk/controllers/initialconf.py:520
 msgid "Discovery started..."
 msgstr "Búsqueda empezada..."
 
-#: ../../vmc/gtk/controllers/initialconf.py:497
+#: ../../vmc/gtk/controllers/initialconf.py:524
 msgid "Discovery finished!"
 msgstr "Búsqueda finalizada!"
 
-#: ../../vmc/gtk/controllers/initialconf.py:521
+#: ../../vmc/gtk/controllers/initialconf.py:548
 msgid "No control port"
 msgstr "Sin puerto de control"
 
-#: ../../vmc/gtk/controllers/initialconf.py:527
+#: ../../vmc/gtk/controllers/initialconf.py:554
 msgid "Connecting to device..."
 msgstr "Conectando al dispositivo..."
 
-#: ../../vmc/gtk/controllers/initialconf.py:535
+#: ../../vmc/gtk/controllers/initialconf.py:562
 #, python-format
 msgid "Exception received connecting to %s"
 msgstr "Excepción recibida conectando a %s"
 
-#: ../../vmc/gtk/controllers/initialconf.py:536
+#: ../../vmc/gtk/controllers/initialconf.py:563
 #, python-format
 msgid ""
 "\n"
@@ -1719,11 +1719,11 @@ msgstr "Vodafone España S.A."
 msgid "translated to $LANG by $translater"
 msgstr "traducido al Español por Pablo Martí y Enrique Matías Sánchez"
 
-#: ../../gtk-tap.py:50
+#: ../../gtk-tap.py:53
 msgid "Missing dependencies"
 msgstr "Dependencias no satisfechas"
 
-#: ../../gtk-tap.py:52
+#: ../../gtk-tap.py:55
 #, python-format
 msgid ""
 "The following dependencies are not satisfied:\n"
@@ -1732,11 +1732,11 @@ msgstr ""
 "Las siguientes dependencias no están satisfechas:\n"
 "%s"
 
-#: ../../gtk-tap.py:61
+#: ../../gtk-tap.py:64
 msgid "OS/Distro not registered"
 msgstr "OS/Distro no registrada"
 
-#: ../../gtk-tap.py:73
+#: ../../gtk-tap.py:76
 msgid "Permissions problems"
 msgstr "Problemas de permisos"
 

@@ -1564,7 +1564,7 @@ If you use the mail and browser buttons to access other programs in your system,
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="editable">False</property>
-                                <property name="text" translatable="yes">If you are using this program in an corporate environment, your company
+                                <property name="text" translatable="yes">If you are using this program in a corporate environment, your company
 probably has a support center to solve the questions that you might have
 about the program.
 
