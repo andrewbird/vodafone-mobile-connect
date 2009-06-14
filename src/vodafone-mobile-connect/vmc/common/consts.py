@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2006-2007  Vodafone España, S.A.
-# Author:  Pablo Martí
+# Author:  Pablo Martí, Nicholas Herriot, Andrew Bird
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -26,20 +26,24 @@ from consts_prefix import TOP_DIR
 # app name
 APP_SHORT_NAME = 'VMCCdfL'
 APP_LONG_NAME = 'Vodafone Mobile Connect'
-APP_VERSION = '2.00.00'
+APP_VERSION = '2.10.01'
 APP_SLUG_NAME = 'vodafone-mobile-connect'
 APP_URL = 'https://forge.betavine.net/projects/vodafonemobilec/'
 
 # credits
-APP_AUTHORS = ['Pablo Martí Gamboa <pmarti@warp.es>',
+APP_AUTHORS = ['Andrew Bird <ajb@spheresystems.co.uk>',
+                'Nicholas Herriot <Nicholas.Herriot@vodafone.com>',
+               'Vicente Hernando <bizenton@gmail.com>',
+                'Pablo Martí Gamboa <pmarti@warp.es>',
                'Jaime Soriano Pastor <jsoriano@warp.es>']
 APP_DOCUMENTERS = ['Pablo Martí Gamboa <pmarti@warp.es>',
                    'Enrique Matias Sanchez <cronopios@gmail.com>',
                    'Jaime Soriano Pastor <jsoriano@warp.es>']
-APP_ARTISTS = ['Pablo Martí Gamboa <pmarti@warp.es>',
+APP_ARTISTS = ['Nicholas Herriot <Nicholas.Herriot@vodafone.com>',
+                'Pablo Martí Gamboa <pmarti@warp.es>',
                'Jaime Soriano Pastor <jsoriano@warp.es>',
                'Daniel Baeyens <dbaeyens@warp.es>',
-               'Splash by Jorge Bernal <jbernal@warp.es>',
+               'Splash by Nicholas Herriot <Nicholas.Herriot@vodafone.com>',
           'Original glade by María Iglesias Barroso <miglesias@imssystem.net>'
           ]
 
