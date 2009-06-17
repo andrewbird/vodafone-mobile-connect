@@ -14,7 +14,7 @@ target='group-app.new'
 #
 tree = ET.parse(source)
 for group in tree.getiterator('group'):
-    linpus_web_seq=0
+    linpus_web_seq=-1
     pos=0
     for kid in group.getchildren():
         if kid.tag == 'app':
@@ -26,7 +26,7 @@ for group in tree.getiterator('group'):
                 linpus_web_pos=pos
         pos+=1
             
-    if linpus_web_seq > 0:
+    if linpus_web_seq != -1:
         print 'VMC icon is being added'
 # add one onto the sequence number of all the elements greater than 'linpus-web'
         for kid in group.getchildren():
