@@ -145,16 +145,16 @@ class BufferingStateMachine(object, protocol.Protocol):
             for ignore in custom.ignore_regexp:
                 for match in re.finditer(ignore, buffer):
                     if match:
-                        stuff = (self, self.device.name, match.group())
-                        log.msg("%s::%s Ignore string: %r" % stuff)
+                        stuff = (self, match.group())
+                        log.msg("%s::IGNORE: %r" % stuff)
                         buffer = buffer.replace(match.group(), '', 1)
 
         if custom.async_regexp:
             # we have to use re.finditer as some cards like to pipeline
             # several asynchronous notifications in one
             for match in re.finditer(custom.async_regexp, buffer):
-                stuff = (self, self.device.name, match.group())
-                log.msg("%s::%s NOTIFICATION: %r" % stuff)
+                stuff = (self, match.group())
+                log.msg("%s::NOTIFICATION: %r" % stuff)
                 name, value = match.groups()
                 if name in custom.signal_translations:
                     # we obtain the signal name and the associated function
