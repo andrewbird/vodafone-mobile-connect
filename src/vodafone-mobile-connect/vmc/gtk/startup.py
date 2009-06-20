@@ -38,7 +38,11 @@ from vmc.common.consts import APP_LONG_NAME
 from vmc.common.config import config
 from vmc.common.encoding import _
 import vmc.common.exceptions as ex
+import time
+t = time.time()
+print 'time %s - %.02f' % ('import vmc.common.hardware.hardwarereg', time.time() - t)
 from vmc.common.hardware.hardwarereg import hw_reg
+print 'time %s - %.02f' % ('import vmc.common.hardware.hardwarereg', time.time() - t)
 import vmc.common.notifications as N
 from vmc.common.startup import populate_dbs
 from vmc.common.plugin import DBusDevicePlugin
@@ -328,6 +332,7 @@ def check_posix_dependencies():
     This is run at startup to ease users solving dependencies problems
     """
     resp = []
+
     try:
         import pygtk
         pygtk.require("2.0")

@@ -186,22 +186,27 @@ class HardwareRegistry(DbusComponent):
         return defer.gatherResults(deferreds)
 
     def _same_pcmcia_slot(self, u1, u2):
+        """
+        Returns true if the devices are present on the same PCMCIA card
+        """
         p1 = self.get_properties_from_udi(u1)
-        p2 = self.get_properties_from_udi(u2)
-
-        if (not 'info.parent' in p1) or (not 'info.parent' in p2):
-            return False
-
-        if not p1['info.parent'] == p2['info.parent']:
-            return False
-
         if not 'pcmcia.socket_number' in p1:
             return False
 
+        p2 = self.get_properties_from_udi(u2)
         if not 'pcmcia.socket_number' in p2:
             return False
 
         if not p1['pcmcia.socket_number'] == p2['pcmcia.socket_number']:
+            return False
+
+        if not 'info.parent' in p1:
+            return False
+
+        if not 'info.parent' in p2:
+            return False
+
+        if not p1['info.parent'] == p2['info.parent']:
             return False
 
         return True
