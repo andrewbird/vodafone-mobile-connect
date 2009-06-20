@@ -44,7 +44,7 @@ def probe_port(port):
         ser = None
         ser = serial.Serial(port, timeout=1)
         ser.write('AT+CGMR\r\n')
-        if not ser.readlines():
+        if not ser.readline():
             # Huawei E620 with driver option registers three serial
             # ports and the middle one wont raise any exception while
             # opening it even thou its a dummy port.
