@@ -35,39 +35,22 @@ __version__ = "$Rev: 1172 $"
 locale.setlocale(locale.LC_ALL, '')
 
 from vmc.common.startup import (create_skeleton_and_do_initial_setup,
-                                ensure_have_config,
-                                report_info)
-import time
-t = time.time()
-print 'time %s - %.02f' % (str(time.time), time.time() - t)
-
-# display extra info
-report_info()
-print 'time %s - %.02f' % (str(time.time), time.time() - t)
+                                ensure_have_config)
 
 # it will just return if its not necessary
 create_skeleton_and_do_initial_setup()
-print 'time %s - %.02f' % (str(time.time), time.time() - t)
 
 # make sure we always have a config
 ensure_have_config()
-print 'time %s - %.02f' % ('ensure_have_config', time.time() - t)
 
 # we delays this imports as they depend on modules that in turn depend on
 # stuff that depend on plugins. If we dont delay this imports after the
 # initial setup is complete we would get a messy traceback
-from vmc.gtk.startup import check_dependencies
-print 'time %s - %.02f' % ('import vmc.gtk.startup.check_dependencies', time.time() - t)
-from vmc.gtk.startup import GTKSerialService
-print 'time %s - %.02f' % ('import vmc.gtk.startup.GTKSerialService', time.time() - t)
+from vmc.gtk.startup import check_dependencies, GTKSerialService
 from vmc.common import shell
-print 'time %s - %.02f' % ('import vmc.common.shell', time.time() - t)
 from vmc.common.consts import APP_LONG_NAME, APP_SHORT_NAME, SSH_PORT
-print 'time %s - %.02f' % ('import vmc.common.consts', time.time() - t)
 from vmc.gtk import dialogs
-print 'time %s - %.02f' % ('import vmc.gtk.dialogs', time.time() - t)
 from vmc.common.encoding import _
-print 'time %s - %.02f' % ('import vmc.common._', time.time() - t)
 
 probs = check_dependencies()
 if probs:
@@ -76,7 +59,6 @@ if probs:
     msg = _('The following dependencies are not satisfied:\n%s') % probtext
     dialogs.open_warning_dialog(message, msg)
     raise SystemExit()
-print 'time %s - %.02f' % ('check_dependencies', time.time() - t)
 
 # access osobj singleton
 from vmc.common.exceptions import OSNotRegisteredError
@@ -102,15 +84,12 @@ if osobj.manage_secrets:
 in order to work properly:\n%s""" % (APP_LONG_NAME, probtext)
         dialogs.open_warning_dialog(message, details)
         raise SystemExit()
-print 'time %s - %.02f' % ('import vmc.common.oal.osobj', time.time() - t)
 
 from vmc.common.shutdown import shutdown_core
 signal.signal(signal.SIGINT, shutdown_core)
 
 service = GTKSerialService()
-print 'time %s - %.02f' % (str(time.time), time.time() - t)
 application = Application(APP_SHORT_NAME)
-print 'time %s - %.02f' % (str(time.time), time.time() - t)
 
 # Enable only for debugging
 #from twisted.application import strports
@@ -122,4 +101,3 @@ print 'time %s - %.02f' % (str(time.time), time.time() - t)
 #IProcess(application).processName = APP_SHORT_NAME
 
 service.setServiceParent(application)
-print 'time %s - %.02f' % (str(time.time), time.time() - t)

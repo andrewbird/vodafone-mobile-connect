@@ -30,7 +30,6 @@ from twisted.python import log
 
 import vmc.common.consts as consts
 from vmc.utils.utilities import save_file, touch
-from subprocess import Popen, PIPE
 
 DELAY = 10
 
@@ -75,25 +74,6 @@ def ensure_have_config(force_create=False):
     shutil.copy(cfg_path, consts.VMC_CFG)
 
     os.chmod(consts.VMC_CFG, 0600)
-
-def report_info():
-    """Let's help identify the versions in debug log"""
-    from vmc.common import plugin
-    print "Software version: %s" % consts.APP_VERSION
-    print "Plugin version: %s" % str(plugin.VERSION)
-
-    print "lsusb:"
-    pipe = Popen(["[ -x /sbin/lsusb ] && /sbin/lsusb || /usr/sbin/lsusb"],
-                 shell = True, stdout = PIPE)
-    for line in pipe.stdout:
-        print "    %s" % line.strip()
-
-    for i in ['serial', 'modem']:
-        print "hal-find-by-capability --capability=%s:" % i
-        pipe = Popen(["hal-find-by-capability --capability=%s" % i],
-                     shell = True, stdout = PIPE)
-        for line in pipe.stdout:
-            print "    %s" % line.strip()
 
 def create_skeleton_and_do_initial_setup():
     """I perform the operations needed for the initial user setup"""
