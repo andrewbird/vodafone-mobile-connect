@@ -218,7 +218,7 @@ def produce_tree():
 
 	# compile all of the python objects
 	import compileall
-	compileall.compile_dir('%s/' % root, force=True)
+	compileall.compile_dir('%s/' % root, ddir='/', force=True)
 
 # so make can find out the root directory
     f = open('%s/builddir' % tmp,'w')
