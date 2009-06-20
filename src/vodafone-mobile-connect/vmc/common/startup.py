@@ -63,6 +63,17 @@ def attach_serial_protocol(device, test=False):
     device.sconn = sconn
     return device
 
+def ensure_have_config(force_create=False):
+    if os.path.exists(consts.VMC_CFG) and not force_create:
+        return
+
+    from vmc.common.oal import osobj
+
+    join = os.path.join
+    cfg_path = join(consts.TEMPLATES_DIR, osobj.abstraction['CFG_TEMPLATE'])
+    shutil.copy(cfg_path, consts.VMC_CFG)
+
+    os.chmod(consts.VMC_CFG, 0600)
 
 def create_skeleton_and_do_initial_setup():
     """I perform the operations needed for the initial user setup"""
@@ -80,19 +91,15 @@ def create_skeleton_and_do_initial_setup():
     
     # copy plugins to plugins dir
     shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
-    
-    from vmc.common.oal import osobj
-    from vmc.common import plugin
 
-    join = os.path.join
-    cfg_path = join(consts.TEMPLATES_DIR, osobj.abstraction['CFG_TEMPLATE'])
-    shutil.copy(cfg_path, consts.VMC_CFG)
-    
+    # Create the initial config
+    ensure_have_config(force_create=True)
+
     touch(consts.CHAP_PROFILE)
     touch(consts.DEFAULT_PROFILE)
     touch(consts.PAP_PROFILE)
     
-    os.chmod(consts.VMC_CFG, 0600)
+    from vmc.common import plugin
     save_file(LOCK, str(plugin.VERSION))
     
 def populate_dbs():

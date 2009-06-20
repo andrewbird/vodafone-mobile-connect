@@ -34,10 +34,14 @@ __version__ = "$Rev: 1172 $"
 # i10n stuff
 locale.setlocale(locale.LC_ALL, '')
 
-from vmc.common.startup import create_skeleton_and_do_initial_setup
+from vmc.common.startup import (create_skeleton_and_do_initial_setup,
+                                ensure_have_config)
 
 # it will just return if its not necessary
 create_skeleton_and_do_initial_setup()
+
+# make sure we always have a config
+ensure_have_config()
 
 # we delays this imports as they depend on modules that in turn depend on
 # stuff that depend on plugins. If we dont delay this imports after the
