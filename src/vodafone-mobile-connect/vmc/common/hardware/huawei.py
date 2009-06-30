@@ -203,7 +203,11 @@ class HuaweiCustomizer(Customizer):
     adapter = HuaweiAdapter
 
     async_regexp = re.compile('\r\n(?P<signal>\^MODE|\^RSSI|\^DSFLOWRPT|\^RFSWITCH):(?P<args>.*)\r\n')
-    ignore_regexp = [ re.compile('\r\n(?P<ignore>\^BOOT:.*)\r\n'), ]
+    ignore_regexp = [ re.compile('\r\n(?P<ignore>\^BOOT:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\^EARST:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\^SRVST:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\^SIMST:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\^SMMEMFULL:.*)\r\n'), ]
     conn_dict = HUAWEI_DICT
     device_capabilities = [notifications.SIG_NEW_CONN_MODE,
                            notifications.SIG_RSSI,
