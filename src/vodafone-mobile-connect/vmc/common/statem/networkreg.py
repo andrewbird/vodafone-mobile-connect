@@ -26,13 +26,15 @@ __version__ = "$Rev: 1172 $"
 
 from twisted.python import log
 from twisted.internet import defer, reactor
+from time import time
 
 import vmc.common.exceptions as ex
 import vmc.common.notifications as N
 from vmc.common.statem.base import StateMachineMixin
 from vmc.contrib.epsilon.modal import mode, Modal
 
-REGISTER_TIMEOUT = 30
+REGISTER_TIMEOUT = 60
+REGISTER_INTERVAL = 8
 MAX_FAILURES = 3
 
 class NetworkRegStateMachine(StateMachineMixin, Modal):
@@ -52,6 +54,8 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
         self.netobj = None
         # used to cache network ids on a foreign country
         self.cached_roaming_ids = None
+        # Absolute timeout for registration
+        self.register_timeout = 0
         # wait_for_register IDelayedCall
         self.cID = None
         # response's deferred
@@ -61,6 +65,11 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
             
     def __repr__(self):
         return self.__class__.__name__
+
+    def cancel_poll(self):
+        if self.cID:
+            self.cID.cancel()
+            self.cID = None
     
     def on_notification_received(self, notification):
         super(NetworkRegStateMachine,
@@ -76,7 +85,7 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
             status = notification.args 
             if status == 1:
                 # we are finally registered
-                self.cID.cancel()
+                self.cancel_poll()
                 #self.transitionTo('obtain_netinfo')
                 self.transitionTo('registration_finished')
                 self.do_next()
@@ -87,7 +96,7 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
             
             elif status == 3:
                 # registration rejected
-                self.cID.cancel()
+                self.cancel_poll()
                 self.transitionTo('registration_failed')
                 # send exception back to behaviour
                 errmsg = 'Registration rejected +CREG: 3'
@@ -95,7 +104,7 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
             
             elif status == 4:
                 # registration rejected
-                self.cID.cancel()
+                self.cancel_poll()
                 self.transitionTo('registration_failed')
                 # send exception back to behaviour
                 errmsg = 'Registration rejected by unknown reasons, +CREG: 4'
@@ -105,15 +114,15 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
                 # registered on foreign network (roaming)
                 # our SIM is smart enough to discover itself which network
                 # should register with
-                self.cID.cancel()
+                self.cancel_poll()
                 self.transitionTo('registration_finished')
                 self.do_next()
     
     def check_if_i_registered_with_any_net(self):
         """
-        Executed when Timeout has expired while on wait_to_register
+        Executed when poll interval has expired while on wait_to_register
         
-        some cards like to not notify you that they're registered
+        some cards do not like to notify you that they're registered
         """
         # Like NovatelWireless' Ovation MC950D
         def get_netreg_status_cb(netregstatus):
@@ -123,11 +132,17 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
                 # we are already registered
                 self.transitionTo('registration_finished')
                 self.do_next()
+            elif status in [2, ] and (time() < self.register_timeout):
+                # keep polling for now
+                self.transitionTo('wait_to_register')
+                self.do_next()
             else:
                 self.transitionTo('registration_failed')
                 msg = 'Timeout while waiting for registering with the network'
                 self.do_next(ex.NetworkRegistrationError(msg))
                 
+        self.cID = None # invalidate since we were called
+
         d = self.device.sconn.get_netreg_status()
         d.addCallback(get_netreg_status_cb)
     
@@ -273,6 +288,8 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
         
         def do_next(self):
             log.msg("%s: NEW MODE: check_registered" % self)
+            # calc the absolute timeout for the operation
+            self.register_timeout = time() + REGISTER_TIMEOUT
             # Set encoding to IRA as some devices return less information
             # while in UCS2
             self.device.sconn.set_charset("IRA")
@@ -293,11 +310,10 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
         def do_next(self):
             log.msg("%s: NEW MODE: wait_to_register" % self)
             if not self.cID:
-                # we setup a timer in case we don't receive the notification in
-                # less than, say, 30s
-                self.cID = reactor.callLater(REGISTER_TIMEOUT,
+                # we setup a timer to poll for registration status in case
+                # we don't receive the unsolicited notification
+                self.cID = reactor.callLater(REGISTER_INTERVAL,
                                     self.check_if_i_registered_with_any_net)
-            
     
     class obtain_netinfo(mode):
         """
@@ -312,7 +328,7 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
         def do_next(self):
             log.msg("%s: NEW MODE: obtain_netinfo" % self)
             d = self.device.sconn.get_imsi()
-            d.addCallback(lambda response: int(response[:5]))
+            d.addCallback(lambda response: int(response[:5])) # FIXME IMSI 5 digit restriction
             d.addCallback(self._process_imsi_cb)
     
     class search_operators(mode):
