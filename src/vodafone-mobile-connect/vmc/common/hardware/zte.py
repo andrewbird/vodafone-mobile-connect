@@ -61,6 +61,8 @@ class ZTESIMClass(SIMBaseClass):
     def initialize(self, set_encoding=True):
         d = super(ZTESIMClass, self).initialize(set_encoding=set_encoding)
         def init_callback(size):
+            # make sure we are in 3g pref before registration
+            self.sconn.send_at(ZTE_DICT['3GPREF'])
             # setup SIM storage defaults
             self.sconn.send_at('AT+CPMS="SM","SM","SM"')
             return size
