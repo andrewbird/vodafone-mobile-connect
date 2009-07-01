@@ -20,12 +20,11 @@ __version__ = "$Rev: 1172 $"
 import serial
 from vmc.common.hardware.novatel import NovatelCustomizer, NovatelDBusDevicePlugin
 
-class NovatelOvation(NovatelDBusDevicePlugin):
-    """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's Ovation"""
+class NovatelMC950D(NovatelDBusDevicePlugin):
+    """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's MC950D"""
     name = "Novatel MC950D"
     version = "0.1"
     author = u"Pablo Martí"
-    #custom = NovatelOvationCustomizer
     custom = NovatelCustomizer
 
     __remote_name__ = "Ovation MC950D Card"
@@ -44,4 +43,4 @@ class NovatelOvation(NovatelDBusDevicePlugin):
         ser.write('AT$NWDMAT=1\r\n')
         ser.close()
 
-novatelovation = NovatelOvation()
+novatelmc950d = NovatelMC950D()
