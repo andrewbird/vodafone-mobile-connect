@@ -18,11 +18,9 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.hardware.novatel import NovatelCustomizer
+from vmc.common.hardware.novatel import NovatelCustomizer, NovatelDBusDevicePlugin
 
-
-class NovatelU630(DBusDevicePlugin):
+class NovatelU630(NovatelDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's U630"""
     name = "Novatel U630"
     version = "0.1"

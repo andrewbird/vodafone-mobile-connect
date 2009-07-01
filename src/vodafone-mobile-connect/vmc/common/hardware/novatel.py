@@ -22,6 +22,8 @@ Common stuff for all Novatel's cards
 __version__ = "$Rev: 1172 $"
 
 from vmc.common.hardware.base import Customizer
+from vmc.common.sim import SIMBaseClass
+from vmc.common.plugin import DBusDevicePlugin
 
 # Sphere changes 
 # 1/ Preferred modes were actually forced
@@ -34,6 +36,34 @@ NOVATEL_DICT = {
    '3GPREF'   : 'AT$NWRAT=0,2',
 }
     
+class NovatelSIMClass(SIMBaseClass):
+    """
+    Novatel SIM Class
+    """
+    def __init__(self, sconn):
+        super(NovatelSIMClass, self).__init__(sconn)
+
+    def initialize(self, set_encoding=True):
+        d = super(NovatelSIMClass, self).initialize(set_encoding=set_encoding)
+        def init_callback(size):
+            # make sure we are in 3g pref before registration
+            self.sconn.send_at(NOVATEL_DICT['3GPREF'])
+            # setup SIM storage defaults
+            self.sconn.send_at('AT+CPMS="SM","SM","SM"')
+            return size
+
+        d.addCallback(init_callback)
+        return d
+
+
+class NovatelDBusDevicePlugin(DBusDevicePlugin):
+    """DBusDevicePlugin for Novatel"""
+    simklass = NovatelSIMClass
+
+    def __init__(self):
+        super(NovatelDBusDevicePlugin, self).__init__()
+
+
 class NovatelCustomizer(Customizer):
     async_regexp = None
     conn_dict = NOVATEL_DICT

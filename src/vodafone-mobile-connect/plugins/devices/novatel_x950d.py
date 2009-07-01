@@ -20,8 +20,7 @@ __version__ = "$Rev: 1172 $"
 from twisted.python import log
 import serial
 import vmc.common.exceptions as ex
-from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.hardware.novatel import NovatelCustomizer
+from vmc.common.hardware.novatel import NovatelCustomizer, NovatelDBusDevicePlugin
 from vmc.common.statem.networkreg import NetworkRegStateMachine
 
 from vmc.contrib.epsilon.modal import mode
@@ -60,7 +59,7 @@ class NovatelX950DNetworkRegStateMachine(NetworkRegStateMachine):
                 # the network is registered with
                 log.msg("%s: NEW MODE: obtain_netinfo" % self)
                 d = self.device.sconn.get_imsi()
-                d.addCallback(lambda response: int(response[:5]))
+                d.addCallback(lambda response: int(response[:5])) # FIXME - IMSI 5 digit problem
                 d.addCallback(self._process_imsi_cb)
             
             def get_netinfo_eb(failure):
@@ -73,11 +72,12 @@ class NovatelX950DNetworkRegStateMachine(NetworkRegStateMachine):
             d.addCallback(get_netinfo_cb)
             d.addErrback(get_netinfo_eb)
 
+
 class NovatelX950DCustomizer(NovatelCustomizer):
     netrklass = NovatelX950DNetworkRegStateMachine
 
 
-class NovatelX950D(DBusDevicePlugin):
+class NovatelX950D(NovatelDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's X950D"""
     name = "Novatel X950D"
     version = "0.1"

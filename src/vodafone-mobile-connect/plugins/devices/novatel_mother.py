@@ -18,13 +18,13 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.plugin import DBusDevicePlugin
+from vmc.common.hardware.novatel import NovatelDBusDevicePlugin
 
 from vmc.common.plugins.novatel_mc990d import NovatelMC990D
 from vmc.common.plugins.novatel_mifi2352 import NovatelMiFi2352
 
 
-class NovatelMother(DBusDevicePlugin):
+class NovatelMother(NovatelDBusDevicePlugin):
     """
     L{vmc.common.plugin.DBusDevicePlugin} for Novatel's Ovation/MiFi
     devices that share a common PID

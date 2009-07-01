@@ -19,11 +19,10 @@
 Plugin for Novatel Ovation MC990D
 """
 
-from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.hardware.novatel import NovatelCustomizer
+from vmc.common.hardware.novatel import NovatelCustomizer, NovatelDBusDevicePlugin
 import serial
 
-class NovatelMC990D(DBusDevicePlugin):
+class NovatelMC990D(NovatelDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's MC990D"""
     name = "Novatel MC990D"
     version = "0.1"

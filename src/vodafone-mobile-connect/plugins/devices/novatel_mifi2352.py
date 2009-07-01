@@ -18,39 +18,10 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.hardware.novatel import NovatelCustomizer
-from vmc.common.sim import SIMBaseClass
-from vmc.common.plugin import DBusDevicePlugin
+from vmc.common.hardware.novatel import NovatelCustomizer, NovatelDBusDevicePlugin
 import serial
 
-
-class NovatelMiFiSIMClass(SIMBaseClass):
-    """
-    Novatel MiFi SIM Class
-    """
-    def __init__(self, sconn):
-        super(NovatelMiFiSIMClass, self).__init__(sconn)
-
-    def initialize(self, set_encoding=True):
-        d = super(NovatelMiFiSIMClass, self).initialize(set_encoding=set_encoding)
-        def init_callback(size):
-            # setup SIM storage defaults
-            self.sconn.send_at('AT+CPMS="SM","SM","SM"')
-            return size
-
-        d.addCallback(init_callback)
-        return d
-
-
-class NovatelMiFiDBusDevicePlugin(DBusDevicePlugin):
-    """DBusDevicePlugin for Novatel MiFi"""
-    simklass = NovatelMiFiSIMClass
-
-    def __init__(self):
-        super(NovatelMiFiDBusDevicePlugin, self).__init__()
-
-
-class NovatelMiFi2352(NovatelMiFiDBusDevicePlugin):
+class NovatelMiFi2352(NovatelDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Novatel's MiFi 2352"""
     name = "Novatel MiFi2352"
     version = "0.1"
