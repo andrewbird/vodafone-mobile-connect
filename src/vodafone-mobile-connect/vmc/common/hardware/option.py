@@ -57,6 +57,8 @@ class OptionSIMClass(SIMBaseClass):
     def initialize(self, set_encoding=True):
         d = super(OptionSIMClass, self).initialize(set_encoding=set_encoding)
         def init_callback(size):
+            # make sure we are in 3g pref before registration
+            self.sconn.send_at(OPTION_DICT['3GPREF'])
             # setup asynchronous notifications
             self.sconn.send_at('AT_OSSYS=1')
             return size
