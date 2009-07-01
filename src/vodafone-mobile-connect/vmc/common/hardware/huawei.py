@@ -28,6 +28,7 @@ from vmc.common.netspeed import bps_to_human
 from vmc.common.middleware import SIMCardConnAdapter
 import vmc.common.notifications as notifications
 from vmc.common.sim import SIMBaseClass
+from vmc.common.plugin import DBusDevicePlugin
 
 from vmc.common.encoding import (from_ucs2, from_u,
                                 unpack_ucs2_bytes_in_ts31101_80,
@@ -78,6 +79,34 @@ def huawei_new_speed_link(args):
     converted_args = map(lambda hexstr: int(hexstr, 16), args.split(','))
     time, tx, rx, tx_flow, rx_flow, tx_rate, rx_rate = converted_args
     return bps_to_human(tx * 8, rx * 8)
+
+class HuaweiSIMClass(SIMBaseClass):
+    """
+    Huawei SIM Class
+    """
+    def __init__(self, sconn):
+        super(HuaweiSIMClass, self).__init__(sconn)
+
+    def initialize(self, set_encoding=True):
+
+        d = super(HuaweiSIMClass, self).initialize(set_encoding=set_encoding)
+        def init_callback(size):
+            # make sure we are in 3g pref before registration
+            self.sconn.send_at(HUAWEI_DICT['3GPREF'])
+            # setup SIM storage defaults
+            self.sconn.send_at('AT+CPMS="SM","SM","SM"')
+            return size
+
+        d.addCallback(init_callback)
+        return d
+
+
+class HuaweiDBusDevicePlugin(DBusDevicePlugin):
+    """DBusDevicePlugin for Huawei"""
+    simklass = HuaweiSIMClass
+
+    def __init__(self):
+        super(HuaweiDBusDevicePlugin, self).__init__()
 
 
 class HuaweiAdapter(SIMCardConnAdapter):

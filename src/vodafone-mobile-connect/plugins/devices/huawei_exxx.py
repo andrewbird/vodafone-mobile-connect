@@ -18,7 +18,7 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.plugin import DBusDevicePlugin
+from vmc.common.hardware.huawei import HuaweiDBusDevicePlugin
 
 from vmc.common.plugins.huawei_e172 import HuaweiE172
 from vmc.common.plugins.huawei_e220 import HuaweiE220
@@ -41,7 +41,7 @@ from vmc.common.plugins.huawei_em770 import HuaweiEM770
 
 from vmc.common.plugins.huawei_b970 import HuaweiB970
 
-class HuaweiEXXX1003(DBusDevicePlugin):
+class HuaweiEXXX1003(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's 1003 family"""
     name = "Huawei EXXX"
     version = "0.1"
@@ -72,7 +72,7 @@ class HuaweiEXXX1003(DBusDevicePlugin):
             'default' : HuaweiE220,
         }
 
-class HuaweiEXXX1001(DBusDevicePlugin):
+class HuaweiEXXX1001(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's 1001 family"""
     name = "Huawei EXXX"
     version = "0.1"

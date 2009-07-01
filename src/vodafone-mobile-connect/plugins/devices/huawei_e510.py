@@ -18,11 +18,9 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.hardware.huawei import HuaweiCustomizer
-from vmc.common.plugin import DBusDevicePlugin
+from vmc.common.hardware.huawei import HuaweiCustomizer, HuaweiDBusDevicePlugin
 
-
-class HuaweiE510(DBusDevicePlugin):
+class HuaweiE510(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's E510"""
     name = "Huawei E510"
     version = "0.1"
@@ -37,7 +35,7 @@ class HuaweiE510(DBusDevicePlugin):
     }
 
     def preprobe_init(self, ports, info):
-        # This device might be found as by means of the mother plugin too
+        # This device might be found by means of the mother plugin too
         if info['usb_device.product_id'] == 0x1001:
             self.__properties__['usb_device.product_id'][0] = 0x1001
 

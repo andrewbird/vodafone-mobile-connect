@@ -18,11 +18,9 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.hardware.huawei import HuaweiEMXXCustomizer
-from vmc.common.plugin import DBusDevicePlugin
+from vmc.common.hardware.huawei import HuaweiEMXXCustomizer, HuaweiDBusDevicePlugin
 
-
-class HuaweiEM730V(DBusDevicePlugin):
+class HuaweiEM730V(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's EM730V"""
     name = "Huawei EM730V"
     version = "0.1"

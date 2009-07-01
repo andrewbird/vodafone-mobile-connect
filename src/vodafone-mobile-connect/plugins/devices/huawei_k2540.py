@@ -18,9 +18,7 @@
 
 __version__ = "$Rev$"
 
-from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.hardware.huawei import HuaweiCustomizer
-
+from vmc.common.hardware.huawei import HuaweiCustomizer, HuaweiDBusDevicePlugin
 
 class HuaweiK2540Customizer(HuaweiCustomizer):
     conn_dict = {
@@ -31,7 +29,7 @@ class HuaweiK2540Customizer(HuaweiCustomizer):
     }
 
 
-class HuaweiK2540(DBusDevicePlugin):
+class HuaweiK2540(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's K2540"""
     name = "Huawei K2540"
     version = "0.1"

@@ -18,11 +18,11 @@
 
 __version__ = "$Rev: 1172 $"
 
-from vmc.common.sim import SIMBaseClass
-from vmc.common.plugin import DBusDevicePlugin
-from vmc.common.hardware.huawei import HuaweiCustomizer
+from vmc.common.hardware.huawei import (HuaweiCustomizer,
+                                        HuaweiDBusDevicePlugin,
+                                        HuaweiSIMClass)
 
-class HuaweiE220SIMClass(SIMBaseClass):
+class HuaweiE220SIMClass(HuaweiSIMClass):
     """Huawei E220 SIM Class"""
     def __init__(self, sconn):
         super(HuaweiE220SIMClass, self).__init__(sconn)
@@ -54,7 +54,7 @@ class HuaweiE220SIMClass(SIMBaseClass):
         return d
 
 
-class HuaweiE220(DBusDevicePlugin):
+class HuaweiE220(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's E220"""
     name = "Huawei E220"
     version = "0.1"
