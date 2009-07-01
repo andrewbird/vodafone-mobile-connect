@@ -207,6 +207,7 @@ class HuaweiCustomizer(Customizer):
                       re.compile('\r\n(?P<ignore>\^EARST:.*)\r\n'),
                       re.compile('\r\n(?P<ignore>\^SRVST:.*)\r\n'),
                       re.compile('\r\n(?P<ignore>\^SIMST:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\^STIN:.*)\r\n'),
                       re.compile('\r\n(?P<ignore>\^SMMEMFULL:.*)\r\n'), ]
     conn_dict = HUAWEI_DICT
     device_capabilities = [notifications.SIG_NEW_CONN_MODE,
