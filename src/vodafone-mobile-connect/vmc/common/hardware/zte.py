@@ -81,5 +81,7 @@ class ZTEDBusDevicePlugin(DBusDevicePlugin):
 
 class ZTECustomizer(Customizer):
     async_regexp = None
+    ignore_regexp = [ re.compile('\r\n(?P<ignore>\+ZPSTM:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\+ZEND)\r\n'), ]
     conn_dict = ZTE_DICT
     cmd_dict = ZTE_CMD_DICT
