@@ -102,8 +102,14 @@ class SIMCardConnAdapter(SIMCardConnection):
         
         @rtype: C{defer.Deferred}
         """
+        def errback(failure):
+            if failure.check(ex.ATTimeout):
+                print "check_pin: timeout"
+            return failure
+
         d = super(SIMCardConnAdapter, self).check_pin()
         d.addCallback(lambda result: result[0].group('resp'))
+        d.addErrback(errback)
         return d
     
     def find_contacts(self, pattern):

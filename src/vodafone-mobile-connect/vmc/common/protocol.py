@@ -384,6 +384,12 @@ class SIMProtocol(BufferingStateMachine):
         self.queue.put(cmd)
         return cmd.deferred
 
+    def fake_queue_at_cmd(self, cmd):
+        """
+        Returns a Deferred timeout failure
+        """
+        return defer.fail(ex.ATTimeout(cmd))
+
 
 class SIMCardConnection(SIMProtocol):
     """
@@ -450,7 +456,9 @@ class SIMCardConnection(SIMProtocol):
         authentication is disabled
         """
         cmd = ATCmd('AT+CPIN?', name='check_pin')
+        cmd.timeout=5
         return self.queue_at_cmd(cmd)
+        #return self.fake_queue_at_cmd(cmd)
     
     def delete_all_contacts(self):
         """Deletes all the contacts in SIM card, function useful for tests"""

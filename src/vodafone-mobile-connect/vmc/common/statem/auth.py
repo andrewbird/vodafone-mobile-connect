@@ -178,7 +178,7 @@ class AuthStateMachine(StateMachineMixin, Modal):
     
     def sim_busy_eb(self, failure):
         """Executed when SIM is busy, try again in a while"""
-        failure.trap(ex.CMEErrorSIMBusy, ex.CMEErrorSIMNotStarted, ex.ATError)
+        failure.trap(ex.CMEErrorSIMBusy, ex.CMEErrorSIMNotStarted, ex.ATError, ex.ATTimeout)
         self.num_sim_busy += 1
         if self.num_sim_busy >= MAX_NUM_SIM_BUSY:
             # we can now consider that there's something wrong with the
