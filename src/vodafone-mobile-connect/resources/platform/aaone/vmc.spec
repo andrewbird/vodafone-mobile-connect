@@ -11,7 +11,7 @@ Source0:	vmc-1.99.17.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:	usb_modeswitch pyserial python-sqlite2 python-twisted pytz gnome-python2-libegg 
+Requires:	wvdial usb_modeswitch pyserial python-sqlite2 python-twisted pytz gnome-python2-libegg 
 
 %description
 OSS 3G manager for Linux
