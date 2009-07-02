@@ -531,6 +531,17 @@ class SIMCardConnection(SIMProtocol):
         cmd = ATCmd('AT+CLCK="SC",1,"%s"' % str(pin), name='enable_pin')
         return self.queue_at_cmd(cmd)
         
+    def error_reporting(self, type=1):
+        """
+        Error reporting method
+
+        0 disable +CME ERROR: <err> result code and use ERROR instead
+        1 enable +CME ERROR: <err> result code and use numeric <err> values
+        2 enable +CME ERROR: <err> result code and use verbose <err> values
+        """
+        cmd = ATCmd('AT+CMEE=%d' % type, name='error_reporting')
+        return self.queue_at_cmd(cmd)
+
     def find_contacts(self, pattern):
         """Returns a list of contacts that match the given pattern"""
         cmd = ATCmd('AT+CPBF="%s"' % pattern, name='find_contacts')

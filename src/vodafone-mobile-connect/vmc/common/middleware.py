@@ -107,6 +107,8 @@ class SIMCardConnAdapter(SIMCardConnection):
                 print "check_pin: timeout"
             return failure
 
+        e = super(SIMCardConnAdapter, self).error_reporting(2)
+
         d = super(SIMCardConnAdapter, self).check_pin()
         d.addCallback(lambda result: result[0].group('resp'))
         d.addErrback(errback)

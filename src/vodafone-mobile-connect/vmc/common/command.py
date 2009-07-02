@@ -100,6 +100,12 @@ CMD_DICT = {
                  error=ERROR_REGEXP,
                  extract=OK_REGEXP),
 
+    'error_reporting' :
+            dict(echo=None,
+                 end=OK_REGEXP,
+                 error=ERROR_REGEXP,
+                 extract=OK_REGEXP),
+
     'find_contacts' :
             dict(echo=None,
                  end=re.compile('(\r\n)*OK\r\n', re.DOTALL),
