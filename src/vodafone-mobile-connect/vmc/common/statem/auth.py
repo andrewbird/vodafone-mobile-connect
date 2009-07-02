@@ -135,7 +135,7 @@ class AuthStateMachine(StateMachineMixin, Modal):
     
     def incorrect_pin_eb(self, failure):
         """Executed when PIN is incorrect"""
-        failure.trap(ex.CMEErrorIncorrectPassword)
+        failure.trap(ex.CMEErrorIncorrectPassword, ex.ATError)
         if self.collaborator.auth_token:
             auth_token = self.collaborator.auth_token
             log.err("DELETING BAD TOKEN %d" % auth_token)
