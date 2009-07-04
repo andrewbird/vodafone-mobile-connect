@@ -290,10 +290,35 @@ class AskPINController(Controller):
         self.deferred = deferred
         # handler id of self.view['gnomekeyring_checkbutton']::toggled
         self._hid = None
+        self.pin_activate_id = -1
     
+    def validate(self, widget=None):
+        valid = True
+
+        pin = self.view['pin_entry']
+
+        s = pin.get_text()
+        if is_valid_pin(s):
+            set_bg(pin, 'white')
+        else:
+            valid = False
+            set_bg(pin, 'red')
+
+        # We won't enable the OK button until we have a fully validated form
+        self.view['ok_button'].set_sensitive(valid)
+
+        # A little fun {dis,en}abling the enter key
+        if valid:
+            if self.pin_activate_id == -1:
+                self.pin_activate_id = pin.connect('activate', self.on_ok_button_clicked)
+        else:
+            if self.pin_activate_id >= 0:
+                pin.disconnect(self.pin_activate_id)
+                self.pin_activate_id = -1
+
     def register_view(self, view):
         super(AskPINController, self).register_view(view)
-        self.view['pin_entry'].connect('activate', self.on_ok_button_clicked)
+        self.view['ask_pin_window'].connect('delete-event',shutdown_core)
         
         def toggled_cb(checkbutton):
             """
@@ -321,6 +346,8 @@ class AskPINController(Controller):
         
         self._hid = self.view['gnomekeyring_checkbutton'].connect('toggled',
                                                                  toggled_cb)
+        self.view['pin_entry'].connect('changed', self.validate)
+        self.validate() # Initial validation
     
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
@@ -336,6 +363,11 @@ class AskPINController(Controller):
             
             self.view.hide()
             self.model.unregister_observer(self)
+
+    def on_cancel_button_clicked(self, widget):
+        self.view.hide()
+        self.model.unregister_observer(self)
+        shutdown_core()
 
 
 class AskPUKController(Controller):
