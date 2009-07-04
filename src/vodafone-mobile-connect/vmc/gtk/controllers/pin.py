@@ -22,10 +22,27 @@ __version__ = "$Rev: 1172 $"
 
 import vmc.common.exceptions as ex
 from vmc.common.encoding import _
+from vmc.common.shutdown import shutdown_core
 from vmc.gtk import Controller
 import vmc.gtk.dialogs as dialogs
 from vmc.gtk.controllers.base import WidgetController
 from vmc.gtk.notification import show_error_notification
+
+from gtk.gdk import color_parse
+from gtk import STATE_NORMAL
+
+def is_valid_puk(s):
+    return (len(s) == 8) and s.isdigit()
+
+def is_valid_pin(s):
+    return (len(s) >= 4) and (len(s) <= 8) and s.isdigit()
+
+def set_bg(widget, colour):
+    if colour is 'red':
+        col = '#E0B6AF'
+    else:
+        col = '#FFFFFF'
+    widget.modify_base(STATE_NORMAL, color_parse(col))
 
 class PinModifyController(WidgetController):
     """Controller for the PIN modify dialog"""
@@ -91,6 +108,7 @@ invalid. The PIN must be a 4 digit code</small>
         self.model.unregister_observer(self)
         self.view.hide()
     
+
 class ExecuteFuncController(WidgetController):
     """Base class for the ExecuteFuncControllers
     
@@ -151,6 +169,7 @@ class ExecuteFuncController(WidgetController):
         self.view.hide()
         self.model.unregister_observer(self)
 
+
 class AskPUKAndExecuteFuncController(ExecuteFuncController):
     """Controller for the ask puk/puk2 dialog"""
     
@@ -185,6 +204,7 @@ should be your last PIN.</small>
         
         d.addCallback(send_puk_cb)
         d.addErrback(send_puk_eb)
+
 
 class AskPINAndExecuteFuncController(ExecuteFuncController):
     """Controller for the ask pin dialog"""
@@ -317,16 +337,63 @@ class AskPINController(Controller):
             self.view.hide()
             self.model.unregister_observer(self)
 
+
 class AskPUKController(Controller):
     def __init__(self, model, deferred):
         super(AskPUKController, self).__init__(model)
         self.deferred = deferred
-    
+
+    def validate(self, widget=None):
+        valid = True
+
+        puk = self.view['puk_entry']
+        pin = self.view['pin_entry']
+        cnf = self.view['cnf_entry']
+
+        s = puk.get_text()
+        if is_valid_puk(s):
+            set_bg(puk, 'white')
+        else:
+            valid = False
+            set_bg(puk, 'red')
+        
+        s = pin.get_text()
+        if is_valid_pin(s):
+            set_bg(pin, 'white')
+        else:
+            valid = False
+            set_bg(pin, 'red')
+
+        s = cnf.get_text()
+        if is_valid_pin(s) and s == pin.get_text():
+            set_bg(cnf, 'white')
+        else:
+            valid = False
+            set_bg(cnf, 'red')
+
+        # We won't enable the OK button until we have a fully validated form
+        self.view['ok_button'].set_sensitive(valid)
+
+    def register_view(self, view):
+        super(AskPUKController, self).register_view(view)
+        self.view['ask_puk_window'].connect('delete-event',shutdown_core)
+
+        self.view['puk_entry'].connect('changed', self.validate)
+        self.view['pin_entry'].connect('changed', self.validate)
+        self.view['cnf_entry'].connect('changed', self.validate)
+        self.validate() # Initial validation
+
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
         puk = self.view['puk_entry'].get_text()
-        
+
         if pin and puk:
             self.deferred.callback((puk, pin))
             self.view.hide()
             self.model.unregister_observer(self)
+
+    def on_cancel_button_clicked(self, widget):
+        self.view.hide()
+        self.model.unregister_observer(self)
+        shutdown_core()
+

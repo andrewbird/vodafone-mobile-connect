@@ -105,7 +105,7 @@ class AuthStateMachine(StateMachineMixin, Modal):
         self.collaborator.puk2, self.collaborator.pin = auth
         self.transitionTo('puk2_needed_status')
         self.do_next()
-    
+
     # states callbacks
     def check_pin_cb(self, resp):
         """Callbacked with check_pin's result"""
@@ -278,8 +278,8 @@ class AuthStateMachine(StateMachineMixin, Modal):
         
         def do_next(self):
             log.msg("%s: Instantiating puk_needed_status mode...." % self)
-            authinfo = self.collaborator.puk, self.collaborator.pin
-            d = self.device.sconn.send_puk(authinfo)
+            d = self.device.sconn.send_puk(self.collaborator.puk, 
+                                           self.collaborator.pin)
             d.addCallback(lambda _: self.notify_auth_ok())
             d.addErrback(self.incorrect_puk_eb)
             d.addErrback(self.puk2_required_eb)
@@ -301,8 +301,8 @@ class AuthStateMachine(StateMachineMixin, Modal):
         
         def do_next(self):
             log.msg("%s: Instantiating puk2_needed_status mode...." % self)
-            authinfo = self.collaborator.puk2, self.collaborator.pin
-            d = self.device.sconn.send_puk(authinfo)
+            d = self.device.sconn.send_puk(self.collaborator.puk2,
+                                           self.collaborator.pin)
             d.addCallback(lambda _: self.notify_auth_ok())
             d.addErrback(self.incorrect_puk2_eb)
             d.addErrback(self.puk2_required_eb)

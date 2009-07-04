@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-11 20:01+0100\n"
+"POT-Creation-Date: 2009-07-04 18:38+0100\n"
 "PO-Revision-Date: 2007-12-11 16:49+01\n"
 "Last-Translator: Emanuele Fanton <emanuele.fanton@gmail.com>\n"
 "Language-Team: Italian <IT@li.org>\n"
@@ -458,19 +458,23 @@ msgstr "<b>Opzioni avanzate</b>"
 msgid "Modify PIN code"
 msgstr "Modifica il codice PIN"
 
-#: ../glade/pin.glade:202
-msgid "Current PIN code: "
-msgstr "Codice PIN corrente: "
-
-#: ../glade/pin.glade:215
-msgid "New PIN code: "
-msgstr "Nuovo codice PIN"
-
-#: ../glade/pin.glade:230
+#: ../glade/pin.glade:248 ../glade/pin.glade:474
 msgid "Confirm PIN code: "
 msgstr "Conferma il codice PIN: "
 
-#: ../glade/pin.glade:380 ../glade/VMC.glade:879 ../glade/VMC.glade:896
+#: ../glade/pin.glade:263 ../glade/pin.glade:465
+msgid "New PIN code: "
+msgstr "Nuovo codice PIN"
+
+#: ../glade/pin.glade:278
+msgid "Current PIN code: "
+msgstr "Codice PIN corrente: "
+
+#: ../glade/pin.glade:336
+msgid "Please enter PUK"
+msgstr "Immettere il codice PUK"
+
+#: ../glade/pin.glade:381 ../glade/VMC.glade:879 ../glade/VMC.glade:896
 #: ../glade/VMC.glade:952 ../glade/VMC.glade:1007 ../glade/VMC.glade:1024
 #: ../glade/VMC.glade:1080 ../glade/VMC.glade:1293 ../glade/VMC.glade:1310
 #: ../glade/VMC.glade:1366 ../glade/VMC-reduced.glade:1261
@@ -481,11 +485,7 @@ msgstr "Conferma il codice PIN: "
 msgid "label"
 msgstr "etichetta"
 
-#: ../glade/pin.glade:405
-msgid "PIN:"
-msgstr "PIN:"
-
-#: ../glade/pin.glade:414
+#: ../glade/pin.glade:416
 msgid "PUK:"
 msgstr "PUK:"
 
@@ -1018,7 +1018,7 @@ msgstr "%(day)d giorno, %(msg)s"
 msgid "Shutting down..."
 msgstr "In spegnimento"
 
-#: ../../vmc/common/middleware.py:475
+#: ../../vmc/common/middleware.py:483
 msgid "Unknown Network"
 msgstr "Rete sconosciuta"
 
@@ -1270,11 +1270,11 @@ msgstr ""
 "Per spedire SMS, %s necessita di sapere il numero SMSC del tuo provider.\n"
 "Se non conosci il numero SMSC, contatta il servizio clienti.\n"
 
-#: ../../vmc/gtk/controllers/pin.py:48 ../../vmc/gtk/controllers/pin.py:218
+#: ../../vmc/gtk/controllers/pin.py:65 ../../vmc/gtk/controllers/pin.py:238
 msgid "Incorrect PIN"
 msgstr "PIN sbagliato"
 
-#: ../../vmc/gtk/controllers/pin.py:49
+#: ../../vmc/gtk/controllers/pin.py:66
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1288,11 +1288,11 @@ msgstr ""
 "tentativi falliti del PIN ti verrà\n"
 "richiesto il codice PUK</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:65
+#: ../../vmc/gtk/controllers/pin.py:82
 msgid "Invalid PIN"
 msgstr "PIN sbagliato"
 
-#: ../../vmc/gtk/controllers/pin.py:66
+#: ../../vmc/gtk/controllers/pin.py:83
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1302,19 +1302,19 @@ msgstr ""
 "<small>Il PIN che hai inserito è\n"
 "sbagliato. Il PIN deve essere composto da 4 numeri</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:84
+#: ../../vmc/gtk/controllers/pin.py:101
 msgid "Error"
 msgstr "Errore"
 
-#: ../../vmc/gtk/controllers/pin.py:85
+#: ../../vmc/gtk/controllers/pin.py:102
 msgid "Passwords don't match"
 msgstr "La password non corrisponde"
 
-#: ../../vmc/gtk/controllers/pin.py:171
+#: ../../vmc/gtk/controllers/pin.py:190
 msgid "Incorrect PUK"
 msgstr "PUK sbagliato"
 
-#: ../../vmc/gtk/controllers/pin.py:172
+#: ../../vmc/gtk/controllers/pin.py:191
 msgid ""
 "\n"
 "<small>The PUK you've just entered is\n"
@@ -1330,7 +1330,7 @@ msgstr ""
 "il codice PUK2. Il tuo codice PIN \n"
 "dovrebbe essere il tuo ultimo PIN.</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:219
+#: ../../vmc/gtk/controllers/pin.py:239
 msgid ""
 "\n"
 "The PIN you've just entered is\n"
@@ -1344,14 +1344,14 @@ msgstr ""
 "3 tentativi falliti per il PIN ti verrà richiesto\n"
 "il codice PUK\n"
 
-#: ../../vmc/gtk/controllers/pin.py:296
+#: ../../vmc/gtk/controllers/pin.py:316
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
 #: ../../vmc/gtk/controllers/application.py:588
 msgid "Missing dependency"
 msgstr "Dipendenze mancanti"
 
-#: ../../vmc/gtk/controllers/pin.py:298
+#: ../../vmc/gtk/controllers/pin.py:318
 #: ../../vmc/gtk/controllers/preferences.py:70
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
@@ -1734,11 +1734,11 @@ msgstr ""
 msgid "translated to $LANG by $translater"
 msgstr "tradotto in $LANG da $translater"
 
-#: ../../gtk-tap.py:53
+#: ../../gtk-tap.py:57
 msgid "Missing dependencies"
 msgstr "Dipendenze mancanti"
 
-#: ../../gtk-tap.py:55
+#: ../../gtk-tap.py:59
 #, python-format
 msgid ""
 "The following dependencies are not satisfied:\n"
@@ -1747,13 +1747,16 @@ msgstr ""
 "Le seguenti dipendenze non sono soddisfatte:\n"
 "%s"
 
-#: ../../gtk-tap.py:64
+#: ../../gtk-tap.py:68
 msgid "OS/Distro not registered"
 msgstr "Sistema Operativo/Distribuzione non registrata"
 
-#: ../../gtk-tap.py:76
+#: ../../gtk-tap.py:80
 msgid "Permissions problems"
 msgstr "Problema con i permessi"
+
+#~ msgid "PIN:"
+#~ msgstr "PIN:"
 
 #, fuzzy
 #~ msgid "Device Selection Cancel Button"

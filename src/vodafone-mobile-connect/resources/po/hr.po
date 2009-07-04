@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-11 20:01+0100\n"
+"POT-Creation-Date: 2009-07-04 18:38+0100\n"
 "PO-Revision-Date: 2008-01-09 22:11+0100\n"
 "Last-Translator: m1r0 <h15m1r0@gmail.com>\n"
 "Language-Team: Croatian <HR@li.org>\n"
@@ -464,19 +464,23 @@ msgstr "<b>Napredne opcije</b>"
 msgid "Modify PIN code"
 msgstr "Uredi PIN kod"
 
-#: ../glade/pin.glade:202
-msgid "Current PIN code: "
-msgstr "Sadašnji PIN kod: "
-
-#: ../glade/pin.glade:215
-msgid "New PIN code: "
-msgstr "Novi PIN kod: "
-
-#: ../glade/pin.glade:230
+#: ../glade/pin.glade:248 ../glade/pin.glade:474
 msgid "Confirm PIN code: "
 msgstr "Potvrdi PIN kod: "
 
-#: ../glade/pin.glade:380 ../glade/VMC.glade:879 ../glade/VMC.glade:896
+#: ../glade/pin.glade:263 ../glade/pin.glade:465
+msgid "New PIN code: "
+msgstr "Novi PIN kod: "
+
+#: ../glade/pin.glade:278
+msgid "Current PIN code: "
+msgstr "Sadašnji PIN kod: "
+
+#: ../glade/pin.glade:336
+msgid "Please enter PUK"
+msgstr "Molimo, unesite PUK kod"
+
+#: ../glade/pin.glade:381 ../glade/VMC.glade:879 ../glade/VMC.glade:896
 #: ../glade/VMC.glade:952 ../glade/VMC.glade:1007 ../glade/VMC.glade:1024
 #: ../glade/VMC.glade:1080 ../glade/VMC.glade:1293 ../glade/VMC.glade:1310
 #: ../glade/VMC.glade:1366 ../glade/VMC-reduced.glade:1261
@@ -487,11 +491,7 @@ msgstr "Potvrdi PIN kod: "
 msgid "label"
 msgstr ""
 
-#: ../glade/pin.glade:405
-msgid "PIN:"
-msgstr "PIN:"
-
-#: ../glade/pin.glade:414
+#: ../glade/pin.glade:416
 msgid "PUK:"
 msgstr "PUK:"
 
@@ -1010,7 +1010,7 @@ msgstr "%(day)d dan, %(msg)s"
 msgid "Shutting down..."
 msgstr "Gašenje..."
 
-#: ../../vmc/common/middleware.py:475
+#: ../../vmc/common/middleware.py:483
 msgid "Unknown Network"
 msgstr "Nepoznata Mreža"
 
@@ -1260,11 +1260,11 @@ msgstr ""
 "usluga .\n"
 "Ako neznate SMSC broj, kontaktirajte tehničku podršku davatelja usluga.\n"
 
-#: ../../vmc/gtk/controllers/pin.py:48 ../../vmc/gtk/controllers/pin.py:218
+#: ../../vmc/gtk/controllers/pin.py:65 ../../vmc/gtk/controllers/pin.py:238
 msgid "Incorrect PIN"
 msgstr "Nevaljan PIN"
 
-#: ../../vmc/gtk/controllers/pin.py:49
+#: ../../vmc/gtk/controllers/pin.py:66
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1278,11 +1278,11 @@ msgstr ""
 "tri kriva PINa biti ćete pitani\n"
 "za PUK kod</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:65
+#: ../../vmc/gtk/controllers/pin.py:82
 msgid "Invalid PIN"
 msgstr "Nevaljan PIN"
 
-#: ../../vmc/gtk/controllers/pin.py:66
+#: ../../vmc/gtk/controllers/pin.py:83
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1292,19 +1292,19 @@ msgstr ""
 "<small>PIN koji ste upisali je\n"
 "nevaljan. PIN mora biti 4 znamenke</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:84
+#: ../../vmc/gtk/controllers/pin.py:101
 msgid "Error"
 msgstr "Greška"
 
-#: ../../vmc/gtk/controllers/pin.py:85
+#: ../../vmc/gtk/controllers/pin.py:102
 msgid "Passwords don't match"
 msgstr "Neodgovarajuće lozinke"
 
-#: ../../vmc/gtk/controllers/pin.py:171
+#: ../../vmc/gtk/controllers/pin.py:190
 msgid "Incorrect PUK"
 msgstr "Nevaljan PUK"
 
-#: ../../vmc/gtk/controllers/pin.py:172
+#: ../../vmc/gtk/controllers/pin.py:191
 msgid ""
 "\n"
 "<small>The PUK you've just entered is\n"
@@ -1320,7 +1320,7 @@ msgstr ""
 "za PUK2 kod. Vaš PIN kod\n"
 "bi trebao biti vaš zadnji PIN.</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:219
+#: ../../vmc/gtk/controllers/pin.py:239
 msgid ""
 "\n"
 "The PIN you've just entered is\n"
@@ -1334,14 +1334,14 @@ msgstr ""
 "tri kriva PINa biti ćete pitani\n"
 "za PUK kod\n"
 
-#: ../../vmc/gtk/controllers/pin.py:296
+#: ../../vmc/gtk/controllers/pin.py:316
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
 #: ../../vmc/gtk/controllers/application.py:588
 msgid "Missing dependency"
 msgstr "Nedostaju međuzavisnosti"
 
-#: ../../vmc/gtk/controllers/pin.py:298
+#: ../../vmc/gtk/controllers/pin.py:318
 #: ../../vmc/gtk/controllers/preferences.py:70
 msgid "To use this feature you need the gnomekeyring module"
 msgstr "Da bi koristili ovu opciju trebate gnomekeyring modul"
@@ -1723,11 +1723,11 @@ msgstr "VIP Vodafone"
 msgid "translated to $LANG by $translater"
 msgstr "prevedeno na $LANG od $translater"
 
-#: ../../gtk-tap.py:53
+#: ../../gtk-tap.py:57
 msgid "Missing dependencies"
 msgstr "Nerješene međuzavisnosti"
 
-#: ../../gtk-tap.py:55
+#: ../../gtk-tap.py:59
 #, python-format
 msgid ""
 "The following dependencies are not satisfied:\n"
@@ -1736,13 +1736,16 @@ msgstr ""
 "Sljedeće međuzavisnosti nisu rješene:\n"
 "%s"
 
-#: ../../gtk-tap.py:64
+#: ../../gtk-tap.py:68
 msgid "OS/Distro not registered"
 msgstr "OS/Distro nije registriran"
 
-#: ../../gtk-tap.py:76
+#: ../../gtk-tap.py:80
 msgid "Permissions problems"
 msgstr "Problemi sa dozvolama"
+
+#~ msgid "PIN:"
+#~ msgstr "PIN:"
 
 #, fuzzy
 #~ msgid "Device Selection Cancel Button"
