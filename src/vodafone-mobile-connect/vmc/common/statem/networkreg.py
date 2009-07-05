@@ -132,7 +132,7 @@ class NetworkRegStateMachine(StateMachineMixin, Modal):
                 # we are already registered
                 self.transitionTo('registration_finished')
                 self.do_next()
-            elif status in [2, ] and (time() < self.register_timeout):
+            elif status in [2, 4] and (time() < self.register_timeout):
                 # keep polling for now
                 self.transitionTo('wait_to_register')
                 self.do_next()
