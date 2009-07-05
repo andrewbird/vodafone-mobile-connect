@@ -743,7 +743,7 @@ class SIMCardConnection(SIMProtocol):
     
     def send_pin(self, pin):
         """Sends the PIN to the SIM card"""
-        cmd = ATCmd('AT+CPIN=%s' % str(pin), name='send_pin')
+        cmd = ATCmd('AT+CPIN="%s"' % str(pin), name='send_pin')
         return self.queue_at_cmd(cmd)
     
     def send_puk(self, puk, pin):
