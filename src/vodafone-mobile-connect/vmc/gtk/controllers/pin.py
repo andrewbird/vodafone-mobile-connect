@@ -50,59 +50,85 @@ class PinModifyController(WidgetController):
     def __init__(self, model):
         super(PinModifyController, self).__init__(model)
     
+    def validate(self, widget=None):
+        valid = True
+
+        cur = self.view['pin_modify_current_pin_entry']
+        new = self.view['pin_modify_new_pin_entry']
+        cnf = self.view['pin_modify_confirm_pin_entry']
+
+        s = cur.get_text()
+        if is_valid_pin(s):
+            set_bg(cur, 'white')
+        else:
+            valid = False
+            set_bg(cur, 'red')
+        
+        s = new.get_text()
+        if is_valid_pin(s):
+            set_bg(new, 'white')
+        else:
+            valid = False
+            set_bg(new, 'red')
+
+        s = cnf.get_text()
+        if is_valid_pin(s) and s == new.get_text():
+            set_bg(cnf, 'white')
+        else:
+            valid = False
+            set_bg(cnf, 'red')
+
+        # We won't enable the OK button until we have a fully validated form
+        self.view['pin_modify_ok_button'].set_sensitive(valid)
+
+    def register_view(self, view):
+        super(PinModifyController, self).register_view(view)
+
+        self.view['pin_modify_current_pin_entry'].connect('changed', self.validate)
+        self.view['pin_modify_new_pin_entry'].connect('changed', self.validate)
+        self.view['pin_modify_confirm_pin_entry'].connect('changed', self.validate)
+        self.validate() # Initial validation
+
     def on_pin_modify_ok_button_clicked(self, widget):
+        """
+        Submits the change to the card
+
+        We no longer have to check for any error other than bad passwd,
+        since we are now validating the form before allowing submission
+        """
         oldpin = self.view['pin_modify_current_pin_entry'].get_text()
         newpin = self.view['pin_modify_new_pin_entry'].get_text()
-        newpin2 = self.view['pin_modify_confirm_pin_entry'].get_text()
-        if newpin == newpin2:
-            def callback(resp):
-                self.hide_widgets()
-                self.model.unregister_observer(self)
-                self.view.hide()
+
+        def success_cb(resp):
+            self.hide_widgets()
+            self.model.unregister_observer(self)
+            self.view.hide()
             
-            def bad_passwd_eb(failure):
-                failure.trap(ex.CMEErrorIncorrectPassword, ex.ATError)
-                title = _("Incorrect PIN")
-                details = _("""
+        def pin_req_eb(failure):
+            failure.trap(ex.CMEErrorIncorrectPassword, ex.ATError)
+            title = _("Incorrect PIN")
+            details = _("""
 <small>The PIN you've just entered is
 incorrect. Bear in mind that after
 three failed PINs you'll be asked
 for the PUK code</small>
 """)
-                
-                notification = show_error_notification(
-                            self.view['pin_modify_current_pin_entry'],
-                            title, details)
-                self.append_widget(notification)
-                self.view['pin_modify_current_pin_entry'].grab_focus()
-                self.view['pin_modify_current_pin_entry'].select_region(0, -1)
-            
-            def garbage_passwd_eb(failure):
-                failure.trap(ex.InputValueError)
-                title = _("Invalid PIN")
-                details = _("""
-<small>The PIN you've just entered is
-invalid. The PIN must be a 4 digit code</small>
-""")
-                
-                notification = show_error_notification(
-                            self.view['pin_modify_new_pin_entry'],
-                            title, details)
-                self.append_widget(notification)
-                self.view['pin_modify_new_pin_entry'].select_region(0, -1)
-                self.view['pin_modify_confirm_pin_entry'].select_region(0, -1)
-                self.view['pin_modify_new_pin_entry'].grab_focus()
-                
-            d = self.model.change_pin(oldpin, newpin)
-            d.addCallback(callback)
-            d.addErrback(bad_passwd_eb)
-            d.addErrback(garbage_passwd_eb)
-        else:
-            dialogs.open_warning_dialog(_("Error"),
-                                        _("Passwords don't match"))
-            self.view['pin_modify_new_pin_entry'].select_region(0, -1)
-            self.view['pin_modify_confirm_pin_entry'].select_region(0, -1)
-            self.view['pin_modify_new_pin_entry'].grab_focus()
+            dialogs.open_warning_dialog(title, details)
+            self.view['pin_modify_current_pin_entry'].grab_focus()
+            self.view['pin_modify_current_pin_entry'].select_region(0, -1)
+
+        def puk_req_eb(failure):
+            failure.trap(ex.CMEErrorSIMPUKRequired)
+            self.model.unregister_observer(self)
+            self.view.hide()
+
+            # need to arrange for AskPUK form to be called
+            shutdown_core() # just for now when user restarts he'll need PUK
+
+        d = self.model.change_pin(oldpin, newpin)
+        d.addCallback(success_cb)
+        d.addErrback(pin_req_eb)
+        d.addErrback(puk_req_eb)
             
     def on_pin_modify_quit_button_clicked(self, widget):
         self.model.unregister_observer(self)
