@@ -49,7 +49,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc
 
 %post
-if [ "%{fedora}" = "11" ]; then GROUP='dialout'; else GROUP='dip'; fi 
+if [ "%{fedora}" = "11" ]; 
+then GROUP='dialout';
+     grep -v "FEDORA_GENERAL" /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
+     cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
+     rm -f /tmp/fedora_tmp.py
+else GROUP='dip';
+     grep -v "FEDORA_11"  /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
+     cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
+     rm -f /tmp/fedora_tmp.py
+fi 
 chown ":$GROUP" /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
 chmod 660 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
 chmod 775 /etc/ppp/peers
