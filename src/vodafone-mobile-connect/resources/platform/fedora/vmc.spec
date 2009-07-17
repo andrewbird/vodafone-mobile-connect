@@ -55,6 +55,14 @@ then GROUP='dialout';
      grep -v "FEDORA_GENERAL" /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
      cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
      rm -f /tmp/fedora_tmp.py
+     #Selinux module installation.
+     if [ -x /usr/sbin/sestatus ]; then
+     	if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
+	   echo "Installing vmc SELinux module..."
+	   /usr/sbin/semodule -i /usr/share/vodafone-mobile-connect/selinux/vmc.pp
+	fi
+     fi
+
 else GROUP='dip';
      grep -v "FEDORA_11"  /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
      cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
@@ -67,13 +75,6 @@ chmod 775 /etc/ppp/peers
 chown ":$GROUP" /usr/sbin/pppd
 chmod 4754 /usr/sbin/pppd
 
-#Selinux module installation.
-if [ -x /usr/sbin/sestatus ]; then
-     	if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
-	   echo "Installing vmc SELinux module..."
-	   /usr/sbin/semodule -i /usr/share/vodafone-mobile-connect/selinux/vmc.pp
-	fi
-fi
 
 	   
 
@@ -86,14 +87,16 @@ if [ "$1" = "0" ] ; then # last instance of package being removed
 	chmod 600 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
 	chmod 755 /etc/ppp/peers
 
+	if ( echo $(lsb_release -d) | grep -E ".Fedora release 11." );
+	then 
 	#Selinux module removing.
-	if [ -x /usr/sbin/sestatus ]; then
-     	   if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
-	      echo "Removing vmc SELinux module..."
-	      /usr/sbin/semodule -r vmc
-	   fi
+	    if [ -x /usr/sbin/sestatus ]; then
+     		if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
+		    echo "Removing vmc SELinux module..."
+		    /usr/sbin/semodule -r vmc
+		fi
+	    fi
 	fi
-
 
 fi
 
