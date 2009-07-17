@@ -49,7 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc
 
 %post
-if [ "%{fedora}" = "11" ]; 
+#if [ "%{fedora}" = "11" ]; 
+if ( echo $(lsb_release -d) | grep -E ".Fedora release 11." );
 then GROUP='dialout';
      grep -v "FEDORA_GENERAL" /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
      cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
