@@ -35,9 +35,11 @@ class FedoraBasedDistro(LinuxPlugin):
     OSPlugin for Fedora-based distros
     """
     os_name = re.compile("Fedora")
-    os_version = None
+    os_version = None    #FEDORA_GENERAL
+    os_version = re.compile("11")     #FEDORA_11
     customization = fedora_customization
-    os_groups = ['dip', 'uucp', 'lock']
+    os_groups = ['dip', 'uucp', 'lock']    #FEDORA_GENERAL
+    os_groups = ['dialout', 'lock']        #FEDORA_11
 
     #XXX: Almost duplicated code with Suse plugin
     def get_timezone(self):
