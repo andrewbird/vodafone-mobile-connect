@@ -39,9 +39,13 @@ FAQ
 1 .- Vodafone Mobile Connect Card driver for Linux fails horribly with my OS
 
    This application has been tested on the following distros:
-     - Ubuntu 6.10+/Guadalinex v4+
+     - Ubuntu 6.10+/Guadalinex v4+ /Ubuntu 8.01 /Ubuntu 8.10 /Ubuntu Netbook Remix
      - OpenSuSe 10.3
      - Fedora 7
+   It has also been tested on the following Netbooks
+    - Asus EeePC 701, 901, 1000
+    - Dell Mini-9
+    - Toshiaba NB-100
 
    You can find instructions of how to add a new OS/Distro in the doc/guide dir
 

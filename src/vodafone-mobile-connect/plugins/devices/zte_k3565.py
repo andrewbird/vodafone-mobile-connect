@@ -26,7 +26,7 @@ class ZTEK3565(ZTEDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for ZTE's version of Vodafone's K3565"""
     name = "ZTE K3565-Z"
     version = "0.1"
-    author = "Andrew Bird"
+    author = "Nicholas Herriot"
     custom = ZTECustomizer
 
     __remote_name__ = "K3565-Z"

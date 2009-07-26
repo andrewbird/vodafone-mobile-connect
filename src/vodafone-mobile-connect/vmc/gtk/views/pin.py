@@ -12,6 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
+#
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -54,6 +55,7 @@ class AskPUKView(View):
     """View for the ask PUK/PUK2 dialog"""
     
     GLADE_FILE = os.path.join(consts.GLADE_DIR, "pin.glade")
+    IMAGE_FILE = os.path.join(consts.GLADE_DIR, "sim-puk-lock.png")
     
     def __init__(self, ctrl):
         super(AskPUKView, self).__init__(ctrl, self.GLADE_FILE,
@@ -64,6 +66,8 @@ class AskPUKView(View):
 In order to unlock your SIM, we need your
 PIN and PUK codes""")
         self['message_label'].set_text(msg)
+        self['image1'].set_from_file(self.IMAGE_FILE)
+        
     
     def set_puk2_view(self):
         msg = _("""
