@@ -16,6 +16,11 @@ ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
 
 # Call the driver loading script
 ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
+   ATTRS{idVendor}=="19d2", ATTRS{idProduct}=="0016", \
+   SUBSYSTEM=="usb_device", \
+   RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
    ATTRS{idVendor}=="19d2", ATTRS{idProduct}=="0022", \
    SUBSYSTEM=="usb_device", \
    RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"

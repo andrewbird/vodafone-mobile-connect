@@ -10,6 +10,7 @@ ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="ZTE Corp", RUN:="/usr/
 ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="Vodafone", RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
 
 # Call the driver loading script
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0016", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
 ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0022", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
 ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0025", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
 ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", SYSFS{idProduct}=="0037", RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
