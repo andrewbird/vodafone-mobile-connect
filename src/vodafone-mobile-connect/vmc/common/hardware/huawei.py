@@ -233,6 +233,7 @@ class HuaweiCustomizer(Customizer):
 
     async_regexp = re.compile('\r\n(?P<signal>\^MODE|\^RSSI|\^DSFLOWRPT|\^RFSWITCH):(?P<args>.*)\r\n')
     ignore_regexp = [ re.compile('\r\n(?P<ignore>\^BOOT:.*)\r\n'),
+                      re.compile('\r\n(?P<ignore>\^CSNR:.*)\r\n'),
                       re.compile('\r\n(?P<ignore>\^EARST:.*)\r\n'),
                       re.compile('\r\n(?P<ignore>\^SRVST:.*)\r\n'),
                       re.compile('\r\n(?P<ignore>\^SIMST:.*)\r\n'),
@@ -255,7 +256,7 @@ class HuaweiCustomizer(Customizer):
                     end=OK_REGEXP,
                     error=ERROR_REGEXP,
                     extract=re.compile('\s*\^RFSWITCH:(?P<switch>\S*)\r\n'))
-    
+
     cmd_dict['get_contact_by_index'] = dict(echo=None,
                     end=re.compile('\r\nOK\r\n'),
                     error=ERROR_REGEXP,
@@ -296,7 +297,7 @@ class HuaweiEMXXAdapter(HuaweiAdapter):         # Modules have RFSWITCH
     """
     def __init__(self, device):
         super(HuaweiEMXXAdapter, self).__init__(device)
-    
+
     def get_signal_level(self):
         """
         Returns the signal level
