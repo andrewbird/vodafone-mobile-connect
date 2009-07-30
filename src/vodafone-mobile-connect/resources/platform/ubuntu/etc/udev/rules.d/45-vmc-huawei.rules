@@ -6,18 +6,31 @@ ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
    ATTRS{vendor}=="HUAWEI  ", \
    RUN:=""
 
-# Call the driver loading script
+# Devices that don't change PID use the combined flip + driver loading script
 ACTION=="add", SUBSYSTEMS=="usb", \
    ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1001", \
    ATTRS{bNumInterfaces}==" 1", \
-   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct} yes"
 
 ACTION=="add", SUBSYSTEMS=="usb", \
    ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1003", \
    ATTRS{bNumInterfaces}==" 1", \
-   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct} yes"
 
 ACTION=="add", SUBSYSTEMS=="usb", \
    ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1411", \
    ATTRS{bNumInterfaces}==" 1", \
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct} yes"
+
+# Devices that change PID when flipped use separate scripts to flip & load driver
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="12d1", ATTR{idProduct}=="1520", \
+   RUN:="/usr/sbin/vmc-huawei-flip.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="12d1", ATTR{idProduct}=="1451", \
+   RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="12d1", ATTR{idProduct}=="1464", \
    RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
