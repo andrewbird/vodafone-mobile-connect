@@ -66,7 +66,7 @@ class AskPUKView(View):
 In order to unlock your SIM, we need your
 PIN and PUK codes""")
         self['message_label'].set_text(msg)
-        self['image1'].set_from_file(self.IMAGE_FILE)
+        self['puk_dialog_image'].set_from_file(self.IMAGE_FILE)
         
     
     def set_puk2_view(self):
