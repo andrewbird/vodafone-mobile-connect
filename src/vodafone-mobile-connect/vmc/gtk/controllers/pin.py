@@ -241,7 +241,9 @@ class AskPINAndExecuteFuncController(ExecuteFuncController):
 
     def register_view(self, view):
         super(AskPINAndExecuteFuncController, self).register_view(view)
-        # XXX: what about disabling advanced options?
+
+        self.view['expander1'].set_sensitive(False) # disable advanced options
+
         self.view['pin_entry'].connect('changed', self.validate)
         self.validate() # Initial validation
 
