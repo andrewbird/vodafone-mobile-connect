@@ -234,7 +234,17 @@ should be your last PIN.</small>
 
 class AskPINAndExecuteFuncController(ExecuteFuncController):
     """Controller for the ask pin dialog"""
-    
+
+    def __init__(self, model):
+        super(AskPINAndExecuteFuncController, self).__init__(model)
+        self.pin_activate_id = -1
+
+    def register_view(self, view):
+        super(AskPINAndExecuteFuncController, self).register_view(view)
+        # XXX: what about disabling advanced options?
+        self.view['pin_entry'].connect('changed', self.validate)
+        self.validate() # Initial validation
+
     def _ask_for_puk_and_hide_me(self):
         # hide any notification around
         self.hide_widgets()
@@ -248,6 +258,30 @@ class AskPINAndExecuteFuncController(ExecuteFuncController):
         self.model.unregister_observer(self)
         self.view.hide()
     
+    def validate(self, widget=None):
+        valid = True
+
+        pin = self.view['pin_entry']
+
+        s = pin.get_text()
+        if is_valid_pin(s):
+            set_bg(pin, 'white')
+        else:
+            valid = False
+            set_bg(pin, 'red')
+
+        # We won't enable the OK button until we have a fully validated form
+        self.view['ok_button'].set_sensitive(valid)
+
+        # A little fun {dis,en}abling the enter key
+        if valid:
+            if self.pin_activate_id == -1:
+                self.pin_activate_id = pin.connect('activate', self.on_ok_button_clicked)
+        else:
+            if self.pin_activate_id >= 0:
+                pin.disconnect(self.pin_activate_id)
+                self.pin_activate_id = -1
+
     def on_ok_button_clicked(self, widget):
         pin = self.view['pin_entry'].get_text()
         if not pin:

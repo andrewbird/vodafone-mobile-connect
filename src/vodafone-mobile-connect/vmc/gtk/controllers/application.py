@@ -193,7 +193,7 @@ if you want to do so, press the OK button.
                 If C{active} is True set change_pin_menuitem active
                 """
                 if not active:
-                    self.view['change_pin1_menu_item'].set_sensitive(False)
+                    self.view['change_pin1'].set_sensitive(False)
                     self.view['request_pin1'].set_active(False)
                 
                 if widget:
@@ -211,7 +211,7 @@ if you want to do so, press the OK button.
                                'sent_treeview', 'contacts_treeview']) 
         d = self._fill_treeviews()
         d.addCallback(enable_disable_pin)
-        # get the pin status and toggle change_pin1_menu_item accordingly
+        # get the pin status and toggle change_pin1 accordingly
     
     def _setup_menubar_hacks(self):
         def fake_delete_event(widget, event):
@@ -537,7 +537,7 @@ New profile available, do you want to load it?""")
         ctrl = AskPINAndExecuteFuncController(model)
         
         def func_callback(parent_ctrl, enable):
-            parent_ctrl.view['change_pin1_menu_item'].set_sensitive(enable)
+            parent_ctrl.view['change_pin1'].set_sensitive(enable)
             parent_ctrl.view['request_pin1'].set_active(enable)
         
         def func_errback(parent_ctrl, enable):
@@ -551,7 +551,7 @@ New profile available, do you want to load it?""")
                 ctrl.set_mode('enable_pin')
                 view.show()
             else:
-                self.view['change_pin1_menu_item'].set_sensitive(True)
+                self.view['change_pin1'].set_sensitive(True)
                 self.view['request_pin1'].set_active(True)
         
         def disable_pin_auth(active):
@@ -562,7 +562,7 @@ New profile available, do you want to load it?""")
                 ctrl.set_mode('disable_pin')
                 view.show()
             else:
-                self.view['change_pin1_menu_item'].set_sensitive(False)
+                self.view['change_pin1'].set_sensitive(False)
                 self.view['request_pin1'].set_active(False)
         
         d = self.model.get_pin_status()
