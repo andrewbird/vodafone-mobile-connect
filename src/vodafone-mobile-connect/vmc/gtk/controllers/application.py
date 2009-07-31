@@ -527,7 +527,7 @@ New profile available, do you want to load it?""")
         about.run()
         about.destroy()
     
-    def on_change_pin1_menu_item_child_activate(self, widget):
+    def on_change_pin1_activate(self, widget):
         ctrl = PinModifyController(self.model)
         view = PinModifyView(ctrl)
         view.show()

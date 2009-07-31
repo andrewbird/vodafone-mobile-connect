@@ -131,22 +131,11 @@
                     <child>
                       <widget class="GtkMenu" id="tools_menu_item_menu">
                         <child>
-                          <widget class="GtkMenuItem" id="change_pin1_menu_item">
+                          <widget class="GtkMenuItem" id="change_pin1">
                             <property name="visible">True</property>
                             <property name="label" translatable="yes">Change PIN</property>
                             <property name="use_underline">True</property>
-                            <child>
-                              <widget class="GtkMenu" id="change_pin1_menu_item_menu">
-                                <child>
-                                  <widget class="GtkMenuItem" id="change_pin1_menu_item_child">
-                                    <property name="visible">True</property>
-                                    <property name="label" translatable="yes">PIN1...</property>
-                                    <property name="use_underline">True</property>
-                                    <signal name="activate" handler="on_change_pin1_menu_item_child_activate"/>
-                                  </widget>
-                                </child>
-                              </widget>
-                            </child>
+                            <signal name="activate" handler="on_change_pin1_activate"/>
                           </widget>
                         </child>
                         <child>
