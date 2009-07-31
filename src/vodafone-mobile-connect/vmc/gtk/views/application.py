@@ -37,7 +37,7 @@ from vmc.gtk.models.sms import SMSStoreModel
 from vmc.gtk.models.contacts import ContactsStoreModel
 
 WIDGETS_TO_SHOW = ['connect1',
-                   'change_pin1_menu_item', 'request_pin1',
+                   'change_pin1', 'request_pin1',
                    'import_contacts1', 'export_contacts1', 'new_menu_item',
                    'new_sms_menu_item', 'contact1', 'reply_sms_menu_item',
                    'reply_sms_menu', 'forward_sms_menu_item',
