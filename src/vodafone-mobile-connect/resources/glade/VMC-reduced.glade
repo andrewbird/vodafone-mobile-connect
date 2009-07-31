@@ -401,23 +401,6 @@
 	      </child>
 
 	      <child>
-		<widget class="GtkToolButton" id="mail_tool_button">
-		  <property name="visible">True</property>
-		  <property name="label">Mail</property>
-		  <property name="use_underline">True</property>
-		  <property name="icon">mail.png</property>
-		  <property name="visible_horizontal">True</property>
-		  <property name="visible_vertical">True</property>
-		  <property name="is_important">False</property>
-		  <signal name="clicked" handler="on_mail_button_clicked"/>
-		</widget>
-		<packing>
-		  <property name="expand">False</property>
-		  <property name="homogeneous">True</property>
-		</packing>
-	      </child>
-
-	      <child>
 		<widget class="GtkToggleToolButton" id="sms_tool_button">
 		  <property name="visible">True</property>
 		  <property name="label">SMS</property>
@@ -431,23 +414,6 @@
 		    <atkproperty name="AtkObject::accessible_name" translatable="yes">SMS Toggle Button</atkproperty>
 		  </accessibility>
 		  <signal name="toggled" handler="on_sms_button_toggled"/>
-		</widget>
-		<packing>
-		  <property name="expand">False</property>
-		  <property name="homogeneous">True</property>
-		</packing>
-	      </child>
-
-	      <child>
-		<widget class="GtkToolButton" id="internet_tool_button">
-		  <property name="visible">True</property>
-		  <property name="label">Internet</property>
-		  <property name="use_underline">True</property>
-		  <property name="icon">web.png</property>
-		  <property name="visible_horizontal">True</property>
-		  <property name="visible_vertical">True</property>
-		  <property name="is_important">False</property>
-		  <signal name="clicked" handler="on_internet_button_clicked"/>
 		</widget>
 		<packing>
 		  <property name="expand">False</property>
@@ -496,6 +462,53 @@
 		  <property name="homogeneous">True</property>
 		</packing>
 	      </child>
+	      <child>
+		<widget class="GtkSeparatorToolItem" id="separatortoolitem2">
+		  <property name="visible">True</property>
+		  <property name="draw">True</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">False</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkToolButton" id="internet_tool_button">
+		  <property name="visible">True</property>
+		  <property name="label">Internet</property>
+		  <property name="use_underline">True</property>
+		  <property name="icon">web.png</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+		  <signal name="clicked" handler="on_internet_button_clicked"/>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
+		</packing>
+	      </child>
+
+	      <child>
+		<widget class="GtkToolButton" id="mail_tool_button">
+		  <property name="visible">True</property>
+		  <property name="label">Mail</property>
+		  <property name="use_underline">True</property>
+		  <property name="icon">mail.png</property>
+		  <property name="visible_horizontal">True</property>
+		  <property name="visible_vertical">True</property>
+		  <property name="is_important">False</property>
+		  <signal name="clicked" handler="on_mail_button_clicked"/>
+		</widget>
+		<packing>
+		  <property name="expand">False</property>
+		  <property name="homogeneous">True</property>
+		</packing>
+	      </child>
+
 	    </widget>
 	    <packing>
 	      <property name="padding">0</property>
