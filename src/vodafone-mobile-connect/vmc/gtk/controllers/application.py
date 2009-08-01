@@ -976,6 +976,9 @@ The csv file that you have tried to import has an invalid format.""")
         """
         model, selected = treeview.get_selection().get_selected_rows()
         iters = [model.get_iter(path) for path in selected]
+
+        if not iters: # nothing selected
+            return
         
         if treeview.name == 'contacts_treeview':
             manager = get_phonebook(self.model.get_sconn())
@@ -989,6 +992,7 @@ The csv file that you have tried to import has an invalid format.""")
         objs = [model.get_value(_iter, pos) for _iter in iters]
         manager.delete_objs(objs)
         
+        _inxt = None
         for _iter in iters:
             _inxt=model.iter_next(_iter)
             model.remove(_iter) # delete from treeview
