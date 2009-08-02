@@ -1,6 +1,6 @@
 """
 Automatically generated from a VMC Opcos.XML file embedded 
-in a zip file called OpCo_03_9.4.zip
+in a zip file called Opco_04_9.4.3_RC4
 """
 
 from networks import NetworkOperator
@@ -48,8 +48,8 @@ class Vodafone_20404_Prepaid(NetworkOperator):
     type = "Prepaid"
     smsc = "+316540881000"
     apn = "office.vodafone.nl"
-    username = ""
-    password = ""
+    username = "vodafone"
+    password = "vodafone"
     dns1 = None
     dns2 = None
 
@@ -977,11 +977,11 @@ class Vodafone_22801_Prepaid(NetworkOperator):
     dns1 = None
     dns2 = None
 
-class Vodafone_28602_Contract(NetworkOperator):
+class Vodafone_28602_Faturali(NetworkOperator):
     netid = ["28602"]
     name = "Vodafone TR"
     country = "Turkey"
-    type = "Contract"
+    type = "Faturali"
     smsc = "+905429800033"
     apn = "internet"
     username = "vodafone"
@@ -989,13 +989,13 @@ class Vodafone_28602_Contract(NetworkOperator):
     dns1 = None
     dns2 = None
 
-class Vodafone_28602_Prepaid(NetworkOperator):
+class Vodafone_28602_Kontorlu(NetworkOperator):
     netid = ["28602"]
     name = "Vodafone TR"
     country = "Turkey"
-    type = "Prepaid"
+    type = "Kontorlu"
     smsc = "+905429800033"
-    apn = "prepaidgprs"
+    apn = "internet"
     username = "vodafone"
     password = "vodafone"
     dns1 = None
@@ -1145,13 +1145,25 @@ class Vodafone_42702_Contract(NetworkOperator):
     dns1 = None
     dns2 = None
 
-class Vodafone_42702_Prepaid(NetworkOperator):
-    netid = ["42702"]
-    name = "Vodafone Qatar"
-    country = "Qatar"
+class Vodafone_64004_Contract(NetworkOperator):
+    netid = ["64004"]
+    name = "Vodacom Tanzania"
+    country = "Tanzania"
+    type = "Contract"
+    smsc = "+25575114"
+    apn = "internet"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_64004_Prepaid(NetworkOperator):
+    netid = ["64004"]
+    name = "Vodacom Tanzania"
+    country = "Tanzania"
     type = "Prepaid"
-    smsc = "+9747922222"
-    apn = "web.vodafone.com.qa"
+    smsc = "+25575114"
+    apn = "internet"
     username = ""
     password = ""
     dns1 = None
