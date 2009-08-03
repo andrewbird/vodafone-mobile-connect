@@ -26,10 +26,19 @@ from twisted.python import log
 
 import vmc.common.exceptions as ex
 from vmc.common.persistent import DBContact, ContactsManager
+from vmc.common.evlcontact import EVContact, EVContactsManager
+
+def is_db_contact(contact):
+    """Returns True if C{contact} is a DB contact"""
+    return isinstance(contact, DBContact)
+
+def is_evl_contact(contact):
+    """Returns True if C{contact} is an Evolution contact"""
+    return isinstance(contact, EVContact)
 
 def is_sim_contact(contact):
     """Returns True if C{contact} is a SIM contact"""
-    return not isinstance(contact, DBContact)
+    return not (is_db_contact(contact) or is_evl_contact(contact))
 
 class PhoneBook(object):
     """
@@ -42,6 +51,7 @@ class PhoneBook(object):
     def __init__(self, sconn=None):
         self.sconn = sconn
         self.cmanager = ContactsManager()
+        self.evlcmanager = EVContactsManager()
     
     def close(self):
         self.cmanager.close()
@@ -73,26 +83,33 @@ class PhoneBook(object):
     
     def _find_contact_in_sim(self, pattern):
         return self.sconn.find_contacts(pattern)
-    
+
     def _find_contact_in_db(self, pattern):
         return list(self.cmanager.find_contacts(pattern))
-    
+
+    def _find_contact_in_ev(self, pattern):
+        return list(self.evlcmanager.find_contacts(pattern))
+
     def find_contact(self, name=None, number=None):
         if (not name and not number) or (name and number):
             return defer.fail()
-        
+
         if name:
             d = self._find_contact_in_sim(name)
-            def find_contacts(contacts):
+            def find_contacts_db(contacts):
                 return self._find_contact_in_db(name) + contacts
+            def find_contacts_ev(contacts):
+                return self._find_contact_in_ev(name) + contacts
+
             def find_contacts_eb(failure):
                 failure.trap(ex.ATError, ex.CMEErrorNotFound)
-                return self._find_contact_in_db(name)
-            
-            d.addCallback(find_contacts)
+                return self._find_contact_in_db(name) + self._find_contact_in_ev(name)
+
+            d.addCallback(find_contacts_db)
+            d.addCallback(find_contacts_ev)
             d.addErrback(find_contacts_eb)
             return d
-        
+
         elif number:
             # searching by name is pretty easy as the SIM allows to lookup
             # contacts by name. However searching by number is more difficult
@@ -103,13 +120,14 @@ class PhoneBook(object):
             d.addCallback(lambda contacts: [c for c in contacts
                                                 if c.get_number() == number])
             return d
-    
+
     def get_contacts(self):
         d = self.sconn.get_contacts()
         d.addCallback(lambda simc: list(self.cmanager.get_contacts()) + simc)
+        d.addCallback(lambda prec: list(self.evlcmanager.get_contacts()) + prec)
         d.addErrback(log.err)
         return d
-    
+
     def delete_contacts(self, clist):
         deflist = [self.delete_contact(contact) for contact in clist]
         return defer.gatherResults(deflist)

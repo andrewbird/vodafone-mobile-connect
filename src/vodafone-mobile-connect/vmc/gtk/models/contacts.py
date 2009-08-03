@@ -20,25 +20,30 @@
 __version__ = "$Rev: 1172 $"
 
 import gtk
-from gobject import TYPE_STRING, TYPE_PYOBJECT
+from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
 
 from vmc.gtk import ListStoreModel
-from vmc.common.phonebook import is_sim_contact
-from vmc.gtk.images import MOBILE_IMG, COMPUTER_IMG
+from vmc.common.phonebook import is_db_contact, is_evl_contact
+from vmc.gtk.images import MOBILE_IMG, COMPUTER_IMG, EVOLUTION_IMG
 
 class ContactsStoreModel(ListStoreModel):
     """Store Model for Contacts treeviews"""
     def __init__(self):
         super(ContactsStoreModel, self).__init__(gtk.gdk.Pixbuf,
-                TYPE_STRING, TYPE_STRING, TYPE_PYOBJECT)
-    
+                TYPE_STRING, TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN)
+
     def add_contacts(self, contacts):
         """Adds C{contacts} to the store"""
         for contact in contacts:
             self.add_contact(contact)
-    
+
     def add_contact(self, contact):
         """Adds C{contact} to the store"""
-        img = is_sim_contact(contact) and MOBILE_IMG or COMPUTER_IMG
-        self.append([img, contact.name, contact.number, contact])
-        
+        if is_db_contact(contact):
+            img = COMPUTER_IMG
+        elif is_evl_contact(contact):
+            img = EVOLUTION_IMG
+        else:
+            img = MOBILE_IMG
+        self.append([img, contact.name, contact.number, contact, contact.writable])
+

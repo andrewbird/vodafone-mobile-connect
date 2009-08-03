@@ -35,6 +35,9 @@ class IContact(Interface):
     def get_number():
         """Returns the contact's number"""
     
+    def is_writable():
+        """Returns the contact's writable status"""
+    
     def to_csv():
         """Returns a csv string with the contact info"""
 

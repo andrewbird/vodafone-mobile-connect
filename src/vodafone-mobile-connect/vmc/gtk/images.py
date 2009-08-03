@@ -27,6 +27,7 @@ from vmc.common.consts import IMAGES_DIR
 
 MOBILE_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'mobile.png'))
 COMPUTER_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'computer.png'))
+EVOLUTION_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'evolution.png'))
 THROBBER = gtk.gdk.PixbufAnimation(join(IMAGES_DIR, 'throbber.gif'))
 
 def get_pixbuf_for_device(device):
@@ -37,5 +38,5 @@ def get_pixbuf_for_device(device):
         # render MISSING_IMAGE pixbuf
         b = gtk.Button()
         return b.render_icon(gtk.STOCK_MISSING_IMAGE, gtk.ICON_SIZE_DIALOG)
-    
+
     return gtk.gdk.pixbuf_new_from_file(prop_path)

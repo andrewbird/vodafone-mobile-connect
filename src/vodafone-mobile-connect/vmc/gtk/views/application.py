@@ -227,7 +227,7 @@ class StatsBar(gtk.DrawingArea):
     def update(self):
         assert self.max_value > self.value
         self.emit('expose-event', gtk.gdk.Event(gtk.gdk.EXPOSE))
-        self.queue_draw()       
+        self.queue_draw()
 
     def set_value(self, value):
         if value == self.value: return
@@ -364,7 +364,7 @@ class ApplicationView(View):
         for widget in WIDGETS_TO_SHOW:
             self[widget].set_sensitive(True)
         
-        self.set_name()                
+        self.set_name()
 
     def setup_treeview(self, ctrl):
         """Sets up the treeviews"""
@@ -373,7 +373,8 @@ class ApplicationView(View):
             treeview = self[name]
             col_smstype, col_smstext, col_smsnumber, \
                     col_smsdate, col_smsid = range(5)
-            col_usertype, col_username, col_usernumber, col_userid = range(4)
+            col_usertype, col_username, col_usernumber,\
+                    col_userid, col_editable = range(5)
             if name in 'contacts_treeview':
                 model = ContactsStoreModel()
             else:
@@ -391,19 +392,19 @@ class ApplicationView(View):
                 
                 cell = gtk.CellRendererText()
                 column = gtk.TreeViewColumn(_("Name"), cell,
-                                            text=col_username)
+                                            text=col_username,
+                                            editable=col_editable)
                 column.set_resizable(True)
                 column.set_sort_column_id(col_username)
-                cell.set_property('editable', True)
                 cell.connect('edited', ctrl._name_contact_cell_edited)
                 treeview.append_column(column)
                 
                 cell = gtk.CellRendererText()
                 column = gtk.TreeViewColumn(_("Number"), cell,
-                                            text=col_usernumber)
+                                            text=col_usernumber,
+                                            editable=col_editable)
                 column.set_resizable(True)
                 column.set_sort_column_id(col_usernumber)
-                cell.set_property('editable', True)
                 cell.connect('edited', ctrl._number_contact_cell_edited)
                 treeview.append_column(column)
                 
@@ -413,6 +414,12 @@ class ApplicationView(View):
                 column.set_sort_column_id(col_userid)
                 treeview.append_column(column)
                 
+                cell = gtk.CellRendererText()
+                column = gtk.TreeViewColumn("Editable", cell, text=col_editable)
+                column.set_visible(False)
+                column.set_sort_column_id(col_editable)
+                treeview.append_column(column)
+
             else: # inbox_tv sent_tv drafts_tv sent_tv
                 cell = gtk.CellRendererPixbuf()
                 column = gtk.TreeViewColumn(_("Type"))

@@ -957,41 +957,65 @@ The csv file that you have tried to import has an invalid format.""")
             message = _("Not connected")
             details = _("No mobile connection. Do you want to continue?")
             return dialogs.open_warning_request_cancel_ok(message, details)
-    
+
     def __on_treeview_key_press(self, widget, event):
         """Handler for key_press_button in treeviews"""
-        if event.keyval == 65535: # Key Del was pressed
+        from gtk.gdk import keyval_name
+#        print keyval_name(event.keyval)
+
+        if keyval_name(event.keyval) in 'F5':
+            # get current treeview
+            num = self.view['main_notebook'].get_current_page() + 1
+            treeview_name = TV_DICT[num]
+            # now do the refresh
+            if treeview_name in 'contacts_treeview':
+                self._empty_treeviews(['contacts_treeview'])
+                self._fill_contacts()
+
+        if keyval_name(event.keyval) in 'Delete':
             # get current treeview
             num = self.view['main_notebook'].get_current_page() + 1
             treeview_name = TV_DICT[num]
             treeview = self.view[treeview_name]
             # now delete the entries
             self.delete_entries(None, None, treeview)
-    
+
     def delete_entries(self, menuitem, pathlist, treeview):
         """
         Deletes the entries selected in the treeview
-        
+
         This entries are deleted in SIM/DB and the treeview
         """
         model, selected = treeview.get_selection().get_selected_rows()
         iters = [model.get_iter(path) for path in selected]
 
-        if not iters: # nothing selected
-            return
-        
         if treeview.name == 'contacts_treeview':
             manager = get_phonebook(self.model.get_sconn())
         else:
             manager = get_messages_obj(self.model.get_sconn())
-        
+
         # if we are in contacts_treeview the gobject.TYPE_PYOBJECT that
         # contains the contact is at position 3, if we are on a sms treeview,
-        # then its at position 4
-        pos = (treeview.name == 'contacts_treeview') and 3 or 4
-        objs = [model.get_value(_iter, pos) for _iter in iters]
+        # then it's at position 4
+        if (treeview.name == 'contacts_treeview'): # filter out the read only items
+            pos = 3
+            objs = []
+            _iters = []
+            for _iter in iters:
+                obj = model.get_value(_iter, pos)
+                if obj.is_writable():
+                    objs.append(obj)
+                    _iters.append(_iter)
+            iters = _iters
+        else:
+            pos = 4
+            objs = [model.get_value(_iter, pos) for _iter in iters]
+
+        if not (len(objs) and iters): # maybe we filtered out everything
+            return
+
         manager.delete_objs(objs)
-        
+
         _inxt = None
         for _iter in iters:
             _inxt=model.iter_next(_iter)
@@ -1013,7 +1037,7 @@ The csv file that you have tried to import has an invalid format.""")
             else:
                 self.view['smsbody_textview'].get_buffer().set_text('')
                 self.view['vbox17'].hide()
-    
+
     def _send_sms_to_contact(self, menuitem, treeview):
         selection = treeview.get_selection()
         model, selected = selection.get_selected_rows()

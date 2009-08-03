@@ -133,7 +133,7 @@ class ContactsListController(Controller):
     
     def _setup_view(self):
         treeview = self.view['treeview1']
-        col_type, col_name, col_number, col_pyobj = range(4)
+        col_type, col_name, col_number, col_pyobj, col_editable = range(5)
         treeview.set_model(ContactsStoreModel())
         
         treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
@@ -165,6 +165,12 @@ class ContactsListController(Controller):
         column.set_sort_column_id(col_pyobj)
         treeview.append_column(column)
         
+        cell = gtk.CellRendererText()
+        column = gtk.TreeViewColumn("Editable", cell, text=col_editable)
+        column.set_visible(False)
+        column.set_sort_column_id(col_editable)
+        treeview.append_column(column)
+
         # make add contact insensitive until a row has been selected
         self.view['add_button'].set_sensitive(False)
     

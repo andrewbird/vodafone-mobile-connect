@@ -41,6 +41,7 @@ class Contact(object):
         self.name = to_u(name)
         self.number = to_u(number)
         self.index = index
+        self.writable = True
     
     def __repr__(self):
         if self.index:
@@ -66,6 +67,9 @@ class Contact(object):
     def get_number(self):
         return self.number
     
+    def is_writable(self):
+        return self.writable
+    
     def to_csv(self):
         """Returns a list with the name and number formatted for csv"""
         name = '"' + self.name + '"'
@@ -84,6 +88,7 @@ class DBContact(item.Item):
     
     name = attributes.text(allowNone=False)
     number = attributes.text(allowNone=False)
+    writable = True
     
     def __repr__(self):
         return '<DBContact name="%s" number="%s">' % (self.name, self.number)
@@ -102,6 +107,9 @@ class DBContact(item.Item):
     
     def get_number(self):
         return self.number
+    
+    def is_writable(self):
+        return self.writable
     
     def to_csv(self):
         """Returns a list with the name and number formatted for csv"""
