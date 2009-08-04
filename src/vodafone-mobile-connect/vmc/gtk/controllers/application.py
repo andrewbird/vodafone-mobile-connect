@@ -93,7 +93,8 @@ class BaseApplicationController(WidgetController):
         self.usage_updater = None
         self.user_limit_notified = False
         self._setup_trayicon()
-        self.radio = 1
+        self.bearer = 'gprs'    # 'gprs' or 'umts'
+        self.signal = 0         # -1, 0, 25, 50, 75, 100
     
     def _quit_or_minimize(self, *args):
         if config.getboolean('preferences', 'close_minimizes'):
@@ -386,26 +387,21 @@ New profile available, do you want to load it?""")
     def _network_reg_cb(self, netinfo):
         if netinfo:
             netname, conn_type = netinfo
-            self.view['cell_type_label'].set_text(conn_type)
             self.view['network_name_label'].set_text(netname)
+            self.update_signal_bearer(newmode=_(conn_type))
 
     def _change_radio_state(self, mode):
         if mode == N.RADIO_OFF:
-            self.radio = 0
+            self.update_signal_bearer(newsignal=-1,
+                                      newmode=_('Radio Disabled'))
         elif mode == N.RADIO_ON:
-            self.radio = 1
-        # always set rssi 0, it's fine after radio switch on to show zero
-        self._change_signal_level('0')
-        self._conn_mode_changed(N.NO_SIGNAL)
-    
+            # always set rssi 0, it's fine after radio switch on to show zero
+            self.update_signal_bearer(newsignal=0)
+            self._conn_mode_changed(N.NO_SIGNAL)
+
     def _change_signal_level(self, rssi):
-        if self.radio == 0:
-            image = 'radio-off.png'
-        else:
-            image = 'signal-%d.png' % get_signal_level_from_rssi(int(rssi))
-        self.view['signal_image'].set_from_file(
-                os.path.join(consts.IMAGES_DIR, image))
-    
+        self.update_signal_bearer(newsignal=get_signal_level_from_rssi(int(rssi)))
+
     def _hide_splash_and_show_ourselves(self):
         self.splash.set_fraction(1.0)
         # now we are done, hide the splash screen and show ourselves
@@ -435,7 +431,7 @@ New profile available, do you want to load it?""")
         if resp:
             self.quit_application()
     
-    def _build_profiles_menu(self):        
+    def _build_profiles_menu(self):
         prof_manager = get_profile_manager(self.model.get_device())
         profiles = prof_manager.get_profile_list()
         
@@ -1263,34 +1259,49 @@ class ApplicationController(BaseApplicationController):
         if device.sconn:
             device.sconn = None
 
+    def update_signal_bearer(self, newsignal = None, newmode = None):
+        if newsignal:
+            self.signal = newsignal
+
+        if newmode:
+            if newmode in [_('GPRS'), _('EDGE')]:
+                self.bearer = 'gprs'
+            else:
+                self.bearer = 'umts'
+
+            self.view['cell_type_label'].set_text(newmode)
+            if self.model.is_connected():
+                msg = _('Connected to %s') % newmode
+                self.view['net_statusbar'].push(1, msg)
+
+        if self.signal == -1:
+            image = 'radio-off.png'
+        else:
+            image = 'signal-%s-%d.png' % (self.bearer, self.signal)
+
+        self.view['signal_image'].set_from_file(
+                os.path.join(consts.IMAGES_DIR, image))
+
     #################################################################
     # SIGNAL HANDLERS                                               #
     #################################################################
-    
+
     def on_illegal_operation(self, failure):
         message = _('Illegal Operation!')
         details = _("""
 Your device only has one port and you are currently connected
 to Internet, you cannot perform any operation while connected""")
         dialogs.open_warning_dialog(message, details)
-    
+
     def _conn_mode_changed(self, mode):
         """Handler for the NEW_CONN_MODE signal"""
-        def _change_mode(newmode):
-            self.view['cell_type_label'].set_text(newmode)
-            if self.model.is_connected():
-                msg = _('Connected to %s') % newmode
-                self.view['net_statusbar'].push(1, msg)
-
-        if self.radio == 0:
-            _change_mode(_('Radio Disabled'))
-        elif mode == N.NO_SIGNAL:
-            _change_mode(_('N/A'))
+        if mode == N.NO_SIGNAL:
+            self.update_signal_bearer(newmode=_('N/A'))
         elif mode == N.GPRS_SIGNAL:
-            _change_mode(_('GPRS'))
+            self.update_signal_bearer(newmode=_('GPRS'))
         else: # UMTS & HSDPÂ
-            _change_mode(_('3G'))
-    
+            self.update_signal_bearer(newmode=_('3G'))
+
     def _network_changed(self, network):
         """Handler for the NEW_NETWORK signal"""
         self.view['network_name_label'].set_text(network)

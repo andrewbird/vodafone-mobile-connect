@@ -319,7 +319,7 @@ class ApplicationView(View):
     
     def set_name(self, name=consts.APP_LONG_NAME):
         self.get_top_widget().set_title(name)
-    
+
     def set_disconnected(self):
         image = gtk.Image()
         image.set_from_file(os.path.join(consts.IMAGES_DIR, 'connect.png'))
@@ -327,16 +327,12 @@ class ApplicationView(View):
         self['connect_button'].set_icon_widget(image)
         self['connect_button'].set_label(_("Connect"))
         self['connect_button'].set_active(False)
-        
-# ajb: this is wrong, just because we disconnect, doesn't mean we lose signal
-#        self['signal_image'].set_from_file(
-#                   os.path.join(consts.IMAGES_DIR, 'signal-0.png'))
-        
+
         self['upload_alignment'].hide()
         self['download_alignment'].hide()
-        
+
         self['net_statusbar'].push(1, _('Not connected'))
-    
+
     def set_connected(self):
         image = gtk.Image()
         image.set_from_file(os.path.join(consts.IMAGES_DIR, 'disconnect.png'))
