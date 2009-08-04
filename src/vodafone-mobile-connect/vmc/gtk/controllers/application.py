@@ -397,7 +397,6 @@ New profile available, do you want to load it?""")
         elif mode == N.RADIO_ON:
             # always set rssi 0, it's fine after radio switch on to show zero
             self.update_signal_bearer(newsignal=0)
-            self._conn_mode_changed(N.NO_SIGNAL)
 
     def _change_signal_level(self, rssi):
         self.update_signal_bearer(newsignal=get_signal_level_from_rssi(int(rssi)))
@@ -1264,7 +1263,9 @@ class ApplicationController(BaseApplicationController):
             self.signal = newsignal
 
         if newmode:
-            if newmode in [_('GPRS'), _('EDGE')]:
+            if newmode in [_('N/A'), _('Radio Disabled')]:
+                pass
+            elif newmode in [_('GPRS'), _('EDGE')]:
                 self.bearer = 'gprs'
             else:
                 self.bearer = 'umts'
