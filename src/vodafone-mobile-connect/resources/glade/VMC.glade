@@ -102,11 +102,17 @@
                           </widget>
                         </child>
                         <child>
-                          <widget class="GtkMenuItem" id="usage_menu_item">
+                          <widget class="GtkImageMenuItem" id="usage_menu_item">
                             <property name="visible">True</property>
                             <property name="label" translatable="yes">Usage</property>
                             <property name="use_underline">True</property>
                             <signal name="activate" handler="on_usage_menu_item_activate"/>
+                            <child internal-child="image">
+                              <widget class="GtkImage" id="image659">
+                                <property name="visible">True</property>
+                                <property name="pixbuf">usage16x16.png</property>
+                              </widget>
+                            </child>
                           </widget>
                         </child>
                         <child>
