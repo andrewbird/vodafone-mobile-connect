@@ -354,9 +354,10 @@ def gsm_address_from_octets(octets):
 
     if address_type == ALPHANUMERIC:
         address = []
-        while len(address) < address_len/2: # not sure whether we will actually
-            o = octets.pop(0)               # see an odd number of nybbles here
-            address.append(o)               # TS23.040 is unclear
+        num_octets = address_len / 2 + address_len % 2 # if odd gather the last one up too.
+        while len(address) < num_octets:
+            o = octets.pop(0)
+            address.append(o)
     else:
         address = ""
         while len(address) < address_len:
