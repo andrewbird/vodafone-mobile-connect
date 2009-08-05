@@ -125,11 +125,18 @@
 		    <widget class="GtkMenu" id="view_menu_item_menu">
 
 		      <child>
-			<widget class="GtkMenuItem" id="sms_menu_item">
+			<widget class="GtkImageMenuItem" id="sms_menu_item">
 			  <property name="visible">True</property>
 			  <property name="label" translatable="yes">SMS</property>
 			  <property name="use_underline">True</property>
 			  <signal name="activate" handler="on_sms_menu_item_activate"/>
+
+                          <child internal-child="image">
+                            <widget class="GtkImage" id="image657">
+                              <property name="visible">True</property>
+                              <property name="pixbuf">sms16x16.png</property>
+                            </widget>
+                          </child>
 			</widget>
 		      </child>
 
@@ -203,11 +210,17 @@
 		      </child>
 
 		      <child>
-			<widget class="GtkMenuItem" id="sms_preferences">
+			<widget class="GtkImageMenuItem" id="sms_preferences">
 			  <property name="visible">True</property>
 			  <property name="label" translatable="yes">SMS preferences</property>
 			  <property name="use_underline">True</property>
 			  <signal name="activate" handler="on_sms_preferences_activate"/>
+                          <child internal-child="image">
+                            <widget class="GtkImage" id="image658">
+                              <property name="visible">True</property>
+                              <property name="pixbuf">sms16x16.png</property>
+                            </widget>
+                          </child>
 			</widget>
 		      </child>
 
@@ -564,13 +577,20 @@
 			    <widget class="GtkMenu" id="new_menu_item_menu">
 
 			      <child>
-				<widget class="GtkMenuItem" id="new_sms_menu_item">
+				<widget class="GtkImageMenuItem" id="new_sms_menu_item">
 				  <property name="visible">True</property>
 				  <property name="tooltip" translatable="yes">Create new sms</property>
 				  <property name="label" translatable="yes">_SMS</property>
 				  <property name="use_underline">True</property>
 				  <signal name="activate" handler="on_new_sms_activate"/>
 				  <accelerator key="n" modifiers="GDK_CONTROL_MASK" signal="activate"/>
+
+                                  <child internal-child="image">
+                                    <widget class="GtkImage" id="image655">
+                                      <property name="visible">True</property>
+                                      <property name="pixbuf">sms16x16.png</property>
+                                    </widget>
+                                  </child>
 				</widget>
 			      </child>
 
