@@ -27,6 +27,7 @@ from twisted.python import log
 import vmc.common.exceptions as ex
 from vmc.common.persistent import DBContact, ContactsManager
 from vmc.common.evlcontact import EVContact, EVContactsManager
+from vmc.common.kdecontact import KDEContact, KDEContactsManager
 
 def is_db_contact(contact):
     """Returns True if C{contact} is a DB contact"""
@@ -36,23 +37,30 @@ def is_evl_contact(contact):
     """Returns True if C{contact} is an Evolution contact"""
     return isinstance(contact, EVContact)
 
+def is_kde_contact(contact):
+    """Returns True if C{contact} is a KDEPIM contact"""
+    return isinstance(contact, KDEContact)
+
 def is_sim_contact(contact):
     """Returns True if C{contact} is a SIM contact"""
-    return not (is_db_contact(contact) or is_evl_contact(contact))
+    return not (is_db_contact(contact) or
+                is_evl_contact(contact) or
+                is_kde_contact(contact))
 
 class PhoneBook(object):
     """
     I manage all your contacts
-    
+
     PhoneBook presents a single interface to access contacts from
     both the SIM and DB
     """
-    
+
     def __init__(self, sconn=None):
         self.sconn = sconn
         self.cmanager = ContactsManager()
         self.evlcmanager = EVContactsManager()
-    
+        self.kdecmanager = KDEContactsManager()
+
     def close(self):
         self.cmanager.close()
         self.cmanager = None
@@ -90,6 +98,9 @@ class PhoneBook(object):
     def _find_contact_in_ev(self, pattern):
         return list(self.evlcmanager.find_contacts(pattern))
 
+    def _find_contact_in_kde(self, pattern):
+        return list(self.kdecmanager.find_contacts(pattern))
+
     def find_contact(self, name=None, number=None):
         if (not name and not number) or (name and number):
             return defer.fail()
@@ -100,13 +111,18 @@ class PhoneBook(object):
                 return self._find_contact_in_db(name) + contacts
             def find_contacts_ev(contacts):
                 return self._find_contact_in_ev(name) + contacts
+            def find_contacts_kde(contacts):
+                return self._find_contact_in_kde(name) + contacts
 
             def find_contacts_eb(failure):
                 failure.trap(ex.ATError, ex.CMEErrorNotFound)
-                return self._find_contact_in_db(name) + self._find_contact_in_ev(name)
+                return ( self._find_contact_in_db(name) +
+                         self._find_contact_in_ev(name) +
+                         self._find_contact_in_kde(name) )
 
             d.addCallback(find_contacts_db)
             d.addCallback(find_contacts_ev)
+            d.addCallback(find_contacts_kde)
             d.addErrback(find_contacts_eb)
             return d
 
@@ -125,6 +141,7 @@ class PhoneBook(object):
         d = self.sconn.get_contacts()
         d.addCallback(lambda simc: list(self.cmanager.get_contacts()) + simc)
         d.addCallback(lambda prec: list(self.evlcmanager.get_contacts()) + prec)
+        d.addCallback(lambda prec: list(self.kdecmanager.get_contacts()) + prec)
         d.addErrback(log.err)
         return d
 

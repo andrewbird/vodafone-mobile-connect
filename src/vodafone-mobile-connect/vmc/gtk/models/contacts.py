@@ -23,8 +23,11 @@ import gtk
 from gobject import TYPE_STRING, TYPE_PYOBJECT, TYPE_BOOLEAN
 
 from vmc.gtk import ListStoreModel
-from vmc.common.phonebook import is_db_contact, is_evl_contact
-from vmc.gtk.images import MOBILE_IMG, COMPUTER_IMG, EVOLUTION_IMG
+from vmc.common.phonebook import ( is_db_contact,
+                                   is_evl_contact,
+                                   is_kde_contact )
+from vmc.gtk.images import ( MOBILE_IMG, COMPUTER_IMG,
+                             EVOLUTION_IMG, KDEPIM_IMG )
 
 class ContactsStoreModel(ListStoreModel):
     """Store Model for Contacts treeviews"""
@@ -43,6 +46,8 @@ class ContactsStoreModel(ListStoreModel):
             img = COMPUTER_IMG
         elif is_evl_contact(contact):
             img = EVOLUTION_IMG
+        elif is_kde_contact(contact):
+            img = KDEPIM_IMG
         else:
             img = MOBILE_IMG
         self.append([img, contact.name, contact.number, contact, contact.writable])

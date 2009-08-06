@@ -28,6 +28,8 @@ from vmc.common.consts import IMAGES_DIR
 MOBILE_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'mobile.png'))
 COMPUTER_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'computer.png'))
 EVOLUTION_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'evolution.png'))
+KDEPIM_IMG = gtk.gdk.pixbuf_new_from_file(join(IMAGES_DIR, 'kdepim.png'))
+
 THROBBER = gtk.gdk.PixbufAnimation(join(IMAGES_DIR, 'throbber.gif'))
 
 def get_pixbuf_for_device(device):
