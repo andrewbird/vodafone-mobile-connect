@@ -1137,9 +1137,11 @@ The csv file that you have tried to import has an invalid format.""")
 
         menu = gtk.Menu()
 
-        item = gtk.MenuItem(_("_Send SMS"))
-        item.connect("activate",
-                     self._send_sms_to_contact, treeview)
+        item = gtk.ImageMenuItem(_("_Send SMS"))
+        item.connect("activate", self._send_sms_to_contact, treeview)
+        img = gtk.Image()
+        img.set_from_file(os.path.join(consts.IMAGES_DIR, 'sms16x16.png'))
+        item.set_image(img)
         item.show()
         menu.append(item)
 
