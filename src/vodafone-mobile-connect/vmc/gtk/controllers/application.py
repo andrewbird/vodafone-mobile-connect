@@ -38,7 +38,7 @@ from vmc.common.netspeed import get_signal_level_from_rssi
 from vmc.common.persistent import DBContact
 from vmc.common.profiles import get_profile_manager
 import vmc.common.notifications as N
-from vmc.common.phonebook import get_phonebook
+from vmc.common.phonebook import get_phonebook, is_evl_contact, is_kde_contact
 from vmc.common.oal import osobj
 from vmc.common.shutdown import shutdown_core
 from vmc.common.daemon import NetworkSpeedDaemon
@@ -74,6 +74,8 @@ from vmc.utils import utilities
 from vmc.contrib import louie
 
 DEVICE_PRESENT, NO_DEVICE_PRESENT, DEVICE_ADDED = range(3)
+
+EDITOR_NONE, EDITOR_EVOLUTION, EDITOR_KDEPIM = range(3)
 
 def get_fake_toggle_button():
     """Returns a toggled L{gtk.ToggleToolButton}"""
@@ -1045,7 +1047,13 @@ The csv file that you have tried to import has an invalid format.""")
         view.show()
         
         ctrl.set_entry_text(", ".join(numbers))
-    
+
+    def _edit_external_contacts(self, menuitem, editor=EDITOR_NONE):
+        if editor == EDITOR_EVOLUTION:
+            getProcessOutput('evolution', ['-c', 'contacts'], os.environ)
+        elif editor == EDITOR_KDEPIM:
+            getProcessOutput('kaddressbook', [], os.environ)
+
     def get_trayicon_popup_menu(self, *args):
         """Returns a popup menu when you right click on the trayicon"""
 
@@ -1104,25 +1112,61 @@ The csv file that you have tried to import has an invalid format.""")
         menu.append(item)
         
         return menu
-    
+
     def get_contacts_popup_menu(self, pathinfo, treeview):
         """Returns a popup menu for the contacts treeview"""
+        # Figure out whether we should show delete, edit 
+        # or no extra menu items
+        selection = treeview.get_selection()
+        model, selected = selection.get_selected_rows()
+        iters = [model.get_iter(path) for path in selected]
+        all_ro = True
+        all_rw = True
+        all_evl = True
+        all_kde = True
+        for _iter in iters:
+            contact = model.get_value(_iter, 3)
+            if contact.is_writable():
+                all_ro = False
+            else:
+                all_rw = False
+                if is_evl_contact(contact):
+                    all_kde = False
+                if is_kde_contact(contact):
+                    all_evl = False
+
         menu = gtk.Menu()
+
         item = gtk.MenuItem(_("_Send SMS"))
         item.connect("activate",
                      self._send_sms_to_contact, treeview)
         item.show()
         menu.append(item)
-        
-        item = gtk.ImageMenuItem(_("_Delete"))
-        img = gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU)
-        item.set_image(img)
-        item.connect("activate", self.delete_entries, pathinfo, treeview)
-        item.show()
-        menu.append(item)
-        
+
+        if all_rw:
+            item = gtk.ImageMenuItem(_("_Delete"))
+            img = gtk.image_new_from_stock(gtk.STOCK_DELETE, gtk.ICON_SIZE_MENU)
+            item.set_image(img)
+            item.connect("activate", self.delete_entries, pathinfo, treeview)
+            item.show()
+            menu.append(item)
+
+        if all_ro and (all_evl or all_kde):
+            item = gtk.ImageMenuItem(_("Edit"))
+            img = gtk.image_new_from_stock(gtk.STOCK_EDIT, gtk.ICON_SIZE_MENU)
+            item.set_image(img)
+
+            if all_evl:
+                editor = EDITOR_EVOLUTION
+            elif all_kde:
+                editor = EDITOR_KDEPIM
+            item.connect("activate", self._edit_external_contacts, editor)
+
+            item.show()
+            menu.append(item)
+
         return menu
-    
+
     def get_generic_popup_menu(self, pathinfo, treeview):
         """Returns a popup menu for the rest of treeviews"""
         menu = gtk.Menu() # main menu

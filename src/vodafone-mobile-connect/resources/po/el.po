@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 18:38+0100\n"
+"POT-Creation-Date: 2009-08-07 16:29+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dimitrios Psychogios <dpsychogios@gmail.com>\n"
 "Language-Team: Greek <EL@li.org>\n"
@@ -34,13 +34,13 @@ msgid ""
 msgstr ""
 
 #: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
-#: ../glade/pin.glade:138
+#: ../glade/pin.glade:223
 #, fuzzy
 msgid "Cancel"
 msgstr "gtk-cancel"
 
 #: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
-#: ../glade/pin.glade:155
+#: ../glade/pin.glade:240
 msgid "OK"
 msgstr "OK"
 
@@ -289,8 +289,8 @@ msgstr " Όνομα:"
 msgid "Contacts List"
 msgstr "Λίστα επαφών"
 
-#: ../glade/contacts.glade:159 ../glade/VMC.glade:542
-#: ../glade/VMC-reduced.glade:727
+#: ../glade/contacts.glade:159 ../glade/VMC.glade:565
+#: ../glade/VMC-reduced.glade:755
 msgid "Add a contact"
 msgstr "Προσθήκη επαφής"
 
@@ -315,8 +315,8 @@ msgstr "Κινητό"
 msgid "Computer"
 msgstr "Υπολογιστής"
 
-#: ../glade/diagnostics.glade:7 ../glade/VMC.glade:182
-#: ../glade/VMC-reduced.glade:236
+#: ../glade/diagnostics.glade:7 ../glade/VMC.glade:189
+#: ../glade/VMC-reduced.glade:243
 msgid "Diagnostics"
 msgstr "Διαγνωστικά"
 
@@ -427,64 +427,64 @@ msgstr "Αποθήκευση επιλογής"
 msgid "_File"
 msgstr "_Αρχείο"
 
-#: ../glade/pin.glade:7
+#: ../glade/pin.glade:8
 msgid "Insert your PIN code"
 msgstr "Εισάγετε το ΡΙΝ σας"
 
-#: ../glade/pin.glade:12
+#: ../glade/pin.glade:23
 #, fuzzy
 msgid "Insert PIN Window"
 msgstr "Εισάγετε το ΡΙΝ σας"
 
-#: ../glade/pin.glade:40
+#: ../glade/pin.glade:64
 msgid "Please insert your PIN code"
 msgstr "Παρακαλώ εισάγετε το ΡΙΝ σας"
 
-#: ../glade/pin.glade:57
+#: ../glade/pin.glade:105
 #, fuzzy
 msgid "Insert PIN Entry"
 msgstr "Εισάγετε το ΡΙΝ σας"
 
-#: ../glade/pin.glade:88
+#: ../glade/pin.glade:150
 msgid "Manage my PIN through gnome-keyring"
 msgstr "Να διαχειρίζεται το ΡΙΝ μου το gnomekeyring"
 
-#: ../glade/pin.glade:112
+#: ../glade/pin.glade:179
 msgid "<b>Advanced Options</b>"
 msgstr "<b>Προχωρημένες επιλογές</b>"
 
-#: ../glade/pin.glade:175
+#: ../glade/pin.glade:258
 msgid "Modify PIN code"
 msgstr "Τροποποίηση ΡΙΝ"
 
-#: ../glade/pin.glade:248 ../glade/pin.glade:474
+#: ../glade/pin.glade:373 ../glade/pin.glade:763
 msgid "Confirm PIN code: "
 msgstr "Επαλήθευση ΡΙΝ: "
 
-#: ../glade/pin.glade:263 ../glade/pin.glade:465
+#: ../glade/pin.glade:401 ../glade/pin.glade:738
 msgid "New PIN code: "
 msgstr "Νέος ΡΙΝ: "
 
-#: ../glade/pin.glade:278
+#: ../glade/pin.glade:429
 msgid "Current PIN code: "
 msgstr "Υπάρχον ΡΙΝ: "
 
-#: ../glade/pin.glade:336
+#: ../glade/pin.glade:517
 msgid "Please enter PUK"
 msgstr "Παρακαλούμε εισαγάγετε τον κωδικό PUK"
 
-#: ../glade/pin.glade:381 ../glade/VMC.glade:879 ../glade/VMC.glade:896
-#: ../glade/VMC.glade:952 ../glade/VMC.glade:1007 ../glade/VMC.glade:1024
-#: ../glade/VMC.glade:1080 ../glade/VMC.glade:1293 ../glade/VMC.glade:1310
-#: ../glade/VMC.glade:1366 ../glade/VMC-reduced.glade:1261
-#: ../glade/VMC-reduced.glade:1289 ../glade/VMC-reduced.glade:1373
-#: ../glade/VMC-reduced.glade:1489 ../glade/VMC-reduced.glade:1517
-#: ../glade/VMC-reduced.glade:1627 ../glade/VMC-reduced.glade:1961
-#: ../glade/VMC-reduced.glade:1989 ../glade/VMC-reduced.glade:2099
+#: ../glade/pin.glade:595 ../glade/VMC.glade:902 ../glade/VMC.glade:919
+#: ../glade/VMC.glade:975 ../glade/VMC.glade:1030 ../glade/VMC.glade:1047
+#: ../glade/VMC.glade:1103 ../glade/VMC.glade:1316 ../glade/VMC.glade:1333
+#: ../glade/VMC.glade:1389 ../glade/VMC-reduced.glade:1289
+#: ../glade/VMC-reduced.glade:1317 ../glade/VMC-reduced.glade:1401
+#: ../glade/VMC-reduced.glade:1517 ../glade/VMC-reduced.glade:1545
+#: ../glade/VMC-reduced.glade:1655 ../glade/VMC-reduced.glade:1989
+#: ../glade/VMC-reduced.glade:2017 ../glade/VMC-reduced.glade:2127
 msgid "label"
 msgstr "label"
 
-#: ../glade/pin.glade:416
+#: ../glade/pin.glade:654
 msgid "PUK:"
 msgstr "PUK:"
 
@@ -578,13 +578,13 @@ msgstr ""
 msgid "Notification threshold (MB):"
 msgstr ""
 
-#: ../glade/preferences.glade:590 ../glade/VMC.glade:101
-#: ../glade/VMC-reduced.glade:139
+#: ../glade/preferences.glade:590 ../glade/VMC.glade:107
+#: ../glade/VMC-reduced.glade:146
 msgid "Usage"
 msgstr "Χρήση"
 
-#: ../glade/sms.glade:34 ../glade/VMC.glade:729
-#: ../glade/VMC-reduced.glade:1019
+#: ../glade/sms.glade:34 ../glade/VMC.glade:752
+#: ../glade/VMC-reduced.glade:1047
 msgid "Contacts"
 msgstr "Επαφές"
 
@@ -592,8 +592,8 @@ msgstr "Επαφές"
 msgid "TO : "
 msgstr "Προς : "
 
-#: ../glade/sms-preferences.glade:7 ../glade/VMC.glade:169
-#: ../glade/VMC-reduced.glade:221
+#: ../glade/sms-preferences.glade:7 ../glade/VMC.glade:170
+#: ../glade/VMC-reduced.glade:222
 msgid "SMS preferences"
 msgstr "Ρυθμίσεις SMS"
 
@@ -635,7 +635,7 @@ msgstr "Διαχειριστής συσκευών 3G"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
 #: ../../vmc/gtk/views/application.py:328
-#: ../../vmc/gtk/controllers/application.py:1046
+#: ../../vmc/gtk/controllers/application.py:1077
 msgid "Connect"
 msgstr "Σύνδεση"
 
@@ -655,222 +655,219 @@ msgstr "Εμ_φάνιση"
 msgid "SMS"
 msgstr "SMS"
 
-#: ../glade/VMC.glade:109 ../glade/VMC-reduced.glade:148
+#: ../glade/VMC.glade:121 ../glade/VMC-reduced.glade:162
 msgid "Support"
 msgstr "Υποστήριξη"
 
-#: ../glade/VMC.glade:128 ../glade/VMC-reduced.glade:173
+#: ../glade/VMC.glade:140 ../glade/VMC-reduced.glade:187
 msgid "_Tools"
 msgstr "Εργα_λεία"
 
-#: ../glade/VMC.glade:136 ../glade/VMC-reduced.glade:183
+#: ../glade/VMC.glade:148 ../glade/VMC-reduced.glade:197
 msgid "Change PIN"
 msgstr "Αλλαγή PIN"
 
-#: ../glade/VMC.glade:143 ../glade/VMC-reduced.glade:192
-msgid "PIN1..."
-msgstr "PIN1..."
-
-#: ../glade/VMC.glade:155 ../glade/VMC-reduced.glade:205
+#: ../glade/VMC.glade:156 ../glade/VMC-reduced.glade:206
 msgid "Request PIN"
 msgstr "Απαίτηση PIN"
 
-#: ../glade/VMC.glade:203 ../glade/VMC-reduced.glade:262
+#: ../glade/VMC.glade:210 ../glade/VMC-reduced.glade:269
 msgid "Profiles"
 msgstr "Προφίλ"
 
-#: ../glade/VMC.glade:236 ../glade/VMC-reduced.glade:302
+#: ../glade/VMC.glade:243 ../glade/VMC-reduced.glade:309
 msgid "Inspect"
 msgstr "Inspect"
 
-#: ../glade/VMC.glade:255 ../glade/VMC-reduced.glade:326
+#: ../glade/VMC.glade:263 ../glade/VMC-reduced.glade:334
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../glade/VMC.glade:273 ../glade/VMC-reduced.glade:345
+#: ../glade/VMC.glade:281 ../glade/VMC-reduced.glade:353
 msgid "_About"
 msgstr "Σ_χετικά"
 
-#: ../glade/VMC.glade:305 ../glade/VMC-reduced.glade:393
+#: ../glade/VMC.glade:313 ../glade/VMC-reduced.glade:401
 #, fuzzy
 msgid "Connect Button"
 msgstr "Σύνδεση"
 
-#: ../glade/VMC.glade:341 ../glade/VMC-reduced.glade:444
+#: ../glade/VMC.glade:337 ../glade/VMC-reduced.glade:435
 msgid "SMS Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:369 ../glade/VMC-reduced.glade:482
+#: ../glade/VMC.glade:353 ../glade/VMC-reduced.glade:456
 msgid "Usage Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:384 ../glade/VMC-reduced.glade:503
+#: ../glade/VMC.glade:368 ../glade/VMC-reduced.glade:477
 msgid "Support Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:412 ../glade/VMC.glade:534
-#: ../glade/VMC-reduced.glade:546 ../glade/VMC-reduced.glade:706
+#: ../glade/VMC.glade:429 ../glade/VMC.glade:557
+#: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
 msgid "Contacts menu"
 msgstr "Μενού επαφών"
 
-#: ../glade/VMC.glade:413 ../glade/VMC.glade:543
-#: ../glade/VMC-reduced.glade:547 ../glade/VMC-reduced.glade:728
+#: ../glade/VMC.glade:430 ../glade/VMC.glade:566
+#: ../glade/VMC-reduced.glade:568 ../glade/VMC-reduced.glade:756
 msgid "_New"
 msgstr "_Νέο"
 
-#: ../glade/VMC.glade:420 ../glade/VMC-reduced.glade:568
+#: ../glade/VMC.glade:437 ../glade/VMC-reduced.glade:589
 msgid "Create new sms"
 msgstr "Δημιουργία νέου sms"
 
-#: ../glade/VMC.glade:421 ../glade/VMC-reduced.glade:569
+#: ../glade/VMC.glade:438 ../glade/VMC-reduced.glade:590
 msgid "_SMS"
 msgstr "_SMS"
 
-#: ../glade/VMC.glade:430 ../glade/VMC-reduced.glade:579
+#: ../glade/VMC.glade:453 ../glade/VMC-reduced.glade:607
 msgid "_Contact"
 msgstr "_Επαφή"
 
-#: ../glade/VMC.glade:460 ../glade/VMC-reduced.glade:609
+#: ../glade/VMC.glade:483 ../glade/VMC-reduced.glade:637
 msgid "Reply message"
 msgstr "Απάντηση σε μύνημα"
 
-#: ../glade/VMC.glade:461 ../glade/VMC-reduced.glade:610
+#: ../glade/VMC.glade:484 ../glade/VMC-reduced.glade:638
 msgid "_Reply"
 msgstr "_Απάντηση"
 
-#: ../glade/VMC.glade:468 ../glade/VMC-reduced.glade:630
+#: ../glade/VMC.glade:491 ../glade/VMC-reduced.glade:658
 msgid "Reply without quoting original text"
 msgstr "Απάντηση χωρίς προσθήκη του αρχικού"
 
-#: ../glade/VMC.glade:469 ../glade/VMC-reduced.glade:631
+#: ../glade/VMC.glade:492 ../glade/VMC-reduced.glade:659
 msgid "Send new"
 msgstr "Αποστολή νέου"
 
-#: ../glade/VMC.glade:477 ../glade/VMC-reduced.glade:640
+#: ../glade/VMC.glade:500 ../glade/VMC-reduced.glade:668
 msgid "Reply quoting original message"
 msgstr "Απάντηση με προσθήκη του αρχικού"
 
-#: ../glade/VMC.glade:478 ../glade/VMC-reduced.glade:641
+#: ../glade/VMC.glade:501 ../glade/VMC-reduced.glade:669
 msgid "Reply quoting"
 msgstr "Απάντηση με προσθήκη"
 
-#: ../glade/VMC.glade:496 ../glade/VMC-reduced.glade:654
+#: ../glade/VMC.glade:519 ../glade/VMC-reduced.glade:682
 msgid "Forward sms to another contact"
 msgstr "Προώθηση sms σε άλλη επαφή"
 
-#: ../glade/VMC.glade:497 ../glade/VMC-reduced.glade:655
+#: ../glade/VMC.glade:520 ../glade/VMC-reduced.glade:683
 msgid "_Forward"
 msgstr "_Προώθηση"
 
-#: ../glade/VMC.glade:511 ../glade/VMC.glade:588
-#: ../glade/VMC-reduced.glade:675 ../glade/VMC-reduced.glade:780
-#: ../../vmc/gtk/controllers/application.py:1094
+#: ../glade/VMC.glade:534 ../glade/VMC.glade:611
+#: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
+#: ../../vmc/gtk/controllers/application.py:1148
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
-#: ../glade/VMC.glade:535 ../glade/VMC-reduced.glade:707
+#: ../glade/VMC.glade:558 ../glade/VMC-reduced.glade:735
 msgid "_Contacts"
 msgstr "_Επαφές"
 
-#: ../glade/VMC.glade:557 ../glade/VMC-reduced.glade:748
+#: ../glade/VMC.glade:580 ../glade/VMC-reduced.glade:776
 msgid "Search contacts"
 msgstr "Αναζήτηση επαφών"
 
-#: ../glade/VMC.glade:558 ../glade/VMC-reduced.glade:749
+#: ../glade/VMC.glade:581 ../glade/VMC-reduced.glade:777
 msgid "_Search"
 msgstr "_Αναζήτηση"
 
-#: ../glade/VMC.glade:640 ../glade/VMC-reduced.glade:858
+#: ../glade/VMC.glade:663 ../glade/VMC-reduced.glade:886
 msgid "Inbox"
 msgstr "Εισερχόμενα"
 
-#: ../glade/VMC.glade:670 ../glade/VMC-reduced.glade:912
+#: ../glade/VMC.glade:693 ../glade/VMC-reduced.glade:940
 msgid "Draft"
 msgstr "Πρόχειρα"
 
-#: ../glade/VMC.glade:700 ../glade/VMC-reduced.glade:966
+#: ../glade/VMC.glade:723 ../glade/VMC-reduced.glade:994
 msgid "Sent"
 msgstr "Απεσταλμένα"
 
-#: ../glade/VMC.glade:826 ../glade/VMC.glade:1240
-#: ../glade/VMC-reduced.glade:1201 ../glade/VMC-reduced.glade:1901
+#: ../glade/VMC.glade:849 ../glade/VMC.glade:1263
+#: ../glade/VMC-reduced.glade:1229 ../glade/VMC-reduced.glade:1929
 #, fuzzy
 msgid "month_label"
 msgstr "label"
 
-#: ../glade/VMC.glade:836 ../glade/VMC.glade:1250
-#: ../glade/VMC-reduced.glade:1176 ../glade/VMC-reduced.glade:1876
+#: ../glade/VMC.glade:859 ../glade/VMC.glade:1273
+#: ../glade/VMC-reduced.glade:1204 ../glade/VMC-reduced.glade:1904
 #, fuzzy
 msgid "<b>Month</b>"
 msgstr "<b>Υπολογιστής</b>"
 
-#: ../glade/VMC.glade:911 ../glade/VMC.glade:1039 ../glade/VMC.glade:1325
-#: ../glade/VMC-reduced.glade:1317 ../glade/VMC-reduced.glade:1545
-#: ../glade/VMC-reduced.glade:2017
+#: ../glade/VMC.glade:934 ../glade/VMC.glade:1062 ../glade/VMC.glade:1348
+#: ../glade/VMC-reduced.glade:1345 ../glade/VMC-reduced.glade:1573
+#: ../glade/VMC-reduced.glade:2045
 #, fuzzy
 msgid "3G:"
 msgstr "3G"
 
-#: ../glade/VMC.glade:926 ../glade/VMC.glade:1054 ../glade/VMC.glade:1340
-#: ../glade/VMC-reduced.glade:1345 ../glade/VMC-reduced.glade:1573
-#: ../glade/VMC-reduced.glade:2045
+#: ../glade/VMC.glade:949 ../glade/VMC.glade:1077 ../glade/VMC.glade:1363
+#: ../glade/VMC-reduced.glade:1373 ../glade/VMC-reduced.glade:1601
+#: ../glade/VMC-reduced.glade:2073
 #, fuzzy
 msgid "GPRS:"
 msgstr "GPRS"
 
-#: ../glade/VMC.glade:939 ../glade/VMC.glade:1353
-#: ../glade/VMC-reduced.glade:2073
+#: ../glade/VMC.glade:962 ../glade/VMC.glade:1376
+#: ../glade/VMC-reduced.glade:2101
 #, fuzzy
 msgid "<b>Total:</b>"
 msgstr "<b>τίτλος</b>"
 
-#: ../glade/VMC.glade:970 ../glade/VMC.glade:1384
-#: ../glade/VMC-reduced.glade:1431 ../glade/VMC-reduced.glade:2129
+#: ../glade/VMC.glade:993 ../glade/VMC.glade:1407
+#: ../glade/VMC-reduced.glade:1459 ../glade/VMC-reduced.glade:2157
 #, fuzzy
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Μεταδόθηκε</b>"
 
-#: ../glade/VMC.glade:1067 ../glade/VMC-reduced.glade:1400
-#: ../glade/VMC-reduced.glade:1601
+#: ../glade/VMC.glade:1090 ../glade/VMC-reduced.glade:1428
+#: ../glade/VMC-reduced.glade:1629
 msgid "Total:"
 msgstr ""
 
-#: ../glade/VMC.glade:1098 ../glade/VMC-reduced.glade:1657
+#: ../glade/VMC.glade:1121 ../glade/VMC-reduced.glade:1685
 #, fuzzy
 msgid "<b>Current session</b>"
 msgstr "<b>Ρυθμίσεις σύνδεσης</b>"
 
-#: ../glade/VMC.glade:1138 ../glade/VMC.glade:1423
-#: ../glade/VMC-reduced.glade:1717 ../glade/VMC-reduced.glade:2189
-#: ../../vmc/gtk/controllers/application.py:1262
+#: ../glade/VMC.glade:1161 ../glade/VMC.glade:1446
+#: ../glade/VMC-reduced.glade:1745 ../glade/VMC-reduced.glade:2217
+#: ../../vmc/gtk/controllers/application.py:1313
+#: ../../vmc/gtk/controllers/application.py:1347
 msgid "GPRS"
 msgstr "GPRS"
 
-#: ../glade/VMC.glade:1145 ../glade/VMC.glade:1430
-#: ../glade/VMC-reduced.glade:1742 ../glade/VMC-reduced.glade:2214
-#: ../../vmc/gtk/controllers/application.py:1264
+#: ../glade/VMC.glade:1168 ../glade/VMC.glade:1453
+#: ../glade/VMC-reduced.glade:1770 ../glade/VMC-reduced.glade:2242
+#: ../../vmc/gtk/controllers/application.py:1349
 msgid "3G"
 msgstr "3G"
 
-#: ../glade/VMC.glade:1182 ../glade/VMC.glade:1467
+#: ../glade/VMC.glade:1205 ../glade/VMC.glade:1490
 msgid "Remember that this information is only orientative."
 msgstr ""
 
-#: ../glade/VMC.glade:1197 ../glade/VMC-reduced.glade:1815
+#: ../glade/VMC.glade:1220 ../glade/VMC-reduced.glade:1843
 #, fuzzy
 msgid "Current month"
 msgstr "Τρέχων μήνας"
 
-#: ../glade/VMC.glade:1485 ../glade/VMC-reduced.glade:2287
+#: ../glade/VMC.glade:1508 ../glade/VMC-reduced.glade:2315
 #, fuzzy
 msgid "Last month"
 msgstr "Προηγούμενος μήνας"
 
-#: ../glade/VMC.glade:1499
+#: ../glade/VMC.glade:1522
 msgid "<b>Usage</b>"
 msgstr "<b>Χρήση</b>"
 
-#: ../glade/VMC.glade:1528 ../glade/VMC-reduced.glade:2375
+#: ../glade/VMC.glade:1551 ../glade/VMC-reduced.glade:2403
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu.\n"
@@ -899,11 +896,11 @@ msgstr ""
 "εφαρμογές του συστήματός σας, ίσως χρειαστείτε τη βοήθεια του Διαχειριστή "
 "σας για τυχών απορίες που μπορεί να έχετε."
 
-#: ../glade/VMC.glade:1542 ../glade/VMC-reduced.glade:2394
+#: ../glade/VMC.glade:1565 ../glade/VMC-reduced.glade:2422
 msgid "Help menu"
 msgstr "Μενού βοήθειας"
 
-#: ../glade/VMC.glade:1567 ../glade/VMC-reduced.glade:2458
+#: ../glade/VMC.glade:1590 ../glade/VMC-reduced.glade:2486
 msgid ""
 "If you are using this program in a corporate environment, your company\n"
 "probably has a support center to solve the questions that you might have\n"
@@ -920,11 +917,11 @@ msgstr ""
 "επικοινωνήσετε\n"
 "με το Διαχειριστή Συστημάτων σας."
 
-#: ../glade/VMC.glade:1587 ../glade/VMC-reduced.glade:2480
+#: ../glade/VMC.glade:1610 ../glade/VMC-reduced.glade:2508
 msgid "Support center"
 msgstr "Κέντρο υποστήριξης"
 
-#: ../glade/VMC.glade:1604 ../glade/VMC-reduced.glade:2525
+#: ../glade/VMC.glade:1627 ../glade/VMC-reduced.glade:2553
 msgid ""
 "You can easily find answers to the most common questions in the\n"
 "help menu, in your company's support center and in the support\n"
@@ -939,11 +936,11 @@ msgid ""
 "+34 607 123 00 if you are calling from other network."
 msgstr ""
 
-#: ../glade/VMC.glade:1624 ../glade/VMC-reduced.glade:2547
+#: ../glade/VMC.glade:1647 ../glade/VMC-reduced.glade:2575
 msgid "Customer support"
 msgstr "Υποστήριξη Πελατών"
 
-#: ../glade/VMC-reduced.glade:2312
+#: ../glade/VMC-reduced.glade:2340
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr ""
 
@@ -1070,7 +1067,7 @@ msgstr ""
 msgid "Authenticating..."
 msgstr "Σύνδεση..."
 
-#: ../../vmc/gtk/views/pin.py:63
+#: ../../vmc/gtk/views/pin.py:65
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1080,7 +1077,7 @@ msgstr ""
 "Για να ξεκλειδώσετε τη κάρτα SIM σας, θα χρειαστείτε\n"
 "τους κωδικούς PIN και PUK"
 
-#: ../../vmc/gtk/views/pin.py:69
+#: ../../vmc/gtk/views/pin.py:73
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1112,58 +1109,59 @@ msgstr ""
 msgid "GB"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:338
-#: ../../vmc/gtk/controllers/application.py:957
+#: ../../vmc/gtk/views/application.py:334
+#: ../../vmc/gtk/controllers/application.py:954
 msgid "Not connected"
 msgstr "Αποσυνδεμένο"
 
-#: ../../vmc/gtk/views/application.py:346
-#: ../../vmc/gtk/controllers/application.py:1040
+#: ../../vmc/gtk/views/application.py:342
+#: ../../vmc/gtk/controllers/application.py:1071
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
-#: ../../vmc/gtk/views/application.py:358
+#: ../../vmc/gtk/views/application.py:354
 msgid "No device present"
 msgstr "Δεν βρέθηκε συσκευή"
 
-#: ../../vmc/gtk/views/application.py:360
-#: ../../vmc/gtk/views/application.py:361
-#: ../../vmc/gtk/controllers/application.py:1260
+#: ../../vmc/gtk/views/application.py:356
+#: ../../vmc/gtk/views/application.py:357
+#: ../../vmc/gtk/controllers/application.py:1311
+#: ../../vmc/gtk/controllers/application.py:1345
 msgid "N/A"
 msgstr "N/A"
 
-#: ../../vmc/gtk/views/application.py:387
-#: ../../vmc/gtk/views/application.py:418
+#: ../../vmc/gtk/views/application.py:384
+#: ../../vmc/gtk/views/application.py:421
 #: ../../vmc/gtk/views/initialconf.py:104
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Τύπος"
 
-#: ../../vmc/gtk/views/application.py:393
+#: ../../vmc/gtk/views/application.py:390
 #: ../../vmc/gtk/views/initialconf.py:98
 #: ../../vmc/gtk/views/initialconf.py:312
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../../vmc/gtk/views/application.py:402
+#: ../../vmc/gtk/views/application.py:399
 #: ../../vmc/gtk/controllers/contacts.py:156
 msgid "Number"
 msgstr "Αριθμός"
 
-#: ../../vmc/gtk/views/application.py:425
+#: ../../vmc/gtk/views/application.py:428
 msgid "Text"
 msgstr "Κείμενο"
 
-#: ../../vmc/gtk/views/application.py:436
+#: ../../vmc/gtk/views/application.py:439
 msgid "Recipient"
 msgstr "Παραλήπτης"
 
-#: ../../vmc/gtk/views/application.py:436
+#: ../../vmc/gtk/views/application.py:439
 msgid "Sender"
 msgstr "Αποστολέας"
 
-#: ../../vmc/gtk/views/application.py:444
+#: ../../vmc/gtk/views/application.py:447
 msgid "Date"
 msgstr "Ημερομηνία"
 
@@ -1251,11 +1249,11 @@ msgstr ""
 "του παρόχου σας.\n"
 "Αν δεν γνωρίζετε τον αριθμό αυτό, καλέστε την Εξυπηρέτηση Πελατών.\n"
 
-#: ../../vmc/gtk/controllers/pin.py:65 ../../vmc/gtk/controllers/pin.py:238
+#: ../../vmc/gtk/controllers/pin.py:109 ../../vmc/gtk/controllers/pin.py:300
 msgid "Incorrect PIN"
 msgstr "Εσφαλμένο ΡΙΝ"
 
-#: ../../vmc/gtk/controllers/pin.py:66
+#: ../../vmc/gtk/controllers/pin.py:110
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1269,33 +1267,11 @@ msgstr ""
 "τρείς εσσφαλμένες απόπειρες θα σας\n"
 "ζητηθεί ο κωδικός PUK</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:82
-msgid "Invalid PIN"
-msgstr "Εσφαλμένο ΡΙΝ"
-
-#: ../../vmc/gtk/controllers/pin.py:83
-msgid ""
-"\n"
-"<small>The PIN you've just entered is\n"
-"invalid. The PIN must be a 4 digit code</small>\n"
-msgstr ""
-"\n"
-"<small>Ο κωδικός PIN που εισάγατε είναι\n"
-"εσφαλμένος. Ο PIN αποτελείται από 4 ψηφία</small>\n"
-
-#: ../../vmc/gtk/controllers/pin.py:101
-msgid "Error"
-msgstr "Σφάλμα"
-
-#: ../../vmc/gtk/controllers/pin.py:102
-msgid "Passwords don't match"
-msgstr "Οι κωδικοί δεν ταιριάζουν"
-
-#: ../../vmc/gtk/controllers/pin.py:190
+#: ../../vmc/gtk/controllers/pin.py:216
 msgid "Incorrect PUK"
 msgstr "Εσφαλμένο PUK"
 
-#: ../../vmc/gtk/controllers/pin.py:191
+#: ../../vmc/gtk/controllers/pin.py:217
 msgid ""
 "\n"
 "<small>The PUK you've just entered is\n"
@@ -1311,7 +1287,7 @@ msgstr ""
 "ο κωδικός PUK2 . Ο κωδικός PIN \n"
 "δεν θα πρέπει να έχει αλλάξει.</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:239
+#: ../../vmc/gtk/controllers/pin.py:301
 msgid ""
 "\n"
 "The PIN you've just entered is\n"
@@ -1325,14 +1301,14 @@ msgstr ""
 "τρείς εσσφαλμένες απόπειρες θα σας\n"
 "ζητηθεί ο κωδικός PUK\n"
 
-#: ../../vmc/gtk/controllers/pin.py:316
+#: ../../vmc/gtk/controllers/pin.py:403
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:588
+#: ../../vmc/gtk/controllers/application.py:585
 msgid "Missing dependency"
 msgstr "Missing dependency"
 
-#: ../../vmc/gtk/controllers/pin.py:318
+#: ../../vmc/gtk/controllers/pin.py:405
 #: ../../vmc/gtk/controllers/preferences.py:70
 msgid "To use this feature you need the gnomekeyring module"
 msgstr ""
@@ -1349,16 +1325,16 @@ msgstr ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 
-#: ../../vmc/gtk/controllers/application.py:113
+#: ../../vmc/gtk/controllers/application.py:116
 #: ../../vmc/gtk/controllers/initialconf.py:576
 msgid "Shutting down"
 msgstr "Απενεργοποίηση"
 
-#: ../../vmc/gtk/controllers/application.py:131
+#: ../../vmc/gtk/controllers/application.py:134
 msgid "Connected to Internet"
 msgstr "Σύνδεση με το το Ίντερνετ"
 
-#: ../../vmc/gtk/controllers/application.py:132
+#: ../../vmc/gtk/controllers/application.py:135
 #, python-format
 msgid ""
 "\n"
@@ -1371,74 +1347,79 @@ msgstr ""
 "εφαρμογή %s,\n"
 "αν επιθυμείτε να το κάνετε αυτό, πιέστε την επιλογή OK.\n"
 
-#: ../../vmc/gtk/controllers/application.py:253
+#: ../../vmc/gtk/controllers/application.py:256
 msgid "Reading contacts..."
 msgstr "Ανάγνωση επαφών..."
 
-#: ../../vmc/gtk/controllers/application.py:280
+#: ../../vmc/gtk/controllers/application.py:283
 msgid "Reading messages..."
 msgstr "Ανάγνωση μηνυμάτων..."
 
-#: ../../vmc/gtk/controllers/application.py:334
+#: ../../vmc/gtk/controllers/application.py:337
 msgid "User Limit"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:335
+#: ../../vmc/gtk/controllers/application.py:338
 msgid "You have reached your limit of maximum usage"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:357
+#: ../../vmc/gtk/controllers/application.py:360
 msgid "New mobile profile available"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:358
+#: ../../vmc/gtk/controllers/application.py:361
 msgid ""
 "\n"
 "New profile available, do you want to load it?"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:360
+#: ../../vmc/gtk/controllers/application.py:363
 msgid "Load"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:429
+#: ../../vmc/gtk/controllers/application.py:398
+#: ../../vmc/gtk/controllers/application.py:1311
+msgid "Radio Disabled"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:426
 #, python-format
 msgid "Quit %s"
 msgstr "Έξοδος από %s"
 
-#: ../../vmc/gtk/controllers/application.py:430
+#: ../../vmc/gtk/controllers/application.py:427
 msgid "Are you sure you want to exit?"
 msgstr "Είστε σίγουροι οτι θέλετε να βγείτε;"
 
-#: ../../vmc/gtk/controllers/application.py:487
+#: ../../vmc/gtk/controllers/application.py:484
 #, fuzzy
 msgid "_New Profile"
 msgstr "Νέο προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:496
+#: ../../vmc/gtk/controllers/application.py:493
 #, fuzzy
 msgid "Load Profile"
 msgstr "Προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:501
+#: ../../vmc/gtk/controllers/application.py:498
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Επεξεργασία προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:506
+#: ../../vmc/gtk/controllers/application.py:503
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Διαγραφή προφίλ"
 
-#: ../../vmc/gtk/controllers/application.py:589
+#: ../../vmc/gtk/controllers/application.py:586
 msgid "To use this widget you need python-vte installed"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:636
+#: ../../vmc/gtk/controllers/application.py:633
 msgid "Invalid CSV format"
 msgstr "Άκυρη διαμόρφωση CSV"
 
-#: ../../vmc/gtk/controllers/application.py:637
+#: ../../vmc/gtk/controllers/application.py:634
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
@@ -1446,54 +1427,62 @@ msgstr ""
 "\n"
 "Το αρχείο csv που προσπαθήσατε να εισάγετε έχει άκυρη διαμόρφωση."
 
-#: ../../vmc/gtk/controllers/application.py:668
-#: ../../vmc/gtk/controllers/application.py:690
+#: ../../vmc/gtk/controllers/application.py:665
+#: ../../vmc/gtk/controllers/application.py:687
 msgid "Connecting..."
 msgstr "Σύνδεση..."
 
-#: ../../vmc/gtk/controllers/application.py:685
-#: ../../vmc/gtk/controllers/application.py:1254
+#: ../../vmc/gtk/controllers/application.py:682
+#: ../../vmc/gtk/controllers/application.py:1320
 #, python-format
 msgid "Connected to %s"
 msgstr "Συνδέθηκε με %s"
 
-#: ../../vmc/gtk/controllers/application.py:687
+#: ../../vmc/gtk/controllers/application.py:684
 msgid "Connected"
 msgstr "Συνδεδεμένο"
 
-#: ../../vmc/gtk/controllers/application.py:958
+#: ../../vmc/gtk/controllers/application.py:955
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Δεν υπάρχει σύνδεση.  Θέλετε να συνεχίσετε;"
 
-#: ../../vmc/gtk/controllers/application.py:1062
+#: ../../vmc/gtk/controllers/application.py:1093
 msgid "Send SMS"
 msgstr "Αποστολή SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1076
+#: ../../vmc/gtk/controllers/application.py:1107
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ../../vmc/gtk/controllers/application.py:1088
+#: ../../vmc/gtk/controllers/application.py:1141
 msgid "_Send SMS"
 msgstr "_Αποστολή SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1107
+#: ../../vmc/gtk/controllers/application.py:1156
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: ../../vmc/gtk/controllers/application.py:1175
 msgid "_Add to contacts"
 msgstr "_Προσθήκη στις επαφές"
 
-#: ../../vmc/gtk/controllers/application.py:1116
+#: ../../vmc/gtk/controllers/application.py:1184
 msgid "Save to draft"
 msgstr "Αποθήκευση στα πρόχειρα"
 
-#: ../../vmc/gtk/controllers/application.py:1127
+#: ../../vmc/gtk/controllers/application.py:1195
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../../vmc/gtk/controllers/application.py:1243
+#: ../../vmc/gtk/controllers/application.py:1313
+msgid "EDGE"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1336
 msgid "Illegal Operation!"
 msgstr "Εσφαλμένη λειτουργία!"
 
-#: ../../vmc/gtk/controllers/application.py:1244
+#: ../../vmc/gtk/controllers/application.py:1337
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
@@ -1503,16 +1492,12 @@ msgstr ""
 "Η συσκευή σας διαθέτει μόνο μία θύρα και είστε συνδεδεμένοι\n"
 "με το Ίντερνετ.  Δεν μπορείτε να κάνετε οτιδήποτε όσο είστε συνδεδεμένοι"
 
-#: ../../vmc/gtk/controllers/application.py:1258
-msgid "Radio Disabled"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1281
+#: ../../vmc/gtk/controllers/application.py:1366
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>Ελήφθη SMS από %s</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1284
+#: ../../vmc/gtk/controllers/application.py:1369
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
@@ -1521,12 +1506,12 @@ msgstr ""
 "<small>Λήψη %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1296
+#: ../../vmc/gtk/controllers/application.py:1381
 #, fuzzy
 msgid "Invalid DNS received from Network"
 msgstr "Άκυρες ρυθμίσεις DNS από τον πάροχο"
 
-#: ../../vmc/gtk/controllers/application.py:1298
+#: ../../vmc/gtk/controllers/application.py:1383
 #, fuzzy
 msgid ""
 "\n"
@@ -1541,11 +1526,11 @@ msgstr ""
 "να κάνετε επανασύνδεση ή αν το πρόβλημα εξακολουθήσει, μπορείτε να ορίσετε\n"
 "χειροκίνητες ρυθμίσεις DNS στις προτιμήσεις συνδέσεων</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1313
+#: ../../vmc/gtk/controllers/application.py:1398
 msgid "Disconnected from Internet"
 msgstr "Έγινε αποσύνδεση από το Ίντερνετ"
 
-#: ../../vmc/gtk/controllers/application.py:1314
+#: ../../vmc/gtk/controllers/application.py:1399
 #, python-format
 msgid ""
 "\n"
@@ -1560,11 +1545,11 @@ msgstr ""
 "σε λάθος ρυθμίσεις ή στο γεγονός οτι δεν υπάρχει προσωρινά διαθέσιμο\n"
 "δίκτυο.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1326
+#: ../../vmc/gtk/controllers/application.py:1411
 msgid "Device in use removed"
 msgstr "Συσκευή σε χρήση αφαιρέθηκε"
 
-#: ../../vmc/gtk/controllers/application.py:1328
+#: ../../vmc/gtk/controllers/application.py:1413
 #, python-format
 msgid ""
 "\n"
@@ -1579,11 +1564,11 @@ msgstr ""
 "θα τερματιστεί. Για να συνεχίσετε,\n"
 "ενώστε τη συσκευή ξανά και αρχίστε απο την αρχή."
 
-#: ../../vmc/gtk/controllers/application.py:1364
+#: ../../vmc/gtk/controllers/application.py:1449
 msgid "3G Device added"
 msgstr "Προσθήκη συσκευής 3G"
 
-#: ../../vmc/gtk/controllers/application.py:1365
+#: ../../vmc/gtk/controllers/application.py:1450
 #, python-format
 msgid ""
 "\n"
@@ -1596,7 +1581,7 @@ msgstr ""
 "ανιχνεύθηκε, σε περίπου 15 δευτερόλεπτα η\n"
 "(%(app_name)s) θα επανέλθει σε λειτουργία"
 
-#: ../../vmc/gtk/controllers/application.py:1373
+#: ../../vmc/gtk/controllers/application.py:1458
 msgid "Setting up device..."
 msgstr "Ενεργοποίηση συσκευής..."
 
@@ -1737,6 +1722,27 @@ msgstr "OS/Distro not registered"
 #: ../../gtk-tap.py:80
 msgid "Permissions problems"
 msgstr "Permissions problems"
+
+#~ msgid "PIN1..."
+#~ msgstr "PIN1..."
+
+#~ msgid "Invalid PIN"
+#~ msgstr "Εσφαλμένο ΡΙΝ"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The PIN you've just entered is\n"
+#~ "invalid. The PIN must be a 4 digit code</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>Ο κωδικός PIN που εισάγατε είναι\n"
+#~ "εσφαλμένος. Ο PIN αποτελείται από 4 ψηφία</small>\n"
+
+#~ msgid "Error"
+#~ msgstr "Σφάλμα"
+
+#~ msgid "Passwords don't match"
+#~ msgstr "Οι κωδικοί δεν ταιριάζουν"
 
 #~ msgid "PIN:"
 #~ msgstr "ΡΙΝ:"

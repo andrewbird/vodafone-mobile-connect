@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-04 18:38+0100\n"
+"POT-Creation-Date: 2009-08-07 16:29+0100\n"
 "PO-Revision-Date: 2007-08-09 09:44+0200\n"
 "Last-Translator: Øystein Gulliksen <oystein@gulliksen.org>\n"
 "Language-Team: Norwegian <nb@li.org>\n"
@@ -35,13 +35,13 @@ msgid ""
 msgstr ""
 
 #: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
-#: ../glade/pin.glade:138
+#: ../glade/pin.glade:223
 #, fuzzy
 msgid "Cancel"
 msgstr "gtk-cancel"
 
 #: ../glade/apnsel.glade:208 ../glade/config2.glade:1348
-#: ../glade/pin.glade:155
+#: ../glade/pin.glade:240
 msgid "OK"
 msgstr "OK"
 
@@ -291,8 +291,8 @@ msgstr " Navn : "
 msgid "Contacts List"
 msgstr "Kontakt liste"
 
-#: ../glade/contacts.glade:159 ../glade/VMC.glade:542
-#: ../glade/VMC-reduced.glade:727
+#: ../glade/contacts.glade:159 ../glade/VMC.glade:565
+#: ../glade/VMC-reduced.glade:755
 msgid "Add a contact"
 msgstr "Legg til kontakt"
 
@@ -320,8 +320,8 @@ msgstr "Mobil"
 msgid "Computer"
 msgstr "Datamaskin"
 
-#: ../glade/diagnostics.glade:7 ../glade/VMC.glade:182
-#: ../glade/VMC-reduced.glade:236
+#: ../glade/diagnostics.glade:7 ../glade/VMC.glade:189
+#: ../glade/VMC-reduced.glade:243
 msgid "Diagnostics"
 msgstr "Diagnose"
 
@@ -440,66 +440,66 @@ msgstr "Husk mitt valg"
 msgid "_File"
 msgstr "_Fil"
 
-#: ../glade/pin.glade:7
+#: ../glade/pin.glade:8
 msgid "Insert your PIN code"
 msgstr "Tast inn din PIN kode"
 
-#: ../glade/pin.glade:12
+#: ../glade/pin.glade:23
 #, fuzzy
 msgid "Insert PIN Window"
 msgstr "Tast inn din PIN kode"
 
-#: ../glade/pin.glade:40
+#: ../glade/pin.glade:64
 #, fuzzy
 msgid "Please insert your PIN code"
 msgstr "Vennligst tast inn din PIN kode :"
 
-#: ../glade/pin.glade:57
+#: ../glade/pin.glade:105
 #, fuzzy
 msgid "Insert PIN Entry"
 msgstr "Tast inn din PIN kode"
 
-#: ../glade/pin.glade:88
+#: ../glade/pin.glade:150
 msgid "Manage my PIN through gnome-keyring"
 msgstr ""
 
-#: ../glade/pin.glade:112
+#: ../glade/pin.glade:179
 #, fuzzy
 msgid "<b>Advanced Options</b>"
 msgstr "<b>Bruker valg</b>"
 
-#: ../glade/pin.glade:175
+#: ../glade/pin.glade:258
 msgid "Modify PIN code"
 msgstr "Rediger PIN kode"
 
-#: ../glade/pin.glade:248 ../glade/pin.glade:474
+#: ../glade/pin.glade:373 ../glade/pin.glade:763
 msgid "Confirm PIN code: "
 msgstr "Bekreft PIN kode: "
 
-#: ../glade/pin.glade:263 ../glade/pin.glade:465
+#: ../glade/pin.glade:401 ../glade/pin.glade:738
 msgid "New PIN code: "
 msgstr "Ny PIN kode: "
 
-#: ../glade/pin.glade:278
+#: ../glade/pin.glade:429
 msgid "Current PIN code: "
 msgstr "Nåværende PIN kode"
 
-#: ../glade/pin.glade:336
+#: ../glade/pin.glade:517
 msgid "Please enter PUK"
 msgstr "Oppgi PUK-koden"
 
-#: ../glade/pin.glade:381 ../glade/VMC.glade:879 ../glade/VMC.glade:896
-#: ../glade/VMC.glade:952 ../glade/VMC.glade:1007 ../glade/VMC.glade:1024
-#: ../glade/VMC.glade:1080 ../glade/VMC.glade:1293 ../glade/VMC.glade:1310
-#: ../glade/VMC.glade:1366 ../glade/VMC-reduced.glade:1261
-#: ../glade/VMC-reduced.glade:1289 ../glade/VMC-reduced.glade:1373
-#: ../glade/VMC-reduced.glade:1489 ../glade/VMC-reduced.glade:1517
-#: ../glade/VMC-reduced.glade:1627 ../glade/VMC-reduced.glade:1961
-#: ../glade/VMC-reduced.glade:1989 ../glade/VMC-reduced.glade:2099
+#: ../glade/pin.glade:595 ../glade/VMC.glade:902 ../glade/VMC.glade:919
+#: ../glade/VMC.glade:975 ../glade/VMC.glade:1030 ../glade/VMC.glade:1047
+#: ../glade/VMC.glade:1103 ../glade/VMC.glade:1316 ../glade/VMC.glade:1333
+#: ../glade/VMC.glade:1389 ../glade/VMC-reduced.glade:1289
+#: ../glade/VMC-reduced.glade:1317 ../glade/VMC-reduced.glade:1401
+#: ../glade/VMC-reduced.glade:1517 ../glade/VMC-reduced.glade:1545
+#: ../glade/VMC-reduced.glade:1655 ../glade/VMC-reduced.glade:1989
+#: ../glade/VMC-reduced.glade:2017 ../glade/VMC-reduced.glade:2127
 msgid "label"
 msgstr "label"
 
-#: ../glade/pin.glade:416
+#: ../glade/pin.glade:654
 #, fuzzy
 msgid "PUK:"
 msgstr "PUK"
@@ -595,13 +595,13 @@ msgstr ""
 msgid "Notification threshold (MB):"
 msgstr ""
 
-#: ../glade/preferences.glade:590 ../glade/VMC.glade:101
-#: ../glade/VMC-reduced.glade:139
+#: ../glade/preferences.glade:590 ../glade/VMC.glade:107
+#: ../glade/VMC-reduced.glade:146
 msgid "Usage"
 msgstr "Bruk"
 
-#: ../glade/sms.glade:34 ../glade/VMC.glade:729
-#: ../glade/VMC-reduced.glade:1019
+#: ../glade/sms.glade:34 ../glade/VMC.glade:752
+#: ../glade/VMC-reduced.glade:1047
 msgid "Contacts"
 msgstr "Kontakter"
 
@@ -609,8 +609,8 @@ msgstr "Kontakter"
 msgid "TO : "
 msgstr "Til : "
 
-#: ../glade/sms-preferences.glade:7 ../glade/VMC.glade:169
-#: ../glade/VMC-reduced.glade:221
+#: ../glade/sms-preferences.glade:7 ../glade/VMC.glade:170
+#: ../glade/VMC-reduced.glade:222
 msgid "SMS preferences"
 msgstr "SMS innstillinger"
 
@@ -655,7 +655,7 @@ msgstr "3g enhets behandler"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
 #: ../../vmc/gtk/views/application.py:328
-#: ../../vmc/gtk/controllers/application.py:1046
+#: ../../vmc/gtk/controllers/application.py:1077
 msgid "Connect"
 msgstr "Koble til"
 
@@ -675,220 +675,217 @@ msgstr "_Vis"
 msgid "SMS"
 msgstr "SMS"
 
-#: ../glade/VMC.glade:109 ../glade/VMC-reduced.glade:148
+#: ../glade/VMC.glade:121 ../glade/VMC-reduced.glade:162
 msgid "Support"
 msgstr "Support"
 
-#: ../glade/VMC.glade:128 ../glade/VMC-reduced.glade:173
+#: ../glade/VMC.glade:140 ../glade/VMC-reduced.glade:187
 msgid "_Tools"
 msgstr "_Verktøy"
 
-#: ../glade/VMC.glade:136 ../glade/VMC-reduced.glade:183
+#: ../glade/VMC.glade:148 ../glade/VMC-reduced.glade:197
 msgid "Change PIN"
 msgstr "Endre PIN"
 
-#: ../glade/VMC.glade:143 ../glade/VMC-reduced.glade:192
-msgid "PIN1..."
-msgstr "PIN1..."
-
-#: ../glade/VMC.glade:155 ../glade/VMC-reduced.glade:205
+#: ../glade/VMC.glade:156 ../glade/VMC-reduced.glade:206
 msgid "Request PIN"
 msgstr "Spør om PIN"
 
-#: ../glade/VMC.glade:203 ../glade/VMC-reduced.glade:262
+#: ../glade/VMC.glade:210 ../glade/VMC-reduced.glade:269
 msgid "Profiles"
 msgstr "Profiler"
 
-#: ../glade/VMC.glade:236 ../glade/VMC-reduced.glade:302
+#: ../glade/VMC.glade:243 ../glade/VMC-reduced.glade:309
 msgid "Inspect"
 msgstr "Inspisere"
 
-#: ../glade/VMC.glade:255 ../glade/VMC-reduced.glade:326
+#: ../glade/VMC.glade:263 ../glade/VMC-reduced.glade:334
 msgid "_Help"
 msgstr "_Hjelp"
 
-#: ../glade/VMC.glade:273 ../glade/VMC-reduced.glade:345
+#: ../glade/VMC.glade:281 ../glade/VMC-reduced.glade:353
 msgid "_About"
 msgstr "_Om"
 
-#: ../glade/VMC.glade:305 ../glade/VMC-reduced.glade:393
+#: ../glade/VMC.glade:313 ../glade/VMC-reduced.glade:401
 #, fuzzy
 msgid "Connect Button"
 msgstr "Tilkobling"
 
-#: ../glade/VMC.glade:341 ../glade/VMC-reduced.glade:444
+#: ../glade/VMC.glade:337 ../glade/VMC-reduced.glade:435
 msgid "SMS Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:369 ../glade/VMC-reduced.glade:482
+#: ../glade/VMC.glade:353 ../glade/VMC-reduced.glade:456
 msgid "Usage Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:384 ../glade/VMC-reduced.glade:503
+#: ../glade/VMC.glade:368 ../glade/VMC-reduced.glade:477
 msgid "Support Toggle Button"
 msgstr ""
 
-#: ../glade/VMC.glade:412 ../glade/VMC.glade:534
-#: ../glade/VMC-reduced.glade:546 ../glade/VMC-reduced.glade:706
+#: ../glade/VMC.glade:429 ../glade/VMC.glade:557
+#: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
 msgid "Contacts menu"
 msgstr "Kontakt meny"
 
-#: ../glade/VMC.glade:413 ../glade/VMC.glade:543
-#: ../glade/VMC-reduced.glade:547 ../glade/VMC-reduced.glade:728
+#: ../glade/VMC.glade:430 ../glade/VMC.glade:566
+#: ../glade/VMC-reduced.glade:568 ../glade/VMC-reduced.glade:756
 msgid "_New"
 msgstr "_Ny"
 
-#: ../glade/VMC.glade:420 ../glade/VMC-reduced.glade:568
+#: ../glade/VMC.glade:437 ../glade/VMC-reduced.glade:589
 msgid "Create new sms"
 msgstr "Lag ny sms"
 
-#: ../glade/VMC.glade:421 ../glade/VMC-reduced.glade:569
+#: ../glade/VMC.glade:438 ../glade/VMC-reduced.glade:590
 msgid "_SMS"
 msgstr "_SMS"
 
-#: ../glade/VMC.glade:430 ../glade/VMC-reduced.glade:579
+#: ../glade/VMC.glade:453 ../glade/VMC-reduced.glade:607
 msgid "_Contact"
 msgstr "_Kontakt"
 
-#: ../glade/VMC.glade:460 ../glade/VMC-reduced.glade:609
+#: ../glade/VMC.glade:483 ../glade/VMC-reduced.glade:637
 msgid "Reply message"
 msgstr "Svar på melding"
 
-#: ../glade/VMC.glade:461 ../glade/VMC-reduced.glade:610
+#: ../glade/VMC.glade:484 ../glade/VMC-reduced.glade:638
 msgid "_Reply"
 msgstr "_Svar"
 
-#: ../glade/VMC.glade:468 ../glade/VMC-reduced.glade:630
+#: ../glade/VMC.glade:491 ../glade/VMC-reduced.glade:658
 msgid "Reply without quoting original text"
 msgstr "Svar uten original tekst"
 
-#: ../glade/VMC.glade:469 ../glade/VMC-reduced.glade:631
+#: ../glade/VMC.glade:492 ../glade/VMC-reduced.glade:659
 msgid "Send new"
 msgstr "Send ny"
 
-#: ../glade/VMC.glade:477 ../glade/VMC-reduced.glade:640
+#: ../glade/VMC.glade:500 ../glade/VMC-reduced.glade:668
 msgid "Reply quoting original message"
 msgstr "Svar uten original tekst"
 
-#: ../glade/VMC.glade:478 ../glade/VMC-reduced.glade:641
+#: ../glade/VMC.glade:501 ../glade/VMC-reduced.glade:669
 msgid "Reply quoting"
 msgstr "Svar melding"
 
-#: ../glade/VMC.glade:496 ../glade/VMC-reduced.glade:654
+#: ../glade/VMC.glade:519 ../glade/VMC-reduced.glade:682
 msgid "Forward sms to another contact"
 msgstr "Videresend sms til annen kontakt"
 
-#: ../glade/VMC.glade:497 ../glade/VMC-reduced.glade:655
+#: ../glade/VMC.glade:520 ../glade/VMC-reduced.glade:683
 msgid "_Forward"
 msgstr "_Videresend"
 
-#: ../glade/VMC.glade:511 ../glade/VMC.glade:588
-#: ../glade/VMC-reduced.glade:675 ../glade/VMC-reduced.glade:780
-#: ../../vmc/gtk/controllers/application.py:1094
+#: ../glade/VMC.glade:534 ../glade/VMC.glade:611
+#: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
+#: ../../vmc/gtk/controllers/application.py:1148
 msgid "_Delete"
 msgstr "_Slett"
 
-#: ../glade/VMC.glade:535 ../glade/VMC-reduced.glade:707
+#: ../glade/VMC.glade:558 ../glade/VMC-reduced.glade:735
 msgid "_Contacts"
 msgstr "_Kontakter"
 
-#: ../glade/VMC.glade:557 ../glade/VMC-reduced.glade:748
+#: ../glade/VMC.glade:580 ../glade/VMC-reduced.glade:776
 msgid "Search contacts"
 msgstr "Søk kontakter"
 
-#: ../glade/VMC.glade:558 ../glade/VMC-reduced.glade:749
+#: ../glade/VMC.glade:581 ../glade/VMC-reduced.glade:777
 msgid "_Search"
 msgstr "_Søk"
 
-#: ../glade/VMC.glade:640 ../glade/VMC-reduced.glade:858
+#: ../glade/VMC.glade:663 ../glade/VMC-reduced.glade:886
 msgid "Inbox"
 msgstr "Innboks"
 
-#: ../glade/VMC.glade:670 ../glade/VMC-reduced.glade:912
+#: ../glade/VMC.glade:693 ../glade/VMC-reduced.glade:940
 msgid "Draft"
 msgstr "Kladd"
 
-#: ../glade/VMC.glade:700 ../glade/VMC-reduced.glade:966
+#: ../glade/VMC.glade:723 ../glade/VMC-reduced.glade:994
 msgid "Sent"
 msgstr "Sendt"
 
-#: ../glade/VMC.glade:826 ../glade/VMC.glade:1240
-#: ../glade/VMC-reduced.glade:1201 ../glade/VMC-reduced.glade:1901
+#: ../glade/VMC.glade:849 ../glade/VMC.glade:1263
+#: ../glade/VMC-reduced.glade:1229 ../glade/VMC-reduced.glade:1929
 #, fuzzy
 msgid "month_label"
 msgstr "label"
 
-#: ../glade/VMC.glade:836 ../glade/VMC.glade:1250
-#: ../glade/VMC-reduced.glade:1176 ../glade/VMC-reduced.glade:1876
+#: ../glade/VMC.glade:859 ../glade/VMC.glade:1273
+#: ../glade/VMC-reduced.glade:1204 ../glade/VMC-reduced.glade:1904
 #, fuzzy
 msgid "<b>Month</b>"
 msgstr "<b>Datamaskin</b>"
 
-#: ../glade/VMC.glade:911 ../glade/VMC.glade:1039 ../glade/VMC.glade:1325
-#: ../glade/VMC-reduced.glade:1317 ../glade/VMC-reduced.glade:1545
-#: ../glade/VMC-reduced.glade:2017
+#: ../glade/VMC.glade:934 ../glade/VMC.glade:1062 ../glade/VMC.glade:1348
+#: ../glade/VMC-reduced.glade:1345 ../glade/VMC-reduced.glade:1573
+#: ../glade/VMC-reduced.glade:2045
 msgid "3G:"
 msgstr ""
 
-#: ../glade/VMC.glade:926 ../glade/VMC.glade:1054 ../glade/VMC.glade:1340
-#: ../glade/VMC-reduced.glade:1345 ../glade/VMC-reduced.glade:1573
-#: ../glade/VMC-reduced.glade:2045
+#: ../glade/VMC.glade:949 ../glade/VMC.glade:1077 ../glade/VMC.glade:1363
+#: ../glade/VMC-reduced.glade:1373 ../glade/VMC-reduced.glade:1601
+#: ../glade/VMC-reduced.glade:2073
 msgid "GPRS:"
 msgstr ""
 
-#: ../glade/VMC.glade:939 ../glade/VMC.glade:1353
-#: ../glade/VMC-reduced.glade:2073
+#: ../glade/VMC.glade:962 ../glade/VMC.glade:1376
+#: ../glade/VMC-reduced.glade:2101
 msgid "<b>Total:</b>"
 msgstr "<b>Tittel:</b>"
 
-#: ../glade/VMC.glade:970 ../glade/VMC.glade:1384
-#: ../glade/VMC-reduced.glade:1431 ../glade/VMC-reduced.glade:2129
+#: ../glade/VMC.glade:993 ../glade/VMC.glade:1407
+#: ../glade/VMC-reduced.glade:1459 ../glade/VMC-reduced.glade:2157
 #, fuzzy
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Overført</b>"
 
-#: ../glade/VMC.glade:1067 ../glade/VMC-reduced.glade:1400
-#: ../glade/VMC-reduced.glade:1601
+#: ../glade/VMC.glade:1090 ../glade/VMC-reduced.glade:1428
+#: ../glade/VMC-reduced.glade:1629
 msgid "Total:"
 msgstr ""
 
-#: ../glade/VMC.glade:1098 ../glade/VMC-reduced.glade:1657
+#: ../glade/VMC.glade:1121 ../glade/VMC-reduced.glade:1685
 #, fuzzy
 msgid "<b>Current session</b>"
 msgstr "<b>SMSC innstillinger</b>"
 
-#: ../glade/VMC.glade:1138 ../glade/VMC.glade:1423
-#: ../glade/VMC-reduced.glade:1717 ../glade/VMC-reduced.glade:2189
-#: ../../vmc/gtk/controllers/application.py:1262
+#: ../glade/VMC.glade:1161 ../glade/VMC.glade:1446
+#: ../glade/VMC-reduced.glade:1745 ../glade/VMC-reduced.glade:2217
+#: ../../vmc/gtk/controllers/application.py:1313
+#: ../../vmc/gtk/controllers/application.py:1347
 #, fuzzy
 msgid "GPRS"
 msgstr "Kun GPRS"
 
-#: ../glade/VMC.glade:1145 ../glade/VMC.glade:1430
-#: ../glade/VMC-reduced.glade:1742 ../glade/VMC-reduced.glade:2214
-#: ../../vmc/gtk/controllers/application.py:1264
+#: ../glade/VMC.glade:1168 ../glade/VMC.glade:1453
+#: ../glade/VMC-reduced.glade:1770 ../glade/VMC-reduced.glade:2242
+#: ../../vmc/gtk/controllers/application.py:1349
 msgid "3G"
 msgstr ""
 
-#: ../glade/VMC.glade:1182 ../glade/VMC.glade:1467
+#: ../glade/VMC.glade:1205 ../glade/VMC.glade:1490
 msgid "Remember that this information is only orientative."
 msgstr ""
 
-#: ../glade/VMC.glade:1197 ../glade/VMC-reduced.glade:1815
+#: ../glade/VMC.glade:1220 ../glade/VMC-reduced.glade:1843
 #, fuzzy
 msgid "Current month"
 msgstr "Gjeldende måned"
 
-#: ../glade/VMC.glade:1485 ../glade/VMC-reduced.glade:2287
+#: ../glade/VMC.glade:1508 ../glade/VMC-reduced.glade:2315
 #, fuzzy
 msgid "Last month"
 msgstr "Sist måned"
 
-#: ../glade/VMC.glade:1499
+#: ../glade/VMC.glade:1522
 msgid "<b>Usage</b>"
 msgstr "<b>Bruk</b>"
 
-#: ../glade/VMC.glade:1528 ../glade/VMC-reduced.glade:2375
+#: ../glade/VMC.glade:1551 ../glade/VMC-reduced.glade:2403
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu.\n"
@@ -911,11 +908,11 @@ msgstr ""
 "og nettleser knappene for å åpne programmer i ditt system, bør du kanskje "
 "snakke med din System Administrator dersom du er i tvil"
 
-#: ../glade/VMC.glade:1542 ../glade/VMC-reduced.glade:2394
+#: ../glade/VMC.glade:1565 ../glade/VMC-reduced.glade:2422
 msgid "Help menu"
 msgstr "Hjelpe meny"
 
-#: ../glade/VMC.glade:1567 ../glade/VMC-reduced.glade:2458
+#: ../glade/VMC.glade:1590 ../glade/VMC-reduced.glade:2486
 msgid ""
 "If you are using this program in a corporate environment, your company\n"
 "probably has a support center to solve the questions that you might have\n"
@@ -931,11 +928,11 @@ msgstr ""
 "Dersom din bedrift ikke har noe support senter, så må du ta kontakt med\n"
 "din bedrifts System Administrator"
 
-#: ../glade/VMC.glade:1587 ../glade/VMC-reduced.glade:2480
+#: ../glade/VMC.glade:1610 ../glade/VMC-reduced.glade:2508
 msgid "Support center"
 msgstr "Support senter"
 
-#: ../glade/VMC.glade:1604 ../glade/VMC-reduced.glade:2525
+#: ../glade/VMC.glade:1627 ../glade/VMC-reduced.glade:2553
 msgid ""
 "You can easily find answers to the most common questions in the\n"
 "help menu, in your company's support center and in the support\n"
@@ -958,11 +955,11 @@ msgstr ""
 "\n"
 "+34 607 123 00 dersom du ringer fra et annet nettverk. "
 
-#: ../glade/VMC.glade:1624 ../glade/VMC-reduced.glade:2547
+#: ../glade/VMC.glade:1647 ../glade/VMC-reduced.glade:2575
 msgid "Customer support"
 msgstr "Kunde support"
 
-#: ../glade/VMC-reduced.glade:2312
+#: ../glade/VMC-reduced.glade:2340
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr ""
 
@@ -1096,7 +1093,7 @@ msgstr "Autentisering ferdig!"
 msgid "Authenticating..."
 msgstr "Autentiserer..."
 
-#: ../../vmc/gtk/views/pin.py:63
+#: ../../vmc/gtk/views/pin.py:65
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1106,7 +1103,7 @@ msgstr ""
 "For å låse opp ditt simkort, trenger vi\n"
 "din PIN og PUK kode"
 
-#: ../../vmc/gtk/views/pin.py:69
+#: ../../vmc/gtk/views/pin.py:73
 msgid ""
 "\n"
 "In order to unlock your SIM, we need your\n"
@@ -1138,58 +1135,59 @@ msgstr ""
 msgid "GB"
 msgstr ""
 
-#: ../../vmc/gtk/views/application.py:338
-#: ../../vmc/gtk/controllers/application.py:957
+#: ../../vmc/gtk/views/application.py:334
+#: ../../vmc/gtk/controllers/application.py:954
 msgid "Not connected"
 msgstr "Ikke tilkoblet"
 
-#: ../../vmc/gtk/views/application.py:346
-#: ../../vmc/gtk/controllers/application.py:1040
+#: ../../vmc/gtk/views/application.py:342
+#: ../../vmc/gtk/controllers/application.py:1071
 msgid "Disconnect"
 msgstr "Koble fra"
 
-#: ../../vmc/gtk/views/application.py:358
+#: ../../vmc/gtk/views/application.py:354
 msgid "No device present"
 msgstr "Ingen enhet funnet"
 
-#: ../../vmc/gtk/views/application.py:360
-#: ../../vmc/gtk/views/application.py:361
-#: ../../vmc/gtk/controllers/application.py:1260
+#: ../../vmc/gtk/views/application.py:356
+#: ../../vmc/gtk/views/application.py:357
+#: ../../vmc/gtk/controllers/application.py:1311
+#: ../../vmc/gtk/controllers/application.py:1345
 msgid "N/A"
 msgstr "N/A"
 
-#: ../../vmc/gtk/views/application.py:387
-#: ../../vmc/gtk/views/application.py:418
+#: ../../vmc/gtk/views/application.py:384
+#: ../../vmc/gtk/views/application.py:421
 #: ../../vmc/gtk/views/initialconf.py:104
 #: ../../vmc/gtk/controllers/contacts.py:143
 msgid "Type"
 msgstr "Type"
 
-#: ../../vmc/gtk/views/application.py:393
+#: ../../vmc/gtk/views/application.py:390
 #: ../../vmc/gtk/views/initialconf.py:98
 #: ../../vmc/gtk/views/initialconf.py:312
 #: ../../vmc/gtk/controllers/contacts.py:149
 msgid "Name"
 msgstr "Navn"
 
-#: ../../vmc/gtk/views/application.py:402
+#: ../../vmc/gtk/views/application.py:399
 #: ../../vmc/gtk/controllers/contacts.py:156
 msgid "Number"
 msgstr "Nummer"
 
-#: ../../vmc/gtk/views/application.py:425
+#: ../../vmc/gtk/views/application.py:428
 msgid "Text"
 msgstr "Tekst"
 
-#: ../../vmc/gtk/views/application.py:436
+#: ../../vmc/gtk/views/application.py:439
 msgid "Recipient"
 msgstr "Mottaker"
 
-#: ../../vmc/gtk/views/application.py:436
+#: ../../vmc/gtk/views/application.py:439
 msgid "Sender"
 msgstr "Avsender"
 
-#: ../../vmc/gtk/views/application.py:444
+#: ../../vmc/gtk/views/application.py:447
 msgid "Date"
 msgstr "Dato"
 
@@ -1274,11 +1272,11 @@ msgid ""
 "If you do not know the SMSC number, contact your customer service.\n"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/pin.py:65 ../../vmc/gtk/controllers/pin.py:238
+#: ../../vmc/gtk/controllers/pin.py:109 ../../vmc/gtk/controllers/pin.py:300
 msgid "Incorrect PIN"
 msgstr "Feil PIN"
 
-#: ../../vmc/gtk/controllers/pin.py:66
+#: ../../vmc/gtk/controllers/pin.py:110
 msgid ""
 "\n"
 "<small>The PIN you've just entered is\n"
@@ -1292,33 +1290,11 @@ msgstr ""
 "etter 3 forsøk vil du bli spurt\n"
 "om PUK koden</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:82
-msgid "Invalid PIN"
-msgstr "Ugyldig PIN"
-
-#: ../../vmc/gtk/controllers/pin.py:83
-msgid ""
-"\n"
-"<small>The PIN you've just entered is\n"
-"invalid. The PIN must be a 4 digit code</small>\n"
-msgstr ""
-"\n"
-"<small>PIN koden du tastet inn\n"
-"er ugyldig. Pin koden må være en 4 sifferet kode</small>\n"
-
-#: ../../vmc/gtk/controllers/pin.py:101
-msgid "Error"
-msgstr "Feil"
-
-#: ../../vmc/gtk/controllers/pin.py:102
-msgid "Passwords don't match"
-msgstr "Passordene matcher ikke"
-
-#: ../../vmc/gtk/controllers/pin.py:190
+#: ../../vmc/gtk/controllers/pin.py:216
 msgid "Incorrect PUK"
 msgstr "Feil PUK"
 
-#: ../../vmc/gtk/controllers/pin.py:191
+#: ../../vmc/gtk/controllers/pin.py:217
 msgid ""
 "\n"
 "<small>The PUK you've just entered is\n"
@@ -1334,7 +1310,7 @@ msgstr ""
 "om PUK2 koden. Din PIN kode\n"
 "skal være din siste PIN.</small>\n"
 
-#: ../../vmc/gtk/controllers/pin.py:239
+#: ../../vmc/gtk/controllers/pin.py:301
 msgid ""
 "\n"
 "The PIN you've just entered is\n"
@@ -1348,14 +1324,14 @@ msgstr ""
 "tre feil forsøk, så vil du bli spurt om\n"
 "PUK koden\n"
 
-#: ../../vmc/gtk/controllers/pin.py:316
+#: ../../vmc/gtk/controllers/pin.py:403
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:588
+#: ../../vmc/gtk/controllers/application.py:585
 msgid "Missing dependency"
 msgstr "Mangler avhengige pakker"
 
-#: ../../vmc/gtk/controllers/pin.py:318
+#: ../../vmc/gtk/controllers/pin.py:405
 #: ../../vmc/gtk/controllers/preferences.py:70
 #, fuzzy
 msgid "To use this feature you need the gnomekeyring module"
@@ -1368,16 +1344,16 @@ msgid ""
 "module\n"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:113
+#: ../../vmc/gtk/controllers/application.py:116
 #: ../../vmc/gtk/controllers/initialconf.py:576
 msgid "Shutting down"
 msgstr "Slår av"
 
-#: ../../vmc/gtk/controllers/application.py:131
+#: ../../vmc/gtk/controllers/application.py:134
 msgid "Connected to Internet"
 msgstr "Tilkoblet Internet"
 
-#: ../../vmc/gtk/controllers/application.py:132
+#: ../../vmc/gtk/controllers/application.py:135
 #, python-format
 msgid ""
 "\n"
@@ -1390,74 +1366,79 @@ msgstr ""
 " av.%s\n"
 "Dersom du vil de, press OK knappen.\n"
 
-#: ../../vmc/gtk/controllers/application.py:253
+#: ../../vmc/gtk/controllers/application.py:256
 msgid "Reading contacts..."
 msgstr "Leser kontakter..."
 
-#: ../../vmc/gtk/controllers/application.py:280
+#: ../../vmc/gtk/controllers/application.py:283
 msgid "Reading messages..."
 msgstr "Leser meldinger..."
 
-#: ../../vmc/gtk/controllers/application.py:334
+#: ../../vmc/gtk/controllers/application.py:337
 msgid "User Limit"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:335
+#: ../../vmc/gtk/controllers/application.py:338
 msgid "You have reached your limit of maximum usage"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:357
+#: ../../vmc/gtk/controllers/application.py:360
 msgid "New mobile profile available"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:358
+#: ../../vmc/gtk/controllers/application.py:361
 msgid ""
 "\n"
 "New profile available, do you want to load it?"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:360
+#: ../../vmc/gtk/controllers/application.py:363
 msgid "Load"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:429
+#: ../../vmc/gtk/controllers/application.py:398
+#: ../../vmc/gtk/controllers/application.py:1311
+msgid "Radio Disabled"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:426
 #, python-format
 msgid "Quit %s"
 msgstr "Avslutt %s"
 
-#: ../../vmc/gtk/controllers/application.py:430
+#: ../../vmc/gtk/controllers/application.py:427
 msgid "Are you sure you want to exit?"
 msgstr "Er du sikker på at du vil avslutte ?"
 
-#: ../../vmc/gtk/controllers/application.py:487
+#: ../../vmc/gtk/controllers/application.py:484
 #, fuzzy
 msgid "_New Profile"
 msgstr "Ny profil"
 
-#: ../../vmc/gtk/controllers/application.py:496
+#: ../../vmc/gtk/controllers/application.py:493
 #, fuzzy
 msgid "Load Profile"
 msgstr "Profiler"
 
-#: ../../vmc/gtk/controllers/application.py:501
+#: ../../vmc/gtk/controllers/application.py:498
 #, fuzzy
 msgid "Edit Profile"
 msgstr "Rediger profil"
 
-#: ../../vmc/gtk/controllers/application.py:506
+#: ../../vmc/gtk/controllers/application.py:503
 #, fuzzy
 msgid "Delete Profile"
 msgstr "Slet profil"
 
-#: ../../vmc/gtk/controllers/application.py:589
+#: ../../vmc/gtk/controllers/application.py:586
 msgid "To use this widget you need python-vte installed"
 msgstr "For å bruke denne widget trenger du python-vte installert"
 
-#: ../../vmc/gtk/controllers/application.py:636
+#: ../../vmc/gtk/controllers/application.py:633
 msgid "Invalid CSV format"
 msgstr "Ugyldig CSV format"
 
-#: ../../vmc/gtk/controllers/application.py:637
+#: ../../vmc/gtk/controllers/application.py:634
 #, fuzzy
 msgid ""
 "\n"
@@ -1466,71 +1447,75 @@ msgstr ""
 "\n"
 "    CSV filen du prøver å importere har ugyldig format."
 
-#: ../../vmc/gtk/controllers/application.py:668
-#: ../../vmc/gtk/controllers/application.py:690
+#: ../../vmc/gtk/controllers/application.py:665
+#: ../../vmc/gtk/controllers/application.py:687
 msgid "Connecting..."
 msgstr "Kobler til..."
 
-#: ../../vmc/gtk/controllers/application.py:685
-#: ../../vmc/gtk/controllers/application.py:1254
+#: ../../vmc/gtk/controllers/application.py:682
+#: ../../vmc/gtk/controllers/application.py:1320
 #, python-format
 msgid "Connected to %s"
 msgstr "Tilkoblet %s"
 
-#: ../../vmc/gtk/controllers/application.py:687
+#: ../../vmc/gtk/controllers/application.py:684
 #, fuzzy
 msgid "Connected"
 msgstr "Koble til"
 
-#: ../../vmc/gtk/controllers/application.py:958
+#: ../../vmc/gtk/controllers/application.py:955
 msgid "No mobile connection. Do you want to continue?"
 msgstr "Ingen mobil tilkobling. Vil du fortsette ?"
 
-#: ../../vmc/gtk/controllers/application.py:1062
+#: ../../vmc/gtk/controllers/application.py:1093
 msgid "Send SMS"
 msgstr "Send SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1076
+#: ../../vmc/gtk/controllers/application.py:1107
 msgid "Quit"
 msgstr "Avslutt"
 
-#: ../../vmc/gtk/controllers/application.py:1088
+#: ../../vmc/gtk/controllers/application.py:1141
 msgid "_Send SMS"
 msgstr "_Send SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1107
+#: ../../vmc/gtk/controllers/application.py:1156
+msgid "Edit"
+msgstr "Rediger"
+
+#: ../../vmc/gtk/controllers/application.py:1175
 msgid "_Add to contacts"
 msgstr "_Legg til kontakter"
 
-#: ../../vmc/gtk/controllers/application.py:1116
+#: ../../vmc/gtk/controllers/application.py:1184
 msgid "Save to draft"
 msgstr "Lagre til kladd"
 
-#: ../../vmc/gtk/controllers/application.py:1127
+#: ../../vmc/gtk/controllers/application.py:1195
 msgid "Delete"
 msgstr "Slett"
 
-#: ../../vmc/gtk/controllers/application.py:1243
+#: ../../vmc/gtk/controllers/application.py:1313
+msgid "EDGE"
+msgstr ""
+
+#: ../../vmc/gtk/controllers/application.py:1336
 msgid "Illegal Operation!"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1244
+#: ../../vmc/gtk/controllers/application.py:1337
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
 "to Internet, you cannot perform any operation while connected"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1258
-msgid "Radio Disabled"
-msgstr ""
-
-#: ../../vmc/gtk/controllers/application.py:1281
+#: ../../vmc/gtk/controllers/application.py:1366
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>SMS mottatt fra %s</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1284
+#: ../../vmc/gtk/controllers/application.py:1369
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
@@ -1539,12 +1524,12 @@ msgstr ""
 "<small>Mottatt den %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1296
+#: ../../vmc/gtk/controllers/application.py:1381
 #, fuzzy
 msgid "Invalid DNS received from Network"
 msgstr "Ugyldig DNS fra APN"
 
-#: ../../vmc/gtk/controllers/application.py:1298
+#: ../../vmc/gtk/controllers/application.py:1383
 #, fuzzy
 msgid ""
 "\n"
@@ -1558,11 +1543,11 @@ msgstr ""
 "tilkoblingen på nytt, dersom problemene vedvarer, kan du definere\n"
 "statiske DNS felter i tilkoblings innstillingene</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1313
+#: ../../vmc/gtk/controllers/application.py:1398
 msgid "Disconnected from Internet"
 msgstr "Koble fra Internet"
 
-#: ../../vmc/gtk/controllers/application.py:1314
+#: ../../vmc/gtk/controllers/application.py:1399
 #, python-format
 msgid ""
 "\n"
@@ -1577,11 +1562,11 @@ msgstr ""
 "ha oppstått ved konfigurasjons problemer i innstillingene eller\n"
 "nettverks problemer hos din operatør.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1326
+#: ../../vmc/gtk/controllers/application.py:1411
 msgid "Device in use removed"
 msgstr "Enhet i bruk fjernet"
 
-#: ../../vmc/gtk/controllers/application.py:1328
+#: ../../vmc/gtk/controllers/application.py:1413
 #, python-format
 msgid ""
 "\n"
@@ -1595,11 +1580,11 @@ msgstr ""
 "%s avsluttes.\n"
 "For å fortsette sett inn 3G enheten og start på nytt."
 
-#: ../../vmc/gtk/controllers/application.py:1364
+#: ../../vmc/gtk/controllers/application.py:1449
 msgid "3G Device added"
 msgstr "3G enhet lagt til"
 
-#: ../../vmc/gtk/controllers/application.py:1365
+#: ../../vmc/gtk/controllers/application.py:1450
 #, python-format
 msgid ""
 "\n"
@@ -1612,7 +1597,7 @@ msgstr ""
 "har blitt lagt til, i løpet av 15 sekunder\n"
 "vil (%(app_name)s) fortsette."
 
-#: ../../vmc/gtk/controllers/application.py:1373
+#: ../../vmc/gtk/controllers/application.py:1458
 msgid "Setting up device..."
 msgstr "Setter opp enhet"
 
@@ -1751,6 +1736,27 @@ msgstr "OS/Distro ikke registrert"
 #: ../../gtk-tap.py:80
 msgid "Permissions problems"
 msgstr "Rettighets problemer"
+
+#~ msgid "PIN1..."
+#~ msgstr "PIN1..."
+
+#~ msgid "Invalid PIN"
+#~ msgstr "Ugyldig PIN"
+
+#~ msgid ""
+#~ "\n"
+#~ "<small>The PIN you've just entered is\n"
+#~ "invalid. The PIN must be a 4 digit code</small>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "<small>PIN koden du tastet inn\n"
+#~ "er ugyldig. Pin koden må være en 4 sifferet kode</small>\n"
+
+#~ msgid "Error"
+#~ msgstr "Feil"
+
+#~ msgid "Passwords don't match"
+#~ msgstr "Passordene matcher ikke"
 
 #, fuzzy
 #~ msgid "PIN:"
