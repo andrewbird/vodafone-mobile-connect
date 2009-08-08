@@ -17,7 +17,9 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 from zope.interface import implements
+from os.path import join
 
+from vmc.common.consts import IMAGES_DIR
 from vmc.common.interfaces import IContact
 
 class KDEContact(object):
@@ -53,6 +55,12 @@ class KDEContact(object):
 
     def is_writable(self):
         return self.writable
+
+    def external_editor(self):
+        return ['kaddressbook', ]
+
+    def image_16x16(self):
+        return join(IMAGES_DIR, 'kdepim.png')
 
     def to_csv(self):
         """Returns a list with the name and number formatted for csv"""

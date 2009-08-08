@@ -47,6 +47,23 @@ def is_sim_contact(contact):
                 is_evl_contact(contact) or
                 is_kde_contact(contact))
 
+def all_same_type(l):
+    """Returns True if all items in C{l} are the same type"""
+    type_0 = type(l[0])
+
+    for item in l[1:]:
+        if type(item) != type_0:
+            return False
+    return True
+
+def all_contacts_writable(l):
+    """Returns True if all contacts in C{l} are writable"""
+    for contact in l:
+        if not contact.is_writable():
+            return False
+    return True
+
+
 class PhoneBook(object):
     """
     I manage all your contacts

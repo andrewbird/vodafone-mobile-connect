@@ -23,6 +23,7 @@ __version__ = "$Rev: 1172 $"
 import datetime
 
 from zope.interface import implements
+from os.path import join
 
 from vmc.common.encoding import to_u
 from vmc.common.sms import ShortMessage
@@ -69,7 +70,13 @@ class Contact(object):
     
     def is_writable(self):
         return self.writable
-    
+
+    def external_editor(self):
+        return None
+
+    def image_16x16(self):
+        return join(consts.IMAGES_DIR, 'mobile.png')
+
     def to_csv(self):
         """Returns a list with the name and number formatted for csv"""
         name = '"' + self.name + '"'
@@ -110,7 +117,13 @@ class DBContact(item.Item):
     
     def is_writable(self):
         return self.writable
-    
+
+    def external_editor(self):
+        return None
+
+    def image_16x16(self):
+        return join(consts.IMAGES_DIR, 'computer.png')
+
     def to_csv(self):
         """Returns a list with the name and number formatted for csv"""
         name = '"' + self.name + '"'
