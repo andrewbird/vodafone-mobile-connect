@@ -117,19 +117,6 @@ class ThreeItaly(NetworkOperator):
     dns2 = "62.13.171.2"
 
 
-class ThreeAustralia(NetworkOperator):
-    netid = ["50503"]
-    name = "3"
-    country = "Australia"
-    type = ""
-    smsc = "+61430004010"
-    apn = "3netaccess"
-    username = "*"
-    password = "*"
-    dns1 = None
-    dns2 = None
-
-
 class TimItaly(NetworkOperator):
     netid = ["22201"]
     name = "TIM"
