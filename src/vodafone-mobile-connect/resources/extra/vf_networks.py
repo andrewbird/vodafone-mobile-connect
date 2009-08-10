@@ -275,7 +275,7 @@ class Vodafone_50503_Prepaid(NetworkOperator):
     country = "Australia"
     type = "Prepaid"
     smsc = "+61415011501"
-    apn = "vfinternet.au"
+    apn = "vfprepaymbb" # XXX: local correction, check that master has been updated on next import
     username = ""
     password = ""
     dns1 = None
