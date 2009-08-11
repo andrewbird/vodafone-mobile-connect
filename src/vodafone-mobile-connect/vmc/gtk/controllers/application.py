@@ -24,7 +24,7 @@ from signal import SIGKILL
 
 import gtk
 
-from twisted.internet import reactor
+from twisted.internet import reactor, defer
 from twisted.internet.utils import getProcessOutput
 from twisted.python import log
 from twisted.application.internet import TimerService
@@ -186,35 +186,33 @@ if you want to do so, press the OK button.
         # not hotplug, regular startup
         self.model.daemons = self.model.wrapper.rmanager.daemons
         self.model.notimanager = self.model.wrapper.rmanager.notimanager
-        
+
         def enable_disable_pin(ignored):
             def pin_status_cb(active):
                 """
                 Actives or disactivates change_pin_menuitem
-                
+
                 If C{active} is True set change_pin_menuitem active
                 """
                 if not active:
                     self.view['change_pin1'].set_sensitive(False)
                     self.view['request_pin1'].set_active(False)
-                
+
                 if widget:
                     widget.close()
-                
+
                 self._hide_splash_and_show_ourselves()
                 self.paint_initial_values()
                 return True
-            
+
             d = self.model.get_pin_status()
             d.addCallback(pin_status_cb)
             return d
-       
-        self._empty_treeviews(['inbox_treeview', 'drafts_treeview', 
-                               'sent_treeview', 'contacts_treeview']) 
-        d = self._fill_treeviews()
+
+        d = defer.succeed(True)
         d.addCallback(enable_disable_pin)
         # get the pin status and toggle change_pin1 accordingly
-    
+
     def _setup_menubar_hacks(self):
         def fake_delete_event(widget, event):
             if event.button == 1:
@@ -1465,6 +1463,10 @@ has been added, in around 15 seconds
     def on_netreg_exit(self):
         self.start_polling_stats()
         self.view['connect_button'].set_sensitive(True)
+
+        self._empty_treeviews(['inbox_treeview', 'drafts_treeview',
+                                'sent_treeview', 'contacts_treeview'])
+        self._fill_treeviews()
 
     def try_to_configure_device(self, device, failure_cb):
         log.err("Trying to configure %s" % device.name)
