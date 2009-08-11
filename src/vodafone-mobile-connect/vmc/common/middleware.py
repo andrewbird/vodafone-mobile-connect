@@ -35,7 +35,13 @@ from vmc.common.sms import pdu_to_message
 def process_contact_match(match):
     """I process a contact match and return a C{Contact} object out of it"""
     from vmc.common.persistent import Contact
-    name = from_ucs2(match.group('name'))
+
+    _name = match.group('name')
+    if check_if_ucs2(_name):
+        name = from_ucs2(_name)
+    else:
+        name = _name.decode('utf8','ignore').rstrip('\x1f')
+
     number = from_ucs2(match.group('number'))
     index = int(match.group('id'))
     return Contact(name, number, index=index)
