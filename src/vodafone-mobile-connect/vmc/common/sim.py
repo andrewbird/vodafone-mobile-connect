@@ -21,6 +21,8 @@ from twisted.python import log
 from twisted.internet import defer, reactor
 
 import vmc.common.exceptions as ex
+from vmc.common.encoding import unpack_ucs2_bytes, check_if_ucs2
+
 
 RETRY_ATTEMPTS = 3
 RETRY_TIMEOUT = 3
@@ -45,7 +47,10 @@ class SIMBaseClass(object):
         self.size = size
 
     def set_charset(self, charset):
-        self.charset = charset
+        if check_if_ucs2(charset):
+            self.charset = unpack_ucs2_bytes(charset)
+        else:
+            self.charset = charset
         return charset
 
     def _setup_sms(self):
@@ -104,7 +109,7 @@ class SIMBaseClass(object):
                 return self.sconn.set_charset(charset)
 
             # we already have the wanted UCS2
-            self.charset = reply
+            self.set_charset(reply)
             return defer.succeed(True)
 
         d = self.sconn.get_charset()
