@@ -36,6 +36,7 @@ from vmc.common.encoding import pack_ucs2_bytes, from_u
 from vmc.common.command import get_cmd_dict_copy, OK_REGEXP, ERROR_REGEXP
 from twisted.python import log
 from vmc.common.command import ATCmd
+import vmc.common.exceptions as ex
 
 ERICSSON_DICT = {
    'GPRSONLY' : 'AT+CFUN=5',
@@ -66,6 +67,7 @@ class EricssonSIMClass(SIMBaseClass):
         d.addCallback(init_callback)
         return d
 
+
 class EricssonDBusDevicePlugin(DBusDevicePlugin):
     """DBusDevicePlugin for Ericsson"""
     simklass = EricssonSIMClass
@@ -85,7 +87,7 @@ class EricssonAdapter(SIMCardConnAdapter):
     def add_contact(self, contact):
         """
         Adds C{contact} to the SIM and returns the index where was stored
-        
+
         @rtype: C{defer.Deferred}
         """ 
         name = from_u(contact.get_name())
@@ -94,10 +96,10 @@ class EricssonAdapter(SIMCardConnAdapter):
         if 'UCS2' in self.device.sim.charset:
             name = pack_ucs2_bytes(name)
             number = pack_ucs2_bytes(number)
-        
+
         # common arguments for both operations (name and number)
         args = [name, number]
-        
+
         if contact.index:
             # contact.index is set, user probably wants to overwrite an
             # existing contact
@@ -105,7 +107,7 @@ class EricssonAdapter(SIMCardConnAdapter):
             d = super(SIMCardConnAdapter, self).add_contact(*args)
             d.addCallback(lambda _: contact.index)
             return d
-        
+
         # contact.index is not set, this means that we need to obtain the
         # first slot free on the phonebook and then add the contact
         def get_next_id_cb(index):
@@ -114,7 +116,7 @@ class EricssonAdapter(SIMCardConnAdapter):
             # now we just fake add_contact's response and we return the index
             d2.addCallback(lambda _: index)
             return d2
-        
+
         d = super(SIMCardConnAdapter, self).get_next_contact_id()
         d.addCallback(get_next_id_cb)
         return d
@@ -160,7 +162,7 @@ class EricssonAdapter(SIMCardConnAdapter):
     def get_pin_status(self):
         """
         Returns 1 if PIN auth is active and 0 if its not
-        
+
         @rtype: C{Deferred}
         """
         def ericsson_get_pin_status(facility):
@@ -173,12 +175,12 @@ class EricssonAdapter(SIMCardConnAdapter):
         def pinreq_errback(failure):
             failure.trap(ex.CMEErrorSIMPINRequired)
             return 1
-        
+
         def aterror_eb(failure):
             failure.trap(ex.ATError)
             # return the failure or wont work
             return failure
-        
+
         facility = (self.device.sim.charset == 'UCS2') and pack_ucs2_bytes('SC') or 'SC'
 
         d = ericsson_get_pin_status(facility)                    # call the local one
@@ -186,7 +188,79 @@ class EricssonAdapter(SIMCardConnAdapter):
         d.addErrback(pinreq_errback)
         d.addErrback(aterror_eb)
         return d
- 
+
+    def change_pin(self, oldpin, newpin):
+        """
+        Changes C{oldpin} to C{newpin} in the SIM card
+
+        @type oldpin: C{str}
+        @type newpin: C{str}
+
+        @return: If everything goes well, it will return an 'OK' through the
+        callback, otherwise it will raise an exception.
+
+        @raise common.exceptions.ATError: When the password is incorrect.
+        @raise common.exceptions.CMEErrorIncorrectPassword: When the
+        password is incorrect.
+        @raise common.exceptions.InputValueError: When the PIN != \d{4}
+        """
+        if (self.device.sim.charset == 'UCS2'):
+            facility = pack_ucs2_bytes('SC')
+            oldpin = pack_ucs2_bytes(oldpin)
+            newpin = pack_ucs2_bytes(newpin)
+        else:
+            facility = 'SC'
+
+        cmd = ATCmd('AT+CPWD="%s","%s","%s"' % (facility, oldpin, newpin),
+                    name='change_pin')
+        return self.queue_at_cmd(cmd)
+
+    def disable_pin(self, pin):
+        """
+        Disables pin authentication at startup
+
+        @type pin: C{int}
+        @return: If everything goes well, it will return an 'OK' through the
+        callback, otherwise it will raise an exception.
+
+        @raise common.exceptions.ATError: When the PIN is incorrect.
+        @raise common.exceptions.CMEErrorIncorrectPassword: When the
+        PIN is incorrect.
+        @raise common.exceptions.InputValueError: When the PIN != \d{4}
+        """
+        if (self.device.sim.charset == 'UCS2'):
+            facility = pack_ucs2_bytes('SC')
+            pin = pack_ucs2_bytes(pin)
+        else:
+            facility = 'SC'
+
+        cmd = ATCmd('AT+CLCK="%s",0,"%s"' % (facility, pin),
+                    name='disable_pin')
+        return self.queue_at_cmd(cmd)
+
+    def enable_pin(self, pin):
+        """
+        Enables pin authentication at startup
+
+        @type pin: C{int}
+        @return: If everything goes well, it will return an 'OK' through the
+        callback, otherwise it will raise an exception.
+
+        @raise common.exceptions.ATError: When the PIN is incorrect.
+        @raise common.exceptions.CMEErrorIncorrectPassword: When the
+        PIN is incorrect.
+        @raise common.exceptions.InputValueError: When the PIN != \d{4}
+        """
+        if (self.device.sim.charset == 'UCS2'):
+            facility = pack_ucs2_bytes('SC')
+            pin = pack_ucs2_bytes(pin)
+        else:
+            facility = 'SC'
+
+        cmd = ATCmd('AT+CLCK="%s",1,"%s"' % (facility, pin),
+                    name='enable_pin')
+        return self.queue_at_cmd(cmd)
+
 
 class EricssonCustomizer(Customizer):
     """
