@@ -5,13 +5,13 @@ Summary:	3G Manager for Linux
 Packager:	Andrew Bird <ajb@spheresystems.co.uk>
 
 Group:		Applications/Telephony
-License:	GPL	
+License:	GPL
 URL:		http://www.vodafonebetavine.net/web/linux_drivers
 Source0:	vmc-1.99.17.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:	wvdial usb_modeswitch pyserial python-sqlite2 python-twisted pytz gnome-python2-libegg 
+Requires:	wvdial, usb_modeswitch >= 0.9.7, pyserial, python-sqlite2, python-twisted, pytz, gnome-python2-libegg
 
 %description
 OSS 3G manager for Linux
