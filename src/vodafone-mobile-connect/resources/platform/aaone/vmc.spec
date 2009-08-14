@@ -69,6 +69,12 @@ fi
 /usr/bin/vmc-manage-icon.sh install user
 /usr/bin/vmc-manage-icon.sh update  user
 
+%preun
+if [ "$1" = "0" ] ; then # last instance of package being removed
+	/usr/bin/vmc-manage-icon.sh remove  user
+	/usr/bin/vmc-manage-icon.sh update  user
+fi
+
 %postun
 if [ "$1" = "0" ] ; then # last instance of package being removed
 
@@ -76,9 +82,6 @@ if [ "$1" = "0" ] ; then # last instance of package being removed
 	if [ -f /etc/linpus-release.vmc ] ; then
 		mv /etc/linpus-release.vmc /etc/linpus-release
 	fi
-
-	/usr/bin/vmc-manage-icon.sh remove  user
-	/usr/bin/vmc-manage-icon.sh update  user
 
 	chown :root /usr/sbin/pppd
 	chmod 555 /usr/sbin/pppd
