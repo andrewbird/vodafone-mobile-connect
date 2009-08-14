@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
 
 Package: vodafone-mobile-connect
-Depends: python-vmc (>= 2.5.2-4), wvdial, hal, usb-modeswitch
+Depends: python-vmc (>= 2.5.2-4), wvdial, hal, usb-modeswitch (>= 0.9.7)
 Replaces: vodafone-mobile-connect-card-driver-for-linux
 Architecture: all
 Description: Vodafone 3G devices Internet connection assistant
