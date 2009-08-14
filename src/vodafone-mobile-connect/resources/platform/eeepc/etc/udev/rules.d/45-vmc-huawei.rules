@@ -7,13 +7,18 @@
 # Spaces after HUAWEI vendor attribute are significant
 ACTION=="add", BUS=="scsi", DRIVER=="sr", SYSFS{vendor}=="HUAWEI  ", OPTIONS+="ignore_device last_rule", RUN:=""
 
-# Call flip + driver load script
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
-ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1411", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+# Devices that don't change PID use the combined flip + driver loading script
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct} yes"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct} yes"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1411", SYSFS{bNumInterfaces}==" 1", RUN:="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct} yes"
 
 # Stop ASUS-3gtool from stealing the ports, but still trigger the HAL update
 ACTION=="add", BUS=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1001", RUN:="socket:/org/freedesktop/hal/udev_event"
 ACTION=="add", BUS=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1003", RUN:="socket:/org/freedesktop/hal/udev_event"
 ACTION=="add", BUS=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1411", RUN:="socket:/org/freedesktop/hal/udev_event"
+
+# Devices that change PID when flipped use separate scripts to flip & load driver
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1520", RUN:="/usr/sbin/vmc-huawei-flip.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1451", RUN+="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", SYSFS{idProduct}=="1464", RUN+="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
 
