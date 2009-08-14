@@ -1,5 +1,5 @@
 """
-Automatically generated from a VMC Opcos.XML file embedded 
+Automatically generated from a VMC Opcos.XML file embedded
 in a zip file called Opco_04_9.4.3_RC4
 """
 
@@ -275,9 +275,9 @@ class Vodafone_50503_Prepaid(NetworkOperator):
     country = "Australia"
     type = "Prepaid"
     smsc = "+61415011501"
-    apn = "vfprepaymbb" # XXX: local correction, check that master has been updated on next import
-    username = ""
-    password = ""
+    apn = "vfprepaymbb"
+    username = "web"
+    password = "web"
     dns1 = None
     dns2 = None
 
