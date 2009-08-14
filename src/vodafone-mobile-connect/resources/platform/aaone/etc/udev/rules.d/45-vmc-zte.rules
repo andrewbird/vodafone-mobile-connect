@@ -1,18 +1,28 @@
 # Spaces after ZTE vendor attribute are needed on some devices
 # udevinfo -a -p /block/sr1
 
-# Kill the Volume Manager popup for the built in driver CD + eject to flip
-ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
-   ATTRS{vendor}=="ZTE     ", \
-   RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+# Call the usb_modeswitch to eject the CD device
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="19d2", ATTR{idProduct}=="0040", \
+   RUN+="/usr/sbin/vmc-usb_modeswitch-eject.sh %s{idVendor} %s{idProduct}"
 
-ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
-   ATTRS{vendor}=="ZTE Corp", \
-   RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+# Call the usb_modeswitch to eject the CD device
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="19d2", ATTR{idProduct}=="2000", \
+   RUN+="/usr/sbin/vmc-usb_modeswitch-eject.sh %s{idVendor} %s{idProduct}"
 
-ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
-   ATTRS{vendor}=="Vodafone", \
-   RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+## Kill the Volume Manager popup for the built in driver CD + eject to flip
+#ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
+#   ATTRS{vendor}=="ZTE     ", \
+#   RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+#
+#ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
+#   ATTRS{vendor}=="ZTE Corp", \
+#   RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
+#
+#ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
+#   ATTRS{vendor}=="Vodafone", \
+#   RUN:="/usr/sbin/vmc-settle-eject.sh %k 12"
 
 # Call the driver loading script
 ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
