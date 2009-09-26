@@ -5,13 +5,13 @@ Summary:	3G Manager for Linux
 Packager:	Andrew Bird <ajb@spheresystems.co.uk>
 
 Group:		Applications/Telephony
-License:	GPL	
+License:	GPL
 URL:		http://www.vodafonebetavine.net/web/linux_drivers
 Source0:	vmc-2.0.0.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:	usb_modeswitch wvdial hal lsb python-serial python-twisted python-twisted-conch python-notify python-sqlite2 python-tz python-gobject2 dbus-1-python python-cairo python-crypto python-gtk python-gnome python-gnome-extras
+Requires:	usb_modeswitch >= 0.9.7, wvdial, hal, lsb, python-serial, python-twisted, python-twisted-conch, python-notify, python-sqlite2, python-tz, python-gobject2, dbus-1-python, python-cairo, python-crypto, python-gtk, python-gnome, python-gnome-extras
 
 %description
 OSS 3G manager for Linux
@@ -58,6 +58,11 @@ chmod 775 /etc/ppp/peers
 chown :dialout /usr/sbin/pppd
 chmod 4754 /usr/sbin/pppd
 
+# initialise Twisted's plugin cache
+/usr/bin/twistd --help >/dev/null 2>&1
+
+# tickle UDEV
+(udevadm control --reload-rules 2>/dev/null || udevadm control --reload_rules)
 
 %postun
 if [ "$1" = "0" ] ; then # last instance of package being removed
