@@ -28,9 +28,21 @@ ACTION=="add", SUBSYSTEM=="usb", \
    RUN:="/usr/sbin/vmc-huawei-flip.sh %s{idVendor} %s{idProduct}"
 
 ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="12d1", ATTR{idProduct}=="1521", \
+   RUN:="/usr/sbin/vmc-huawei-flip.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="12d1", ATTR{idProduct}=="1450", \
+   RUN+="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEM=="usb", \
    ATTR{idVendor}=="12d1", ATTR{idProduct}=="1451", \
    RUN+="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
 
 ACTION=="add", SUBSYSTEM=="usb", \
    ATTR{idVendor}=="12d1", ATTR{idProduct}=="1464", \
+   RUN+="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="12d1", ATTR{idProduct}=="1465", \
    RUN+="/usr/sbin/vmc-huawei.sh %s{idVendor} %s{idProduct}"

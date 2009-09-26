@@ -31,8 +31,14 @@ class HuaweiK3765(HuaweiDBusDevicePlugin):
 
     __properties__ = {
         'usb_device.vendor_id': [0x12d1],
-        'usb_device.product_id': [0x1451],
+        'usb_device.product_id': [0x1451, 0x1465],
     }
+
+    def preprobe_init(self, ports, info):
+        if info['usb_device.product_id'] == 0x1465:
+            self.hardcoded_ports = (0,4) # auto probing can hang
+        else: # let probing occur
+            pass
 
 huaweik3765 = HuaweiK3765()
 
