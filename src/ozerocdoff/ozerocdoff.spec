@@ -1,11 +1,11 @@
 Name:		ozerocdoff
 Version:	0.4
 Release:	1%{?dist}
-Summary:	Tool for switching modes of Option USB devices	
+Summary:	Tool for switching modes of Option USB devices
 Packager:	Andrew Bird <ajb@spheresystems.co.uk>
 
-Group:		System Environment/Base	
-License:	GPL	
+Group:		System Environment/Base
+License:	GPL
 URL:		http://www.pharscape.org/ozerocdoff.html
 Source0:	ozerocdoff-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -36,7 +36,7 @@ make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT LIBNAME=%{_lib}
 
 
 %clean
@@ -50,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 /etc/udev/rules.d/51-hso-udev.rules
 
-/usr/lib/hal/scripts/hal-serial-hsotype
+/usr/%{_lib}/hal/scripts/hal-serial-hsotype
 /usr/share/hal/fdi/preprobe/20thirdparty/10-wwan-hso-preprobe.fdi
 /usr/share/hal/fdi/information/20thirdparty/10-wwan-quirk.fdi
 
