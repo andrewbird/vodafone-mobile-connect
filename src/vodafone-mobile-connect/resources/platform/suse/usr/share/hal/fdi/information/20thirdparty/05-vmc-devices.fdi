@@ -69,6 +69,17 @@
       </match>
 
  <!-- Novatel based mobile devices -->
+      <match key="@info.parent:pcmcia.manf_id" int="0x00a4"> <!-- PCMCIA -->
+
+        <!-- U630 -->
+        <match key="@info.parent:pcmcia.card_id" int="0x0276">
+           <append key="info.capabilities" type="strlist">modem</append>
+           <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+           <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+        </match>
+
+      </match>
+
       <match key="@info.parent:usb.vendor_id" int="0x1410">
 
 	<!-- XU870 -->
@@ -91,6 +102,24 @@
 
 	<!-- Ovation MC950D -->
         <match key="@info.parent:usb.product_id" int="0x4400">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- generic MiFi / Ovation -->
+        <match key="@info.parent:usb.product_id" int="0x7001">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- MiFi 2352 -->
+        <match key="@info.parent:usb.product_id" int="0x7003">
           <match key="@info.parent:usb.interface.number" int="0">
             <append key="info.capabilities" type="strlist">modem</append>
             <append key="modem.command_sets" type="strlist">GSM-07.07</append>

@@ -2,12 +2,44 @@
 # udevinfo -a -p /block/sr1
 
 # Kill the Volume Manager popup for the built in driver CD + eject to flip
-ACTION=="add", SUBSYSTEMS=="scsi", DRIVERS=="sr", \
+ACTION=="add", \
+   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="5010", \
+   RUN:="/bin/eject %k"
+
+ACTION=="add", \
+   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="5020", \
+   RUN:="/bin/eject %k"
+
+ACTION=="add", \
+   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="5041", \
+   RUN:="/bin/eject %k"
+
+ACTION=="add", \
+   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="5051", \
+   RUN:="/bin/eject %k"
+
+# Generic
+ACTION=="add", SUBSYSTEM=="block", DRIVERS=="sr", \
    ATTRS{vendor}=="Novatel ", \
-   RUN:="/usr/sbin/eject %k"
+   RUN:="/bin/eject %k"
 
 # Call the driver loading script
-ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
-   ATTRS{idVendor}=="1410", ATTRS{idProduct}=="4400", \
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="1410", ATTR{idProduct}=="1450", \
+   RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+
+# Call the driver loading script
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="1410", ATTR{idProduct}=="4400", \
+   RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+
+# Call the driver loading script for the generic Ovation/MiFi device
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="1410", ATTR{idProduct}=="7001", \
+   RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
+
+# Call the driver loading script for the MiFi device
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="1410", ATTR{idProduct}=="7003", \
    RUN+="/usr/sbin/vmc-novatel.sh %s{idVendor} %s{idProduct}"
 
