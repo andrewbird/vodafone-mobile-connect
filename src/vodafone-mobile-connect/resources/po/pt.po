@@ -1,26 +1,26 @@
-# VMC Spanish translation file.
-# Copyright (C) 2007
+# VMC Portguese translation file.
+# Copyright (C) 2007, 2009
 # This file is distributed under the same license as the VMC package.
 # Paulo Arinto <arinto@portugalmail.pt>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-07 16:29+0100\n"
-"PO-Revision-Date: 2007-08-04 12:30+0100\n"
-"Last-Translator: Paulo Arinto <artinto@portugalmail.pt>\n"
-"Language-Team: Portuguese <PT@li.org>\n"
+"POT-Creation-Date: 2009-09-26 14:43+0100\n"
+"PO-Revision-Date: 2009-09-25 14:14+0100\n"
+"Last-Translator: Alberto Flores <>\n"
+"Language-Team: Portuguese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../glade/apnsel.glade:8
 msgid "APN selection"
-msgstr ""
+msgstr "Selecção de APN"
 
 #: ../glade/apnsel.glade:22
 msgid "APN Selection Window"
-msgstr ""
+msgstr "Selecção de APN"
 
 #: ../glade/apnsel.glade:69
 msgid ""
@@ -29,6 +29,10 @@ msgid ""
 "You can choose a preconfigured APN or cancel to enter the information needed "
 "to set up a custom one.\n"
 msgstr ""
+"<b>APNs pré-configurados para o seu Operador.</b>\n"
+"\n"
+"Pode escolher um APN pré-configurado ou cancelar e preencher a informação "
+"necessária para criar um APN personalizado.\n"
 
 #: ../glade/apnsel.glade:193 ../glade/config2.glade:1333
 #: ../glade/pin.glade:223
@@ -41,17 +45,14 @@ msgid "OK"
 msgstr ""
 
 #: ../glade/apnsel.glade:228
-#, fuzzy
 msgid "<b>APN Settings</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Definições APN</b>"
 
 #: ../glade/config2.glade:9
-#, fuzzy
 msgid "New Profile"
 msgstr "Novo perfil"
 
 #: ../glade/config2.glade:23
-#, fuzzy
 msgid "New Profile Window"
 msgstr "Novo perfil"
 
@@ -63,83 +64,76 @@ msgid ""
 "support center and they should provide\n"
 "you with the relevant information."
 msgstr ""
+"<b>Criar um novo perfil para o seu dispositivo.</b>\n"
+"\n"
+"Se não tem certeza dos dados a preencher, contacte o seu serviço de apoio ao "
+"cliente, que lhe fornecerá\n"
+"a informação relevante."
 
 #: ../glade/config2.glade:115
 msgid "<b>Connection preferences</b>"
 msgstr "<b>Preferências de ligação</b>"
 
 #: ../glade/config2.glade:152
-#, fuzzy
 msgid "Username:"
-msgstr "Nome de Utilizador"
+msgstr "Nome de Utilizador:"
 
 #: ../glade/config2.glade:177
-#, fuzzy
 msgid "Password:"
-msgstr "Palavra-passe"
+msgstr "Palavra-passe:"
 
 #: ../glade/config2.glade:202
-#, fuzzy
 msgid "Preferred connection:"
-msgstr "Ligação preferida  "
+msgstr "Ligação preferida:"
 
 #: ../glade/config2.glade:227
-#, fuzzy
 msgid "Authentication mode:"
-msgstr "!Não é preciso autenticação!"
+msgstr "Modo de autenticação:"
 
 #: ../glade/config2.glade:252
-#, fuzzy
 msgid "APN host:"
 msgstr "Host APN"
 
 #: ../glade/config2.glade:410
-#, fuzzy
 msgid "<b>DNS settings</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Definições de DNS</b>"
 
 #: ../glade/config2.glade:448
-#, fuzzy
 msgid "Use static DNS"
-msgstr "Usar DNS estáticos"
+msgstr "Usar DNS estático"
 
 #: ../glade/config2.glade:481
-#, fuzzy
 msgid "Primary DNS:"
-msgstr "DNS primario"
+msgstr "DNS primário:"
 
 #: ../glade/config2.glade:506
-#, fuzzy
 msgid "Secondary DNS:"
-msgstr "DNS secundario           "
+msgstr "DNS secundario:"
 
 #: ../glade/config2.glade:645
-#, fuzzy
 msgid "<b>Profile settings</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Definições de perfil</b>"
 
 #: ../glade/config2.glade:682
-#, fuzzy
 msgid "Profile name:"
-msgstr "Perfis"
+msgstr "Nome de perfil:"
 
 #: ../glade/config2.glade:707
-#, fuzzy
 msgid "Device model:"
-msgstr "Dispositivo 3G ligado"
+msgstr "Modelo do dispositivo:"
 
 #: ../glade/config2.glade:782 ../../vmc/gtk/controllers/preferences.py:280
 #: ../../vmc/gtk/controllers/preferences.py:295
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: ../glade/config2.glade:859
 msgid "Device selection"
-msgstr ""
+msgstr "Selecção de dispositivo"
 
 #: ../glade/config2.glade:873
 msgid "Device Selection Window"
-msgstr ""
+msgstr "Selecção de dispositivo"
 
 #: ../glade/config2.glade:921
 msgid ""
@@ -148,24 +142,26 @@ msgid ""
 "You can choose a known device or insert the needed information to set up a "
 "custom one.\n"
 msgstr ""
+"<b>Seleccione um dispositivo para a sua conecção.</b>\n"
+"\n"
+"Pode escolher um dispositivo conhecido ou inserir a informação necessária "
+"para definir um dispostivo personalizado.\n"
 
 #: ../glade/config2.glade:1020
-#, fuzzy
 msgid "Known devices"
-msgstr "Nenhum equipamento presente"
+msgstr "Dispositivos conhecidos"
 
 #: ../glade/config2.glade:1028
-#, fuzzy
 msgid "Known Devices Radio"
-msgstr "Nenhum equipamento presente"
+msgstr "Radio Dispositivos conhecidos"
 
 #: ../glade/config2.glade:1079
 msgid "Device type:"
-msgstr ""
+msgstr "Tipo de dispositivo:"
 
 #: ../glade/config2.glade:1104
 msgid "Serial"
-msgstr ""
+msgstr "Número de série:"
 
 #: ../glade/config2.glade:1181
 msgid "115200"
@@ -173,63 +169,55 @@ msgstr ""
 
 #: ../glade/config2.glade:1197
 msgid "Data port device:"
-msgstr ""
+msgstr "Porta de dados do dispositivo:"
 
 #: ../glade/config2.glade:1225
 msgid "Control port device:"
-msgstr ""
+msgstr "Porta de controlo do dispositivo:"
 
 #: ../glade/config2.glade:1253
 #, fuzzy
 msgid "Speed connection:"
-msgstr "Ligação preferida  "
+msgstr "Velocidade da ligação:"
 
 #: ../glade/config2.glade:1293
-#, fuzzy
 msgid "Custom device settings"
-msgstr "Nenhum equipamento presente"
+msgstr "Definições de dispositivo personalizadas"
 
 #: ../glade/config2.glade:1302
 #, fuzzy
 msgid "Custom Device Settings Radio"
-msgstr "Nenhum equipamento presente"
+msgstr "Radio Definições de dispositivo personalizadas"
 
 #: ../glade/config2.glade:1368
-#, fuzzy
 msgid "<b>Device Settings</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Definições de dispositivo</b>"
 
 #: ../glade/config.glade:8
-#, fuzzy
 msgid "Device setup"
-msgstr "Nenhum equipamento presente"
+msgstr "Configuração do dispositivo"
 
 #: ../glade/config.glade:34
-#, fuzzy
 msgid ""
 "Please select from the following options how do you want to connect to the "
 "Internet"
-msgstr ""
-"Seleccione uma das seguintes\n"
-"opções para se ligar à internet"
+msgstr "Seleccione uma das seguintesopções para se ligar à Internet"
 
 #: ../glade/config.glade:56
-#, fuzzy
 msgid "Device model: "
-msgstr "Dispositivo 3G ligado"
+msgstr "Modelo do dispositivo:"
 
 #: ../glade/config.glade:63
-#, fuzzy
 msgid "Connection:"
 msgstr "Ligação"
 
 #: ../glade/config.glade:153
 msgid "Bluetooth configuration"
-msgstr ""
+msgstr "Configuração Bluetooth"
 
 #: ../glade/config.glade:174
 msgid "Configure your <b>Bluetooth</b> device"
-msgstr ""
+msgstr "Configure o seu dispositivo <b>Bluetooth</b>"
 
 #: ../glade/config.glade:198
 msgid ""
@@ -239,49 +227,52 @@ msgid ""
 "sports a recent version of libbluetooth2. Otherwise you will\n"
 "have to configure it yourself and fill the relevant entries"
 msgstr ""
+"Certifique-se que o seu telemóvel possui bluetooth ligado e visível.\n"
+"Será necessário ter instalado um agente de chaves/passwords como o bluez-"
+"gnome.\n"
+"A sua ligação pode ser configurada automaticamente se a sua distribuição\n"
+"contém uma versão recente de libbluetooth2. Caso contrário, terá\n"
+"de configurar a ligação preenchendo as entradas relevantes"
 
 #: ../glade/config.glade:250
 msgid "_Start discovery"
-msgstr ""
+msgstr "_Iniciar descoberta"
 
 #: ../glade/config.glade:301
-#, fuzzy
 msgid "<b>Serial Port</b>"
-msgstr "<b>Periodo</b>"
+msgstr "<b>Porta série</b>"
 
 #: ../glade/config.glade:325
 msgid "Data port"
-msgstr ""
+msgstr "Porta de dados"
 
 #: ../glade/config.glade:334
 msgid "Control port"
-msgstr ""
+msgstr "Porta de controlo"
 
 #: ../glade/config.glade:346
 msgid "Speed"
-msgstr ""
+msgstr "Velocidade"
 
 #: ../glade/config.glade:440
-#, fuzzy
 msgid "<b>Connection settings</b>"
 msgstr "<b>Preferências de ligação</b>"
 
 #: ../glade/config.glade:461
 msgid "Enable hardware flow control"
-msgstr ""
+msgstr "Ligar controlo de fluxo por hardware"
 
 #: ../glade/config.glade:474
 msgid "Enable software flow control"
-msgstr ""
+msgstr "Ligar controlo de fluxo por software"
 
 #: ../glade/contacts.glade:7
 msgid "Contact search"
 msgstr "Procurar contacto"
 
 #: ../glade/contacts.glade:29
-#, fuzzy
 msgid " Name:"
-msgstr " Nome : "
+msgstr " Nome:"
 
 #: ../glade/contacts.glade:94
 msgid "Contacts List"
@@ -293,14 +284,12 @@ msgid "Add a contact"
 msgstr "Adicionar um contacto"
 
 #: ../glade/contacts.glade:179
-#, fuzzy
 msgid "Name:"
-msgstr "Nome"
+msgstr "Nome:"
 
 #: ../glade/contacts.glade:222
-#, fuzzy
 msgid "Number:"
-msgstr "Número"
+msgstr "Número:"
 
 #: ../glade/contacts.glade:258
 #, fuzzy
@@ -326,29 +315,24 @@ msgid "<b>GSM device</b>"
 msgstr "<b>Dispositivo GSM</b>"
 
 #: ../glade/diagnostics.glade:51
-#, fuzzy
 msgid "Model:"
-msgstr "Modelo : "
+msgstr "Modelo:"
 
 #: ../glade/diagnostics.glade:59
-#, fuzzy
 msgid "Firmware: "
-msgstr "Firmware : "
+msgstr "Firmware: "
 
 #: ../glade/diagnostics.glade:70
-#, fuzzy
 msgid "IMEI: "
-msgstr "IMEI : "
+msgstr "IMEI: "
 
 #: ../glade/diagnostics.glade:81
-#, fuzzy
 msgid "IMSI: "
-msgstr "IMSI : "
+msgstr "IMSI: "
 
 #: ../glade/diagnostics.glade:92
-#, fuzzy
 msgid "VMC number:"
-msgstr "Número VMC : "
+msgstr "Número VMC:"
 
 #: ../glade/diagnostics.glade:115
 msgid "Card model"
@@ -375,19 +359,16 @@ msgid "<b>Computer</b>"
 msgstr "<b>Computador</b>"
 
 #: ../glade/diagnostics.glade:208
-#, fuzzy
 msgid "Operating System:"
-msgstr "Sistema Operativo : "
+msgstr "Sistema Operativo:"
 
 #: ../glade/diagnostics.glade:216
-#, fuzzy
 msgid "Version:"
-msgstr "Versão : "
+msgstr "Versão:"
 
 #: ../glade/diagnostics.glade:227
-#, fuzzy
 msgid "Uptime:"
-msgstr "Tempo Ligado : "
+msgstr "Tempo Ligado:"
 
 #: ../glade/diagnostics.glade:248
 msgid "label26"
@@ -417,11 +398,11 @@ msgstr ""
 
 #: ../glade/dialogs.glade:152
 msgid "Detailed message"
-msgstr ""
+msgstr "Mensagem detalhada"
 
 #: ../glade/dialogs.glade:189
 msgid "Action"
-msgstr ""
+msgstr "Acção"
 
 #: ../glade/dialogs.glade:325
 msgid "<b>title</b>"
@@ -441,28 +422,24 @@ msgid "Insert your PIN code"
 msgstr "Introduza o seu código PIN"
 
 #: ../glade/pin.glade:23
-#, fuzzy
 msgid "Insert PIN Window"
 msgstr "Introduza o seu código PIN"
 
 #: ../glade/pin.glade:64
-#, fuzzy
 msgid "Please insert your PIN code"
 msgstr "Por favor, introduza o seu código PIN"
 
 #: ../glade/pin.glade:105
-#, fuzzy
 msgid "Insert PIN Entry"
 msgstr "Introduza o seu código PIN"
 
 #: ../glade/pin.glade:150
 msgid "Manage my PIN through gnome-keyring"
-msgstr ""
+msgstr "Gerir o meu PIN usando o gnome-keyring"
 
 #: ../glade/pin.glade:179
-#, fuzzy
 msgid "<b>Advanced Options</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Opções Avançadas</b>"
 
 #: ../glade/pin.glade:258
 msgid "Modify PIN code"
@@ -484,19 +461,18 @@ msgstr "Código PIN actual: "
 msgid "Please enter PUK"
 msgstr "Introduza o código PUK"
 
-#: ../glade/pin.glade:595 ../glade/VMC.glade:902 ../glade/VMC.glade:919
-#: ../glade/VMC.glade:975 ../glade/VMC.glade:1030 ../glade/VMC.glade:1047
-#: ../glade/VMC.glade:1103 ../glade/VMC.glade:1316 ../glade/VMC.glade:1333
-#: ../glade/VMC.glade:1389 ../glade/VMC-reduced.glade:1289
-#: ../glade/VMC-reduced.glade:1317 ../glade/VMC-reduced.glade:1401
-#: ../glade/VMC-reduced.glade:1517 ../glade/VMC-reduced.glade:1545
-#: ../glade/VMC-reduced.glade:1655 ../glade/VMC-reduced.glade:1989
-#: ../glade/VMC-reduced.glade:2017 ../glade/VMC-reduced.glade:2127
+#: ../glade/pin.glade:595 ../glade/VMC.glade:897 ../glade/VMC.glade:914
+#: ../glade/VMC.glade:970 ../glade/VMC.glade:1025 ../glade/VMC.glade:1042
+#: ../glade/VMC.glade:1098 ../glade/VMC.glade:1311 ../glade/VMC.glade:1328
+#: ../glade/VMC.glade:1384 ../glade/VMC-reduced.glade:1283
+#: ../glade/VMC-reduced.glade:1311 ../glade/VMC-reduced.glade:1395
+#: ../glade/VMC-reduced.glade:1511 ../glade/VMC-reduced.glade:1539
+#: ../glade/VMC-reduced.glade:1649 ../glade/VMC-reduced.glade:1983
+#: ../glade/VMC-reduced.glade:2011 ../glade/VMC-reduced.glade:2121
 msgid "label"
 msgstr ""
 
 #: ../glade/pin.glade:654
-#, fuzzy
 msgid "PUK:"
 msgstr "PUK:"
 
@@ -509,52 +485,48 @@ msgid ""
 "<b>Change the dialer profile if your provider requires you to authenticate "
 "with PAP/CHAP</b>"
 msgstr ""
+"<b>Alterar o perfil de ligação se o seu fornecedor requer autenticação com "
+"PAP/CHAP</b>"
 
 #: ../glade/preferences.glade:67
-#, fuzzy
 msgid "Use an alternative dialer profile"
-msgstr "Não é possivél apagar o perfil"
+msgstr "Usar um perfil de ligação alternativo"
 
 #: ../glade/preferences.glade:94 ../glade/sms-preferences.glade:46
-#, fuzzy
 msgid "Profile:"
-msgstr "Perfis"
+msgstr "Perfil:"
 
 #: ../glade/preferences.glade:127
-#, fuzzy
 msgid "Dialer profile"
-msgstr "Apagar perfil"
+msgstr "Perfil de ligação"
 
 #: ../glade/preferences.glade:145
-#, fuzzy
 msgid "<b>User options</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Opções do utilizador</b>"
 
 #: ../glade/preferences.glade:167
 msgid "Exit without confirmation"
-msgstr ""
+msgstr "Sair sem confirmação"
 
 #: ../glade/preferences.glade:181
 msgid "Show icon on tray"
-msgstr ""
+msgstr "Mostrar icon na bandeja"
 
 #: ../glade/preferences.glade:196
 msgid "Close window minimizes app to tray"
-msgstr ""
+msgstr "Fechar a janela minimiza a aplicação para a bandeja"
 
 #: ../glade/preferences.glade:211
 msgid "Manage my PIN through gnomekeyring"
-msgstr ""
+msgstr "Gerir o meu PIN através do gnomekeyring"
 
 #: ../glade/preferences.glade:242
-#, fuzzy
 msgid "User Preferences"
 msgstr "Preferências"
 
 #: ../glade/preferences.glade:261
-#, fuzzy
 msgid "<b>Web Browser</b>"
-msgstr "<b>Periodo</b>"
+msgstr "<b>Browser web</b>"
 
 #: ../glade/preferences.glade:300
 msgid "\n"
@@ -562,42 +534,39 @@ msgstr ""
 
 #: ../glade/preferences.glade:317 ../glade/preferences.glade:400
 msgid "Command:"
-msgstr ""
+msgstr "Comando:"
 
 #: ../glade/preferences.glade:350
-#, fuzzy
 msgid "<b>Email client</b>"
-msgstr "<b>título</b>"
+msgstr "<b>Cliente de email</b>"
 
 #: ../glade/preferences.glade:446
 msgid "Applications"
-msgstr ""
+msgstr "Aplicações"
 
 #: ../glade/preferences.glade:465
-#, fuzzy
 msgid "<b>Usage Options</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Opções de utilização</b>"
 
 #: ../glade/preferences.glade:491
-#, fuzzy
 msgid "Maximum traffic (MB):"
-msgstr "Tempo máximo"
+msgstr "Tráfego máximo (MB):"
 
 #: ../glade/preferences.glade:521
 msgid "Notify when a given threshold is exceeded."
-msgstr ""
+msgstr "Notificar quando o limite definido for atingido."
 
 #: ../glade/preferences.glade:545
 msgid "Notification threshold (MB):"
-msgstr ""
+msgstr "Limite de notificação (MB):"
 
 #: ../glade/preferences.glade:590 ../glade/VMC.glade:107
 #: ../glade/VMC-reduced.glade:146
 msgid "Usage"
 msgstr "Uso"
 
-#: ../glade/sms.glade:34 ../glade/VMC.glade:752
-#: ../glade/VMC-reduced.glade:1047
+#: ../glade/sms.glade:34 ../glade/VMC.glade:747
+#: ../glade/VMC-reduced.glade:1041
 msgid "Contacts"
 msgstr "Contactos"
 
@@ -615,23 +584,20 @@ msgid "<b>SMSC preferences</b>"
 msgstr "<b>Preferências SMSC</b>"
 
 #: ../glade/sms-preferences.glade:54
-#, fuzzy
 msgid "SMSC number:"
 msgstr "Número SMSC"
 
 #: ../glade/sms-preferences.glade:115
 msgid "<b>Message options</b>"
-msgstr "<b>Opciones de mensagens</b>"
+msgstr "<b>Opções de mensagens</b>"
 
 #: ../glade/sms-preferences.glade:132
-#, fuzzy
 msgid "Validity:"
-msgstr "Validade"
+msgstr "Validade:"
 
 #: ../glade/sms-preferences.glade:139
-#, fuzzy
 msgid "Class:"
-msgstr "Classe"
+msgstr "Classe:"
 
 #: ../glade/sms-preferences.glade:159
 msgid ""
@@ -651,7 +617,7 @@ msgstr "Gestor de dispositivos 3G"
 
 #: ../glade/VMC.glade:27 ../glade/VMC-reduced.glade:55
 #: ../../vmc/gtk/views/application.py:328
-#: ../../vmc/gtk/controllers/application.py:1077
+#: ../../vmc/gtk/controllers/application.py:1074
 msgid "Connect"
 msgstr "Ligar"
 
@@ -693,7 +659,7 @@ msgstr "Perfis"
 
 #: ../glade/VMC.glade:243 ../glade/VMC-reduced.glade:309
 msgid "Inspect"
-msgstr ""
+msgstr "Inspeccionar"
 
 #: ../glade/VMC.glade:263 ../glade/VMC-reduced.glade:334
 msgid "_Help"
@@ -704,7 +670,6 @@ msgid "_About"
 msgstr "_Sobre"
 
 #: ../glade/VMC.glade:313 ../glade/VMC-reduced.glade:401
-#, fuzzy
 msgid "Connect Button"
 msgstr "Ligação"
 
@@ -714,11 +679,11 @@ msgstr ""
 
 #: ../glade/VMC.glade:353 ../glade/VMC-reduced.glade:456
 msgid "Usage Toggle Button"
-msgstr ""
+msgstr "Utilização"
 
 #: ../glade/VMC.glade:368 ../glade/VMC-reduced.glade:477
 msgid "Support Toggle Button"
-msgstr ""
+msgstr "Suporte"
 
 #: ../glade/VMC.glade:429 ../glade/VMC.glade:557
 #: ../glade/VMC-reduced.glade:567 ../glade/VMC-reduced.glade:734
@@ -776,7 +741,7 @@ msgstr "_Reenviar"
 
 #: ../glade/VMC.glade:534 ../glade/VMC.glade:611
 #: ../glade/VMC-reduced.glade:703 ../glade/VMC-reduced.glade:808
-#: ../../vmc/gtk/controllers/application.py:1148
+#: ../../vmc/gtk/controllers/application.py:1132
 msgid "_Delete"
 msgstr "_Apagar"
 
@@ -792,96 +757,90 @@ msgstr "Procurar contactos"
 msgid "_Search"
 msgstr "_Procurar"
 
-#: ../glade/VMC.glade:663 ../glade/VMC-reduced.glade:886
+#: ../glade/VMC.glade:658 ../glade/VMC-reduced.glade:880
 msgid "Inbox"
 msgstr "Caixa de entrada"
 
-#: ../glade/VMC.glade:693 ../glade/VMC-reduced.glade:940
+#: ../glade/VMC.glade:688 ../glade/VMC-reduced.glade:934
 msgid "Draft"
 msgstr "Rascunhos"
 
-#: ../glade/VMC.glade:723 ../glade/VMC-reduced.glade:994
+#: ../glade/VMC.glade:718 ../glade/VMC-reduced.glade:988
 msgid "Sent"
 msgstr "Enviados"
 
-#: ../glade/VMC.glade:849 ../glade/VMC.glade:1263
-#: ../glade/VMC-reduced.glade:1229 ../glade/VMC-reduced.glade:1929
+#: ../glade/VMC.glade:844 ../glade/VMC.glade:1258
+#: ../glade/VMC-reduced.glade:1223 ../glade/VMC-reduced.glade:1923
 msgid "month_label"
 msgstr ""
 
-#: ../glade/VMC.glade:859 ../glade/VMC.glade:1273
-#: ../glade/VMC-reduced.glade:1204 ../glade/VMC-reduced.glade:1904
-#, fuzzy
+#: ../glade/VMC.glade:854 ../glade/VMC.glade:1268
+#: ../glade/VMC-reduced.glade:1198 ../glade/VMC-reduced.glade:1898
 msgid "<b>Month</b>"
-msgstr "<b>Computador</b>"
+msgstr "<b>Mês</b>"
 
-#: ../glade/VMC.glade:934 ../glade/VMC.glade:1062 ../glade/VMC.glade:1348
-#: ../glade/VMC-reduced.glade:1345 ../glade/VMC-reduced.glade:1573
-#: ../glade/VMC-reduced.glade:2045
+#: ../glade/VMC.glade:929 ../glade/VMC.glade:1057 ../glade/VMC.glade:1343
+#: ../glade/VMC-reduced.glade:1339 ../glade/VMC-reduced.glade:1567
+#: ../glade/VMC-reduced.glade:2039
 msgid "3G:"
-msgstr ""
+msgstr "3G:"
 
-#: ../glade/VMC.glade:949 ../glade/VMC.glade:1077 ../glade/VMC.glade:1363
-#: ../glade/VMC-reduced.glade:1373 ../glade/VMC-reduced.glade:1601
-#: ../glade/VMC-reduced.glade:2073
+#: ../glade/VMC.glade:944 ../glade/VMC.glade:1072 ../glade/VMC.glade:1358
+#: ../glade/VMC-reduced.glade:1367 ../glade/VMC-reduced.glade:1595
+#: ../glade/VMC-reduced.glade:2067
 msgid "GPRS:"
-msgstr ""
+msgstr "GPRS:"
 
-#: ../glade/VMC.glade:962 ../glade/VMC.glade:1376
-#: ../glade/VMC-reduced.glade:2101
+#: ../glade/VMC.glade:957 ../glade/VMC.glade:1371
+#: ../glade/VMC-reduced.glade:2095
 #, fuzzy
 msgid "<b>Total:</b>"
-msgstr "<b>título</b>"
+msgstr "<b>Total:</b>"
 
-#: ../glade/VMC.glade:993 ../glade/VMC.glade:1407
-#: ../glade/VMC-reduced.glade:1459 ../glade/VMC-reduced.glade:2157
-#, fuzzy
+#: ../glade/VMC.glade:988 ../glade/VMC.glade:1402
+#: ../glade/VMC-reduced.glade:1453 ../glade/VMC-reduced.glade:2151
 msgid "<b>Transferred Data</b>"
 msgstr "<b>Transferido</b>"
 
-#: ../glade/VMC.glade:1090 ../glade/VMC-reduced.glade:1428
-#: ../glade/VMC-reduced.glade:1629
+#: ../glade/VMC.glade:1085 ../glade/VMC-reduced.glade:1422
+#: ../glade/VMC-reduced.glade:1623
 msgid "Total:"
 msgstr ""
 
-#: ../glade/VMC.glade:1121 ../glade/VMC-reduced.glade:1685
-#, fuzzy
+#: ../glade/VMC.glade:1116 ../glade/VMC-reduced.glade:1679
 msgid "<b>Current session</b>"
-msgstr "<b>Preferências SMSC</b>"
+msgstr "<b>Sessão actual</b>"
 
-#: ../glade/VMC.glade:1161 ../glade/VMC.glade:1446
-#: ../glade/VMC-reduced.glade:1745 ../glade/VMC-reduced.glade:2217
-#: ../../vmc/gtk/controllers/application.py:1313
-#: ../../vmc/gtk/controllers/application.py:1347
-#, fuzzy
+#: ../glade/VMC.glade:1156 ../glade/VMC.glade:1441
+#: ../glade/VMC-reduced.glade:1739 ../glade/VMC-reduced.glade:2211
+#: ../../vmc/gtk/controllers/application.py:1295
+#: ../../vmc/gtk/controllers/application.py:1329
 msgid "GPRS"
-msgstr "Só GPRS"
+msgstr "GPRS"
 
-#: ../glade/VMC.glade:1168 ../glade/VMC.glade:1453
-#: ../glade/VMC-reduced.glade:1770 ../glade/VMC-reduced.glade:2242
-#: ../../vmc/gtk/controllers/application.py:1349
+#: ../glade/VMC.glade:1163 ../glade/VMC.glade:1448
+#: ../glade/VMC-reduced.glade:1764 ../glade/VMC-reduced.glade:2236
+#: ../../vmc/gtk/controllers/application.py:1331
 msgid "3G"
-msgstr ""
+msgstr "3G"
 
-#: ../glade/VMC.glade:1205 ../glade/VMC.glade:1490
+#: ../glade/VMC.glade:1200 ../glade/VMC.glade:1485
 msgid "Remember that this information is only orientative."
-msgstr ""
+msgstr "Não esqueça que esta informação é meramente orientativa."
 
-#: ../glade/VMC.glade:1220 ../glade/VMC-reduced.glade:1843
-#, fuzzy
+#: ../glade/VMC.glade:1215 ../glade/VMC-reduced.glade:1837
 msgid "Current month"
 msgstr "Mês actual"
 
-#: ../glade/VMC.glade:1508 ../glade/VMC-reduced.glade:2315
-#, fuzzy
+#: ../glade/VMC.glade:1503 ../glade/VMC-reduced.glade:2309
 msgid "Last month"
 msgstr "Último mês"
 
-#: ../glade/VMC.glade:1522
+#: ../glade/VMC.glade:1517
 msgid "<b>Usage</b>"
 msgstr "<b>Uso</b>"
 
-#: ../glade/VMC.glade:1551 ../glade/VMC-reduced.glade:2403
+#: ../glade/VMC.glade:1546 ../glade/VMC-reduced.glade:2397
 msgid ""
 "In most cases you can find the answer to your questions about the program in "
 "the help menu.\n"
@@ -896,23 +855,23 @@ msgid ""
 "system, you might need to ask your Systems Administrator any doubt that you "
 "might have."
 msgstr ""
-"Na maior parte dos casos pode encontrar a resposta às perguntas sobrea "
+"Na maior parte dos casos pode encontrar a resposta às perguntas sobre a "
 "aplicação no menu de Ajuda.\n"
-"Este menu pode ser aberto fazendo um clique no botão da barra de menús com o "
-"nome de \"Ajuda\" .\n"
+"Este menu pode ser aberto clickando no botão da barra de menus com o nome de "
+"\"Ajuda\" .\n"
 "\n"
 "Poderá encontrar ajuda, actualizações e conselhos na página web:\n"
 "https://forge.betavine.net/projects/vodafonemobilec.\n"
 "\n"
-"Se usa os botões de e-mail e internet para aceder a outros programas do seu "
+"Se usa os botões de email e internet para aceder a outros programas do seu "
 "computador, é possivél que seja necessário perguntar ao seu Administrador de "
 "Sistema qualquer dúvida relacionada com os mesmos."
 
-#: ../glade/VMC.glade:1565 ../glade/VMC-reduced.glade:2422
+#: ../glade/VMC.glade:1560 ../glade/VMC-reduced.glade:2416
 msgid "Help menu"
 msgstr "Menu Ajuda"
 
-#: ../glade/VMC.glade:1590 ../glade/VMC-reduced.glade:2486
+#: ../glade/VMC.glade:1585 ../glade/VMC-reduced.glade:2480
 msgid ""
 "If you are using this program in a corporate environment, your company\n"
 "probably has a support center to solve the questions that you might have\n"
@@ -921,18 +880,18 @@ msgid ""
 "If your company does not have a support center, you will have to contact\n"
 "your company's System Administrator."
 msgstr ""
-"Se está a usar esta aplicação numa rede corporativa, seguramente que a sua "
+"Se está a usar esta aplicação numa rede corporativa, provavelmente a sua "
 "empresa\n"
-"Possui um centro de suporte para resolver ás questões sobre a aplicação.\n"
+"possui um centro de suporte para resolver questões sobre a aplicação.\n"
 "\n"
-"Se a sua empresa não dispõe de um centro de suporte, contacte com o\n"
+"Se a sua empresa não dispõe de um centro de suporte, contacte o\n"
 "Administrador de sistemas da sua empresa através do procedimento habitual."
 
-#: ../glade/VMC.glade:1610 ../glade/VMC-reduced.glade:2508
+#: ../glade/VMC.glade:1605 ../glade/VMC-reduced.glade:2502
 msgid "Support center"
 msgstr "Centro de suporte"
 
-#: ../glade/VMC.glade:1627 ../glade/VMC-reduced.glade:2553
+#: ../glade/VMC.glade:1622 ../glade/VMC-reduced.glade:2547
 msgid ""
 "You can easily find answers to the most common questions in the\n"
 "help menu, in your company's support center and in the support\n"
@@ -946,38 +905,41 @@ msgid ""
 "\n"
 "+34 607 123 00 if you are calling from other network."
 msgstr ""
-"Pode encontrar rápidamente a solução para muitos problemas no\n"
+"Pode encontrar facilmente a solução para as questões mais comuns no\n"
 "Menu de Ajuda, no centro de suporte da sua empresa e na área\n"
 "de Apoio em: https://forge.betavine.net/projects/vodafonemobilec\n"
 "\n"
-"Se mesmo assim tem dificuldades, pode sempre inscrever-se no forum do "
-"projectoem:\n"
+"Se mesmo assim tiver dificuldades, pode ligar para o Grupo de Suporte de "
+"Dados Vodafone,\n"
+"os números são:\n"
 "\n"
-"https://forge.vodafonebetavine.net/projects/vodafonemobilec/"
+"1214, se está a usar a rede Vodafone, ou\n"
+"\n"
+"91 1214000 se estiver a ligar de outra rede."
 
-#: ../glade/VMC.glade:1647 ../glade/VMC-reduced.glade:2575
+#: ../glade/VMC.glade:1642 ../glade/VMC-reduced.glade:2569
 msgid "Customer support"
 msgstr "Apoio ao Cliente"
 
-#: ../glade/VMC-reduced.glade:2340
+#: ../glade/VMC-reduced.glade:2334
 msgid "<b>Usage</b> - Remember that this information is only orientative."
 msgstr ""
+"<b>Utilização</b> - Não esqueça que esta informação é meramente orientativa."
 
 #: ../../vmc/common/dialers/__init__.py:31
 #: ../../vmc/common/dialers/__init__.py:37
-#, fuzzy
 msgid "Default"
-msgstr "predefinido"
+msgstr "Predefinido"
 
 #: ../../vmc/common/dialers/__init__.py:32
 #: ../../vmc/common/dialers/__init__.py:38
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../../vmc/common/dialers/__init__.py:33
 #: ../../vmc/common/dialers/__init__.py:39
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../../vmc/common/dialers/wvdial.py:224
 msgid "WVDial directive error"
@@ -995,9 +957,9 @@ msgid ""
 "'plugin passwordfd.so' line."
 msgstr ""
 "\n"
-"DDesde a versão 0.9.7 %s gere /etc/ppp/{p,ch]ap-secrets, a\n"
-"directiva 'plugin passwordfd.so' Não deve aparecer no perfil\n"
-"actual de wvdial, Apague-o manualmente por favor. Vá a \n"
+"Como a versão 0.9.7 %s gere /etc/ppp/{p,ch}ap-secrets, a\n"
+"directiva 'plugin passwordfd.so' não deve aparecer no perfil\n"
+"actual de wvdial, apague-o manualmente por favor. Vá a \n"
 "Ferramentas -> Preferencias, seleccione o separador de perfis\n"
 "wvdial e apague a linha 'plugin passwordfd.so'\n"
 "do perfil actual de wvdial."
@@ -1036,10 +998,9 @@ msgstr "%(day)d dia, %(msg)s"
 msgid "Shutting down..."
 msgstr "A Encerrar..."
 
-#: ../../vmc/common/middleware.py:483
-#, fuzzy
+#: ../../vmc/common/middleware.py:489
 msgid "Unknown Network"
-msgstr "Rede"
+msgstr "Rede desconhecida"
 
 #: ../../vmc/gtk/startup.py:151
 msgid "Initial setup..."
@@ -1048,7 +1009,7 @@ msgstr "Configuração inicial..."
 #: ../../vmc/gtk/startup.py:191 ../../vmc/gtk/startup.py:210
 #: ../../vmc/gtk/controllers/initialconf.py:402
 msgid "Device setup not completed"
-msgstr ""
+msgstr "Configuração do dispositivo incompleta"
 
 #: ../../vmc/gtk/startup.py:192
 #, python-format
@@ -1058,6 +1019,10 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"\n"
+"O seu dispositivo foi detectado mas foi impossível estabelecer ligação.\n"
+"\n"
+"%s"
 
 #: ../../vmc/gtk/startup.py:211
 #, python-format
@@ -1070,11 +1035,20 @@ msgid ""
 "that your device is always recognised properly. If you've installed from\n"
 "source, then make sure to copy the relevant files in the contrib dir\n"
 msgstr ""
+"\n"
+"O seu dispositivo \"%(name)s\" não está devidamente registado no kernel. %"
+"(vmc)s\n"
+"precisa de pelo menos duas portas de série para comunicar com %(name)s.\n"
+"O programa inclui um conjunto de regras udev e ainda alguns ficheiros "
+"binários para assegurar\n"
+"que o seu dispositivo é sempre devidamente reconhecido. Se instalou a "
+"partir\n"
+"de código fonte, certifique-se que copiou os ficheiros relevantes da "
+"directoria contrib\n"
 
 #: ../../vmc/gtk/startup.py:227
-#, fuzzy
 msgid "Device not responding"
-msgstr "Dispositivo em uso removido"
+msgstr "Dispositivo não responde"
 
 #: ../../vmc/gtk/startup.py:228
 msgid ""
@@ -1083,11 +1057,14 @@ msgid ""
 "it,\n"
 "plug it again, and try in a moment."
 msgstr ""
+"\n"
+"O dispositivo demorou mais que 15 segundos a responder ao último comando. "
+"Desconecte o dispositivo,\n"
+"conecte-o de novo, e tente novamente."
 
 #: ../../vmc/gtk/startup.py:303
-#, fuzzy
 msgid "Authenticated!"
-msgstr "!Não é preciso autenticação!"
+msgstr "Autenticado!"
 
 #: ../../vmc/gtk/startup.py:306
 msgid "Authenticating..."
@@ -1111,7 +1088,7 @@ msgid ""
 msgstr ""
 "\n"
 "Para desbloquear o seu cartão SIM\n"
-"deve introduzir os seus códigos PIN e PUK"
+"deve introduzir os seus códigos PIN e PUK2"
 
 #: ../../vmc/gtk/views/preferences.py:107
 #: ../../vmc/gtk/views/preferences.py:120
@@ -1136,23 +1113,23 @@ msgid "GB"
 msgstr ""
 
 #: ../../vmc/gtk/views/application.py:334
-#: ../../vmc/gtk/controllers/application.py:954
+#: ../../vmc/gtk/controllers/application.py:951
 msgid "Not connected"
-msgstr "A desligar"
+msgstr "Desligado"
 
 #: ../../vmc/gtk/views/application.py:342
-#: ../../vmc/gtk/controllers/application.py:1071
+#: ../../vmc/gtk/controllers/application.py:1068
 msgid "Disconnect"
 msgstr "Desligar"
 
 #: ../../vmc/gtk/views/application.py:354
 msgid "No device present"
-msgstr "Nenhum equipamento presente"
+msgstr "Nenhum dispositivo presente"
 
 #: ../../vmc/gtk/views/application.py:356
 #: ../../vmc/gtk/views/application.py:357
-#: ../../vmc/gtk/controllers/application.py:1311
-#: ../../vmc/gtk/controllers/application.py:1345
+#: ../../vmc/gtk/controllers/application.py:1293
+#: ../../vmc/gtk/controllers/application.py:1327
 msgid "N/A"
 msgstr "N/D"
 
@@ -1181,7 +1158,7 @@ msgstr "Assunto"
 
 #: ../../vmc/gtk/views/application.py:439
 msgid "Recipient"
-msgstr "Destinatario"
+msgstr "Destinatário"
 
 #: ../../vmc/gtk/views/application.py:439
 msgid "Sender"
@@ -1192,18 +1169,16 @@ msgid "Date"
 msgstr "Data"
 
 #: ../../vmc/gtk/views/initialconf.py:101
-#, fuzzy
 msgid "Country"
-msgstr "Computador"
+msgstr "País"
 
 #: ../../vmc/gtk/views/initialconf.py:226
-#, fuzzy
 msgid "No known devices found"
-msgstr "Nenhum contacto encontrado"
+msgstr "Não foi encontrado nenhum dispositivo conhecido"
 
 #: ../../vmc/gtk/views/initialconf.py:319
 msgid "Address"
-msgstr ""
+msgstr "Endereço"
 
 #: ../../vmc/gtk/models/preferences.py:34
 msgid "Maximum time"
@@ -1227,12 +1202,12 @@ msgstr ""
 
 #: ../../vmc/gtk/controllers/sms.py:45
 msgid "You can send the SMS to several recipients separating them by commas"
-msgstr ""
+msgstr "Pode enviar o SMS a vários destinatários, separando-os com vírgulas"
 
 #: ../../vmc/gtk/controllers/sms.py:65
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: 0/%d chars"
-msgstr "Mensagem de texto: 0/%d"
+msgstr "Mensagem de texto: 0/%d caracteres"
 
 #: ../../vmc/gtk/controllers/sms.py:88
 msgid "Send empty message"
@@ -1240,28 +1215,29 @@ msgstr "Enviar mensagem vazia"
 
 #: ../../vmc/gtk/controllers/sms.py:89
 msgid "Are you sure you want to send an empty message?"
-msgstr "¿Tem a certeza que quer enviar uma mensagem vazia?"
+msgstr "Tem a certeza que quer enviar uma mensagem vazia?"
 
 #: ../../vmc/gtk/controllers/sms.py:107
-#, fuzzy
 msgid "Unknown Error"
-msgstr "Rede"
+msgstr "Erro desconhecido"
 
 #: ../../vmc/gtk/controllers/sms.py:108
 msgid ""
 "Your message cannot be sent to some of its recipients. Unsent messages have "
 "been saved in drafts. Please, check that you have typed the number correctly."
 msgstr ""
+"A mensagem não pode ser enviada a alguns destinatários. Mensagens não "
+"enviadas foram gravadas nos rascunhos. Certifique-se que digitou o número "
+"correctamente."
 
 #: ../../vmc/gtk/controllers/sms.py:174
-#, fuzzy, python-format
+#, python-format
 msgid "Text message: %(chrcnt)d/%(maxchr)d chars"
-msgstr "%(chrcnt)d/%(maxchr)d caracteres"
+msgstr "Mensagem de texto: %(chrcnt)d/%(maxchr)d caracteres"
 
 #: ../../vmc/gtk/controllers/sms.py:216
-#, fuzzy
 msgid "No SMSC number"
-msgstr "Número SMSC"
+msgstr "Sem número SMSC"
 
 #: ../../vmc/gtk/controllers/sms.py:218
 #, python-format
@@ -1271,6 +1247,10 @@ msgid ""
 "SMSC.\n"
 "If you do not know the SMSC number, contact your customer service.\n"
 msgstr ""
+"\n"
+"Para poder enviar uma SMS, %s precisa de saber o número do SMSC do seu "
+"operador.\n"
+"Se não sabe qual o número SMSC, contacte o Serviço de Apoio a Clientes.\n"
 
 #: ../../vmc/gtk/controllers/pin.py:109 ../../vmc/gtk/controllers/pin.py:300
 msgid "Incorrect PIN"
@@ -1307,8 +1287,8 @@ msgstr ""
 "<small>O PUK que introduziu está\n"
 "incorrecto. Depois de três tentativas\n"
 "falhadas seré pedido o código PUK2.\n"
-"O código PIN deveria ser o seu ultimo\n"
-"o seu último PIN válido.</small>\n"
+"O código PIN deve ser o seu último\n"
+"PIN válido.</small>\n"
 
 #: ../../vmc/gtk/controllers/pin.py:301
 msgid ""
@@ -1327,15 +1307,14 @@ msgstr ""
 #: ../../vmc/gtk/controllers/pin.py:403
 #: ../../vmc/gtk/controllers/preferences.py:68
 #: ../../vmc/gtk/controllers/preferences.py:87
-#: ../../vmc/gtk/controllers/application.py:585
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:582
 msgid "Missing dependency"
 msgstr "Falha nas dependências"
 
 #: ../../vmc/gtk/controllers/pin.py:405
 #: ../../vmc/gtk/controllers/preferences.py:70
 msgid "To use this feature you need the gnomekeyring module"
-msgstr ""
+msgstr "Para usar esta funcionalidade, precisa do módulo gnomekeyring"
 
 #: ../../vmc/gtk/controllers/preferences.py:88
 msgid ""
@@ -1343,18 +1322,20 @@ msgid ""
 "To use this feature you need either pygtk >= 2.10 or the egg.trayicon "
 "module\n"
 msgstr ""
+"\n"
+"Para usar esta funcionalidade é necessário ou pygtk >= 2.10 ou o módulo egg."
+"trayicon\n"
 
-#: ../../vmc/gtk/controllers/application.py:116
+#: ../../vmc/gtk/controllers/application.py:115
 #: ../../vmc/gtk/controllers/initialconf.py:576
 msgid "Shutting down"
 msgstr "A fechar"
 
-#: ../../vmc/gtk/controllers/application.py:134
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:133
 msgid "Connected to Internet"
-msgstr "A desligar a Internet"
+msgstr "Ligado à Internet"
 
-#: ../../vmc/gtk/controllers/application.py:135
+#: ../../vmc/gtk/controllers/application.py:134
 #, python-format
 msgid ""
 "\n"
@@ -1362,173 +1343,174 @@ msgid ""
 "down %s,\n"
 "if you want to do so, press the OK button.\n"
 msgstr ""
+"\n"
+"É necessário terminar a ligação à Internet antes de\n"
+"fechar %s,\n"
+"se pretende fazê-lo, seleccione OK.\n"
 
-#: ../../vmc/gtk/controllers/application.py:256
+#: ../../vmc/gtk/controllers/application.py:253
 msgid "Reading contacts..."
 msgstr "A ler contactos..."
 
-#: ../../vmc/gtk/controllers/application.py:283
+#: ../../vmc/gtk/controllers/application.py:280
 msgid "Reading messages..."
 msgstr "A ler mensagens..."
 
-#: ../../vmc/gtk/controllers/application.py:337
+#: ../../vmc/gtk/controllers/application.py:334
 msgid "User Limit"
-msgstr ""
+msgstr "Limite de Utilizador"
 
-#: ../../vmc/gtk/controllers/application.py:338
+#: ../../vmc/gtk/controllers/application.py:335
 msgid "You have reached your limit of maximum usage"
-msgstr ""
+msgstr "Atingiu o seu limite máximo de utilização"
 
-#: ../../vmc/gtk/controllers/application.py:360
+#: ../../vmc/gtk/controllers/application.py:357
 msgid "New mobile profile available"
-msgstr ""
+msgstr "Novo perfil móvel disponível"
 
-#: ../../vmc/gtk/controllers/application.py:361
+#: ../../vmc/gtk/controllers/application.py:358
 msgid ""
 "\n"
 "New profile available, do you want to load it?"
 msgstr ""
+"\n"
+"Novo perfil disponível, quer carregá-lo?"
 
-#: ../../vmc/gtk/controllers/application.py:363
+#: ../../vmc/gtk/controllers/application.py:360
 msgid "Load"
-msgstr ""
+msgstr "Carregar"
 
-#: ../../vmc/gtk/controllers/application.py:398
-#: ../../vmc/gtk/controllers/application.py:1311
+#: ../../vmc/gtk/controllers/application.py:395
+#: ../../vmc/gtk/controllers/application.py:1293
 msgid "Radio Disabled"
-msgstr ""
+msgstr "Rádio Desligado"
 
-#: ../../vmc/gtk/controllers/application.py:426
+#: ../../vmc/gtk/controllers/application.py:423
 #, python-format
 msgid "Quit %s"
 msgstr "Sair de %s"
 
-#: ../../vmc/gtk/controllers/application.py:427
+#: ../../vmc/gtk/controllers/application.py:424
 msgid "Are you sure you want to exit?"
-msgstr "¿Tem a certeza que deseja sair?"
+msgstr "Tem a certeza que deseja sair?"
 
-#: ../../vmc/gtk/controllers/application.py:484
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:481
 msgid "_New Profile"
-msgstr "Novo perfil"
+msgstr "_Novo perfil"
 
-#: ../../vmc/gtk/controllers/application.py:493
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:490
 msgid "Load Profile"
-msgstr "Perfis"
+msgstr "Carregar Perfil"
 
-#: ../../vmc/gtk/controllers/application.py:498
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:495
 msgid "Edit Profile"
-msgstr "Editar perfil"
+msgstr "Editar Perfil"
 
-#: ../../vmc/gtk/controllers/application.py:503
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:500
 msgid "Delete Profile"
-msgstr "Apagar perfil"
+msgstr "Apagar Perfil"
 
-#: ../../vmc/gtk/controllers/application.py:586
+#: ../../vmc/gtk/controllers/application.py:583
 msgid "To use this widget you need python-vte installed"
-msgstr ""
+msgstr "Para usar esta widget precisa de ter python-vte instalado"
 
-#: ../../vmc/gtk/controllers/application.py:633
+#: ../../vmc/gtk/controllers/application.py:630
 msgid "Invalid CSV format"
 msgstr "Formato CSV inválido"
 
-#: ../../vmc/gtk/controllers/application.py:634
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:631
 msgid ""
 "\n"
 "The csv file that you have tried to import has an invalid format."
 msgstr ""
 "\n"
-"    O ficheiro cvs que tentou importar não é compativél ou esta danificado."
+"O ficheiro cvs que tentou importar tem um formato inválido."
 
-#: ../../vmc/gtk/controllers/application.py:665
-#: ../../vmc/gtk/controllers/application.py:687
+#: ../../vmc/gtk/controllers/application.py:662
+#: ../../vmc/gtk/controllers/application.py:684
 msgid "Connecting..."
 msgstr "A ligar..."
 
-#: ../../vmc/gtk/controllers/application.py:682
-#: ../../vmc/gtk/controllers/application.py:1320
+#: ../../vmc/gtk/controllers/application.py:679
+#: ../../vmc/gtk/controllers/application.py:1302
 #, python-format
 msgid "Connected to %s"
-msgstr "A ligar a %s"
+msgstr "Ligado a %s"
 
-#: ../../vmc/gtk/controllers/application.py:684
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:681
 msgid "Connected"
-msgstr "Ligar"
+msgstr "Ligado"
 
-#: ../../vmc/gtk/controllers/application.py:955
+#: ../../vmc/gtk/controllers/application.py:952
 msgid "No mobile connection. Do you want to continue?"
-msgstr "Sem rede. ¿Deseja continuar?"
+msgstr "Sem ligação móvel. Deseja continuar?"
 
-#: ../../vmc/gtk/controllers/application.py:1093
+#: ../../vmc/gtk/controllers/application.py:1090
 msgid "Send SMS"
 msgstr "Enviar SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1107
+#: ../../vmc/gtk/controllers/application.py:1104
 msgid "Quit"
 msgstr "Sair"
 
-#: ../../vmc/gtk/controllers/application.py:1141
+#: ../../vmc/gtk/controllers/application.py:1122
 msgid "_Send SMS"
 msgstr "_Enviar SMS"
 
-#: ../../vmc/gtk/controllers/application.py:1156
+#: ../../vmc/gtk/controllers/application.py:1142
 msgid "Edit"
 msgstr "Editar"
 
-#: ../../vmc/gtk/controllers/application.py:1175
+#: ../../vmc/gtk/controllers/application.py:1157
 msgid "_Add to contacts"
 msgstr "_Adicionar aos contactos"
 
-#: ../../vmc/gtk/controllers/application.py:1184
+#: ../../vmc/gtk/controllers/application.py:1166
 msgid "Save to draft"
 msgstr "Guardar nos rascunhos"
 
-#: ../../vmc/gtk/controllers/application.py:1195
+#: ../../vmc/gtk/controllers/application.py:1177
 msgid "Delete"
 msgstr "Apagar"
 
-#: ../../vmc/gtk/controllers/application.py:1313
+#: ../../vmc/gtk/controllers/application.py:1295
 msgid "EDGE"
 msgstr ""
 
-#: ../../vmc/gtk/controllers/application.py:1336
+#: ../../vmc/gtk/controllers/application.py:1318
 msgid "Illegal Operation!"
-msgstr ""
+msgstr "Operação Ilegal!"
 
-#: ../../vmc/gtk/controllers/application.py:1337
+#: ../../vmc/gtk/controllers/application.py:1319
 msgid ""
 "\n"
 "Your device only has one port and you are currently connected\n"
 "to Internet, you cannot perform any operation while connected"
 msgstr ""
+"\n"
+"O dispositivo apenas possui uma porta e está actualmente ligado\n"
+"à Internet, não pode executar qualquer operação enquanto estiver ligado"
 
-#: ../../vmc/gtk/controllers/application.py:1366
+#: ../../vmc/gtk/controllers/application.py:1348
 #, python-format
 msgid "<small>SMS received from %s</small>"
 msgstr "<small>SMS recebido de %s</small>"
 
 # python-format
-#: ../../vmc/gtk/controllers/application.py:1369
+#: ../../vmc/gtk/controllers/application.py:1351
 #, python-format
 msgid ""
 "<small>Received at %(date)s</small>\n"
 "<b>%(text)s</b>"
 msgstr ""
-"<small>Recibido o %(date)s</small>\n"
+"<small>Recebido em %(date)s</small>\n"
 "<b>%(text)s</b>"
 
-#: ../../vmc/gtk/controllers/application.py:1381
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:1363
 msgid "Invalid DNS received from Network"
-msgstr "Os DNS recebidos pela APN são inválidos"
+msgstr "DNS inválido recebido da Rede"
 
-#: ../../vmc/gtk/controllers/application.py:1383
-#, fuzzy
+#: ../../vmc/gtk/controllers/application.py:1365
 msgid ""
 "\n"
 "<small>The DNS settings received from the mobile network are invalid. You "
@@ -1537,15 +1519,16 @@ msgid ""
 "can specify a static DNS entry in the connection preferences</small>\n"
 msgstr ""
 "\n"
-"<small>Os DNS recebidos pela APN são inválidos. Possivelmente terá de\n"
+"<small>As definições de DNS recebidas da rede móvel são inválidos. "
+"Possivelmente terá de\n"
 "reiniciar a ligação ou, se o problema persistir, especificar uma entrada\n"
 "de DNS estática nas preferências da ligação</small>\n"
 
-#: ../../vmc/gtk/controllers/application.py:1398
+#: ../../vmc/gtk/controllers/application.py:1380
 msgid "Disconnected from Internet"
-msgstr "A desligar a Internet"
+msgstr "Desligado da Internet"
 
-#: ../../vmc/gtk/controllers/application.py:1399
+#: ../../vmc/gtk/controllers/application.py:1381
 #, python-format
 msgid ""
 "\n"
@@ -1555,16 +1538,16 @@ msgid ""
 "that there's no carrier.</small>"
 msgstr ""
 "\n"
-"<small>%s Desistiu\n"
+"<small>%s desistiu\n"
 "depois de tentar ligar 3 vezes à Internet. Isto pode ser\n"
-"provocado por um problema na comunicação ou simplesmente\n"
-"uma falha de sinal.</small>"
+"provocado por um problema na configuração ou simplesmente\n"
+"por falta de sinal.</small>"
 
-#: ../../vmc/gtk/controllers/application.py:1411
+#: ../../vmc/gtk/controllers/application.py:1393
 msgid "Device in use removed"
-msgstr "Dispositivo em uso removido"
+msgstr "O dispositivo em uso foi removido"
 
-#: ../../vmc/gtk/controllers/application.py:1413
+#: ../../vmc/gtk/controllers/application.py:1395
 #, python-format
 msgid ""
 "\n"
@@ -1574,16 +1557,16 @@ msgid ""
 "plug in the 3G device and start again."
 msgstr ""
 "\n"
-"A placa 3G em uso foi retirada. Agora\n"
+"O dispositivo 3G em uso foi removido. Agora\n"
 "%s\n"
-"vai desligar. Para continuar, Insira de\n"
-"novo a placa 3G e inicie a aplicação."
+"vai desligar. Para continuar, insira de\n"
+"novo o dispositivo 3G e reinicie."
 
-#: ../../vmc/gtk/controllers/application.py:1449
+#: ../../vmc/gtk/controllers/application.py:1431
 msgid "3G Device added"
-msgstr "Dispositivo 3G ligado"
+msgstr "Dispositivo 3G adicionado"
 
-#: ../../vmc/gtk/controllers/application.py:1450
+#: ../../vmc/gtk/controllers/application.py:1432
 #, python-format
 msgid ""
 "\n"
@@ -1592,13 +1575,13 @@ msgid ""
 "(%(app_name)s) will resume its functioning"
 msgstr ""
 "\n"
-"Foi ligado um novo dispositivo 3G\n"
+"Foi adicionado um novo dispositivo 3G\n"
 "(%(device_name)s), dentro de 15 segundos\n"
-"(%(app_name)s) estará funcional"
+"(%(app_name)s) retomará o funcionamento"
 
-#: ../../vmc/gtk/controllers/application.py:1458
+#: ../../vmc/gtk/controllers/application.py:1440
 msgid "Setting up device..."
-msgstr "A Configurar o dispositivo..."
+msgstr "A configurar o dispositivo..."
 
 #: ../../vmc/gtk/controllers/contacts.py:92
 msgid "No contact found"
@@ -1610,16 +1593,13 @@ msgid "No contact with the name %s found"
 msgstr "Nenhum contacto encontrado com o nome %s"
 
 #: ../../vmc/gtk/controllers/initialconf.py:239
-#, fuzzy, python-format
+#, python-format
 msgid "The following characters are not allowed in a profile name: %s"
-msgstr ""
-"As seguintes dependências não estão satisfeitas:\n"
-"%s"
+msgstr "Os seguintes caracteres não são permitidos no nome de perfil: %s"
 
 #: ../../vmc/gtk/controllers/initialconf.py:242
-#, fuzzy
 msgid "Invalid value in profile"
-msgstr "Apagar perfil"
+msgstr "Valor inválido no perfil"
 
 #: ../../vmc/gtk/controllers/initialconf.py:403
 #, python-format
@@ -1628,38 +1608,40 @@ msgid ""
 "An unknown error occur when setting up the device:\n"
 "%s"
 msgstr ""
+"\n"
+"Ocorreu um erro desconhecido ao configurar o dispositivo:\n"
+"%s"
 
 #: ../../vmc/gtk/controllers/initialconf.py:468
-#, fuzzy, python-format
+#, python-format
 msgid "Authentication Error from %s !"
-msgstr "!Não é preciso autenticação %s !"
+msgstr "Erro de autenticação de %s !"
 
 #: ../../vmc/gtk/controllers/initialconf.py:472
-#, fuzzy, python-format
+#, python-format
 msgid "Connecting to %s ..."
-msgstr "A ligar %s ..."
+msgstr "A ligar a %s ..."
 
 #: ../../vmc/gtk/controllers/initialconf.py:520
 msgid "Discovery started..."
-msgstr ""
+msgstr "Descoberta iniciada..."
 
 #: ../../vmc/gtk/controllers/initialconf.py:524
 msgid "Discovery finished!"
-msgstr ""
+msgstr "Descoberta terminada!"
 
 #: ../../vmc/gtk/controllers/initialconf.py:548
 msgid "No control port"
-msgstr ""
+msgstr "Sem porta de controlo"
 
 #: ../../vmc/gtk/controllers/initialconf.py:554
-#, fuzzy
 msgid "Connecting to device..."
-msgstr "A Configurar o dispositivo..."
+msgstr "Ligando ao dispositivo..."
 
 #: ../../vmc/gtk/controllers/initialconf.py:562
 #, python-format
 msgid "Exception received connecting to %s"
-msgstr ""
+msgstr "Excepção recebida ao establecer ligação com %s"
 
 #: ../../vmc/gtk/controllers/initialconf.py:563
 #, python-format
@@ -1668,6 +1650,9 @@ msgid ""
 "The following error was received while trying to establish a connection:\n"
 "%s"
 msgstr ""
+"\n"
+"Foi recebido o seguinte erro ao tentar estabelecer uma ligação:\n"
+"%s"
 
 #: ../../vmc/gtk/dialogs.py:94
 msgid "Import contacts from..."
@@ -1701,11 +1686,11 @@ msgid ""
 "If you choose to overwrite this file, the contents will be lost."
 msgstr ""
 "Já existe um ficheiro com este nome.\n"
-"Se quiser escrever por cima, todo o conteudo será perdido."
+"Se quiser escrever por cima, todo o conteúdo será perdido."
 
 #: ../../vmc/gtk/dialogs.py:196
 msgid "Device List"
-msgstr ""
+msgstr "Lista de Dispositivos"
 
 #: ../../vmc/gtk/dialogs.py:229
 msgid "Vodafone Spain S.A."
@@ -1713,7 +1698,9 @@ msgstr "Vodafone Spain S.A."
 
 #: ../../vmc/gtk/dialogs.py:236
 msgid "translated to $LANG by $translater"
-msgstr "traducido em Português por Paulo Alexandre Mendes Simões Arinto"
+msgstr ""
+"traduzido para Português por Paulo Alexandre Mendes Simões Arinto e Alberto "
+"Flores"
 
 #: ../../gtk-tap.py:57
 msgid "Missing dependencies"
@@ -1757,14 +1744,6 @@ msgstr "Problemas de permissões"
 
 #~ msgid "Passwords don't match"
 #~ msgstr "As palavras-passe não são iguais"
-
-#, fuzzy
-#~ msgid "PIN:"
-#~ msgstr "PIN"
-
-#, fuzzy
-#~ msgid "Insert PIN OK Button"
-#~ msgstr "Introduza o seu código PIN"
 
 #~ msgid "<b>Connectivy test</b>"
 #~ msgstr "<b>Teste de Ligação</b>"
