@@ -1,3 +1,0 @@
-# Simone Tolotti
-SYSFS{idVendor}=="05c6", SYSFS{idProduct}=="1000", RUN+="/usr/sbin/icon_switch"
-
