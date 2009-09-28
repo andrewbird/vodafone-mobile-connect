@@ -11,7 +11,7 @@ Source0:	vmc-2.0.0.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:	usb_modeswitch >= 0.9.7, wvdial, hal, lsb, python-serial, python-twisted, python-twisted-conch, python-notify, python-sqlite2, python-tz, python-gobject2, dbus-1-python, python-cairo, python-crypto, python-gtk, python-gnome, python-gnome-extras
+Requires:	usb_modeswitch >= 0.9.7, wvdial, hal, lsb, python-serial, python-twisted, python-twisted-conch, python-notify, python-tz, python-gobject2, dbus-1-python, python-cairo, python-crypto, python-gtk, python-gnome, python-gnome-extras
 
 %description
 OSS 3G manager for Linux

@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Andrew Bird <ajb@spheresystems.co.uk>
 
 Package: vodafone-mobile-connect
-Depends: wvdial, hal, usb-modeswitch(>= 0.9.7), ozerocdoff, python-twisted, python-serial, python-sqlite, python-tz, python-gobject, python-dbus, python-cairo, python-crypto, python-gtk2, python-gnome2, python-gnome2-extras, lsb-release, python-glade2
+Depends: wvdial, hal, usb-modeswitch(>= 0.9.7), ozerocdoff, python-twisted, python-serial, python-tz, python-gobject, python-dbus, python-cairo, python-crypto, python-gtk2, python-gnome2, python-gnome2-extras, lsb-release, python-glade2
 Replaces: vodafone-mobile-connect-card-driver-for-linux
 Architecture: all
 Description: Vodafone 3G devices Internet connection assistant

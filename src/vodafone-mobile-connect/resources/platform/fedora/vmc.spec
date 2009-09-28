@@ -5,13 +5,13 @@ Summary:	3G Manager for Linux
 Packager:	Andrew Bird <ajb@spheresystems.co.uk>
 
 Group:		Applications/Telephony
-License:	GPL	
+License:	GPL
 URL:		http://www.vodafonebetavine.net/web/linux_drivers
 Source0:	vmc-1.99.17.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires:	wvdial, usb_modeswitch >= 0.9.7, redhat-lsb, pyserial, python-sqlite2, python-twisted, pytz, gnome-python2-libegg
+Requires:	wvdial, usb_modeswitch >= 0.9.7, redhat-lsb, pyserial, python-twisted, pytz, gnome-python2-libegg
 
 %description
 OSS 3G manager for Linux
@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc
 
 %post
-#if [ "%{fedora}" = "11" ]; 
+#if [ "%{fedora}" = "11" ];
 if ( echo $(lsb_release -d) | grep -E ".Fedora release 11." );
 then GROUP='dialout';
      grep -v "FEDORA_GENERAL" /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
@@ -57,7 +57,7 @@ then GROUP='dialout';
      rm -f /tmp/fedora_tmp.py
      #Selinux module installation.
      if [ -x /usr/sbin/sestatus ]; then
-     	if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
+        if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
 	   echo "Installing vmc SELinux module..."
 	   /usr/sbin/semodule -i /usr/share/vodafone-mobile-connect/selinux/vmc.pp
 	fi
@@ -67,16 +67,13 @@ else GROUP='dip';
      grep -v "FEDORA_11"  /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
      cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
      rm -f /tmp/fedora_tmp.py
-fi 
+fi
 chown ":$GROUP" /etc/ppp/chap-secrets /etc/ppp/pap-secrets /etc/ppp/peers
 chmod 660 /etc/ppp/chap-secrets /etc/ppp/pap-secrets
 chmod 775 /etc/ppp/peers
 
 chown ":$GROUP" /usr/sbin/pppd
 chmod 4754 /usr/sbin/pppd
-
-
-	   
 
 %postun
 if [ "$1" = "0" ] ; then # last instance of package being removed
@@ -88,10 +85,10 @@ if [ "$1" = "0" ] ; then # last instance of package being removed
 	chmod 755 /etc/ppp/peers
 
 	if ( echo $(lsb_release -d) | grep -E ".Fedora release 11." );
-	then 
+	then
 	#Selinux module removing.
 	    if [ -x /usr/sbin/sestatus ]; then
-     		if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
+		if ( /usr/sbin/sestatus | egrep "SELinux status:.*enabled"); then
 		    echo "Removing vmc SELinux module..."
 		    /usr/sbin/semodule -r vmc
 		fi
