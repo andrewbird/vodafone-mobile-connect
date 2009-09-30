@@ -41,18 +41,15 @@ def get_signal_level_from_rssi(rssi):
         return 100
 
 def bps_to_human(up, down):
-    if up > 1000:
-        upspeed = up / 1000.0
-        downspeed = down / 1000.0
-        upmsg = (upspeed > 1000) and "%3.2f Mbps" % (upspeed / 1000) or \
-                    "%3.2f Kbps" % upspeed
-        downmsg = (downspeed > 1000) and "%3.2f Mbps" % (downspeed / 1000) \
-                    or "%3.2f Kbps" % downspeed
-    else:
-        upmsg = "%3.2f bps" % up
-        downmsg = "%3.2f bps" % down
-    
-    return upmsg, downmsg
+    def scale(bits):
+        f = float(bits)
+        for m in ['b/s', 'Kb/s', 'Mb/s', 'Gb/s']:
+            if f < 1000:
+                return "%3.2f %s" % (f, m)
+            f /= 1000
+        return _("N/A")
+
+    return scale(up), scale(down)
 
 class NetworkSpeed(object):
     """Class to measure network speed"""
