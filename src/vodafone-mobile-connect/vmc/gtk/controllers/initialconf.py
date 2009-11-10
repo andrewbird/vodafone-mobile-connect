@@ -35,7 +35,6 @@ from vmc.gtk import Controller, Model
 import vmc.gtk.dialogs as dialogs
 from vmc.contrib.ValidatedEntry import ValidatedEntry, v_ip
 from vmc.contrib import louie
-from vmc.gtk.views.initialconf import APNSelectionView
 
 INVALID_CHARS = ['/', '\\']
 
@@ -61,7 +60,10 @@ class BaseProfileController(Controller):
         name = self.model.get_device().name
         self.view['device_model_label'].set_text(name)
         self.pop_connection_combobox_opt()
-        
+
+    def set_profile_name(self, name):
+        self.view['profile_name_entry'].set_text(name)
+
     def propose_profile_name(self):
         device = self.model.get_device().name
         bearer = self.get_connection_combobox_opt()
@@ -255,46 +257,31 @@ class NewProfileController(BaseProfileController):
         self.startup = startup
         self.hotplug = hotplug
         self.aux_ctrl = aux_ctrl
-    
+
     def register_view(self, view):
         super(NewProfileController, self).register_view(view)
         self.view['profile_name_entry'].set_sensitive(True)
         self.view['profile_name_entry'].set_editable(True)
 
-        self.try_to_load_profile_from_imsi_prefix()
-
     def on_ok_button_clicked(self, widget):
         settings = self.get_profile_settings()
-        
+
         if not self.settings_valid(settings):
             return
-        
+
         from vmc.common.config import config
         prof_manager = get_profile_manager(self.model.get_device())
         prof = prof_manager.create_profile(settings['profile_name'], settings)
         config.set_current_profile(prof)
-        
+
         if self.startup:
             self.aux_ctrl.start()
-        
+
         elif self.hotplug:
             self.aux_ctrl.model.wrapper.start_behaviour(self.aux_ctrl)
-        
+
         # now hide
         self.hide_ourselves()
-
-    def try_to_load_profile_from_imsi_prefix(self):
-        def get_profiles_cb(profiles):
-            if profiles:
-                def get_profile_from_apn_selection(profile):
-                    self.load_network_profile(profile)
-                    self.propose_profile_name()
-                
-                controller = APNSelectionController(Model(), profiles, get_profile_from_apn_selection)
-                view = APNSelectionView(controller)
-                view.show()
-
-        self.model.get_profiles_from_imsi_prefix().addCallback(get_profiles_cb)
 
 
 class EditProfileController(BaseProfileController):
@@ -341,12 +328,13 @@ class APNSelectionController(Controller):
         def get_selected_apn_cb(apn):
             self.hide_ourselves()
             self.apn_callback(apn)
-        
+
         d = self.view.get_selected_apn()
         d.addCallback(get_selected_apn_cb)
-    
+
     def on_cancel_button_clicked(self, widget):
         self.hide_ourselves()
+        self.apn_callback(None)
 
     def hide_ourselves(self):
         self.view.get_top_widget().destroy()

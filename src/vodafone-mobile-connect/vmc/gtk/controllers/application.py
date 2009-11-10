@@ -51,7 +51,8 @@ from vmc.gtk.controllers.base import WidgetController, TV_DICT, TV_DICT_REV
 from vmc.gtk.controllers.contacts import (AddContactController,
                                           SearchContactController)
 from vmc.gtk.controllers.diagnostics import DiagnosticsController
-from vmc.gtk.controllers.initialconf import (NewProfileController,
+from vmc.gtk.controllers.initialconf import (APNSelectionController,
+                                             NewProfileController,
                                              EditProfileController)
 from vmc.gtk.controllers.pin import (AskPINAndExecuteFuncController,
                                      PinModifyController)
@@ -64,7 +65,7 @@ from vmc.gtk.models.base import BaseWrapperModel
 from vmc.gtk.models.preferences import PreferencesModel
 from vmc.gtk.views.contacts import AddContactView, SearchContactView
 from vmc.gtk.views.diagnostics import DiagnosticsView
-from vmc.gtk.views.initialconf import NewProfileView, EditProfileView
+from vmc.gtk.views.initialconf import APNSelectionView, NewProfileView, EditProfileView
 from vmc.gtk.views.pin import PinModifyView, AskPINView
 from vmc.gtk.views.preferences import PreferencesView, SMSPreferencesView
 from vmc.gtk.views.sms import ForwardSmsView, NewSmsView
@@ -73,6 +74,7 @@ from vmc.gtk import dialogs
 from vmc.utils import utilities
 
 from vmc.contrib import louie
+
 
 DEVICE_PRESENT, NO_DEVICE_PRESENT, DEVICE_ADDED = range(3)
 
@@ -567,14 +569,10 @@ New profile available, do you want to load it?""")
         else:
             # The user doesn't wants the pin to be asked
             d.addCallback(disable_pin_auth)
-    
+
     def on_new_profile_menuitem_activate(self, widget):
-        model = NewProfileModel(self.model.get_device())
-        ctrl = NewProfileController(model)
-        view = NewProfileView(ctrl)
-        view.set_parent_view(self.view)
-        view.show()
-    
+        self.ask_for_new_profile()
+
     def on_inspect_menu_item_activate(self, widget):
         try:
             import vte
@@ -1230,6 +1228,7 @@ The csv file that you have tried to import has an invalid format.""")
     def stop_network_stats_timer(self):
         raise NotImplementedError()
 
+
 class ApplicationController(BaseApplicationController):
     """
     I extend BaseApplicationController with some signal handlers
@@ -1309,6 +1308,32 @@ class ApplicationController(BaseApplicationController):
 
         self.view['signal_image'].set_from_file(
                 os.path.join(consts.IMAGES_DIR, image))
+
+    def ask_for_new_profile(self, startup=False, hotplug=False, aux_ctrl=None):
+        _model = NewProfileModel(self.model.device)
+
+        def apn_callback(network):
+            _ctrl = NewProfileController(_model,
+                                         startup=startup,
+                                         hotplug=hotplug,
+                                         aux_ctrl=aux_ctrl)
+            _view = NewProfileView(_ctrl)
+            _view.set_parent_view(self.view) # center on main screen
+            _view.show()
+
+            if network is not None:
+                _ctrl.propose_profile_name()
+                _ctrl.load_network_profile(network)
+            else:
+                _ctrl.set_profile_name(_('Custom'))
+
+        def prof_callback(profiles):
+            _ctrl = APNSelectionController(_model, profiles, apn_callback)
+            _view = APNSelectionView(_ctrl)
+            _view.set_parent_view(self.view) # center on main screen
+            _view.show()
+
+        _model.get_profiles_from_imsi_prefix().addCallback(prof_callback)
 
     #################################################################
     # SIGNAL HANDLERS                                               #
@@ -1487,13 +1512,8 @@ has been added, in around 15 seconds
 
         if not config.current_profile:
             def configure_device():
-                _model = NewProfileModel(device)
-                _ctrl = NewProfileController(_model, hotplug=True,
-                                             aux_ctrl=self)
-                _view = NewProfileView(_ctrl)
-                _view.set_parent_view(self.view) # center on main screen
-                _view.show()
-            
+                self.ask_for_new_profile(hotplug=True, aux_ctrl=self)
+
             statemachine_callbacks = {
                 'InitExit' : configure_device,
                 'NetRegExit' : self.on_netreg_exit,
@@ -1503,7 +1523,7 @@ has been added, in around 15 seconds
                 'InitExit' : self.start,
                 'NetRegExit' : self.on_netreg_exit,
             }
-        
+
         statemachine_errbacks = {
             'AlreadyConnecting' : None,
             'AlreadyConnected' : None,
