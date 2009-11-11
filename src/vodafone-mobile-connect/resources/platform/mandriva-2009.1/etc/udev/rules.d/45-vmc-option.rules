@@ -1,0 +1,13 @@
+# Don't have a device to test with so trying to follow the previous generic
+# solution.
+
+# Kill the Volume Manager popup for the built in driver CD + call script to flip
+ACTION=="add", \
+   ATTRS{idVendor}=="05c6", ATTRS{idProduct}=="1000", \
+   RUN:="/usr/sbin/vmc-option.sh %s{idVendor} %s{idProduct} flip"
+
+# Call the driver loading script
+ACTION=="add", SUBSYSTEMS=="usb", DRIVERS=="usb", \
+   ATTRS{idVendor}=="0af0", ATTRS{idProduct}=="6600", \
+   RUN+="/usr/sbin/vmc-option.sh %s{idVendor} %s{idProduct}"
+

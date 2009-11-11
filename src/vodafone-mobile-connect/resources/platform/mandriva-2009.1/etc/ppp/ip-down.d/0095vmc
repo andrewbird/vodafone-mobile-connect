@@ -1,0 +1,46 @@
+#!/bin/sh -e
+
+# $Rev: 810 $
+
+DEV=$PPP_IFACE
+IPPARAM=$PPP_IPPARAM
+
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin
+ETC="/etc"
+TMP="/tmp"
+RESOLVCONF=$(readlink --canonicalize $ETC/resolv.conf)
+BACKRESOLV="${RESOLVCONF}.vmc"
+ROUTEBACK="${TMP}/defaultroute.vmc"
+VMCCONN="${TMP}/vmc-conn.lock"
+
+# Make sure we are only being called by a vmc invoked pppd
+[ "${IPPARAM}" = "vmc" ] || exit 0
+
+# just in case anyone relying on old behaviour
+rm -f ${VMCCONN}
+
+# we are going to replace the original up resolv.conf
+[ -f ${BACKRESOLV} ] && mv -f ${BACKRESOLV} ${RESOLVCONF}
+
+# restart nscd because resolv.conf has changed
+if [ -e /var/run/nscd.pid ] ; then
+	/etc/init.d/nscd restart || true
+fi
+
+# now replace original default route
+#if [ -f ${ROUTEBACK} ] ; then
+#	. ${ROUTEBACK} # source it
+#
+#	if [ -n "${OLDGW}" ] ; then
+#		route add default gw ${OLDGW}
+#	fi
+#
+#	rm -f ${ROUTEBACK}
+#fi
+
+
+# Delete mandriva commented nameserver lines, because they were not deleted correctly in ip-down.
+cp -f /etc/resolv.conf /etc/resolv.conf.tmp
+fgrep -v "# ppp temp entry" /etc/resolv.conf.tmp > /etc/resolv.conf
+chmod 0644 /etc/resolv.conf
+rm -f /etc/resolv.conf.tmp
