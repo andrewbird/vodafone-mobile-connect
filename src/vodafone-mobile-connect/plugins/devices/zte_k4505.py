@@ -32,11 +32,17 @@ class ZTEK4505(ZTEDBusDevicePlugin):
 
     __properties__ = {
         'usb_device.vendor_id': [0x19d2],
-        'usb_device.product_id': [0x0016],
+        'usb_device.product_id': [0x0016, 0x0104],
     }
 
-    # K4505-Z uses ttyUSB2(data) and ttyUSB1(status)
-    hardcoded_ports = (2, 1)
+    def preprobe_init(self, ports, info):
+        if info['usb_device.product_id'] == 0x0016:
+            self.hardcoded_ports = (2, 1)
+        elif info['usb_device.product_id'] == 0x0104:
+            self.hardcoded_ports = (3, 1)
+        else: # let probing occur
+            log.msg("Unknown K4505-Z product ID, falling through to probing")
+
 
 zte_k4505 = ZTEK4505()
 
