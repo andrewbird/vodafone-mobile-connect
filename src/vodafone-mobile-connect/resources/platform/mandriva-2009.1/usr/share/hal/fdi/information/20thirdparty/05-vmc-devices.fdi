@@ -198,6 +198,15 @@
           </match>
         </match>
 
+	<!-- ZTE MF651 cdc_acm (interfaces 1 and 3 are tty) -->
+        <match key="@info.parent:usb.product_id" int="0x0116">
+          <match key="@info.parent:usb.interface.number" int="1">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
       </match>
 
     </match>
