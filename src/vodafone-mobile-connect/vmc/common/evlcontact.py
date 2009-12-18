@@ -22,6 +22,7 @@ from os.path import join
 from vmc.common.consts import IMAGES_DIR
 from vmc.common.interfaces import IContact
 
+
 class EVContact(object):
     """
     I represent a contact in Evolution
@@ -57,7 +58,7 @@ class EVContact(object):
         return self.writable
 
     def external_editor(self):
-        return ['evolution', '-c', 'contacts' ]
+        return ['evolution', '-c', 'contacts']
 
     def image_16x16(self):
         return join(IMAGES_DIR, 'evolution.png')
@@ -73,6 +74,7 @@ class EVContactsManager(object):
     """
     Contacts manager
     """
+
     def find_contacts(self, pattern):
         for contact in self.get_contacts():
             # XXX: O(N) here!
@@ -99,13 +101,18 @@ class EVContactsManager(object):
                 continue
 
             for c in addressbook.get_all_contacts():
-                ret.append(EVContact(name=c.get_name(),
-                                     number=c.get_property('mobile-phone'),
-                                     index=c.get_property('id')
-                          ))
+
+                item = EVContact(name=c.get_name(),
+                                 number=c.get_property('mobile-phone'),
+                                 index=c.get_property('id'))
+
+                # Ubuntu one mirrors personal address books, so avoid
+                # duplicate entry - might be slow with many contacts
+                if not item in ret:
+                    ret.append(item)
+
         return ret
 
     def get_contact_by_id(self, index):
         print "EVContactsManager::get_contact_by_id called"
         return None
-
