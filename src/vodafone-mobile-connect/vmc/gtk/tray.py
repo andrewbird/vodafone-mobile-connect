@@ -29,59 +29,61 @@ from vmc.common import consts
 
 IMG_PATH = os.path.join(consts.IMAGES_DIR, 'VF_logo.png')
 
-try:
-    import gtk.StatusIcon
+if gtk.ver >= (2, 10, 0):
     HAVE_STATUS_ICON = True
-except ImportError:
+else:
     HAVE_STATUS_ICON = False
+
 
 def tray_available():
     """Returns True if any kind of systray widget is present"""
     if HAVE_STATUS_ICON:
         return True
-    
+
     try:
         import egg.trayicon
     except ImportError:
         return False
-    
+
     return True
+
 
 class TrayIcon(object):
     """
     I wrap either a gtk.StatusIcon or a egg.trayicon.TrayIcon instance
-    
+
     I provide a uniform API for two heterogeneous components and perform
     some trickery to show notifications on a HIG-friendly way
     """
+
     def __init__(self, icon):
         self.icon = icon
-    
+
     def show(self):
         """Shows the icon"""
         if HAVE_STATUS_ICON:
             self.icon.set_visible(True)
         else:
             self.icon.show_all()
-    
+
     def hide(self):
         """Hides the icon"""
         if HAVE_STATUS_ICON:
             self.icon.set_visible(False)
         else:
             self.icon.hide_all()
-    
+
     def visible(self):
         """Returns True if the icon is visible"""
         if HAVE_STATUS_ICON:
             return self.icon.get_visible()
         else:
             return self.icon.get_property('visible')
-    
+
     def attach_notification(self, notification):
         """
         Attachs C{notification} to the icon
-        
+
         If we're not visible, we will show ourselves for 5 seconds and will
         hide afterwards
         """
@@ -89,26 +91,30 @@ class TrayIcon(object):
             notification.set_property('status-icon', self.icon)
         else:
             notification.attach_to_widget(self.icon)
-        
+
         if not self.visible():
             self.show()
             reactor.callLater(5, self.hide)
 
 if HAVE_STATUS_ICON:
+
     def get_tray_icon(show_ide_cb, get_menu_func):
         icon = gtk.status_icon_new_from_file(IMG_PATH)
         icon.set_visible(True)
-        def popup_menu_cb(widget, button, time, data = None):
+
+        def popup_menu_cb(widget, button, time, func=None):
             if button == 3:
+                data = func()
                 if data:
                     data.show_all()
                     data.popup(None, None, None, 3, time)
-        
+
         icon.connect('activate', show_ide_cb)
-        icon.connect('popup-menu', popup_menu_cb, get_menu_func())
+        icon.connect('popup-menu', popup_menu_cb, get_menu_func)
         return TrayIcon(icon)
-    
+
 else:
+
     def get_tray_icon(show_ide_cb, get_menu_func=None):
         import egg.trayicon
         tray = egg.trayicon.TrayIcon(consts.APP_SHORT_NAME)

@@ -1052,14 +1052,12 @@ The csv file that you have tried to import has an invalid format.""")
     def get_trayicon_popup_menu(self, *args):
         """Returns a popup menu when you right click on the trayicon"""
 
-        connect_button = self.view['connect_button']
-        
         def _disconnect_from_inet(widget):
-            connect_button.set_active(False)
-        
+            self.view['connect_button'].set_active(False)
+
         def _connect_to_inet(widget):
-            connect_button.set_active(True)
-        
+            self.view['connect_button'].set_active(True)
+
         menu = gtk.Menu()
 
         if self.model.is_connected():
@@ -1074,17 +1072,17 @@ The csv file that you have tried to import has an invalid format.""")
             img.set_from_file(os.path.join(consts.IMAGES_DIR,
                               'connect-16x16.png'))
             item.connect("activate", _connect_to_inet)
-        
+
         item.set_image(img)
         if not self.model.get_device():
             item.set_sensitive(False)
         item.show()
         menu.append(item)
-        
+
         separator = gtk.SeparatorMenuItem()
         separator.show()
         menu.append(separator)
-        
+
         item = gtk.ImageMenuItem(_("Send SMS"))
         img = gtk.Image()
         img.set_from_file(os.path.join(consts.IMAGES_DIR, 'sms16x16.png'))
@@ -1094,18 +1092,18 @@ The csv file that you have tried to import has an invalid format.""")
             item.set_sensitive(False)
         item.show()
         menu.append(item)
-        
+
         separator = gtk.SeparatorMenuItem()
         separator.show()
         menu.append(separator)
-        
+
         item = gtk.ImageMenuItem(_("Quit"))
         img = gtk.image_new_from_stock(gtk.STOCK_QUIT, gtk.ICON_SIZE_MENU)
         item.set_image(img)
         item.connect("activate", self.on_quit_menu_item_activate)
         item.show()
         menu.append(item)
-        
+
         return menu
 
     def get_contacts_popup_menu(self, pathinfo, treeview):
