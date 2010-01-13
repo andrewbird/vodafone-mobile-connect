@@ -74,41 +74,40 @@ class PreferencesController(Controller):
         # keep a reference of the handler id
         self._hid1 = self.view['gnomekeyring_checkbutton'].connect('toggled',
                                                         keyringtoggled_cb)
-        
-        def show_icon_cb(checkbutton):
-            if checkbutton.get_active():
-                if not tray_available():
-                    # block the handler so the set_active method doesnt
-                    # executes this callback again
-                    checkbutton.handler_block(self._hid2)
-                    checkbutton.set_active(False)
-                    # restore handler
-                    checkbutton.handler_unblock(self._hid2)
-                    message = _("Missing dependency")
-                    details = _("""
-To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
-""")
-                    dialogs.open_warning_dialog(message, details)
-                    return True
-                else:
-                    # attach and show systray icon
-                    self.parent_ctrl._setup_trayicon(ignoreconf=True)
-                    # if there's an available tray, enable this chkbtn
-                    close_win_chkbtn = self.view['close_window_checkbutton']
-                    close_win_chkbtn.set_sensitive(True)
-            
-            else:
-                # detach icon from systray
-                self.parent_ctrl._detach_trayicon()
-                # close_window_checkbutton depends on this checkbutton
-                # being active, thats why we set insensitive the chkbtn
-                self.view['close_window_checkbutton'].set_sensitive(False)
-                self.view['close_window_checkbutton'].set_active(False)
-        
         # keep a reference of the handler id
         self._hid2 = self.view['show_icon_checkbutton'].connect('toggled',
-                                                                show_icon_cb)
-    
+                                                                self.show_icon_cb)
+
+    def show_icon_cb(self, checkbutton):
+        if checkbutton.get_active():
+            if not tray_available():
+                # block the handler so the set_active method doesnt
+                # executes this callback again
+                checkbutton.handler_block(self._hid2)
+                checkbutton.set_active(False)
+                # restore handler
+                checkbutton.handler_unblock(self._hid2)
+                message = _("Missing dependency")
+                details = _("""
+To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
+""")
+                dialogs.open_warning_dialog(message, details)
+                return True
+            else:
+                # attach and show systray icon
+                self.parent_ctrl._setup_trayicon(ignoreconf=True)
+                # if there's an available tray, enable this chkbtn
+                close_win_chkbtn = self.view['close_window_checkbutton']
+                close_win_chkbtn.set_sensitive(True)
+
+        else:
+            # detach icon from systray
+            self.parent_ctrl._detach_trayicon()
+            # close_window_checkbutton depends on this checkbutton
+            # being active, thats why we set insensitive the chkbtn
+            self.view['close_window_checkbutton'].set_sensitive(False)
+            self.view['close_window_checkbutton'].set_active(False)
+
     def get_selected_dialer_profile(self):
         model = self.view['dialer_profiles_combobox'].get_model()
         index = self.view['dialer_profiles_combobox'].get_active()
@@ -117,7 +116,7 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         else:
             name = model[index][0]
             return wvdial.get_profile_from_name(name)
-    
+
     # ------------------------------------------------------------ #
     #                       Signals Handling                       #
     # ------------------------------------------------------------ #
@@ -202,10 +201,16 @@ To use this feature you need either pygtk >= 2.10 or the egg.trayicon module
         config.write()
         
         self._hide_ourselves()
-    
+
     def on_preferences_cancel_button_clicked(self, widget):
+        # restore to saved state
+        show_icon = config.getboolean('preferences', 'show_icon')
+        show_icon_chkbtn = self.view['show_icon_checkbutton']
+        show_icon_chkbtn.set_active(show_icon)
+        self.show_icon_cb(show_icon_chkbtn)
+
         self._hide_ourselves()
-    
+
     def _hide_ourselves(self):
         self.model.unregister_observer(self)
         self.view.hide()

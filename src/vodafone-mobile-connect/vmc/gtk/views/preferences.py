@@ -43,42 +43,40 @@ class PreferencesView(View):
         self.ctrl = ctrl
         ctrl.register_view(self)
         self.setup_view()
-    
+
     def setup_view(self):
         # first page of the notebook
         profile = config.current_profile.get('connection', 'dialer_profile')
-        
+
         if profile == 'default':
             self['vbox2'].set_sensitive(False)
         else:
             self['custom_profile_checkbutton'].set_active(True)
-        
+
         # third page of the notebook
         exit_without_confirmation = config.getboolean('preferences',
                                                 'exit_without_confirmation')
         chkbt = self['exit_without_confirmation_checkbutton']
         chkbt.set_active(exit_without_confirmation)
-        
-        show_icon = config.getboolean('preferences', 'close_minimizes')
+
+        show_icon = config.getboolean('preferences', 'show_icon')
         self['show_icon_checkbutton'].set_active(show_icon)
-        
+
         minimize_to_tray = config.getboolean('preferences', 'close_minimizes')
-        if show_icon:
-            self['close_window_checkbutton'].set_active(minimize_to_tray)
-        else:
-            self['close_window_checkbutton'].set_sensitive(False)
-        
+        self['close_window_checkbutton'].set_active(minimize_to_tray)
+        self['close_window_checkbutton'].set_sensitive(show_icon)
+
         manage_keyring = config.getboolean('preferences', 'manage_keyring')
         self['gnomekeyring_checkbutton'].set_active(manage_keyring)
-        
+
         #setup dialer_combobox
         self.setup_dialer_combobox()
-        
+
         self.setup_browser_combobox()
         self.setup_mail_combobox()
 
         self.setup_usage_options()
-    
+
     # second notebook page
     def setup_dialer_combobox(self):
         model = self.get_dialer_combobox_model()
