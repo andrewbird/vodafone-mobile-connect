@@ -1,6 +1,5 @@
 """
-Automatically generated from a VMC Opcos.XML file embedded
-in a zip file called Opco_04_9.4.3_RC4
+Automatically generated from Opco_12_9.4.5_19166.zip
 """
 
 from networks import NetworkOperator
@@ -323,7 +322,7 @@ class Vodafone_23415_Prepaid(NetworkOperator):
     country = "United Kingdom"
     type = "Prepaid"
     smsc = "+447785016005"
-    apn = "pp.internet"
+    apn = "PPBUNDLE.INTERNET"
     username = "web"
     password = "web"
     dns1 = None
@@ -449,18 +448,6 @@ class Vodafone_23201_Contract(NetworkOperator):
     dns1 = None
     dns2 = None
 
-class Vodafone_65501_Contract(NetworkOperator):
-    netid = ["65501"]
-    name = "Vodacom"
-    country = "South Africa"
-    type = "Contract"
-    smsc = "+27829129"
-    apn = "internet"
-    username = ""
-    password = ""
-    dns1 = None
-    dns2 = None
-
 class Vodafone_65501_Prepaid(NetworkOperator):
     netid = ["65501"]
     name = "Vodacom"
@@ -508,30 +495,6 @@ class Vodafone_45406_Contract(NetworkOperator):
     password = ""
     dns1 = None
     dns2 = None
-
-class Vodafone_27001_Contract(NetworkOperator):
-    netid = ["27001"]
-    name = "LUXGSM"
-    country = "Luxembourg"
-    type = "Contract"
-    smsc = "+352021100003"
-    apn = "web.pt.lu"
-    username = ""
-    password = ""
-    dns1 = "194.154.192.101"
-    dns2 = "194.154.192.102"
-
-class Vodafone_27001_Prepaid(NetworkOperator):
-    netid = ["27001"]
-    name = "LUXGSM"
-    country = "Luxembourg"
-    type = "Prepaid"
-    smsc = "+352021100003"
-    apn = "web.pt.lu"
-    username = ""
-    password = ""
-    dns1 = "194.154.192.101"
-    dns2 = "194.154.192.102"
 
 class Vodafone_42602_Contract(NetworkOperator):
     netid = ["42602"]
@@ -662,8 +625,8 @@ class Vodafone_60202_Contract(NetworkOperator):
     apn = "internet.vodafone.net"
     username = "internet"
     password = "internet"
-    dns1 = None
-    dns2 = None
+    dns1 = "163.121.128.134"
+    dns2 = "212.103.160.18"
 
 class Vodafone_60202_Prepaid(NetworkOperator):
     netid = ["60202"]
@@ -674,8 +637,8 @@ class Vodafone_60202_Prepaid(NetworkOperator):
     apn = "internet.vodafone.net"
     username = "internet"
     password = "internet"
-    dns1 = None
-    dns2 = None
+    dns1 = "163.121.128.134"
+    dns2 = "212.103.160.18"
 
 class Vodafone_54201_Contract(NetworkOperator):
     netid = ["54201"]
@@ -767,7 +730,7 @@ class Vodafone_52503_Prepaid(NetworkOperator):
     country = "Singapore"
     type = "Prepaid"
     smsc = "+6596845999"
-    apn = "sunsurfmcard"
+    apn = "prepaidbb"
     username = ""
     password = ""
     dns1 = None
@@ -815,7 +778,7 @@ class Vodafone_23003_Prepaid(NetworkOperator):
     country = "Czech Republic"
     type = "Prepaid"
     smsc = "+420608005681"
-    apn = "ointernet"
+    apn = "internet"
     username = ""
     password = ""
     dns1 = None
@@ -935,7 +898,7 @@ class Vodafone_41302_Contract(NetworkOperator):
     country = "Sri Lanka"
     type = "Contract"
     smsc = "+9477000003"
-    apn = "www.dialogsl.com"
+    apn = "Dialogbb"
     username = ""
     password = ""
     dns1 = None
@@ -947,7 +910,7 @@ class Vodafone_41302_Prepaid(NetworkOperator):
     country = "Sri Lanka"
     type = "Prepaid"
     smsc = "+9477000003"
-    apn = "ppwap"
+    apn = "kitbb.com"
     username = ""
     password = ""
     dns1 = None
@@ -1163,6 +1126,30 @@ class Vodafone_64004_Prepaid(NetworkOperator):
     country = "Tanzania"
     type = "Prepaid"
     smsc = "+25575114"
+    apn = "internet"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_64304_Contract(NetworkOperator):
+    netid = ["64304"]
+    name = "Vodacom Mozambique"
+    country = "Mozambique"
+    type = "Contract"
+    smsc = "+25884080011"
+    apn = "internet"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_64304_Prepaid(NetworkOperator):
+    netid = ["64304"]
+    name = "Vodacom Mozambique"
+    country = "Mozambique"
+    type = "Prepaid"
+    smsc = "+25884080011"
     apn = "internet"
     username = ""
     password = ""
@@ -1716,6 +1703,90 @@ class Vodafone_405756_Prepaid(NetworkOperator):
     type = "Prepaid"
     smsc = "+919713099990"
     apn = "www"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_42403_Contract(NetworkOperator):
+    netid = ["42403"]
+    name = "du EITC"
+    country = "Dubai"
+    type = "Contract"
+    smsc = "+971555515515"
+    apn = "du"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_42403_Prepaid(NetworkOperator):
+    netid = ["42403"]
+    name = "du EITC"
+    country = "Dubai"
+    type = "Prepaid"
+    smsc = "+971555515515"
+    apn = "du"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_64710_Contract(NetworkOperator):
+    netid = ["64710"]
+    name = "SRR"
+    country = "Reunion"
+    type = "Contract"
+    smsc = "+262850909"
+    apn = "websfr"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_27077_Contract(NetworkOperator):
+    netid = ["27077"]
+    name = "Tango"
+    country = "Luxembourg"
+    type = "Contract"
+    smsc = "+352091000030"
+    apn = "hspa"
+    username = "tango"
+    password = "tango"
+    dns1 = None
+    dns2 = None
+
+class Vodafone_27077_Prepaid(NetworkOperator):
+    netid = ["27077"]
+    name = "Tango"
+    country = "Luxembourg"
+    type = "Prepaid"
+    smsc = "+352091000030"
+    apn = "hspa"
+    username = "tango"
+    password = "tango"
+    dns1 = None
+    dns2 = None
+
+class Vodafone_40004_Contract(NetworkOperator):
+    netid = ["40004"]
+    name = "Azerfon"
+    country = "Azerbaijan"
+    type = "Contract"
+    smsc = "+994702000700"
+    apn = "Azerfon"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_40004_Prepaid(NetworkOperator):
+    netid = ["40004"]
+    name = "Azerfon"
+    country = "Azerbaijan"
+    type = "Prepaid"
+    smsc = "+994702000700"
+    apn = "Azerfon"
     username = ""
     password = ""
     dns1 = None
