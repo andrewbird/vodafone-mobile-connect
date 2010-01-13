@@ -109,22 +109,23 @@ class BaseApplicationController(WidgetController):
         else:
             self.quit_application()
             return False
-    
+
     def quit_application(self, *args):
         """Closes open connections and exits the application"""
+
         def disconnect_cb(ignored):
             self.hide_widgets()
             title = _('Shutting down')
             apb = dialogs.ActivityProgressBar(title, self)
             self.append_widget(apb)
-            
+
             def default_eb():
                 pass
-            
+
             apb.set_default_cb(2, lambda: shutdown_core(delay=.3))
             apb.set_cancel_cb(default_eb)
             apb.init()
-        
+
         if self.usage_updater:
             self.usage_updater.stopService()
 
@@ -144,7 +145,9 @@ if you want to do so, press the OK button.
                 self.stop_network_stats_timer()
                 d = self.model.disconnect_internet()
                 d.addCallback(disconnect_cb)
-    
+            else:
+                disconnect_cb(True)
+
     def start(self):
         """Overrides the register_view method and starts the whole thing up"""
         self.view.set_disconnected()
