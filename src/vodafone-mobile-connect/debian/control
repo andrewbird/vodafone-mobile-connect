@@ -4,7 +4,10 @@ XS-Python-Version: >= 2.4
 Priority: optional
 Maintainer: Pablo Marti Gamboa <pmarti@warp.es>
 Build-Depends-Indep: debhelper (>= 4.2.28), python-central (>= 0.4.12), python-setuptools, libusb-dev
-Standards-Version: 3.7.2
+Standards-Version: 3.8.3
+Homepage: https://forge.betavine.net/projects/vodafonemobilec/
+Vcs-svn: https://forge.betavine.net/svn/vodafonemobilec/trunk/src/vodafone-mobile-connect
+Vcs-browser: https://forge.betavine.net/plugins/scmsvn/viewcvs.php/trunk/src/vodafone-mobile-connect/?root=vodafonemobilec
 
 Package: vodafone-mobile-connect-card-driver-for-linux
 Architecture: any
@@ -13,7 +16,7 @@ Depends: ${python:Depends}, python-gnome2, python-twisted, python-glade2, wvdial
 Recommends: python-vte, python-gnome2-extras, bluez-utils (>= 3.16), bluez-gnome
 XB-Python-Version: ${python:Versions}
 Description: Vodafone 3G devices Internet connection assistant
-  Vodafone Mobile Connect Card driver for Linux is a tool that manages
-  3G devices and mobile phones with an easy to use interface in PyGTK for
-  mundane tasks such as connecting to the Internet, sending SMS, managing
-  contacts, and such.
+ Vodafone Mobile Connect Card driver for Linux is a tool that manages
+ 3G devices and mobile phones. It has an easy to use interface written
+ in PyGTK for mundane tasks such as connecting to the Internet, sending
+ SMS, managing contacts, and such.

@@ -1,3 +1,9 @@
+vodafone-mobile-connect-card-driver-for-linux (2.20.01-1) unstable; urgency=low
+
+  * Initial upload to Debian.
+
+ --  <pmarti@warp.es>  Mon, 25 Jan 2010 23:28:47 +0100
+
 vodafone-mobile-connect-card-driver-for-linux (1.99.17) gutsy; urgency=low
 
   * 1.99.17 Release
