@@ -98,6 +98,14 @@ def create_skeleton_and_do_initial_setup():
     touch(consts.CHAP_PROFILE)
     touch(consts.DEFAULT_PROFILE)
     touch(consts.PAP_PROFILE)
+    # This makes not save LOCK file if dialer_profiles have not been correctly created.
+    if not os.path.exists(consts.CHAP_PROFILE) or \
+            not os.path.exists(consts.DEFAULT_PROFILE) or \
+            not os.path.exists(consts.PAP_PROFILE):
+        from vmc.gtk import dialogs
+        message = _('ERROR creating dialer_profile. You should restart the application.')
+        dialogs.open_warning_dialog(message)
+        raise SystemExit()
     
     from vmc.common import plugin
     save_file(LOCK, str(plugin.VERSION))
