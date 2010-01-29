@@ -104,7 +104,7 @@ def create_skeleton_and_do_initial_setup():
             not os.path.exists(consts.PAP_PROFILE):
         from vmc.gtk import dialogs
         message = _('ERROR creating dialer_profile. You should restart the application.')
-        dialogs.open_warning_dialog(message)
+        dialogs.open_warning_dialog(message, "")
         raise SystemExit()
     
     from vmc.common import plugin
