@@ -30,6 +30,9 @@ from twisted.python import log
 
 import vmc.common.consts as consts
 from vmc.utils.utilities import save_file, touch
+from vmc.gtk import dialogs
+from vmc.common.encoding import _
+from vmc.common.consts import APP_LONG_NAME, APP_SHORT_NAME
 
 DELAY = 10
 
@@ -66,9 +69,20 @@ def attach_serial_protocol(device, test=False):
 def ensure_have_config(force_create=False):
     if os.path.exists(consts.VMC_CFG) and not force_create:
         return
+    print "ensure I have config: checked OS path exists"
+    try:
+        from vmc.common.oal import osobj
+    except RuntimeError, e:
+        message = _('User Permissions Problem.')
+        details = """
+It appears that you do not have privillages to run the %s application.
+You need to be part of the groups 'dialout' and 'lock' to run the Modem Manager. If you have already added yourself to those groups, try restarting the computer or logging in as yourself to activate your changes.
+""" % APP_LONG_NAME
+        dialogs.open_warning_dialog(message, details)
+        shutil.rmtree(consts.VMC_HOME, True)
+        raise SystemExit()
 
-    from vmc.common.oal import osobj
-
+    print "ensure I have config: checked Import of OSOBJ from OAL."
     join = os.path.join
     cfg_path = join(consts.TEMPLATES_DIR, osobj.abstraction['CFG_TEMPLATE'])
     shutil.copy(cfg_path, consts.VMC_CFG)
@@ -80,6 +94,7 @@ def create_skeleton_and_do_initial_setup():
     if os.path.exists(LOCK):
         return
     
+    print "create skelaton and do setup: finished os.path.exists"
     try:
         shutil.rmtree(consts.VMC_HOME, True)
         os.mkdir(consts.VMC_HOME)
@@ -91,18 +106,21 @@ def create_skeleton_and_do_initial_setup():
     
     # copy plugins to plugins dir
     shutil.copytree(consts.PLUGINS_DIR, consts.PLUGINS_HOME)
+    print "create skelaton and do setup: finished shutil.copytree"
 
     # Create the initial config
     ensure_have_config(force_create=True)
-
+    print "create skelaton and do setup: finished ensure_have_config"
     touch(consts.CHAP_PROFILE)
     touch(consts.DEFAULT_PROFILE)
     touch(consts.PAP_PROFILE)
+    print "create skelaton and do setup: touch run"
     # This makes not save LOCK file if dialer_profiles have not been correctly created.
     if not os.path.exists(consts.CHAP_PROFILE) or \
             not os.path.exists(consts.DEFAULT_PROFILE) or \
             not os.path.exists(consts.PAP_PROFILE):
-        from vmc.gtk import dialogs
+       
+        print " Error creating dialer profile."
         message = _('ERROR creating dialer_profile. You should restart the application.')
         dialogs.open_warning_dialog(message, "")
         raise SystemExit()
