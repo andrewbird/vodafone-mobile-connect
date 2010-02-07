@@ -21,7 +21,7 @@ __version__ = "$Rev: 1172 $"
 
 from math import ceil
 
-from twisted.internet import utils
+from twisted.internet import defer
 
 from vmc.common.encoding import _
 
@@ -35,18 +35,29 @@ TIME_KEYS = TIME_DESCRIPTION.keys()
 TIME_KEYS.sort()
 TIME_KEYS.reverse()
 
-def get_uptime():
-    """Returns a deferred that will be called with the uptime as string"""
-    d = utils.getProcessOutput('cat', args=['/proc/uptime'])
-        
-    def uptime_cb(uptime):
-        uptime = float(uptime.split()[0])
-        uptime = int(ceil(uptime))
-        msg = get_uptime_string(uptime)
-        return msg
-    
-    d.addCallback(uptime_cb)
-    return d
+
+def get_uptime_raw():
+    pf = open('/proc/uptime', 'r')
+    if not pf:
+        return 0
+
+    uptime = pf.readline().rstrip()
+    pf.close()
+
+    if not len(uptime):
+        return 0
+
+    uptime = float(uptime.split()[0])
+    return uptime
+
+
+def get_uptime(self):
+    """Returns the uptime with uptime(1)'s format"""
+
+    uptime = get_uptime_raw()
+    uptime = int(ceil(uptime))
+    return defer.succeed(get_uptime_string(uptime))
+
 
 def get_time_dict(uptime):
     """Returns a dictionary with a resolution of minutes"""
@@ -58,8 +69,9 @@ def get_time_dict(uptime):
         uptime -= div * key
         key_name = TIME_DESCRIPTION[key]
         resp[key_name] = div
-    
+
     return resp
+
 
 def get_uptime_string(uptime):
     """Returns a uptime(1)'s like output from a uptime expressed in seconds"""
@@ -68,14 +80,14 @@ def get_uptime_string(uptime):
         hour = "%d" % time_dict['hour']
     except KeyError:
         hour = "0"
-    
+
     try:
         minute = "%d" % time_dict['minute']
         if time_dict['minute'] < 10:
             minute = '0' + minute
     except KeyError:
         minute = '00'
-    
+
     msg = "%s:%s" % (hour, minute)
     try:
         day = time_dict['day']
@@ -83,8 +95,8 @@ def get_uptime_string(uptime):
             resp = _("%(day)d days, %(msg)s") % {'day': day, 'msg' : msg}
         else:
             resp = _("%(day)d day, %(msg)s") % {'day': day, 'msg' : msg}
-        
+
     except KeyError:
         resp = msg
-    
+
     return resp

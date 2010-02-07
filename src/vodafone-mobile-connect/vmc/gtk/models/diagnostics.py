@@ -19,33 +19,27 @@
 __version__ = "$Rev: 1172 $"
 
 import os
+from twisted.internet import defer
 
-from twisted.internet.utils import getProcessOutput
-
-from vmc.common.uptime import get_uptime_string
+from vmc.common.uptime import get_uptime_raw, get_uptime_string
 from vmc.gtk.models.base import BaseWrapperModel
+
 
 class DiagnosticsModel(BaseWrapperModel):
     """Model for diagnostics window"""
-    
+
     __properties__ = {}
-    
+
     def __init__(self, wrapper):
         super(DiagnosticsModel, self).__init__(wrapper)
-    
+
     def get_uptime(self):
-        """Returns the uptime with uptime(1)'s format"""
-        d = getProcessOutput('cat', args=['/proc/uptime'])
-        def callback(uptime):
-            uptime = float(uptime.split()[0])
-            return get_uptime_string(uptime)
-            
-        d.addCallback(callback)
-        return d
-        
+        uptime = get_uptime_raw()
+        return defer.succeed(get_uptime_string(uptime))
+
     def get_os_name(self):
         return os.uname()[0]
-    
+
     def get_os_version(self):
         return os.uname()[2]
-    
+

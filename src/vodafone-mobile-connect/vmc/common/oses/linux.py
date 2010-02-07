@@ -27,7 +27,7 @@ import grp
 import pwd
 
 from twisted.python.procutils import which
-from twisted.internet.utils import getProcessOutput
+from twisted.internet import defer
 
 from vmc.common.dialers.wvdial import WvdialDialer
 from vmc.common.oses.unix import UnixPlugin
@@ -91,7 +91,6 @@ class LinuxPlugin(UnixPlugin):
             return [gksudo_path, killall_path, 'pppd', 'wvdial']
     
     def get_iface_stats(self, iface='ppp0'):
-        CMD = 'cat'
         PATH = '/proc/net/dev'
         regexp = re.compile(r"""
             \s+%(iface)s:\s*
@@ -99,7 +98,20 @@ class LinuxPlugin(UnixPlugin):
             \s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+
             (?P<out>\d+)
             """ % dict(iface=iface), re.VERBOSE)
-        
+
+        def _get_netdev():
+            pf = open(PATH, 'r')
+            if not pf:
+                return ""
+
+            netdev = pf.read()
+            pf.close()
+
+            if not len(netdev):
+                return ""
+
+            return netdev
+
         def _parse_input(text):
             """Extracts the recv and sent bytes from /proc/net/dev"""
             inbits = None
@@ -109,13 +121,13 @@ class LinuxPlugin(UnixPlugin):
                 # /proc/net/dev counts bytes not bits
                 inbits = int(match.group('in')) * 8
                 outbits = int(match.group('out')) * 8
-            
+
             return [inbits, outbits]
-        
-        d = getProcessOutput(CMD, args=[PATH])
-        d.addCallback(_parse_input)
-        return d
-    
+
+        netdev = _get_netdev()
+        traffic = _parse_input(netdev)
+        return defer.succeed(traffic)
+
     def is_valid(self):
         from vmc.common.hardware.hardwarereg import hw_reg
         os_info = hw_reg.os_info
