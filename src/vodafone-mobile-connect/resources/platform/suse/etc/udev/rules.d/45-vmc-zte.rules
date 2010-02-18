@@ -11,6 +11,10 @@ ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", \
    ATTR{idVendor}=="19d2", ATTR{idProduct}=="0040", \
    RUN+="/usr/sbin/vmc-usb_modeswitch-eject.sh %s{idVendor} %s{idProduct}"
 
+ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", \
+   ATTR{idVendor}=="19d2", ATTR{idProduct}=="0101", \
+   RUN+="/usr/sbin/vmc-usb_modeswitch-eject.sh %s{idVendor} %s{idProduct}"
+
 # Call the usb_modeswitch to eject the CD device
 ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", \
    ATTR{idVendor}=="19d2", ATTR{idProduct}=="2000", \
@@ -61,6 +65,10 @@ ACTION=="add", SUBSYSTEM=="usb", \
 
 ACTION=="add", SUBSYSTEM=="usb", \
    ATTR{idVendor}=="19d2", ATTR{idProduct}=="0063", \
+   RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
+
+ACTION=="add", SUBSYSTEM=="usb", \
+   ATTR{idVendor}=="19d2", ATTR{idProduct}=="0104", \
    RUN+="/usr/sbin/vmc-zte.sh %s{idVendor} %s{idProduct}"
 
 ACTION=="add", SUBSYSTEM=="usb",\
