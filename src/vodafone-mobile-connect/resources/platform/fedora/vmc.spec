@@ -63,6 +63,12 @@ then GROUP='dialout';
 	fi
      fi
 
+elif ( echo $(lsb_release -d) | grep -E ".Fedora release 12." );
+then GROUP='dialout';
+     grep -v "FEDORA_GENERAL" /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
+     cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py
+     rm -f /tmp/fedora_tmp.py
+
 else GROUP='dip';
      grep -v "FEDORA_11"  /usr/share/vodafone-mobile-connect/plugins/os/fedora.py > /tmp/fedora_tmp.py
      cat /tmp/fedora_tmp.py > /usr/share/vodafone-mobile-connect/plugins/os/fedora.py 
