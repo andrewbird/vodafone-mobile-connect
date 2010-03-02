@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Older versions of HAL don't understand int_outof -->
+
+<deviceinfo version="0.2">
+  <device>
+    <match key="info.category" string="serial">
+
+ <!-- Huawei based mobile devices -->
+      <match key="@info.parent:usb.vendor_id" int="0x12d1">
+
+	<!-- Devices typically have 1 of only 3 pids :-( -->
+        <match key="@info.parent:usb.product_id" int="0x1001">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x1003">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x1004">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<match key="@info.parent:usb.product_id" int="0x1411"> <!-- E510 DVB-T -->
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<match key="@info.parent:usb.product_id" int="0x1451"> <!-- K3565 -->
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<match key="@info.parent:usb.product_id" int="0x1464"> <!-- K4505 -->
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<match key="@info.parent:usb.product_id" int="0x1465"> <!-- K3765 -->
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+      </match>
+
+ <!-- Novatel based mobile devices -->
+      <match key="@info.parent:usb.vendor_id" int="0x1410">
+
+	<!-- XU870 -->
+        <match key="@info.parent:usb.product_id" int="0x1430">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- X950D -->
+        <match key="@info.parent:usb.product_id" int="0x1450">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- Ovation MC950D -->
+        <match key="@info.parent:usb.product_id" int="0x4400">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- generic MiFi / Ovation -->
+        <match key="@info.parent:usb.product_id" int="0x7001">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- MiFi 2352 -->
+        <match key="@info.parent:usb.product_id" int="0x7003">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+      </match>
+
+ <!-- ZTE based mobile devices -->
+      <match key="@info.parent:usb.vendor_id" int="0x19d2">
+
+	<!-- Vodafone K4505-Z : 2 pids according to F/W revision -->
+        <match key="@info.parent:usb.product_id" int="0x0016">
+          <match key="@info.parent:usb.interface.number" int="2">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x0104">
+          <match key="@info.parent:usb.interface.number" int="3">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- Vodafone K2525 -->
+        <match key="@info.parent:usb.product_id" int="0x0022">
+          <match key="@info.parent:usb.interface.number" int="0">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- Vodafone K3520-Z : 2 pids according to F/W revision -->
+        <match key="@info.parent:usb.product_id" int="0x0025">
+          <match key="@info.parent:usb.interface.number" int="2">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x0055">
+	  <match key="@info.parent:usb.interface.number" int="2"> <!-- not checked -->
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- Vodafone K3565-Z : 3 pids according to F/W revision -->
+        <match key="@info.parent:usb.product_id" int="0x0049">
+	  <match key="@info.parent:usb.interface.number" int="4"> <!-- single working tty -->
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x0052">
+          <match key="@info.parent:usb.interface.number" int="3">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+        <match key="@info.parent:usb.product_id" int="0x0063">
+          <match key="@info.parent:usb.interface.number" int="3">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- Vodafone K3805-z cdc_acm (interfaces 1 and 3 are tty) -->
+        <match key="@info.parent:usb.product_id" int="0x1003">
+          <match key="@info.parent:usb.interface.number" int="1">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- Vodafone K3765-Z -->
+        <match key="@info.parent:usb.product_id" int="0x2002">
+	  <match key="@info.parent:usb.interface.number" int="3">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+	<!-- ZTE MF651 cdc_acm (interfaces 1 and 3 are tty) -->
+        <match key="@info.parent:usb.product_id" int="0x0116">
+          <match key="@info.parent:usb.interface.number" int="1">
+            <append key="info.capabilities" type="strlist">modem</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.07</append>
+            <append key="modem.command_sets" type="strlist">GSM-07.05</append>
+          </match>
+        </match>
+
+      </match>
+
+    </match>
+  </device>
+</deviceinfo>
