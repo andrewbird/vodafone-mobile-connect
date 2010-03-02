@@ -40,6 +40,7 @@ class MandrivaBasedDistro(LinuxPlugin):
     os_version = None
     customization = mandriva_customization
     os_groups = ['dialout']
+#    os_groups = ['dialout','uucp'] # Mandriva Free 2010 needed groups.
    
     #XXX: Almost duplicated code with Suse plugin
     def get_timezone(self):
