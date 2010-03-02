@@ -175,6 +175,7 @@ def produce_tree():
     sh('rm -f %s/vmc/common/consts-dev.py' % root)
 
 # Generate user doc
+# Mandriva Free 2010 rpm package building fails to generate documentation so this two lines need to be commented.
     sh('tar -cf - doc/user | (cd %s && tar -xf -)' % tmp)
     sh('(cd %s/doc/user && make -f Makefile.pkg ROOT=../../%s-%s/%s/guide)' % (tmp, name, version,get_vmc_doc_dir())) 
 
