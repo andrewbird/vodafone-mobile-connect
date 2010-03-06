@@ -20,6 +20,7 @@ __version__ = "$Rev: 1172 $"
 
 from vmc.common.hardware.huawei import HuaweiDBusDevicePlugin
 
+from vmc.common.plugins.huawei_e160b import HuaweiE160B
 from vmc.common.plugins.huawei_e172 import HuaweiE172
 from vmc.common.plugins.huawei_e220 import HuaweiE220
 from vmc.common.plugins.huawei_e270 import HuaweiE270
@@ -46,7 +47,7 @@ class HuaweiEXXX1003(HuaweiDBusDevicePlugin):
     name = "Huawei EXXX"
     version = "0.1"
     author = u"Pablo Martí"
-    
+
     __remote_name__ = "EXXX"
 
     __properties__ = {
@@ -60,13 +61,14 @@ class HuaweiEXXX1003(HuaweiDBusDevicePlugin):
         self.mapping = {
             'E870' : HuaweiE870,      # Expresscards
 
-            'E17X' : HuaweiE172,      # USB Sticks
+            'E160B': HuaweiE160B,     # USB Sticks
+            'E17X' : HuaweiE172,
             'E220' : HuaweiE220,
             'E270' : HuaweiE270,
             'E272' : HuaweiE272,
             'E160X' : HuaweiK3565,
             'K3565' : HuaweiK3565,
-    
+
             'B970' : HuaweiB970,      # Routers
 
             'default' : HuaweiE220,
