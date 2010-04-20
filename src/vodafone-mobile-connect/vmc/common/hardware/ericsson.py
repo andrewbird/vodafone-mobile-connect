@@ -39,16 +39,18 @@ from vmc.common.command import ATCmd
 import vmc.common.exceptions as ex
 
 ERICSSON_DICT = {
-   'GPRSONLY' : 'AT+CFUN=5',
-   '3GONLY'   : 'AT+CFUN=6',
-   'GPRSPREF' : None,
-   '3GPREF'   : 'AT+CFUN=1',
+   'GPRSONLY': 'AT+CFUN=5',
+   '3GONLY': 'AT+CFUN=6',
+   'GPRSPREF': None,
+   '3GPREF': 'AT+CFUN=1',
 }
+
 
 class EricssonSIMClass(SIMBaseClass):
     """
     Ericsson SIM Class
     """
+
     def __init__(self, sconn):
         super(EricssonSIMClass, self).__init__(sconn)
 
@@ -57,8 +59,10 @@ class EricssonSIMClass(SIMBaseClass):
         self.sconn.reset_settings()
         self.sconn.disable_echo()
         self.sconn.send_at('AT+CFUN=1') # Turn on the radio
+        self.sconn.send_at('AT+CPBS="SM"') # So that phonebook size is returned
 
         d = super(EricssonSIMClass, self).initialize(set_encoding=set_encoding)
+
         def init_callback(size):
             # setup SIM storage defaults
             self.sconn.send_at('AT+CPMS="SM","SM","SM"')
@@ -80,6 +84,7 @@ class EricssonAdapter(SIMCardConnAdapter):
     """
     Adapter for all Ericsson cards
     """
+
     def __init__(self, device):
         log.msg("called EricssonAdapter::__init__")
         super(EricssonAdapter, self).__init__(device)
@@ -89,9 +94,9 @@ class EricssonAdapter(SIMCardConnAdapter):
         Adds C{contact} to the SIM and returns the index where was stored
 
         @rtype: C{defer.Deferred}
-        """ 
+        """
         name = from_u(contact.get_name())
-        number =  from_u(contact.get_number())
+        number = from_u(contact.get_number())
 
         if 'UCS2' in self.device.sim.charset:
             name = pack_ucs2_bytes(name)
@@ -110,6 +115,7 @@ class EricssonAdapter(SIMCardConnAdapter):
 
         # contact.index is not set, this means that we need to obtain the
         # first slot free on the phonebook and then add the contact
+
         def get_next_id_cb(index):
             args.append(index)
             d2 = super(SIMCardConnAdapter, self).add_contact(*args)
@@ -141,9 +147,9 @@ class EricssonAdapter(SIMCardConnAdapter):
         @rtype: C{Deferred}
         """
 
-        cmd = ATCmd('AT+CIND?',name='get_signal_indication')
+        cmd = ATCmd('AT+CIND?', name='get_signal_indication')
         d = self.queue_at_cmd(cmd)
-        d.addCallback(lambda response: int(response[0].group('sig'))*5)
+        d.addCallback(lambda response: int(response[0].group('sig')) * 5)
         return d
 
     def set_charset(self, charset):
@@ -165,6 +171,7 @@ class EricssonAdapter(SIMCardConnAdapter):
 
         @rtype: C{Deferred}
         """
+
         def ericsson_get_pin_status(facility):
             """
             Checks whether the pin is enabled or disabled
@@ -273,9 +280,9 @@ class EricssonCustomizer(Customizer):
 #    async_regexp = re.compile(r"""\r\n(?P<signal>\*[A-Z]{3,}):(?P<args>.*)\r\n""",
 #                        re.MULTILINE)
 
-    ignore_regexp = [ re.compile(r"""\r\n(?P<ignore>\*ESTKSMENU:.*)\r\n""", re.MULTILINE|re.DOTALL),
-                      re.compile(r"""\r\n(?P<ignore>\*EMWI.*)\r\n"""),
-                      re.compile(r"""\r\n(?P<ignore>\+PACSP0.*)\r\n"""),
+    ignore_regexp = [re.compile(r"""\r\n(?P<ignore>\*ESTKSMENU:.*)\r\n""", re.MULTILINE | re.DOTALL),
+                     re.compile(r"""\r\n(?P<ignore>\*EMWI.*)\r\n"""),
+                     re.compile(r"""\r\n(?P<ignore>\+PACSP0.*)\r\n"""),
                     ]
 
     conn_dict = ERICSSON_DICT
@@ -321,3 +328,14 @@ class EricssonCustomizer(Customizer):
                        "(?P<name>.*)"
                        """, re.VERBOSE))
 
+    # +CPBR: (1-200),80,14,20,80,128
+    cmd_dict['get_phonebook_size'] = dict(echo=None,
+                 end=OK_REGEXP,
+                 error=ERROR_REGEXP,
+                 extract=re.compile(r"""
+                    \r\n
+                    \+CPBR:\s
+                    \(\d\-(?P<size>\d+)\)
+                    (?P<ignored>,.*)?
+                    \r\n
+                    """, re.VERBOSE))
