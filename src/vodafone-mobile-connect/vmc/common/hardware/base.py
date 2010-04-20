@@ -85,6 +85,11 @@ def _identify_device(port):
     ser.close()
 
     assert len(response), "Modem didn't reply anything meaningful"
+
+    # Be more forgiving about echo not being off
+    if "+CGMM" in response[0] and len(response) > 1:
+        return response[1]
+
     return response[0]
 
 def identify_device(plugin):
