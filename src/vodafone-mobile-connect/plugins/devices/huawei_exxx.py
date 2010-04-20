@@ -16,8 +16,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-__version__ = "$Rev: 1172 $"
-
 from vmc.common.hardware.huawei import HuaweiDBusDevicePlugin
 
 from vmc.common.plugins.huawei_e160b import HuaweiE160B
@@ -42,6 +40,7 @@ from vmc.common.plugins.huawei_em770 import HuaweiEM770
 
 from vmc.common.plugins.huawei_b970 import HuaweiB970
 
+
 class HuaweiEXXX1003(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's 1003 family"""
     name = "Huawei EXXX"
@@ -59,20 +58,20 @@ class HuaweiEXXX1003(HuaweiDBusDevicePlugin):
         super(HuaweiEXXX1003, self).__init__()
 
         self.mapping = {
-            'E870' : HuaweiE870,      # Expresscards
+            'E870': HuaweiE870,      # Expresscards
 
             'E160B': HuaweiE160B,     # USB Sticks
-            'E17X' : HuaweiE172,
-            'E220' : HuaweiE220,
-            'E270' : HuaweiE270,
-            'E272' : HuaweiE272,
-            'E160X' : HuaweiK3565,
-            'K3565' : HuaweiK3565,
+            'E17X': HuaweiE172,
+            'E220': HuaweiE220,
+            'E270': HuaweiE270,
+            'E272': HuaweiE272,
+            'K3565': HuaweiK3565,
 
-            'B970' : HuaweiB970,      # Routers
+            'B970': HuaweiB970,      # Routers
 
-            'default' : HuaweiE220,
+            'default': HuaweiE220,
         }
+
 
 class HuaweiEXXX1001(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's 1001 family"""
@@ -91,22 +90,24 @@ class HuaweiEXXX1001(HuaweiDBusDevicePlugin):
         super(HuaweiEXXX1001, self).__init__()
 
         self.mapping = {
-            'E510'  : HuaweiE510,     # Cardbus
-            'E620'  : HuaweiE620,
-            'E660'  : HuaweiE660,
-            'E660A' : HuaweiE660A,
+            'E510': HuaweiE510,     # Cardbus
+            'E620': HuaweiE620,
+            'E660': HuaweiE660,
+            'E660A': HuaweiE660A,
 
-            'E3735'  : HuaweiE3735,   # Expresscards
+            'E3735': HuaweiE3735,   # Expresscards
 
-            'K2540' : HuaweiK2540,    # USB Sticks
-            'K3520' : HuaweiK3520,
-            'K3715' : HuaweiK3715,
+            'K2540': HuaweiK2540,    # USB Sticks
+            'K3520': HuaweiK3520,
+            'K3565': HuaweiK3565,
+            'K3715': HuaweiK3715,
 
-            'EM730V' : HuaweiEM730V,  # Embedded Modules
-            'EM770' : HuaweiEM770,
+            'EM730V': HuaweiEM730V,  # Embedded Modules
+            'EM770': HuaweiEM770,
 
-            'default' : HuaweiE660,
+            'default': HuaweiE660,
         }
+
 
 huaweiexxx1003 = HuaweiEXXX1003()
 huaweiexxx1001 = HuaweiEXXX1001()

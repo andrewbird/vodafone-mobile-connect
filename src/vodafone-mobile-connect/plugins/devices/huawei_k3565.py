@@ -16,9 +16,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-__version__ = "$Rev$"
-
 from vmc.common.hardware.huawei import HuaweiCustomizer, HuaweiDBusDevicePlugin
+
 
 class HuaweiK3565(HuaweiDBusDevicePlugin):
     """L{vmc.common.plugin.DBusDevicePlugin} for Huawei's K3565"""
@@ -31,6 +30,5 @@ class HuaweiK3565(HuaweiDBusDevicePlugin):
 
     __properties__ = {
         'usb_device.vendor_id': [0x12d1],
-        'usb_device.product_id': [0x1003],
+        'usb_device.product_id': [0x1001, 0x1003],
     }
-
