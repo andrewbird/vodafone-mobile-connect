@@ -1,5 +1,5 @@
 """
-Automatically generated from Opco_12_9.4.5_19166.zip
+Automatically generated from Opco_Settings_9.4.6.20529_RC9
 """
 
 from networks import NetworkOperator
@@ -405,6 +405,18 @@ class Vodafone_21401_Contract(NetworkOperator):
     name = "vodafone ES"
     country = "Spain"
     type = "Contract"
+    smsc = "+34607003110"
+    apn = "ac.vodafone.es"
+    username = "vodafone"
+    password = "vodafone"
+    dns1 = "212.73.32.3"
+    dns2 = "212.73.32.67"
+
+class Vodafone_21401_Prepaid(NetworkOperator):
+    netid = ["21401"]
+    name = "vodafone ES"
+    country = "Spain"
+    type = "Prepaid"
     smsc = "+34607003110"
     apn = "ac.vodafone.es"
     username = "vodafone"
@@ -1787,6 +1799,30 @@ class Vodafone_40004_Prepaid(NetworkOperator):
     type = "Prepaid"
     smsc = "+994702000700"
     apn = "Azerfon"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_63001_Contract(NetworkOperator):
+    netid = ["63001"]
+    name = "Vodacom Congo"
+    country = "Congo (DRC)"
+    type = "Contract"
+    smsc = "0811030"
+    apn = "vodanet"
+    username = ""
+    password = ""
+    dns1 = None
+    dns2 = None
+
+class Vodafone_63001_Prepaid(NetworkOperator):
+    netid = ["63001"]
+    name = "Vodacom Congo"
+    country = "Congo (DRC)"
+    type = "Prepaid"
+    smsc = "0811030"
+    apn = "vodanet"
     username = ""
     password = ""
     dns1 = None
