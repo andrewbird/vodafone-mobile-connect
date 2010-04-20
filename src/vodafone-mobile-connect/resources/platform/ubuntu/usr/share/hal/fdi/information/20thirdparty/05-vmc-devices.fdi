@@ -224,7 +224,7 @@
       <match key="@info.parent:usb.vendor_id" int="0x19d2">
 
 	<!-- Vodafone K4505-Z -->
-        <match key="@info.parent:usb.product_id" int="0x0016">
+        <match key="@info.parent:usb.product_id" int_outof="0x0016;0x0104">
           <match key="@info.parent:usb.interface.number" int="2">
             <append key="info.capabilities" type="strlist">modem</append>
             <append key="modem.command_sets" type="strlist">GSM-07.07</append>
