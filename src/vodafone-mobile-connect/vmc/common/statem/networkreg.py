@@ -33,7 +33,7 @@ import vmc.common.notifications as N
 from vmc.common.statem.base import StateMachineMixin
 from vmc.contrib.epsilon.modal import mode, Modal
 
-REGISTER_TIMEOUT = 60
+REGISTER_TIMEOUT = 120
 REGISTER_INTERVAL = 8
 MAX_FAILURES = 3
 
